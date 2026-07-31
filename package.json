@@ -6,18 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "tiles:generate": "bash scripts/generate-pmtiles.sh",
+    "tiles:raster": "bash scripts/generate-raster-tiles.sh",
+    "tiles:fetch-gtadb": "bash scripts/fetch-gtadb.sh"
   },
   "dependencies": {
+    "@next/third-parties": "^16.2.10",
+    "clsx": "^2.1.1",
+    "maplibre-gl": "^5.24.0",
     "next": "16.2.10",
+    "next-intl": "^4.13.4",
+    "pmtiles": "^4.4.1",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "react-map-gl": "^8.1.1",
+    "supercluster": "^8.0.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/supercluster": "^7.1.3",
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",

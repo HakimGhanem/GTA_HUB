@@ -1,0 +1,9 @@
+node_modules
+.next
+.cache
+.git
+.env.local
+.env*.local
+public/tiles/gtadb
+*.md
+!infra/*.md

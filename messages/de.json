@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "map": "Karte",
+    "locations": "Orte",
+    "collectibles": "Sammelobjekte",
+    "guides": "Guides",
+    "openMap": "Karte öffnen"
+  },
+  "home": {
+    "title": "Die interaktive GTA-6-Karte",
+    "subtitle": "Erkunde Vice City, verfolge Sammelobjekte und entdecke jedes Geheimnis — bereit für den Launch-Tag und darüber hinaus.",
+    "ctaMap": "Interaktive Karte öffnen",
+    "ctaLocations": "Orte durchsuchen",
+    "featuredTitle": "Empfohlene Orte",
+    "faqTitle": "FAQ",
+    "badge": "GTA VI · Interaktive Karte",
+    "collectiblesCardTitle": "Sammelobjekte",
+    "collectiblesCardDesc": "Versteckte Pakete, Stunt-Sprünge, Street Art & Wildlife — 100 % Abschluss verfolgen.",
+    "guidesCardTitle": "Guides",
+    "guidesCardDesc": "Einsteigertipps, Vice-City-Guides und Welt-Guides für den Launch-Tag.",
+    "faq": {
+      "q1": "Was ist Map-6?",
+      "a1": "Map-6 ist eine kostenlose interaktive Karte für GTA 6, einschließlich Vice City und Umgebung, mit POIs, Sammelobjekten, Koordinaten und Suche.",
+      "q2": "Wie finde ich Sammelobjekte auf der GTA-6-Karte?",
+      "a2": "Öffne die interaktive Karte, filtere nach der Kategorie Sammelobjekte, oder durchsuche /collectibles für Kategorieseiten mit Kartenlinks.",
+      "q3": "Sind die Kartenkacheln offiziell?",
+      "a3": "Kartenkacheln stammen von der GTADB-Community (CC BY 4.0) und werden aktualisiert, sobald die Mapping-Community neue Daten veröffentlicht."
+    }
+  },
+  "locations": {
+    "title": "Alle Orte",
+    "count": "{count} markierte Punkte auf der Karte",
+    "countHint": "suchen, auf der Karte filtern oder unten durchsuchen.",
+    "searchPlaceholder": "Orte suchen...",
+    "searchLabel": "Orte suchen",
+    "viewOnMap": "Auf Karte anzeigen",
+    "backToAll": "← Alle Orte",
+    "coordinates": "Koordinaten: X: {x}, Y: {y}",
+    "aboutTitle": "Über {name}",
+    "findTitle": "Was du in {name} findest",
+    "faqTitle": "Häufig gestellte Fragen"
+  },
+  "collectibles": {
+    "title": "GTA-6-Sammelobjekte",
+    "subtitle": "Alle Sammelobjekt-Typen in GTA 6 — kartiert, kategorisiert und bereit für 100 % Abschluss.",
+    "mapped": "{current} / {total} kartiert"
+  },
+  "guides": {
+    "title": "GTA-6-Karten-Guides",
+    "subtitle": "Ausführliche Guides, um GTA 6 vor und nach dem Launch-Tag zu meistern.",
+    "readMin": "{min} Min. Lesezeit",
+    "categories": {
+      "beginner": "Einsteiger",
+      "exploration": "Erkundung",
+      "collectibles": "Sammelobjekte",
+      "lore": "Lore"
+    }
+  },
+  "meta": {
+    "siteName": "Map-6",
+    "homeTitle": "Map-6 — Interaktive GTA-6-Karte",
+    "homeDesc": "Erkunde GTA 6 mit einer vollständigen interaktiven Karte. Sammelobjekte, Wahrzeichen, Geheimnisse und Vice-City-Orte — aktualisiert für den Launch.",
+    "locationsTitle": "GTA-6-Orte — Vice City & Florida | Map-6",
+    "locationsDesc": "Vollständiges Verzeichnis der GTA-6-Kartenorte: Wahrzeichen, Sammelobjekte, Shops, Missionen und Geheimnisse.",
+    "mapTitle": "Interaktive GTA-6-Karte | Map-6",
+    "mapDesc": "Vollbild-interaktive Karte für GTA 6. Schwenken, zoomen, POIs filtern und Koordinaten in Vice City und darüber hinaus verfolgen.",
+    "collectiblesTitle": "GTA-6-Sammelobjekte — Versteckte Pakete, Stunt-Sprünge & mehr | Map-6",
+    "collectiblesDesc": "Verfolge jedes GTA-6-Sammelobjekt auf der interaktiven Karte: versteckte Pakete, Stunt-Sprünge, Street Art und Wildlife-Fotospots.",
+    "guidesTitle": "GTA-6-Karten-Guides — Vice City & Welt | Map-6",
+    "guidesDesc": "Experten-Guides für die interaktive GTA-6-Karte: Einsteigertipps, Vice-City-Orte, versteckte Pakete und Welt-Lore."
+  },
+  "footer": {
+    "copyright": "© {year} Map-6 — Interaktive GTA-6-Karte.",
+    "affiliate": "Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.",
+    "maptiles": "Kartenkacheln © GTADB / GTA VI Mapping Community — CC BY 4.0",
+    "privacy": "Datenschutz",
+    "interactiveMap": "Interaktive Karte"
+  },
+  "header": {
+    "tagline": "Interaktive GTA-6-Karte",
+    "navLabel": "Hauptnavigation",
+    "menu": "Menü",
+    "navigation": "Navigation",
+    "launchLabel": "GTA-VI-Launch",
+    "skipToContent": "Zum Inhalt springen",
+    "countdownAria": "Countdown bis zum GTA-6-Release"
+  },
+  "countdown": {
+    "label": "GTA 6 erscheint in",
+    "days": "Tagen",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden"
+  }
+}

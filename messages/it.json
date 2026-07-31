@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "map": "Mappa",
+    "locations": "Luoghi",
+    "collectibles": "Collezionabili",
+    "guides": "Guide",
+    "openMap": "Apri mappa"
+  },
+  "home": {
+    "title": "La mappa interattiva di GTA 6",
+    "subtitle": "Esplora Vice City, traccia i collezionabili e scopri ogni segreto — pronta per il giorno del lancio e oltre.",
+    "ctaMap": "Apri mappa interattiva",
+    "ctaLocations": "Sfoglia i luoghi",
+    "featuredTitle": "Luoghi in evidenza",
+    "faqTitle": "Domande frequenti",
+    "badge": "GTA VI · Mappa interattiva",
+    "collectiblesCardTitle": "Collezionabili",
+    "collectiblesCardDesc": "Pacchetti nascosti, salti acrobatici, street art e fauna — completa il 100%.",
+    "guidesCardTitle": "Guide",
+    "guidesCardDesc": "Consigli per principianti, guide su Vice City e sul mondo per il giorno del lancio.",
+    "faq": {
+      "q1": "Cos'è Map-6?",
+      "a1": "Map-6 è una mappa interattiva gratuita per GTA 6, inclusi Vice City e dintorni, con POI, collezionabili, coordinate e ricerca.",
+      "q2": "Come trovo i collezionabili sulla mappa di GTA 6?",
+      "a2": "Apri la mappa interattiva, filtra per la categoria Collezionabili, o sfoglia /collectibles per pagine per categoria con link alla mappa.",
+      "q3": "Le tessere della mappa sono ufficiali?",
+      "a3": "Le tessere provengono dalla community GTADB (CC BY 4.0) e vengono aggiornate man mano che la community di mapping pubblica nuovi dati."
+    }
+  },
+  "locations": {
+    "title": "Tutti i luoghi",
+    "count": "{count} punti segnati sulla mappa",
+    "countHint": "cerca, filtra sulla mappa o sfoglia sotto.",
+    "searchPlaceholder": "Cerca luoghi...",
+    "searchLabel": "Cerca luoghi",
+    "viewOnMap": "Vedi sulla mappa",
+    "backToAll": "← Tutti i luoghi",
+    "coordinates": "Coordinate: X: {x}, Y: {y}",
+    "aboutTitle": "Informazioni su {name}",
+    "findTitle": "Cosa trovare a {name}",
+    "faqTitle": "Domande frequenti"
+  },
+  "collectibles": {
+    "title": "Collezionabili di GTA 6",
+    "subtitle": "Ogni tipo di collezionabile in GTA 6 — mappati, categorizzati e pronti per il completamento al 100%.",
+    "mapped": "{current} / {total} mappati"
+  },
+  "guides": {
+    "title": "Guide alla mappa di GTA 6",
+    "subtitle": "Guide approfondite per padroneggiare GTA 6 prima e dopo il lancio.",
+    "readMin": "{min} min di lettura",
+    "categories": {
+      "beginner": "Principiante",
+      "exploration": "Esplorazione",
+      "collectibles": "Collezionabili",
+      "lore": "Lore"
+    }
+  },
+  "meta": {
+    "siteName": "Map-6",
+    "homeTitle": "Map-6 — Mappa interattiva di GTA 6",
+    "homeDesc": "Esplora GTA 6 con una mappa interattiva completa. Collezionabili, monumenti, segreti e luoghi di Vice City — aggiornata per il lancio.",
+    "locationsTitle": "Luoghi GTA 6 — Vice City e Florida | Map-6",
+    "locationsDesc": "Elenco completo dei luoghi della mappa di GTA 6: monumenti, collezionabili, negozi, missioni e segreti.",
+    "mapTitle": "Mappa interattiva di GTA 6 | Map-6",
+    "mapDesc": "Mappa interattiva a schermo intero per GTA 6. Panoramica, zoom, filtra i POI e traccia le coordinate a Vice City e oltre.",
+    "collectiblesTitle": "Collezionabili GTA 6 — Pacchetti nascosti, salti acrobatici e altro | Map-6",
+    "collectiblesDesc": "Traccia ogni collezionabile di GTA 6 sulla mappa interattiva: pacchetti nascosti, salti acrobatici, street art e spot fotografici fauna.",
+    "guidesTitle": "Guide alla mappa GTA 6 — Vice City e mondo | Map-6",
+    "guidesDesc": "Guide esperte per la mappa interattiva di GTA 6: consigli per principianti, luoghi di Vice City, pacchetti nascosti e lore del mondo."
+  },
+  "footer": {
+    "copyright": "© {year} Map-6 — Mappa interattiva di GTA 6.",
+    "affiliate": "In qualità di Associato Amazon, guadagno dagli acquisti idonei.",
+    "maptiles": "Tessere mappa © GTADB / GTA VI Mapping Community — CC BY 4.0",
+    "privacy": "Privacy",
+    "interactiveMap": "Mappa interattiva"
+  },
+  "header": {
+    "tagline": "Mappa interattiva di GTA 6",
+    "navLabel": "Navigazione principale",
+    "menu": "Menu",
+    "navigation": "Navigazione",
+    "launchLabel": "Lancio di GTA VI",
+    "skipToContent": "Vai al contenuto",
+    "countdownAria": "Conto alla rovescia per il lancio di GTA 6"
+  },
+  "countdown": {
+    "label": "GTA 6 esce tra",
+    "days": "giorni",
+    "hours": "ore",
+    "minutes": "minuti",
+    "seconds": "secondi"
+  }
+}

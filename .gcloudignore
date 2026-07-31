@@ -1,0 +1,7 @@
+.git
+.next
+node_modules
+.cache
+.env.local
+.env*.local
+public/tiles/gtadb/

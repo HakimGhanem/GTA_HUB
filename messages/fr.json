@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "map": "Carte",
+    "locations": "Lieux",
+    "collectibles": "Collectibles",
+    "guides": "Guides",
+    "openMap": "Ouvrir la carte"
+  },
+  "home": {
+    "title": "La carte interactive de GTA 6",
+    "subtitle": "Explorez Vice City, suivez vos collectibles et découvrez tous les secrets — prête pour le jour de sortie.",
+    "ctaMap": "Ouvrir la carte interactive",
+    "ctaLocations": "Parcourir les lieux",
+    "featuredTitle": "Lieux en vedette",
+    "faqTitle": "Questions fréquentes",
+    "badge": "GTA VI · Carte interactive",
+    "collectiblesCardTitle": "Collectibles",
+    "collectiblesCardDesc": "Paquets cachés, sauts acrobatiques, street art et faune — suivez la complétion à 100 %.",
+    "guidesCardTitle": "Guides",
+    "guidesCardDesc": "Conseils débutants, exploration de Vice City et guides du monde pour le jour J.",
+    "faq": {
+      "q1": "Qu'est-ce que Map-6 ?",
+      "a1": "Map-6 est une carte interactive gratuite pour GTA 6, incluant Vice City et ses environs, avec POI, collectibles, coordonnées et recherche.",
+      "q2": "Comment trouver les collectibles sur la carte GTA 6 ?",
+      "a2": "Ouvrez la carte interactive, filtrez par catégorie Collectibles, ou parcourez /collectibles pour les pages par catégorie avec liens vers la carte.",
+      "q3": "Les tuiles cartographiques sont-elles officielles ?",
+      "a3": "Les tuiles proviennent de la communauté GTADB (CC BY 4.0) et sont mises à jour au fil des publications de la communauté de cartographie."
+    }
+  },
+  "locations": {
+    "title": "Tous les lieux",
+    "count": "{count} points marqués sur la carte",
+    "countHint": "recherchez, filtrez sur la carte ou parcourez ci-dessous.",
+    "searchPlaceholder": "Rechercher un lieu...",
+    "searchLabel": "Rechercher un lieu",
+    "viewOnMap": "Voir sur la carte",
+    "backToAll": "← Tous les lieux",
+    "coordinates": "Coordonnées : X : {x}, Y : {y}",
+    "aboutTitle": "À propos de {name}",
+    "findTitle": "Que trouver à {name}",
+    "faqTitle": "Questions fréquentes"
+  },
+  "collectibles": {
+    "title": "Collectibles GTA 6",
+    "subtitle": "Tous les types de collectibles dans GTA 6 — cartographiés, catégorisés, pour une complétion à 100 %.",
+    "mapped": "{current} / {total} localisés"
+  },
+  "guides": {
+    "title": "Guides de la carte GTA 6",
+    "subtitle": "Guides complets pour maîtriser GTA 6 avant et après la sortie.",
+    "readMin": "{min} min de lecture",
+    "categories": {
+      "beginner": "Débutant",
+      "exploration": "Exploration",
+      "collectibles": "Collectibles",
+      "lore": "Lore"
+    }
+  },
+  "meta": {
+    "siteName": "Map-6",
+    "homeTitle": "Map-6 — Carte interactive GTA 6",
+    "homeDesc": "Explorez GTA 6 avec une carte interactive complète. Collectibles, monuments, secrets et lieux de Vice City — mise à jour pour le lancement.",
+    "locationsTitle": "Lieux GTA 6 — Vice City & Floride | Map-6",
+    "locationsDesc": "Répertoire complet des lieux de GTA 6 : monuments, collectibles, boutiques, missions et secrets.",
+    "mapTitle": "Carte interactive GTA 6 | Map-6",
+    "mapDesc": "Carte interactive plein écran pour GTA 6. Naviguez, zoomez, filtrez les POI et suivez les coordonnées à Vice City et au-delà.",
+    "collectiblesTitle": "Collectibles GTA 6 — Paquets cachés, sauts acrobatiques & plus | Map-6",
+    "collectiblesDesc": "Suivez chaque collectible GTA 6 sur la carte interactive : paquets cachés, sauts acrobatiques, street art et spots photo faune.",
+    "guidesTitle": "Guides carte GTA 6 — Vice City & Monde | Map-6",
+    "guidesDesc": "Guides experts pour la carte interactive GTA 6 : conseils débutants, lieux de Vice City, paquets cachés et lore du monde."
+  },
+  "footer": {
+    "copyright": "© {year} Map-6 — Carte interactive GTA 6.",
+    "affiliate": "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.",
+    "maptiles": "Tuiles cartographiques © GTADB / GTA VI Mapping Community — CC BY 4.0",
+    "privacy": "Confidentialité",
+    "interactiveMap": "Carte interactive"
+  },
+  "header": {
+    "tagline": "Carte interactive GTA 6",
+    "navLabel": "Navigation principale",
+    "menu": "Menu",
+    "navigation": "Navigation",
+    "launchLabel": "Sortie GTA VI",
+    "skipToContent": "Aller au contenu",
+    "countdownAria": "Compte à rebours avant la sortie de GTA 6"
+  },
+  "countdown": {
+    "label": "GTA 6 sort dans",
+    "days": "jours",
+    "hours": "heures",
+    "minutes": "minutes",
+    "seconds": "secondes"
+  }
+}

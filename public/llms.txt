@@ -1,0 +1,27 @@
+# Map-6 — Interactive GTA 6 Map
+
+> Free interactive map for Grand Theft Auto VI — Vice City, the Keys, and beyond.
+
+## Primary URLs
+
+- Homepage: https://map-6.com/
+- Interactive map: https://map-6.com/map
+- All locations: https://map-6.com/locations
+- Collectibles: https://map-6.com/collectibles
+- Guides: https://map-6.com/guides
+- Sitemap: https://map-6.com/sitemap.xml
+
+## What Map-6 provides
+
+- 1400+ community POIs on an interactive map
+- Category filters: landmarks, collectibles, shops, missions, secrets
+- Game coordinate readout and distance measurement
+- SEO pages per location for search and AI citation
+
+## Map data attribution
+
+Map tiles © GTADB / GTA VI Mapping Community — CC BY 4.0 (https://gtadb.org)
+
+## Contact / updates
+
+Site: Map-6 (map-6.com). Built for GTA VI launch community.

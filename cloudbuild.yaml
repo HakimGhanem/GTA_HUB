@@ -1,0 +1,96 @@
+# Google Cloud Build — Map-6 → Cloud Run
+substitutions:
+  _REGION: europe-west1
+  _SERVICE: map6
+  _SITE_URL: https://map-6.com
+  _CANONICAL_HOST: map-6.com
+  _GTADB_ENABLED: "true"
+  _GTADB_NATIVE: "false"
+  _GTADB_MAP_IMAGE: /tiles/leonida-stitched.jpg
+  _MAP_MIN_X: "-16384"
+  _MAP_MAX_X: "3584"
+  _MAP_MIN_Y: "-8064"
+  _MAP_MAX_Y: "12032"
+  _MAP_CENTER_X: "-6400"
+  _MAP_CENTER_Y: "1984"
+  _MAP_MAX_ZOOM: "6"
+  _ADSENSE_CLIENT: "ca-pub-9449600740636411"
+  _ADSENSE_SLOT_BANNER: "9174557090"
+  _ADSENSE_SLOT_IN_ARTICLE: "2336997643"
+
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --build-arg
+      - NEXT_PUBLIC_SITE_URL=${_SITE_URL}
+      - --build-arg
+      - NEXT_PUBLIC_GTADB_ENABLED=${_GTADB_ENABLED}
+      - --build-arg
+      - NEXT_PUBLIC_GTADB_NATIVE=${_GTADB_NATIVE}
+      - --build-arg
+      - NEXT_PUBLIC_GTADB_MAP_IMAGE=${_GTADB_MAP_IMAGE}
+      - --build-arg
+      - NEXT_PUBLIC_MAP_MIN_X=${_MAP_MIN_X}
+      - --build-arg
+      - NEXT_PUBLIC_MAP_MAX_X=${_MAP_MAX_X}
+      - --build-arg
+      - NEXT_PUBLIC_MAP_MIN_Y=${_MAP_MIN_Y}
+      - --build-arg
+      - NEXT_PUBLIC_MAP_MAX_Y=${_MAP_MAX_Y}
+      - --build-arg
+      - NEXT_PUBLIC_MAP_CENTER_X=${_MAP_CENTER_X}
+      - --build-arg
+      - NEXT_PUBLIC_MAP_CENTER_Y=${_MAP_CENTER_Y}
+      - --build-arg
+      - NEXT_PUBLIC_MAP_MAX_ZOOM=${_MAP_MAX_ZOOM}
+      - --build-arg
+      - NEXT_PUBLIC_ADSENSE_CLIENT=${_ADSENSE_CLIENT}
+      - --build-arg
+      - NEXT_PUBLIC_ADSENSE_SLOT_BANNER=${_ADSENSE_SLOT_BANNER}
+      - --build-arg
+      - NEXT_PUBLIC_ADSENSE_SLOT_IN_ARTICLE=${_ADSENSE_SLOT_IN_ARTICLE}
+      - -t
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/${_SERVICE}:$BUILD_ID
+      - -t
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/${_SERVICE}:latest
+      - .
+
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - push
+      - --all-tags
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/${_SERVICE}
+
+  - name: gcr.io/google.com/cloudsdktool/cloud-sdk
+    entrypoint: gcloud
+    args:
+      - run
+      - deploy
+      - ${_SERVICE}
+      - --image
+      - ${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/${_SERVICE}:$BUILD_ID
+      - --region
+      - ${_REGION}
+      - --platform
+      - managed
+      - --allow-unauthenticated
+      - --port
+      - "8080"
+      - --memory
+      - 1Gi
+      - --cpu
+      - "1"
+      - --min-instances
+      - "0"
+      - --max-instances
+      - "10"
+      - --set-env-vars
+      - NEXT_PUBLIC_SITE_URL=${_SITE_URL},NEXT_PUBLIC_CANONICAL_HOST=${_CANONICAL_HOST},NEXT_PUBLIC_GTADB_ENABLED=${_GTADB_ENABLED},NEXT_PUBLIC_GTADB_NATIVE=${_GTADB_NATIVE},NEXT_PUBLIC_GTADB_MAP_IMAGE=${_GTADB_MAP_IMAGE},NEXT_PUBLIC_MAP_MIN_X=${_MAP_MIN_X},NEXT_PUBLIC_MAP_MAX_X=${_MAP_MAX_X},NEXT_PUBLIC_MAP_MIN_Y=${_MAP_MIN_Y},NEXT_PUBLIC_MAP_MAX_Y=${_MAP_MAX_Y},NEXT_PUBLIC_MAP_CENTER_X=${_MAP_CENTER_X},NEXT_PUBLIC_MAP_CENTER_Y=${_MAP_CENTER_Y},NEXT_PUBLIC_MAP_MAX_ZOOM=${_MAP_MAX_ZOOM}
+
+images:
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/${_SERVICE}:$BUILD_ID
+  - ${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/${_SERVICE}:latest
+
+options:
+  logging: CLOUD_LOGGING_ONLY

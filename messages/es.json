@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "map": "Mapa",
+    "locations": "Ubicaciones",
+    "collectibles": "Coleccionables",
+    "guides": "Guías",
+    "openMap": "Abrir mapa"
+  },
+  "home": {
+    "title": "El mapa interactivo de GTA 6",
+    "subtitle": "Explora Vice City, rastrea coleccionables y descubre cada secreto — listo para el día del lanzamiento y más allá.",
+    "ctaMap": "Abrir mapa interactivo",
+    "ctaLocations": "Explorar ubicaciones",
+    "featuredTitle": "Ubicaciones destacadas",
+    "faqTitle": "Preguntas frecuentes",
+    "badge": "GTA VI · Mapa interactivo",
+    "collectiblesCardTitle": "Coleccionables",
+    "collectiblesCardDesc": "Paquetes ocultos, saltos acrobáticos, arte callejero y fauna — completa el 100 %.",
+    "guidesCardTitle": "Guías",
+    "guidesCardDesc": "Consejos para principiantes, guías de Vice City y del mundo para el día del lanzamiento.",
+    "faq": {
+      "q1": "¿Qué es Map-6?",
+      "a1": "Map-6 es un mapa interactivo gratuito para GTA 6, incluyendo Vice City y sus alrededores, con POI, coleccionables, coordenadas y búsqueda.",
+      "q2": "¿Cómo encuentro coleccionables en el mapa de GTA 6?",
+      "a2": "Abre el mapa interactivo, filtra por la categoría Coleccionables, o explora /collectibles para páginas por categoría con enlaces al mapa.",
+      "q3": "¿Los mosaicos del mapa son oficiales?",
+      "a3": "Los mosaicos provienen de la comunidad GTADB (CC BY 4.0) y se actualizan conforme la comunidad de mapeo publica nuevos datos."
+    }
+  },
+  "locations": {
+    "title": "Todas las ubicaciones",
+    "count": "{count} puntos marcados en el mapa",
+    "countHint": "busca, filtra en el mapa o explora abajo.",
+    "searchPlaceholder": "Buscar ubicaciones...",
+    "searchLabel": "Buscar ubicaciones",
+    "viewOnMap": "Ver en el mapa",
+    "backToAll": "← Todas las ubicaciones",
+    "coordinates": "Coordenadas: X: {x}, Y: {y}",
+    "aboutTitle": "Sobre {name}",
+    "findTitle": "Qué encontrar en {name}",
+    "faqTitle": "Preguntas frecuentes"
+  },
+  "collectibles": {
+    "title": "Coleccionables de GTA 6",
+    "subtitle": "Todos los tipos de coleccionables en GTA 6 — mapeados, categorizados y listos para el 100 % de completado.",
+    "mapped": "{current} / {total} mapeados"
+  },
+  "guides": {
+    "title": "Guías del mapa de GTA 6",
+    "subtitle": "Guías detalladas para dominar GTA 6 antes y después del lanzamiento.",
+    "readMin": "{min} min de lectura",
+    "categories": {
+      "beginner": "Principiante",
+      "exploration": "Exploración",
+      "collectibles": "Coleccionables",
+      "lore": "Lore"
+    }
+  },
+  "meta": {
+    "siteName": "Map-6",
+    "homeTitle": "Map-6 — Mapa interactivo de GTA 6",
+    "homeDesc": "Explora GTA 6 con un mapa interactivo completo. Coleccionables, monumentos, secretos y ubicaciones de Vice City — actualizado para el lanzamiento.",
+    "locationsTitle": "Ubicaciones GTA 6 — Vice City y Florida | Map-6",
+    "locationsDesc": "Directorio completo de ubicaciones del mapa de GTA 6: monumentos, coleccionables, tiendas, misiones y secretos.",
+    "mapTitle": "Mapa interactivo de GTA 6 | Map-6",
+    "mapDesc": "Mapa interactivo a pantalla completa para GTA 6. Desplázate, haz zoom, filtra POI y rastrea coordenadas en Vice City y más allá.",
+    "collectiblesTitle": "Coleccionables GTA 6 — Paquetes ocultos, saltos acrobáticos y más | Map-6",
+    "collectiblesDesc": "Rastrea cada coleccionable de GTA 6 en el mapa interactivo: paquetes ocultos, saltos acrobáticos, arte callejero y spots de fotografía de fauna.",
+    "guidesTitle": "Guías del mapa GTA 6 — Vice City y mundo | Map-6",
+    "guidesDesc": "Guías expertas para el mapa interactivo de GTA 6: consejos para principiantes, ubicaciones de Vice City, paquetes ocultos y lore del mundo."
+  },
+  "footer": {
+    "copyright": "© {year} Map-6 — Mapa interactivo de GTA 6.",
+    "affiliate": "Como Asociado de Amazon, gano por compras elegibles.",
+    "maptiles": "Mosaicos del mapa © GTADB / GTA VI Mapping Community — CC BY 4.0",
+    "privacy": "Privacidad",
+    "interactiveMap": "Mapa interactivo"
+  },
+  "header": {
+    "tagline": "Mapa interactivo de GTA 6",
+    "navLabel": "Navegación principal",
+    "menu": "Menú",
+    "navigation": "Navegación",
+    "launchLabel": "Lanzamiento de GTA VI",
+    "skipToContent": "Ir al contenido",
+    "countdownAria": "Cuenta regresiva para el lanzamiento de GTA 6"
+  },
+  "countdown": {
+    "label": "GTA 6 se lanza en",
+    "days": "días",
+    "hours": "horas",
+    "minutes": "minutos",
+    "seconds": "segundos"
+  }
+}

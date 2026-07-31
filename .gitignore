@@ -24,14 +24,22 @@
 .DS_Store
 *.pem
 
+# env (never commit secrets / local overrides)
+.env.local
+.env*.local
+.env
+
 # debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# GTADB cache + large tile assets (run npm run tiles:fetch-gtadb)
+.cache/
+public/tiles/gtadb/
+public/tiles/leonida-stitched.jpg
+data/gtadb/
 
 # vercel
 .vercel

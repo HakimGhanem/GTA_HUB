@@ -1,0 +1,95 @@
+{
+  "nav": {
+    "map": "Map",
+    "locations": "Locations",
+    "collectibles": "Collectibles",
+    "guides": "Guides",
+    "openMap": "Open Map"
+  },
+  "home": {
+    "title": "The Interactive GTA 6 Map",
+    "subtitle": "Explore Vice City, track collectibles, and discover every secret — built for launch day and beyond.",
+    "ctaMap": "Open Interactive Map",
+    "ctaLocations": "Browse Locations",
+    "featuredTitle": "Featured Locations",
+    "faqTitle": "FAQ",
+    "badge": "GTA VI · Interactive Map",
+    "collectiblesCardTitle": "Collectibles",
+    "collectiblesCardDesc": "Hidden packages, stunt jumps, street art & wildlife — track 100% completion.",
+    "guidesCardTitle": "Guides",
+    "guidesCardDesc": "Beginner tips, Vice City breakdowns, and world guides for launch day.",
+    "faq": {
+      "q1": "What is Map-6?",
+      "a1": "Map-6 is a free interactive map for GTA 6, including Vice City and surrounding areas, with POIs, collectibles, coordinates, and search.",
+      "q2": "How do I find collectibles on the GTA 6 map?",
+      "a2": "Open the interactive map, filter by Collectibles category, or browse /collectibles for category pages with map links.",
+      "q3": "Are the map tiles official?",
+      "a3": "Map tiles are community-sourced from GTADB (CC BY 4.0) and updated as the mapping community releases new data."
+    }
+  },
+  "locations": {
+    "title": "All Locations",
+    "count": "{count} marked points across the map",
+    "countHint": "search, filter on the map, or browse below.",
+    "searchPlaceholder": "Search locations...",
+    "searchLabel": "Search locations",
+    "viewOnMap": "View on map",
+    "backToAll": "← All locations",
+    "coordinates": "Coordinates: X: {x}, Y: {y}",
+    "aboutTitle": "About {name}",
+    "findTitle": "What to find in {name}",
+    "faqTitle": "Frequently Asked Questions"
+  },
+  "collectibles": {
+    "title": "GTA 6 Collectibles",
+    "subtitle": "Every collectible type in GTA 6 — mapped, categorized, and ready for 100% completion.",
+    "mapped": "{current} / {total} mapped"
+  },
+  "guides": {
+    "title": "GTA 6 Map Guides",
+    "subtitle": "In-depth guides to help you master GTA 6 before and after launch day.",
+    "readMin": "{min} min read",
+    "categories": {
+      "beginner": "Beginner",
+      "exploration": "Exploration",
+      "collectibles": "Collectibles",
+      "lore": "Lore"
+    }
+  },
+  "meta": {
+    "siteName": "Map-6",
+    "homeTitle": "Map-6 — Interactive GTA 6 Map",
+    "homeDesc": "Explore GTA 6 with a complete interactive map. Collectibles, landmarks, secrets, and Vice City locations — updated for launch.",
+    "locationsTitle": "GTA 6 Locations — Vice City & Florida | Map-6",
+    "locationsDesc": "Complete directory of GTA 6 map locations: landmarks, collectibles, shops, missions, and secrets across the open world.",
+    "mapTitle": "GTA 6 Interactive Map | Map-6",
+    "mapDesc": "Full-screen interactive map for GTA 6. Pan, zoom, filter POIs, and track coordinates in Vice City and beyond.",
+    "collectiblesTitle": "GTA 6 Collectibles — Hidden Packages, Stunt Jumps & More | Map-6",
+    "collectiblesDesc": "Track every GTA 6 collectible on the interactive map: hidden packages, stunt jumps, street art, and wildlife photography spots.",
+    "guidesTitle": "GTA 6 Map Guides — Vice City & World | Map-6",
+    "guidesDesc": "Expert guides for the GTA 6 interactive map: beginner tips, Vice City locations, hidden packages, and world lore."
+  },
+  "footer": {
+    "copyright": "© {year} Map-6 — Interactive GTA 6 map.",
+    "affiliate": "As an Amazon Associate I earn from qualifying purchases.",
+    "maptiles": "Map tiles © GTADB / GTA VI Mapping Community — CC BY 4.0",
+    "privacy": "Privacy",
+    "interactiveMap": "Interactive Map"
+  },
+  "header": {
+    "tagline": "GTA 6 Interactive Map",
+    "navLabel": "Main navigation",
+    "menu": "Menu",
+    "navigation": "Navigation",
+    "launchLabel": "GTA VI launch",
+    "skipToContent": "Skip to content",
+    "countdownAria": "Countdown to GTA 6 release"
+  },
+  "countdown": {
+    "label": "GTA 6 launches in",
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  }
+}

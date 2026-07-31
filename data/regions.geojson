@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "name": "Vice City", "region": "leonida" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-800, 0],
+            [800, 0],
+            [800, 800],
+            [-800, 800],
+            [-800, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Port Gellhorn", "region": "leonida" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-2000, -1200],
+            [-400, -1200],
+            [-400, -200],
+            [-2000, -200],
+            [-2000, -1200]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Grassrivers", "region": "leonida" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-2500, 400],
+            [-800, 400],
+            [-800, 2000],
+            [-2500, 2000],
+            [-2500, 400]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "name": "Leonida Keys", "region": "leonida" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [600, -1000],
+            [2000, -1000],
+            [2000, 400],
+            [600, 400],
+            [600, -1000]
+          ]
+        ]
+      }
+    }
+  ]
+}

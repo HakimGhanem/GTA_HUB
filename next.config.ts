@@ -1,7 +1,22 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  output: "standalone",
+  transpilePackages: ["maplibre-gl", "react-map-gl"],
+  poweredByHeader: false,
+  async headers() {
+    return [
+      {
+        source: "/tiles/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+        ],
+      },
+    ];
+  },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);
