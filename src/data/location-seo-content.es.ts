@@ -282,4 +282,49 @@ export const REGIONAL_LOCATION_SEO_ES: Record<
       },
     ],
   },
+  "mount-kalaga": {
+    slug: "mount-kalaga",
+    metaDescription:
+      "Mount Kalaga en el mapa de GTA 6 — frontera norte de Leonida: bosques, ríos y cañones. Pistas de tráiler y enlaces Map-6.",
+    schemaDescription:
+      "Mount Kalaga en GTA 6: frontera norte de Leonida nombrada por Rockstar, bosques, ríos, cañones y exploración wilderness en Map-6.",
+    about: [
+      "Mount Kalaga es uno de los destinos nombrados del estado de Leonida en Grand Theft Auto VI: el contraste wilderness del norte frente al neón de Vice City y el lujo de Ambrosia. Rockstar lo lista junto a Vice City, las Keys, Grassrivers, Port Gellhorn y Ambrosia; las fronteras exactas en mapas fan siguen siendo estimaciones.",
+      "El tono evoca país de caza y naturaleza: bosques, ríos, cañones, una vibra cercana a Red Dead. Los tráileres aún enfatizan playas y nightlife, así que trata los dumps densos de pines aquí como reconstrucción comunitaria, no spoilers fijos.",
+      "Qué vigilar en metraje nuevo: líneas de árboles que no son manglares, desniveles, valles fluviales y fauna lejos del metro costero. Pausa fotogramas y abre Map-6 con loc=mount-kalaga para comparar con Grassrivers más al sur.",
+      "En Map-6, Mount Kalaga es un hub regional editorial (texto SEO, FAQ, foco de mapa en un clic). Usa filtros Landmarks con tráileres; reserva Collectibles para post-lanzamiento. Las coordenadas del hub son estimaciones editoriales.",
+    ],
+    poiTypes: [
+      "Miradores de bosque y cañón",
+      "Cruces de río y inicios de sendero",
+      "Vistas de fauna / paisaje de caza",
+      "Cabañas remotas y estructuras off-grid",
+      "Paquetes ocultos en altura o ribera",
+      "Rutas off-road y caminos de tierra",
+      "Disparadores de misiones wilderness",
+      "Miradores para fotos / clips sociales",
+    ],
+    faq: [
+      {
+        question: "¿Mount Kalaga está confirmado en GTA 6?",
+        answer:
+          "Sí como destino nombrado de Leonida en el marketing de Rockstar de las seis regiones. Fronteras exactas y listas POI completas aún no son públicas; Map-6 marca un hub regional y actualiza con metraje oficial.",
+      },
+      {
+        question: "¿En qué se diferencia de Grassrivers?",
+        answer:
+          "Grassrivers evoca Everglades, humedales y airboats. Mount Kalaga se lee más boscoso, con cañones y ríos. Usa ambas páginas regionales de Map-6 al clasificar biomas de tráiler.",
+      },
+      {
+        question: "¿Puedo deep-linkear Mount Kalaga en el mapa?",
+        answer:
+          "Sí. Abre /es/map?loc=mount-kalaga o usa Ver en el mapa desde esta página. El mapa centra el hub y resalta el pin.",
+      },
+      {
+        question: "¿Las coordenadas de Mount Kalaga son finales?",
+        answer:
+          "No. Antes del lanzamiento son estimaciones informadas por la comunidad. Map-6 moverá el hub si Rockstar o un consenso cartográfico sólido desplaza la wilderness norte.",
+      },
+    ],
+  },
 };

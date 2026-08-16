@@ -239,3 +239,40 @@ export function jsonLdArticle(guide: {
     },
   };
 }
+
+export function jsonLdNewsArticle(article: {
+  title: string;
+  description: string;
+  slug: string;
+  locale: string;
+  publishedAt: string;
+  updatedAt?: string;
+  image?: string;
+  author?: string;
+}) {
+  const url = `${SITE.url}/${article.locale}/news/${article.slug}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: article.title,
+    description: article.description,
+    url,
+    mainEntityOfPage: url,
+    datePublished: article.publishedAt,
+    dateModified: article.updatedAt || article.publishedAt,
+    image: article.image || `${SITE.url}/og-default.png`,
+    author: {
+      "@type": "Organization",
+      name: article.author || SITE.name,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+      logo: {
+        "@type": "ImageObject",
+        url: `${SITE.url}/og-default.png`,
+      },
+    },
+  };
+}

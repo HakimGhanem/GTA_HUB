@@ -1,0 +1,569 @@
+[
+  {
+    "id": "article-trailer-3-seed",
+    "slug": "gta-6-trailer-3-what-we-know",
+    "locale": "en",
+    "title": "GTA 6 Trailer 3: What We Know So Far",
+    "description": "GTA 6 Trailer 3 status, verified facts vs rumors, and map clues to watch on Map-6. No invented dates — official sources only.",
+    "bodyMarkdown": "## What's new\n\nRockstar has not published an official date for a third *Grand Theft Auto VI* trailer. Until they do, treat every “Trailer 3 dropping next week” claim as **unverified**.\n\nMap-6 watches official channels and community reporting so you can jump straight to the [interactive GTA 6 map](/en/map) when new footage reveals Vice City landmarks.\n\n## Verified facts vs rumors\n\n| Claim | Status |\n|-------|--------|\n| GTA 6 launches November 19, 2026 (PS5 / Xbox) | Confirmed by Rockstar |\n| A third cinematic trailer is “imminent” | **Rumor** unless Rockstar posts |\n| Specific leak dates on social media | **Unverified** — ignore for SEO claims |\n\nPrimary keyword: **gta 6 trailer 3**.\n\n## Map clues to watch\n\nWhen Trailer 3 drops, pause frames for:\n\n- Neon strips resembling [Ocean Drive](/en/locations/ocean-drive)\n- Wider [Vice City](/en/locations/vice-city) skyline shots\n- Grassrivers / Keys transitions already sketched on our [locations index](/en/locations)\n\nCross-check discoveries with the [Vice City guide](/en/guides/vice-city-locations) and the [beginner map guide](/en/guides/gta-6-map-guide).\n\n## What to do next\n\n1. Open the [Map-6 interactive map](/en/map) and bookmark it.\n2. Read the [GTA 6 pre-order guide](/en/guides/gta-6-preorder-guide) for PS5 / Xbox editions.\n3. Revisit this article after any official Rockstar Newswire post — we update within hours.\n\n## Why Map-6\n\nWe monetize with clearly labeled ads and optional Amazon preorder links — never with fake leak clickbait. Sources stay cited; rumors stay labeled.\n",
+    "cluster": "trailer",
+    "primaryKeyword": "gta 6 trailer 3",
+    "secondaryKeywords": [
+      "gta 6 trailer date",
+      "gta vi trailer leak"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      },
+      {
+        "url": "https://www.ign.com/",
+        "title": "IGN — GTA 6 coverage hub"
+      }
+    ],
+    "status": "published",
+    "author": "Map-6 Editorial",
+    "reviewer": "ghanem",
+    "publishedAt": "2026-08-02T10:00:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city",
+      "ocean-drive"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide",
+      "gta-6-preorder-guide"
+    ],
+    "notes": "Published trailer briefing — factual, sourced, no fake leaks.",
+    "eventKey": "trailer-3-2026-seed",
+    "heroImage": "/og-default.png",
+    "createdAt": "2026-08-01T12:00:00.000Z",
+    "updatedAt": "2026-08-02T18:00:00.000Z",
+    "seoScore": 100
+  },
+  {
+    "id": "article-release-date-2026",
+    "slug": "gta-6-release-date-platforms",
+    "locale": "en",
+    "title": "GTA 6 Release Date & Platforms (2026)",
+    "description": "Official GTA 6 release date, confirmed platforms, and what it means for map tracking and preorders on Map-6 — sourced from Rockstar.",
+    "bodyMarkdown": "## Official release window\n\nRockstar Games has confirmed that *Grand Theft Auto VI* launches on **November 19, 2026** for **PlayStation 5** and **Xbox Series X|S**. PC timing has not been announced in the same window; we will update this page if Rockstar posts a separate PC date.\n\nPrimary keyword: **gta 6 release date**.\n\n## Platforms at a glance\n\n| Platform | Status |\n|----------|--------|\n| PS5 | Confirmed launch day |\n| Xbox Series X\\|S | Confirmed launch day |\n| PC | Not confirmed for Nov 19, 2026 |\n\nAlways verify on the [official Rockstar VI page](https://www.rockstargames.com/VI) before buying hardware or editions.\n\n## Why the date matters for the map\n\nLaunch day is when community mapping accelerates. Map-6 is built so you can:\n\n- Open the [interactive map](/en/map) and filter landmarks vs collectibles\n- Browse every indexed [location page](/en/locations)\n- Follow [collectibles hubs](/en/collectibles) for 100% tracking\n\n## Preorder & editions\n\nIf you are shopping editions, start with our editorial [pre-order guide](/en/guides/gta-6-preorder-guide). Affiliate links, when present, are labeled — they never change the price you pay.\n\n## What we will not claim\n\n- Exact hour of global unlock in every region (retailers differ)\n- Unannounced platforms or “secret” SKUs without Rockstar confirmation\n\n## Next steps\n\n1. Confirm the date on Rockstar’s site.\n2. Explore [Vice City locations](/en/guides/vice-city-locations) ahead of launch.\n3. Keep Map-6 bookmarked for day-one POIs.\n",
+    "cluster": "release",
+    "primaryKeyword": "gta 6 release date",
+    "secondaryKeywords": [
+      "gta 6 platforms",
+      "gta 6 preorder ps5"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      },
+      {
+        "url": "https://www.playstation.com/",
+        "title": "PlayStation — platform coverage"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-02T10:05:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-preorder-guide",
+      "gta-6-map-guide"
+    ],
+    "seoScore": 100,
+    "notes": "Evergreen release article for AdSense / SEO.",
+    "eventKey": "release-date-2026-11-19",
+    "createdAt": "2026-08-02T10:05:00.000Z",
+    "updatedAt": "2026-08-02T10:05:00.000Z"
+  },
+  {
+    "id": "article-interactive-map-guide-news",
+    "slug": "how-to-use-gta-6-interactive-map",
+    "locale": "en",
+    "title": "How to Use the GTA 6 Interactive Map",
+    "description": "Learn how to use Map-6’s GTA 6 interactive map: filters, coordinates, collectibles, and location pages — free, updated for launch prep.",
+    "bodyMarkdown": "## What Map-6 is\n\nMap-6 is a free **gta 6 interactive map** for exploring Leonida before and after launch. Pan, zoom, filter categories, and open deep pages for landmarks and collectibles.\n\nStart here: [open the full-screen map](/en/map).\n\n## Core tools\n\n### 1. Filters\n\nUse category filters to isolate landmarks, collectibles, shops, or secrets. This keeps trailer hunting focused when new footage drops.\n\n### 2. Coordinates\n\nThe HUD shows map X/Y so you can share precise points with friends or match community finds. Coordinates are processed in your browser — see our [Privacy Policy](/en/privacy).\n\n### 3. Location pages\n\nEvery major pin links to a dedicated page under [locations](/en/locations) with description, map jump-back, and SEO-friendly context (example: [Vice City](/en/locations/vice-city)).\n\n### 4. Collectibles\n\nTrack types from the [collectibles hub](/en/collectibles) and related guides such as [hidden packages](/en/guides/hidden-packages-gta-6).\n\n## Suggested workflow before Trailer / launch updates\n\n1. Open [the map](/en/map).\n2. Filter to Landmarks and scan Ocean Drive / downtown.\n3. Save interesting pins via their location URLs.\n4. Read the [beginner map guide](/en/guides/gta-6-map-guide) for a longer walkthrough.\n\n## Editorial standards\n\nWe prefer GTADB community tiles (CC BY 4.0) and clearly separate confirmed trailer geography from speculation. That standard protects readers and keeps the site suitable for advertising partners.\n\n## Keep exploring\n\n- [Guides index](/en/guides)\n- [News & trailer updates](/en/news)\n- [Pre-order guide](/en/guides/gta-6-preorder-guide)\n",
+    "cluster": "map",
+    "primaryKeyword": "gta 6 interactive map",
+    "secondaryKeywords": [
+      "gta 6 map vice city",
+      "gta 6 collectibles map"
+    ],
+    "sources": [
+      {
+        "url": "https://map-6.com/en/map",
+        "title": "Map-6 Interactive Map"
+      },
+      {
+        "url": "https://gtadb.org",
+        "title": "GTADB — GTA VI Mapping Community"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-02T10:10:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city",
+      "ocean-drive"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide"
+    ],
+    "seoScore": 100,
+    "notes": "How-to map article — strong AdSense landing page.",
+    "eventKey": "interactive-map-howto-2026",
+    "createdAt": "2026-08-02T10:10:00.000Z",
+    "updatedAt": "2026-08-02T10:10:00.000Z"
+  },
+  {
+    "id": "article-ocean-drive-map-clues",
+    "slug": "ocean-drive-gta-6-map-clues",
+    "locale": "en",
+    "title": "Ocean Drive in GTA 6: Map Clues From the Trailers",
+    "description": "Ocean Drive landmarks from GTA 6 trailers — how to spot neon hotels, beachfront roads, and skyline cues on the Map-6 interactive map.",
+    "bodyMarkdown": "## Why Ocean Drive matters\n\nOcean Drive is the postcard strip of Vice City in *Grand Theft Auto VI* — neon hotels, palm-lined asphalt, and beachfront nightlife that dominate official trailers. If you are matching footage to a map, start here.\n\nOpen the [Ocean Drive location page](/en/locations/ocean-drive) or jump straight to the [interactive map](/en/map).\n\nPrimary keyword: **ocean drive gta 6**.\n\n## Trailer cues to pause on\n\nWhen Rockstar footage shows the strip, look for:\n\n- Pastel and neon hotel façades facing the water\n- Continuous beachfront roadway with palm silhouettes\n- Cuts from glassy towers to tighter inland blocks (district transitions)\n\nCross-check those frames against our [Vice City guide](/en/guides/vice-city-locations) and the regional [Vice City page](/en/locations/vice-city).\n\n## How to mark finds on Map-6\n\n1. Filter the map to **Landmarks**.\n2. Search Ocean / Vice and open pins that match your still.\n3. Copy the HUD **X/Y** if you share a Discord tip.\n4. Bookmark the location URL so you can return after Trailer 3.\n\nCoordinates stay in your browser — see the [Privacy Policy](/en/privacy).\n\n## What we will not invent\n\nExact store names, mission scripts, or “confirmed” interiors Rockstar has not shown. Map-6 labels speculation; confirmed trailer geography earns a pin and a regional blurb.\n\n## Related reading\n\n- [Beginner interactive map guide](/en/guides/gta-6-map-guide)\n- [Leonida lore overview](/en/guides/leonida-lore-overview)\n- [GTA 6 release date & platforms](/en/news/gta-6-release-date-platforms)\n",
+    "cluster": "locations",
+    "primaryKeyword": "ocean drive gta 6",
+    "secondaryKeywords": [
+      "gta 6 vice city ocean drive",
+      "gta 6 beachfront map"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      },
+      {
+        "url": "https://map-6.com/en/locations/ocean-drive",
+        "title": "Map-6 — Ocean Drive"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-09T16:00:00.000Z",
+    "relatedLocationSlugs": [
+      "ocean-drive",
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "vice-city-locations",
+      "gta-6-map-guide"
+    ],
+    "seoScore": 95,
+    "notes": "Ocean Drive SEO article for AdSense depth.",
+    "eventKey": "ocean-drive-clues-2026-08",
+    "createdAt": "2026-08-09T16:00:00.000Z",
+    "updatedAt": "2026-08-09T16:00:00.000Z"
+  },
+  {
+    "id": "article-cs2-leonida-fan-map",
+    "slug": "gta-6-map-cities-skylines-2-news",
+    "locale": "en",
+    "title": "Fan Rebuilds GTA 6 Map in Cities: Skylines II (ID 153426)",
+    "description": "Creator Noasden rebuilt Leonida in Cities: Skylines II (~145h, map ID 153426). How it pairs with Map-6’s interactive POI map — fan project, not Rockstar.",
+    "bodyMarkdown": "## The news\n\nFan creator **Noasden** spent roughly **145 hours** rebuilding a community-estimated Leonida in *Cities: Skylines II*. The published map ID is **153426**. It is a fan recreation for exploring streets in 3D — **not** an official Rockstar product.\n\nFull walkthrough: [GTA 6 map in Cities: Skylines II](/en/guides/gta-6-map-cities-skylines-2).\n\nPrimary keyword: **gta 6 cities skylines 2**.\n\n## Why it complements Map-6\n\n| Tool | Best for |\n|------|----------|\n| Cities: Skylines II map 153426 | Street-level 3D wander, skyline feel |\n| [Map-6 interactive map](/en/map) | POIs, collectibles filters, shareable X/Y, SEO location pages |\n\nUse CS2 to *feel* blocks; use Map-6 to *track* landmarks and collectibles.\n\n## How to load the CS2 map\n\n1. Own [Cities: Skylines II on Steam](https://store.steampowered.com/app/949230/Cities_Skylines_II/).\n2. Open the in-game map browser / Paradox Mods flow for your platform.\n3. Search map ID **153426** (Noasden’s Leonida rebuild).\n4. Load and explore — then return here to pin trailer finds on Map-6.\n\n## Disclaimer\n\nMap-6 is independent. We link to fan work for curiosity and prep; Rockstar Games owns *Grand Theft Auto VI*. Do not confuse CS2 scenery with launch-day in-game geometry.\n\n## Next steps\n\n- Read the [CS2 guide](/en/guides/gta-6-map-cities-skylines-2)\n- Browse [Vice City locations](/en/guides/vice-city-locations)\n- Bookmark the [interactive map](/en/map)\n",
+    "cluster": "map",
+    "primaryKeyword": "gta 6 cities skylines 2",
+    "secondaryKeywords": [
+      "leonida cities skylines",
+      "gta 6 map 153426"
+    ],
+    "sources": [
+      {
+        "url": "https://store.steampowered.com/app/949230/Cities_Skylines_II/",
+        "title": "Cities: Skylines II on Steam"
+      },
+      {
+        "url": "https://map-6.com/en/guides/gta-6-map-cities-skylines-2",
+        "title": "Map-6 CS2 guide"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-09T16:05:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city",
+      "port-gellhorn",
+      "leonida-keys"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-cities-skylines-2",
+      "gta-6-map-guide"
+    ],
+    "seoScore": 95,
+    "notes": "CS2 fan map news for AdSense / acquisition.",
+    "eventKey": "cs2-leonida-153426-2026-08",
+    "createdAt": "2026-08-09T16:05:00.000Z",
+    "updatedAt": "2026-08-09T16:05:00.000Z"
+  },
+  {
+    "id": "article-preorder-checklist-2026",
+    "slug": "gta-6-preorder-checklist-ps5-xbox",
+    "locale": "en",
+    "title": "GTA 6 Pre-Order Checklist: PS5, Xbox & What to Verify",
+    "description": "Practical GTA 6 pre-order checklist for PS5 and Xbox Series X|S — official date, editions to compare, and how Map-6 helps you prep the map before launch.",
+    "bodyMarkdown": "## Official baseline\n\n*Grand Theft Auto VI* launches **November 19, 2026** on **PS5** and **Xbox Series X|S** per Rockstar. PC is not confirmed for that same window. Always re-check the [official Rockstar VI page](https://www.rockstargames.com/VI) before you pay.\n\nPrimary keyword: **gta 6 preorder**.\n\n## Pre-order checklist\n\n1. Confirm platform (PS5 vs Xbox Series X|S).\n2. Compare Standard vs any Collector / special edition SKUs from retailers you trust.\n3. Check storage and console readiness for launch day.\n4. Bookmark Map-6 so launch week is a map checklist, not chaos.\n5. Read our editorial [pre-order guide](/en/guides/gta-6-preorder-guide) for Amazon slots when ASINs are live.\n\nAffiliate links on Map-6 are labeled when present; they do not change the price you pay.\n\n## Map prep while you wait\n\n- [Interactive map](/en/map) — filters + coordinates\n- [Vice City locations guide](/en/guides/vice-city-locations)\n- [Hidden packages overview](/en/guides/hidden-packages-gta-6)\n- [Release date article](/en/news/gta-6-release-date-platforms)\n\n## Red flags\n\n- Fake “PC day-one” claims without Rockstar confirmation\n- Leak sites selling “all package GPS packs” before launch\n- Unofficial keys from unknown marketplaces\n\n## Bottom line\n\nPre-order when you are ready; verify on Rockstar; use Map-6 for geography and collectibles planning. That is the whole loop.\n",
+    "cluster": "preorder",
+    "primaryKeyword": "gta 6 preorder",
+    "secondaryKeywords": [
+      "gta 6 preorder ps5",
+      "gta 6 xbox preorder"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      },
+      {
+        "url": "https://map-6.com/en/guides/gta-6-preorder-guide",
+        "title": "Map-6 pre-order guide"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-09T16:10:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-preorder-guide",
+      "gta-6-map-guide"
+    ],
+    "seoScore": 95,
+    "notes": "Preorder checklist news.",
+    "eventKey": "preorder-checklist-2026-08",
+    "createdAt": "2026-08-09T16:10:00.000Z",
+    "updatedAt": "2026-08-09T16:10:00.000Z"
+  },
+  {
+    "id": "article-leonida-regions-explained",
+    "slug": "leonida-regions-explained-gta-6",
+    "locale": "en",
+    "title": "Leonida Regions Explained: Vice City to Grassrivers",
+    "description": "Quick geography of GTA 6’s Leonida — Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers, Ambrosia — with Map-6 links for each region.",
+    "bodyMarkdown": "## Leonida at a glance\n\nLeonida is Rockstar’s Florida-shaped playground for *Grand Theft Auto VI*: beaches, swamps, ports, and gated wealth. This article is a short atlas — deeper lore lives in the [Leonida overview guide](/en/guides/leonida-lore-overview).\n\nPrimary keyword: **leonida gta 6**.\n\n## Region cheat sheet\n\n| Region | Vibe | Map-6 page |\n|--------|------|------------|\n| Vice City | Metro, neon, skyline | [/locations/vice-city](/en/locations/vice-city) |\n| Ocean Drive | Beachfront postcard strip | [/locations/ocean-drive](/en/locations/ocean-drive) |\n| Leonida Keys | Causeways, islands | [/locations/leonida-keys](/en/locations/leonida-keys) |\n| Port Gellhorn | Industry, shipping | [/locations/port-gellhorn](/en/locations/port-gellhorn) |\n| Grassrivers | Wetlands, Everglades energy | [/locations/grassrivers](/en/locations/grassrivers) |\n| Ambrosia Island | Exclusive wealth | [/locations/ambrosia-island](/en/locations/ambrosia-island) |\n\n## How to explore\n\n1. Read one regional page for prose + FAQ.\n2. Open the [interactive map](/en/map) filtered to Landmarks.\n3. Save X/Y when trailer frames match a pin.\n\n## Fan 3D companion\n\nA fan rebuilt Leonida in Cities: Skylines II (map ID **153426**). See the [CS2 news](/en/news/gta-6-map-cities-skylines-2-news) — unofficial, complementary to Map-6 POIs.\n\n## Keep it factual\n\nWe update when Rockstar shows new districts. Until then, treat this as a geography primer, not a spoiler wiki.\n",
+    "cluster": "map",
+    "primaryKeyword": "leonida gta 6",
+    "secondaryKeywords": [
+      "gta 6 regions",
+      "gta 6 map regions"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      },
+      {
+        "url": "https://map-6.com/en/locations",
+        "title": "Map-6 locations index"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-09T16:15:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city",
+      "ocean-drive",
+      "leonida-keys",
+      "port-gellhorn",
+      "grassrivers",
+      "ambrosia-island"
+    ],
+    "relatedGuideSlugs": [
+      "leonida-lore-overview",
+      "gta-6-map-guide"
+    ],
+    "seoScore": 95,
+    "notes": "Regions atlas news.",
+    "eventKey": "leonida-regions-2026-08",
+    "createdAt": "2026-08-09T16:15:00.000Z",
+    "updatedAt": "2026-08-09T16:15:00.000Z"
+  },
+  {
+    "id": "article-mount-kalaga-en",
+    "slug": "mount-kalaga-gta-6-region",
+    "locale": "en",
+    "title": "Mount Kalaga in GTA 6: Leonida’s Northern Wilderness",
+    "description": "What Mount Kalaga is in GTA 6 — Rockstar-named northern Leonida region, how it differs from Grassrivers, and how to open it on the Map-6 interactive map.",
+    "bodyMarkdown": "## The sixth named region\n\nRockstar markets *Grand Theft Auto VI* around six Leonida destinations. **Mount Kalaga** is the northern wilderness contrast to Vice City neon and Ambrosia luxury.\n\nOpen the hub: [Mount Kalaga on Map-6](/en/locations/mount-kalaga) · deep-link [map focus](/en/map?loc=mount-kalaga).\n\nPrimary keyword: **mount kalaga gta 6**.\n\n## Confirmed vs estimated\n\n| Claim | Status |\n|-------|--------|\n| Named Leonida destination | Confirmed in Rockstar region marketing |\n| Exact borders / towns | **Estimated** until more official media |\n| Pin coordinates on Map-6 | Editorial / community-informed — subject to revision |\n\n## Vs Grassrivers\n\nGrassrivers ≈ Everglades wetlands. Mount Kalaga ≈ forests, rivers, canyons. Mis-filing trailer biomes wastes hours — use both regional pages.\n\n## Trailer watch tips\n\nPause on non-mangrove tree lines, elevation, river valleys, wildlife far from the beach metro. Then jump to `/en/map?loc=mount-kalaga`.\n\n## Related\n\n- [Leonida regions explained](/en/news/leonida-regions-explained-gta-6)\n- [Lore overview guide](/en/guides/leonida-lore-overview)\n- [Trailer watch checklist](/en/news/gta-6-trailer-watch-map-checklist)\n",
+    "cluster": "locations",
+    "primaryKeyword": "mount kalaga gta 6",
+    "secondaryKeywords": [
+      "gta 6 mount kalaga",
+      "leonida north region"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      },
+      {
+        "url": "https://map-6.com/en/locations/mount-kalaga",
+        "title": "Map-6 — Mount Kalaga"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-10T10:00:00.000Z",
+    "relatedLocationSlugs": [
+      "mount-kalaga",
+      "grassrivers",
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "leonida-lore-overview",
+      "gta-6-map-guide"
+    ],
+    "seoScore": 95,
+    "notes": "Mount Kalaga region news",
+    "eventKey": "mount-kalaga-2026-08",
+    "createdAt": "2026-08-10T10:00:00.000Z",
+    "updatedAt": "2026-08-10T10:00:00.000Z"
+  },
+  {
+    "id": "article-trailer-watch-en",
+    "slug": "gta-6-trailer-watch-map-checklist",
+    "locale": "en",
+    "title": "GTA 6 Trailer Watch Checklist for Map Hunters",
+    "description": "A practical checklist for scrubbing GTA 6 trailers against Map-6: neon strips, Keys causeways, Port Gellhorn industry, Grassrivers wetlands, Mount Kalaga wilderness.",
+    "bodyMarkdown": "## Why a checklist\n\nTrailer drops move fast. This checklist keeps Map-6 open beside the player so you capture geography instead of doomscrolling.\n\nPrimary keyword: **gta 6 trailer map**.\n\n## Before you press play\n\n1. Open the [interactive map](/en/map) — filter **Landmarks**.\n2. Keep [Vice City](/en/locations/vice-city), [Ocean Drive](/en/locations/ocean-drive), [Mount Kalaga](/en/locations/mount-kalaga) tabs ready.\n3. Note HUD **X/Y** when something matches.\n\n## Scrub checklist\n\n- [ ] Neon hotel / palm strip → Ocean Drive\n- [ ] Dense skyline + freeways → Vice City downtown\n- [ ] Causeways / small islands → Leonida Keys\n- [ ] Cranes / yards → Port Gellhorn\n- [ ] Mangroves / airboats → Grassrivers\n- [ ] Forests / canyons / elevation → Mount Kalaga\n- [ ] Gated mansions / yachts → Ambrosia Island\n\nDeep-link any hub with `?loc=slug` (example: [/en/map?loc=mount-kalaga](/en/map?loc=mount-kalaga)).\n\n## After the drop\n\nPublish notes internally, then watch Map-6 news for a sourced update. Prefer Rockstar Newswire over anonymous “Trailer 3 tomorrow” posts — see [Trailer 3: what we know](/en/news/gta-6-trailer-3-what-we-know).\n\n## Related\n\n- [Beginner map guide](/en/guides/gta-6-map-guide)\n- [Release date & platforms](/en/news/gta-6-release-date-platforms)\n",
+    "cluster": "trailer",
+    "primaryKeyword": "gta 6 trailer map",
+    "secondaryKeywords": [
+      "gta 6 trailer locations",
+      "gta 6 map checklist"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      },
+      {
+        "url": "https://map-6.com/en/map",
+        "title": "Map-6 Interactive Map"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-10T10:05:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city",
+      "ocean-drive",
+      "mount-kalaga"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide",
+      "vice-city-locations"
+    ],
+    "seoScore": 95,
+    "notes": "Trailer watch checklist",
+    "eventKey": "trailer-watch-checklist-2026-08",
+    "createdAt": "2026-08-10T10:05:00.000Z",
+    "updatedAt": "2026-08-10T10:05:00.000Z"
+  },
+  {
+    "id": "article-trailer-3-fr",
+    "slug": "gta-6-trailer-3-what-we-know",
+    "locale": "fr",
+    "title": "GTA 6 Trailer 3 : ce qu’on sait vraiment",
+    "description": "Statut du Trailer 3 de GTA 6, faits vs rumeurs, et indices carte à surveiller sur Map-6. Sources officielles uniquement.",
+    "bodyMarkdown": "## Ce qui est nouveau\n\nRockstar n’a pas publié de date officielle pour un troisième trailer de *Grand Theft Auto VI*. Jusqu’à nouvel ordre, traitez tout « Trailer 3 la semaine prochaine » comme **non vérifié**.\n\nMap-6 suit les canaux officiels pour vous renvoyer vers la [carte interactive](/fr/map) dès que de nouvelles images révèlent des landmarks.\n\nMot-clé principal : **gta 6 trailer 3**.\n\n## Faits vs rumeurs\n\n| Affirmation | Statut |\n|-------------|--------|\n| Sortie le 19 novembre 2026 (PS5 / Xbox) | Confirmé par Rockstar |\n| Un troisième trailer « imminent » | **Rumeur** sans post Rockstar |\n| Dates de leak sur les réseaux | **Non vérifié** |\n\n## Indices carte à surveiller\n\n- Bandes néon type [Ocean Drive](/fr/locations/ocean-drive)\n- Skyline [Vice City](/fr/locations/vice-city)\n- Transitions Grassrivers / Keys / [Mount Kalaga](/fr/locations/mount-kalaga)\n\nUtilisez la [checklist trailer](/fr/news/gta-6-trailer-watch-map-checklist).\n\n## Ensuite\n\n1. Ouvrez la [carte](/fr/map).\n2. Lisez le [guide précommande](/fr/guides/gta-6-preorder-guide).\n3. Revenez après tout Newswire officiel.\n",
+    "cluster": "trailer",
+    "primaryKeyword": "gta 6 trailer 3",
+    "secondaryKeywords": [
+      "gta 6 trailer date",
+      "trailer 3 gta 6"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-10T10:00:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city",
+      "ocean-drive",
+      "mount-kalaga"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide",
+      "gta-6-preorder-guide"
+    ],
+    "seoScore": 95,
+    "notes": "FR trailer 3",
+    "eventKey": "trailer-3-2026-seed-fr",
+    "createdAt": "2026-08-10T10:00:00.000Z",
+    "updatedAt": "2026-08-10T10:00:00.000Z"
+  },
+  {
+    "id": "article-release-fr",
+    "slug": "gta-6-release-date-platforms",
+    "locale": "fr",
+    "title": "Date de sortie GTA 6 et plateformes (2026)",
+    "description": "Date officielle de sortie de GTA 6, plateformes confirmées, et ce que cela change pour la carte et les précommandes sur Map-6.",
+    "bodyMarkdown": "## Fenêtre officielle\n\nRockstar a confirmé *Grand Theft Auto VI* le **19 novembre 2026** sur **PlayStation 5** et **Xbox Series X|S**. Le PC n’est pas annoncé pour la même fenêtre.\n\nMot-clé : **date sortie gta 6**.\n\n## Plateformes\n\n| Plateforme | Statut |\n|------------|--------|\n| PS5 | Jour 1 confirmé |\n| Xbox Series X\\|S | Jour 1 confirmé |\n| PC | Non confirmé pour le 19 nov. 2026 |\n\nVérifiez toujours sur [rockstargames.com/VI](https://www.rockstargames.com/VI).\n\n## Carte & précommande\n\n- [Carte interactive](/fr/map)\n- [Guide précommande](/fr/guides/gta-6-preorder-guide)\n- [Checklist précommande](/fr/news/gta-6-preorder-checklist-ps5-xbox)\n",
+    "cluster": "release",
+    "primaryKeyword": "date sortie gta 6",
+    "secondaryKeywords": [
+      "gta 6 ps5",
+      "gta 6 xbox"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-10T10:10:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-preorder-guide",
+      "gta-6-map-guide"
+    ],
+    "seoScore": 95,
+    "notes": "FR release date",
+    "eventKey": "release-date-2026-11-19-fr",
+    "createdAt": "2026-08-10T10:10:00.000Z",
+    "updatedAt": "2026-08-10T10:10:00.000Z"
+  },
+  {
+    "id": "article-map-howto-fr",
+    "slug": "how-to-use-gta-6-interactive-map",
+    "locale": "fr",
+    "title": "Comment utiliser la carte interactive GTA 6",
+    "description": "Tutoriel Map-6 : filtres, coordonnées, collectibles et pages de lieux — gratuit, pour préparer le lancement.",
+    "bodyMarkdown": "## Qu’est-ce que Map-6 ?\n\nMap-6 est une **carte interactive GTA 6** gratuite pour explorer Leonida. Déplacez-vous, zoomez, filtrez, ouvrez des pages détaillées.\n\nCommencez ici : [carte plein écran](/fr/map).\n\n## Outils\n\n### Filtres\nIsolez landmarks, collectibles, magasins ou secrets.\n\n### Coordonnées\nLe HUD montre X/Y pour partager un point précis. Voir la [confidentialité](/fr/privacy).\n\n### Deep-links\nOuvrez un hub avec `?loc=` — ex. [/fr/map?loc=mount-kalaga](/fr/map?loc=mount-kalaga).\n\n### Collectibles\nHub [/fr/collectibles](/fr/collectibles) + guide [paquets cachés](/fr/guides/hidden-packages-gta-6).\n\n## Suite\n\n- [Guide débutant](/fr/guides/gta-6-map-guide)\n- [News](/fr/news)\n",
+    "cluster": "map",
+    "primaryKeyword": "carte interactive gta 6",
+    "secondaryKeywords": [
+      "carte gta 6",
+      "map gta 6"
+    ],
+    "sources": [
+      {
+        "url": "https://map-6.com/fr/map",
+        "title": "Map-6 — Carte interactive"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-10T10:15:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city",
+      "mount-kalaga"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide"
+    ],
+    "seoScore": 95,
+    "notes": "FR map howto",
+    "eventKey": "interactive-map-howto-2026-fr",
+    "createdAt": "2026-08-10T10:15:00.000Z",
+    "updatedAt": "2026-08-10T10:15:00.000Z"
+  },
+  {
+    "id": "article-mount-kalaga-fr",
+    "slug": "mount-kalaga-gta-6-region",
+    "locale": "fr",
+    "title": "Mount Kalaga dans GTA 6 : la wilderness nord de Leonida",
+    "description": "Mount Kalaga dans GTA 6 — région nord nommée par Rockstar, différences avec Grassrivers, et focus carte Map-6.",
+    "bodyMarkdown": "## Sixième destination nommée\n\n**Mount Kalaga** est le contraste wilderness au nord de Leonida.\n\nHub : [Mount Kalaga](/fr/locations/mount-kalaga) · [carte](/fr/map?loc=mount-kalaga).\n\n## Confirmé vs estimé\n\nNommé par Rockstar ; frontières et coords Map-6 = estimations révisables.\n\n## Vs Grassrivers\n\nMarais / airboats vs forêts / canyons. Utilisez les deux pages régionales.\n\n## Suite\n\n- [Guide lore](/fr/guides/leonida-lore-overview)\n- [Checklist trailer](/fr/news/gta-6-trailer-watch-map-checklist)\n",
+    "cluster": "locations",
+    "primaryKeyword": "mount kalaga gta 6",
+    "secondaryKeywords": [
+      "gta 6 mount kalaga"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-10T10:20:00.000Z",
+    "relatedLocationSlugs": [
+      "mount-kalaga",
+      "grassrivers"
+    ],
+    "relatedGuideSlugs": [
+      "leonida-lore-overview"
+    ],
+    "seoScore": 95,
+    "notes": "FR Mount Kalaga",
+    "eventKey": "mount-kalaga-2026-08-fr",
+    "createdAt": "2026-08-10T10:20:00.000Z",
+    "updatedAt": "2026-08-10T10:20:00.000Z"
+  },
+  {
+    "id": "article-trailer-watch-fr",
+    "slug": "gta-6-trailer-watch-map-checklist",
+    "locale": "fr",
+    "title": "Checklist trailer GTA 6 pour chasseurs de carte",
+    "description": "Checklist pour comparer les trailers GTA 6 à Map-6 : Ocean Drive, Keys, Port Gellhorn, Grassrivers, Mount Kalaga.",
+    "bodyMarkdown": "## Avant lecture\n\n1. Ouvrez la [carte](/fr/map) — filtre **Landmarks**.\n2. Gardez [Vice City](/fr/locations/vice-city), [Ocean Drive](/fr/locations/ocean-drive), [Mount Kalaga](/fr/locations/mount-kalaga).\n3. Notez X/Y au match.\n\n## Checklist\n\n- [ ] Néons / palmiers → Ocean Drive\n- [ ] Skyline dense → Vice City\n- [ ] Causeways → Keys\n- [ ] Grues → Port Gellhorn\n- [ ] Mangroves → Grassrivers\n- [ ] Forêts / canyons → Mount Kalaga\n- [ ] Mansions / yachts → Ambrosia\n\nDeep-link : `?loc=slug` — ex. [/fr/map?loc=mount-kalaga](/fr/map?loc=mount-kalaga).\n\n## Après le drop\n\nPréférez le Newswire Rockstar. Voir [Trailer 3](/fr/news/gta-6-trailer-3-what-we-know).\n",
+    "cluster": "trailer",
+    "primaryKeyword": "trailer gta 6 carte",
+    "secondaryKeywords": [
+      "gta 6 trailer lieux"
+    ],
+    "sources": [
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI"
+      }
+    ],
+    "status": "published",
+    "heroImage": "/og-default.png",
+    "author": "Map-6 Editorial",
+    "reviewer": "editorial",
+    "publishedAt": "2026-08-10T10:25:00.000Z",
+    "relatedLocationSlugs": [
+      "vice-city",
+      "mount-kalaga"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide"
+    ],
+    "seoScore": 95,
+    "notes": "FR trailer checklist",
+    "eventKey": "trailer-watch-checklist-2026-08-fr",
+    "createdAt": "2026-08-10T10:25:00.000Z",
+    "updatedAt": "2026-08-10T10:25:00.000Z"
+  }
+]

@@ -281,5 +281,51 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
           "Ambrosia Island se situe au large de la côte de Leonida, près de l’archipel des Keys, sur la carte interactive Map-6. Ouvrez cette page de lieu et cliquez sur Voir sur la carte pour centrer sur l’île, puis explorez les POI de luxe voisins et les connexions de ponts vers le continent.",
       },
     ],
-  }
+  },
+
+  "mount-kalaga": {
+    slug: "mount-kalaga",
+    metaDescription:
+      "Mount Kalaga sur la carte GTA 6 — frontière sauvage nord de Leonida : forêts, rivières, canyons. Repères trailers et liens Map-6.",
+    schemaDescription:
+      "Mount Kalaga dans GTA 6 : frontière nord de Leonida nommée par Rockstar, forêts, rivières, canyons et exploration wilderness sur Map-6.",
+    about: [
+      "Mount Kalaga est l’une des destinations nommées de Leonida dans Grand Theft Auto VI — le contraste wilderness au nord face aux néons de Vice City et au luxe d’Ambrosia. Rockstar la cite avec Vice City, les Keys, Grassrivers, Port Gellhorn et Ambrosia ; les frontières exactes sur les cartes fan restent des estimations jusqu’à de nouveaux médias officiels.",
+      "L’ambiance évoque la chasse et le grand air : forêts, rivières, canyons, une vibe proche de Red Dead. Les trailers insistent encore plus sur plages et nightlife, donc traitez les dumps de pins denses ici comme reconstruction communautaire, pas comme spoilers figés.",
+      "À surveiller dans les nouvelles images : lignes d’arbres qui ne sont pas des mangroves, dénivelés, vallées fluviales, faune loin du métro côtier. Mettez en pause, puis ouvrez Map-6 avec `loc=mount-kalaga` pour comparer au hub Grassrivers plus au sud.",
+      "Sur Map-6, Mount Kalaga est un hub régional éditorial (texte SEO, FAQ, focus carte en un clic). Filtrez Landmarks pour les trailers ; gardez Collectibles pour après le lancement. Les coordonnées du hub sont des estimations éditoriales — on les révise si Rockstar clarifie la géographie.",
+    ],
+    poiTypes: [
+      "Landmarks de forêt et belvédères de canyon",
+      "Traversées de rivière et départs de sentiers",
+      "Vues wildlife / paysages de chasse",
+      "Cabanes isolées et structures hors réseau",
+      "Paquets cachés en hauteur ou en berge",
+      "Approches hors-route et chemins de terre",
+      "Déclencheurs de missions wilderness",
+      "Points de vue pour photos / clips sociaux",
+    ],
+    faq: [
+      {
+        question: "Mount Kalaga est-il confirmé dans GTA 6 ?",
+        answer:
+          "Oui en tant que destination nommée de Leonida dans le marketing Rockstar des six régions. Frontières exactes, villes internes et listes POI complètes ne sont pas encore publiques — Map-6 place un hub régional et met à jour dès que les images officielles précisent le nord.",
+      },
+      {
+        question: "Quelle différence avec Grassrivers ?",
+        answer:
+          "Grassrivers évoque les Everglades, marais et airboats. Mount Kalaga se lit plus boisé, accidenté, canyons et rivières. Utilisez les deux pages régionales Map-6 pour classer correctement les biomes des trailers.",
+      },
+      {
+        question: "Puis-je deep-linker Mount Kalaga sur la carte ?",
+        answer:
+          "Oui. Ouvrez /fr/map?loc=mount-kalaga ou utilisez Voir sur la carte depuis cette page. La carte se centre sur le hub et met le pin en surbrillance.",
+      },
+      {
+        question: "Les coordonnées Mount Kalaga sont-elles définitives ?",
+        answer:
+          "Non. Avant le lancement, ce sont des estimations éclairées par la communauté. Map-6 déplacera le hub si Rockstar ou un consensus cartographique solide déplace la wilderness nord par rapport à Vice City et Grassrivers.",
+      },
+    ],
+  },
 };

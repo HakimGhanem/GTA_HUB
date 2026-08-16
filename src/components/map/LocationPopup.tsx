@@ -41,7 +41,7 @@ export function LocationPopup({ location, onClose }: LocationPopupProps) {
           Details
         </Link>
         <Link
-          href={`/map?x=${location.x}&y=${location.y}`}
+          href={`/map?loc=${location.slug}&x=${location.x}&y=${location.y}`}
           className="rounded-full border border-gray-200 px-3 py-1 text-xs text-gray-700 hover:bg-gray-50"
           onClick={onClose}
         >

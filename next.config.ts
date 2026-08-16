@@ -6,6 +6,7 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 const nextConfig: NextConfig = {
   output: "standalone",
   transpilePackages: ["maplibre-gl", "react-map-gl"],
+  serverExternalPackages: ["firebase-admin"],
   poweredByHeader: false,
   async headers() {
     return [

@@ -4,7 +4,7 @@ import { useCallback, useMemo, useState } from "react";
 import { Marker, Popup, type MapRef } from "react-map-gl/maplibre";
 import Supercluster from "supercluster";
 import type { Location } from "@/data/all-locations";
-import { toMapLibreCoords } from "@/lib/coordinates";
+import { toMapLibreCoords, type MapBounds } from "@/lib/coordinates";
 import type { GameViewport } from "@/lib/map-viewport";
 import { CATEGORY_COLORS } from "@/lib/map-filters";
 import { LocationPopup } from "./LocationPopup";
@@ -16,6 +16,7 @@ type LocationMarkersProps = {
   onSelect: (loc: Location) => void;
   activeSlug?: string;
   measureActive?: boolean;
+  mapBounds?: MapBounds;
 };
 
 function ClusterMarker({ count }: { count: number }) {
@@ -70,6 +71,7 @@ export function LocationMarkers({
   onSelect,
   activeSlug,
   measureActive = false,
+  mapBounds,
 }: LocationMarkersProps) {
   const [popupLoc, setPopupLoc] = useState<Location | null>(null);
 
@@ -80,7 +82,7 @@ export function LocationMarkers({
     });
     cluster.load(
       locations.map((loc) => {
-        const { lng, lat } = toMapLibreCoords(loc.x, loc.y);
+        const { lng, lat } = toMapLibreCoords(loc.x, loc.y, mapBounds);
         return {
           type: "Feature" as const,
           properties: { location: loc, category: loc.category },
@@ -92,7 +94,7 @@ export function LocationMarkers({
       }),
     );
     return cluster;
-  }, [locations]);
+  }, [locations, mapBounds]);
 
   const clusters = useMemo(() => {
     if (!viewport) return [];
@@ -162,8 +164,8 @@ export function LocationMarkers({
 
       {popupLoc && (
         <Popup
-          longitude={toMapLibreCoords(popupLoc.x, popupLoc.y).lng}
-          latitude={toMapLibreCoords(popupLoc.x, popupLoc.y).lat}
+          longitude={toMapLibreCoords(popupLoc.x, popupLoc.y, mapBounds).lng}
+          latitude={toMapLibreCoords(popupLoc.x, popupLoc.y, mapBounds).lat}
           anchor="bottom"
           onClose={() => setPopupLoc(null)}
           closeButton

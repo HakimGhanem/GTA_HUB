@@ -7,6 +7,8 @@ export type PreorderGuideCopy = {
   whereBody: string;
   editionsTitle: string;
   editionsBody: string;
+  /** Shown when Amazon game ASINs are not listed yet */
+  editionsPending: string;
   platformTitle: string;
   platformBeforePs5: string;
   platformPs5: string;
@@ -38,6 +40,8 @@ const EN: PreorderGuideCopy = {
   editionsTitle: "Standard vs Collector's Edition",
   editionsBody:
     "The Standard Edition includes the full game. The Collector's Edition typically adds physical memorabilia and exclusive in-game content — Rockstar will confirm exact contents closer to launch. If you only want the game, standard is the best value. Collectors is for fans who want shelf-worthy extras.",
+  editionsPending:
+    "Amazon pre-order listings for GTA 6 editions are not live yet. We will add affiliate product cards as soon as official ASINs appear — hardware picks below are available now.",
   platformTitle: "PS5 or Xbox — which platform?",
   platformBeforePs5:
     "Both consoles run GTA 6 at launch. Choose the platform you already own to avoid buying twice. PlayStation players should grab the ",
@@ -94,6 +98,8 @@ const FR: PreorderGuideCopy = {
   editionsTitle: "Édition Standard vs Collector",
   editionsBody:
     "L'édition Standard inclut le jeu complet. L'édition Collector ajoute généralement des goodies physiques et du contenu exclusif — Rockstar confirmera le détail à l'approche du lancement. Pour le jeu seul, la Standard offre le meilleur rapport qualité-prix. La Collector vise les fans qui veulent des extras à exposer.",
+  editionsPending:
+    "Les fiches Amazon de précommande GTA 6 ne sont pas encore en ligne. Nous ajouterons les cartes affiliées dès que les ASINs officiels apparaissent — le matériel ci-dessous est déjà disponible.",
   platformTitle: "PS5 ou Xbox — quelle plateforme ?",
   platformBeforePs5:
     "Les deux consoles sortent GTA 6 le jour J. Choisissez la plateforme que vous possédez déjà pour éviter d'acheter deux fois. Sur PlayStation, prenez l'",
@@ -150,6 +156,8 @@ const ES: PreorderGuideCopy = {
   editionsTitle: "Edición Standard vs Coleccionista",
   editionsBody:
     "La edición Standard incluye el juego completo. La Coleccionista suele añadir memorabilia física y contenido exclusivo — Rockstar confirmará el detalle cerca del lanzamiento. Si solo quieres el juego, Standard es la mejor relación calidad-precio. Coleccionista es para fans que quieren extras de colección.",
+  editionsPending:
+    "Las fichas de preventa de GTA 6 en Amazon aún no están disponibles. Añadiremos las tarjetas de afiliado en cuanto aparezcan ASINs oficiales — el hardware de abajo ya está listo.",
   platformTitle: "¿PS5 o Xbox?",
   platformBeforePs5:
     "Ambas consolas lanzan GTA 6 el día uno. Elige la plataforma que ya tienes para no comprar dos veces. En PlayStation, ve a por la ",

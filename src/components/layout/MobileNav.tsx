@@ -15,6 +15,7 @@ export function MobileNav() {
     { href: "/locations", label: nav("locations") },
     { href: "/collectibles", label: nav("collectibles") },
     { href: "/guides", label: nav("guides") },
+    { href: "/news", label: nav("news") },
   ] as const;
 
   useEffect(() => {

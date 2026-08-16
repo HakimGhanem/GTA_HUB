@@ -1,4 +1,5 @@
 import { AmazonAffiliateLink } from "@/components/affiliate/AmazonAffiliateLink";
+import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
 import { AmazonProductCard } from "@/components/affiliate/AmazonProductCard";
 import { AdUnit } from "@/components/ads/AdUnit";
 import { getPreorderGuideCopy } from "@/data/preorder-guide-i18n";
@@ -17,11 +18,17 @@ export function PreorderGuideContent({ locale }: Props) {
     { year: "numeric", month: "long", day: "numeric" },
   );
 
+  const showPlaceholders = process.env.NODE_ENV !== "production";
+
   const gameProducts = PREORDER_PRODUCTS.filter(
-    (p) => p.edition === "standard" || p.edition === "collectors",
+    (p) =>
+      (p.edition === "standard" || p.edition === "collectors") &&
+      (showPlaceholders || p.asin.length > 0),
   );
   const hardwareProducts = PREORDER_PRODUCTS.filter(
-    (p) => p.edition === "hardware" || p.edition === "accessory",
+    (p) =>
+      (p.edition === "hardware" || p.edition === "accessory") &&
+      (showPlaceholders || p.asin.length > 0),
   );
 
   const ps5Standard = PREORDER_PRODUCTS.find((p) => p.envKey === "GTA6_PS5");
@@ -43,11 +50,17 @@ export function PreorderGuideContent({ locale }: Props) {
       </h2>
       <p className="leading-relaxed text-white/80">{copy.editionsBody}</p>
 
-      <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
-        {gameProducts.map((product) => (
-          <AmazonProductCard key={product.envKey} product={product} />
-        ))}
-      </div>
+      {gameProducts.length > 0 ? (
+        <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
+          {gameProducts.map((product) => (
+            <AmazonProductCard key={product.envKey} product={product} />
+          ))}
+        </div>
+      ) : (
+        <p className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-white/70">
+          {copy.editionsPending}
+        </p>
+      )}
 
       <AdUnit slot={AD_SLOTS.inArticle} format="fluid" layout="in-article" />
 
@@ -85,10 +98,19 @@ export function PreorderGuideContent({ locale }: Props) {
       </h2>
       <p className="leading-relaxed text-white/80">{copy.hardwareBody}</p>
 
-      <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
-        {hardwareProducts.map((product) => (
-          <AmazonProductCard key={product.envKey} product={product} />
-        ))}
+      {hardwareProducts.length > 0 && (
+        <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
+          {hardwareProducts.map((product) => (
+            <AmazonProductCard key={product.envKey} product={product} />
+          ))}
+        </div>
+      )}
+
+      <div className="not-prose my-8">
+        <AffiliateProductGrid
+          intents={["headset", "storage_ssd", "display_120hz", "streaming_setup"]}
+          title="Launch setup upgrades"
+        />
       </div>
 
       <h2 className="mt-10 text-2xl font-bold text-white">{copy.tipsTitle}</h2>

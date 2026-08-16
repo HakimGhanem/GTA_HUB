@@ -195,13 +195,85 @@ DNS Squarespace : CNAME `@` et `www` vers `cname.vercel-dns.com`
 
 ---
 
-## 8. Checklist go-live
+## 8. Content engine (news loop)
 
-- [ ] `NEXT_PUBLIC_SITE_URL=https://map6.live`
-- [ ] DNS map6.live actif + HTTPS
-- [ ] map-6.com → 301 vers map6.live
+Pipeline: **detect → draft → human review → publish → analyze → improve**.
+
+### Local (file store — default)
+
+Articles live in `data/content/*.json` when `FIRESTORE_ENABLED` is unset.
+
+```bash
+npm run content:seed          # trailer draft
+npm run content:detect        # RSS → topics
+npm run content:draft         # topic → drafted article (LLM or template)
+npm run content:review        # list queue
+npm run content:review -- --approve <id> --reviewer you
+npm run content:analyze -- --csv ~/Downloads/Pages.csv
+npm run content:improve -- --slug gta-6-trailer-3-what-we-know
+```
+
+### Production secrets (Cloud Run)
+
+```bash
+gcloud run services update map6 --region europe-west1 --project gtahub-503009 \
+  --set-env-vars="CONTENT_API_SECRET=$(openssl rand -hex 24),INDEXNOW_KEY=<hex>,FIRESTORE_ENABLED=true,FIRESTORE_PROJECT_ID=gtahub-503009"
+```
+
+- Create Firestore DB in `gtahub-503009` (Native mode).
+- Grant the Cloud Run service account `roles/datastore.user`.
+- Create `public/<INDEXNOW_KEY>.txt` containing the key, redeploy.
+- **Do not rely on file-store writes in Cloud Run** (ephemeral disk) — enable Firestore for multi-instance publish.
+
+### Publish via API
+
+```bash
+curl -X POST https://map-6.com/api/content/publish \
+  -H "Authorization: Bearer $CONTENT_API_SECRET" \
+  -H "Content-Type: application/json" \
+  -d '{"articleId":"<id>","reviewer":"hakim"}'
+```
+
+Review checklist before approve:
+
+- [ ] No invented trailer dates
+- [ ] ≥2 real sources
+- [ ] ≥3 internal links (`/map`, locations, guides)
+- [ ] Title 30–60 chars, meta 120–160
+- [ ] Rumors explicitly labeled
+
+### Cron (daily funnel — 17:00 Europe/Paris)
+
+**Goal:** volume pages that match **purchase** or **clip** intent (not generic news).
+
+```bash
+# Full CLI pipeline (detect → draft top N → optional publish + IndexNow)
+npm run content:daily -- --limit 2
+# Auto-publish only when ready:
+# CONTENT_DAILY_AUTO_PUBLISH=true npm run content:daily -- --limit 2 --publish
+
+# One-shot Scheduler bootstrap (HTTP enrich/publish drafted queue)
+CONTENT_API_SECRET=... bash scripts/setup-content-scheduler.sh
+```
+
+| Job | Schedule | TZ | Target |
+|-----|----------|-----|--------|
+| `map6-content-daily` | `0 17 * * *` | `Europe/Paris` | `POST /api/content/daily` |
+| detect+draft (Job) | `0 17 * * *` | `Europe/Paris` | `npm run content:daily` |
+| analyze | `0 9 * * 1` | UTC | GSC CSV + `content:analyze` |
+
+Keep `publish:false` until the review queue is trusted. IndexNow + sitemap ping run at the end of `content:daily`.
+
+---
+
+## 9. Checklist go-live
+
+- [ ] `NEXT_PUBLIC_SITE_URL=https://map-6.com`
+- [ ] DNS map-6.com / map6.live actifs + HTTPS
 - [ ] GA4 recevant des hits
-- [ ] GSC + Bing sitemap soumis
+- [ ] GSC + Bing sitemap soumis (`/sitemap.xml`, `/news.xml`)
 - [ ] `/api/health` → 200
 - [ ] Tuiles carte visibles en prod
 - [ ] og-default.png présent
+- [ ] `CONTENT_API_SECRET` + IndexNow configurés
+- [ ] Firestore enabled for content publish (prod)

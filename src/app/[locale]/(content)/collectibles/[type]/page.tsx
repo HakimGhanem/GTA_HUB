@@ -57,7 +57,7 @@ export default async function CollectibleTypePage({ params }: Props) {
         {items.map((item) => (
           <li key={item.slug}>
             <Link
-              href={`/map?x=${item.x}&y=${item.y}`}
+              href={`/map?loc=${item.slug}&x=${item.x}&y=${item.y}`}
               className="block rounded-xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-pink-400/40"
             >
               <h2 className="font-semibold text-white">{item.name}</h2>

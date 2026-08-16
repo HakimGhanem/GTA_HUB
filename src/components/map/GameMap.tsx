@@ -7,7 +7,7 @@ import Map, {
   type MapRef,
 } from "react-map-gl/maplibre";
 import clsx from "clsx";
-import { getAllLocations, type Location } from "@/data/all-locations";
+import type { Location } from "@/data/all-locations";
 import { useDebouncedMapViewport } from "@/hooks/useDebouncedMapViewport";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
@@ -17,7 +17,12 @@ import {
   toMapLibreCoords,
   type GameCoords,
 } from "@/lib/coordinates";
-import { GTADB, MAP_DEFAULTS } from "@/lib/constants";
+import {
+  DEFAULT_GAME_ID,
+  getGameConfig,
+  type GameId,
+} from "@/lib/games";
+import { mapShareUrl } from "@/lib/map-links";
 import { buildMapStyle } from "@/lib/map-style";
 import {
   defaultMapFilters,
@@ -36,12 +41,29 @@ import { MapStatusBar } from "./MapStatusBar";
 import { MapToolbar } from "./MapToolbar";
 
 type GameMapProps = {
+  gameId?: GameId;
   focus?: { x: number; y: number };
+  /** Highlight + sidebar selection from `?loc=` deep-link */
+  initialActiveSlug?: string;
   className?: string;
   showSidebar?: boolean;
+  locale?: string;
+  onSelectGame?: (game: GameId) => void;
+  onDeepLinkChange?: (opts: { slug?: string; x: number; y: number }) => void;
 };
 
-export function GameMap({ focus, className, showSidebar = false }: GameMapProps) {
+export function GameMap({
+  gameId = DEFAULT_GAME_ID,
+  focus,
+  initialActiveSlug,
+  className,
+  showSidebar = false,
+  locale = "en",
+  onSelectGame,
+  onDeepLinkChange,
+}: GameMapProps) {
+  const game = useMemo(() => getGameConfig(gameId), [gameId]);
+  const bounds = game.bounds;
   const mapRef = useRef<MapRef>(null);
   const [mapLoaded, setMapLoaded] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
@@ -49,14 +71,18 @@ export function GameMap({ focus, className, showSidebar = false }: GameMapProps)
   const sidebarOpen = showSidebar && (sidebarOverride ?? isDesktop);
   const [filters, setFilters] = useState<MapFilters>(() => defaultMapFilters());
   const debouncedQuery = useDebouncedValue(filters.query);
-  const [activeSlug, setActiveSlug] = useState<string | undefined>();
+  const [activeSlug, setActiveSlug] = useState<string | undefined>(
+    initialActiveSlug,
+  );
   const [measureActive, setMeasureActive] = useState(false);
   const [measurePoints, setMeasurePoints] = useState<GameCoords[]>([]);
-  const defaultCoords = focus ?? { x: MAP_DEFAULTS.center[0], y: MAP_DEFAULTS.center[1] };
+  const [shareHint, setShareHint] = useState<string | undefined>();
+  const defaultCoords = focus ?? { x: game.center[0], y: game.center[1] };
   const [coords, setCoords] = useState<GameCoords>(defaultCoords);
 
-  const allLocations = useMemo(() => getAllLocations(), []);
-  const viewport = useDebouncedMapViewport(mapRef, mapLoaded);
+  const allLocations = useMemo(() => game.getLocations(), [game]);
+  const viewport = useDebouncedMapViewport(mapRef, mapLoaded, 300, bounds);
+  const useGtadbNative = game.tile.kind === "gtadb";
 
   const effectiveFilters = useMemo(
     () => ({ ...filters, query: debouncedQuery }),
@@ -98,46 +124,58 @@ export function GameMap({ focus, className, showSidebar = false }: GameMapProps)
     return () => window.removeEventListener("keydown", onKey);
   }, [measureActive]);
 
-  const mapStyle = useMemo(() => buildMapStyle(), []);
+  const mapStyle = useMemo(() => buildMapStyle(game), [game]);
 
   const initialViewState = useMemo(() => {
     const { lng, lat } = toMapLibreCoords(
-      focus?.x ?? MAP_DEFAULTS.center[0],
-      focus?.y ?? MAP_DEFAULTS.center[1],
+      focus?.x ?? game.center[0],
+      focus?.y ?? game.center[1],
+      bounds,
     );
-    const zoom = focus ? 3 : GTADB.enabled ? -0.5 : MAP_DEFAULTS.zoom;
+    const zoom = focus ? 3 : game.zoom;
     return { longitude: lng, latitude: lat, zoom };
-  }, [focus]);
+  }, [focus, game.center, game.zoom, bounds]);
 
   const fitMapBounds = useCallback(() => {
-    mapRef.current?.fitBounds(mapLibreBounds(), { padding: 40, duration: 800, maxZoom: 6 });
-  }, []);
+    mapRef.current?.fitBounds(mapLibreBounds(bounds), {
+      padding: 40,
+      duration: 800,
+      maxZoom: 6,
+    });
+  }, [bounds]);
 
   const onMapLoad = useCallback(() => {
     setMapLoaded(true);
-    if (GTADB.enabled) fitMapBounds();
+    if (useGtadbNative) fitMapBounds();
     requestAnimationFrame(() => mapRef.current?.getMap().resize());
-  }, [fitMapBounds]);
+  }, [fitMapBounds, useGtadbNative]);
 
-  const flyTo = useCallback((loc: Location) => {
-    const { lng, lat } = toMapLibreCoords(loc.x, loc.y);
-    mapRef.current?.flyTo({ center: [lng, lat], zoom: 5, duration: 900 });
-    setActiveSlug(loc.slug);
-    setCoords({ x: loc.x, y: loc.y });
-  }, []);
+  const flyTo = useCallback(
+    (loc: Location) => {
+      const { lng, lat } = toMapLibreCoords(loc.x, loc.y, bounds);
+      mapRef.current?.flyTo({ center: [lng, lat], zoom: 5, duration: 900 });
+      setActiveSlug(loc.slug);
+      setCoords({ x: loc.x, y: loc.y });
+      onDeepLinkChange?.({ slug: loc.slug, x: loc.x, y: loc.y });
+    },
+    [bounds, onDeepLinkChange],
+  );
 
-  const onMouseMove = useCallback((e: MapMouseEvent) => {
-    setCoords(fromMapLibreCoords(e.lngLat.lng, e.lngLat.lat));
-  }, []);
+  const onMouseMove = useCallback(
+    (e: MapMouseEvent) => {
+      setCoords(fromMapLibreCoords(e.lngLat.lng, e.lngLat.lat, bounds));
+    },
+    [bounds],
+  );
 
   const onMapClick = useCallback(
     (e: MapMouseEvent) => {
       if (!measureActive) return;
-      const point = fromMapLibreCoords(e.lngLat.lng, e.lngLat.lat);
+      const point = fromMapLibreCoords(e.lngLat.lng, e.lngLat.lat, bounds);
       setMeasurePoints((prev) => [...prev, point]);
       setCoords(point);
     },
-    [measureActive],
+    [measureActive, bounds],
   );
 
   const toggleMeasure = useCallback(() => {
@@ -152,17 +190,34 @@ export function GameMap({ focus, className, showSidebar = false }: GameMapProps)
     setMeasurePoints([]);
   }, []);
 
+  const onShare = useCallback(async () => {
+    const url = mapShareUrl({
+      game: gameId,
+      slug: activeSlug,
+      x: coords.x,
+      y: coords.y,
+      locale,
+    });
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareHint("Link copied");
+      window.setTimeout(() => setShareHint(undefined), 1600);
+    } catch {
+      setShareHint(url);
+    }
+  }, [activeSlug, coords.x, coords.y, gameId, locale]);
+
   const mapPanel = (
     <div className={clsx("relative min-w-0 flex-1", className ?? "h-full")}>
-      {mapLoaded && GTADB.enabled && GTADB.native && <GtadbTileOverlay mapRef={mapRef} />}
+      {mapLoaded && useGtadbNative && <GtadbTileOverlay mapRef={mapRef} />}
 
       <Map
         ref={mapRef}
         initialViewState={initialViewState}
         mapStyle={mapStyle}
-        maxBounds={mapLibreBounds()}
-        minZoom={MAP_DEFAULTS.minZoom}
-        maxZoom={GTADB.enabled ? 10 : MAP_DEFAULTS.maxZoom}
+        maxBounds={mapLibreBounds(bounds)}
+        minZoom={game.minZoom}
+        maxZoom={useGtadbNative ? 10 : game.maxZoom}
         onLoad={onMapLoad}
         onMouseMove={onMouseMove}
         onClick={onMapClick}
@@ -179,6 +234,7 @@ export function GameMap({ focus, className, showSidebar = false }: GameMapProps)
             points={measurePoints}
             onClear={() => setMeasurePoints([])}
             onClose={closeMeasure}
+            mapBounds={bounds}
           />
         )}
 
@@ -190,6 +246,7 @@ export function GameMap({ focus, className, showSidebar = false }: GameMapProps)
             onSelect={flyTo}
             activeSlug={activeSlug}
             measureActive={measureActive}
+            mapBounds={bounds}
           />
         )}
       </Map>
@@ -205,20 +262,30 @@ export function GameMap({ focus, className, showSidebar = false }: GameMapProps)
         />
       </div>
 
-      {GTADB.enabled && (
+      {game.attribution && (
         <p className="pointer-events-none absolute bottom-3 right-14 z-10 max-w-[12rem] text-right text-[9px] leading-tight text-white/30 sm:bottom-4">
-          {GTADB.attribution}
+          {game.attribution}
+        </p>
+      )}
+
+      {!useGtadbNative && game.tile.kind === "grid" && !game.primary && (
+        <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-xs -translate-x-1/2 rounded-md border border-white/10 bg-black/50 px-2 py-1 text-center text-[10px] text-white/50 backdrop-blur-sm">
+          {game.label} · seed POIs · add raster tiles via env
         </p>
       )}
 
       <MapToolbar
         coords={coords}
+        gameId={gameId}
         showSidebarToggle={showSidebar}
         sidebarOpen={sidebarOpen}
         measureActive={measureActive}
+        shareHint={shareHint}
         onToggleSidebar={() => setSidebarOverride(!(sidebarOverride ?? isDesktop))}
         onToggleMeasure={toggleMeasure}
         onFitBounds={fitMapBounds}
+        onShare={onShare}
+        onSelectGame={(id) => onSelectGame?.(id)}
       />
     </div>
   );

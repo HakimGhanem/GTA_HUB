@@ -1,7 +1,9 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { HardwarePromo } from "@/components/affiliate/HardwarePromo";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { LOCATIONS } from "@/data/locations";
+import { listPublishedArticles } from "@/lib/content/repository";
 import { buildMetadata, jsonLdFAQ } from "@/lib/seo";
 
 type Props = {
@@ -26,6 +28,7 @@ export default async function HomePage({ params }: Props) {
 
   const t = await getTranslations("home");
   const featured = LOCATIONS.slice(0, 4);
+  const latestNews = (await listPublishedArticles(locale)).slice(0, 3);
 
   const faq = [
     { question: t("faq.q1"), answer: t("faq.a1") },
@@ -90,6 +93,44 @@ export default async function HomePage({ params }: Props) {
             <LocationCard key={loc.slug} location={loc} />
           ))}
         </div>
+
+        <HardwarePromo className="mt-16" />
+
+        {latestNews.length > 0 ? (
+          <section className="mt-16" aria-labelledby="news-heading">
+            <div className="mb-6 flex items-end justify-between gap-4">
+              <h2 id="news-heading" className="text-2xl font-bold">
+                {t("newsTitle")}
+              </h2>
+              <Link
+                href="/news"
+                className="text-sm text-pink-300 hover:text-pink-200"
+              >
+                {t("newsAll")}
+              </Link>
+            </div>
+            <div className="space-y-3">
+              {latestNews.map((article) => (
+                <Link
+                  key={article.id}
+                  href={`/news/${article.slug}`}
+                  className="block rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/40"
+                >
+                  <p className="text-xs uppercase tracking-wider text-pink-400/80">
+                    {article.cluster}
+                    {article.publishedAt
+                      ? ` · ${article.publishedAt.slice(0, 10)}`
+                      : ""}
+                  </p>
+                  <h3 className="mt-1 text-lg font-semibold">{article.title}</h3>
+                  <p className="mt-1 text-sm text-white/60">
+                    {article.description}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="mt-16" aria-labelledby="faq-heading">
           <h2 id="faq-heading" className="mb-6 text-2xl font-bold">

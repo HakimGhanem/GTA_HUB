@@ -1,4 +1,4 @@
-import { fromMapLibreCoords } from "./coordinates";
+import { fromMapLibreCoords, type MapBounds } from "./coordinates";
 import type { Location } from "@/data/locations";
 
 export type GameViewport = {
@@ -19,9 +19,10 @@ export function viewportFromMap(
   east: number,
   north: number,
   zoom: number,
+  mapBounds?: MapBounds,
 ): GameViewport {
-  const sw = fromMapLibreCoords(west, south);
-  const ne = fromMapLibreCoords(east, north);
+  const sw = fromMapLibreCoords(west, south, mapBounds);
+  const ne = fromMapLibreCoords(east, north, mapBounds);
   return {
     minX: Math.min(sw.x, ne.x),
     maxX: Math.max(sw.x, ne.x),

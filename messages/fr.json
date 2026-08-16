@@ -4,11 +4,12 @@
     "locations": "Lieux",
     "collectibles": "Collectibles",
     "guides": "Guides",
-    "openMap": "Ouvrir la carte"
+    "openMap": "Ouvrir la carte",
+    "news": "Actus"
   },
   "home": {
-    "title": "La carte interactive de GTA 6",
-    "subtitle": "Explorez Vice City, suivez vos collectibles et découvrez tous les secrets — prête pour le jour de sortie.",
+    "title": "Carte interactive GTA 6 gratuite",
+    "subtitle": "1400+ POI sur Vice City & Leonida — filtres, partage de pins, coords. Prête pour le jour J.",
     "ctaMap": "Ouvrir la carte interactive",
     "ctaLocations": "Parcourir les lieux",
     "featuredTitle": "Lieux en vedette",
@@ -25,7 +26,9 @@
       "a2": "Ouvrez la carte interactive, filtrez par catégorie Collectibles, ou parcourez /collectibles pour les pages par catégorie avec liens vers la carte.",
       "q3": "Les tuiles cartographiques sont-elles officielles ?",
       "a3": "Les tuiles proviennent de la communauté GTADB (CC BY 4.0) et sont mises à jour au fil des publications de la communauté de cartographie."
-    }
+    },
+    "newsTitle": "Dernières actus",
+    "newsAll": "Toutes les actus →"
   },
   "locations": {
     "title": "Tous les lieux",
@@ -58,23 +61,26 @@
   },
   "meta": {
     "siteName": "Map-6",
-    "homeTitle": "Map-6 — Carte interactive GTA 6",
-    "homeDesc": "Explorez GTA 6 avec une carte interactive complète. Collectibles, monuments, secrets et lieux de Vice City — mise à jour pour le lancement.",
+    "homeTitle": "Carte interactive GTA 6 gratuite | Map-6",
+    "homeDesc": "Carte GTA 6 gratuite avec 1400+ POI — Vice City, collectibles, monuments et secrets. Filtrez, mesurez, partagez. MAJ pour le lancement nov. 2026.",
     "locationsTitle": "Lieux GTA 6 — Vice City & Floride | Map-6",
     "locationsDesc": "Répertoire complet des lieux de GTA 6 : monuments, collectibles, boutiques, missions et secrets.",
-    "mapTitle": "Carte interactive GTA 6 | Map-6",
-    "mapDesc": "Carte interactive plein écran pour GTA 6. Naviguez, zoomez, filtrez les POI et suivez les coordonnées à Vice City et au-delà.",
+    "mapTitle": "Carte interactive GTA 6 gratuite — Vice City | Map-6",
+    "mapDesc": "Carte GTA 6 interactive gratuite : 1400+ POI, filtres, coordonnées et mesure pour Vice City. Liens partageables — MAJ lancement.",
     "collectiblesTitle": "Collectibles GTA 6 — Paquets cachés, sauts acrobatiques & plus | Map-6",
     "collectiblesDesc": "Suivez chaque collectible GTA 6 sur la carte interactive : paquets cachés, sauts acrobatiques, street art et spots photo faune.",
     "guidesTitle": "Guides carte GTA 6 — Vice City & Monde | Map-6",
-    "guidesDesc": "Guides experts pour la carte interactive GTA 6 : conseils débutants, lieux de Vice City, paquets cachés et lore du monde."
+    "guidesDesc": "Guides experts pour la carte interactive GTA 6 : conseils débutants, lieux de Vice City, paquets cachés et lore du monde.",
+    "newsTitle": "Actus GTA 6 & Trailers | Map-6",
+    "newsDesc": "Dernières actus trailers GTA 6, carte interactive et guides précommande."
   },
   "footer": {
     "copyright": "© {year} Map-6 — Carte interactive GTA 6.",
     "affiliate": "En tant que Partenaire Amazon, je réalise un bénéfice sur les achats remplissant les conditions requises.",
     "maptiles": "Tuiles cartographiques © GTADB / GTA VI Mapping Community — CC BY 4.0",
     "privacy": "Confidentialité",
-    "interactiveMap": "Carte interactive"
+    "interactiveMap": "Carte interactive",
+    "about": "À propos"
   },
   "header": {
     "tagline": "Carte interactive GTA 6",
@@ -91,5 +97,18 @@
     "hours": "heures",
     "minutes": "minutes",
     "seconds": "secondes"
+  },
+  "news": {
+    "title": "Actus GTA 6 & Trailers",
+    "subtitle": "Trailers, carte et précommandes — sources vérifiées uniquement.",
+    "empty": "Aucun article publié pour le moment."
+  },
+  "cs2": {
+    "badge": "Recréation 3D fan",
+    "title": "Voir {name} dans Cities: Skylines II",
+    "body": "Un créateur communautaire a reconstruit Leonida — dont des zones comme {name} — en ville 3D jouable dans Cities: Skylines II (ID carte {id}). Map-6 pour les POI ; CS2 pour la balade à pied.",
+    "steamCta": "Steam — Cities: Skylines II",
+    "guideCta": "Guide CS2 complet",
+    "disclaimer": "Estimation fan · non affilié à Rockstar"
   }
 }

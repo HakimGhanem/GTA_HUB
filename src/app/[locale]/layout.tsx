@@ -5,7 +5,9 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { AdSenseScript } from "@/components/ads/AdSenseScript";
 import { Analytics } from "@/components/analytics/Analytics";
+import { GaScript } from "@/components/analytics/GaScript";
 import { Header } from "@/components/layout/Header";
+import { CookieConsent } from "@/components/privacy/CookieConsent";
 import { routing } from "@/i18n/routing";
 import { ADSENSE_CLIENT } from "@/lib/ads-config";
 import {
@@ -84,6 +86,7 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <GaScript />
         <AdSenseScript />
         <script
           type="application/ld+json"
@@ -98,6 +101,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Header />
           <div className="flex min-h-0 flex-1 flex-col">{children}</div>
           <Analytics />
+          <CookieConsent />
         </NextIntlClientProvider>
       </body>
     </html>

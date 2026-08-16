@@ -4,6 +4,7 @@ import { GUIDES } from "@/data/guides";
 import { getAllLocations } from "@/data/all-locations";
 import { locales } from "@/i18n/routing";
 import { SITE } from "@/lib/constants";
+import { listPublishedArticles } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
 
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
@@ -29,15 +30,38 @@ function localizedEntries(
   }));
 }
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
-  const staticPaths = ["", "/map", "/locations", "/collectibles", "/guides", "/privacy"];
+  const staticPaths = [
+    "",
+    "/map",
+    "/locations",
+    "/collectibles",
+    "/guides",
+    "/news",
+    "/about",
+    "/privacy",
+  ];
   const staticPages = staticPaths.flatMap((path) =>
     localizedEntries(path, {
       lastModified: now,
-      changeFrequency: path === "" || path === "/map" ? "daily" : path === "/privacy" ? "monthly" : path === "/collectibles" || path === "/guides" ? "weekly" : "daily",
-      priority: path === "" ? 1 : path === "/map" ? 0.95 : path === "/privacy" ? 0.3 : 0.85,
+      changeFrequency:
+        path === "" || path === "/map" || path === "/news"
+          ? "daily"
+          : path === "/privacy" || path === "/about"
+            ? "monthly"
+            : path === "/collectibles" || path === "/guides"
+              ? "weekly"
+              : "daily",
+      priority:
+        path === ""
+          ? 1
+          : path === "/map"
+            ? 0.95
+            : path === "/privacy" || path === "/about"
+              ? 0.35
+              : 0.85,
     }),
   );
 
@@ -65,5 +89,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }),
   );
 
-  return [...staticPages, ...locationPages, ...collectiblePages, ...guidePages];
+  // News: published only; lastModified from article.updatedAt
+  // EN primary in MVP — still emit locale variants for hreflang consistency
+  let newsPages: MetadataRoute.Sitemap = [];
+  try {
+    const published = await listPublishedArticles("en");
+    newsPages = published.flatMap((article) =>
+      locales.map((locale) => ({
+        url: `${SITE.url}/${locale}/news/${article.slug}`,
+        lastModified: new Date(article.updatedAt || article.publishedAt || now),
+        changeFrequency: "daily" as const,
+        priority: 0.85,
+        alternates: hreflangAlternates(`/news/${article.slug}`),
+      })),
+    );
+  } catch {
+    newsPages = [];
+  }
+
+  return [
+    ...staticPages,
+    ...locationPages,
+    ...collectiblePages,
+    ...guidePages,
+    ...newsPages,
+  ];
 }

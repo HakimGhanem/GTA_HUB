@@ -1,7 +1,11 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { ADSENSE_CLIENT, ADSENSE_ENABLED } from "@/lib/ads-config";
+import { useEffect, useRef, useState } from "react";
+import {
+  ADSENSE_CLIENT,
+  ADSENSE_ENABLED,
+  ADSENSE_UNITS_VISIBLE,
+} from "@/lib/ads-config";
 
 type AdUnitProps = {
   slot: string;
@@ -18,9 +22,11 @@ declare global {
   }
 }
 
+type FillState = "pending" | "filled" | "unfilled";
+
 /**
- * Manual AdSense unit. Only mount on indexable editorial pages.
- * Call push() once per mount — React strict mode safe via ref guard.
+ * Manual AdSense unit. Label/chrome only when an ad is filled —
+ * empty shells never cover editorial content while the site is "Getting ready".
  */
 export function AdUnit({
   slot,
@@ -31,32 +37,82 @@ export function AdUnit({
   label = "Advertisement",
 }: AdUnitProps) {
   const pushed = useRef(false);
+  const insRef = useRef<HTMLModElement>(null);
+  const [fill, setFill] = useState<FillState>("pending");
 
   useEffect(() => {
-    if (!ADSENSE_ENABLED || !slot || pushed.current) return;
+    if (!ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot || pushed.current)
+      return;
     pushed.current = true;
     try {
       (window.adsbygoogle = window.adsbygoogle ?? []).push({});
     } catch {
-      /* ad blocker or script not loaded */
+      setFill("unfilled");
+      return;
     }
+
+    const el = insRef.current;
+    if (!el) return;
+
+    const check = () => {
+      const status = el.getAttribute("data-ad-status");
+      if (status === "filled") setFill("filled");
+      else if (status === "unfilled") setFill("unfilled");
+    };
+
+    const observer = new MutationObserver(check);
+    observer.observe(el, {
+      attributes: true,
+      attributeFilter: ["data-ad-status"],
+      childList: true,
+      subtree: true,
+    });
+
+    const t1 = window.setTimeout(check, 2000);
+    const t2 = window.setTimeout(() => {
+      check();
+      if (el.getAttribute("data-ad-status") !== "filled") {
+        setFill((s) => (s === "filled" ? s : "unfilled"));
+      }
+    }, 5000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(t1);
+      window.clearTimeout(t2);
+    };
   }, [slot]);
 
-  if (!ADSENSE_ENABLED || !slot) return null;
+  if (!ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot || fill === "unfilled")
+    return null;
 
   const isFluid = format === "fluid";
+  const filled = fill === "filled";
 
   return (
     <aside
-      className={`my-6 overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] ${className}`}
-      aria-label={label}
+      className={
+        filled
+          ? `my-6 max-h-[320px] overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] ${className}`
+          : "sr-only"
+      }
+      aria-label={filled ? label : undefined}
+      aria-hidden={!filled}
     >
-      <p className="px-3 pt-2 text-[10px] uppercase tracking-wider text-white/30">
-        {label}
-      </p>
+      {filled ? (
+        <p className="border-b border-white/5 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-white/40">
+          {label}
+        </p>
+      ) : null}
       <ins
-        className="adsbygoogle block min-h-[90px] w-full px-2 pb-2"
-        style={{ display: "block", textAlign: isFluid ? "center" : undefined }}
+        ref={insRef}
+        className="adsbygoogle block w-full"
+        style={{
+          display: "block",
+          minHeight: filled ? 90 : 1,
+          maxHeight: 280,
+          textAlign: isFluid ? "center" : undefined,
+        }}
         data-ad-client={ADSENSE_CLIENT}
         data-ad-slot={slot}
         data-ad-format={format}

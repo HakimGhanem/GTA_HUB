@@ -1,17 +1,21 @@
 import type { StyleSpecification } from "maplibre-gl";
-import { GTADB, MAP_BOUNDS } from "./constants";
-import { mapLibreBounds, toMapLibreCoords } from "./coordinates";
-import { getPmtilesUrl, getRasterTilesUrl } from "./pmtiles";
+import { GTADB } from "./constants";
+import {
+  mapLibreBounds,
+  toMapLibreCoords,
+  type MapBounds,
+} from "./coordinates";
+import { DEFAULT_GAME_ID, getGameConfig, type GameConfig } from "./games";
 
-function buildGridFeatures() {
+function buildGridFeatures(bounds: MapBounds) {
   const features = [];
-  const rangeX = MAP_BOUNDS.maxX - MAP_BOUNDS.minX;
+  const rangeX = bounds.maxX - bounds.minX;
   const stepX = Math.max(500, Math.round(rangeX / 20));
-  const stepY = Math.max(500, Math.round((MAP_BOUNDS.maxY - MAP_BOUNDS.minY) / 20));
+  const stepY = Math.max(500, Math.round((bounds.maxY - bounds.minY) / 20));
 
-  for (let x = MAP_BOUNDS.minX; x <= MAP_BOUNDS.maxX; x += stepX) {
-    const bottom = toMapLibreCoords(x, MAP_BOUNDS.minY);
-    const top = toMapLibreCoords(x, MAP_BOUNDS.maxY);
+  for (let x = bounds.minX; x <= bounds.maxX; x += stepX) {
+    const bottom = toMapLibreCoords(x, bounds.minY, bounds);
+    const top = toMapLibreCoords(x, bounds.maxY, bounds);
     features.push({
       type: "Feature" as const,
       properties: {},
@@ -25,9 +29,9 @@ function buildGridFeatures() {
     });
   }
 
-  for (let y = MAP_BOUNDS.minY; y <= MAP_BOUNDS.maxY; y += stepY) {
-    const left = toMapLibreCoords(MAP_BOUNDS.minX, y);
-    const right = toMapLibreCoords(MAP_BOUNDS.maxX, y);
+  for (let y = bounds.minY; y <= bounds.maxY; y += stepY) {
+    const left = toMapLibreCoords(bounds.minX, y, bounds);
+    const right = toMapLibreCoords(bounds.maxX, y, bounds);
     features.push({
       type: "Feature" as const,
       properties: {},
@@ -44,16 +48,16 @@ function buildGridFeatures() {
   return features;
 }
 
-function buildGtadbImageStyle(imageUrl: string): StyleSpecification {
-  const nw = toMapLibreCoords(MAP_BOUNDS.minX, MAP_BOUNDS.maxY);
-  const ne = toMapLibreCoords(MAP_BOUNDS.maxX, MAP_BOUNDS.maxY);
-  const se = toMapLibreCoords(MAP_BOUNDS.maxX, MAP_BOUNDS.minY);
-  const sw = toMapLibreCoords(MAP_BOUNDS.minX, MAP_BOUNDS.minY);
+function buildImageStyle(imageUrl: string, bounds: MapBounds, sourceId: string): StyleSpecification {
+  const nw = toMapLibreCoords(bounds.minX, bounds.maxY, bounds);
+  const ne = toMapLibreCoords(bounds.maxX, bounds.maxY, bounds);
+  const se = toMapLibreCoords(bounds.maxX, bounds.minY, bounds);
+  const sw = toMapLibreCoords(bounds.minX, bounds.minY, bounds);
 
   return {
     version: 8,
     sources: {
-      "leonida-image": {
+      [sourceId]: {
         type: "image",
         url: imageUrl,
         coordinates: [
@@ -71,29 +75,29 @@ function buildGtadbImageStyle(imageUrl: string): StyleSpecification {
         paint: { "background-color": "#0a0e17" },
       },
       {
-        id: "leonida-image",
+        id: sourceId,
         type: "raster",
-        source: "leonida-image",
+        source: sourceId,
       },
     ],
   };
 }
 
-export function buildMapStyle(): StyleSpecification {
-  const gtadbNative = GTADB.enabled && GTADB.native;
-  const gtadbImage =
-    GTADB.enabled && !GTADB.native && GTADB.mapImage ? GTADB.mapImage : null;
-  const pmtilesUrl = getPmtilesUrl();
-  const rasterUrl = getRasterTilesUrl();
-  const bounds = mapLibreBounds();
+export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID)): StyleSpecification {
+  const bounds = game.bounds;
+  const mlBounds = mapLibreBounds(bounds);
   const rasterBounds: [number, number, number, number] = [
-    bounds[0][0],
-    bounds[0][1],
-    bounds[1][0],
-    bounds[1][1],
+    mlBounds[0][0],
+    mlBounds[0][1],
+    mlBounds[1][0],
+    mlBounds[1][1],
   ];
+  const sourceId = `${game.id}-base`;
 
-  if (gtadbNative) {
+  if (game.tile.kind === "gtadb") {
+    if (!GTADB.native && GTADB.mapImage) {
+      return buildImageStyle(GTADB.mapImage, bounds, sourceId);
+    }
     return {
       version: 8 as const,
       sources: {},
@@ -107,26 +111,22 @@ export function buildMapStyle(): StyleSpecification {
     };
   }
 
-  if (gtadbImage) {
-    return buildGtadbImageStyle(gtadbImage);
-  }
-
-  if (rasterUrl) {
+  if (game.tile.kind === "raster") {
     return {
       version: 8 as const,
       sources: {
-        "leonida-raster": {
+        [sourceId]: {
           type: "raster" as const,
-          tiles: [rasterUrl],
+          tiles: [game.tile.url],
           tileSize: 256,
           bounds: rasterBounds,
         },
       },
       layers: [
         {
-          id: "leonida-raster",
+          id: sourceId,
           type: "raster" as const,
-          source: "leonida-raster",
+          source: sourceId,
           minzoom: 0,
           maxzoom: 22,
         },
@@ -134,13 +134,14 @@ export function buildMapStyle(): StyleSpecification {
     };
   }
 
-  if (pmtilesUrl) {
+  if (game.tile.kind === "pmtiles") {
+    const layer = game.tile.sourceLayer ?? "regions";
     return {
       version: 8 as const,
       sources: {
-        leonida: {
+        [sourceId]: {
           type: "vector" as const,
-          url: `pmtiles://${pmtilesUrl}`,
+          url: `pmtiles://${game.tile.url}`,
         },
       },
       layers: [
@@ -150,20 +151,20 @@ export function buildMapStyle(): StyleSpecification {
           paint: { "background-color": "#0a0e17" },
         },
         {
-          id: "leonida-fill",
+          id: `${sourceId}-fill`,
           type: "fill" as const,
-          source: "leonida",
-          "source-layer": "regions",
+          source: sourceId,
+          "source-layer": layer,
           paint: {
             "fill-color": "#1e293b",
             "fill-opacity": 0.8,
           },
         },
         {
-          id: "leonida-line",
+          id: `${sourceId}-line`,
           type: "line" as const,
-          source: "leonida",
-          "source-layer": "regions",
+          source: sourceId,
+          "source-layer": layer,
           paint: {
             "line-color": "#334155",
             "line-width": 1,
@@ -180,7 +181,7 @@ export function buildMapStyle(): StyleSpecification {
         type: "geojson" as const,
         data: {
           type: "FeatureCollection" as const,
-          features: buildGridFeatures(),
+          features: buildGridFeatures(bounds),
         },
       },
     },

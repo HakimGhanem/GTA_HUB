@@ -1,8 +1,8 @@
 export const SITE = {
   name: "Map-6",
-  title: "Map-6 — Interactive GTA 6 Map",
+  title: "Free Interactive GTA 6 Map | Map-6",
   description:
-    "Explore GTA 6 with a complete interactive map. Collectibles, landmarks, secrets, and Vice City locations — updated for launch.",
+    "Free GTA 6 interactive map with 1400+ POIs — Vice City, collectibles, landmarks & secrets. Filter, measure, share pins. Updated for Nov 2026 launch.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://map-6.com",
   locale: "en_US",
 } as const;

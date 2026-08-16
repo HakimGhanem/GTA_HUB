@@ -1,6 +1,7 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import type { RegionalLocationSeo } from "@/data/location-seo-content";
 import { AdUnit } from "@/components/ads/AdUnit";
+import { Cs2ExploreBlock } from "@/components/locations/Cs2ExploreBlock";
 import { AD_SLOTS } from "@/lib/ads-config";
 
 type Props = {
@@ -10,6 +11,7 @@ type Props = {
 
 export async function LocationRichContent({ name, seo }: Props) {
   const t = await getTranslations("locations");
+  const locale = await getLocale();
 
   return (
     <article className="prose prose-invert max-w-none">
@@ -23,6 +25,8 @@ export async function LocationRichContent({ name, seo }: Props) {
           ))}
         </div>
       </section>
+
+      <Cs2ExploreBlock locale={locale} locationName={name} />
 
       {AD_SLOTS.inArticle && (
         <AdUnit slot={AD_SLOTS.inArticle} format="fluid" layout="in-article" />

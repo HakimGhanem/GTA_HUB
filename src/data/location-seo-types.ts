@@ -19,6 +19,7 @@ export const REGIONAL_LOCATION_SLUGS = [
   "leonida-keys",
   "port-gellhorn",
   "ambrosia-island",
+  "mount-kalaga",
 ] as const;
 
 export type RegionalLocationSlug = (typeof REGIONAL_LOCATION_SLUGS)[number];

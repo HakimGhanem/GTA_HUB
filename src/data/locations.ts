@@ -88,6 +88,16 @@ export const LOCATIONS: Location[] = [
     region: "Leonida Keys",
   },
   {
+    slug: "mount-kalaga",
+    name: "Mount Kalaga",
+    description:
+      "Leonida’s northern wilderness frontier — forests, rivers, and canyons with a hunting-country feel. Named by Rockstar; exact borders still estimated.",
+    category: "landmark",
+    x: -2000,
+    y: 3500,
+    region: "Mount Kalaga",
+  },
+  {
     slug: "grassroots-weapons",
     name: "Grassroots Weapons",
     description:

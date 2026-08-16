@@ -12,6 +12,8 @@ export async function Footer() {
     { href: "/locations", label: nav("locations") },
     { href: "/collectibles", label: nav("collectibles") },
     { href: "/guides", label: nav("guides") },
+    { href: "/news", label: nav("news") },
+    { href: "/about", label: t("about") },
     { href: "/privacy", label: t("privacy") },
   ] as const;
 

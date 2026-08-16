@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { assertContentSecret } from "@/lib/content/auth";
 import { SITE } from "@/lib/constants";
 
 const INDEXNOW_KEY = process.env.INDEXNOW_KEY;
@@ -9,12 +10,18 @@ const INDEXNOW_ENDPOINTS = [
 
 /**
  * Ping search engines when content changes.
- * POST { "urls": ["/locations/vice-city", ...] }
- * Requires INDEXNOW_KEY env + public/INDEXNOW_KEY.txt file.
+ * POST { "urls": ["/en/news/slug", ...] }
+ * Requires INDEXNOW_KEY + Authorization Bearer CONTENT_API_SECRET
  */
 export async function POST(request: Request) {
+  const denied = assertContentSecret(request);
+  if (denied) return denied;
+
   if (!INDEXNOW_KEY) {
-    return NextResponse.json({ error: "INDEXNOW_KEY not configured" }, { status: 503 });
+    return NextResponse.json(
+      { error: "INDEXNOW_KEY not configured" },
+      { status: 503 },
+    );
   }
 
   const body = (await request.json()) as { urls?: string[] };

@@ -292,6 +292,51 @@ export const REGIONAL_LOCATION_SEO: Record<
       },
     ],
   },
+  "mount-kalaga": {
+    slug: "mount-kalaga",
+    metaDescription:
+      "Mount Kalaga on the GTA 6 map — Leonida’s northern wilderness of forests, rivers, and canyons. Trailer cues, POIs, and Map-6 deep-links.",
+    schemaDescription:
+      "Mount Kalaga in GTA 6: Rockstar-named northern Leonida frontier with forests, rivers, canyons, and wilderness exploration on Map-6.",
+    about: [
+      "Mount Kalaga is one of the named destinations in Grand Theft Auto VI’s state of Leonida — the northern wilderness contrast to Vice City’s neon and Ambrosia’s gated wealth. Rockstar has listed it alongside Vice City, the Keys, Grassrivers, Port Gellhorn, and Ambrosia; exact borders on fan maps remain estimates until more official media lands.",
+      "Tone-wise, Mount Kalaga channels hunting country and rugged outdoors: forests, rivers, canyons, and the kind of Red Dead–adjacent wilderness Rockstar knows how to stage. Trailers and marketing still lean harder on beaches and nightlife, so treat dense pin dumps here as community reconstruction, not spoiler sheets.",
+      "What to watch in new footage: tree lines that are not mangrove wetlands, elevation changes, river valleys, and wildlife-forward shots that clearly leave the coastal metro. Pause frames, then jump to Map-6 with a `loc=mount-kalaga` deep-link to compare the regional hub against Grassrivers further south.",
+      "On Map-6, Mount Kalaga is a curated regional hub with SEO prose, FAQ, and a one-click map focus. Use Landmarks filters when scrubbing trailers; keep Collectibles for post-launch routes. Coordinates shown for the hub are editorial estimates aligned with community north-frontier placement — we revise when Rockstar clarifies geography.",
+    ],
+    poiTypes: [
+      "Forest and canyon overlook landmarks",
+      "River crossings and trailheads",
+      "Wildlife and hunting-country vistas",
+      "Remote cabins and off-grid structures",
+      "Hidden packages in elevated or riverside spots",
+      "Off-road and dirt-path approach routes",
+      "Story or stranger-mission wilderness triggers",
+      "Scenic photo / social-clip vantage points",
+    ],
+    faq: [
+      {
+        question: "Is Mount Kalaga confirmed in GTA 6?",
+        answer:
+          "Yes as a named Leonida destination in Rockstar’s marketing of the six regions. Exact borders, town names inside the region, and full POI lists are not fully public — Map-6 marks a regional hub and updates as official footage clarifies the north frontier.",
+      },
+      {
+        question: "How is Mount Kalaga different from Grassrivers?",
+        answer:
+          "Grassrivers evokes Everglades wetlands and airboats. Mount Kalaga reads as higher, wooded, canyon-and-river wilderness. Use both regional pages on Map-6 when matching trailer biomes so swamp shots do not get filed under the wrong hub.",
+      },
+      {
+        question: "Can I deep-link Mount Kalaga on the interactive map?",
+        answer:
+          "Yes. Open /map?loc=mount-kalaga (with locale prefix, e.g. /en/map?loc=mount-kalaga) or use View on Map from this page. The map centers on the hub and highlights the pin in the sidebar.",
+      },
+      {
+        question: "Are Mount Kalaga coordinates final?",
+        answer:
+          "No. Pre-launch coordinates are community-informed estimates. Map-6 will shift the hub if Rockstar or high-confidence mapping consensus moves the northern wilderness relative to Vice City and Grassrivers.",
+      },
+    ],
+  },
 };
 
 export function isRegionalLocationSlug(

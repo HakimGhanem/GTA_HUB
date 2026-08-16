@@ -4,11 +4,12 @@
     "locations": "Locations",
     "collectibles": "Collectibles",
     "guides": "Guides",
-    "openMap": "Open Map"
+    "openMap": "Open Map",
+    "news": "News"
   },
   "home": {
-    "title": "The Interactive GTA 6 Map",
-    "subtitle": "Explore Vice City, track collectibles, and discover every secret — built for launch day and beyond.",
+    "title": "Free Interactive GTA 6 Map",
+    "subtitle": "1400+ POIs on Vice City & Leonida — filter collectibles, share pins, track coords. Built for launch day.",
     "ctaMap": "Open Interactive Map",
     "ctaLocations": "Browse Locations",
     "featuredTitle": "Featured Locations",
@@ -25,7 +26,9 @@
       "a2": "Open the interactive map, filter by Collectibles category, or browse /collectibles for category pages with map links.",
       "q3": "Are the map tiles official?",
       "a3": "Map tiles are community-sourced from GTADB (CC BY 4.0) and updated as the mapping community releases new data."
-    }
+    },
+    "newsTitle": "Latest news",
+    "newsAll": "All news →"
   },
   "locations": {
     "title": "All Locations",
@@ -58,23 +61,26 @@
   },
   "meta": {
     "siteName": "Map-6",
-    "homeTitle": "Map-6 — Interactive GTA 6 Map",
-    "homeDesc": "Explore GTA 6 with a complete interactive map. Collectibles, landmarks, secrets, and Vice City locations — updated for launch.",
+    "homeTitle": "Free Interactive GTA 6 Map | Map-6",
+    "homeDesc": "Free GTA 6 interactive map with 1400+ POIs — Vice City, collectibles, landmarks & secrets. Filter, measure, share pins. Updated for Nov 2026 launch.",
     "locationsTitle": "GTA 6 Locations — Vice City & Florida | Map-6",
     "locationsDesc": "Complete directory of GTA 6 map locations: landmarks, collectibles, shops, missions, and secrets across the open world.",
-    "mapTitle": "GTA 6 Interactive Map | Map-6",
-    "mapDesc": "Full-screen interactive map for GTA 6. Pan, zoom, filter POIs, and track coordinates in Vice City and beyond.",
+    "mapTitle": "Free GTA 6 Interactive Map — Vice City & Leonida | Map-6",
+    "mapDesc": "Free interactive GTA 6 map: 1400+ community POIs, filters, coords & measure tools for Vice City. Share deep links — updated for launch.",
     "collectiblesTitle": "GTA 6 Collectibles — Hidden Packages, Stunt Jumps & More | Map-6",
     "collectiblesDesc": "Track every GTA 6 collectible on the interactive map: hidden packages, stunt jumps, street art, and wildlife photography spots.",
     "guidesTitle": "GTA 6 Map Guides — Vice City & World | Map-6",
-    "guidesDesc": "Expert guides for the GTA 6 interactive map: beginner tips, Vice City locations, hidden packages, and world lore."
+    "guidesDesc": "Expert guides for the GTA 6 interactive map: beginner tips, Vice City locations, hidden packages, and world lore.",
+    "newsTitle": "GTA 6 News & Trailer Updates | Map-6",
+    "newsDesc": "Latest GTA 6 trailer news, interactive map updates, and preorder guides from Map-6."
   },
   "footer": {
     "copyright": "© {year} Map-6 — Interactive GTA 6 map.",
     "affiliate": "As an Amazon Associate I earn from qualifying purchases.",
     "maptiles": "Map tiles © GTADB / GTA VI Mapping Community — CC BY 4.0",
     "privacy": "Privacy",
-    "interactiveMap": "Interactive Map"
+    "interactiveMap": "Interactive Map",
+    "about": "About"
   },
   "header": {
     "tagline": "GTA 6 Interactive Map",
@@ -91,5 +97,18 @@
     "hours": "hours",
     "minutes": "minutes",
     "seconds": "seconds"
+  },
+  "news": {
+    "title": "GTA 6 News & Trailer Updates",
+    "subtitle": "Trailer intel, map updates, and preorder news — verified sources only.",
+    "empty": "No published articles yet. Check back soon."
+  },
+  "cs2": {
+    "badge": "3D fan recreation",
+    "title": "See {name} in Cities: Skylines II",
+    "body": "A community builder remade Leonida — including areas like {name} — as a walkable 3D city in Cities: Skylines II (map ID {id}). Use Map-6 for POIs; load CS2 for street-level exploration.",
+    "steamCta": "Steam — Cities: Skylines II",
+    "guideCta": "Full CS2 guide",
+    "disclaimer": "Fan estimate · not affiliated with Rockstar"
   }
 }

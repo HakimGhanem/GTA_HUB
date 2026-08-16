@@ -126,7 +126,7 @@ export default async function LocationPage({ params }: Props) {
           </p>
 
           <Link
-            href={`/map?x=${location.x}&y=${location.y}`}
+            href={`/map?loc=${location.slug}&x=${location.x}&y=${location.y}`}
             className="mb-8 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-white hover:bg-pink-400"
           >
             {t("viewOnMap")}

@@ -9,12 +9,27 @@
     "lint": "eslint",
     "tiles:generate": "bash scripts/generate-pmtiles.sh",
     "tiles:raster": "bash scripts/generate-raster-tiles.sh",
-    "tiles:fetch-gtadb": "bash scripts/fetch-gtadb.sh"
+    "tiles:fetch-gtadb": "bash scripts/fetch-gtadb.sh",
+    "content:detect": "tsx scripts/content/detect-news.mts",
+    "content:draft": "tsx scripts/content/generate-draft.mts",
+    "content:review": "tsx scripts/content/review.mts",
+    "content:publish": "tsx scripts/content/publish.mts",
+    "content:analyze": "tsx scripts/content/analyze.mts",
+    "content:improve": "tsx scripts/content/improve.mts",
+    "content:seed": "tsx scripts/content/seed-trailer.mts",
+    "content:publish-remote": "tsx scripts/content/publish-remote.mts",
+    "content:daily": "tsx scripts/content/daily-funnel.mts"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.10",
+    "@swc/helpers": "0.5.23",
     "clsx": "^2.1.1",
+    "csv-parse": "^7.0.1",
+    "dotenv": "^17.4.2",
+    "fast-xml-parser": "^5.10.1",
+    "firebase-admin": "^14.2.0",
     "maplibre-gl": "^5.24.0",
+    "marked": "^18.0.7",
     "next": "16.2.10",
     "next-intl": "^4.13.4",
     "pmtiles": "^4.4.1",
@@ -25,6 +40,7 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/marked": "^5.0.2",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -32,6 +48,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
+    "tsx": "^4.23.1",
     "typescript": "^5"
   }
 }

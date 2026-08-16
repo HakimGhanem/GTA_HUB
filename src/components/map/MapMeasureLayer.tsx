@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { Layer, Marker, Source } from "react-map-gl/maplibre";
-import type { GameCoords } from "@/lib/coordinates";
+import type { GameCoords, MapBounds } from "@/lib/coordinates";
 import { toMapLibreCoords } from "@/lib/coordinates";
 import { formatGameDistance, pathDistance } from "@/lib/measure";
 
@@ -10,9 +10,15 @@ type MapMeasureLayerProps = {
   points: GameCoords[];
   onClear: () => void;
   onClose: () => void;
+  mapBounds?: MapBounds;
 };
 
-export function MapMeasureLayer({ points, onClear, onClose }: MapMeasureLayerProps) {
+export function MapMeasureLayer({
+  points,
+  onClear,
+  onClose,
+  mapBounds,
+}: MapMeasureLayerProps) {
   const lineGeoJson = useMemo(() => {
     if (points.length < 2) return null;
     return {
@@ -20,13 +26,13 @@ export function MapMeasureLayer({ points, onClear, onClose }: MapMeasureLayerPro
       geometry: {
         type: "LineString" as const,
         coordinates: points.map((p) => {
-          const { lng, lat } = toMapLibreCoords(p.x, p.y);
+          const { lng, lat } = toMapLibreCoords(p.x, p.y, mapBounds);
           return [lng, lat] as [number, number];
         }),
       },
       properties: {},
     };
-  }, [points]);
+  }, [points, mapBounds]);
 
   const total = pathDistance(points);
 
@@ -47,7 +53,7 @@ export function MapMeasureLayer({ points, onClear, onClose }: MapMeasureLayerPro
       )}
 
       {points.map((p, i) => {
-        const { lng, lat } = toMapLibreCoords(p.x, p.y);
+        const { lng, lat } = toMapLibreCoords(p.x, p.y, mapBounds);
         return (
           <Marker key={`${p.x}-${p.y}-${i}`} longitude={lng} latitude={lat} anchor="center">
             <span className="flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-[10px] font-bold text-white ring-2 ring-white">

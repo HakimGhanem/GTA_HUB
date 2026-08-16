@@ -13,11 +13,19 @@ export const AD_SLOTS = {
 export const ADSENSE_ENABLED =
   process.env.NODE_ENV === "production" && ADSENSE_CLIENT.length > 0;
 
+/**
+ * Manual ad units (banner / in-article). Keep false while AdSense site is
+ * "Getting ready" so empty shells never cover content. Script + ads.txt
+ * still load for verification. Set NEXT_PUBLIC_ADSENSE_UNITS=true after approval.
+ */
+export const ADSENSE_UNITS_VISIBLE =
+  process.env.NEXT_PUBLIC_ADSENSE_UNITS === "true";
+
 /** Routes where ads must never render (UX + AdSense policy) */
 const AD_EXCLUDED_PREFIXES = ["/map"];
 
 export function shouldShowAds(pathname: string): boolean {
-  if (!ADSENSE_ENABLED) return false;
+  if (!ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE) return false;
   return !AD_EXCLUDED_PREFIXES.some(
     (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
   );

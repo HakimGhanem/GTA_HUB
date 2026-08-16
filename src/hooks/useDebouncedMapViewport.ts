@@ -2,12 +2,14 @@
 
 import { useEffect, useState } from "react";
 import type { MapRef } from "react-map-gl/maplibre";
+import type { MapBounds } from "@/lib/coordinates";
 import { viewportFromMap, type GameViewport } from "@/lib/map-viewport";
 
 export function useDebouncedMapViewport(
   mapRef: React.RefObject<MapRef | null>,
   mapLoaded: boolean,
   delayMs = 300,
+  mapBounds?: MapBounds,
 ): GameViewport | null {
   const [viewport, setViewport] = useState<GameViewport | null>(null);
 
@@ -28,6 +30,7 @@ export function useDebouncedMapViewport(
             b.getEast(),
             b.getNorth(),
             map.getZoom(),
+            mapBounds,
           ),
         );
       }, delayMs);
@@ -42,7 +45,7 @@ export function useDebouncedMapViewport(
       map.off("moveend", update);
       map.off("zoomend", update);
     };
-  }, [mapRef, mapLoaded, delayMs]);
+  }, [mapRef, mapLoaded, delayMs, mapBounds]);
 
   return viewport;
 }

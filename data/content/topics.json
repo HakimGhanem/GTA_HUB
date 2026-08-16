@@ -1,0 +1,18 @@
+[
+  {
+    "id": "topic-trailer-3-seed",
+    "headline": "GTA 6 Trailer 3 — what we know so far",
+    "summary": "Community and press are watching for the next Grand Theft Auto VI trailer. Map-6 tracks official Rockstar signals and maps every location clue — without inventing release dates.",
+    "sourceUrls": [
+      "https://www.rockstargames.com/VI",
+      "https://www.ign.com/"
+    ],
+    "cluster": "trailer",
+    "score": 95,
+    "eventKey": "trailer-3-2026-seed",
+    "status": "drafted",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "createdAt": "2026-08-01T12:00:00.000Z",
+    "updatedAt": "2026-08-02T17:59:28.804Z"
+  }
+]

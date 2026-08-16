@@ -1,5 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { HardwarePromo } from "@/components/affiliate/HardwarePromo";
+import { getCs2GuideCopy } from "@/data/cs2-guide-i18n";
 import { GUIDES } from "@/data/guides";
 import { getPreorderGuideCopy } from "@/data/preorder-guide-i18n";
 import { buildMetadata } from "@/lib/seo";
@@ -26,6 +28,7 @@ export default async function GuidesPage({ params }: Props) {
 
   const t = await getTranslations("guides");
   const preorder = getPreorderGuideCopy(locale);
+  const cs2 = getCs2GuideCopy(locale);
 
   return (
     <main className="mx-auto max-w-5xl flex-1 px-4 py-10">
@@ -34,11 +37,14 @@ export default async function GuidesPage({ params }: Props) {
 
       <div className="space-y-4">
         {GUIDES.map((guide) => {
-          const isPreorder = guide.slug === "gta-6-preorder-guide";
-          const title = isPreorder ? preorder.title : guide.title;
-          const description = isPreorder
-            ? preorder.description
-            : guide.description;
+          const localized =
+            guide.slug === "gta-6-preorder-guide"
+              ? preorder
+              : guide.slug === "gta-6-map-cities-skylines-2"
+                ? cs2
+                : null;
+          const title = localized?.title ?? guide.title;
+          const description = localized?.description ?? guide.description;
 
           return (
             <Link
@@ -60,6 +66,8 @@ export default async function GuidesPage({ params }: Props) {
           );
         })}
       </div>
+
+      <HardwarePromo className="mt-14" title="Gear up before launch" />
     </main>
   );
 }

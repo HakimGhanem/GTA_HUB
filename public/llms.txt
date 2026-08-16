@@ -10,12 +10,15 @@
 - Collectibles: https://map-6.com/collectibles
 - Guides: https://map-6.com/guides
 - Sitemap: https://map-6.com/sitemap.xml
+- News RSS: https://map-6.com/news.xml
+- News: https://map-6.com/en/news
 
 ## What Map-6 provides
 
-- 1400+ community POIs on an interactive map
+- 1400+ community POIs on an interactive GTA 6 map (primary)
+- Classics wave-1 maps: GTA 5 (`/map?game=gta5`) and San Andreas (`/map?game=sa`)
 - Category filters: landmarks, collectibles, shops, missions, secrets
-- Game coordinate readout and distance measurement
+- Game coordinate readout, distance measurement, shareable deep links
 - SEO pages per location for search and AI citation
 
 ## Map data attribution

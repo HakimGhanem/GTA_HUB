@@ -11,8 +11,8 @@ export function AdBanner() {
   if (!shouldShowAds(pathname) || !AD_SLOTS.banner) return null;
 
   return (
-    <div className="mx-auto w-full max-w-5xl px-4 pb-4">
-      <AdUnit slot={AD_SLOTS.banner} format="auto" />
+    <div className="relative z-0 mx-auto w-full max-w-5xl shrink-0 px-4 pb-4">
+      <AdUnit slot={AD_SLOTS.banner} format="horizontal" />
     </div>
   );
 }

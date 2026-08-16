@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props) {
   });
 }
 
-const LAST_UPDATED = "July 27, 2026";
+const LAST_UPDATED = "August 2, 2026";
 
 export default async function PrivacyPage({ params }: Props) {
   const { locale } = await params;

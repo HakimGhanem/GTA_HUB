@@ -4,7 +4,8 @@
     "locations": "Locais",
     "collectibles": "Colecionáveis",
     "guides": "Guias",
-    "openMap": "Abrir mapa"
+    "openMap": "Abrir mapa",
+    "news": "Notícias"
   },
   "home": {
     "title": "Mapa interativo do GTA 6",
@@ -25,7 +26,9 @@
       "a2": "Abra o mapa interativo, filtre pela categoria Colecionáveis, ou explore /collectibles para páginas por categoria com links para o mapa.",
       "q3": "Os tiles do mapa são oficiais?",
       "a3": "Os tiles são da comunidade GTADB (CC BY 4.0) e são atualizados conforme a comunidade de mapeamento publica novos dados."
-    }
+    },
+    "newsTitle": "Últimas notícias",
+    "newsAll": "Todas as notícias →"
   },
   "locations": {
     "title": "Todos os locais",
@@ -58,23 +61,26 @@
   },
   "meta": {
     "siteName": "Map-6",
-    "homeTitle": "Map-6 — Mapa interativo do GTA 6",
-    "homeDesc": "Explore o GTA 6 com um mapa interativo completo. Colecionáveis, marcos, segredos e locais de Vice City — atualizado para o lançamento.",
+    "homeTitle": "Mapa interativo grátis do GTA 6 | Map-6",
+    "homeDesc": "Mapa interativo grátis do GTA 6 com 1400+ POIs — Vice City, colecionáveis, marcos e segredos. Filtre, meça e compartilhe. Atualizado para o lançamento.",
     "locationsTitle": "Locais GTA 6 — Vice City e Flórida | Map-6",
     "locationsDesc": "Diretório completo de locais do mapa GTA 6: marcos, colecionáveis, lojas, missões e segredos.",
-    "mapTitle": "Mapa interativo do GTA 6 | Map-6",
-    "mapDesc": "Mapa interativo em tela cheia para GTA 6. Navegue, amplie, filtre POIs e rastreie coordenadas em Vice City e além.",
+    "mapTitle": "Mapa interativo grátis do GTA 6 — Vice City | Map-6",
+    "mapDesc": "Mapa interativo grátis do GTA 6: 1400+ POIs, filtros, coordenadas e medição em Vice City. Links para compartilhar — pronto para o lançamento.",
     "collectiblesTitle": "Colecionáveis GTA 6 — Pacotes escondidos, saltos acrobáticos e mais | Map-6",
     "collectiblesDesc": "Rastreie cada colecionável do GTA 6 no mapa interativo: pacotes escondidos, saltos acrobáticos, arte de rua e spots de fotografia de fauna.",
     "guidesTitle": "Guias do mapa GTA 6 — Vice City e mundo | Map-6",
-    "guidesDesc": "Guias especializados para o mapa interativo do GTA 6: dicas para iniciantes, locais de Vice City, pacotes escondidos e lore do mundo."
+    "guidesDesc": "Guias especializados para o mapa interativo do GTA 6: dicas para iniciantes, locais de Vice City, pacotes escondidos e lore do mundo.",
+    "newsTitle": "Notícias GTA 6 e trailers | Map-6",
+    "newsDesc": "Últimas notícias de trailers GTA 6, mapa interativo e guias de pré-venda."
   },
   "footer": {
     "copyright": "© {year} Map-6 — Mapa interativo do GTA 6.",
     "affiliate": "Como Associado da Amazon, eu ganho com compras qualificadas.",
     "maptiles": "Tiles do mapa © GTADB / GTA VI Mapping Community — CC BY 4.0",
     "privacy": "Privacidade",
-    "interactiveMap": "Mapa interativo"
+    "interactiveMap": "Mapa interativo",
+    "about": "Sobre"
   },
   "header": {
     "tagline": "Mapa interativo do GTA 6",
@@ -91,5 +97,18 @@
     "hours": "horas",
     "minutes": "minutos",
     "seconds": "segundos"
+  },
+  "news": {
+    "title": "Notícias GTA 6 e trailers",
+    "subtitle": "Trailers, mapa e pré-vendas — apenas fontes verificadas.",
+    "empty": "Nenhum artigo publicado ainda."
+  },
+  "cs2": {
+    "badge": "Recriação 3D da comunidade",
+    "title": "Ver {name} em Cities: Skylines II",
+    "body": "Um criador da comunidade reconstruiu Leonida — incluindo áreas como {name} — como cidade 3D caminhável no Cities: Skylines II (ID do mapa {id}). Map-6 para POIs; CS2 para explorar ao nível da rua.",
+    "steamCta": "Steam — Cities: Skylines II",
+    "guideCta": "Guia CS2 completo",
+    "disclaimer": "Estimativa fan · sem afiliação à Rockstar"
   }
 }
