@@ -60,9 +60,11 @@ function templateDraft(topic: Topic): Omit<
 > {
   const { primary, secondary } = pickKeywords(topic);
   const phrase = primary?.phrase || topic.primaryKeywordHint || "gta 6 news";
+  const fromHeadline = slugify(topic.headline).replace(/^-|-$/g, "");
   const slug =
-    primary?.targetSlugHint ||
-    slugify(topic.headline).replace(/^-|-$/g, "") ||
+    (fromHeadline && fromHeadline.length >= 12
+      ? fromHeadline
+      : primary?.targetSlugHint) ||
     "gta-6-news-update";
 
   const titleBase = topic.headline.replace(/\s*-\s*Google News.*/i, "").trim();
