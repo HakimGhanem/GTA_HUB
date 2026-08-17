@@ -22,11 +22,24 @@ export const ADSENSE_UNITS_VISIBLE =
   process.env.NEXT_PUBLIC_ADSENSE_UNITS === "true";
 
 /** Routes where ads must never render (UX + AdSense policy) */
-const AD_EXCLUDED_PREFIXES = ["/map"];
+const AD_EXCLUDED_SEGMENTS = ["map", "overlay"];
+
+function pathWithoutLocale(pathname: string): string {
+  const parts = pathname.split("/").filter(Boolean);
+  if (parts.length === 0) return "/";
+  // /en/map → /map ; /map → /map
+  const maybeLocale = parts[0];
+  const rest =
+    maybeLocale.length === 2 || maybeLocale.length === 5
+      ? parts.slice(1)
+      : parts;
+  return rest.length ? `/${rest.join("/")}` : "/";
+}
 
 export function shouldShowAds(pathname: string): boolean {
   if (!ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE) return false;
-  return !AD_EXCLUDED_PREFIXES.some(
-    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  const clean = pathWithoutLocale(pathname);
+  return !AD_EXCLUDED_SEGMENTS.some(
+    (seg) => clean === `/${seg}` || clean.startsWith(`/${seg}/`),
   );
 }

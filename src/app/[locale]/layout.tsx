@@ -6,6 +6,7 @@ import { getMessages, getTranslations, setRequestLocale } from "next-intl/server
 import { AdSenseScript } from "@/components/ads/AdSenseScript";
 import { Analytics } from "@/components/analytics/Analytics";
 import { GaScript } from "@/components/analytics/GaScript";
+import { ChromeGate } from "@/components/layout/ChromeGate";
 import { Header } from "@/components/layout/Header";
 import { CookieConsent } from "@/components/privacy/CookieConsent";
 import { routing } from "@/i18n/routing";
@@ -98,10 +99,14 @@ export default async function LocaleLayout({ children, params }: Props) {
           <a href="#main-content" className="skip-link">
             {tHeader("skipToContent")}
           </a>
-          <Header />
+          <ChromeGate>
+            <Header />
+          </ChromeGate>
           <div className="flex min-h-0 flex-1 flex-col">{children}</div>
           <Analytics />
-          <CookieConsent />
+          <ChromeGate>
+            <CookieConsent />
+          </ChromeGate>
         </NextIntlClientProvider>
       </body>
     </html>

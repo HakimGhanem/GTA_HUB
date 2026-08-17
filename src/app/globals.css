@@ -91,3 +91,17 @@ body {
 .map-measure-cursor .maplibregl-canvas-container {
   cursor: crosshair !important;
 }
+
+/* OBS / Kick browser source — keep page chrome transparent */
+body.overlay-mode,
+body.overlay-mode #main-content {
+  background: transparent !important;
+}
+
+.map-theme-neon .maplibregl-canvas {
+  filter: contrast(1.08) saturate(1.15);
+}
+
+.map-theme-streamer .maplibregl-canvas {
+  filter: contrast(1.05);
+}

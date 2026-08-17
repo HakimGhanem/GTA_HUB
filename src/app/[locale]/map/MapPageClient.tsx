@@ -1,11 +1,16 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { GameMap } from "@/components/map/GameMap";
 import { getGameConfig, parseGameId, type GameId } from "@/lib/games";
-import { mapLocationHref } from "@/lib/map-links";
+import {
+  mapLocationHref,
+  parseMapTheme,
+  rememberCreatorRef,
+  type MapTheme,
+} from "@/lib/map-links";
 
 export function MapPageClient() {
   const searchParams = useSearchParams();
@@ -18,6 +23,14 @@ export function MapPageClient() {
   const loc = searchParams.get("loc");
   const x = searchParams.get("x");
   const y = searchParams.get("y");
+  const zRaw = searchParams.get("z");
+  const z = zRaw != null && zRaw !== "" ? Number(zRaw) : undefined;
+  const theme = parseMapTheme(searchParams.get("theme"));
+  const ref = searchParams.get("ref") ?? undefined;
+
+  useEffect(() => {
+    rememberCreatorRef(ref);
+  }, [ref]);
 
   const fromSlug = loc
     ? game.getLocations().find((l) => l.slug === loc)
@@ -41,27 +54,42 @@ export function MapPageClient() {
     (nextGame: GameId) => {
       const params = new URLSearchParams();
       if (nextGame !== "gta6") params.set("game", nextGame);
+      if (theme !== "default") params.set("theme", theme);
+      if (ref) params.set("ref", ref);
       replaceQuery(params);
     },
-    [replaceQuery],
+    [ref, replaceQuery, theme],
   );
 
   const onDeepLinkChange = useCallback(
-    (opts: { slug?: string; x: number; y: number }) => {
-      const href = mapLocationHref({ ...opts, game: gameId });
+    (opts: {
+      slug?: string;
+      x: number;
+      y: number;
+      z?: number;
+      theme?: MapTheme;
+    }) => {
+      const href = mapLocationHref({
+        ...opts,
+        game: gameId,
+        theme: opts.theme ?? theme,
+        ref,
+      });
       const qs = href.split("?")[1] ?? "";
-      const params = new URLSearchParams(qs);
-      replaceQuery(params);
+      replaceQuery(new URLSearchParams(qs));
     },
-    [gameId, replaceQuery],
+    [gameId, ref, replaceQuery, theme],
   );
 
   return (
     <GameMap
-      key={`${gameId}-${loc ?? ""}-${focus?.x ?? ""}-${focus?.y ?? ""}`}
+      key={`${gameId}-${loc ?? ""}-${focus?.x ?? ""}-${focus?.y ?? ""}-${theme}`}
       gameId={gameId}
       focus={focus}
+      initialZoom={z}
       initialActiveSlug={fromSlug?.slug}
+      theme={theme}
+      creatorRef={ref}
       showSidebar
       className="h-full"
       locale={locale}

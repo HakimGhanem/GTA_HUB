@@ -30,7 +30,13 @@ export function HardwarePromo({
         </Link>
       </div>
       <AffiliateProductGrid
-        intents={["console_upgrade", "controller"]}
+        intents={[
+          "console_upgrade",
+          "controller",
+          "headset",
+          "storage_ssd",
+          "streaming_setup",
+        ]}
         liveOnly
         title={null}
       />

@@ -11,13 +11,14 @@ export type PreorderProduct = {
   badge?: string;
 };
 
-/** Fill ASINs via SiteStripe → paste into .env or Cloud Run env vars */
+/** Fill ASINs via SiteStripe → paste into .env or Cloud Build substitutions */
 export const PREORDER_PRODUCTS: PreorderProduct[] = [
   {
     envKey: "GTA6_PS5",
     asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_PS5 ?? "",
     label: "Grand Theft Auto VI — PS5",
-    description: "Standard edition for PlayStation 5. Digital or physical — check Amazon for current availability.",
+    description:
+      "Standard edition for PlayStation 5. Digital or physical — check Amazon for current availability.",
     platform: "PS5",
     edition: "standard",
     badge: "Most popular",
@@ -34,7 +35,8 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
     envKey: "GTA6_COLLECTORS_PS5",
     asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_COLLECTORS_PS5 ?? "",
     label: "GTA 6 Collector's Edition — PS5",
-    description: "Premium bundle with exclusive in-game items and physical collectibles (when available).",
+    description:
+      "Premium bundle with exclusive in-game items and physical collectibles (when available).",
     platform: "PS5",
     edition: "collectors",
     badge: "Premium",
@@ -50,7 +52,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
   },
   {
     envKey: "PS5",
-    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_PS5 ?? "",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_PS5 ?? "B0FX2VBNMF",
     label: "PlayStation 5 Console",
     description: "Need a console for launch day? Bundle a PS5 with your GTA 6 preorder.",
     platform: "PS5",
@@ -58,7 +60,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
   },
   {
     envKey: "XBOX_SERIES_X",
-    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_XBOX_SERIES_X ?? "",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_XBOX_SERIES_X ?? "B08H93ZRLL",
     label: "Xbox Series X",
     description: "Microsoft's most powerful console — ready for Vice City at 4K.",
     platform: "Xbox",
@@ -66,7 +68,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
   },
   {
     envKey: "DUALSENSE",
-    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_DUALSENSE ?? "",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_DUALSENSE ?? "B094WLFGD3",
     label: "DualSense Wireless Controller",
     description: "Extra controller for co-op sessions and long Vice City nights.",
     platform: "PS5",

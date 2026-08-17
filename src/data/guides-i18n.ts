@@ -82,6 +82,52 @@ const FR: Record<string, LocalizedGuide> = {
       "Plan d’étude pré-lancement : (1) Vice City + Ocean Drive, (2) Keys + Grassrivers, (3) Port Gellhorn + Ambrosia, (4) Mount Kalaga, (5) collectibles. Révision au fil des médias officiels.",
     ],
   },
+  "best-setup-gta-6-ps5-xbox": {
+    title: "Meilleur setup GTA 6 — PS5, Xbox, casque & stockage",
+    description:
+      "Checklist hardware avant le lancement : console, DualSense, casque, SSD et écran 120 Hz.",
+    readTime: 9,
+    content: [
+      "GTA 6 sort le 19 novembre 2026 sur PS5 et Xbox Series X|S. La semaine d’avant est le pire moment pour découvrir une console HS, un SSD plein ou une TV sans HDMI 2.1. Cette page est une checklist d’achat.",
+      "Gardez la plateforme que vous avez déjà. Un second console pour GTA 6 seul est rarement rentable. Si votre machine est saine, passez aux manettes, casque et stockage.",
+      "Le stockage compte : laissez de la marge pour patchs et captures. Un SSD 1 To (compatible console/PC) est le add-on mid-funnel tant que les ASINs jeu ne sont pas live.",
+      "L’audio vend les longues sessions — Pulse 3D ou équivalent pour le chat et les pas. Une DualSense de rechange pour le co-op.",
+      "Écran : pas besoin d’OLED, mais HDMI 2.1 / 120 Hz protège les modes perf. Vérifiez le port HDMI réellement utilisé.",
+      "Les cartes produits ci-dessous sont une shortlist Amazon. Map-6 est fan-made ; certains liens sont affiliés. Pour Standard vs Collector, voir les guides dédiés.",
+      "Créateurs : voir le clip kit Map-6 pour overlay OBS et liens `?theme=streamer&ref=…`.",
+      "Ensuite : console → pad → casque → SSD → écran, puis /map en favori.",
+    ],
+  },
+  "gta-6-collectors-edition": {
+    title: "Édition Collector GTA 6 — ça vaut le coup ?",
+    description:
+      "Comparer Collector vs Standard sur PS5 et Xbox : pour qui payer le premium, et quand précommander.",
+    readTime: 8,
+    content: [
+      "Les Collector monétisent le shelf pride — steelbook, statue, artbook, extras in-game. Standard = le jeu sans la taxe memorabilia. Tant que Rockstar n’a pas publié le contenu exact, traitez chaque liste leak comme provisoire.",
+      "Standard si vous voulez jouer jour-1. Collector si vous collectionnez ou si le stock physique s’évapore. Rarement un avantage Online réel.",
+      "PS5 vs Xbox restent des SKUs séparés ; pas de cross-saves annoncés.",
+      "Les cartes Amazon s’allument dès que les ASINs existent. Sinon, regardez la grille hardware si vous manquez encore d’une machine.",
+      "FOMO : le Collector physique part avant le digital Standard. Souvent Standard + casque/SSD > une boîte ouverte une fois.",
+      "Map-6 est indépendant de Rockstar. Liens affiliés possibles — voir la mention légale.",
+    ],
+  },
+  "gta-6-map-clip-kit": {
+    title: "Clip kit carte GTA 6 — TikTok, Kick & overlay OBS",
+    description:
+      "Deep-links partageables, thème streamer, overlay transparent OBS, tags créateur pour Kick / TikTok / Twitch.",
+    readTime: 7,
+    content: [
+      "Map-6 sert au scrub trailer et à la navigation launch — donc aussi aux clips. Ce kit explique deep-link, thèmes streamer/neon, et overlay transparent OBS / Kick.",
+      "Les URLs portent jeu, lieu, coords, zoom, thème et `ref` créateur. Ex. `/fr/map?loc=ocean-drive&x=420&y=280&z=5&theme=streamer&ref=tonpseudo`. Bouton Share sur la carte.",
+      "Overlay sans chrome : `/fr/overlay?theme=streamer&ref=tonpseudo` (ou bouton Overlay). OBS → Source Navigateur → 1920×1080.",
+      "Thèmes : Default, Streamer (gros labels), Neon (contraste). Persistés dans le lien partagé.",
+      "Workflow : (1) pause trailer, (2) matcher sur Map-6, (3) Share, (4) coller dans la caption TikTok/Kick.",
+      "Hardware créateurs : capture card, casque, écran 120 Hz — cartes produits optionnelles ci-dessous.",
+      "`?ref=` est mémorisé en session pour les prochains Share / Overlay.",
+      "Ouvrez la carte, thème Streamer, copiez Overlay, et sortez un short « trouve ce POI ».",
+    ],
+  },
 };
 
 export function getLocalizedGuide(

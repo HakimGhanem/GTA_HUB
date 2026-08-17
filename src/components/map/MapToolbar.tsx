@@ -3,10 +3,12 @@
 import clsx from "clsx";
 import { formatCoords, type GameCoords } from "@/lib/coordinates";
 import { listGames, type GameId } from "@/lib/games";
+import type { MapTheme } from "@/lib/map-links";
 
 type MapToolbarProps = {
   coords: GameCoords;
   gameId: GameId;
+  theme: MapTheme;
   showSidebarToggle?: boolean;
   sidebarOpen: boolean;
   measureActive: boolean;
@@ -15,12 +17,21 @@ type MapToolbarProps = {
   onToggleMeasure: () => void;
   onFitBounds: () => void;
   onShare: () => void;
+  onCopyOverlay: () => void;
+  onThemeChange: (theme: MapTheme) => void;
   onSelectGame: (game: GameId) => void;
 };
+
+const THEMES: { id: MapTheme; label: string }[] = [
+  { id: "default", label: "Default" },
+  { id: "streamer", label: "Streamer" },
+  { id: "neon", label: "Neon" },
+];
 
 export function MapToolbar({
   coords,
   gameId,
+  theme,
   showSidebarToggle = false,
   sidebarOpen,
   measureActive,
@@ -29,6 +40,8 @@ export function MapToolbar({
   onToggleMeasure,
   onFitBounds,
   onShare,
+  onCopyOverlay,
+  onThemeChange,
   onSelectGame,
 }: MapToolbarProps) {
   const games = listGames();
@@ -72,6 +85,29 @@ export function MapToolbar({
         })}
       </div>
 
+      <div
+        className="pointer-events-auto flex items-center gap-0.5 rounded-lg border border-white/10 bg-black/55 p-0.5 backdrop-blur-md"
+        role="group"
+        aria-label="Map theme"
+      >
+        {THEMES.map((t) => (
+          <button
+            key={t.id}
+            type="button"
+            onClick={() => onThemeChange(t.id)}
+            className={clsx(
+              "rounded-md px-2 py-1 text-[10px] font-semibold tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50",
+              theme === t.id
+                ? "bg-pink-500/25 text-pink-100"
+                : "text-white/45 hover:text-white/75",
+            )}
+            aria-pressed={theme === t.id}
+          >
+            {t.label}
+          </button>
+        ))}
+      </div>
+
       <div className="pointer-events-auto flex flex-wrap justify-end gap-2">
         {showSidebarToggle && (
           <button
@@ -100,6 +136,15 @@ export function MapToolbar({
         </button>
         <button
           type="button"
+          onClick={onCopyOverlay}
+          className="rounded-lg border border-white/15 bg-black/70 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
+          aria-label="Copy OBS overlay URL"
+          title="Copy OBS / Kick browser source URL"
+        >
+          Overlay
+        </button>
+        <button
+          type="button"
           onClick={onToggleMeasure}
           className={clsx(
             "rounded-lg border px-3 py-1.5 text-xs font-medium backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60",
@@ -120,6 +165,12 @@ export function MapToolbar({
           Reset view
         </button>
       </div>
+
+      {shareHint && (
+        <p className="pointer-events-none max-w-[14rem] truncate rounded-md border border-pink-400/30 bg-pink-500/20 px-2 py-1 text-[10px] text-pink-100">
+          {shareHint}
+        </p>
+      )}
 
       <button
         type="button"

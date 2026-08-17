@@ -17,6 +17,8 @@ type LocationMarkersProps = {
   activeSlug?: string;
   measureActive?: boolean;
   mapBounds?: MapBounds;
+  /** Streamer / neon themes — bigger pins + name labels */
+  largeLabels?: boolean;
 };
 
 function ClusterMarker({ count }: { count: number }) {
@@ -35,10 +37,12 @@ function PoiMarker({
   loc,
   isActive,
   onSelect,
+  largeLabels = false,
 }: {
   loc: Location;
   isActive: boolean;
   onSelect: (loc: Location) => void;
+  largeLabels?: boolean;
 }) {
   return (
     <button
@@ -47,19 +51,32 @@ function PoiMarker({
         e.stopPropagation();
         onSelect(loc);
       }}
-      className="group relative flex cursor-pointer items-center justify-center"
+      className="group relative flex cursor-pointer flex-col items-center justify-center"
       title={loc.name}
       data-testid={`poi-marker-${loc.slug}`}
       aria-label={loc.name}
     >
-      {/* Enlarged hit area for easier tapping */}
-      <span className="absolute h-6 w-6 rounded-full" aria-hidden />
+      <span
+        className={`absolute rounded-full ${largeLabels ? "h-8 w-8" : "h-6 w-6"}`}
+        aria-hidden
+      />
       <span
         className={`relative rounded-full ring-2 ring-white/80 transition-transform group-hover:scale-125 ${
-          isActive ? "h-4 w-4" : "h-3 w-3"
+          largeLabels
+            ? isActive
+              ? "h-5 w-5"
+              : "h-4 w-4"
+            : isActive
+              ? "h-4 w-4"
+              : "h-3 w-3"
         }`}
         style={{ backgroundColor: CATEGORY_COLORS[loc.category] ?? "#fff" }}
       />
+      {largeLabels && (
+        <span className="mt-0.5 max-w-[9rem] truncate rounded bg-black/75 px-1 py-0.5 text-[10px] font-semibold leading-none text-white shadow">
+          {loc.name}
+        </span>
+      )}
     </button>
   );
 }
@@ -72,6 +89,7 @@ export function LocationMarkers({
   activeSlug,
   measureActive = false,
   mapBounds,
+  largeLabels = false,
 }: LocationMarkersProps) {
   const [popupLoc, setPopupLoc] = useState<Location | null>(null);
 
@@ -157,6 +175,7 @@ export function LocationMarkers({
               loc={loc}
               isActive={loc.slug === activeSlug}
               onSelect={handleSelect}
+              largeLabels={largeLabels}
             />
           </Marker>
         );

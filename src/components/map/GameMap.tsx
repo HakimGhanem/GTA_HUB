@@ -22,7 +22,12 @@ import {
   getGameConfig,
   type GameId,
 } from "@/lib/games";
-import { mapShareUrl } from "@/lib/map-links";
+import {
+  mapOverlayShareUrl,
+  mapShareUrl,
+  readCreatorRef,
+  type MapTheme,
+} from "@/lib/map-links";
 import { buildMapStyle } from "@/lib/map-style";
 import {
   defaultMapFilters,
@@ -45,17 +50,32 @@ type GameMapProps = {
   focus?: { x: number; y: number };
   /** Highlight + sidebar selection from `?loc=` deep-link */
   initialActiveSlug?: string;
+  initialZoom?: number;
+  theme?: MapTheme;
+  creatorRef?: string;
+  /** OBS / Kick browser source — minimal chrome, transparent-friendly */
+  overlayMode?: boolean;
   className?: string;
   showSidebar?: boolean;
   locale?: string;
   onSelectGame?: (game: GameId) => void;
-  onDeepLinkChange?: (opts: { slug?: string; x: number; y: number }) => void;
+  onDeepLinkChange?: (opts: {
+    slug?: string;
+    x: number;
+    y: number;
+    z?: number;
+    theme?: MapTheme;
+  }) => void;
 };
 
 export function GameMap({
   gameId = DEFAULT_GAME_ID,
   focus,
   initialActiveSlug,
+  initialZoom,
+  theme = "default",
+  creatorRef,
+  overlayMode = false,
   className,
   showSidebar = false,
   locale = "en",
@@ -68,7 +88,8 @@ export function GameMap({
   const [mapLoaded, setMapLoaded] = useState(false);
   const isDesktop = useMediaQuery("(min-width: 768px)");
   const [sidebarOverride, setSidebarOverride] = useState<boolean | null>(null);
-  const sidebarOpen = showSidebar && (sidebarOverride ?? isDesktop);
+  const effectiveSidebar = showSidebar && !overlayMode;
+  const sidebarOpen = effectiveSidebar && (sidebarOverride ?? isDesktop);
   const [filters, setFilters] = useState<MapFilters>(() => defaultMapFilters());
   const debouncedQuery = useDebouncedValue(filters.query);
   const [activeSlug, setActiveSlug] = useState<string | undefined>(
@@ -77,6 +98,7 @@ export function GameMap({
   const [measureActive, setMeasureActive] = useState(false);
   const [measurePoints, setMeasurePoints] = useState<GameCoords[]>([]);
   const [shareHint, setShareHint] = useState<string | undefined>();
+  const [mapTheme, setMapTheme] = useState<MapTheme>(theme);
   const defaultCoords = focus ?? { x: game.center[0], y: game.center[1] };
   const [coords, setCoords] = useState<GameCoords>(defaultCoords);
 
@@ -132,23 +154,33 @@ export function GameMap({
       focus?.y ?? game.center[1],
       bounds,
     );
-    const zoom = focus ? 3 : game.zoom;
+    const zoom =
+      initialZoom != null && Number.isFinite(initialZoom)
+        ? initialZoom
+        : focus
+          ? 3
+          : game.zoom;
     return { longitude: lng, latitude: lat, zoom };
-  }, [focus, game.center, game.zoom, bounds]);
+  }, [focus, game.center, game.zoom, bounds, initialZoom]);
+
+  const currentZoom = useCallback((): number | undefined => {
+    const z = mapRef.current?.getZoom();
+    return z != null && Number.isFinite(z) ? z : undefined;
+  }, []);
 
   const fitMapBounds = useCallback(() => {
     mapRef.current?.fitBounds(mapLibreBounds(bounds), {
-      padding: 40,
-      duration: 800,
+      padding: overlayMode ? 8 : 40,
+      duration: overlayMode ? 0 : 800,
       maxZoom: 6,
     });
-  }, [bounds]);
+  }, [bounds, overlayMode]);
 
   const onMapLoad = useCallback(() => {
     setMapLoaded(true);
-    if (useGtadbNative) fitMapBounds();
+    if (useGtadbNative && initialZoom == null && !focus) fitMapBounds();
     requestAnimationFrame(() => mapRef.current?.getMap().resize());
-  }, [fitMapBounds, useGtadbNative]);
+  }, [fitMapBounds, focus, initialZoom, useGtadbNative]);
 
   const flyTo = useCallback(
     (loc: Location) => {
@@ -156,9 +188,15 @@ export function GameMap({
       mapRef.current?.flyTo({ center: [lng, lat], zoom: 5, duration: 900 });
       setActiveSlug(loc.slug);
       setCoords({ x: loc.x, y: loc.y });
-      onDeepLinkChange?.({ slug: loc.slug, x: loc.x, y: loc.y });
+      onDeepLinkChange?.({
+        slug: loc.slug,
+        x: loc.x,
+        y: loc.y,
+        z: 5,
+        theme: mapTheme,
+      });
     },
-    [bounds, onDeepLinkChange],
+    [bounds, mapTheme, onDeepLinkChange],
   );
 
   const onMouseMove = useCallback(
@@ -190,12 +228,20 @@ export function GameMap({
     setMeasurePoints([]);
   }, []);
 
+  const resolveRef = useCallback(
+    () => creatorRef || readCreatorRef(),
+    [creatorRef],
+  );
+
   const onShare = useCallback(async () => {
     const url = mapShareUrl({
       game: gameId,
       slug: activeSlug,
       x: coords.x,
       y: coords.y,
+      z: currentZoom(),
+      theme: mapTheme,
+      ref: resolveRef(),
       locale,
     });
     try {
@@ -205,10 +251,71 @@ export function GameMap({
     } catch {
       setShareHint(url);
     }
-  }, [activeSlug, coords.x, coords.y, gameId, locale]);
+  }, [
+    activeSlug,
+    coords.x,
+    coords.y,
+    currentZoom,
+    gameId,
+    locale,
+    mapTheme,
+    resolveRef,
+  ]);
+
+  const onCopyOverlay = useCallback(async () => {
+    const url = mapOverlayShareUrl({
+      game: gameId,
+      slug: activeSlug,
+      x: coords.x,
+      y: coords.y,
+      z: currentZoom(),
+      theme: mapTheme === "default" ? "streamer" : mapTheme,
+      ref: resolveRef(),
+      locale,
+    });
+    try {
+      await navigator.clipboard.writeText(url);
+      setShareHint("Overlay URL copied");
+      window.setTimeout(() => setShareHint(undefined), 1600);
+    } catch {
+      setShareHint(url);
+    }
+  }, [
+    activeSlug,
+    coords.x,
+    coords.y,
+    currentZoom,
+    gameId,
+    locale,
+    mapTheme,
+    resolveRef,
+  ]);
+
+  const onThemeChange = useCallback(
+    (next: MapTheme) => {
+      setMapTheme(next);
+      onDeepLinkChange?.({
+        slug: activeSlug,
+        x: coords.x,
+        y: coords.y,
+        z: currentZoom(),
+        theme: next,
+      });
+    },
+    [activeSlug, coords.x, coords.y, currentZoom, onDeepLinkChange],
+  );
+
+  const streamerUi = mapTheme === "streamer" || mapTheme === "neon";
 
   const mapPanel = (
-    <div className={clsx("relative min-w-0 flex-1", className ?? "h-full")}>
+    <div
+      className={clsx(
+        "relative min-w-0 flex-1",
+        mapTheme === "neon" && "map-theme-neon",
+        mapTheme === "streamer" && "map-theme-streamer",
+        className ?? "h-full",
+      )}
+    >
       {mapLoaded && useGtadbNative && <GtadbTileOverlay mapRef={mapRef} />}
 
       <Map
@@ -219,17 +326,25 @@ export function GameMap({
         minZoom={game.minZoom}
         maxZoom={useGtadbNative ? 10 : game.maxZoom}
         onLoad={onMapLoad}
-        onMouseMove={onMouseMove}
+        onMouseMove={overlayMode ? undefined : onMouseMove}
         onClick={onMapClick}
         cursor={measureActive ? "crosshair" : "grab"}
-        style={{ width: "100%", height: "100%", position: "relative", zIndex: 2 }}
+        style={{
+          width: "100%",
+          height: "100%",
+          position: "relative",
+          zIndex: 2,
+          background: overlayMode ? "transparent" : undefined,
+        }}
         attributionControl={false}
         dragRotate={false}
         pitchWithRotate={false}
       >
-        <NavigationControl position="bottom-right" showCompass={false} />
+        {!overlayMode && (
+          <NavigationControl position="bottom-right" showCompass={false} />
+        )}
 
-        {mapLoaded && measureActive && (
+        {mapLoaded && measureActive && !overlayMode && (
           <MapMeasureLayer
             points={measurePoints}
             onClear={() => setMeasurePoints([])}
@@ -247,50 +362,74 @@ export function GameMap({
             activeSlug={activeSlug}
             measureActive={measureActive}
             mapBounds={bounds}
+            largeLabels={streamerUi}
           />
         )}
       </Map>
 
-      <div className="pointer-events-none absolute bottom-3 left-3 z-20 flex flex-col gap-2 sm:bottom-4 sm:left-4">
-        <MapLegend activeCategories={filters.categories} />
-        <MapScaleBar viewport={viewport} />
-        <MapStatusBar
-          viewport={viewport}
-          visibleCount={visibleInViewportCount}
-          totalCount={filteredLocations.length}
-          measureActive={measureActive}
-        />
-      </div>
+      {!overlayMode && (
+        <div className="pointer-events-none absolute bottom-3 left-3 z-20 flex flex-col gap-2 sm:bottom-4 sm:left-4">
+          <MapLegend activeCategories={filters.categories} />
+          <MapScaleBar viewport={viewport} />
+          <MapStatusBar
+            viewport={viewport}
+            visibleCount={visibleInViewportCount}
+            totalCount={filteredLocations.length}
+            measureActive={measureActive}
+          />
+        </div>
+      )}
 
-      {game.attribution && (
+      {overlayMode && (
+        <p
+          className={clsx(
+            "pointer-events-none absolute bottom-3 left-3 z-20 rounded-md px-2 py-1 text-[11px] font-semibold tracking-wide backdrop-blur-sm",
+            mapTheme === "neon"
+              ? "bg-fuchsia-500/30 text-fuchsia-100"
+              : "bg-black/50 text-white/90",
+          )}
+        >
+          MAP<span className="text-pink-300">6</span>
+          {resolveRef() ? ` · @${resolveRef()}` : ""}
+        </p>
+      )}
+
+      {!overlayMode && game.attribution && (
         <p className="pointer-events-none absolute bottom-3 right-14 z-10 max-w-[12rem] text-right text-[9px] leading-tight text-white/30 sm:bottom-4">
           {game.attribution}
         </p>
       )}
 
-      {!useGtadbNative && game.tile.kind === "grid" && !game.primary && (
+      {!overlayMode && !useGtadbNative && game.tile.kind === "grid" && !game.primary && (
         <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-xs -translate-x-1/2 rounded-md border border-white/10 bg-black/50 px-2 py-1 text-center text-[10px] text-white/50 backdrop-blur-sm">
           {game.label} · seed POIs · add raster tiles via env
         </p>
       )}
 
-      <MapToolbar
-        coords={coords}
-        gameId={gameId}
-        showSidebarToggle={showSidebar}
-        sidebarOpen={sidebarOpen}
-        measureActive={measureActive}
-        shareHint={shareHint}
-        onToggleSidebar={() => setSidebarOverride(!(sidebarOverride ?? isDesktop))}
-        onToggleMeasure={toggleMeasure}
-        onFitBounds={fitMapBounds}
-        onShare={onShare}
-        onSelectGame={(id) => onSelectGame?.(id)}
-      />
+      {!overlayMode && (
+        <MapToolbar
+          coords={coords}
+          gameId={gameId}
+          theme={mapTheme}
+          showSidebarToggle={effectiveSidebar}
+          sidebarOpen={sidebarOpen}
+          measureActive={measureActive}
+          shareHint={shareHint}
+          onToggleSidebar={() =>
+            setSidebarOverride(!(sidebarOverride ?? isDesktop))
+          }
+          onToggleMeasure={toggleMeasure}
+          onFitBounds={fitMapBounds}
+          onShare={onShare}
+          onCopyOverlay={onCopyOverlay}
+          onThemeChange={onThemeChange}
+          onSelectGame={(id) => onSelectGame?.(id)}
+        />
+      )}
     </div>
   );
 
-  if (!showSidebar) return mapPanel;
+  if (!effectiveSidebar) return mapPanel;
 
   return (
     <div className="relative flex h-full w-full overflow-hidden">

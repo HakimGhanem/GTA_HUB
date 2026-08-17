@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { HardwarePromo } from "@/components/affiliate/HardwarePromo";
+import { HomeMapHero } from "@/components/home/HomeMapHero";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { LOCATIONS } from "@/data/locations";
 import { listPublishedArticles } from "@/lib/content/repository";
@@ -42,34 +43,19 @@ export default async function HomePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ(faq)) }}
       />
-      <section className="relative overflow-hidden px-4 py-20 text-center">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_center,_#f472b620_0%,_transparent_70%)]" />
-        <div className="relative mx-auto max-w-3xl">
-          <p className="mb-4 text-sm font-medium uppercase tracking-widest text-pink-400">
-            {t("badge")}
-          </p>
-          <h1 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl">
-            {t("title")}
-          </h1>
-          <p className="mb-10 text-lg text-white/60">{t("subtitle")}</p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link
-              href="/map"
-              className="rounded-full bg-pink-500 px-8 py-3 font-semibold text-white transition-colors hover:bg-pink-400"
-            >
-              {t("ctaMap")}
-            </Link>
-            <Link
-              href="/locations"
-              className="rounded-full border border-white/20 px-8 py-3 font-semibold text-white/80 transition-colors hover:border-white/40 hover:text-white"
-            >
-              {t("ctaLocations")}
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      <section className="mx-auto max-w-5xl px-4 pb-12">
+      <HomeMapHero
+        locale={locale}
+        brand={t("title")}
+        ctaFullscreen={t("ctaMap")}
+        ctaGuides={t("ctaSetup")}
+      />
+
+      <section className="mx-auto max-w-5xl px-4 py-12">
+        <p className="mb-8 text-center text-base text-white/55 sm:text-lg">
+          {t("subtitle")}
+        </p>
+
         <div className="mb-10 grid gap-4 sm:grid-cols-2">
           <Link
             href="/collectibles"
@@ -94,7 +80,7 @@ export default async function HomePage({ params }: Props) {
           ))}
         </div>
 
-        <HardwarePromo className="mt-16" />
+        <HardwarePromo className="mt-16" title={t("hardwareTitle")} />
 
         {latestNews.length > 0 ? (
           <section className="mt-16" aria-labelledby="news-heading">

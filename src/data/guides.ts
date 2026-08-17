@@ -23,6 +23,61 @@ export const GUIDES: Guide[] = [
     ],
   },
   {
+    slug: "best-setup-gta-6-ps5-xbox",
+    title: "Best Setup for GTA 6 — PS5, Xbox, Headset & Storage",
+    description:
+      "Launch-day hardware checklist: console upgrade, DualSense, headset, SSD space, and 120Hz display picks before Vice City drops.",
+    category: "beginner",
+    readTime: 9,
+    publishedAt: "2026-08-16",
+    content: [
+      "GTA 6 launches November 19, 2026 on PlayStation 5 and Xbox Series X|S. The week before launch is the worst time to discover a dying console fan, a full SSD, or a TV that cannot do HDMI 2.1. This guide is a purchase-intent checklist — what to lock in now, and what can wait until official ASINs for the game itself go live.",
+      "Start with the platform you already own. Buying a second console just for GTA 6 rarely pays off unless you were upgrading anyway. If your PS5 or Series X is healthy, skip to controllers, headset, and storage. If you are still on last-gen or a shared TV, console_upgrade intent is the highest-ticket decision on this page.",
+      "Storage matters more than marketing slides admit. Open-world Rockstar titles are huge; leave headroom for patches and captures. A 1TB NVMe (console-compatible or PC) is the practical mid-funnel add-on while game editions are not listable yet.",
+      "Audio sells long sessions. A Pulse 3D or equivalent wireless headset keeps party chat and footsteps usable during marathon Vice City nights and Kick/TikTok commentary. Pair it with a DualSense spare if co-op or couch sessions are part of your plan.",
+      "Displays: you do not need an OLED to enjoy GTA 6, but HDMI 2.1 / 120Hz readiness protects performance modes when Rockstar ships them. Treat 4K120 marketing carefully — match the panel to the console HDMI port you will actually use.",
+      "Use the product cards below as an Amazon shortlist. Map-6 is a fan map, not Rockstar; some links are affiliate. When Standard and Collector listings appear, jump to the pre-order guide and the Collector's Edition comparison for edition math.",
+      "Creators: if your “setup” is also a stream kit, open the Map-6 clip kit guide for OBS overlay URLs, capture cards, and shareable map deep-links (`?theme=streamer&ref=yourhandle`).",
+      "Next step: tick console → pad → headset → storage → display, then bookmark /map so launch week is navigation, not shopping panic.",
+    ],
+  },
+  {
+    slug: "gta-6-collectors-edition",
+    title: "GTA 6 Collector's Edition — Worth It vs Standard?",
+    description:
+      "Compare GTA 6 Collector's vs Standard on PS5 and Xbox: who should pay the premium, what usually ships in Rockstar boxes, and when to pre-order.",
+    category: "beginner",
+    readTime: 8,
+    publishedAt: "2026-08-16",
+    content: [
+      "Collector's editions are where Rockstar monetizes shelf pride — steelbooks, statues, art books, and exclusive in-game extras layered on top of the full game. Standard is the playable title without the memorabilia tax. Until Rockstar publishes the exact GTA 6 Collector contents and price, treat every leak list as provisional.",
+      "Buy Standard if you want day-one play and digital convenience. Buy Collector if you keep series memorabilia, want the physical unboxing content, or need SKUs that historically sell out first. Do not buy Collector hoping for a meaningful multiplayer advantage — Rockstar rarely gates core Online power behind box extras.",
+      "Platform choice still matters: PS5 vs Xbox Series X|S editions are separate SKUs, and cross-saves are not announced. Lock the console ecosystem you already use before arguing about statue height.",
+      "Amazon pre-order cards below light up as ASINs appear. Until then, use the console / hardware grid if you still need a launch machine. Pair this page with the full pre-order guide for shipping tips and cancellation norms.",
+      "FOMO check: physical Collector stock evaporates near launch; digital Standard does not. If you are undecided, Standard + a headset/SSD upgrade often feels better day-to-day than a box you open once.",
+      "Map-6 stays independent of Rockstar and Take-Two. Affiliate links may earn a commission on qualifying buys — see the site disclosure.",
+    ],
+  },
+  {
+    slug: "gta-6-map-clip-kit",
+    title: "GTA 6 Map Clip Kit — TikTok, Kick & OBS Overlay",
+    description:
+      "Turn Map-6 into short-form content: shareable deep-links, streamer theme, transparent OBS overlay, and creator ref tags for Kick / TikTok / Twitch.",
+    category: "exploration",
+    readTime: 7,
+    publishedAt: "2026-08-16",
+    content: [
+      "Map-6 is built for trailer scrubbing and launch-week navigation — which also makes it a clip machine. This kit explains how to deep-link a pin, switch to streamer/neon themes, and drop a transparent overlay into OBS or Kick’s browser source.",
+      "Shareable URLs carry game, location, coordinates, zoom, theme, and an optional creator `ref`. Example shape: `/en/map?loc=ocean-drive&x=420&y=280&z=5&theme=streamer&ref=yourhandle`. Hit Share on the map toolbar to copy the current view.",
+      "Overlay mode is chrome-free for Browser Source: open `/en/overlay?theme=streamer&ref=yourhandle` (or use the Overlay button on the map). In OBS: Browser Source → paste URL → width 1920 height 1080 → enable “Shutdown source when not visible” if you want CPU back between segments. Kick / Twitch browser sources use the same URL.",
+      "Themes: Default for browsing, Streamer for large POI labels on camera, Neon for high-contrast Vice City vibes in short-form edits. Themes persist in the share link so your Discord or TikTok caption lands viewers on the same look.",
+      "Clip workflow: (1) scrub Trailer 2, (2) match a neon strip or causeway on Map-6, (3) Share the pin, (4) paste into TikTok/Kick caption with timestamp. Viewers who click keep session time on the map — that is the retention loop.",
+      "Hardware that helps creators convert: capture card for clean console passthrough, headset for commentary, 120Hz display if you mirror gameplay beside the overlay. Product cards below are optional Amazon picks — fill ASINs when ready.",
+      "Attribution: add `?ref=kick-yourname` once; Map-6 remembers it for the session so later Share / Overlay copies keep your tag. No login required.",
+      "Open the interactive map, flip Streamer theme, copy Overlay, and ship the first 15-second “find this POI” short tonight.",
+    ],
+  },
+  {
     slug: "gta-6-map-cities-skylines-2",
     title: "GTA 6 Map in Cities: Skylines II — Explore Leonida in 3D",
     description:
