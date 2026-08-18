@@ -567,7 +567,7 @@
     "updatedAt": "2026-08-10T10:25:00.000Z"
   },
   {
-    "slug": "gta-6-trailer-3-what-we-know",
+    "slug": "netflix-bags-an-exclusive-gta-vi-trailer-for-all-of-six",
     "locale": "en",
     "title": "Netflix Bags An Exclusive GTA VI Trailer... For All Of Six",
     "description": "What we know about gta 6 trailer 3: sources, map context, and what it means for Vice City explorers. Verified coverage from Map-6 — no invented trailer dates.",
@@ -588,7 +588,7 @@
         "title": "Rockstar Games — Grand Theft Auto VI (official)"
       }
     ],
-    "status": "drafted",
+    "status": "published",
     "author": "Map-6 Editorial",
     "relatedLocationSlugs": [
       "vice-city"
@@ -608,11 +608,13 @@
     "mapCtaPath": "/map",
     "id": "5fb8c3eb-6b42-473a-a3a7-c448aa71e910",
     "createdAt": "2026-08-16T20:50:24.150Z",
-    "updatedAt": "2026-08-16T20:50:24.150Z",
-    "seoScore": 100
+    "updatedAt": "2026-08-18T12:05:11.927Z",
+    "seoScore": 100,
+    "publishedAt": "2026-08-18T12:05:11.927Z",
+    "reviewer": "ghanem"
   },
   {
-    "slug": "gta-6-trailer-3-what-we-know",
+    "slug": "gta-6-extended-look-trailer-coming-august-27-on-netflix",
     "locale": "en",
     "title": "GTA 6 \"Extended Look\" Trailer Coming August 27 On Netflix,",
     "description": "What we know about gta 6 trailer 3: sources, map context, and what it means for Vice City explorers. Verified coverage from Map-6 — no invented trailer dates.",
@@ -633,7 +635,7 @@
         "title": "Rockstar Games — Grand Theft Auto VI (official)"
       }
     ],
-    "status": "drafted",
+    "status": "published",
     "author": "Map-6 Editorial",
     "relatedLocationSlugs": [
       "vice-city"
@@ -651,7 +653,9 @@
     "mapCtaPath": "/map",
     "id": "58724e93-ad74-4ffd-a899-66a33d915f21",
     "createdAt": "2026-08-16T20:50:24.589Z",
-    "updatedAt": "2026-08-16T20:50:24.589Z",
-    "seoScore": 100
+    "updatedAt": "2026-08-18T12:05:11.927Z",
+    "seoScore": 100,
+    "publishedAt": "2026-08-18T12:05:11.927Z",
+    "reviewer": "ghanem"
   }
 ]
