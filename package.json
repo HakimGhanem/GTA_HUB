@@ -10,6 +10,7 @@
     "tiles:generate": "bash scripts/generate-pmtiles.sh",
     "tiles:raster": "bash scripts/generate-raster-tiles.sh",
     "tiles:fetch-gtadb": "bash scripts/fetch-gtadb.sh",
+    "tiles:fetch-gtadb-gta5": "bash scripts/fetch-gtadb-gta5.sh",
     "content:detect": "tsx scripts/content/detect-news.mts",
     "content:draft": "tsx scripts/content/generate-draft.mts",
     "content:review": "tsx scripts/content/review.mts",
@@ -18,7 +19,8 @@
     "content:improve": "tsx scripts/content/improve.mts",
     "content:seed": "tsx scripts/content/seed-trailer.mts",
     "content:publish-remote": "tsx scripts/content/publish-remote.mts",
-    "content:daily": "tsx scripts/content/daily-funnel.mts"
+    "content:daily": "tsx scripts/content/daily-funnel.mts",
+    "content:localize": "tsx scripts/content/localize-articles.mts"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.10",
