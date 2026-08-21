@@ -35,6 +35,8 @@ export default async function HomePage({ params }: Props) {
     { question: t("faq.q1"), answer: t("faq.a1") },
     { question: t("faq.q2"), answer: t("faq.a2") },
     { question: t("faq.q3"), answer: t("faq.a3") },
+    { question: t("faq.q4"), answer: t("faq.a4") },
+    { question: t("faq.q5"), answer: t("faq.a5") },
   ];
 
   return (
@@ -52,9 +54,16 @@ export default async function HomePage({ params }: Props) {
       />
 
       <section className="mx-auto max-w-5xl px-4 py-12">
-        <p className="mb-8 text-center text-base text-white/55 sm:text-lg">
+        <p className="mb-4 text-center text-base text-white/55 sm:text-lg">
           {t("subtitle")}
         </p>
+
+        <div className="mb-10 rounded-xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
+          <h2 className="mb-3 text-xl font-bold text-white">{t("introTitle")}</h2>
+          <p className="text-sm leading-relaxed text-white/65 sm:text-base">
+            {t("introBody")}
+          </p>
+        </div>
 
         <div className="mb-10 grid gap-4 sm:grid-cols-2">
           <Link

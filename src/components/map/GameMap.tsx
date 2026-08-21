@@ -17,6 +17,7 @@ import {
   toMapLibreCoords,
   type GameCoords,
 } from "@/lib/coordinates";
+import { GTADB, GTA5_GTADB } from "@/lib/constants";
 import {
   DEFAULT_GAME_ID,
   getGameConfig,
@@ -104,7 +105,11 @@ export function GameMap({
 
   const allLocations = useMemo(() => game.getLocations(), [game]);
   const viewport = useDebouncedMapViewport(mapRef, mapLoaded, 300, bounds);
-  const useGtadbNative = game.tile.kind === "gtadb";
+  const gtadbNative =
+    game.tile.kind === "gtadb" &&
+    (game.id === "gta5" ? GTA5_GTADB.native && GTA5_GTADB.enabled : GTADB.native && GTADB.enabled);
+  const gtadbVersion = game.id === "gta5" ? 5 : 6;
+  const gtadbTileSet = game.id === "gta5" ? GTA5_GTADB.tileSet : GTADB.tileSet;
 
   const effectiveFilters = useMemo(
     () => ({ ...filters, query: debouncedQuery }),
@@ -178,9 +183,9 @@ export function GameMap({
 
   const onMapLoad = useCallback(() => {
     setMapLoaded(true);
-    if (useGtadbNative && initialZoom == null && !focus) fitMapBounds();
+    if (gtadbNative && initialZoom == null && !focus) fitMapBounds();
     requestAnimationFrame(() => mapRef.current?.getMap().resize());
-  }, [fitMapBounds, focus, initialZoom, useGtadbNative]);
+  }, [fitMapBounds, focus, gtadbNative, initialZoom]);
 
   const flyTo = useCallback(
     (loc: Location) => {
@@ -316,7 +321,14 @@ export function GameMap({
         className ?? "h-full",
       )}
     >
-      {mapLoaded && useGtadbNative && <GtadbTileOverlay mapRef={mapRef} />}
+      {mapLoaded && gtadbNative && (
+        <GtadbTileOverlay
+          mapRef={mapRef}
+          bounds={bounds}
+          version={gtadbVersion}
+          tileSet={gtadbTileSet}
+        />
+      )}
 
       <Map
         ref={mapRef}
@@ -324,7 +336,7 @@ export function GameMap({
         mapStyle={mapStyle}
         maxBounds={mapLibreBounds(bounds)}
         minZoom={game.minZoom}
-        maxZoom={useGtadbNative ? 10 : game.maxZoom}
+        maxZoom={gtadbNative ? 10 : game.maxZoom}
         onLoad={onMapLoad}
         onMouseMove={overlayMode ? undefined : onMouseMove}
         onClick={onMapClick}
@@ -400,7 +412,7 @@ export function GameMap({
         </p>
       )}
 
-      {!overlayMode && !useGtadbNative && game.tile.kind === "grid" && !game.primary && (
+      {!overlayMode && !gtadbNative && game.tile.kind === "grid" && !game.primary && (
         <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-xs -translate-x-1/2 rounded-md border border-white/10 bg-black/50 px-2 py-1 text-center text-[10px] text-white/50 backdrop-blur-sm">
           {game.label} · seed POIs · add raster tiles via env
         </p>

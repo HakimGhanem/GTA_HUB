@@ -13,11 +13,16 @@ except ImportError:
     print("❌ Pillow required: pip3 install Pillow")
     sys.exit(1)
 
-# From rolux/gtadb.org maps/maps.js — tileSetRanges
+# From rolux/gtadb.org maps/maps.js — tileSetRanges (max zoom only)
 TILE_RANGES: dict[str, dict[int, list[list[int]]]] = {
     "yanis,13": {6: [[0, 34], [155, 190]]},
     "yanis,12": {6: [[1, 34], [155, 190]]},
     "dupzor,51": {6: [[1, 34], [155, 188]]},
+    "satellite": {6: [[95, 62], [166, 167]]},
+    "hybrid": {6: [[83, 62], [180, 159]]},
+    "terrain": {6: [[95, 62], [166, 167]]},
+    "roadmap": {6: [[83, 62], [180, 159]]},
+    "radar": {6: [[95, 62], [166, 167]]},
 }
 
 MAP_W = 32768
@@ -48,7 +53,13 @@ def downscale(img: Image.Image, max_px: int) -> Image.Image:
     return img.resize(new_size, Image.Resampling.LANCZOS)
 
 
-def stitch(tile_dir: Path, output: Path, tile_set: str) -> None:
+def stitch(
+    tile_dir: Path,
+    output: Path,
+    tile_set: str,
+    manifest_path: Path | None = None,
+    image_url: str | None = None,
+) -> None:
     ranges = TILE_RANGES.get(tile_set) or TILE_RANGES["yanis,13"]
     [[x0, y0], [x1, y1]] = ranges[MAX_Z]
     cols = x1 - x0 + 1
@@ -85,7 +96,7 @@ def stitch(tile_dir: Path, output: Path, tile_set: str) -> None:
         "attribution": "Map tiles © GTADB / GTA VI Mapping Community — CC BY 4.0",
         "attributionUrl": "https://gtadb.org",
         "tileSet": tile_set,
-        "imageUrl": "/tiles/leonida-stitched.jpg",
+        "imageUrl": image_url or f"/tiles/{output.name}",
         "bounds": {
             "minX": min(tl_x, br_x),
             "maxX": max(tl_x, br_x),
@@ -99,16 +110,21 @@ def stitch(tile_dir: Path, output: Path, tile_set: str) -> None:
         "maxZoom": MAX_Z,
     }
 
-    manifest_path = output.parent / "gtadb-manifest.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n")
-    print(f"   Manifest: {manifest_path}")
+    dest = manifest_path or (output.parent / "gtadb-manifest.json")
+    dest.write_text(json.dumps(manifest, indent=2) + "\n")
+    print(f"   Manifest: {dest}")
 
 
 def main() -> None:
     if len(sys.argv) < 4:
-        print("Usage: stitch-gtadb-tiles.py <tile_dir> <output.jpg> <tile_set>")
+        print(
+            "Usage: stitch-gtadb-tiles.py <tile_dir> <output.jpg> <tile_set> "
+            "[manifest.json] [imageUrl]"
+        )
         sys.exit(1)
-    stitch(Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3])
+    manifest = Path(sys.argv[4]) if len(sys.argv) > 4 else None
+    image_url = sys.argv[5] if len(sys.argv) > 5 else None
+    stitch(Path(sys.argv[1]), Path(sys.argv[2]), sys.argv[3], manifest, image_url)
 
 
 if __name__ == "__main__":

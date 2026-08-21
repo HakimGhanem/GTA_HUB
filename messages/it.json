@@ -27,10 +27,16 @@
       "q2": "Come trovo i collezionabili sulla mappa di GTA 6?",
       "a2": "Apri la mappa interattiva, filtra per la categoria Collezionabili, o sfoglia /collectibles per pagine per categoria con link alla mappa.",
       "q3": "Le tessere della mappa sono ufficiali?",
-      "a3": "Le tessere provengono dalla community GTADB (CC BY 4.0) e vengono aggiornate man mano che la community di mapping pubblica nuovi dati."
+      "a3": "Le tessere provengono dalla community GTADB (CC BY 4.0) e vengono aggiornate man mano che la community di mapping pubblica nuovi dati.",
+      "q4": "When does GTA 6 launch?",
+      "a4": "Rockstar / Take-Two have communicated a console launch date of November 19, 2026 for PlayStation 5 and Xbox Series X|S. PC timing is separate and should be treated as unconfirmed here until Rockstar announces it. Map-6 will keep map tools updated around launch week.",
+      "q5": "Is Map-6 free? Do you show ads?",
+      "a5": "Yes, the map and guides are free. We may show clearly labeled Google AdSense units on content pages (not on the fullscreen map/overlay) and disclosed Amazon affiliate links. See About and Privacy for details."
     },
     "newsTitle": "Ultime news",
-    "newsAll": "Tutte le news →"
+    "newsAll": "Tutte le news →",
+    "introTitle": "Why Map-6 exists",
+    "introBody": "Map-6 is a free interactive GTA 6 map and guide hub for Leonida: Vice City, Ocean Drive, Grassrivers, Port Gellhorn, the Keys, and more. Use the map to filter landmarks and collectibles, copy coordinates, measure distances, and share deep links. Read regional guides and sourced news when you need context — we label speculation and we do not invent leaks. Community basemap tiles are attributed to GTADB (CC BY 4.0) where used."
   },
   "locations": {
     "title": "Tutti i luoghi",

@@ -29,6 +29,16 @@ export const GTADB = {
   attributionUrl: "https://gtadb.org",
 } as const;
 
+/** GTA V satellite tiles + landmarks — rolux/gtadb.org maps/tiles/5 (CC BY 4.0) */
+export const GTA5_GTADB = {
+  enabled: process.env.NEXT_PUBLIC_GTA5_GTADB_ENABLED === "true",
+  native: process.env.NEXT_PUBLIC_GTA5_GTADB_NATIVE !== "false",
+  tileSet: process.env.NEXT_PUBLIC_GTA5_GTADB_TILE_SET ?? "satellite",
+  mapImage: process.env.NEXT_PUBLIC_GTA5_GTADB_MAP_IMAGE ?? null,
+  attribution: "GTA V map tiles © GTADB.ORG and contributors — CC BY 4.0",
+  attributionUrl: "https://gtadb.org",
+} as const;
+
 export const MAP_DEFAULTS = {
   center: [
     Number(process.env.NEXT_PUBLIC_MAP_CENTER_X ?? 0),

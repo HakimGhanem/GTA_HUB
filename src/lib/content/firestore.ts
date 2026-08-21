@@ -8,6 +8,18 @@ export const COLLECTIONS = {
 
 let db: Firestore | null | undefined;
 
+function hasExplicitFirebaseCreds(): boolean {
+  return Boolean(
+    process.env.FIREBASE_SERVICE_ACCOUNT_JSON ||
+      process.env.GOOGLE_APPLICATION_CREDENTIALS,
+  );
+}
+
+/** Cloud Run / Functions — safe to use the GCE metadata server. */
+function isGcpRuntime(): boolean {
+  return Boolean(process.env.K_SERVICE || process.env.FUNCTION_TARGET);
+}
+
 /**
  * Returns Firestore when FIRESTORE_ENABLED=true and ADC / credentials work.
  * Returns null to fall back to data/content/*.json file store.
@@ -16,6 +28,11 @@ export async function getFirestore(): Promise<Firestore | null> {
   if (db !== undefined) return db;
 
   if (process.env.FIRESTORE_ENABLED !== "true") {
+    db = null;
+    return null;
+  }
+
+  if (!hasExplicitFirebaseCreds() && !isGcpRuntime()) {
     db = null;
     return null;
   }
@@ -50,7 +67,6 @@ export async function getFirestore(): Promise<Firestore | null> {
           projectId,
         });
       } else {
-        // Cloud Run / GCE metadata server
         initializeApp({ credential: applicationDefault(), projectId });
       }
     }

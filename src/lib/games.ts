@@ -1,4 +1,4 @@
-import { GTADB, MAP_BOUNDS, MAP_DEFAULTS } from "@/lib/constants";
+import { GTADB, GTA5_GTADB, MAP_BOUNDS, MAP_DEFAULTS } from "@/lib/constants";
 import type { Location } from "@/data/locations";
 import { getAllLocations as getGta6Locations } from "@/data/all-locations";
 import { GTA5_LOCATIONS } from "@/data/locations-gta5";
@@ -86,7 +86,8 @@ function gta5Config(): GameConfig {
   const pmtiles = envStr("NEXT_PUBLIC_GTA5_PMTILES_URL");
 
   let tile: GameTileSource = { kind: "grid" };
-  if (raster) tile = { kind: "raster", url: raster };
+  if (GTA5_GTADB.enabled) tile = { kind: "gtadb" };
+  else if (raster) tile = { kind: "raster", url: raster };
   else if (pmtiles) tile = { kind: "pmtiles", url: pmtiles, sourceLayer: "regions" };
 
   return {
@@ -96,24 +97,27 @@ function gta5Config(): GameConfig {
     era: "Los Santos",
     primary: false,
     bounds: {
-      minX: envNum("NEXT_PUBLIC_GTA5_MAP_MIN_X", -4000),
-      maxX: envNum("NEXT_PUBLIC_GTA5_MAP_MAX_X", 4500),
-      minY: envNum("NEXT_PUBLIC_GTA5_MAP_MIN_Y", -4000),
-      maxY: envNum("NEXT_PUBLIC_GTA5_MAP_MAX_Y", 8000),
+      minX: envNum("NEXT_PUBLIC_GTA5_MAP_MIN_X", -4224),
+      maxX: envNum("NEXT_PUBLIC_GTA5_MAP_MAX_X", 4992),
+      minY: envNum("NEXT_PUBLIC_GTA5_MAP_MIN_Y", -5120),
+      maxY: envNum("NEXT_PUBLIC_GTA5_MAP_MAX_Y", 8448),
     },
     center: [
-      envNum("NEXT_PUBLIC_GTA5_MAP_CENTER_X", -250),
-      envNum("NEXT_PUBLIC_GTA5_MAP_CENTER_Y", -800),
+      envNum("NEXT_PUBLIC_GTA5_MAP_CENTER_X", -75),
+      envNum("NEXT_PUBLIC_GTA5_MAP_CENTER_Y", -818),
     ],
-    zoom: 2,
-    minZoom: 0,
+    zoom: GTA5_GTADB.enabled ? -0.5 : 2,
+    minZoom: GTA5_GTADB.enabled ? -2 : 0,
     maxZoom: envNum("NEXT_PUBLIC_GTA5_MAP_MAX_ZOOM", 7),
     tile,
-    attribution: "GTA V community map tiles — configure NEXT_PUBLIC_GTA5_RASTER_TILES_URL",
+    attribution: GTA5_GTADB.enabled
+      ? GTA5_GTADB.attribution
+      : "GTA V community map tiles — configure NEXT_PUBLIC_GTA5_GTADB_ENABLED or NEXT_PUBLIC_GTA5_RASTER_TILES_URL",
+    attributionUrl: GTA5_GTADB.enabled ? GTA5_GTADB.attributionUrl : undefined,
     tileSourceNotes: [
+      "GTADB GTA V satellite — https://gtadb.org (CC BY 4.0)",
+      "npm run tiles:fetch-gtadb-gta5",
       "RiceaRaul/gta-v-map-leaflet (MIT) — Atlas/Satellite/Grid XYZ tiles",
-      "Flamm64/GTA-V-World-Map — calibration reference",
-      "oyuh/w3w-map — Next.js + Leaflet tile hosting pattern",
       "Host as XYZ → NEXT_PUBLIC_GTA5_RASTER_TILES_URL=/tiles/gta5/{z}/{x}/{y}.png",
     ],
     getLocations: () => GTA5_LOCATIONS,

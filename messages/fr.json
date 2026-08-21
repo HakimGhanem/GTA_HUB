@@ -9,7 +9,7 @@
   },
   "home": {
     "title": "Carte interactive GTA 6 gratuite",
-    "subtitle": "1400+ POI sur Vice City & Leonida — filtres, partage de pins, coords. Prête pour le jour J.",
+    "subtitle": "1400+ POIs à travers Vice City et Leonida — filtrez les collectibles, partagez des pins, suivez les coords. Carte GTA 6 gratuite pour le lancement, avec guides qui séparent géographie confirmée et rumeurs.",
     "ctaMap": "Ouvrir la carte interactive",
     "ctaSetup": "Guide setup lancement",
     "hardwareTitle": "Prêt pour le jour J ?",
@@ -27,10 +27,16 @@
       "q2": "Comment trouver les collectibles sur la carte GTA 6 ?",
       "a2": "Ouvrez la carte interactive, filtrez par catégorie Collectibles, ou parcourez /collectibles pour les pages par catégorie avec liens vers la carte.",
       "q3": "Les tuiles cartographiques sont-elles officielles ?",
-      "a3": "Les tuiles proviennent de la communauté GTADB (CC BY 4.0) et sont mises à jour au fil des publications de la communauté de cartographie."
+      "a3": "Les tuiles proviennent de la communauté GTADB (CC BY 4.0) et sont mises à jour au fil des publications de la communauté de cartographie.",
+      "q4": "Quand sort GTA 6 ?",
+      "a4": "Rockstar / Take-Two ont communiqué une sortie consoles le 19 novembre 2026 (PS5 et Xbox Series X|S). Le PC reste à confirmer séparément. Map-6 maintiendra les outils carte autour du lancement.",
+      "q5": "Map-6 est-il gratuit ? Y a-t-il des pubs ?",
+      "a5": "Oui, la carte et les guides sont gratuits. Nous pouvons afficher des unités Google AdSense clairement étiquetées sur les pages contenu (pas sur la carte plein écran) et des liens affiliés Amazon. Voir À propos et Confidentialité."
     },
     "newsTitle": "Dernières actus",
-    "newsAll": "Toutes les actus →"
+    "newsAll": "Toutes les actus →",
+    "introTitle": "Pourquoi Map-6 existe",
+    "introBody": "Map-6 est une carte interactive GTA 6 gratuite et un hub de guides pour Leonida : Vice City, Ocean Drive, Grassrivers, Port Gellhorn, les Keys, et plus. Filtrez landmarks et collectibles, copiez les coordonnées, mesurez, partagez des liens. Les guides et actus donnent du contexte — nous étiquetons la spéculation et n'inventons pas de fuites. Tuiles communautaires GTADB (CC BY 4.0) le cas échéant."
   },
   "locations": {
     "title": "Tous les lieux",

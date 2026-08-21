@@ -1,10 +1,7 @@
+import gtadbGta5Json from "./gtadb-gta5-locations.json";
 import type { Location } from "./locations";
 
-/**
- * Seed POIs for GTA V — approximate in-game coords (FiveM / RageMP space).
- * Wave-1 landmarks only; expand once raster tiles are hosted.
- */
-export const GTA5_LOCATIONS: Location[] = [
+const editorial: Location[] = [
   {
     slug: "gta5-maze-bank",
     name: "Maze Bank Tower",
@@ -94,3 +91,15 @@ export const GTA5_LOCATIONS: Location[] = [
     source: "seed",
   },
 ];
+
+const gtadb = gtadbGta5Json as Location[];
+
+/** Editorial seeds first, then GTADB landmarks (CC BY 4.0) that do not collide on slug. */
+export const GTA5_LOCATIONS: Location[] = (() => {
+  const slugs = new Set(editorial.map((l) => l.slug));
+  const merged = [...editorial];
+  for (const loc of gtadb) {
+    if (!slugs.has(loc.slug)) merged.push(loc);
+  }
+  return merged;
+})();

@@ -1,5 +1,5 @@
 import type { StyleSpecification } from "maplibre-gl";
-import { GTADB } from "./constants";
+import { GTADB, GTA5_GTADB } from "./constants";
 import {
   mapLibreBounds,
   toMapLibreCoords,
@@ -95,8 +95,9 @@ export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID))
   const sourceId = `${game.id}-base`;
 
   if (game.tile.kind === "gtadb") {
-    if (!GTADB.native && GTADB.mapImage) {
-      return buildImageStyle(GTADB.mapImage, bounds, sourceId);
+    const cfg = game.id === "gta5" ? GTA5_GTADB : GTADB;
+    if (!cfg.native && cfg.mapImage) {
+      return buildImageStyle(cfg.mapImage, bounds, sourceId);
     }
     return {
       version: 8 as const,

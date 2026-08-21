@@ -39,7 +39,10 @@ yarn-error.log*
 .cache/
 public/tiles/gtadb/
 public/tiles/leonida-stitched.jpg
+public/tiles/los-santos-stitched.jpg
+public/tiles/gtadb-gta5-manifest.json
 data/gtadb/
+data/gtadb-gta5/
 
 # vercel
 .vercel

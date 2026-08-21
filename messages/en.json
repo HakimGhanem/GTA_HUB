@@ -8,8 +8,9 @@
     "news": "News"
   },
   "home": {
-    "title": "Free Interactive GTA 6 Map",
-    "subtitle": "1400+ POIs on Vice City & Leonida — filter collectibles, share pins, track coords. Built for launch day.",
+    "subtitle": "1400+ POIs across Vice City & Leonida — filter collectibles, share pins, track coords. Free interactive GTA 6 map built for trailer scrubbing and launch day, with guides that separate confirmed trailer geography from rumor.",
+    "introTitle": "Why Map-6 exists",
+    "introBody": "Map-6 is a free interactive GTA 6 map and guide hub for Leonida: Vice City, Ocean Drive, Grassrivers, Port Gellhorn, the Keys, and more. Use the map to filter landmarks and collectibles, copy coordinates, measure distances, and share deep links. Read regional guides and sourced news when you need context — we label speculation and we do not invent leaks. Community basemap tiles are attributed to GTADB (CC BY 4.0) where used.",
     "ctaMap": "Open Interactive Map",
     "ctaSetup": "Launch setup guide",
     "hardwareTitle": "Ready for launch day?",
@@ -18,16 +19,20 @@
     "faqTitle": "FAQ",
     "badge": "GTA VI · Interactive Map",
     "collectiblesCardTitle": "Collectibles",
-    "collectiblesCardDesc": "Hidden packages, stunt jumps, street art & wildlife — track 100% completion.",
+    "collectiblesCardDesc": "Hidden packages, stunt jumps, street art & wildlife — category methods and sample pins (totals pending Rockstar).",
     "guidesCardTitle": "Guides",
-    "guidesCardDesc": "Beginner tips, Vice City breakdowns, and world guides for launch day.",
+    "guidesCardDesc": "Beginner map use, Vice City breakdowns, lore, setup, and clip kit for creators.",
     "faq": {
       "q1": "What is Map-6?",
-      "a1": "Map-6 is a free interactive map for GTA 6, including Vice City and surrounding areas, with POIs, collectibles, coordinates, and search.",
+      "a1": "Map-6 is a free interactive map and editorial site for GTA 6 (Leonida / Vice City). It combines MapLibre map tools — filters, coordinates, measure, shareable links — with location guides, collectible category pages, and news that cites official sources when stating facts. It is a fan project, not affiliated with Rockstar Games or Take-Two.",
       "q2": "How do I find collectibles on the GTA 6 map?",
-      "a2": "Open the interactive map, filter by Collectibles category, or browse /collectibles for category pages with map links.",
+      "a2": "Open the interactive map and filter by Collectibles, or start from /collectibles for category explainers (hidden packages, stunt jumps, street art, wildlife). Pre-launch totals are placeholders — Rockstar has not published final counts. Use Share to copy a pin deep link for friends.",
       "q3": "Are the map tiles official?",
-      "a3": "Map tiles are community-sourced from GTADB (CC BY 4.0) and updated as the mapping community releases new data."
+      "a3": "No. Map tiles and many landmarks come from the GTADB / GTA VI Mapping Community under CC BY 4.0, plus Map-6 editorial hubs. We update as the community releases new data. Always verify pins in the retail game after launch.",
+      "q4": "When does GTA 6 launch?",
+      "a4": "Rockstar / Take-Two have communicated a console launch date of November 19, 2026 for PlayStation 5 and Xbox Series X|S. PC timing is separate and should be treated as unconfirmed here until Rockstar announces it. Map-6 will keep map tools updated around launch week.",
+      "q5": "Is Map-6 free? Do you show ads?",
+      "a5": "Yes, the map and guides are free. We may show clearly labeled Google AdSense units on content pages (not on the fullscreen map/overlay) and disclosed Amazon affiliate links. See About and Privacy for details."
     },
     "newsTitle": "Latest news",
     "newsAll": "All news →"

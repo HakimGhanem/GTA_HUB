@@ -3,18 +3,26 @@
 import { useEffect, useRef } from "react";
 import type { MapRef } from "react-map-gl/maplibre";
 import type { Map as MapLibreMap } from "maplibre-gl";
-import { fromMapLibreCoords, toMapLibreCoords } from "@/lib/coordinates";
-import { GTADB } from "@/lib/constants";
+import {
+  fromMapLibreCoords,
+  toMapLibreCoords,
+  type MapBounds,
+} from "@/lib/coordinates";
 import {
   boxesOverlap,
   getTileRange,
   gtadbTileUrl,
   mapZoomToGtadbZ,
   tileGameBounds,
+  type GtadbVersion,
 } from "@/lib/gtadb-tiles";
 
 type GtadbTileOverlayProps = {
   mapRef: React.RefObject<MapRef | null>;
+  bounds: MapBounds;
+  version: GtadbVersion;
+  tileSet: string;
+  enabled?: boolean;
 };
 
 const tileCache = new Map<string, HTMLImageElement>();
@@ -35,17 +43,27 @@ function loadTile(url: string): Promise<HTMLImageElement> {
   });
 }
 
-function renderTiles(map: MapLibreMap, ctx: CanvasRenderingContext2D, w: number, h: number) {
+function renderTiles(
+  map: MapLibreMap,
+  ctx: CanvasRenderingContext2D,
+  w: number,
+  h: number,
+  gameBounds: MapBounds,
+  version: GtadbVersion,
+  tileSet: string,
+) {
   const bounds = map.getBounds();
+  const sw = fromMapLibreCoords(bounds.getWest(), bounds.getSouth(), gameBounds);
+  const ne = fromMapLibreCoords(bounds.getEast(), bounds.getNorth(), gameBounds);
   const viewBox = {
-    minX: fromMapLibreCoords(bounds.getWest(), bounds.getSouth()).x,
-    maxX: fromMapLibreCoords(bounds.getEast(), bounds.getNorth()).x,
-    minY: fromMapLibreCoords(bounds.getWest(), bounds.getSouth()).y,
-    maxY: fromMapLibreCoords(bounds.getEast(), bounds.getNorth()).y,
+    minX: sw.x,
+    maxX: ne.x,
+    minY: sw.y,
+    maxY: ne.y,
   };
 
   const zInt = mapZoomToGtadbZ(map.getZoom());
-  const [[x0, y0], [x1, y1]] = getTileRange(GTADB.tileSet, zInt);
+  const [[x0, y0], [x1, y1]] = getTileRange(tileSet, zInt);
 
   ctx.clearRect(0, 0, w, h);
   ctx.fillStyle = "#0a0e17";
@@ -56,8 +74,8 @@ function renderTiles(map: MapLibreMap, ctx: CanvasRenderingContext2D, w: number,
       const tb = tileGameBounds(zInt, tx, ty);
       if (!boxesOverlap(tb, viewBox)) continue;
 
-      const nw = toMapLibreCoords(tb.minX, tb.maxY);
-      const se = toMapLibreCoords(tb.maxX, tb.minY);
+      const nw = toMapLibreCoords(tb.minX, tb.maxY, gameBounds);
+      const se = toMapLibreCoords(tb.maxX, tb.minY, gameBounds);
       const tl = map.project([nw.lng, nw.lat]);
       const br = map.project([se.lng, se.lat]);
 
@@ -65,7 +83,7 @@ function renderTiles(map: MapLibreMap, ctx: CanvasRenderingContext2D, w: number,
       const dh = br.y - tl.y;
       if (dw < 1 || dh < 1) continue;
 
-      const url = gtadbTileUrl(zInt, tx, ty);
+      const url = gtadbTileUrl(zInt, tx, ty, version, tileSet);
       const img = tileCache.get(url);
       if (img?.complete && img.naturalWidth > 0) {
         try {
@@ -82,11 +100,17 @@ function renderTiles(map: MapLibreMap, ctx: CanvasRenderingContext2D, w: number,
   }
 }
 
-export function GtadbTileOverlay({ mapRef }: GtadbTileOverlayProps) {
+export function GtadbTileOverlay({
+  mapRef,
+  bounds,
+  version,
+  tileSet,
+  enabled = true,
+}: GtadbTileOverlayProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    if (!GTADB.enabled || !GTADB.native) return;
+    if (!enabled) return;
 
     const map = mapRef.current?.getMap();
     const canvas = canvasRef.current;
@@ -103,7 +127,7 @@ export function GtadbTileOverlay({ mapRef }: GtadbTileOverlayProps) {
 
     const draw = () => {
       resize();
-      renderTiles(map, ctx, canvas.width, canvas.height);
+      renderTiles(map, ctx, canvas.width, canvas.height, bounds, version, tileSet);
     };
 
     map.on("move", draw);
@@ -118,9 +142,9 @@ export function GtadbTileOverlay({ mapRef }: GtadbTileOverlayProps) {
       map.off("resize", draw);
       map.off("load", draw);
     };
-  }, [mapRef]);
+  }, [bounds, enabled, mapRef, tileSet, version]);
 
-  if (!GTADB.enabled || !GTADB.native) return null;
+  if (!enabled) return null;
 
   return (
     <canvas
