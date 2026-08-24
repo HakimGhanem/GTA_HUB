@@ -93,7 +93,7 @@ export function MapPageClient() {
 
   return (
     <GameMap
-      key={`${gameId}-${loc ?? ""}-${focus?.x ?? ""}-${focus?.y ?? ""}-${theme}`}
+      key={`${gameId}-${theme}`}
       gameId={gameId}
       focus={focus}
       initialZoom={z}

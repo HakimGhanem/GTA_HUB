@@ -52,7 +52,7 @@ function OverlayInner() {
 
   return (
     <GameMap
-      key={`${gameId}-${loc ?? ""}-${theme}-overlay`}
+      key={`${gameId}-${theme}-overlay`}
       gameId={gameId}
       focus={focus}
       initialZoom={z}

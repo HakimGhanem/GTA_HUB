@@ -19,8 +19,16 @@ const LAYER_CLUSTER_COUNT = "poi-cluster-count";
 const LAYER_POI_GLOW = "poi-glow";
 const LAYER_POI_DOTS = "poi-dots";
 const LAYER_POI_LABELS = "poi-labels";
+const LAYER_CLUSTER_HIT = "poi-cluster-hit";
+const LAYER_POI_HIT = "poi-hit";
 
-const INTERACTIVE_LAYERS = [LAYER_CLUSTERS, LAYER_POI_DOTS];
+const INTERACTIVE_LAYERS = [
+  LAYER_CLUSTER_HIT,
+  LAYER_CLUSTERS,
+  LAYER_POI_HIT,
+  LAYER_POI_DOTS,
+  LAYER_POI_LABELS,
+];
 
 const UNCLUSTERED: ExpressionSpecification = ["!", ["has", "point_count"]];
 const CLUSTERED: ExpressionSpecification = ["has", "point_count"];
@@ -251,7 +259,7 @@ export function LocationMarkers({
         type="geojson"
         data={geojson}
         cluster
-        clusterMaxZoom={5}
+        clusterMaxZoom={4}
         clusterRadius={48}
       >
         <Layer
@@ -444,6 +452,48 @@ export function LocationMarkers({
               ["==", ["get", "found"], 1],
               0.55,
               0.85,
+            ],
+          }}
+        />
+        <Layer
+          id={LAYER_CLUSTER_HIT}
+          type="circle"
+          filter={CLUSTERED}
+          paint={{
+            "circle-color": "#000000",
+            "circle-opacity": 0,
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["get", "point_count"],
+              2,
+              16 * scale,
+              50,
+              24 * scale,
+              200,
+              30 * scale,
+            ],
+          }}
+        />
+        <Layer
+          id={LAYER_POI_HIT}
+          type="circle"
+          filter={UNCLUSTERED}
+          paint={{
+            "circle-color": "#000000",
+            "circle-opacity": 0,
+            "circle-radius": [
+              "interpolate",
+              ["linear"],
+              ["zoom"],
+              0,
+              12,
+              3,
+              14,
+              6,
+              16,
+              10,
+              18,
             ],
           }}
         />

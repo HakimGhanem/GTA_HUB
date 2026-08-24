@@ -42,9 +42,14 @@ public/tiles/leonida-stitched.jpg
 public/tiles/los-santos-stitched.jpg
 public/tiles/gtadb-gta5-manifest.json
 public/tiles/vc-map.png
+public/tiles/vc-map-src.png
 public/tiles/sa-map.png
 data/gtadb/
 data/gtadb-gta5/
+
+# one-off content agent scripts (keep _shared.mts)
+scripts/content/_*
+!scripts/content/_shared.mts
 
 # vercel
 .vercel
