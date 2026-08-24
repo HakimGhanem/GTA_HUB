@@ -459,6 +459,20 @@ const SLUG_DESCS: Record<string, Partial<Record<Locale, string>>> = {
       de: "GTA-6-Ultimate-Edition: ~89 % der Vorbestellungen (~100 $) laut Analyst — Kauf-Checkliste und Map-6-Karten-Prep.",
       it: "Edizione Ultimate GTA 6: ~89% dei preordini a ~100 $ secondo un analista — checklist acquisto e prep mappa Map-6.",
     },
+  "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel": {
+    fr: "RockstarINTEL : ~89 % des précommandes GTA 6 visent l’édition Ultimate (~100 $) — checklist achat et prep carte Map-6.",
+    es: "RockstarINTEL: ~89% de las preventas de GTA 6 apuntan a la Ultimate (~100 $) — checklist de compra y prep mapa Map-6.",
+    pt: "RockstarINTEL: ~89% das pré-vendas de GTA 6 miram a Ultimate (~100 $) — checklist de compra e prep mapa Map-6.",
+    de: "RockstarINTEL: ~89 % der GTA-6-Vorbestellungen zielen auf Ultimate (~100 $) — Kauf-Checkliste und Map-6-Prep.",
+    it: "RockstarINTEL: ~89% dei preordini GTA 6 puntano all’Ultimate (~100 $) — checklist acquisto e prep mappa Map-6.",
+  },
+  "i-ve-tested-gaming-gear-for-nearly-a-decade-and-these-are-the-areas-of-my-ps5-or": {
+    fr: "TechRadar : upgrades PS5/Xbox testés pour GTA 6 — console, écran, casque, stockage et prep carte Map-6 avant le lancement.",
+    es: "TechRadar: upgrades PS5/Xbox probados para GTA 6 — consola, pantalla, auriculares, almacenamiento y prep mapa Map-6.",
+    pt: "TechRadar: upgrades PS5/Xbox testados para GTA 6 — consola, ecrã, headset, armazenamento e prep mapa Map-6.",
+    de: "TechRadar: getestete PS5/Xbox-Upgrades für GTA 6 — Konsole, Display, Headset, Speicher und Map-6-Karten-Prep.",
+    it: "TechRadar: upgrade PS5/Xbox testati per GTA 6 — console, display, cuffie, storage e prep mappa Map-6 prima del lancio.",
+  },
 };
 
 /** Headline-aware SERP fallback — never “Ce qu’on sait sur {kw}” templates. */
