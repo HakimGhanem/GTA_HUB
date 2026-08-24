@@ -242,19 +242,256 @@ const TITLES: Record<string, Partial<Record<Locale, string>>> = {
       de: "GTA 6 Ultimate: 89 % der Vorbestellungen (~100 $)",
       it: "GTA 6 Ultimate: l’89% dei preordini a ~100 $",
     },
+  "gta-6-preorder-checklist-ps5-xbox": {
+    fr: "Checklist précommande GTA 6 : PS5, Xbox & vérifs",
+    es: "Checklist de preventa GTA 6: PS5, Xbox y qué verificar",
+    pt: "Checklist de pré-venda GTA 6: PS5, Xbox e o que checar",
+    de: "GTA-6-Vorbestell-Checkliste: PS5, Xbox & Checks",
+    it: "Checklist preordine GTA 6: PS5, Xbox e cosa verificare",
+  },
+  "how-to-use-gta-6-interactive-map": {
+    fr: "Comment utiliser la carte interactive GTA 6",
+    es: "Cómo usar el mapa interactivo de GTA 6",
+    pt: "Como usar o mapa interativo de GTA 6",
+    de: "So nutzt du die interaktive GTA-6-Karte",
+    it: "Come usare la mappa interattiva di GTA 6",
+  },
+  "leonida-regions-explained-gta-6": {
+    fr: "Régions de Leonida : Vice City à Grassrivers",
+    es: "Regiones de Leonida: de Vice City a Grassrivers",
+    pt: "Regiões de Leonida: de Vice City a Grassrivers",
+    de: "Leonida-Regionen: Von Vice City bis Grassrivers",
+    it: "Regioni di Leonida: da Vice City a Grassrivers",
+  },
+  "gta-6-map-cities-skylines-2-news": {
+    fr: "Carte GTA 6 en Cities: Skylines II (ID 153426)",
+    es: "Mapa de GTA 6 en Cities: Skylines II (ID 153426)",
+    pt: "Mapa de GTA 6 em Cities: Skylines II (ID 153426)",
+    de: "GTA-6-Karte in Cities: Skylines II (ID 153426)",
+    it: "Mappa GTA 6 in Cities: Skylines II (ID 153426)",
+  },
+  "ocean-drive-gta-6-map-clues": {
+    fr: "Ocean Drive dans GTA 6 : indices carte des trailers",
+    es: "Ocean Drive en GTA 6: pistas del mapa en los tráilers",
+    pt: "Ocean Drive em GTA 6: pistas do mapa nos trailers",
+    de: "Ocean Drive in GTA 6: Karten-Hinweise aus Trailern",
+    it: "Ocean Drive in GTA 6: indizi mappa dai trailer",
+  },
+  "mount-kalaga-gta-6-region": {
+    fr: "Mount Kalaga dans GTA 6 : nord sauvage de Leonida",
+    es: "Mount Kalaga en GTA 6: el norte salvaje de Leonida",
+    pt: "Mount Kalaga em GTA 6: o norte selvagem de Leonida",
+    de: "Mount Kalaga in GTA 6: Leonidas nördliche Wildnis",
+    it: "Mount Kalaga in GTA 6: il nord selvaggio di Leonida",
+  },
+  "gta-6-release-date-platforms": {
+    fr: "Date de sortie GTA 6 & plateformes (2026)",
+    es: "Fecha de lanzamiento de GTA 6 y plataformas (2026)",
+    pt: "Data de lançamento de GTA 6 e plataformas (2026)",
+    de: "GTA-6-Release-Datum & Plattformen (2026)",
+    it: "Data di uscita GTA 6 e piattaforme (2026)",
+  },
+  "gta-6-trailer-3-what-we-know": {
+    fr: "Trailer 3 GTA 6 : faits vérifiés vs rumeurs",
+    es: "Tráiler 3 de GTA 6: hechos verificados vs rumores",
+    pt: "Trailer 3 de GTA 6: factos verificados vs rumores",
+    de: "GTA-6-Trailer 3: Verifizierte Fakten vs. Gerüchte",
+    it: "Trailer 3 di GTA 6: fatti verificati vs rumor",
+  },
+  "gta-6-trailer-watch-map-checklist": {
+    fr: "Checklist trailer GTA 6 pour chasseurs de carte",
+    es: "Checklist de tráiler GTA 6 para cazadores de mapa",
+    pt: "Checklist de trailer GTA 6 para caçadores de mapa",
+    de: "GTA-6-Trailer-Checkliste für Kartenjäger",
+    it: "Checklist trailer GTA 6 per cacciatori di mappa",
+  },
+  "gta-6-extended-look-trailer-coming-august-27-on-netflix": {
+    fr: "Trailer Extended Look GTA 6 le 27 août sur Netflix",
+    es: "Tráiler Extended Look de GTA 6 el 27 de agosto en Netflix",
+    pt: "Trailer Extended Look de GTA 6 a 27 de agosto na Netflix",
+    de: "GTA-6-Extended-Look-Trailer am 27. August auf Netflix",
+    it: "Trailer Extended Look GTA 6 il 27 agosto su Netflix",
+  },
+  "netflix-bags-an-exclusive-gta-vi-trailer-for-all-of-six": {
+    fr: "Netflix et le trailer exclusif GTA VI (6 minutes)",
+    es: "Netflix y el tráiler exclusivo de GTA VI (seis minutos)",
+    pt: "Netflix e o trailer exclusivo de GTA VI (seis minutos)",
+    de: "Netflix und der exklusive GTA-VI-Trailer (sechs Minuten)",
+    it: "Netflix e il trailer esclusivo di GTA VI (sei minuti)",
+  },
+  "new-gta-6-artwork-released-ahead-of-trailer-3-rockstarintel": {
+    fr: "Nouveau artwork GTA 6 avant le Trailer 3",
+    es: "Nuevo artwork de GTA 6 antes del Tráiler 3",
+    pt: "Novo artwork de GTA 6 antes do Trailer 3",
+    de: "Neues GTA-6-Artwork vor Trailer 3",
+    it: "Nuovo artwork di GTA 6 prima del Trailer 3",
+  },
+  "netflix-s-gta-6-trailer-trashed-as-next-level-greed-by-fans-polygon-com": {
+    fr: "Trailer Netflix GTA 6 critiqué : « greed » selon les fans",
+    es: "Tráiler Netflix de GTA 6 criticado por «codicia»",
+    pt: "Trailer Netflix de GTA 6 criticado por «ganância»",
+    de: "Netflix-GTA-6-Trailer: Fans kritisieren «Greed»",
+    it: "Trailer Netflix GTA 6 criticato per «avidità»",
+  },
 };
 
-const DESCS: Record<Locale, (kw: string) => string> = {
-  fr: (kw) =>
-    `Ce qu’on sait sur ${kw} : sources, contexte carte et impact pour Vice City. Couverture Map-6 vérifiée — pas de date inventée.`,
-  es: (kw) =>
-    `Lo que sabemos sobre ${kw}: fuentes, contexto del mapa e impacto en Vice City. Cobertura Map-6 verificada — sin fechas inventadas.`,
-  pt: (kw) =>
-    `O que sabemos sobre ${kw}: fontes, contexto do mapa e impacto em Vice City. Cobertura Map-6 verificada — sem datas inventadas.`,
-  de: (kw) =>
-    `Was wir zu ${kw} wissen: Quellen, Kartenkontext und Vice City. Verifizierte Map-6-Berichterstattung — kein erfundenes Trailer-Datum.`,
-  it: (kw) =>
-    `Cosa sappiamo su ${kw}: fonti, contesto mappa e impatto su Vice City. Copertura Map-6 verificata — niente date inventate.`,
+/** Per-slug SERP descriptions (unique copy — avoid generic “what we know”). */
+const SLUG_DESCS: Record<string, Partial<Record<Locale, string>>> = {
+  "gta-6-preorder-checklist-ps5-xbox": {
+    fr: "Checklist précommande GTA 6 PS5/Xbox : date officielle, éditions à comparer et prep carte Map-6 avant le lancement.",
+    es: "Checklist de preventa GTA 6 PS5/Xbox: fecha oficial, ediciones a comparar y prep del mapa Map-6 antes del lanzamiento.",
+    pt: "Checklist de pré-venda GTA 6 PS5/Xbox: data oficial, edições a comparar e prep do mapa Map-6 antes do lançamento.",
+    de: "GTA-6-Vorbestell-Checkliste PS5/Xbox: offizielles Datum, Editionen vergleichen und Map-6-Karten-Prep vor Launch.",
+    it: "Checklist preordine GTA 6 PS5/Xbox: data ufficiale, edizioni da confrontare e prep mappa Map-6 prima del lancio.",
+  },
+  "how-to-use-gta-6-interactive-map": {
+    fr: "Tutoriel carte interactive GTA 6 Map-6 : filtres, coords, collectibles et pages lieux — gratuit, prêt pour le lancement.",
+    es: "Guía del mapa interactivo GTA 6 Map-6: filtros, coords, coleccionables y páginas de lugares — gratis, listo para el lanzamiento.",
+    pt: "Guia do mapa interativo GTA 6 Map-6: filtros, coords, colecionáveis e páginas de locais — grátis, pronto para o lançamento.",
+    de: "GTA-6-Karten-Tutorial Map-6: Filter, Coords, Collectibles und Ortsseiten — kostenlos, launch-ready.",
+    it: "Guida mappa interattiva GTA 6 Map-6: filtri, coords, collezionabili e pagine luoghi — gratis, pronto al lancio.",
+  },
+  "leonida-regions-explained-gta-6": {
+    fr: "Géographie Leonida GTA 6 : Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers, Ambrosia — liens Map-6 par région.",
+    es: "Geografía de Leonida en GTA 6: Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers, Ambrosia — enlaces Map-6 por región.",
+    pt: "Geografia de Leonida em GTA 6: Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers, Ambrosia — links Map-6 por região.",
+    de: "Leonida-Geografie in GTA 6: Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers, Ambrosia — Map-6-Links je Region.",
+    it: "Geografia di Leonida in GTA 6: Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers, Ambrosia — link Map-6 per regione.",
+  },
+  "gta-6-map-cities-skylines-2-news": {
+    fr: "Noasden reconstruit Leonida dans Cities: Skylines II (~145h, ID 153426). Projet fan vs carte POI Map-6 — pas Rockstar.",
+    es: "Noasden reconstruye Leonida en Cities: Skylines II (~145h, ID 153426). Proyecto fan vs mapa POI Map-6 — no es Rockstar.",
+    pt: "Noasden reconstrói Leonida em Cities: Skylines II (~145h, ID 153426). Projeto fã vs mapa POI Map-6 — não é Rockstar.",
+    de: "Noasden baut Leonida in Cities: Skylines II nach (~145h, ID 153426). Fan-Projekt vs Map-6-POI-Karte — nicht Rockstar.",
+    it: "Noasden ricostruisce Leonida in Cities: Skylines II (~145h, ID 153426). Progetto fan vs mappa POI Map-6 — non Rockstar.",
+  },
+  "ocean-drive-gta-6-map-clues": {
+    fr: "Landmarks Ocean Drive dans les trailers GTA 6 — hôtels néon, front de mer et skyline à repérer sur la carte Map-6.",
+    es: "Hitos de Ocean Drive en los tráilers de GTA 6 — hoteles neón, paseo marítimo y skyline en el mapa Map-6.",
+    pt: "Marcos de Ocean Drive nos trailers de GTA 6 — hotéis neon, beira-mar e skyline no mapa Map-6.",
+    de: "Ocean-Drive-Landmarken aus GTA-6-Trailern — Neon-Hotels, Strandstraße und Skyline auf der Map-6-Karte.",
+    it: "Landmark di Ocean Drive nei trailer di GTA 6 — hotel al neon, lungomare e skyline sulla mappa Map-6.",
+  },
+  "mount-kalaga-gta-6-region": {
+    fr: "Mount Kalaga dans GTA 6 — région nord Leonida nommée par Rockstar, différences avec Grassrivers, ouverture sur Map-6.",
+    es: "Mount Kalaga en GTA 6 — región norte de Leonida nombrada por Rockstar, diferencias con Grassrivers, apertura en Map-6.",
+    pt: "Mount Kalaga em GTA 6 — região norte de Leonida nomeada pela Rockstar, diferenças vs Grassrivers, abertura no Map-6.",
+    de: "Mount Kalaga in GTA 6 — nördliche Leonida-Region von Rockstar, Unterschied zu Grassrivers, Öffnen auf Map-6.",
+    it: "Mount Kalaga in GTA 6 — regione nord di Leonida nominata da Rockstar, differenze vs Grassrivers, apertura su Map-6.",
+  },
+  "gta-6-release-date-platforms": {
+    fr: "Date de sortie officielle GTA 6, plateformes confirmées et impact carte/précommande sur Map-6 — sources Rockstar.",
+    es: "Fecha oficial de GTA 6, plataformas confirmadas e impacto mapa/preventa en Map-6 — fuentes Rockstar.",
+    pt: "Data oficial de GTA 6, plataformas confirmadas e impacto mapa/pré-venda no Map-6 — fontes Rockstar.",
+    de: "Offizielles GTA-6-Release-Datum, bestätigte Plattformen und Karten-/Vorbestell-Impact auf Map-6 — Rockstar-Quellen.",
+    it: "Data ufficiale GTA 6, piattaforme confermate e impatto mappa/preordine su Map-6 — fonti Rockstar.",
+  },
+  "gta-6-trailer-3-what-we-know": {
+    fr: "Statut Trailer 3 GTA 6, faits vs rumeurs et indices carte Map-6. Aucune date inventée — sources officielles seulement.",
+    es: "Estado del Tráiler 3 de GTA 6, hechos vs rumores e indicios del mapa Map-6. Sin fechas inventadas — solo fuentes oficiales.",
+    pt: "Estado do Trailer 3 de GTA 6, factos vs rumores e pistas do mapa Map-6. Sem datas inventadas — só fontes oficiais.",
+    de: "Status GTA-6-Trailer 3, Fakten vs. Gerüchte und Map-6-Kartenhinweise. Kein erfundenes Datum — nur offizielle Quellen.",
+    it: "Stato del Trailer 3 di GTA 6, fatti vs rumor e indizi mappa Map-6. Niente date inventate — solo fonti ufficiali.",
+  },
+  "gta-6-trailer-watch-map-checklist": {
+    fr: "Checklist pour croiser trailers GTA 6 et Map-6 : néon, Keys, Port Gellhorn, Grassrivers, Mount Kalaga.",
+    es: "Checklist para cruzar tráilers de GTA 6 con Map-6: neón, Keys, Port Gellhorn, Grassrivers, Mount Kalaga.",
+    pt: "Checklist para cruzar trailers de GTA 6 com Map-6: néon, Keys, Port Gellhorn, Grassrivers, Mount Kalaga.",
+    de: "Checkliste: GTA-6-Trailer gegen Map-6 abgleichen — Neon, Keys, Port Gellhorn, Grassrivers, Mount Kalaga.",
+    it: "Checklist per confrontare trailer GTA 6 e Map-6: neon, Keys, Port Gellhorn, Grassrivers, Mount Kalaga.",
+  },
+  "gta-6-extended-look-trailer-coming-august-27-on-netflix": {
+    fr: "Extended Look GTA 6 annoncé le 27 août sur Netflix — contexte carte, sources et angles Vice City sur Map-6.",
+    es: "Extended Look de GTA 6 el 27 de agosto en Netflix — contexto mapa, fuentes y ángulos Vice City en Map-6.",
+    pt: "Extended Look de GTA 6 a 27 de agosto na Netflix — contexto mapa, fontes e ângulos Vice City no Map-6.",
+    de: "GTA-6-Extended-Look am 27. August auf Netflix — Kartenkontext, Quellen und Vice-City-Winkel auf Map-6.",
+    it: "Extended Look GTA 6 il 27 agosto su Netflix — contesto mappa, fonti e angoli Vice City su Map-6.",
+  },
+  "netflix-bags-an-exclusive-gta-vi-trailer-for-all-of-six": {
+    fr: "Exclus Netflix du trailer GTA VI (~6 min) : contexte carte Map-6, sources vérifiées — pas de date inventée.",
+    es: "Exclusiva Netflix del tráiler GTA VI (~6 min): contexto mapa Map-6, fuentes verificadas — sin fechas inventadas.",
+    pt: "Exclusivo Netflix do trailer GTA VI (~6 min): contexto mapa Map-6, fontes verificadas — sem datas inventadas.",
+    de: "Netflix-Exklusiv-Trailer GTA VI (~6 Min.): Map-6-Kartenkontext, verifizierte Quellen — kein erfundenes Datum.",
+    it: "Esclusiva Netflix del trailer GTA VI (~6 min): contesto mappa Map-6, fonti verificate — niente date inventate.",
+  },
+  "new-gta-6-artwork-released-ahead-of-trailer-3-rockstarintel": {
+    fr: "Nouvel artwork GTA 6 avant Trailer 3 : indices visuels, contexte carte Map-6 et sources — pas de spoiler inventé.",
+    es: "Nuevo artwork de GTA 6 antes del Tráiler 3: indicios visuales, mapa Map-6 y fuentes — sin spoilers inventados.",
+    pt: "Novo artwork de GTA 6 antes do Trailer 3: pistas visuais, mapa Map-6 e fontes — sem spoilers inventados.",
+    de: "Neues GTA-6-Artwork vor Trailer 3: visuelle Hinweise, Map-6-Kontext und Quellen — keine erfundenen Spoiler.",
+    it: "Nuovo artwork GTA 6 prima del Trailer 3: indizi visivi, contesto Map-6 e fonti — niente spoiler inventati.",
+  },
+  "netflix-s-gta-6-trailer-trashed-as-next-level-greed-by-fans-polygon-com": {
+    fr: "Réactions fans au trailer Netflix GTA 6 (« greed ») : contexte, sources et angles carte Vice City sur Map-6.",
+    es: "Reacción de fans al tráiler Netflix de GTA 6 («codicia»): contexto, fuentes y ángulos mapa Vice City en Map-6.",
+    pt: "Reação dos fãs ao trailer Netflix de GTA 6 («ganância»): contexto, fontes e ângulos mapa Vice City no Map-6.",
+    de: "Fan-Reaktion auf Netflix-GTA-6-Trailer («Greed»): Kontext, Quellen und Vice-City-Kartenwinkel auf Map-6.",
+    it: "Reazione dei fan al trailer Netflix GTA 6 («avidità»): contesto, fonti e angoli mappa Vice City su Map-6.",
+  },
+  "take-two-ceo-teases-more-gta-6-trailers-after-netflix-stream-event-vice": {
+    fr: "Take-Two tease d’autres trailers GTA 6 après Netflix : contexte carte Map-6 et sources — zéro date inventée.",
+    es: "Take-Two anticipa más tráilers de GTA 6 tras Netflix: contexto mapa Map-6 y fuentes — cero fechas inventadas.",
+    pt: "Take-Two sugere mais trailers de GTA 6 após Netflix: contexto mapa Map-6 e fontes — zero datas inventadas.",
+    de: "Take-Two deutet weitere GTA-6-Trailer nach Netflix an: Map-6-Kontext und Quellen — kein erfundenes Datum.",
+    it: "Take-Two anticipa altri trailer GTA 6 dopo Netflix: contesto Map-6 e fonti — zero date inventate.",
+  },
+  "gta-6-trailer-3-expected-to-arrive-within-two-weeks-according-to-insider-tweakto":
+    {
+      fr: "Rumeur insider Trailer 3 GTA 6 sous 2 semaines : on sépare leak et officiel, avec contexte carte Map-6.",
+      es: "Rumor insider: Tráiler 3 de GTA 6 en 2 semanas — separamos leak y oficial, con contexto mapa Map-6.",
+      pt: "Rumor insider: Trailer 3 de GTA 6 em 2 semanas — separamos leak e oficial, com contexto mapa Map-6.",
+      de: "Insider-Gerücht: GTA-6-Trailer 3 in 2 Wochen — Leak vs. offiziell, mit Map-6-Kartenkontext.",
+      it: "Rumor insider: Trailer 3 GTA 6 entro 2 settimane — separiamo leak e ufficiale, con contesto Map-6.",
+    },
+  "gta-6-an-extended-look-on-netflix-confirms-new-trailer-how-to-watch-for-free-and":
+    {
+      fr: "Extended Look Netflix confirme un trailer GTA 6 : comment regarder, contexte carte et liens Map-6.",
+      es: "Extended Look en Netflix confirma tráiler de GTA 6: cómo verlo, contexto mapa y enlaces Map-6.",
+      pt: "Extended Look na Netflix confirma trailer de GTA 6: como assistir, contexto mapa e links Map-6.",
+      de: "Netflix Extended Look bestätigt GTA-6-Trailer: Stream-Tipps, Kartenkontext und Map-6-Links.",
+      it: "Extended Look su Netflix conferma trailer GTA 6: come guardarlo, contesto mappa e link Map-6.",
+    },
+  "for-a-lot-of-people-this-is-the-one-must-buy-game-this-year-and-they-will-want-t":
+    {
+      fr: "Édition Ultimate GTA 6 : ~89 % des précommandes à ~100 $ — checklist achat et prep carte Map-6.",
+      es: "Edición Ultimate de GTA 6: ~89% de preventas a ~100 $ — checklist de compra y prep mapa Map-6.",
+      pt: "Edição Ultimate de GTA 6: ~89% das pré-vendas a ~100 $ — checklist de compra e prep mapa Map-6.",
+      de: "GTA-6-Ultimate-Edition: ~89 % der Vorbestellungen (~100 $) — Kauf-Checkliste und Map-6-Prep.",
+      it: "Edizione Ultimate GTA 6: ~89% dei preordini a ~100 $ — checklist acquisto e prep mappa Map-6.",
+    },
+};
+
+const FALLBACK_DESCS: Record<Locale, (kw: string, cluster: string) => string> = {
+  fr: (kw, cluster) =>
+    cluster === "preorder" || cluster === "release"
+      ? `${kw} : date, plateformes et checklist achat Map-6 — sources officielles uniquement.`
+      : cluster === "map" || cluster === "locations"
+        ? `${kw} : repères carte Leonida, POI Map-6 et liens lieux — couverture vérifiée.`
+        : `${kw} : sources, angle carte Vice City et impact Map-6 — aucune date inventée.`,
+  es: (kw, cluster) =>
+    cluster === "preorder" || cluster === "release"
+      ? `${kw}: fecha, plataformas y checklist de compra Map-6 — solo fuentes oficiales.`
+      : cluster === "map" || cluster === "locations"
+        ? `${kw}: hitos del mapa Leonida, POI Map-6 y enlaces de lugares — cobertura verificada.`
+        : `${kw}: fuentes, ángulo mapa Vice City e impacto Map-6 — sin fechas inventadas.`,
+  pt: (kw, cluster) =>
+    cluster === "preorder" || cluster === "release"
+      ? `${kw}: data, plataformas e checklist de compra Map-6 — só fontes oficiais.`
+      : cluster === "map" || cluster === "locations"
+        ? `${kw}: marcos do mapa Leonida, POI Map-6 e links de locais — cobertura verificada.`
+        : `${kw}: fontes, ângulo mapa Vice City e impacto Map-6 — sem datas inventadas.`,
+  de: (kw, cluster) =>
+    cluster === "preorder" || cluster === "release"
+      ? `${kw}: Datum, Plattformen und Kauf-Checkliste Map-6 — nur offizielle Quellen.`
+      : cluster === "map" || cluster === "locations"
+        ? `${kw}: Leonida-Kartenmarker, Map-6-POIs und Ortslinks — verifizierte Berichterstattung.`
+        : `${kw}: Quellen, Vice-City-Kartenwinkel und Map-6-Impact — kein erfundenes Datum.`,
+  it: (kw, cluster) =>
+    cluster === "preorder" || cluster === "release"
+      ? `${kw}: data, piattaforme e checklist acquisto Map-6 — solo fonti ufficiali.`
+      : cluster === "map" || cluster === "locations"
+        ? `${kw}: marker mappa Leonida, POI Map-6 e link luoghi — copertura verificata.`
+        : `${kw}: fonti, angolo mappa Vice City e impatto Map-6 — niente date inventate.`,
 };
 
 function fill(tpl: string, vars: Record<string, string>) {
@@ -357,7 +594,10 @@ async function main() {
       const title =
         TITLES[en.slug]?.[locale] ||
         `${en.title}`.slice(0, 58);
-      const description = DESCS[locale](en.primaryKeyword).slice(0, 160);
+      const description = (
+        SLUG_DESCS[en.slug]?.[locale] ||
+        FALLBACK_DESCS[locale](en.primaryKeyword, en.cluster)
+      ).slice(0, 160);
       const bodyMarkdown = localizeBody(en, locale, title);
       const article: Article = {
         ...en,
