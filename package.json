@@ -26,6 +26,7 @@
     "content:improve": "tsx scripts/content/improve.mts",
     "content:seed": "tsx scripts/content/seed-trailer.mts",
     "content:publish-remote": "tsx scripts/content/publish-remote.mts",
+    "content:publish-ids": "tsx scripts/content/publish-ids.mts",
     "content:daily": "tsx scripts/content/daily-funnel.mts",
     "content:localize": "tsx scripts/content/localize-articles.mts"
   },

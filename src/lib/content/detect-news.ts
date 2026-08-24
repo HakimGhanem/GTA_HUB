@@ -6,13 +6,17 @@ import { getTopicByEventKey, upsertTopic } from "./repository";
 import type { ContentCluster } from "./schema";
 
 const FEEDS = [
+  // Purchase / setup intent first — higher EPC near launch (Amazon)
+  "https://news.google.com/rss/search?q=GTA+6+preorder+OR+pre-order&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+preorder+price+OR+%22how+much%22+OR+Ultimate+edition&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+collector%27s+edition+OR+%22Ultimate+Edition%22&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+PS5+OR+%22Xbox+Series%22+console+setup&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+best+setup+OR+headset+OR+SSD&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+OR+%22GTA+VI%22+pr%C3%A9commande&hl=fr&gl=FR&ceid=FR:fr",
+  // Trailer / general news — still detected, scored lower for daily picks
   "https://news.google.com/rss/search?q=GTA+6+trailer&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=GTA+VI+OR+%22Grand+Theft+Auto+VI%22&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=Rockstar+Games+GTA+6&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=GTA+6+preorder+OR+pre-order&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=GTA+6+PS5+OR+%22Xbox+Series%22+console&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=GTA+6+collector%27s+edition&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=GTA+6+OR+%22GTA+VI%22+pr%C3%A9commande&hl=fr&gl=FR&ceid=FR:fr",
 ];
 
 const DOMAIN_BOOST = [
@@ -33,24 +37,37 @@ type RssItem = {
 function inferCluster(text: string): ContentCluster {
   const t = text.toLowerCase();
   if (
+    t.includes("pre-order") ||
+    t.includes("preorder") ||
+    t.includes("précommande") ||
+    t.includes("collector") ||
+    t.includes("ultimate edition") ||
+    t.includes("preorder price") ||
+    t.includes("edition price")
+  )
+    return "preorder";
+  if (
     t.includes("headset") ||
     t.includes("ssd") ||
     t.includes("120hz") ||
-    t.includes("setup")
+    t.includes("best setup") ||
+    (t.includes("setup") && /ps5|xbox|console|tv|monitor/i.test(t))
   )
     return "setup";
-  if (t.includes("tiktok") || t.includes("clip") || t.includes("stream"))
-    return "clip";
-  if (t.includes("trailer") || t.includes("gameplay")) return "trailer";
-  if (
-    t.includes("pre-order") ||
-    t.includes("preorder") ||
-    t.includes("collector") ||
-    t.includes("précommande")
-  )
-    return "preorder";
   if (t.includes("release date") || t.includes("launch") || t.includes("delay"))
     return "release";
+  if (
+    t.includes("tiktok") ||
+    t.includes("clip kit") ||
+    t.includes("obs overlay")
+  )
+    return "clip";
+  if (
+    t.includes("trailer") ||
+    t.includes("gameplay") ||
+    t.includes("extended look")
+  )
+    return "trailer";
   if (t.includes("collectible") || t.includes("hidden package"))
     return "collectibles";
   if (
@@ -67,11 +84,21 @@ function scoreItem(title: string, link: string, pubDate?: string): number {
   let score = 40;
   const lower = title.toLowerCase();
   for (const kw of getP0Keywords()) {
-    if (lower.includes(kw.phrase.replace(/gta 6 /g, "").slice(0, 12)))
-      score += 15;
-    if (lower.includes("trailer")) score += 10;
+    const needle = kw.phrase.replace(/gta 6 /g, "").slice(0, 12);
+    if (needle && lower.includes(needle)) {
+      score += kw.monetization === "affiliate" ? 22 : 12;
+    }
   }
+  if (
+    /pre-?order|précommande|ultimate|collector|edition price|preorder price/i.test(
+      lower,
+    )
+  )
+    score += 28;
+  if (/best setup|headset|ssd|120hz|ps5|xbox series/i.test(lower)) score += 18;
+  if (/trailer|gameplay|extended look|netflix/i.test(lower)) score += 6;
   if (DOMAIN_BOOST.some((d) => link.includes(d))) score += 20;
+  if (link.includes("amazon.")) score += 10;
   if (pubDate) {
     const ageH = (Date.now() - new Date(pubDate).getTime()) / 36e5;
     if (ageH < 24) score += 25;

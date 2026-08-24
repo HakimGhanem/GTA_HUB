@@ -2094,17 +2094,18 @@
     "cluster": "preorder",
     "score": 100,
     "eventKey": "89-of-gta-6-pre-orders-are-for-the-ultimate-edit-b74dcd2d",
-    "status": "scored",
+    "status": "drafted",
     "primaryKeywordHint": "gta 6 preorder ps5",
     "funnelKind": "purchase",
     "affiliateIntents": [
-      "preorder_standard"
+      "preorder_standard",
+      "preorder_collectors"
     ],
     "clipHook": "🛒 89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL — link in bio / Map-6 preorder picks",
     "funnelScore": 100,
     "id": "e393fb31-0811-436f-81e2-9552a34ff5e7",
     "createdAt": "2026-08-16T20:50:21.490Z",
-    "updatedAt": "2026-08-16T20:50:21.490Z"
+    "updatedAt": "2026-08-24T12:59:28.503Z"
   },
   {
     "headline": "'GTA VI' pre-orders hit eye-watering levels for Take-Two Interactive - Mashable",
@@ -2451,18 +2452,17 @@
     "cluster": "preorder",
     "score": 100,
     "eventKey": "gta-vi-has-been-pre-ordered-4-3-million-times-wi-9e9fc35e",
-    "status": "scored",
+    "status": "drafted",
     "primaryKeywordHint": "gta 6 preorder ps5",
     "funnelKind": "purchase",
     "affiliateIntents": [
-      "preorder_standard",
-      "retro_gta"
+      "preorder_standard"
     ],
     "clipHook": "🛒 GTA VI has been pre-ordered 4.3 million times, with 89% of copies being the $100 edition,  — link in bio / Map-6 preorder picks",
     "funnelScore": 100,
     "id": "5f5db587-fc8a-4485-95f3-f7a40fd83fc3",
     "createdAt": "2026-08-16T20:50:21.516Z",
-    "updatedAt": "2026-08-16T20:50:21.516Z"
+    "updatedAt": "2026-08-24T12:58:13.322Z"
   },
   {
     "headline": "The Business of Grand Theft Auto VI, Explained: How a Billion Dollar Game Is Likely to Pay Off - Darden Report Online",

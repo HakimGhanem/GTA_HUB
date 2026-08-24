@@ -4893,7 +4893,7 @@
         "title": "Rockstar Games — Grand Theft Auto VI (official)"
       }
     ],
-    "status": "drafted",
+    "status": "published",
     "author": "Map-6 Editorial",
     "relatedLocationSlugs": [
       "vice-city"
@@ -4914,7 +4914,254 @@
     "mapCtaPath": "/map",
     "id": "18738c80-05cd-481e-ad2d-e894947c3fc1",
     "createdAt": "2026-08-24T12:59:28.487Z",
-    "updatedAt": "2026-08-24T12:59:28.487Z",
-    "seoScore": 100
+    "updatedAt": "2026-08-24T12:59:53.944Z",
+    "seoScore": 100,
+    "reviewer": "growth",
+    "publishedAt": "2026-08-24T12:59:53.935Z"
+  },
+  {
+    "slug": "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel",
+    "locale": "fr",
+    "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc",
+    "description": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc. Contexte carte Map-6, sources vérifiées — pas de date de trailer inventée.",
+    "bodyMarkdown": "## Quoi de neuf\n\n89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL\n\nMap-6 en fait une **page funnel** : deep-link carte + intention purchase — pas un dump d’actu générique.\n\n## Faits vérifiés vs rumeurs\n\n- **Confirmé** : uniquement ce que Rockstar a dit ou montré dans des médias officiels.\n- **Rumeurs** : les leaks restent clairement non vérifiés — on n’invente pas de date de trailer.\n\nMot-clé principal: **gta 6 preorder ps5**.\n\n## Achat / setup\n\n- Full picks: [Guide précommande GTA 6](/fr/guides/gta-6-preorder-guide)\n- Les slots affiliation se remplissent dès que les ASINs officiels existent.\n\n## Angle carte & lieux\n\n- [Carte interactive](/fr/map)\n- [Tous les lieux](/fr/locations)\n- [Guide carte débutant](/fr/guides/gta-6-map-guide)\n\n## Kit clip (TikTok / Kick)\n\n> 89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — décryptage Map-6\n\n1. Ouvre le pin sur la [carte interactive](/fr/map).\n2. Filme le HUD (coords + nom du POI) — Share copie un deep link.\n3. CTA : lien map en bio + guide précommande si le clip est côté achat.\n\n## Et ensuite\n\n1. Ouvre la [carte interactive Map-6](/fr/map) et Share le pin.\n2. Pour le hardware / éditions : [guide précommande](/fr/guides/gta-6-preorder-guide).\n3. Classiques : [carte GTA 5](/fr/map?game=gta5) ou [San Andreas](/fr/map?game=sa) en attendant VI.\n\n## Sources\n\nCitations sortantes utilisées pour ce brouillon — voir la liste ci-dessous.\n",
+    "cluster": "preorder",
+    "primaryKeyword": "gta 6 preorder ps5",
+    "secondaryKeywords": [
+      "gta 6 collector edition",
+      "gta 6 ultimate edition",
+      "gta 6 preorder price"
+    ],
+    "sources": [
+      {
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQUNLTnUtbmswa18wcmJIT3BBdnBkSFh5Y2dDcHM0bXpaWm9qaU5HTHZtRmUzakpYWGxUM0dhZjFuZEljTF9aN1RhVmZtMHBITGhQLWJ4NGJaUzZBYS1udGxBVzVNYU1QSFhsa0xMWGtoZGpHWmNSYjdUSVE2VTVaR1Frb0w?oc=5",
+        "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL"
+      },
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI (official)"
+      }
+    ],
+    "status": "published",
+    "author": "Map-6 Editorial",
+    "relatedLocationSlugs": [
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide",
+      "gta-6-preorder-guide"
+    ],
+    "notes": "Localized from 18738c80-05cd-481e-ad2d-e894947c3fc1 (en)",
+    "eventKey": "89-of-gta-6-pre-orders-are-for-the-ultimate-edit-b74dcd2d-fr",
+    "heroImage": "/og-default.png",
+    "funnelKind": "purchase",
+    "affiliateIntents": [
+      "preorder_standard",
+      "preorder_collectors"
+    ],
+    "clipHook": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — décryptage Map-6",
+    "mapCtaPath": "/map",
+    "id": "3f87e5d9-bbdc-45b5-b709-b1f13e89a4c9",
+    "createdAt": "2026-08-24T13:00:18.980Z",
+    "updatedAt": "2026-08-24T13:00:18.980Z",
+    "seoScore": 100,
+    "reviewer": "localize",
+    "publishedAt": "2026-08-24T13:00:18.980Z"
+  },
+  {
+    "slug": "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel",
+    "locale": "es",
+    "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc",
+    "description": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc. Contexto de mapa Map-6, fuentes verificadas — sin fechas de tráiler inventadas.",
+    "bodyMarkdown": "## Novedades\n\n89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL\n\nMap-6 lo convierte en una **página funnel**: deep-link del mapa + intención purchase — no un volcado de noticias genéricas.\n\n## Hechos verificados vs rumores\n\n- **Confirmado**: solo lo que Rockstar ha dicho o mostrado en medios oficiales.\n- **Rumores**: los leaks se etiquetan como no verificados — no inventamos fechas de tráiler.\n\nKeyword principal: **gta 6 preorder ps5**.\n\n## Compra / setup\n\n- Full picks: [Guía de preventa GTA 6](/es/guides/gta-6-preorder-guide)\n- Los slots de afiliados se rellenan cuando existan ASINs oficiales.\n\n## Ángulo mapa y lugares\n\n- [Mapa interactivo](/es/map)\n- [Todos los lugares](/es/locations)\n- [Guía del mapa para principiantes](/es/guides/gta-6-map-guide)\n\n## Kit de clip (TikTok / Kick)\n\n> 89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — análisis Map-6\n\n1. Abre el pin en el [mapa interactivo](/es/map).\n2. Graba el HUD (coords + nombre del POI) — Share copia un deep link.\n3. CTA: link del mapa en bio + guía de preventa si el clip es de compra.\n\n## Qué hacer ahora\n\n1. Abre el [mapa interactivo Map-6](/es/map) y comparte el pin.\n2. Para hardware / ediciones: [guía de preventa](/es/guides/gta-6-preorder-guide).\n3. Clásicos: [mapa GTA 5](/es/map?game=gta5) o [San Andreas](/es/map?game=sa) mientras llega VI.\n\n## Fuentes\n\nCitas usadas en este borrador — ver lista abajo.\n",
+    "cluster": "preorder",
+    "primaryKeyword": "gta 6 preorder ps5",
+    "secondaryKeywords": [
+      "gta 6 collector edition",
+      "gta 6 ultimate edition",
+      "gta 6 preorder price"
+    ],
+    "sources": [
+      {
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQUNLTnUtbmswa18wcmJIT3BBdnBkSFh5Y2dDcHM0bXpaWm9qaU5HTHZtRmUzakpYWGxUM0dhZjFuZEljTF9aN1RhVmZtMHBITGhQLWJ4NGJaUzZBYS1udGxBVzVNYU1QSFhsa0xMWGtoZGpHWmNSYjdUSVE2VTVaR1Frb0w?oc=5",
+        "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL"
+      },
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI (official)"
+      }
+    ],
+    "status": "published",
+    "author": "Map-6 Editorial",
+    "relatedLocationSlugs": [
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide",
+      "gta-6-preorder-guide"
+    ],
+    "notes": "Localized from 18738c80-05cd-481e-ad2d-e894947c3fc1 (en)",
+    "eventKey": "89-of-gta-6-pre-orders-are-for-the-ultimate-edit-b74dcd2d-es",
+    "heroImage": "/og-default.png",
+    "funnelKind": "purchase",
+    "affiliateIntents": [
+      "preorder_standard",
+      "preorder_collectors"
+    ],
+    "clipHook": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — análisis Map-6",
+    "mapCtaPath": "/map",
+    "id": "2f35e82a-0c3a-4918-83cf-340060249429",
+    "createdAt": "2026-08-24T13:00:18.980Z",
+    "updatedAt": "2026-08-24T13:00:18.980Z",
+    "seoScore": 100,
+    "reviewer": "localize",
+    "publishedAt": "2026-08-24T13:00:18.980Z"
+  },
+  {
+    "slug": "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel",
+    "locale": "pt",
+    "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc",
+    "description": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc. Contexto de mapa Map-6, fontes verificadas — sem datas de trailer inventadas.",
+    "bodyMarkdown": "## Novidades\n\n89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL\n\nA Map-6 transforma isto numa **página funnel**: deep-link do mapa + intenção purchase — não um dump de notícias genéricas.\n\n## Factos verificados vs rumores\n\n- **Confirmado**: apenas o que a Rockstar disse ou mostrou em media oficiais.\n- **Rumores**: leaks ficam claramente não verificados — não inventamos data de trailer.\n\nKeyword principal: **gta 6 preorder ps5**.\n\n## Compra / setup\n\n- Full picks: [Guia de pré-venda GTA 6](/pt/guides/gta-6-preorder-guide)\n- Os slots de afiliados preenchem-se quando houver ASINs oficiais.\n\n## Ângulo mapa e locais\n\n- [Mapa interativo](/pt/map)\n- [Todos os locais](/pt/locations)\n- [Guia do mapa para iniciantes](/pt/guides/gta-6-map-guide)\n\n## Kit de clip (TikTok / Kick)\n\n> 89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — análise Map-6\n\n1. Abre o pin no [mapa interativo](/pt/map).\n2. Grava o HUD (coords + nome do POI) — Share copia um deep link.\n3. CTA: link do mapa na bio + guia de pré-venda se o clip for de compra.\n\n## Próximos passos\n\n1. Abre o [mapa interativo Map-6](/pt/map) e partilha o pin.\n2. Para hardware / edições: [guia de pré-venda](/pt/guides/gta-6-preorder-guide).\n3. Clássicos: [mapa GTA 5](/pt/map?game=gta5) ou [San Andreas](/pt/map?game=sa) à espera do VI.\n\n## Fontes\n\nCitações usadas neste rascunho — ver lista abaixo.\n",
+    "cluster": "preorder",
+    "primaryKeyword": "gta 6 preorder ps5",
+    "secondaryKeywords": [
+      "gta 6 collector edition",
+      "gta 6 ultimate edition",
+      "gta 6 preorder price"
+    ],
+    "sources": [
+      {
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQUNLTnUtbmswa18wcmJIT3BBdnBkSFh5Y2dDcHM0bXpaWm9qaU5HTHZtRmUzakpYWGxUM0dhZjFuZEljTF9aN1RhVmZtMHBITGhQLWJ4NGJaUzZBYS1udGxBVzVNYU1QSFhsa0xMWGtoZGpHWmNSYjdUSVE2VTVaR1Frb0w?oc=5",
+        "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL"
+      },
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI (official)"
+      }
+    ],
+    "status": "published",
+    "author": "Map-6 Editorial",
+    "relatedLocationSlugs": [
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide",
+      "gta-6-preorder-guide"
+    ],
+    "notes": "Localized from 18738c80-05cd-481e-ad2d-e894947c3fc1 (en)",
+    "eventKey": "89-of-gta-6-pre-orders-are-for-the-ultimate-edit-b74dcd2d-pt",
+    "heroImage": "/og-default.png",
+    "funnelKind": "purchase",
+    "affiliateIntents": [
+      "preorder_standard",
+      "preorder_collectors"
+    ],
+    "clipHook": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — análise Map-6",
+    "mapCtaPath": "/map",
+    "id": "8431e99c-3c57-415b-a23b-5087b70dc9d0",
+    "createdAt": "2026-08-24T13:00:18.980Z",
+    "updatedAt": "2026-08-24T13:00:18.980Z",
+    "seoScore": 100,
+    "reviewer": "localize",
+    "publishedAt": "2026-08-24T13:00:18.980Z"
+  },
+  {
+    "slug": "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel",
+    "locale": "de",
+    "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc",
+    "description": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc. Map-6-Kartenkontext, geprüfte Quellen — kein erfundenes Trailer-Datum.",
+    "bodyMarkdown": "## Was gibt’s Neues\n\n89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL\n\nMap-6 macht daraus eine **Funnel-Seite**: Map-Deep-Link + Intent purchase — kein generischer News-Dump.\n\n## Verifizierte Fakten vs. Gerüchte\n\n- **Bestätigt**: nur was Rockstar gesagt oder in offiziellen Medien gezeigt hat.\n- **Gerüchte**: Leaks bleiben klar unverifiziert — wir erfinden kein Trailer-Datum.\n\nPrimary keyword: **gta 6 preorder ps5**.\n\n## Kauf / Setup\n\n- Full picks: [GTA-6-Vorbestell-Guide](/de/guides/gta-6-preorder-guide)\n- Affiliate-Slots werden gefüllt, sobald offizielle ASINs live sind.\n\n## Karten- & Ortswinkel\n\n- [Interaktive Karte](/de/map)\n- [Alle Orte](/de/locations)\n- [Karten-Guide für Einsteiger](/de/guides/gta-6-map-guide)\n\n## Clip-Kit (TikTok / Kick)\n\n> 89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — Map-6 Deep Dive\n\n1. Öffne den Pin auf der [interaktiven Karte](/de/map).\n2. Nimm das HUD auf (Coords + POI-Name) — Share kopiert einen Deep Link.\n3. CTA: Map-Link in der Bio + Vorbestell-Guide, wenn der Clip kaufnah ist.\n\n## Nächste Schritte\n\n1. Öffne die [Map-6 interaktive Karte](/de/map) und teile den Pin.\n2. Für Hardware / Editionen: [Vorbestell-Guide](/de/guides/gta-6-preorder-guide).\n3. Klassiker: [GTA-5-Karte](/de/map?game=gta5) oder [San Andreas](/de/map?game=sa), bis VI kommt.\n\n## Quellen\n\nZitationen für diesen Entwurf — siehe Liste unten.\n",
+    "cluster": "preorder",
+    "primaryKeyword": "gta 6 preorder ps5",
+    "secondaryKeywords": [
+      "gta 6 collector edition",
+      "gta 6 ultimate edition",
+      "gta 6 preorder price"
+    ],
+    "sources": [
+      {
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQUNLTnUtbmswa18wcmJIT3BBdnBkSFh5Y2dDcHM0bXpaWm9qaU5HTHZtRmUzakpYWGxUM0dhZjFuZEljTF9aN1RhVmZtMHBITGhQLWJ4NGJaUzZBYS1udGxBVzVNYU1QSFhsa0xMWGtoZGpHWmNSYjdUSVE2VTVaR1Frb0w?oc=5",
+        "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL"
+      },
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI (official)"
+      }
+    ],
+    "status": "published",
+    "author": "Map-6 Editorial",
+    "relatedLocationSlugs": [
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide",
+      "gta-6-preorder-guide"
+    ],
+    "notes": "Localized from 18738c80-05cd-481e-ad2d-e894947c3fc1 (en)",
+    "eventKey": "89-of-gta-6-pre-orders-are-for-the-ultimate-edit-b74dcd2d-de",
+    "heroImage": "/og-default.png",
+    "funnelKind": "purchase",
+    "affiliateIntents": [
+      "preorder_standard",
+      "preorder_collectors"
+    ],
+    "clipHook": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — Map-6 Deep Dive",
+    "mapCtaPath": "/map",
+    "id": "c51c20ef-ebc8-42fd-b8d4-d26f0f58b483",
+    "createdAt": "2026-08-24T13:00:18.980Z",
+    "updatedAt": "2026-08-24T13:00:18.980Z",
+    "seoScore": 100,
+    "reviewer": "localize",
+    "publishedAt": "2026-08-24T13:00:18.980Z"
+  },
+  {
+    "slug": "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel",
+    "locale": "it",
+    "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc",
+    "description": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc. Contesto mappa Map-6, fonti verificate — niente date trailer inventate.",
+    "bodyMarkdown": "## Novità\n\n89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL\n\nMap-6 ne fa una **pagina funnel**: deep-link mappa + intent purchase — non un dump di news generiche.\n\n## Fatti verificati vs rumor\n\n- **Confermato**: solo ciò che Rockstar ha detto o mostrato nei media ufficiali.\n- **Rumor**: i leak restano chiaramente non verificati — non inventiamo date del trailer.\n\nKeyword principale: **gta 6 preorder ps5**.\n\n## Acquisto / setup\n\n- Full picks: [Guida preordine GTA 6](/it/guides/gta-6-preorder-guide)\n- Gli slot affiliate si riempiono quando ci sono ASIN ufficiali.\n\n## Angolo mappa e luoghi\n\n- [Mappa interattiva](/it/map)\n- [Tutti i luoghi](/it/locations)\n- [Guida mappa per principianti](/it/guides/gta-6-map-guide)\n\n## Kit clip (TikTok / Kick)\n\n> 89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — approfondimento Map-6\n\n1. Apri il pin sulla [mappa interattiva](/it/map).\n2. Registra l’HUD (coords + nome POI) — Share copia un deep link.\n3. CTA: link mappa in bio + guida preordine se il clip è di acquisto.\n\n## Cosa fare ora\n\n1. Apri la [mappa interattiva Map-6](/it/map) e condividi il pin.\n2. Per hardware / edizioni: [guida preordine](/it/guides/gta-6-preorder-guide).\n3. Classici: [mappa GTA 5](/it/map?game=gta5) o [San Andreas](/it/map?game=sa) in attesa di VI.\n\n## Fonti\n\nCitazioni usate in questa bozza — vedi elenco sotto.\n",
+    "cluster": "preorder",
+    "primaryKeyword": "gta 6 preorder ps5",
+    "secondaryKeywords": [
+      "gta 6 collector edition",
+      "gta 6 ultimate edition",
+      "gta 6 preorder price"
+    ],
+    "sources": [
+      {
+        "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPQUNLTnUtbmswa18wcmJIT3BBdnBkSFh5Y2dDcHM0bXpaWm9qaU5HTHZtRmUzakpYWGxUM0dhZjFuZEljTF9aN1RhVmZtMHBITGhQLWJ4NGJaUzZBYS1udGxBVzVNYU1QSFhsa0xMWGtoZGpHWmNSYjdUSVE2VTVaR1Frb0w?oc=5",
+        "title": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - RockstarINTEL"
+      },
+      {
+        "url": "https://www.rockstargames.com/VI",
+        "title": "Rockstar Games — Grand Theft Auto VI (official)"
+      }
+    ],
+    "status": "published",
+    "author": "Map-6 Editorial",
+    "relatedLocationSlugs": [
+      "vice-city"
+    ],
+    "relatedGuideSlugs": [
+      "gta-6-map-guide",
+      "gta-6-preorder-guide"
+    ],
+    "notes": "Localized from 18738c80-05cd-481e-ad2d-e894947c3fc1 (en)",
+    "eventKey": "89-of-gta-6-pre-orders-are-for-the-ultimate-edit-b74dcd2d-it",
+    "heroImage": "/og-default.png",
+    "funnelKind": "purchase",
+    "affiliateIntents": [
+      "preorder_standard",
+      "preorder_collectors"
+    ],
+    "clipHook": "89% Of GTA 6 Pre-Orders Are For The Ultimate Edition - Roc — approfondimento Map-6",
+    "mapCtaPath": "/map",
+    "id": "51cd34c8-bfd5-4a2d-848f-e29091e308a8",
+    "createdAt": "2026-08-24T13:00:18.980Z",
+    "updatedAt": "2026-08-24T13:00:18.980Z",
+    "seoScore": 100,
+    "reviewer": "localize",
+    "publishedAt": "2026-08-24T13:00:18.980Z"
   }
 ]

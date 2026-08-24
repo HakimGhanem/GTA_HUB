@@ -119,6 +119,17 @@ export function computeFunnelScore(input: {
   ) {
     score -= 14;
   }
+  // Trailer-only headlines cap below purchase funnels even when RSS base score is high
+  if (
+    cluster === "trailer" &&
+    !revenueTop &&
+    /trailer|gameplay|extended look|netflix|easter egg/i.test(lower)
+  ) {
+    score = Math.min(score, 82);
+  }
+  if (PURCHASE_CLUSTERS.includes(cluster) && revenueTop) {
+    score = Math.max(score, 88);
+  }
 
   return Math.max(0, Math.min(100, Math.round(score)));
 }
@@ -138,7 +149,17 @@ function dailyRankKey(topic: Topic): number {
   else if (kind === "mixed") tier = 1;
   else if (kind === "map_deep_link") tier = 0;
   else tier = -1; // clip_kit / unknown
-  return score + tier * (DAILY_SCORE_TIE_BAND / 4);
+  return score + tier * DAILY_SCORE_TIE_BAND;
+}
+
+function isRevenueDailyTopic(topic: Topic): boolean {
+  const intents = topic.affiliateIntents ?? [];
+  const hasRevenue = intents.some((i) =>
+    REVENUE_INTENTS.has(i as AffiliateIntent),
+  );
+  if (topic.funnelKind === "purchase") return true;
+  if (topic.funnelKind === "mixed" && hasRevenue) return true;
+  return PURCHASE_CLUSTERS.includes(topic.cluster) && hasRevenue;
 }
 
 export function buildClipHook(headline: string, funnelKind: FunnelKind): string {
@@ -192,7 +213,7 @@ export function enrichTopicFunnel(topic: Topic): Topic {
  * over generic trailer/clip topics.
  */
 export function rankTopicsForDaily(topics: Topic[], limit: number): Topic[] {
-  return [...topics]
+  const enriched = [...topics]
     .map(enrichTopicFunnel)
     .filter((t) => t.status === "new" || t.status === "scored")
     .sort((a, b) => {
@@ -202,7 +223,6 @@ export function rankTopicsForDaily(topics: Topic[], limit: number): Topic[] {
       const sa = a.funnelScore ?? a.score;
       const sb = b.funnelScore ?? b.score;
       if (sb !== sa) return sb - sa;
-      // Explicit tie-break: purchase > mixed > map > clip
       const order: Record<string, number> = {
         purchase: 4,
         mixed: 3,
@@ -210,6 +230,16 @@ export function rankTopicsForDaily(topics: Topic[], limit: number): Topic[] {
         clip_kit: 1,
       };
       return (order[b.funnelKind ?? ""] ?? 0) - (order[a.funnelKind ?? ""] ?? 0);
-    })
-    .slice(0, limit);
+    });
+
+  const revenue = enriched.filter(isRevenueDailyTopic);
+  const minRevenue = Math.min(revenue.length, Math.max(1, Math.ceil(limit / 2)));
+  const picks: Topic[] = revenue.slice(0, minRevenue);
+
+  for (const t of enriched) {
+    if (picks.length >= limit) break;
+    if (!picks.some((p) => p.id === t.id)) picks.push(t);
+  }
+
+  return picks.slice(0, limit);
 }

@@ -119,6 +119,15 @@ export const INTENT_META: Record<AffiliateIntent, IntentMeta> = {
 };
 
 /** Score how strongly text matches a purchase/clip intent (0–100). */
+function signalMatches(text: string, signal: string): boolean {
+  const lower = text.toLowerCase();
+  // Avoid "gta vi" false-positive on "gta v" retro intent
+  if (signal === "gta v") {
+    return /\bgta v\b/.test(lower) && !/\bgta vi\b/.test(lower);
+  }
+  return lower.includes(signal);
+}
+
 export function scoreAffiliateIntent(text: string): {
   intent: AffiliateIntent;
   score: number;
@@ -128,7 +137,7 @@ export function scoreAffiliateIntent(text: string): {
     const meta = INTENT_META[id];
     let score = 0;
     for (const signal of meta.signals) {
-      if (lower.includes(signal)) score += 20;
+      if (signalMatches(lower, signal)) score += 20;
     }
     if (meta.payoutTier === "high" && score > 0) score += 10;
     return { intent: id, score: Math.min(100, score) };
