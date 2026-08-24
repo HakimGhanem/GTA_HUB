@@ -8,8 +8,8 @@
     "news": "Notícias"
   },
   "home": {
-    "title": "Mapa interativo do GTA 6",
-    "subtitle": "Explore Vice City, rastreie colecionáveis e descubra cada segredo — pronto para o dia do lançamento e além.",
+    "title": "Mapa interativo grátis do GTA 6",
+    "subtitle": "1400+ POIs em Vice City e Leonida — filtre colecionáveis, compartilhe pins, acompanhe coords. Mapa interativo grátis do GTA 6 para scrubbing de trailers e o dia do lançamento, com guias que separam geografia confirmada de rumores.",
     "ctaMap": "Abrir mapa interativo",
     "ctaSetup": "Guia de setup",
     "hardwareTitle": "Pronto para o lançamento?",
@@ -28,15 +28,15 @@
       "a2": "Abra o mapa interativo, filtre pela categoria Colecionáveis, ou explore /collectibles para páginas por categoria com links para o mapa.",
       "q3": "Os tiles do mapa são oficiais?",
       "a3": "Os tiles são da comunidade GTADB (CC BY 4.0) e são atualizados conforme a comunidade de mapeamento publica novos dados.",
-      "q4": "When does GTA 6 launch?",
-      "a4": "Rockstar / Take-Two have communicated a console launch date of November 19, 2026 for PlayStation 5 and Xbox Series X|S. PC timing is separate and should be treated as unconfirmed here until Rockstar announces it. Map-6 will keep map tools updated around launch week.",
-      "q5": "Is Map-6 free? Do you show ads?",
-      "a5": "Yes, the map and guides are free. We may show clearly labeled Google AdSense units on content pages (not on the fullscreen map/overlay) and disclosed Amazon affiliate links. See About and Privacy for details."
+      "q4": "Quando o GTA 6 lança?",
+      "a4": "Rockstar / Take-Two comunicaram o lançamento em consoles em 19 de novembro de 2026 para PlayStation 5 e Xbox Series X|S. O PC é separado e aqui fica como não confirmado até a Rockstar anunciar. O Map-6 manterá as ferramentas do mapa atualizadas na semana do lançamento.",
+      "q5": "O Map-6 é grátis? Vocês mostram anúncios?",
+      "a5": "Sim, o mapa e os guias são grátis. Podemos exibir unidades do Google AdSense claramente identificadas em páginas de conteúdo (não no mapa em tela cheia) e links de afiliados da Amazon. Veja About e Privacy."
     },
     "newsTitle": "Últimas notícias",
     "newsAll": "Todas as notícias →",
-    "introTitle": "Why Map-6 exists",
-    "introBody": "Map-6 is a free interactive GTA 6 map and guide hub for Leonida: Vice City, Ocean Drive, Grassrivers, Port Gellhorn, the Keys, and more. Use the map to filter landmarks and collectibles, copy coordinates, measure distances, and share deep links. Read regional guides and sourced news when you need context — we label speculation and we do not invent leaks. Community basemap tiles are attributed to GTADB (CC BY 4.0) where used."
+    "introTitle": "Por que o Map-6 existe",
+    "introBody": "Map-6 é um mapa interativo grátis do GTA 6 e hub de guias para Leonida: Vice City, Ocean Drive, Grassrivers, Port Gellhorn, as Keys e mais. Filtre landmarks e colecionáveis, copie coordenadas, meça distâncias e compartilhe deep links. Guias regionais e notícias com fontes dão contexto — rotulamos especulação e não inventamos leaks. Tiles da comunidade atribuídos à GTADB (CC BY 4.0) quando usados."
   },
   "locations": {
     "title": "Todos os locais",
@@ -69,11 +69,11 @@
   },
   "meta": {
     "siteName": "Map-6",
-    "homeTitle": "Mapa interativo grátis do GTA 6 | Map-6",
+    "homeTitle": "Mapa GTA 6 grátis — Interativo | Map-6",
     "homeDesc": "Mapa interativo grátis do GTA 6 com 1400+ POIs — Vice City, colecionáveis, marcos e segredos. Filtre, meça e compartilhe. Atualizado para o lançamento.",
     "locationsTitle": "Locais GTA 6 — Vice City e Flórida | Map-6",
     "locationsDesc": "Diretório completo de locais do mapa GTA 6: marcos, colecionáveis, lojas, missões e segredos.",
-    "mapTitle": "Mapa interativo grátis do GTA 6 — Vice City | Map-6",
+    "mapTitle": "Mapa GTA 6 grátis — Interativo Vice City | Map-6",
     "mapDesc": "Mapa interativo grátis do GTA 6: 1400+ POIs, filtros, coordenadas e medição em Vice City. Links para compartilhar — pronto para o lançamento.",
     "collectiblesTitle": "Colecionáveis GTA 6 — Pacotes escondidos, saltos acrobáticos e mais | Map-6",
     "collectiblesDesc": "Rastreie cada colecionável do GTA 6 no mapa interativo: pacotes escondidos, saltos acrobáticos, arte de rua e spots de fotografia de fauna.",
