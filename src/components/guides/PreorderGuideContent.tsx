@@ -53,7 +53,11 @@ export function PreorderGuideContent({ locale }: Props) {
       {gameProducts.length > 0 ? (
         <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
           {gameProducts.map((product) => (
-            <AmazonProductCard key={product.envKey} product={product} />
+            <AmazonProductCard
+              key={product.envKey}
+              product={product}
+              showPlaceholders={showPlaceholders}
+            />
           ))}
         </div>
       ) : (
@@ -101,7 +105,11 @@ export function PreorderGuideContent({ locale }: Props) {
       {hardwareProducts.length > 0 && (
         <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
           {hardwareProducts.map((product) => (
-            <AmazonProductCard key={product.envKey} product={product} />
+            <AmazonProductCard
+              key={product.envKey}
+              product={product}
+              showPlaceholders={showPlaceholders}
+            />
           ))}
         </div>
       )}
@@ -109,6 +117,7 @@ export function PreorderGuideContent({ locale }: Props) {
       <div className="not-prose my-8">
         <AffiliateProductGrid
           intents={["headset", "storage_ssd", "display_120hz", "streaming_setup"]}
+          liveOnly
           title="Launch setup upgrades"
         />
       </div>

@@ -11,10 +11,22 @@ const PLATFORM_COLORS: Record<PreorderProduct["platform"], string> = {
 
 type AmazonProductCardProps = {
   product: PreorderProduct;
+  /**
+   * Dev-only SiteStripe slot UI (env var name + B0XXXXXXXX).
+   * Ignored in production — empty ASINs never render there.
+   */
+  showPlaceholders?: boolean;
 };
 
-export function AmazonProductCard({ product }: AmazonProductCardProps) {
+export function AmazonProductCard({
+  product,
+  showPlaceholders = false,
+}: AmazonProductCardProps) {
   const hasAsin = product.asin.length > 0;
+  const allowPlaceholder =
+    showPlaceholders && process.env.NODE_ENV !== "production";
+
+  if (!hasAsin && !allowPlaceholder) return null;
 
   return (
     <div className="flex flex-col rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/30">

@@ -102,6 +102,7 @@ export default async function GuidePage({ params }: Props) {
           <div className="mt-10">
             <AffiliateProductGrid
               intents={affiliateIntentsForGuide(slug)!}
+              liveOnly
               title={ui.gearTitle}
             />
           </div>
