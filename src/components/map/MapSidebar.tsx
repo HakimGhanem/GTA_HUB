@@ -7,13 +7,17 @@ import { formatNumber } from "@/lib/format";
 import {
   ALL_CATEGORIES,
   CATEGORY_COLORS,
-  CATEGORY_LABELS,
   countByCategory,
   listSubtypes,
-  SUBTYPE_LABELS,
   type FoundFilter,
   type MapFilters,
 } from "@/lib/map-filters";
+import {
+  getCategoryLabel,
+  getLocationDisplayName,
+  getSubtypeLabel,
+} from "@/lib/location-display";
+import { useTranslations } from "next-intl";
 
 export const SIDEBAR_LIST_LIMIT = 80;
 
@@ -51,6 +55,7 @@ export function MapSidebar({
   onToggleFound,
   onClearProgress,
 }: MapSidebarProps) {
+  const t = useTranslations();
   const visible = locations.slice(0, SIDEBAR_LIST_LIMIT);
   const isTruncated = locations.length > SIDEBAR_LIST_LIMIT;
   const hasQuery = filters.query.trim().length > 0;
@@ -132,9 +137,9 @@ export function MapSidebar({
         <div className="mt-2 flex flex-wrap gap-1.5">
           {(
             [
-              ["all", "All"],
-              ["hide_found", "Hide found"],
-              ["found_only", "Found only"],
+              ["all", t("map.sidebar.foundFilterAll")],
+              ["hide_found", t("map.sidebar.foundFilterHide")],
+              ["found_only", t("map.sidebar.foundFilterOnly")],
             ] as const
           ).map(([id, label]) => (
             <button
@@ -173,7 +178,7 @@ export function MapSidebar({
         <input
           id="map-search"
           type="search"
-          placeholder="Search by name or region…"
+          placeholder={t("map.sidebar.searchPlaceholder")}
           value={filters.query}
           onChange={(e) => onFiltersChange({ ...filters, query: e.target.value })}
           className="w-full rounded-lg border border-white/10 bg-white/5 px-3 py-2.5 text-sm text-white placeholder:text-white/40 focus:border-pink-400/50 focus:outline-none focus:ring-2 focus:ring-pink-400/20"
@@ -225,7 +230,7 @@ export function MapSidebar({
                     className="inline-block h-2 w-2 rounded-full"
                     style={{ backgroundColor: CATEGORY_COLORS[cat] }}
                   />
-                  {CATEGORY_LABELS[cat]}
+                  {getCategoryLabel(cat, t)}
                 </span>
                 <span className="font-mono text-white/40">{formatNumber(count)}</span>
               </button>
@@ -263,7 +268,7 @@ export function MapSidebar({
                       : "bg-white/5 text-white/40 hover:text-white/70",
                   )}
                 >
-                  {SUBTYPE_LABELS[sub] ?? sub}
+                  {getSubtypeLabel(sub, t)}
                 </button>
               );
             })}
@@ -281,7 +286,7 @@ export function MapSidebar({
 
         {locations.length === 0 ? (
           <div className="mx-2 mt-4 rounded-xl border border-dashed border-white/15 p-6 text-center">
-            <p className="text-sm text-white/60">No locations match your filters.</p>
+            <p className="text-sm text-white/60">{t("map.sidebar.noResults")}</p>
             <button
               type="button"
               onClick={() =>
@@ -294,7 +299,7 @@ export function MapSidebar({
               }
               className="mt-3 text-xs text-pink-400 hover:text-pink-300"
             >
-              Reset filters
+              {t("map.sidebar.resetFilters")}
             </button>
           </div>
         ) : (
@@ -333,7 +338,7 @@ export function MapSidebar({
                             found ? "text-white/40 line-through" : "text-white",
                           )}
                         >
-                          {loc.name}
+                          {getLocationDisplayName(loc, t)}
                         </span>
                       </span>
                       <span className="mt-0.5 block truncate pl-4 text-xs text-white/40">
@@ -343,7 +348,7 @@ export function MapSidebar({
                     {onToggleFound && (
                       <button
                         type="button"
-                        title={found ? "Unmark found" : "Mark found"}
+                        title={found ? t("map.sidebar.unmarkFound") : t("map.sidebar.markFound")}
                         onClick={() => onToggleFound(loc.slug)}
                         className={clsx(
                           "shrink-0 px-2 text-xs",
@@ -363,8 +368,8 @@ export function MapSidebar({
         {!hasQuery && isTruncated && (
           <p className="mx-2 mt-3 rounded-lg bg-white/5 px-3 py-2 text-xs text-white/50">
             {viewportMode
-              ? "Pan or zoom the map, or search to find specific locations."
-              : `Search to browse all ${formatNumber(totalCount)} locations.`}
+              ? t("map.sidebar.panHint")
+              : t("map.sidebar.searchHint", { count: formatNumber(totalCount) })}
           </p>
         )}
       </div>

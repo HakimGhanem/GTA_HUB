@@ -1,35 +1,34 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import {
+  applyConsentUpdate,
+  CONSENT_STORAGE_KEY,
+  readCookieConsent,
+  type CookieConsentChoice,
+} from "@/lib/analytics/consent";
 
-const STORAGE_KEY = "map6_cookie_consent";
-
-type Consent = "all" | "essential" | null;
-
-function readConsent(): Consent {
-  if (typeof window === "undefined") return null;
-  const v = window.localStorage.getItem(STORAGE_KEY);
-  if (v === "all" || v === "essential") return v;
-  return null;
-}
+type Consent = CookieConsentChoice | null;
 
 /**
- * Lightweight consent UI for AdSense / analytics disclosure.
- * Accept → personalized ads OK; Essential → ads may be non-personalized.
+ * Consent UI for AdSense / GA4. Updates Google Consent Mode on save.
  */
 export function CookieConsent() {
+  const t = useTranslations("cookieConsent");
   const [consent, setConsent] = useState<Consent>(null);
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    setConsent(readConsent());
+    setConsent(readCookieConsent());
     setReady(true);
   }, []);
 
-  function save(value: Exclude<Consent, null>) {
-    window.localStorage.setItem(STORAGE_KEY, value);
+  function save(value: CookieConsentChoice) {
+    window.localStorage.setItem(CONSENT_STORAGE_KEY, value);
     setConsent(value);
+    applyConsentUpdate(value);
     window.dispatchEvent(
       new CustomEvent("map6-consent", { detail: { consent: value } }),
     );
@@ -50,15 +49,22 @@ export function CookieConsent() {
             id="cookie-consent-title"
             className="text-sm font-semibold text-white"
           >
-            Cookies & ads
+            {t("title")}
           </p>
-          <p id="cookie-consent-desc" className="mt-1 text-xs leading-relaxed text-white/60">
-            We use cookies for essential site features, analytics, and Google
-            AdSense ads (clearly labeled “Advertisement”). See our{" "}
-            <Link href="/privacy" className="text-pink-300 underline hover:text-pink-200">
-              Privacy Policy
-            </Link>
-            . You can change your choice anytime by clearing site data.
+          <p
+            id="cookie-consent-desc"
+            className="mt-1 text-xs leading-relaxed text-white/60"
+          >
+            {t.rich("desc", {
+              privacyLink: (chunks) => (
+                <Link
+                  href="/privacy"
+                  className="text-pink-300 underline hover:text-pink-200"
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
           </p>
         </div>
         <div className="flex shrink-0 flex-wrap gap-2">
@@ -67,14 +73,14 @@ export function CookieConsent() {
             onClick={() => save("essential")}
             className="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/80 hover:border-white/40"
           >
-            Essential only
+            {t("essential")}
           </button>
           <button
             type="button"
             onClick={() => save("all")}
             className="rounded-full bg-pink-500 px-4 py-2 text-xs font-semibold text-white hover:bg-pink-400"
           >
-            Accept all
+            {t("acceptAll")}
           </button>
         </div>
       </div>

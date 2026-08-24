@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import type { GameId } from "@/lib/games";
+import { trackEvent } from "@/lib/analytics/track";
 
 const STORAGE_PREFIX = "map6-progress:";
 
@@ -57,8 +58,12 @@ export function useMapProgress(gameId: GameId): MapProgress {
       if (value) next.add(slug);
       else next.delete(slug);
       persist(next);
+      trackEvent(value ? "map_mark_found" : "map_unmark_found", {
+        game_id: gameId,
+        location_slug: slug,
+      });
     },
-    [found, persist],
+    [found, gameId, persist],
   );
 
   const toggleFound = useCallback(
