@@ -23,6 +23,7 @@ if (existsSync(manifestPath)) {
 
 const updates = {
   NEXT_PUBLIC_GTA5_GTADB_ENABLED: "true",
+  NEXT_PUBLIC_GTA5_GTADB_NATIVE: "false",
   NEXT_PUBLIC_GTA5_GTADB_TILE_SET: tileSet,
   NEXT_PUBLIC_GTA5_GTADB_MAP_IMAGE: manifest.imageUrl ?? "/tiles/los-santos-stitched.jpg",
   NEXT_PUBLIC_GTA5_MAP_MIN_X: String(manifest.bounds.minX),

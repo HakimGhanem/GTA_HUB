@@ -81,11 +81,25 @@ body {
   border-radius: 12px;
   padding: 12px;
   box-shadow: 0 8px 24px rgb(0 0 0 / 40%);
+  /* Let scroll-zoom hit the map; only interactive bits capture pointer */
+  pointer-events: none;
+  overscroll-behavior: contain;
+}
+
+/* Let scroll-zoom reach the map even when the cursor is over a popup */
+.maplibregl-popup {
+  pointer-events: none;
+}
+
+.maplibregl-popup-content a,
+.maplibregl-popup-content button {
+  pointer-events: auto;
 }
 
 .maplibregl-popup-close-button {
   font-size: 18px;
   padding: 4px 8px;
+  pointer-events: auto;
 }
 
 .map-measure-cursor .maplibregl-canvas-container {

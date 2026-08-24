@@ -84,7 +84,14 @@ def stitch(
     output.parent.mkdir(parents=True, exist_ok=True)
 
     preview = downscale(canvas, MAX_TEXTURE_PX)
-    preview.save(output, "JPEG", quality=85, optimize=True)
+    preview.save(
+        output,
+        "JPEG",
+        quality=92,
+        optimize=True,
+        subsampling=0,
+        progressive=True,
+    )
     print(f"   Saved: {output} ({output.stat().st_size // 1024} KB, {missing} missing tiles)")
 
     tl_x, tl_y = pixel_to_game(x0 * TILE_SIZE, y0 * TILE_SIZE, MAX_Z)

@@ -7,6 +7,14 @@ import {
 } from "./coordinates";
 import { DEFAULT_GAME_ID, getGameConfig, type GameConfig } from "./games";
 
+/** SDF glyphs for GPU symbol labels (cluster counts, POI names). */
+const MAPLIBRE_GLYPHS =
+  "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf";
+
+function withGlyphs(style: StyleSpecification): StyleSpecification {
+  return { ...style, glyphs: MAPLIBRE_GLYPHS };
+}
+
 function buildGridFeatures(bounds: MapBounds) {
   const features = [];
   const rangeX = bounds.maxX - bounds.minX;
@@ -54,7 +62,7 @@ function buildImageStyle(imageUrl: string, bounds: MapBounds, sourceId: string):
   const se = toMapLibreCoords(bounds.maxX, bounds.minY, bounds);
   const sw = toMapLibreCoords(bounds.minX, bounds.minY, bounds);
 
-  return {
+  return withGlyphs({
     version: 8,
     sources: {
       [sourceId]: {
@@ -78,9 +86,13 @@ function buildImageStyle(imageUrl: string, bounds: MapBounds, sourceId: string):
         id: sourceId,
         type: "raster",
         source: sourceId,
+        paint: {
+          "raster-resampling": "linear",
+          "raster-fade-duration": 0,
+        },
       },
     ],
-  };
+  });
 }
 
 export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID)): StyleSpecification {
@@ -99,7 +111,7 @@ export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID))
     if (!cfg.native && cfg.mapImage) {
       return buildImageStyle(cfg.mapImage, bounds, sourceId);
     }
-    return {
+    return withGlyphs({
       version: 8 as const,
       sources: {},
       layers: [
@@ -109,11 +121,11 @@ export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID))
           paint: { "background-color": "rgba(0,0,0,0)" },
         },
       ],
-    };
+    });
   }
 
   if (game.tile.kind === "raster") {
-    return {
+    return withGlyphs({
       version: 8 as const,
       sources: {
         [sourceId]: {
@@ -125,14 +137,23 @@ export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID))
       },
       layers: [
         {
+          id: "background",
+          type: "background" as const,
+          paint: { "background-color": "#0a0e17" },
+        },
+        {
           id: sourceId,
           type: "raster" as const,
           source: sourceId,
           minzoom: 0,
           maxzoom: 22,
+          paint: {
+            "raster-resampling": "linear",
+            "raster-fade-duration": 0,
+          },
         },
       ],
-    };
+    });
   }
 
   if (game.tile.kind === "image") {
@@ -141,7 +162,7 @@ export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID))
 
   if (game.tile.kind === "pmtiles") {
     const layer = game.tile.sourceLayer ?? "regions";
-    return {
+    return withGlyphs({
       version: 8 as const,
       sources: {
         [sourceId]: {
@@ -176,10 +197,10 @@ export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID))
           },
         },
       ],
-    };
+    });
   }
 
-  return {
+  return withGlyphs({
     version: 8 as const,
     sources: {
       grid: {
@@ -207,5 +228,5 @@ export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID))
         },
       },
     ],
-  };
+  });
 }

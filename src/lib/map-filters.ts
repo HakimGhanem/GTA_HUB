@@ -37,6 +37,13 @@ export const SUBTYPE_LABELS: Record<string, string> = {
   tag: "Gang tag",
   snapshot: "Snapshot",
   horseshoe: "Horseshoe",
+  vending: "Vending machine",
+  payphone: "Payphone",
+  dartboard: "Dartboard",
+  jukebox: "Jukebox",
+  bench: "Bench",
+  "parking-meter": "Parking meter",
+  rampage: "Rampage",
 };
 
 export type FoundFilter = "all" | "hide_found" | "found_only";

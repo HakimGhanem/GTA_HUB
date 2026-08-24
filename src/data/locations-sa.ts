@@ -1,10 +1,10 @@
+import saCollectiblesJson from "./sa-collectibles.json";
 import type { Location } from "./locations";
 
 /**
- * Seed POIs for GTA: San Andreas — approximate classic world coords.
- * Wave-1 cities + icons; expand with collectibles once tiles are hosted.
+ * Seed landmarks + GTAMods main.scm collectibles (horseshoes / oysters / snapshots).
  */
-export const SA_LOCATIONS: Location[] = [
+const editorial: Location[] = [
   {
     slug: "sa-los-santos",
     name: "Los Santos",
@@ -83,54 +83,6 @@ export const SA_LOCATIONS: Location[] = [
     source: "seed",
   },
   {
-    slug: "sa-oyster-01",
-    name: "Oyster (sample)",
-    description:
-      "Placeholder oyster collectible — expand with full open dataset later (70 oysters for 100%).",
-    category: "collectible",
-    subtype: "oyster",
-    x: 479,
-    y: -2690,
-    region: "Los Santos Coast",
-    source: "seed",
-  },
-  {
-    slug: "sa-tag-01",
-    name: "Gang Tag (sample)",
-    description:
-      "Sample spray tag — SA tracks 100 tags across the state for completion.",
-    category: "collectible",
-    subtype: "tag",
-    x: 2500,
-    y: -1670,
-    region: "Ganton",
-    source: "seed",
-  },
-  {
-    slug: "sa-snapshot-01",
-    name: "Snapshot (sample)",
-    description:
-      "Sample tourist snapshot — 50 snapshots required for 100% San Andreas.",
-    category: "collectible",
-    subtype: "snapshot",
-    x: -1985,
-    y: 460,
-    region: "San Fierro",
-    source: "seed",
-  },
-  {
-    slug: "sa-horseshoe-01",
-    name: "Horseshoe (sample)",
-    description:
-      "Sample horseshoe — 50 horseshoes clustered around Las Venturas.",
-    category: "collectible",
-    subtype: "horseshoe",
-    x: 2030,
-    y: 1460,
-    region: "Las Venturas",
-    source: "seed",
-  },
-  {
     slug: "sa-four-dragons",
     name: "The Four Dragons",
     description:
@@ -142,3 +94,14 @@ export const SA_LOCATIONS: Location[] = [
     source: "seed",
   },
 ];
+
+const imported = saCollectiblesJson as Location[];
+
+export const SA_LOCATIONS: Location[] = (() => {
+  const slugs = new Set(editorial.map((l) => l.slug));
+  const merged = [...editorial];
+  for (const loc of imported) {
+    if (!slugs.has(loc.slug)) merged.push(loc);
+  }
+  return merged;
+})();

@@ -342,7 +342,7 @@ export function GameMap({
         onLoad={onMapLoad}
         onMouseMove={overlayMode ? undefined : onMouseMove}
         onClick={onMapClick}
-        cursor={measureActive ? "crosshair" : "grab"}
+        cursor={measureActive ? "crosshair" : undefined}
         style={{
           width: "100%",
           height: "100%",
@@ -370,7 +370,6 @@ export function GameMap({
         {mapLoaded && (
           <LocationMarkers
             locations={filteredLocations}
-            viewport={viewport}
             mapRef={mapRef}
             onSelect={flyTo}
             activeSlug={activeSlug}

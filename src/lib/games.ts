@@ -77,6 +77,8 @@ const PUBLIC_TILE_ENV = {
 function gta6Config(): GameConfig {
   const raster = PUBLIC_TILE_ENV.raster;
   const pmtiles = PUBLIC_TILE_ENV.pmtiles;
+  const imageBasemap = GTADB.enabled && !GTADB.native && !!GTADB.mapImage;
+
   let tile: GameTileSource = { kind: "grid" };
   if (GTADB.enabled) tile = { kind: "gtadb" };
   else if (raster) tile = { kind: "raster", url: raster };
@@ -92,7 +94,10 @@ function gta6Config(): GameConfig {
     center: MAP_DEFAULTS.center,
     zoom: MAP_DEFAULTS.zoom,
     minZoom: MAP_DEFAULTS.minZoom,
-    maxZoom: MAP_DEFAULTS.maxZoom,
+    maxZoom: envNum(
+      "NEXT_PUBLIC_MAP_MAX_ZOOM",
+      imageBasemap ? 5.5 : MAP_DEFAULTS.maxZoom,
+    ),
     tile,
     attribution: GTADB.enabled ? GTADB.attribution : undefined,
     attributionUrl: GTADB.enabled ? GTADB.attributionUrl : undefined,
@@ -107,6 +112,8 @@ function gta6Config(): GameConfig {
 function gta5Config(): GameConfig {
   const raster = PUBLIC_TILE_ENV.gta5Raster;
   const pmtiles = PUBLIC_TILE_ENV.gta5Pmtiles;
+  const imageBasemap =
+    GTA5_GTADB.enabled && !GTA5_GTADB.native && !!GTA5_GTADB.mapImage;
 
   let tile: GameTileSource = { kind: "grid" };
   if (GTA5_GTADB.enabled) tile = { kind: "gtadb" };
@@ -131,7 +138,10 @@ function gta5Config(): GameConfig {
     ],
     zoom: GTA5_GTADB.enabled ? -0.5 : 2,
     minZoom: GTA5_GTADB.enabled ? -2 : 0,
-    maxZoom: envNum("NEXT_PUBLIC_GTA5_MAP_MAX_ZOOM", 7),
+    maxZoom: envNum(
+      "NEXT_PUBLIC_GTA5_MAP_MAX_ZOOM",
+      imageBasemap ? 5.5 : 7,
+    ),
     tile,
     attribution: GTA5_GTADB.enabled
       ? GTA5_GTADB.attribution
@@ -175,7 +185,7 @@ function vcConfig(): GameConfig {
     ],
     zoom: image ? 1 : 2,
     minZoom: 0,
-    maxZoom: envNum("NEXT_PUBLIC_VC_MAP_MAX_ZOOM", 6),
+    maxZoom: envNum("NEXT_PUBLIC_VC_MAP_MAX_ZOOM", image ? 3.5 : 6),
     tile,
     attribution: image
       ? "Vice City map — huncrys/vcmp-livemap (MIT)"
@@ -219,7 +229,7 @@ function saConfig(): GameConfig {
     ],
     zoom: image ? 1 : 2,
     minZoom: 0,
-    maxZoom: envNum("NEXT_PUBLIC_SA_MAP_MAX_ZOOM", 6),
+    maxZoom: envNum("NEXT_PUBLIC_SA_MAP_MAX_ZOOM", image ? 5.5 : 6),
     tile,
     attribution: image
       ? "San Andreas map — SAMAP / Charles Blackwood"

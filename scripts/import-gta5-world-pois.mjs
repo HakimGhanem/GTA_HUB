@@ -3,7 +3,7 @@
  * Import GTA V world object locations from DurtyFree/gta-v-data-dumps
  * (community game data extracts — attribute DurtyFree / Pleb Masters).
  *
- * Writes src/data/gta5-world-pois.json (ATMs, gas pumps, telescopes).
+ * Writes src/data/gta5-world-pois.json
  *
  * Usage: node scripts/import-gta5-world-pois.mjs
  */
@@ -22,7 +22,7 @@ const SOURCES = [
     category: "shop",
     name: "ATM",
     region: "Los Santos",
-    limit: 80,
+    limit: 120,
   },
   {
     file: "worldGasPumps.json",
@@ -30,7 +30,7 @@ const SOURCES = [
     category: "shop",
     name: "Gas Pump",
     region: "San Andreas",
-    limit: 60,
+    limit: 100,
   },
   {
     file: "worldTelescopes.json",
@@ -39,6 +39,54 @@ const SOURCES = [
     name: "Telescope",
     region: "San Andreas",
     limit: 50,
+  },
+  {
+    file: "worldVendingMachines.json",
+    subtype: "vending",
+    category: "shop",
+    name: "Vending Machine",
+    region: "San Andreas",
+    limit: 80,
+  },
+  {
+    file: "worldPublicPhones.json",
+    subtype: "payphone",
+    category: "landmark",
+    name: "Payphone",
+    region: "San Andreas",
+    limit: 60,
+  },
+  {
+    file: "worldDartDiscs.json",
+    subtype: "dartboard",
+    category: "landmark",
+    name: "Dartboard",
+    region: "San Andreas",
+    limit: 40,
+  },
+  {
+    file: "worldJukeboxes.json",
+    subtype: "jukebox",
+    category: "landmark",
+    name: "Jukebox",
+    region: "San Andreas",
+    limit: 40,
+  },
+  {
+    file: "worldSeats.json",
+    subtype: "bench",
+    category: "landmark",
+    name: "Bench",
+    region: "San Andreas",
+    limit: 50,
+  },
+  {
+    file: "worldParknmeters.json",
+    subtype: "parking-meter",
+    category: "landmark",
+    name: "Parking Meter",
+    region: "Los Santos",
+    limit: 40,
   },
 ];
 
@@ -76,7 +124,7 @@ for (const src of SOURCES) {
     locations.push({
       slug: slugify(["gta5", src.subtype, i, Math.round(x), Math.round(y)]),
       name: `${src.name} #${i}`,
-      description: `${src.name} location from DurtyFree GTA V object dumps (in-game X/Y).`,
+      description: `${src.name} from DurtyFree GTA V object dumps (in-game X/Y).`,
       category: src.category,
       subtype: src.subtype,
       x: Number(x.toFixed(3)),
