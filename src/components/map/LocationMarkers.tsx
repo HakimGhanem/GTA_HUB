@@ -19,6 +19,8 @@ type LocationMarkersProps = {
   mapBounds?: MapBounds;
   /** Streamer / neon themes — bigger pins + name labels */
   largeLabels?: boolean;
+  isFound?: (slug: string) => boolean;
+  onToggleFound?: (slug: string) => void;
 };
 
 function ClusterMarker({ count }: { count: number }) {
@@ -38,11 +40,13 @@ function PoiMarker({
   isActive,
   onSelect,
   largeLabels = false,
+  found = false,
 }: {
   loc: Location;
   isActive: boolean;
   onSelect: (loc: Location) => void;
   largeLabels?: boolean;
+  found?: boolean;
 }) {
   return (
     <button
@@ -52,7 +56,7 @@ function PoiMarker({
         onSelect(loc);
       }}
       className="group relative flex cursor-pointer flex-col items-center justify-center"
-      title={loc.name}
+      title={found ? `${loc.name} (found)` : loc.name}
       data-testid={`poi-marker-${loc.slug}`}
       aria-label={loc.name}
     >
@@ -61,7 +65,9 @@ function PoiMarker({
         aria-hidden
       />
       <span
-        className={`relative rounded-full ring-2 ring-white/80 transition-transform group-hover:scale-125 ${
+        className={`relative rounded-full ring-2 transition-transform group-hover:scale-125 ${
+          found ? "ring-emerald-400/80 opacity-45" : "ring-white/80"
+        } ${
           largeLabels
             ? isActive
               ? "h-5 w-5"
@@ -73,7 +79,11 @@ function PoiMarker({
         style={{ backgroundColor: CATEGORY_COLORS[loc.category] ?? "#fff" }}
       />
       {largeLabels && (
-        <span className="mt-0.5 max-w-[9rem] truncate rounded bg-black/75 px-1 py-0.5 text-[10px] font-semibold leading-none text-white shadow">
+        <span
+          className={`mt-0.5 max-w-[9rem] truncate rounded bg-black/75 px-1 py-0.5 text-[10px] font-semibold leading-none text-white shadow ${
+            found ? "line-through opacity-60" : ""
+          }`}
+        >
           {loc.name}
         </span>
       )}
@@ -90,6 +100,8 @@ export function LocationMarkers({
   measureActive = false,
   mapBounds,
   largeLabels = false,
+  isFound,
+  onToggleFound,
 }: LocationMarkersProps) {
   const [popupLoc, setPopupLoc] = useState<Location | null>(null);
 
@@ -176,6 +188,7 @@ export function LocationMarkers({
               isActive={loc.slug === activeSlug}
               onSelect={handleSelect}
               largeLabels={largeLabels}
+              found={isFound?.(loc.slug) ?? false}
             />
           </Marker>
         );
@@ -191,7 +204,16 @@ export function LocationMarkers({
           closeOnClick={false}
           className="map-popup"
         >
-          <LocationPopup location={popupLoc} onClose={() => setPopupLoc(null)} />
+          <LocationPopup
+            location={popupLoc}
+            onClose={() => setPopupLoc(null)}
+            found={isFound?.(popupLoc.slug) ?? false}
+            onToggleFound={
+              onToggleFound
+                ? () => onToggleFound(popupLoc.slug)
+                : undefined
+            }
+          />
         </Popup>
       )}
     </>

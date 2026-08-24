@@ -10,6 +10,7 @@ import clsx from "clsx";
 import type { Location } from "@/data/all-locations";
 import { useDebouncedMapViewport } from "@/hooks/useDebouncedMapViewport";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
+import { useMapProgress } from "@/hooks/useMapProgress";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import {
   fromMapLibreCoords,
@@ -92,6 +93,7 @@ export function GameMap({
   const effectiveSidebar = showSidebar && !overlayMode;
   const sidebarOpen = effectiveSidebar && (sidebarOverride ?? isDesktop);
   const [filters, setFilters] = useState<MapFilters>(() => defaultMapFilters());
+  const progress = useMapProgress(gameId);
   const debouncedQuery = useDebouncedValue(filters.query);
   const [activeSlug, setActiveSlug] = useState<string | undefined>(
     initialActiveSlug,
@@ -117,8 +119,8 @@ export function GameMap({
   );
 
   const filteredLocations = useMemo(
-    () => filterLocations(allLocations, effectiveFilters),
-    [allLocations, effectiveFilters],
+    () => filterLocations(allLocations, effectiveFilters, progress.isFound),
+    [allLocations, effectiveFilters, progress.isFound],
   );
 
   const hasSearchQuery = debouncedQuery.trim().length > 0;
@@ -375,9 +377,17 @@ export function GameMap({
             measureActive={measureActive}
             mapBounds={bounds}
             largeLabels={streamerUi}
+            isFound={progress.isFound}
+            onToggleFound={progress.toggleFound}
           />
         )}
       </Map>
+
+      {!overlayMode && game.id === "gta6" && (
+        <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-md -translate-x-1/2 rounded-md border border-pink-400/20 bg-black/55 px-3 py-1.5 text-center text-[10px] text-white/70 backdrop-blur-sm">
+          GTA 6 map live · mark found locally · trust badges on pins
+        </p>
+      )}
 
       {!overlayMode && (
         <div className="pointer-events-none absolute bottom-3 left-3 z-20 flex flex-col gap-2 sm:bottom-4 sm:left-4">
@@ -454,6 +464,7 @@ export function GameMap({
         {sidebarOpen && (
           <MapSidebar
             locations={sidebarLocations}
+            allLocations={allLocations}
             totalCount={allLocations.length}
             filters={filters}
             onFiltersChange={setFilters}
@@ -461,6 +472,10 @@ export function GameMap({
             activeSlug={activeSlug}
             viewportMode={!hasSearchQuery}
             className="h-full"
+            foundCount={progress.foundCount}
+            isFound={progress.isFound}
+            onToggleFound={progress.toggleFound}
+            onClearProgress={progress.clearAll}
           />
         )}
       </div>
@@ -476,6 +491,7 @@ export function GameMap({
           <div className="absolute inset-y-0 left-0 w-[min(100%,20rem)] shadow-2xl">
             <MapSidebar
               locations={sidebarLocations}
+              allLocations={allLocations}
               totalCount={allLocations.length}
               filters={filters}
               onFiltersChange={setFilters}
@@ -484,6 +500,10 @@ export function GameMap({
               activeSlug={activeSlug}
               viewportMode={!hasSearchQuery}
               className="h-full"
+              foundCount={progress.foundCount}
+              isFound={progress.isFound}
+              onToggleFound={progress.toggleFound}
+              onClearProgress={progress.clearAll}
             />
           </div>
         </div>

@@ -63,7 +63,7 @@ export const COLLECTIBLE_TYPE_SEO: Record<string, CollectibleSeo> = {
     ],
     howToTrack: [
       "Prioritize docks, rooftops, and alley clutter in Vice City & Port Gellhorn.",
-      "Mark cleared pins in your own notes — Map-6 is shared, not a per-account checklist yet.",
+      "Mark cleared pins with Map-6’s local progress checklist (browser save, unlimited) — shared pins stay public.",
       "Re-scan areas after story missions that open new interiors or restricted zones.",
       "Cross-check GTADB community landmarks for newly tagged props after trailers.",
     ],

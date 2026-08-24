@@ -5,6 +5,13 @@ export type LocationCategory =
   | "mission"
   | "secret";
 
+export type LocationConfidence =
+  | "confirmed"
+  | "trailer"
+  | "community"
+  | "rumor"
+  | "seed";
+
 export type Location = {
   slug: string;
   name: string;
@@ -14,6 +21,10 @@ export type Location = {
   y: number;
   region: string;
   source?: string;
+  /** Explicit trust label; otherwise derived from source */
+  confidence?: LocationConfidence;
+  /** Fine-grained type — e.g. atm, letter-scrap, stunt-jump */
+  subtype?: string;
 };
 
 export const LOCATIONS: Location[] = [

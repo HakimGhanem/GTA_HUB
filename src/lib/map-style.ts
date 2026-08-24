@@ -135,6 +135,10 @@ export function buildMapStyle(game: GameConfig = getGameConfig(DEFAULT_GAME_ID))
     };
   }
 
+  if (game.tile.kind === "image") {
+    return buildImageStyle(game.tile.url, bounds, sourceId);
+  }
+
   if (game.tile.kind === "pmtiles") {
     const layer = game.tile.sourceLayer ?? "regions";
     return {

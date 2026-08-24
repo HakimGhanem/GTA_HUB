@@ -1,4 +1,5 @@
 import gtadbGta5Json from "./gtadb-gta5-locations.json";
+import gta5WorldPoisJson from "./gta5-world-pois.json";
 import type { Location } from "./locations";
 
 const editorial: Location[] = [
@@ -79,27 +80,19 @@ const editorial: Location[] = [
     region: "El Burro Heights",
     source: "seed",
   },
-  {
-    slug: "gta5-letter-scrap-01",
-    name: "Letter Scrap (sample)",
-    description:
-      "Placeholder collectible pin for the letter scrap hunt — expand with full community dataset.",
-    category: "collectible",
-    x: -1040,
-    y: 492,
-    region: "Vinewood",
-    source: "seed",
-  },
 ];
 
 const gtadb = gtadbGta5Json as Location[];
+const worldPois = gta5WorldPoisJson as Location[];
 
-/** Editorial seeds first, then GTADB landmarks (CC BY 4.0) that do not collide on slug. */
+/** Editorial → world POIs (DurtyFree) → GTADB landmarks (CC BY 4.0). */
 export const GTA5_LOCATIONS: Location[] = (() => {
-  const slugs = new Set(editorial.map((l) => l.slug));
-  const merged = [...editorial];
-  for (const loc of gtadb) {
-    if (!slugs.has(loc.slug)) merged.push(loc);
+  const slugs = new Set<string>();
+  const merged: Location[] = [];
+  for (const loc of [...editorial, ...worldPois, ...gtadb]) {
+    if (slugs.has(loc.slug)) continue;
+    slugs.add(loc.slug);
+    merged.push(loc);
   }
   return merged;
 })();
