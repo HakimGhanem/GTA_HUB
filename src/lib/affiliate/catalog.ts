@@ -136,9 +136,7 @@ export function productsForIntents(intents: AffiliateIntent[]): PreorderProduct[
   return out;
 }
 
-/** Prefer live ASINs; fall back to empty slots so UI still shows the funnel. */
+/** Prefer live ASINs only — never fall back to empty SiteStripe shells. */
 export function liveProductsForIntent(intent: AffiliateIntent): PreorderProduct[] {
-  const all = productsForIntent(intent);
-  const live = all.filter((p) => p.asin.length > 0);
-  return live.length > 0 ? live : all;
+  return productsForIntent(intent).filter((p) => p.asin.length > 0);
 }
