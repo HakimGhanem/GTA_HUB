@@ -3,7 +3,7 @@
  * Daily funnel factory — Europe/Paris 17:00 target.
  *
  * 1) detect RSS → topics (funnel-scored)
- * 2) draft top N purchase/clip-intent topics
+ * 2) draft top N purchase/mixed topics (affiliate intents beat trailer ties)
  * 3) optional auto-publish when CONTENT_DAILY_AUTO_PUBLISH=true
  * 4) IndexNow / revalidate via publish API when remote
  *
@@ -13,7 +13,12 @@
 import { spawnSync } from "child_process";
 import path from "path";
 import { fileURLToPath } from "url";
+import { detectNewsTopics } from "../../src/lib/content/detect-news.ts";
 import { rankTopicsForDaily } from "../../src/lib/content/funnel.ts";
+import {
+  generateDraftFromTopic,
+  isGoodDailyTopic,
+} from "../../src/lib/content/generate-draft.ts";
 import {
   listArticles,
   listTopics,
@@ -87,13 +92,24 @@ async function main() {
 
   if (!skipDetect) {
     console.log("\n— detect —");
-    runScript("detect-news.mts");
+    const detected = await detectNewsTopics();
+    console.log(
+      `created=${detected.created} skipped=${detected.skipped}`,
+    );
+    if (detected.feedErrors.length) {
+      console.warn("Feed errors:", detected.feedErrors);
+    }
   }
 
   const topics = await listTopics();
-  const picks = rankTopicsForDaily(topics, limit);
+  const ranked = rankTopicsForDaily(topics, limit);
+  const picks = ranked.filter(isGoodDailyTopic);
   if (!picks.length) {
-    console.log("No scored topics to draft. Done.");
+    console.log(
+      ranked.length
+        ? "No topics met quality bar — skip draft. Done."
+        : "No scored topics to draft. Done.",
+    );
     await submitSitemapPing();
     return;
   }
@@ -103,7 +119,8 @@ async function main() {
     console.log(
       `→ [f${t.funnelScore}] ${t.funnelKind} ${t.id} — ${t.headline.slice(0, 70)}`,
     );
-    runScript("generate-draft.mts", ["--topic", t.id]);
+    const result = await generateDraftFromTopic(t);
+    console.log(`  draft ${result.article.slug} seo=${result.seoScore}`);
   }
 
   const publishedPaths: string[] = [];

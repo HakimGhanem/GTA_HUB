@@ -252,17 +252,19 @@ npm run content:daily -- --limit 2
 # Auto-publish only when ready:
 # CONTENT_DAILY_AUTO_PUBLISH=true npm run content:daily -- --limit 2 --publish
 
-# One-shot Scheduler bootstrap (HTTP enrich/publish drafted queue)
+# One-shot Scheduler bootstrap (HTTP detect→draft→publish)
 CONTENT_API_SECRET=... bash scripts/setup-content-scheduler.sh
+# Body-only (keeps secret header):
+# gcloud scheduler jobs update http map6-content-daily --location=europe-west1 \
+#   --message-body='{"limit":2,"detect":true,"draft":true,"publish":true}'
 ```
 
 | Job | Schedule | TZ | Target |
 |-----|----------|-----|--------|
-| `map6-content-daily` | `0 17 * * *` | `Europe/Paris` | `POST /api/content/daily` |
-| detect+draft (Job) | `0 17 * * *` | `Europe/Paris` | `npm run content:daily` |
+| `map6-content-daily` | `0 17 * * *` | `Europe/Paris` | `POST /api/content/daily` (`detect`+`draft`+`publish`) |
 | analyze | `0 9 * * 1` | UTC | GSC CSV + `content:analyze` |
 
-Keep `publish:false` until the review queue is trusted. IndexNow + sitemap ping run at the end of `content:daily`.
+IndexNow runs when the daily API publishes. CLI `content:daily` remains for local/full offline runs.
 
 ---
 
