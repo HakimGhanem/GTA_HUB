@@ -37,7 +37,14 @@ export const INTENT_META: Record<AffiliateIntent, IntentMeta> = {
     jobToBeDone: "Lock a day-one copy on PS5 or Xbox",
     payoutTier: "high",
     clipAngle: "Where to pre-order before stocks sell out",
-    signals: ["preorder", "pre-order", "buy gta 6", "commander", "standard edition"],
+    signals: [
+      "preorder",
+      "pre-order",
+      "précommande",
+      "buy gta 6",
+      "preorder price",
+      "standard edition",
+    ],
   },
   preorder_collectors: {
     id: "preorder_collectors",
@@ -45,7 +52,13 @@ export const INTENT_META: Record<AffiliateIntent, IntentMeta> = {
     jobToBeDone: "Compare premium bundles and memorabilia",
     payoutTier: "high",
     clipAngle: "Is the Collector's Edition worth it?",
-    signals: ["collector", "collectors", "edition limitée", "premium edition"],
+    signals: [
+      "collector",
+      "collectors",
+      "ultimate edition",
+      "edition limitée",
+      "premium edition",
+    ],
   },
   console_upgrade: {
     id: "console_upgrade",

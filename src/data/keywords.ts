@@ -90,6 +90,36 @@ export const KEYWORDS: KeywordRecord[] = [
     status: "published",
     monetization: "affiliate",
   },
+  {
+    id: "kw-ultimate-edition",
+    phrase: "gta 6 ultimate edition",
+    cluster: "preorder",
+    priority: "P0",
+    locale: "en",
+    targetSlugHint: "gta-6-ultimate-edition-vs-standard",
+    relatedInternalPaths: [
+      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-collectors-edition",
+    ],
+    competitorNotes: "Compare Ultimate vs Standard/Collector once Rockstar lists editions — no fake ASINs",
+    status: "todo",
+    monetization: "affiliate",
+  },
+  {
+    id: "kw-preorder-price",
+    phrase: "gta 6 preorder price",
+    cluster: "preorder",
+    priority: "P0",
+    locale: "en",
+    targetSlugHint: "gta-6-preorder-price-editions",
+    relatedInternalPaths: [
+      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-collectors-edition",
+    ],
+    competitorNotes: "Price ranges only from official/store listings — never invent MSRP",
+    status: "todo",
+    monetization: "affiliate",
+  },
   // ── Locations ──────────────────────────────────────────────────
   {
     id: "kw-vice-locations",

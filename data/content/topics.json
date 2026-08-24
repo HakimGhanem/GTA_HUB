@@ -333,7 +333,7 @@
     "cluster": "trailer",
     "score": 100,
     "eventKey": "gta-6-fans-waiting-for-trailer-3-are-convinced-t-6c17a31e",
-    "status": "scored",
+    "status": "drafted",
     "primaryKeywordHint": "gta 6 trailer 3",
     "funnelKind": "clip_kit",
     "affiliateIntents": [],
@@ -341,7 +341,7 @@
     "funnelScore": 100,
     "id": "fb2befee-a1ed-4c04-900b-46d4409671c1",
     "createdAt": "2026-08-16T20:50:21.395Z",
-    "updatedAt": "2026-08-16T20:50:21.395Z"
+    "updatedAt": "2026-08-24T10:36:32.209Z"
   },
   {
     "headline": "What To Expect From GTA 6′ s Big Netflix Reveal: Narrated Gameplay And No Delay Announcement - Kotaku",
@@ -390,7 +390,7 @@
     "cluster": "trailer",
     "score": 100,
     "eventKey": "gta-6-gameplay-trailer-announced-for-netflix-on--c2bf9c6d",
-    "status": "scored",
+    "status": "drafted",
     "primaryKeywordHint": "gta 6 trailer 3",
     "funnelKind": "clip_kit",
     "affiliateIntents": [],
@@ -398,7 +398,7 @@
     "funnelScore": 100,
     "id": "7d828fe3-4caa-4192-a556-2f9cea7a7d76",
     "createdAt": "2026-08-16T20:50:21.397Z",
-    "updatedAt": "2026-08-16T20:50:21.397Z"
+    "updatedAt": "2026-08-24T10:36:32.243Z"
   },
   {
     "headline": "GTA 6 trailer 3 is dropping at the worst time and in the weirdest way possible - Polygon.com",
@@ -6869,7 +6869,7 @@
     "cluster": "setup",
     "score": 82,
     "eventKey": "i-ve-tested-gaming-gear-for-nearly-a-decade-and--75206eed",
-    "status": "scored",
+    "status": "drafted",
     "primaryKeywordHint": "best setup for gta 6",
     "funnelKind": "purchase",
     "affiliateIntents": [
@@ -6879,7 +6879,7 @@
     "funnelScore": 82,
     "id": "4b553260-06f4-4a0e-9a9e-2bf96e306742",
     "createdAt": "2026-08-16T20:50:22.163Z",
-    "updatedAt": "2026-08-16T20:50:22.163Z"
+    "updatedAt": "2026-08-24T11:11:18.961Z"
   },
   {
     "headline": "GTA 6 'plays best' on PS5, Sony confirms PS5 Pro enhancements - TweakTown",
@@ -35100,5 +35100,197 @@
     "id": "130fcb46-88ae-416d-baec-da317583ce04",
     "createdAt": "2026-08-24T09:50:24.837Z",
     "updatedAt": "2026-08-24T09:50:24.837Z"
+  },
+  {
+    "headline": "When Is GTA 6 Trailer 3 Releasing? Rumored Date & Hints - VICE",
+    "summary": "When Is GTA 6 Trailer 3 Releasing? Rumored Date & Hints&nbsp;&nbsp;VICE",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMijgFBVV95cUxOalEtVTU3SFRRNGpSdEdqbTVmbENaMDZuaVMzNG5RYmdUazRiUGVCbUpoY2IyZTVTLWVKSDlhOE9rQWdLN0VsdWN6NG9hSWFhMHE1SURUM1ZXcnVTVTdGZVZPSEpZckJjT0ZVWExCV2NsdlJKa2hzWGVydHVGTTIxNFVNNnkyc2J6U05QNk1n?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 82,
+    "eventKey": "when-is-gta-6-trailer-3-releasing-rumored-date-h-38ec02e6",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "clip_kit",
+    "affiliateIntents": [],
+    "clipHook": "🎬 When Is GTA 6 Trailer 3 Releasing? Rumored Date & Hints - VICE — drop this on Kick / TikTok with the map overlay",
+    "funnelScore": 82,
+    "id": "9da3fb2d-35a7-4ce0-9bf2-9efe1e09f22e",
+    "createdAt": "2026-08-24T10:36:26.857Z",
+    "updatedAt": "2026-08-24T10:36:26.857Z"
+  },
+  {
+    "headline": "GTA VI hacker threatens publishers, Bethesda announces Skyrim update - the most interesting materials of the week - ixbt.games",
+    "summary": "GTA VI hacker threatens publishers, Bethesda announces Skyrim update - the most interesting materials of the week&nbsp;&nbsp;ixbt.games",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMikAFBVV95cUxQb1MtSXMtVUdjYUxzVFd3YnNiRElRYUJUOG5FQlZFYmMzbThIOXQxQVg2ZnJmWjQyREEzd2RRRjJoUmIwblFGSzdOc08zeVRqcGltb0VQOV9LUUJxeXdsdFptZ0M3aWRUcUM1aXFEd0prYVBqeGlrV2sxSjBfTl93enB1blZDRTFhbFlfc3ZIeUXSAZYBQVVfeXFMT1R2N1FQU003TVdnZk50TnlRS29VV3B0VllMOHJLVGZLZEhFZFoyQ19lckQxbTBsS0thNE4tX3RwTVM0ODBuQzAxdXVOYkg0N3pvNlpGWVNzVXJhd2pGREpZWVNJWHhXT21MSVc4VDVOaXNtNTBiMnNFZVBIcUt1eTgxUzd4WWVRN3hrSWFhRUJodHNHbFB3?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 75,
+    "eventKey": "gta-vi-hacker-threatens-publishers-bethesda-anno-90d36248",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "purchase",
+    "affiliateIntents": [
+      "retro_gta"
+    ],
+    "clipHook": "🛒 GTA VI hacker threatens publishers, Bethesda announces Skyrim update - the most interestin — link in bio / Map-6 preorder picks",
+    "funnelScore": 75,
+    "id": "c4e3e580-7c85-4a8f-a16a-c474435da877",
+    "createdAt": "2026-08-24T10:36:27.177Z",
+    "updatedAt": "2026-08-24T10:36:27.177Z"
+  },
+  {
+    "headline": "Take-Two lost $2.8 billion in market cap after GTA 6 leaks—but what's more shocking to me is it probably barely felt it - PC Gamer",
+    "summary": "Take-Two lost $2.8 billion in market cap after GTA 6 leaks—but what's more shocking to me is it probably barely felt it&nbsp;&nbsp;PC Gamer",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPRkNIb25pMG9KNG4zSjhXT3dqRDBtbzZuN0lYUE5GUmhzZWdCdDRybFZoQ2tGUlpsRTljSnkzVVhmSXQyV25sRGs1TkJLdnhDcXJ1REhhUnJTeEstTkJid09tWEFONnhEc3FqME04WkZlRjRmc0RGY3hiTWEwZjFXOTllTmtySGx2SnNwUTY2LTRnNTRMSFJSSXdQTTJLVVBhRGw4RUtFaEs3ZUlvdGxVUXdJcWZLaGJZOUJnZ2hQcmRsRHZsb1ZQc3JRMXdDQ0QxY3FsUFE3endJLUkxemlhT29UR2lPZF9hd0dGNWt3Z290aW8?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 50,
+    "eventKey": "take-two-lost-2-8-billion-in-market-cap-after-gt-df09f96d",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "clip_kit",
+    "affiliateIntents": [],
+    "clipHook": "🎬 Take-Two lost $2.8 billion in market cap after GTA 6 leaks—but what's more shocking to me  — drop this on Kick / TikTok with the map overlay",
+    "funnelScore": 50,
+    "id": "48d8164e-9d42-46e2-9873-66fa027c6aaf",
+    "createdAt": "2026-08-24T10:36:27.628Z",
+    "updatedAt": "2026-08-24T10:36:27.628Z"
+  },
+  {
+    "headline": "Latest GTA 6 leak officially debunked as fake ahead of Netflix reveal - Daily Express",
+    "summary": "Latest GTA 6 leak officially debunked as fake ahead of Netflix reveal&nbsp;&nbsp;Daily Express",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMilwFBVV95cUxOTkR5R0p4TEIxT1dOTHFub1l1cm83ajYyNzNvTFJva2JtX1JJZTI1RjJuLW9ZaHZNSjJ6SUVrdDMtQXpSYlQ3b3Q4cmdONlY5Z2RDWHNwSnNPd0t3Z3JzVUtndVBZaGZqc0taaVdSaTdMY3pYSHllZHpLWGFBbmlJa1dueXNld1pyVWozTzRrdzRqUVVtT1RB0gGcAUFVX3lxTE5GV2NTLWFwTGVfWHJ2MFhhTllpd3FmVnFiQ2VVY0hzMmxDbk5kWWw3TzBoNE80YzAySmFCNm9Zcnl0OHhwM0pzaHV5ZS1Rb1g2b2htVXVtM3hQUngzQ2djQU5ScEw5MkFrRFN5V1FPSE4wNnVzV2s0NkZCQWJtd0VDdjFjWVJSRlhvSXVJYWp5SS04c014d3cyOVAtcA?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 65,
+    "eventKey": "latest-gta-6-leak-officially-debunked-as-fake-ah-a51a4e31",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "clip_kit",
+    "affiliateIntents": [],
+    "clipHook": "🎬 Latest GTA 6 leak officially debunked as fake ahead of Netflix reveal - Daily Express — drop this on Kick / TikTok with the map overlay",
+    "funnelScore": 65,
+    "id": "8d31410f-87f6-431b-881e-3ab9fc4598e9",
+    "createdAt": "2026-08-24T10:36:27.784Z",
+    "updatedAt": "2026-08-24T10:36:27.784Z"
+  },
+  {
+    "headline": "Take-Two Interactive files subpoenas against Microsoft, Discord, and X amid ongoing GTA 6 leaks - GamesIndustry.biz",
+    "summary": "Take-Two Interactive files subpoenas against Microsoft, Discord, and X amid ongoing GTA 6 leaks&nbsp;&nbsp;GamesIndustry.biz",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPRjN3UG9nbUlqU2JGWEJuMVBWT1ozZDBRMHBlX2E5NVpBd1BRSjVob0VRclgwVFlGLVgycUhTTkZRTm1HbDFFd3JRXzB3bUVYbkNISWRoRUp0clJzVmI5Z0VmVFNxUGo2c3NCSDQtQm01Zm9lLWw3SF9EWDJINmFmVjhmNE1XTDQ3enhuVVkyaFphS09CZGI5ZURNcHpLcUlRbksyaHo1WHd4QzUzaFZkV1E4RERFS09YYUIzNTNPZ1E?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 80,
+    "eventKey": "take-two-interactive-files-subpoenas-against-mic-7605a25d",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "clip_kit",
+    "affiliateIntents": [],
+    "clipHook": "🎬 Take-Two Interactive files subpoenas against Microsoft, Discord, and X amid ongoing GTA 6  — drop this on Kick / TikTok with the map overlay",
+    "funnelScore": 80,
+    "id": "1bd2ee88-76ac-4dbd-b2a5-1ea2e96a1858",
+    "createdAt": "2026-08-24T10:36:27.889Z",
+    "updatedAt": "2026-08-24T10:36:27.889Z"
+  },
+  {
+    "headline": "New GTA 6 leaks suggest Cyberleek has access to Lucia as fans become even more convinced they have Rockstar's full game in their hands - GamesRadar+",
+    "summary": "New GTA 6 leaks suggest Cyberleek has access to Lucia as fans become even more convinced they have Rockstar's full game in their hands&nbsp;&nbsp;GamesRadar+",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMikgJBVV95cUxQYlMwRGtZeDVoX2NzLUlGaFdPOHB2d3I0U2hhdnp3S0MtV3NTZlM1bmpnR0lQSzRuNnV5RFhxRFN0OENPX1NDZnFKaldVcm1NRGFlTnRuMS14TXlldzFCRF9uUXBMSl9XdFV5QmZEQ29CdGZpMXFRZWd6d2JSekhYNDdfNm5iRUhndEtuMXZZc2lqYXhjUlhoSVExUGptaU9xZWdlZGc1ckR1SWY1ZlQ0VU9yZ1ZkQkVvbzdITGNvU055Tl84eUJSQ1FUNXBnSUJnMEhKSWRlUDlrLUNSTC13R0VkbEVxT2Ixc0F3anh2dVh6NjVLNmo3WjE4ZE13OUthMG1mOEo4Z2VGSW9XUzgtc1R3?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 65,
+    "eventKey": "new-gta-6-leaks-suggest-cyberleek-has-access-to--9596b927",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "clip_kit",
+    "affiliateIntents": [],
+    "clipHook": "🎬 New GTA 6 leaks suggest Cyberleek has access to Lucia as fans become even more convinced t — drop this on Kick / TikTok with the map overlay",
+    "funnelScore": 65,
+    "id": "8cf92fe3-7f62-46c6-88c2-db3787a5befa",
+    "createdAt": "2026-08-24T10:36:28.110Z",
+    "updatedAt": "2026-08-24T10:36:28.110Z"
+  },
+  {
+    "headline": "GTA 6 'build' that's 113GB in size is currently circulating online, and it's fake - TweakTown",
+    "summary": "GTA 6 'build' that's 113GB in size is currently circulating online, and it's fake&nbsp;&nbsp;TweakTown",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQWmkxa2ZsdXlUalhWOEdGYzRUMW9SVGk2bG9DZVNPZVVFN3ItSXFnZEdULThJVU1qVWFnOWJMN0M0b0Iwajhyb0p1b1JRbXBnM1E5QnhjQmtoTWM3RGZ4U0RGTlBwWW5jVzMzTDlLTkZtcFRxSklGd3BjV0pSTkhiX1Z2WVUyS2lNai1EbjdMZXVQeG1jcnRfbjI0WUJkTnlUWXB6M1NQUElIdnZ2WG5uNE5zdzJWbXNHZXBZLWYwZENvbzQ?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 65,
+    "eventKey": "gta-6-build-that-s-113gb-in-size-is-currently-ci-dcb2ac39",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "mixed",
+    "affiliateIntents": [],
+    "clipHook": "🗺️ GTA 6 'build' that's 113GB in size is currently circulating online, and it's fake - TweakT — Map-6 deep dive",
+    "funnelScore": 65,
+    "id": "812eab71-8c98-4a2c-b035-97c56db6f804",
+    "createdAt": "2026-08-24T10:36:28.217Z",
+    "updatedAt": "2026-08-24T10:36:28.217Z"
+  },
+  {
+    "headline": "GTA 6 Leaks: Why a Former Rockstar Director Says ‘Calm Down’ - Techloy",
+    "summary": "GTA 6 Leaks: Why a Former Rockstar Director Says ‘Calm Down’&nbsp;&nbsp;Techloy",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMie0FVX3lxTFBESTU2R012YWZ3VElyY0MtN2lyeUI0MC1uMWczZUZWeVZVR0hZSVdyS3UxUUh3OTNQZ252czVsYm1ack1EX1BuQnVoaWRnY3NiQ250bmV6VFRHekprOEdaaFhleU5jZkVIbW9oejlDSUxIWmM5bktCeGQ3MA?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 65,
+    "eventKey": "gta-6-leaks-why-a-former-rockstar-director-says--f604bd76",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "clip_kit",
+    "affiliateIntents": [],
+    "clipHook": "🎬 GTA 6 Leaks: Why a Former Rockstar Director Says ‘Calm Down’ - Techloy — drop this on Kick / TikTok with the map overlay",
+    "funnelScore": 65,
+    "id": "83eae75c-256a-4d80-9c1b-8fd566a53321",
+    "createdAt": "2026-08-24T10:36:28.495Z",
+    "updatedAt": "2026-08-24T10:36:28.495Z"
+  },
+  {
+    "headline": "Former Rockstar developer plays down 'nothing burger' Grand Theft Auto VI leaks - Female First",
+    "summary": "Former Rockstar developer plays down 'nothing burger' Grand Theft Auto VI leaks&nbsp;&nbsp;Female First",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMiugFBVV95cUxON0ctdVVjUWpYOGstdXFiZlczNEdoRmtCaWo5dElDWldMOUozRTlfdElhSUpTT3dXNW5heVBWRi1Uc2xmbTZjMVQ4NVdKMkNsaUJMdnY0ZGI2Q1YxTFlzWDRGVXlUMDZrMzUyYXQxRVlmdmhpRldnYVEwWkNhbG95MmU3eGpSaHY5UlEzdDZMcTdSR3dfOVdRSUdYQktGbzBSU2xwX2x6dC03TzluSlljUUxrM2ZJRTdUb3c?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 65,
+    "eventKey": "former-rockstar-developer-plays-down-nothing-bur-3e60421b",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "clip_kit",
+    "affiliateIntents": [],
+    "clipHook": "🎬 Former Rockstar developer plays down 'nothing burger' Grand Theft Auto VI leaks - Female F — drop this on Kick / TikTok with the map overlay",
+    "funnelScore": 65,
+    "id": "0e556702-f60d-4b68-af09-e21e7146b32d",
+    "createdAt": "2026-08-24T10:36:28.694Z",
+    "updatedAt": "2026-08-24T10:36:28.694Z"
+  },
+  {
+    "headline": "GTA 6 Price Confirmed: $80 Standard, $100 Ultimate — and No Disc in the Box - Cosmic Book News",
+    "summary": "GTA 6 Price Confirmed: $80 Standard, $100 Ultimate — and No Disc in the Box&nbsp;&nbsp;Cosmic Book News",
+    "sourceUrls": [
+      "https://news.google.com/rss/articles/CBMiS0FVX3lxTE1VelZDTHRFZlA0NzFJRFc1cHVESm5wUUcxT2ViQnB6dWdWcEhHLUh6Z05EajRsdjhYWmgtMDU2cHdGRjZjbDRjTXpWaw?oc=5"
+    ],
+    "cluster": "trailer",
+    "score": 20,
+    "eventKey": "gta-6-price-confirmed-80-standard-100-ultimate-a-22a17053",
+    "status": "scored",
+    "primaryKeywordHint": "gta 6 trailer 3",
+    "funnelKind": "mixed",
+    "affiliateIntents": [],
+    "clipHook": "🗺️ GTA 6 Price Confirmed: $80 Standard, $100 Ultimate — and No Disc in the Box - Cosmic Book  — Map-6 deep dive",
+    "funnelScore": 20,
+    "id": "daa85929-7da7-426d-b567-0d96b73ca383",
+    "createdAt": "2026-08-24T10:36:31.268Z",
+    "updatedAt": "2026-08-24T10:36:31.268Z"
   }
 ]
