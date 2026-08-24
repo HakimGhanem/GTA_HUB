@@ -71,10 +71,19 @@ function templateDraft(topic: Topic): Omit<
   let title = titleBase.slice(0, 58);
   if (title.length < 30) title = `GTA 6 Update: ${title}`.slice(0, 58);
 
-  const description = (
-    `What we know about ${phrase}: sources, map context, and what it means for Vice City explorers. ` +
-    `Verified coverage from Map-6 — no invented trailer dates.`
+  // Unique SERP snippet from the headline — never a shared template
+  const cleanHeadline = titleBase.replace(/\s+/g, " ").trim();
+  let description = (
+    `${cleanHeadline}. Map context, verified sources, and what it means for Vice City explorers on Map-6 — no invented trailer dates.`
   ).slice(0, 160);
+  if (description.length < 120) {
+    description = (
+      `${cleanHeadline}. Track pins on the free Map-6 interactive map; rumors stay labeled. Preorder & setup links when purchase intent is clear.`
+    ).slice(0, 160);
+  }
+  if (description.length < 120) {
+    description = description.padEnd(120, ".");
+  }
 
   const sources = topic.sourceUrls.map((url, i) => ({
     url,

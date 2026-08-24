@@ -234,6 +234,14 @@ const TITLES: Record<string, Partial<Record<Locale, string>>> = {
       de: "GTA 6 Extended Look auf Netflix: Trailer & Stream",
       it: "GTA 6 Extended Look su Netflix: trailer e come guardarlo",
     },
+  "for-a-lot-of-people-this-is-the-one-must-buy-game-this-year-and-they-will-want-t":
+    {
+      fr: "GTA 6 Ultimate : 89 % des précommandes à ~100 $",
+      es: "GTA 6 Ultimate: el 89% de preventas a ~100 $",
+      pt: "GTA 6 Ultimate: 89% das pré-vendas a ~100 $",
+      de: "GTA 6 Ultimate: 89 % der Vorbestellungen (~100 $)",
+      it: "GTA 6 Ultimate: l’89% dei preordini a ~100 $",
+    },
 };
 
 const DESCS: Record<Locale, (kw: string) => string> = {

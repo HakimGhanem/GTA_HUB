@@ -53,11 +53,20 @@ export default async function NewsArticlePage({ params }: Props) {
     article.cluster === "setup" ||
     article.cluster === "trailer" ||
     article.funnelKind === "purchase" ||
-    article.funnelKind === "mixed";
+    article.funnelKind === "mixed" ||
+    article.funnelKind === "clip_kit";
 
-  const affiliateIntents = (article.affiliateIntents?.length
-    ? article.affiliateIntents
-    : ["preorder_standard", "console_upgrade"]) as AffiliateIntent[];
+  // Prefer live hardware until GTA6 game ASINs exist — never show empty SiteStripe shells on news
+  const affiliateIntents = (
+    article.affiliateIntents?.length
+      ? [
+          ...article.affiliateIntents,
+          "console_upgrade",
+          "controller",
+          "headset",
+        ]
+      : ["console_upgrade", "controller", "headset", "preorder_standard"]
+  ) as AffiliateIntent[];
 
   return (
     <>
@@ -121,7 +130,27 @@ export default async function NewsArticlePage({ params }: Props) {
 
         {showAffiliate ? (
           <div className="mt-8">
-            <AffiliateProductGrid intents={affiliateIntents.slice(0, 3)} />
+            <AffiliateProductGrid
+              intents={affiliateIntents.slice(0, 4)}
+              liveOnly
+              title="Launch gear (available now)"
+            />
+            <p className="mt-3 text-xs text-white/40">
+              Game edition cards appear when official Amazon ASINs go live.{" "}
+              <Link
+                href="/guides/gta-6-preorder-guide"
+                className="text-pink-300/80 underline hover:text-pink-200"
+              >
+                Pre-order guide
+              </Link>
+              {" · "}
+              <Link
+                href="/guides/best-setup-gta-6-ps5-xbox"
+                className="text-pink-300/80 underline hover:text-pink-200"
+              >
+                Best setup checklist
+              </Link>
+            </p>
           </div>
         ) : null}
 
