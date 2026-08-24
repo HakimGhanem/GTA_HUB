@@ -46,14 +46,37 @@ function envNum(key: string, fallback: number): number {
   return Number.isFinite(n) ? n : fallback;
 }
 
-function envStr(key: string): string | null {
-  const v = process.env[key]?.trim();
+/**
+ * Next.js only inlines `process.env.NEXT_PUBLIC_*` with static property access.
+ * Dynamic `process.env[key]` is undefined in the browser → maps fell back to grid.
+ */
+function publicEnv(value: string | undefined): string | null {
+  const v = value?.trim();
   return v || null;
 }
 
+const PUBLIC_TILE_ENV = {
+  raster: publicEnv(process.env.NEXT_PUBLIC_RASTER_TILES_URL),
+  pmtiles: publicEnv(process.env.NEXT_PUBLIC_PMTILES_URL),
+  gta5Raster:
+    publicEnv(process.env.NEXT_PUBLIC_GTA5_RASTER_TILES_URL) ||
+    publicEnv(process.env.NEXT_PUBLIC_GTA5_TILES_URL),
+  gta5Pmtiles: publicEnv(process.env.NEXT_PUBLIC_GTA5_PMTILES_URL),
+  vcImage: publicEnv(process.env.NEXT_PUBLIC_VC_MAP_IMAGE),
+  vcRaster:
+    publicEnv(process.env.NEXT_PUBLIC_VC_RASTER_TILES_URL) ||
+    publicEnv(process.env.NEXT_PUBLIC_VC_TILES_URL),
+  vcPmtiles: publicEnv(process.env.NEXT_PUBLIC_VC_PMTILES_URL),
+  saImage: publicEnv(process.env.NEXT_PUBLIC_SA_MAP_IMAGE),
+  saRaster:
+    publicEnv(process.env.NEXT_PUBLIC_SA_RASTER_TILES_URL) ||
+    publicEnv(process.env.NEXT_PUBLIC_SA_TILES_URL),
+  saPmtiles: publicEnv(process.env.NEXT_PUBLIC_SA_PMTILES_URL),
+} as const;
+
 function gta6Config(): GameConfig {
-  const raster = envStr("NEXT_PUBLIC_RASTER_TILES_URL");
-  const pmtiles = envStr("NEXT_PUBLIC_PMTILES_URL");
+  const raster = PUBLIC_TILE_ENV.raster;
+  const pmtiles = PUBLIC_TILE_ENV.pmtiles;
   let tile: GameTileSource = { kind: "grid" };
   if (GTADB.enabled) tile = { kind: "gtadb" };
   else if (raster) tile = { kind: "raster", url: raster };
@@ -82,10 +105,8 @@ function gta6Config(): GameConfig {
 }
 
 function gta5Config(): GameConfig {
-  const raster =
-    envStr("NEXT_PUBLIC_GTA5_RASTER_TILES_URL") ||
-    envStr("NEXT_PUBLIC_GTA5_TILES_URL");
-  const pmtiles = envStr("NEXT_PUBLIC_GTA5_PMTILES_URL");
+  const raster = PUBLIC_TILE_ENV.gta5Raster;
+  const pmtiles = PUBLIC_TILE_ENV.gta5Pmtiles;
 
   let tile: GameTileSource = { kind: "grid" };
   if (GTA5_GTADB.enabled) tile = { kind: "gtadb" };
@@ -127,11 +148,9 @@ function gta5Config(): GameConfig {
 }
 
 function vcConfig(): GameConfig {
-  const image = envStr("NEXT_PUBLIC_VC_MAP_IMAGE");
-  const raster =
-    envStr("NEXT_PUBLIC_VC_RASTER_TILES_URL") ||
-    envStr("NEXT_PUBLIC_VC_TILES_URL");
-  const pmtiles = envStr("NEXT_PUBLIC_VC_PMTILES_URL");
+  const image = PUBLIC_TILE_ENV.vcImage;
+  const raster = PUBLIC_TILE_ENV.vcRaster;
+  const pmtiles = PUBLIC_TILE_ENV.vcPmtiles;
 
   let tile: GameTileSource = { kind: "grid" };
   if (image) tile = { kind: "image", url: image };
@@ -173,11 +192,9 @@ function vcConfig(): GameConfig {
 }
 
 function saConfig(): GameConfig {
-  const image = envStr("NEXT_PUBLIC_SA_MAP_IMAGE");
-  const raster =
-    envStr("NEXT_PUBLIC_SA_RASTER_TILES_URL") ||
-    envStr("NEXT_PUBLIC_SA_TILES_URL");
-  const pmtiles = envStr("NEXT_PUBLIC_SA_PMTILES_URL");
+  const image = PUBLIC_TILE_ENV.saImage;
+  const raster = PUBLIC_TILE_ENV.saRaster;
+  const pmtiles = PUBLIC_TILE_ENV.saPmtiles;
 
   let tile: GameTileSource = { kind: "grid" };
   if (image) tile = { kind: "image", url: image };
