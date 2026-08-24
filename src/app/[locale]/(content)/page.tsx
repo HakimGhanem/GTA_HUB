@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { HardwarePromo } from "@/components/affiliate/HardwarePromo";
 import { HomeMapHero } from "@/components/home/HomeMapHero";
 import { LocationCard } from "@/components/locations/LocationCard";
+import { ClassicMapsPromo } from "@/components/map/ClassicMapsPromo";
 import { LOCATIONS } from "@/data/locations";
 import { listPublishedArticles } from "@/lib/content/repository";
 import { buildMetadata, jsonLdFAQ } from "@/lib/seo";
@@ -28,6 +29,7 @@ export default async function HomePage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("home");
+  const tLoc = await getTranslations("locations");
   const featured = LOCATIONS.slice(0, 4);
   const latestNews = (await listPublishedArticles(locale)).slice(0, 3);
 
@@ -87,6 +89,33 @@ export default async function HomePage({ params }: Props) {
           {featured.map((loc) => (
             <LocationCard key={loc.slug} location={loc} />
           ))}
+        </div>
+
+        <div className="mt-10">
+          <ClassicMapsPromo
+            title={tLoc("classicMapsTitle")}
+            hint={tLoc("classicMapsHint")}
+            maps={[
+              {
+                game: "gta5",
+                href: "/map?game=gta5",
+                label: tLoc("classicGta5"),
+                desc: tLoc("classicGta5Desc"),
+              },
+              {
+                game: "vc",
+                href: "/map?game=vc",
+                label: tLoc("classicVc"),
+                desc: tLoc("classicVcDesc"),
+              },
+              {
+                game: "sa",
+                href: "/map?game=sa",
+                label: tLoc("classicSa"),
+                desc: tLoc("classicSaDesc"),
+              },
+            ]}
+          />
         </div>
 
         <HardwarePromo className="mt-16" title={t("hardwareTitle")} />

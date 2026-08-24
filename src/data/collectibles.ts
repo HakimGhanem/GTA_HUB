@@ -1,3 +1,6 @@
+import expandedJson from "./collectibles-expanded.json";
+import type { Location } from "./locations";
+
 export type CollectibleType = {
   slug: string;
   name: string;
@@ -21,7 +24,7 @@ export const COLLECTIBLE_TYPES: CollectibleType[] = [
     slug: "hidden-packages",
     name: "Hidden Packages",
     description:
-      "Classic GTA collectibles scattered across the map. Track all hidden packages in Vice City, Port Gellhorn, and the Everglades.",
+      "Classic GTA collectibles scattered across the map. Track hidden packages in Vice City, Port Gellhorn, and the Everglades.",
     icon: "📦",
     total: 100,
   },
@@ -51,53 +54,22 @@ export const COLLECTIBLE_TYPES: CollectibleType[] = [
   },
 ];
 
-export const COLLECTIBLES: Collectible[] = [
-  {
-    slug: "hidden-package-01",
-    name: "Hidden Package #1",
-    description: "Dockside crate near Port Gellhorn shipping containers.",
-    type: "hidden-packages",
-    x: -890,
-    y: -340,
-    region: "Port Gellhorn",
-  },
-  {
-    slug: "hidden-package-02",
-    name: "Hidden Package #2",
-    description: "Rooftop cache overlooking Ocean Drive neon.",
-    type: "hidden-packages",
-    x: 380,
-    y: 310,
-    region: "Vice City",
-  },
-  {
-    slug: "stunt-jump-01",
-    name: "Stunt Jump — Ocean Drive",
-    description: "Launch off the art deco hotel ramp into the beach parking lot.",
-    type: "stunt-jumps",
-    x: 520,
-    y: 190,
-    region: "Vice City",
-  },
-  {
-    slug: "street-art-01",
-    name: "Vice City Mural",
-    description: "Large alligator mural on a warehouse wall in Little Vice.",
-    type: "street-art",
-    x: -120,
-    y: 480,
-    region: "Vice City",
-  },
-  {
-    slug: "wildlife-01",
-    name: "American Alligator",
-    description: "Spot this apex predator in the Grassrivers at dawn.",
-    type: "wildlife",
-    x: -1600,
-    y: 820,
-    region: "Grassrivers",
-  },
-];
+export const COLLECTIBLES = expandedJson as Collectible[];
+
+/** Map pins for collectible samples (noindex — see location-indexing). */
+export function collectiblesAsMapLocations(): Location[] {
+  return COLLECTIBLES.map((c) => ({
+    slug: c.slug,
+    name: c.name,
+    description: c.description,
+    category: "collectible" as const,
+    x: c.x,
+    y: c.y,
+    region: c.region,
+    source: "seed",
+    confidence: "seed" as const,
+  }));
+}
 
 export function getCollectibleType(slug: string) {
   return COLLECTIBLE_TYPES.find((t) => t.slug === slug);

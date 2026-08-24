@@ -48,9 +48,9 @@ export const KEYWORDS: KeywordRecord[] = [
     cluster: "map",
     priority: "P0",
     locale: "en",
-    targetSlugHint: "gta-6-interactive-map-guide",
+    targetSlugHint: "gta-6-map-guide",
     relatedInternalPaths: ["/map", "/guides/gta-6-map-guide", "/locations"],
-    status: "todo",
+    status: "published",
     monetization: "map",
   },
   {
@@ -59,9 +59,9 @@ export const KEYWORDS: KeywordRecord[] = [
     cluster: "map",
     priority: "P0",
     locale: "en",
-    targetSlugHint: "vice-city-map-gta-6",
+    targetSlugHint: "locations/vice-city",
     relatedInternalPaths: ["/map", "/locations/vice-city", "/guides/vice-city-locations"],
-    status: "todo",
+    status: "published",
     monetization: "map",
   },
   // ── Preorder (affiliate) ───────────────────────────────────────
@@ -73,7 +73,7 @@ export const KEYWORDS: KeywordRecord[] = [
     locale: "en",
     targetSlugHint: "gta-6-preorder-ps5-guide",
     relatedInternalPaths: ["/guides/gta-6-preorder-guide"],
-    status: "todo",
+    status: "published",
     monetization: "affiliate",
   },
   {
@@ -102,7 +102,7 @@ export const KEYWORDS: KeywordRecord[] = [
       "/guides/gta-6-collectors-edition",
     ],
     competitorNotes: "Compare Ultimate vs Standard/Collector once Rockstar lists editions — no fake ASINs",
-    status: "todo",
+    status: "published",
     monetization: "affiliate",
   },
   {
@@ -117,7 +117,7 @@ export const KEYWORDS: KeywordRecord[] = [
       "/guides/gta-6-collectors-edition",
     ],
     competitorNotes: "Price ranges only from official/store listings — never invent MSRP",
-    status: "todo",
+    status: "published",
     monetization: "affiliate",
   },
   // ── Locations ──────────────────────────────────────────────────
@@ -167,7 +167,7 @@ export const KEYWORDS: KeywordRecord[] = [
     locale: "en",
     targetSlugHint: "gta-6-collectibles-map",
     relatedInternalPaths: ["/collectibles", "/map"],
-    status: "todo",
+    status: "published",
     monetization: "map",
   },
   // ── Release ────────────────────────────────────────────────────
@@ -179,7 +179,7 @@ export const KEYWORDS: KeywordRecord[] = [
     locale: "en",
     targetSlugHint: "gta-6-release-date",
     relatedInternalPaths: ["/guides/gta-6-preorder-guide", "/map"],
-    status: "todo",
+    status: "published",
     monetization: "mixed",
   },
   {

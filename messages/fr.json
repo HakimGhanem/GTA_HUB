@@ -49,7 +49,17 @@
     "coordinates": "Coordonnées : X : {x}, Y : {y}",
     "aboutTitle": "À propos de {name}",
     "findTitle": "Que trouver à {name}",
-    "faqTitle": "Questions fréquentes"
+    "faqTitle": "Questions fréquentes",
+    "regionHubsTitle": "Explorer Leonida par région",
+    "regionHubsHint": "Hubs SEO avec liens carte — Vice City, Keys, Port Gellhorn, marais et plus.",
+    "classicMapsTitle": "Cartes GTA classiques sur Map-6",
+    "classicMapsHint": "Entraînez-vous aux collectibles sur GTA 5, Vice City et San Andreas en attendant le lancement.",
+    "classicGta5": "Carte GTA 5",
+    "classicGta5Desc": "POIs Los Santos et collectibles — ?game=gta5.",
+    "classicVc": "Vice City (classique)",
+    "classicVcDesc": "Paquets cachés et sauts uniques sur la carte 2002.",
+    "classicSa": "San Andreas",
+    "classicSaDesc": "Fers à cheval, huîtres et snapshots."
   },
   "collectibles": {
     "title": "Collectibles GTA 6",
@@ -60,6 +70,12 @@
     "title": "Guides de la carte GTA 6",
     "subtitle": "Guides complets pour maîtriser GTA 6 avant et après la sortie.",
     "readMin": "{min} min de lecture",
+    "backToAll": "← Tous les guides",
+    "ctaTitle": "Prêt à explorer ?",
+    "ctaBody": "Ouvrez la carte interactive et suivez les lieux.",
+    "ctaButton": "Ouvrir la carte interactive",
+    "gearTitle": "Matériel & éditions",
+    "openOverlay": "Ouvrir l’overlay OBS →",
     "categories": {
       "beginner": "Débutant",
       "exploration": "Exploration",

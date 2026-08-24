@@ -7,6 +7,22 @@ export const GUIDE_AFFILIATE_INTENTS: Record<string, AffiliateIntent[]> = {
     "preorder_collectors",
     "console_upgrade",
   ],
+  "gta-6-preorder-ps5-guide": [
+    "preorder_standard",
+    "preorder_collectors",
+    "controller",
+    "headset",
+  ],
+  "gta-6-preorder-price-editions": [
+    "preorder_standard",
+    "preorder_collectors",
+    "console_upgrade",
+  ],
+  "gta-6-ultimate-edition-vs-standard": [
+    "preorder_collectors",
+    "preorder_standard",
+  ],
+  "gta-6-release-date": ["preorder_standard", "console_upgrade", "storage_ssd"],
   "best-setup-gta-6-ps5-xbox": [
     "console_upgrade",
     "headset",

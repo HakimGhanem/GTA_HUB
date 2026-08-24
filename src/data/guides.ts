@@ -231,6 +231,95 @@ export const GUIDES: Guide[] = [
       "Teaching a friend: open /map, zoom to show Vice City against the Keys chain, pan to Port Gellhorn versus Ambrosia, then north toward Mount Kalaga with Grassrivers as the wet middle. Five minutes of shared camera beats a twenty-minute lore essay. Leave the essay here for when they want words; leave the map for when they want space.",
     ],
   },
+  {
+    slug: "gta-6-preorder-ps5-guide",
+    title: "GTA 6 Pre-Order PS5 — Standard, Digital & Launch Checklist",
+    description:
+      "How to pre-order GTA 6 on PlayStation 5: edition choice, Amazon tips, SSD and DualSense picks, and Map-6 prep while you wait.",
+    category: "beginner",
+    readTime: 11,
+    publishedAt: "2026-08-24",
+    content: [
+      "Grand Theft Auto VI launches November 19, 2026 on PlayStation 5. If you already live in Sony’s ecosystem, the PS5 SKU is the default honest cart — this Map-6 guide focuses on PlayStation pre-orders, not Xbox cross-shopping. We cover where to buy, Standard versus Collector thinking, hardware that actually matters on PS5, and how to use the interactive map while Amazon game ASINs are still pending.",
+      "Rockstar has confirmed PS5 as a day-one platform. PC timing, if any, will come from official channels only — Map-6 will not invent it. Amazon remains a practical pre-order channel for many EU players: Prime shipping on eligible items, straightforward returns, and cancellation on most pre-orders until ship. Affiliate product cards below activate when official ASINs appear.",
+      "Choose the PS5 Standard Edition if you want the full game without memorabilia tax — best dollars-per-hour for story and Online. Collector’s Edition is for shelf pride after Rockstar publishes the official contents list. Do not buy Collector expecting Online power; historically Rockstar keeps core progression accessible without the box.",
+      "PS5-specific checklist: confirm you are signed into the correct PSN account, enable purchase PINs if the console is shared, and leave internal SSD headroom for day-one patches and captures. A spare DualSense and Pulse 3D-class headset matter more than statue height. HDMI 2.1 and 120Hz readiness protect performance modes when Rockstar ships them.",
+      "While game listings are pending, hardware is not. The product grid below highlights console-compatible storage, controllers, and audio that help launch week regardless of edition. Pair this page with the full pre-order guide for Xbox comparisons and the best-setup guide for a living-room checklist.",
+      "Map literacy on PS5: bookmark /map on your phone or second screen, filter Landmarks while scrubbing trailers, Share deep links with optional `ref` for creator attribution, and read regional hubs under /locations for Vice City, the Keys, Port Gellhorn, Grassrivers, Ambrosia Island, and Mount Kalaga. Editions do not change geography — the same pins serve every SKU.",
+      "Related Map-6 reading: gta-6-preorder-guide (all platforms), gta-6-collectors-edition, gta-6-preorder-price-editions, best-setup-gta-6-ps5-xbox, and gta-6-release-date for the public timeline. Map-6 is fan-made, not Rockstar — see the disclosure on affiliate links.",
+    ],
+  },
+  {
+    slug: "gta-6-preorder-price-editions",
+    title: "GTA 6 Pre-Order Price & Editions — What to Expect",
+    description:
+      "GTA 6 Standard vs Collector pricing logic, platform SKUs, and how to compare editions without leak-list FOMO before Rockstar confirms details.",
+    category: "beginner",
+    readTime: 10,
+    publishedAt: "2026-08-24",
+    content: [
+      "Pricing and edition contents for Grand Theft Auto VI remain provisional until Rockstar and retailers publish final SKUs. This Map-6 guide explains how to compare Standard, digital, physical, and Collector premiums without treating rumor spreadsheets as checkout advice — and what to do while Amazon ASINs are still empty.",
+      "Standard Edition is the baseline: full game, no memorabilia tax. Collector’s Edition historically adds physical collectibles — steelbooks, statues, art books — plus cosmetic or trinket in-game extras Rockstar will confirm closer to launch. Write down the premium over Standard and ask whether you would pay that for the objects alone.",
+      "Platform SKUs are separate. PS5 and Xbox Series X|S listings do not cross-convert; cross-saves are not announced for GTA 6. Digital Standard never sells out; physical Collector stock historically evaporates near launch. That asymmetry should guide FOMO, not unverified pin counts on social media.",
+      "Amazon pre-order norms: cancellation until ship on most orders, region locks on physical discs, and separate ASINs per platform and edition. Map-6 surfaces affiliate cards when official listings go live — until then, lock platform, decide physical versus digital, and upgrade bottleneck hardware from the best-setup guide.",
+      "Regional pricing varies. This page targets Amazon.fr-style EU shopping; verify VAT-inclusive prices on the product page before checkout. Gift buyers should screenshot the cart with the correct platform — Collector on the wrong console is an expensive mistake.",
+      "What not to buy on hype alone: leak compilations of statue dimensions, fake “Ultimate Edition” weapon lists, and scalper markups three days before launch. Wait for Newswire or store pages, then compare. Map-6 updates this guide when official prices and contents land.",
+      "While you wait: explore /map with Collectibles and Landmarks filters, read gta-6-ultimate-edition-vs-standard and gta-6-collectors-edition for longer decision templates, and bookmark gta-6-release-date for the public November 19, 2026 console launch timeline.",
+    ],
+  },
+  {
+    slug: "gta-6-ultimate-edition-vs-standard",
+    title: "GTA 6 Ultimate Edition vs Standard — Comparison Guide",
+    description:
+      "Standard, Collector, and rumored Ultimate tiers explained: who should pay the premium, what Rockstar has not confirmed, and sane pre-order discipline.",
+    category: "beginner",
+    readTime: 9,
+    publishedAt: "2026-08-24",
+    content: [
+      "Retailers and forums often use “Ultimate Edition” language before Rockstar settles official tier names. For GTA 6, treat any Ultimate SKU as unconfirmed until Newswire or store pages say otherwise. This comparison maps Standard, Collector, and hypothetical Ultimate bundles to decision criteria — not leak wishlists.",
+      "Standard Edition: full game, best value for playtime and digital convenience. Collector’s Edition: memorabilia and shelf pride after official contents publish. Ultimate (if it exists) would likely bundle digital extras, season-pass-style Online content, or both — historically announced late in the marketing cycle, not years early on fan wikis.",
+      "Buy Standard if you want Vice City on day one without clutter. Buy Collector if you display Rockstar boxes and the official object list justifies the premium. Do not buy a rumored Ultimate tier for speculative Online advantage — Rockstar rarely gates core power behind box tiers.",
+      "Platform lock-in beats edition hype. PS5 and Xbox SKUs are separate; cross-saves are not announced. A Collector on the wrong platform is wasted money regardless of tier name. Lock ecosystem first, then edition.",
+      "Pricing discipline: note the delta between tiers only after official lists. If Ultimate appears, compare its extras against buying Standard plus a headset or SSD from our best-setup guide — hardware often improves every session more than a digital wallpaper pack.",
+      "Map-6 does not change by edition. Filters, coordinates, overlay URLs, and regional /locations hubs serve every buyer equally. Use launch week for geography literacy, not for refreshing scalper listings.",
+      "Next steps: read gta-6-preorder-price-editions for Amazon timing, gta-6-collectors-edition for shelf-versus-play math, and gta-6-preorder-guide for platform-wide checkout tips. We revise this page when Rockstar names tiers officially.",
+    ],
+  },
+  {
+    slug: "gta-6-collectibles-map",
+    title: "GTA 6 Collectibles Map — Hidden Packages, Jumps & 100%",
+    description:
+      "Use Map-6 to track GTA 6 collectibles: hidden packages, stunt jumps, street art, and wildlife samples across Leonida with honest placeholders pre-launch.",
+    category: "collectibles",
+    readTime: 12,
+    publishedAt: "2026-08-24",
+    content: [
+      "Collectible hunting is half the GTA endgame. Map-6 combines a filterable interactive map with /collectibles category pages so you can plan hidden packages, stunt jumps, street art, and wildlife photography routes across Vice City, the Keys, Port Gellhorn, Grassrivers, Ambrosia Island, and Mount Kalaga — without fake “complete” lists before launch.",
+      "Pre-launch honesty: totals on category pages are franchise placeholders (100/50/80/20 style) until Rockstar confirms counts. Sample pins are labeled as such. We expand the map after trailers and reputable community verification — never for clickbait completeness.",
+      "Workflow: open /map, filter Collectibles only, zoom to one region, Share deep links for co-op, and mark finds locally (unlimited versus MapGenie’s free cap). Pair with hidden-packages-gta-6 for historical pattern recognition — rooftops, piers, industrial yards — without treating patterns as spoilers.",
+      "Category pages under /collectibles explain each type, link to sample pins, and deep-link into the map centered on a region. Use them as study chapters; use the map as execution. After launch, the same filters absorb verified pins with unique prose.",
+      "100% planning: isolate one biome per session — Keys islands, Grassrivers wetlands, Port Gellhorn cranes — instead of panicking across all Leonida at once. HUD coordinates copy into notes beside trailer timestamps for later verification.",
+      "Creators: Streamer theme enlarges labels for “find this collectible” shorts; overlay mode strips chrome for OBS. See gta-6-map-clip-kit for Share URLs and creator ref tags.",
+      "Related reading: gta-6-map-guide (filters + coordinates), vice-city-locations, leonida-lore-overview, and classic GTA5/VC/SA maps on Map-6 for retro collectible practice while waiting for November 19, 2026.",
+    ],
+  },
+  {
+    slug: "gta-6-release-date",
+    title: "GTA 6 Release Date — November 19, 2026 Timeline",
+    description:
+      "Confirmed GTA 6 release date for PS5 and Xbox Series X|S, delay history, preload expectations, and how to prep with Map-6 before launch day.",
+    category: "beginner",
+    readTime: 8,
+    publishedAt: "2026-08-24",
+    content: [
+      "Grand Theft Auto VI is scheduled to release on November 19, 2026 for PlayStation 5 and Xbox Series X|S per Rockstar’s public console plans repeated in Take-Two guidance. Map-6 tracks that date for planning — not as insider speculation — and links to pre-order and setup guides when you are ready to buy hardware or editions.",
+      "Delay history matters for expectations: the title moved from earlier windows to November 19, 2026 for additional polish. Treat any new “insider moved again” claim as unverified until Newswire or an earnings call confirms it. This page updates on official moves only.",
+      "Preload and midnight queues: console stores typically open preloads in the days before launch. Leave SSD space, test party chat, and confirm PSN or Xbox account access before November 18 — a perfect TV does not help if checkout fails.",
+      "PC players: Rockstar has not announced a simultaneous PC date in public materials Map-6 cites. Do not assume console pre-orders transfer. Revisit this page if official PC timing arrives.",
+      "Prep that ages well: bookmark /map, practice Landmarks and Collectibles filters, read regional /locations hubs, and use gta-6-collectibles-map for route thinking. Hardware and editions live in best-setup and pre-order guides — separate from the calendar fact.",
+      "Launch week content plan: filters first, deep links second, rumor pins never. Map-6 will absorb verified POIs as the community maps Leonida on real geography — GTADB lineage credited under CC BY 4.0 where noted.",
+    ],
+  },
 ];
 
 export function getGuideBySlug(slug: string) {

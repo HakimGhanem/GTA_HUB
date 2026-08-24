@@ -1,0 +1,506 @@
+[
+  {
+    "slug": "hidden-package-01",
+    "name": "Hidden Package #1",
+    "description": "Dockside crate near Port Gellhorn shipping containers.",
+    "type": "hidden-packages",
+    "x": -890,
+    "y": -340,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "hidden-package-02",
+    "name": "Hidden Package #2",
+    "description": "Rooftop cache overlooking Ocean Drive neon.",
+    "type": "hidden-packages",
+    "x": 380,
+    "y": 310,
+    "region": "Vice City"
+  },
+  {
+    "slug": "stunt-jump-01",
+    "name": "Stunt Jump — Ocean Drive",
+    "description": "Launch off the art deco hotel ramp into the beach parking lot.",
+    "type": "stunt-jumps",
+    "x": 520,
+    "y": 190,
+    "region": "Vice City"
+  },
+  {
+    "slug": "street-art-01",
+    "name": "Vice City Mural",
+    "description": "Large alligator mural on a warehouse wall in Little Vice.",
+    "type": "street-art",
+    "x": -120,
+    "y": 480,
+    "region": "Vice City"
+  },
+  {
+    "slug": "wildlife-01",
+    "name": "American Alligator",
+    "description": "Spot this apex predator in the Grassrivers at dawn.",
+    "type": "wildlife",
+    "x": -1600,
+    "y": 820,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "hidden-package-06",
+    "name": "Hidden Package — Vice City",
+    "description": "Sample hidden packages in Vice City — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": -226,
+    "y": 238,
+    "region": "Vice City"
+  },
+  {
+    "slug": "hidden-package-07",
+    "name": "Hidden Package — Vice City",
+    "description": "Sample hidden packages in Vice City — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": -197,
+    "y": 261,
+    "region": "Vice City"
+  },
+  {
+    "slug": "hidden-package-08",
+    "name": "Hidden Package — Vice City",
+    "description": "Sample hidden packages in Vice City — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": -168,
+    "y": 284,
+    "region": "Vice City"
+  },
+  {
+    "slug": "hidden-package-09",
+    "name": "Hidden Package — Port Gellhorn",
+    "description": "Sample hidden packages in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": -139,
+    "y": 307,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "hidden-package-10",
+    "name": "Hidden Package — Port Gellhorn",
+    "description": "Sample hidden packages in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": -110,
+    "y": 330,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "hidden-package-11",
+    "name": "Hidden Package — Port Gellhorn",
+    "description": "Sample hidden packages in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": -81,
+    "y": 353,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "hidden-package-12",
+    "name": "Hidden Package — Leonida Keys",
+    "description": "Sample hidden packages in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": -52,
+    "y": 376,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "hidden-package-13",
+    "name": "Hidden Package — Leonida Keys",
+    "description": "Sample hidden packages in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": -23,
+    "y": 399,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "hidden-package-14",
+    "name": "Hidden Package — Leonida Keys",
+    "description": "Sample hidden packages in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 6,
+    "y": 422,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "hidden-package-15",
+    "name": "Hidden Package — Grassrivers",
+    "description": "Sample hidden packages in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 35,
+    "y": 445,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "hidden-package-16",
+    "name": "Hidden Package — Grassrivers",
+    "description": "Sample hidden packages in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 64,
+    "y": 468,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "hidden-package-17",
+    "name": "Hidden Package — Grassrivers",
+    "description": "Sample hidden packages in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 93,
+    "y": 491,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "hidden-package-18",
+    "name": "Hidden Package — Mount Kalaga",
+    "description": "Sample hidden packages in Mount Kalaga — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 122,
+    "y": 514,
+    "region": "Mount Kalaga"
+  },
+  {
+    "slug": "hidden-package-19",
+    "name": "Hidden Package — Mount Kalaga",
+    "description": "Sample hidden packages in Mount Kalaga — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 151,
+    "y": 537,
+    "region": "Mount Kalaga"
+  },
+  {
+    "slug": "hidden-package-20",
+    "name": "Hidden Package — Mount Kalaga",
+    "description": "Sample hidden packages in Mount Kalaga — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 180,
+    "y": 560,
+    "region": "Mount Kalaga"
+  },
+  {
+    "slug": "hidden-package-21",
+    "name": "Hidden Package — Ambrosia Island",
+    "description": "Sample hidden packages in Ambrosia Island — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 209,
+    "y": 583,
+    "region": "Ambrosia Island"
+  },
+  {
+    "slug": "hidden-package-22",
+    "name": "Hidden Package — Ambrosia Island",
+    "description": "Sample hidden packages in Ambrosia Island — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 238,
+    "y": 606,
+    "region": "Ambrosia Island"
+  },
+  {
+    "slug": "hidden-package-23",
+    "name": "Hidden Package — Ambrosia Island",
+    "description": "Sample hidden packages in Ambrosia Island — placeholder until launch verification on Map-6.",
+    "type": "hidden-packages",
+    "x": 267,
+    "y": 629,
+    "region": "Ambrosia Island"
+  },
+  {
+    "slug": "stunt-jump-24",
+    "name": "Stunt Jump — Vice City",
+    "description": "Sample stunt jumps in Vice City — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 296,
+    "y": 652,
+    "region": "Vice City"
+  },
+  {
+    "slug": "stunt-jump-25",
+    "name": "Stunt Jump — Vice City",
+    "description": "Sample stunt jumps in Vice City — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 325,
+    "y": 675,
+    "region": "Vice City"
+  },
+  {
+    "slug": "stunt-jump-26",
+    "name": "Stunt Jump — Vice City",
+    "description": "Sample stunt jumps in Vice City — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 354,
+    "y": 698,
+    "region": "Vice City"
+  },
+  {
+    "slug": "stunt-jump-27",
+    "name": "Stunt Jump — Leonida Keys",
+    "description": "Sample stunt jumps in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 383,
+    "y": 721,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "stunt-jump-28",
+    "name": "Stunt Jump — Leonida Keys",
+    "description": "Sample stunt jumps in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 412,
+    "y": 744,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "stunt-jump-29",
+    "name": "Stunt Jump — Leonida Keys",
+    "description": "Sample stunt jumps in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 441,
+    "y": 767,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "stunt-jump-30",
+    "name": "Stunt Jump — Port Gellhorn",
+    "description": "Sample stunt jumps in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 470,
+    "y": 790,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "stunt-jump-31",
+    "name": "Stunt Jump — Port Gellhorn",
+    "description": "Sample stunt jumps in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 499,
+    "y": 813,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "stunt-jump-32",
+    "name": "Stunt Jump — Port Gellhorn",
+    "description": "Sample stunt jumps in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 528,
+    "y": 836,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "stunt-jump-33",
+    "name": "Stunt Jump — Grassrivers",
+    "description": "Sample stunt jumps in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 557,
+    "y": 859,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "stunt-jump-34",
+    "name": "Stunt Jump — Grassrivers",
+    "description": "Sample stunt jumps in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 586,
+    "y": 882,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "stunt-jump-35",
+    "name": "Stunt Jump — Grassrivers",
+    "description": "Sample stunt jumps in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "stunt-jumps",
+    "x": 615,
+    "y": 905,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "street-art-36",
+    "name": "Street Art — Vice City",
+    "description": "Sample street art in Vice City — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 644,
+    "y": 928,
+    "region": "Vice City"
+  },
+  {
+    "slug": "street-art-37",
+    "name": "Street Art — Vice City",
+    "description": "Sample street art in Vice City — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 673,
+    "y": 951,
+    "region": "Vice City"
+  },
+  {
+    "slug": "street-art-38",
+    "name": "Street Art — Vice City",
+    "description": "Sample street art in Vice City — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 702,
+    "y": 974,
+    "region": "Vice City"
+  },
+  {
+    "slug": "street-art-39",
+    "name": "Street Art — Port Gellhorn",
+    "description": "Sample street art in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 731,
+    "y": 997,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "street-art-40",
+    "name": "Street Art — Port Gellhorn",
+    "description": "Sample street art in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 760,
+    "y": 1020,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "street-art-41",
+    "name": "Street Art — Port Gellhorn",
+    "description": "Sample street art in Port Gellhorn — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 789,
+    "y": 1043,
+    "region": "Port Gellhorn"
+  },
+  {
+    "slug": "street-art-42",
+    "name": "Street Art — Grassrivers",
+    "description": "Sample street art in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 818,
+    "y": 1066,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "street-art-43",
+    "name": "Street Art — Grassrivers",
+    "description": "Sample street art in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 847,
+    "y": 1089,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "street-art-44",
+    "name": "Street Art — Grassrivers",
+    "description": "Sample street art in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "street-art",
+    "x": 876,
+    "y": 1112,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "wildlife-45",
+    "name": "Wildlife Spot — Grassrivers",
+    "description": "Sample wildlife in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 905,
+    "y": 1135,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "wildlife-46",
+    "name": "Wildlife Spot — Grassrivers",
+    "description": "Sample wildlife in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 934,
+    "y": 1158,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "wildlife-47",
+    "name": "Wildlife Spot — Grassrivers",
+    "description": "Sample wildlife in Grassrivers — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 963,
+    "y": 1181,
+    "region": "Grassrivers"
+  },
+  {
+    "slug": "wildlife-48",
+    "name": "Wildlife Spot — Leonida Keys",
+    "description": "Sample wildlife in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 992,
+    "y": 1204,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "wildlife-49",
+    "name": "Wildlife Spot — Leonida Keys",
+    "description": "Sample wildlife in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 1021,
+    "y": 1227,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "wildlife-50",
+    "name": "Wildlife Spot — Leonida Keys",
+    "description": "Sample wildlife in Leonida Keys — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 1050,
+    "y": 1250,
+    "region": "Leonida Keys"
+  },
+  {
+    "slug": "wildlife-51",
+    "name": "Wildlife Spot — Mount Kalaga",
+    "description": "Sample wildlife in Mount Kalaga — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 1079,
+    "y": 1273,
+    "region": "Mount Kalaga"
+  },
+  {
+    "slug": "wildlife-52",
+    "name": "Wildlife Spot — Mount Kalaga",
+    "description": "Sample wildlife in Mount Kalaga — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 1108,
+    "y": 1296,
+    "region": "Mount Kalaga"
+  },
+  {
+    "slug": "wildlife-53",
+    "name": "Wildlife Spot — Mount Kalaga",
+    "description": "Sample wildlife in Mount Kalaga — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 1137,
+    "y": 1319,
+    "region": "Mount Kalaga"
+  },
+  {
+    "slug": "wildlife-54",
+    "name": "Wildlife Spot — Ambrosia Island",
+    "description": "Sample wildlife in Ambrosia Island — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 1166,
+    "y": 1342,
+    "region": "Ambrosia Island"
+  },
+  {
+    "slug": "wildlife-55",
+    "name": "Wildlife Spot — Ambrosia Island",
+    "description": "Sample wildlife in Ambrosia Island — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 1195,
+    "y": 1365,
+    "region": "Ambrosia Island"
+  },
+  {
+    "slug": "wildlife-56",
+    "name": "Wildlife Spot — Ambrosia Island",
+    "description": "Sample wildlife in Ambrosia Island — placeholder until launch verification on Map-6.",
+    "type": "wildlife",
+    "x": 1224,
+    "y": 1388,
+    "region": "Ambrosia Island"
+  }
+]

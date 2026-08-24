@@ -4,13 +4,17 @@ import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { getAllLocations } from "@/data/all-locations";
+import { getIndexableLocations } from "@/lib/location-indexing";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 
 const PAGE_SIZE = 24;
 
 export function LocationsList() {
   const t = useTranslations("locations");
-  const all = useMemo(() => getAllLocations(), []);
+  const all = useMemo(
+    () => getIndexableLocations(getAllLocations()),
+    [],
+  );
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebouncedValue(query);
   const [page, setPage] = useState(1);

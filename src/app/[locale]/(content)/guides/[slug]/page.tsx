@@ -1,10 +1,13 @@
+import { AdUnit } from "@/components/ads/AdUnit";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
+import { getTranslations } from "next-intl/server";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
 import { getGuideBySlug, GUIDES } from "@/data/guides";
 import { getLocalizedGuide } from "@/data/guides-i18n";
 import { affiliateIntentsForGuide } from "@/lib/affiliate/guide-intents";
+import { AD_SLOTS } from "@/lib/ads-config";
 import { buildMetadata, jsonLdArticle } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -13,23 +16,6 @@ const DEDICATED_GUIDE_SLUGS = new Set([
   "gta-6-preorder-guide",
   "gta-6-map-cities-skylines-2",
 ]);
-
-const UI = {
-  en: {
-    back: "← All guides",
-    ctaTitle: "Ready to explore?",
-    ctaBody: "Open the interactive map and start tracking locations.",
-    ctaButton: "Open Interactive Map",
-    gearTitle: "Gear & editions",
-  },
-  fr: {
-    back: "← Tous les guides",
-    ctaTitle: "Prêt à explorer ?",
-    ctaBody: "Ouvrez la carte interactive et suivez les lieux.",
-    ctaButton: "Ouvrir la carte interactive",
-    gearTitle: "Matériel & éditions",
-  },
-} as const;
 
 export function generateStaticParams() {
   return GUIDES.filter((g) => !DEDICATED_GUIDE_SLUGS.has(g.slug)).map((g) => ({
@@ -58,7 +44,7 @@ export default async function GuidePage({ params }: Props) {
   const localized = getLocalizedGuide(slug, locale);
   if (!guide || !localized) notFound();
 
-  const ui = locale === "fr" ? UI.fr : UI.en;
+  const t = await getTranslations("guides");
   const jsonLdGuide = {
     ...guide,
     title: localized.title,
@@ -81,13 +67,13 @@ export default async function GuidePage({ params }: Props) {
           href="/guides"
           className="mb-4 inline-block text-sm text-white/50 hover:text-white"
         >
-          {ui.back}
+          {t("backToAll")}
         </Link>
 
         <h1 className="text-3xl font-bold leading-tight">{localized.title}</h1>
         <p className="mt-4 text-white/60">{localized.description}</p>
         <p className="mt-2 text-xs text-white/40">
-          {localized.readTime} min read · {guide.publishedAt}
+          {localized.readTime} min · {guide.publishedAt}
         </p>
 
         <article className="prose prose-invert mt-8 max-w-none">
@@ -98,35 +84,37 @@ export default async function GuidePage({ params }: Props) {
           ))}
         </article>
 
+        <AdUnit slot={AD_SLOTS.inArticle} format="fluid" layout="in-article" />
+
         {affiliateIntentsForGuide(slug) && (
           <div className="mt-10">
             <AffiliateProductGrid
               intents={affiliateIntentsForGuide(slug)!}
               liveOnly
-              title={ui.gearTitle}
+              title={t("gearTitle")}
             />
           </div>
         )}
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">
-          <p className="font-semibold text-pink-200">{ui.ctaTitle}</p>
-          <p className="mt-1 text-sm text-white/60">{ui.ctaBody}</p>
+          <p className="font-semibold text-pink-200">{t("ctaTitle")}</p>
+          <p className="mt-1 text-sm text-white/60">{t("ctaBody")}</p>
           <Link
             href={
-              slug === "gta-6-map-clip-kit"
+              slug === "gta-6-map-clip-kit" || slug === "gta-6-collectibles-map"
                 ? "/map?theme=streamer"
                 : "/map"
             }
             className="mt-4 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-white hover:bg-pink-400"
           >
-            {ui.ctaButton}
+            {t("ctaButton")}
           </Link>
           {slug === "gta-6-map-clip-kit" && (
             <Link
               href="/overlay?theme=streamer"
               className="mt-3 ml-3 inline-block text-sm font-medium text-pink-300 underline hover:text-pink-200"
             >
-              Open OBS overlay →
+              {t("openOverlay")}
             </Link>
           )}
         </div>

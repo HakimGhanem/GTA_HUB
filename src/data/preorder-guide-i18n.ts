@@ -259,6 +259,9 @@ const BY_LOCALE: Record<string, PreorderGuideCopy> = {
   en: EN,
   fr: FR,
   es: ES,
+  de: { ...EN, eyebrow: "Vorbestellungs-Guide", title: "GTA 6 Vorbestellung — PS5, Xbox & Collector's Edition", backToGuides: "← Alle Guides", ctaButton: "Interaktive Karte öffnen" },
+  it: { ...EN, eyebrow: "Guida preordine", title: "Guida preordine GTA 6 — PS5, Xbox e Collector's Edition", backToGuides: "← Tutte le guide", ctaButton: "Apri mappa interattiva" },
+  pt: { ...EN, eyebrow: "Guia de pré-venda", title: "Guia de pré-venda GTA 6 — PS5, Xbox e Edição Colecionador", backToGuides: "← Todos os guias", ctaButton: "Abrir mapa interativo" },
 };
 
 export function getPreorderGuideCopy(locale: string): PreorderGuideCopy {

@@ -49,7 +49,17 @@
     "coordinates": "Coordenadas: X: {x}, Y: {y}",
     "aboutTitle": "Sobre {name}",
     "findTitle": "O que encontrar em {name}",
-    "faqTitle": "Perguntas frequentes"
+    "faqTitle": "Perguntas frequentes",
+    "regionHubsTitle": "Explore Leonida by region",
+    "regionHubsHint": "SEO hubs with map deep links — Vice City, Keys, Port Gellhorn, wetlands, and more.",
+    "classicMapsTitle": "Classic GTA maps on Map-6",
+    "classicMapsHint": "Practice collectible routes on GTA 5, Vice City, and San Andreas while waiting for launch.",
+    "classicGta5": "GTA 5 map",
+    "classicGta5Desc": "Los Santos POIs, collectibles, and DurtyFree data — switch with ?game=gta5.",
+    "classicVc": "Vice City (classic)",
+    "classicVcDesc": "Hidden packages and unique jumps on the 2002 map.",
+    "classicSa": "San Andreas",
+    "classicSaDesc": "Horseshoes, oysters, and snapshots across San Andreas."
   },
   "collectibles": {
     "title": "Colecionáveis do GTA 6",
@@ -65,7 +75,13 @@
       "exploration": "Exploração",
       "collectibles": "Colecionáveis",
       "lore": "Lore"
-    }
+    },
+    "backToAll": "← All guides",
+    "ctaTitle": "Ready to explore?",
+    "ctaBody": "Open the interactive map and start tracking locations.",
+    "ctaButton": "Open Interactive Map",
+    "gearTitle": "Gear & editions",
+    "openOverlay": "Open OBS overlay →"
   },
   "meta": {
     "siteName": "Map-6",

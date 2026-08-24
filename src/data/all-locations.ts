@@ -1,15 +1,22 @@
 import gtadbLocationsJson from "./gtadb-locations.json";
+import { collectiblesAsMapLocations } from "./collectibles";
+import { GTA6_EDITORIAL_POIS } from "./gta6-editorial-pois";
 import { LOCATIONS, type Location } from "./locations";
 
 const gtadbLocations = gtadbLocationsJson as Location[];
 
 export function getAllLocations(): Location[] {
-  if (gtadbLocations.length === 0) return LOCATIONS;
-
-  const slugs = new Set(LOCATIONS.map((l) => l.slug));
-  const merged = [...LOCATIONS];
-  for (const loc of gtadbLocations) {
-    if (!slugs.has(loc.slug)) merged.push(loc);
+  const slugs = new Set<string>();
+  const merged: Location[] = [];
+  for (const loc of [
+    ...LOCATIONS,
+    ...GTA6_EDITORIAL_POIS,
+    ...collectiblesAsMapLocations(),
+    ...gtadbLocations,
+  ]) {
+    if (slugs.has(loc.slug)) continue;
+    slugs.add(loc.slug);
+    merged.push(loc);
   }
   return merged;
 }
