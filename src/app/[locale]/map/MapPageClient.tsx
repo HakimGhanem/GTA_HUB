@@ -4,6 +4,7 @@ import { useCallback, useEffect } from "react";
 import { useLocale } from "next-intl";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { GameMap } from "@/components/map/GameMap";
+import { trackEvent, trackPageView } from "@/lib/analytics/track";
 import { getGameConfig, parseGameId, type GameId } from "@/lib/games";
 import {
   mapLocationHref,
@@ -32,6 +33,11 @@ export function MapPageClient() {
     rememberCreatorRef(ref);
   }, [ref]);
 
+  useEffect(() => {
+    const qs = searchParams.toString();
+    trackPageView(qs ? `${pathname}?${qs}` : pathname);
+  }, [pathname, searchParams]);
+
   const fromSlug = loc
     ? game.getLocations().find((l) => l.slug === loc)
     : undefined;
@@ -52,13 +58,17 @@ export function MapPageClient() {
 
   const onSelectGame = useCallback(
     (nextGame: GameId) => {
+      trackEvent("map_game_switch", {
+        game_id: nextGame,
+        from_game_id: gameId,
+      });
       const params = new URLSearchParams();
       if (nextGame !== "gta6") params.set("game", nextGame);
       if (theme !== "default") params.set("theme", theme);
       if (ref) params.set("ref", ref);
       replaceQuery(params);
     },
-    [ref, replaceQuery, theme],
+    [gameId, ref, replaceQuery, theme],
   );
 
   const onDeepLinkChange = useCallback(

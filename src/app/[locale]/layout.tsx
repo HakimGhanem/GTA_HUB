@@ -5,7 +5,9 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { AdSenseScript } from "@/components/ads/AdSenseScript";
 import { Analytics } from "@/components/analytics/Analytics";
-import { GaScript } from "@/components/analytics/GaScript";
+import { ConsentBridge } from "@/components/analytics/ConsentBridge";
+import { ConsentDefaultsScript, GaScript } from "@/components/analytics/GaScript";
+import { GtmNoScript, GtmScript } from "@/components/analytics/GtmScript";
 import { ChromeGate } from "@/components/layout/ChromeGate";
 import { Header } from "@/components/layout/Header";
 import { CookieConsent } from "@/components/privacy/CookieConsent";
@@ -87,6 +89,8 @@ export default async function LocaleLayout({ children, params }: Props) {
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
+        <ConsentDefaultsScript />
+        <GtmScript />
         <GaScript />
         <AdSenseScript />
         <script
@@ -95,7 +99,9 @@ export default async function LocaleLayout({ children, params }: Props) {
         />
       </head>
       <body className="flex h-full flex-col bg-[#0a0e17] text-white">
+        <GtmNoScript />
         <NextIntlClientProvider messages={messages}>
+          <ConsentBridge />
           <a href="#main-content" className="skip-link">
             {tHeader("skipToContent")}
           </a>

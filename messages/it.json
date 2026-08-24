@@ -118,5 +118,120 @@
     "steamCta": "Steam — Cities: Skylines II",
     "guideCta": "Guida CS2 completa",
     "disclaimer": "Stima fan · non affiliato a Rockstar"
+  },
+  "map": {
+    "legend": "Legend",
+    "categories": {
+      "landmark": "Landmark",
+      "collectible": "Collectible",
+      "shop": "Shop",
+      "mission": "Mission",
+      "secret": "Secret"
+    },
+    "subtypes": {
+      "atm": "ATM",
+      "gas-pump": "Gas station",
+      "lookout": "Viewpoint",
+      "stunt-jump": "Stunt jump",
+      "store": "Robbery store",
+      "letter-scrap": "Letter scrap",
+      "spaceship-part": "Spaceship part",
+      "hidden-package": "Hidden package",
+      "oyster": "Oyster",
+      "tag": "Gang tag",
+      "snapshot": "Snapshot",
+      "horseshoe": "Horseshoe",
+      "vending": "Vending machine",
+      "payphone": "Payphone",
+      "dartboard": "Dartboard",
+      "jukebox": "Jukebox",
+      "bench": "Bench",
+      "parking-meter": "Parking meter",
+      "rampage": "Rampage"
+    },
+    "confidence": {
+      "confirmed": "Confirmed",
+      "trailer": "Trailer",
+      "community": "Community map",
+      "rumor": "Unverified",
+      "seed": "Guide pin"
+    },
+    "names": {
+      "hidden-package": "Hidden package #{n}",
+      "horseshoe": "Horseshoe #{n}",
+      "oyster": "Oyster #{n}",
+      "snapshot": "Snapshot #{n}",
+      "stunt-jump": "Unique stunt jump #{n}",
+      "rampage": "Rampage #{n}",
+      "atm": "ATM #{n}",
+      "gas-pump": "Gas pump #{n}",
+      "lookout": "Telescope #{n}",
+      "vending": "Vending machine #{n}",
+      "payphone": "Payphone #{n}",
+      "dartboard": "Dartboard #{n}",
+      "jukebox": "Jukebox #{n}",
+      "bench": "Bench #{n}",
+      "parking-meter": "Parking meter #{n}",
+      "tag": "Gang tag #{n}",
+      "letter-scrap": "Letter scrap #{n}",
+      "spaceship-part": "Spaceship part #{n}",
+      "robbery-store": "{name} (robbery)"
+    },
+    "hints": {
+      "landmark": "Notable point of interest in {region}.",
+      "collectible": "Collectible to find in {region}. Mark it when you pick it up.",
+      "shop": "Shop or service in {region}.",
+      "mission": "Story or activity location in {region}.",
+      "secret": "Hidden or special spot in {region}.",
+      "hidden-package": "Pick up this hidden package in {region}. Every 10 packages unlock weapons and cash in your safehouses.",
+      "stunt-jump": "Land this unique stunt jump in {region}. Required for 100% completion in classic GTA titles.",
+      "horseshoe": "Collect this horseshoe in {region}. All 50 boost Luck and pay out in Las Venturas.",
+      "oyster": "Dive for this oyster in {region}. Collect all 50 to max lung capacity and sex appeal.",
+      "snapshot": "Photograph this tourist spot in {region} with the in-game camera.",
+      "tag": "Spray over this gang tag in {region} with a spray can.",
+      "store": "Robbery store in {region} — armory or shop depending on the location.",
+      "rampage": "Start this rampage in {region}. You have two minutes to complete the challenge.",
+      "atm": "ATM in {region} — handy cash reference on the map.",
+      "gas-pump": "Gas station in {region}.",
+      "lookout": "Viewpoint or telescope in {region}.",
+      "vending": "Vending machine in {region}.",
+      "payphone": "Payphone in {region}.",
+      "dartboard": "Dartboard in {region}.",
+      "jukebox": "Jukebox in {region}.",
+      "bench": "Bench in {region}.",
+      "parking-meter": "Parking meter in {region}.",
+      "letter-scrap": "Letter scrap in {region}. Collect all 50 to unlock a side mission.",
+      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg."
+    },
+    "regions": {
+      "unknown": "Unknown area"
+    },
+    "popup": {
+      "markFound": "Mark found",
+      "found": "Found ✓",
+      "details": "Details",
+      "center": "Center map",
+      "coords": "{region} · X {x}, Y {y}"
+    },
+    "sidebar": {
+      "progress": "{found} / {total} · {pct}%",
+      "searchPlaceholder": "Search by name or region…",
+      "foundFilterAll": "All",
+      "foundFilterHide": "Hide found",
+      "foundFilterOnly": "Found only",
+      "noResults": "No locations match your filters.",
+      "resetFilters": "Reset filters",
+      "markFound": "Mark found",
+      "unmarkFound": "Unmark found",
+      "inView": "In view · ",
+      "panHint": "Pan or zoom the map, or search to find specific locations.",
+      "searchHint": "Search to browse all {count} locations."
+    }
+  },
+  "cookieConsent": {
+    "title": "Cookies & ads",
+    "desc": "We use cookies for essential site features, analytics, and Google AdSense ads (clearly labeled “Advertisement”). See our <privacyLink>Privacy Policy</privacyLink>. You can change your choice anytime by clearing site data.",
+    "essential": "Essential only",
+    "acceptAll": "Accept all"
   }
 }

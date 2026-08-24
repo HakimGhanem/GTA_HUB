@@ -24,6 +24,7 @@ import {
   getGameConfig,
   type GameId,
 } from "@/lib/games";
+import { trackEvent } from "@/lib/analytics/track";
 import {
   mapOverlayShareUrl,
   mapShareUrl,
@@ -225,10 +226,14 @@ export function GameMap({
 
   const toggleMeasure = useCallback(() => {
     setMeasureActive((active) => {
+      const next = !active;
+      if (next) {
+        trackEvent("map_measure_start", { game_id: gameId });
+      }
       if (active) setMeasurePoints([]);
-      return !active;
+      return next;
     });
-  }, []);
+  }, [gameId]);
 
   const closeMeasure = useCallback(() => {
     setMeasureActive(false);
@@ -253,6 +258,11 @@ export function GameMap({
     });
     try {
       await navigator.clipboard.writeText(url);
+      trackEvent("map_share", {
+        game_id: gameId,
+        share_type: "link",
+        has_location: !!activeSlug,
+      });
       setShareHint("Link copied");
       window.setTimeout(() => setShareHint(undefined), 1600);
     } catch {
@@ -282,6 +292,11 @@ export function GameMap({
     });
     try {
       await navigator.clipboard.writeText(url);
+      trackEvent("map_share", {
+        game_id: gameId,
+        share_type: "overlay",
+        has_location: !!activeSlug,
+      });
       setShareHint("Overlay URL copied");
       window.setTimeout(() => setShareHint(undefined), 1600);
     } catch {

@@ -118,5 +118,120 @@
     "steamCta": "Steam — Cities: Skylines II",
     "guideCta": "Guide CS2 complet",
     "disclaimer": "Estimation fan · non affilié à Rockstar"
+  },
+  "map": {
+    "legend": "Légende",
+    "categories": {
+      "landmark": "Monument",
+      "collectible": "Collectible",
+      "shop": "Commerce",
+      "mission": "Mission",
+      "secret": "Secret"
+    },
+    "subtypes": {
+      "atm": "Distributeur",
+      "gas-pump": "Station-service",
+      "lookout": "Point de vue",
+      "stunt-jump": "Saut acrobatique",
+      "store": "Magasin (braquage)",
+      "letter-scrap": "Morceau de lettre",
+      "spaceship-part": "Pièce de vaisseau",
+      "hidden-package": "Paquet caché",
+      "oyster": "Huître",
+      "tag": "Tag de gang",
+      "snapshot": "Photo touristique",
+      "horseshoe": "Fer à cheval",
+      "vending": "Distributeur automatique",
+      "payphone": "Cabine téléphonique",
+      "dartboard": "Cible de fléchettes",
+      "jukebox": "Juke-box",
+      "bench": "Banc",
+      "parking-meter": "Parcmètre",
+      "rampage": "Rampage"
+    },
+    "confidence": {
+      "confirmed": "Confirmé",
+      "trailer": "Trailer",
+      "community": "Carte communautaire",
+      "rumor": "Non vérifié",
+      "seed": "Repère guide"
+    },
+    "names": {
+      "hidden-package": "Paquet caché n°{n}",
+      "horseshoe": "Fer à cheval n°{n}",
+      "oyster": "Huître n°{n}",
+      "snapshot": "Photo n°{n}",
+      "stunt-jump": "Saut acrobatique n°{n}",
+      "rampage": "Rampage n°{n}",
+      "atm": "Distributeur n°{n}",
+      "gas-pump": "Pompe à essence n°{n}",
+      "lookout": "Télescope n°{n}",
+      "vending": "Distributeur n°{n}",
+      "payphone": "Cabine n°{n}",
+      "dartboard": "Cible n°{n}",
+      "jukebox": "Juke-box n°{n}",
+      "bench": "Banc n°{n}",
+      "parking-meter": "Parcmètre n°{n}",
+      "tag": "Tag n°{n}",
+      "letter-scrap": "Morceau de lettre n°{n}",
+      "spaceship-part": "Pièce de vaisseau n°{n}",
+      "robbery-store": "{name} (braquage)"
+    },
+    "hints": {
+      "landmark": "Repère notable dans {region}.",
+      "collectible": "Collectible à trouver dans {region}. Marquez-le une fois récupéré.",
+      "shop": "Commerce ou service dans {region}.",
+      "mission": "Lieu de mission ou d'activité dans {region}.",
+      "secret": "Endroit caché ou spécial dans {region}.",
+      "hidden-package": "Récupérez ce paquet caché dans {region}. Tous les 10 paquets débloquent armes et bonus dans vos planques.",
+      "stunt-jump": "Réussissez ce saut acrobatique unique dans {region}. Compte pour le 100 % dans les GTA classiques.",
+      "horseshoe": "Collectez ce fer à cheval dans {region}. Les 50 augmentent la Chance et rapportent à Las Venturas.",
+      "oyster": "Plongez pour cette huître dans {region}. Les 50 maxent l'apnée et le sex-appeal.",
+      "snapshot": "Photographiez ce spot touristique dans {region} avec l'appareil photo.",
+      "tag": "Recouvrez ce tag de gang dans {region} au spray.",
+      "store": "Magasin à braquer dans {region} — armurerie ou commerce selon l'emplacement.",
+      "rampage": "Déclenchez ce rampage dans {region}. Deux minutes pour relever le défi.",
+      "atm": "Distributeur automatique dans {region}.",
+      "gas-pump": "Station-service dans {region}.",
+      "lookout": "Point de vue ou télescope dans {region}.",
+      "vending": "Distributeur automatique dans {region}.",
+      "payphone": "Cabine téléphonique dans {region}.",
+      "dartboard": "Cible de fléchettes dans {region}.",
+      "jukebox": "Juke-box dans {region}.",
+      "bench": "Banc dans {region}.",
+      "parking-meter": "Parcmètre dans {region}.",
+      "letter-scrap": "Morceau de lettre dans {region}. Les 50 débloquent une mission secondaire.",
+      "spaceship-part": "Pièce de vaisseau dans {region}. Les 50 mènent à l'easter egg alien."
+    },
+    "regions": {
+      "unknown": "Zone inconnue"
+    },
+    "popup": {
+      "markFound": "Marquer trouvé",
+      "found": "Trouvé ✓",
+      "details": "Fiche",
+      "center": "Centrer",
+      "coords": "{region} · X {x}, Y {y}"
+    },
+    "sidebar": {
+      "progress": "{found} / {total} · {pct}%",
+      "searchPlaceholder": "Rechercher un lieu ou quartier…",
+      "foundFilterAll": "Tous",
+      "foundFilterHide": "Masquer trouvés",
+      "foundFilterOnly": "Trouvés seulement",
+      "noResults": "Aucun lieu ne correspond aux filtres.",
+      "resetFilters": "Réinitialiser",
+      "markFound": "Marquer trouvé",
+      "unmarkFound": "Retirer",
+      "inView": "À l'écran · ",
+      "panHint": "Déplacez ou zoomez la carte, ou lancez une recherche.",
+      "searchHint": "Recherchez pour parcourir les {count} lieux."
+    }
+  },
+  "cookieConsent": {
+    "title": "Cookies et publicités",
+    "desc": "Nous utilisons des cookies pour le fonctionnement du site, l’analyse d’audience et les annonces Google AdSense (clairement identifiées « Publicité »). Consultez notre <privacyLink>politique de confidentialité</privacyLink>. Vous pouvez modifier votre choix en effaçant les données du site.",
+    "essential": "Essentiels seulement",
+    "acceptAll": "Tout accepter"
   }
 }
