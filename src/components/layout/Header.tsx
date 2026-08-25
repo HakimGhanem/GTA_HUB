@@ -18,7 +18,10 @@ export async function Header() {
         <span className="text-lg font-bold tracking-tight text-white">
           MAP<span className="text-pink-400">6</span>
         </span>
-        <span className="hidden text-xs text-white/50 sm:inline">
+        <span className="hidden rounded border border-white/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-pink-300/90 sm:inline">
+          GTA HUB
+        </span>
+        <span className="hidden text-xs text-white/50 lg:inline">
           {t("tagline")}
         </span>
       </Link>

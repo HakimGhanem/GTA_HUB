@@ -1,8 +1,9 @@
 export const SITE = {
   name: "Map-6",
-  title: "Free Interactive GTA 6 Map | Map-6",
+  hubName: "GTA HUB",
+  title: "Free Interactive GTA 6 Map | Map-6 — GTA HUB",
   description:
-    "Free GTA 6 interactive map with 1400+ POIs — Vice City, collectibles, landmarks & secrets. Filter, measure, share pins. Updated for Nov 2026 launch.",
+    "GTA HUB by Map-6: free GTA 6 interactive map, classic GTA 5 / VC / SA maps, source-tagged database, EU preorder guides, and creator overlay. Updated for the Nov 19, 2026 launch.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://map-6.com",
   locale: "en_US",
 } as const;

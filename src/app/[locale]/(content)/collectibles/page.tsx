@@ -1,6 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
-import { COLLECTIBLE_TYPES, getCollectiblesByType } from "@/data/collectibles";
+import {
+  COLLECTIBLE_TYPES,
+  COLLECTIBLES_TOTALS_NOTE,
+  getCollectiblesByType,
+} from "@/data/collectibles";
 import { COLLECTIBLES_HUB_SEO } from "@/data/collectibles-seo";
 import { buildMetadata } from "@/lib/seo";
 
@@ -29,7 +33,8 @@ export default async function CollectiblesPage({ params }: Props) {
   return (
     <main className="mx-auto max-w-5xl flex-1 px-4 py-10">
       <h1 className="mb-2 text-3xl font-bold">{t("title")}</h1>
-      <p className="mb-8 max-w-2xl text-white/60">{t("subtitle")}</p>
+      <p className="mb-2 max-w-2xl text-white/60">{t("subtitle")}</p>
+      <p className="mb-8 max-w-2xl text-sm text-white/45">{COLLECTIBLES_TOTALS_NOTE}</p>
 
       <article className="mb-12 space-y-4 text-white/70">
         {COLLECTIBLES_HUB_SEO.about.map((p) => (
@@ -72,7 +77,7 @@ export default async function CollectiblesPage({ params }: Props) {
               </h2>
               <p className="mt-2 text-sm text-white/60">{type.description}</p>
               <p className="mt-4 text-xs text-white/40">
-                {t("mapped", { current: found, total: type.total })}
+                {t("samples", { current: found })}
               </p>
             </Link>
           );

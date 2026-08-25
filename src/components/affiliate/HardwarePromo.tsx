@@ -19,7 +19,8 @@ export function HardwarePromo({
             {title}
           </h2>
           <p className="mt-1 text-sm text-white/55">
-            Consoles & accessories via Amazon — preorder the game when official listings drop.
+            Consoles & accessories from Amazon, Fnac, Best Buy, PlayStation Store
+            and Xbox Store — official search when a SKU is not live yet.
           </p>
         </div>
         <Link

@@ -6,7 +6,11 @@ import {
   ALL_CATEGORIES,
   CATEGORY_COLORS,
 } from "@/lib/map-filters";
-import { getCategoryLabel } from "@/lib/location-display";
+import {
+  ALL_CONFIDENCE_LEVELS,
+  CONFIDENCE_COLORS,
+} from "@/lib/location-confidence";
+import { getCategoryLabel, getConfidenceLabel } from "@/lib/location-display";
 import { useTranslations } from "next-intl";
 
 type MapLegendProps = {
@@ -38,6 +42,23 @@ export function MapLegend({ activeCategories, className }: MapLegendProps) {
               style={{ backgroundColor: CATEGORY_COLORS[cat] }}
             />
             {getCategoryLabel(cat, t)}
+          </li>
+        ))}
+      </ul>
+      <p className="mb-1.5 mt-3 text-[10px] font-semibold uppercase tracking-wider text-white/50">
+        Source
+      </p>
+      <ul className="space-y-1">
+        {ALL_CONFIDENCE_LEVELS.map((level) => (
+          <li
+            key={level}
+            className="flex items-center gap-2 text-[11px] text-white/80"
+          >
+            <span
+              className="h-2 w-2 shrink-0 rounded-full ring-1 ring-white/30"
+              style={{ backgroundColor: CONFIDENCE_COLORS[level] }}
+            />
+            {getConfidenceLabel(level, t)}
           </li>
         ))}
       </ul>

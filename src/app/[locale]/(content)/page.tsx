@@ -82,6 +82,20 @@ export default async function HomePage({ params }: Props) {
             <h2 className="text-xl font-semibold">{t("guidesCardTitle")}</h2>
             <p className="mt-2 text-sm text-white/60">{t("guidesCardDesc")}</p>
           </Link>
+          <Link
+            href="/database"
+            className="rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40"
+          >
+            <h2 className="text-xl font-semibold">{t("databaseCardTitle")}</h2>
+            <p className="mt-2 text-sm text-white/60">{t("databaseCardDesc")}</p>
+          </Link>
+          <Link
+            href="/maps/gta5"
+            className="rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40"
+          >
+            <h2 className="text-xl font-semibold">{t("gta5CardTitle")}</h2>
+            <p className="mt-2 text-sm text-white/60">{t("gta5CardDesc")}</p>
+          </Link>
         </div>
 
         <h2 className="mb-6 text-2xl font-bold">{t("featuredTitle")}</h2>

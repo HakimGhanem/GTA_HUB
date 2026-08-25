@@ -14,8 +14,12 @@ export function MobileNav() {
     { href: "/map", label: nav("map") },
     { href: "/locations", label: nav("locations") },
     { href: "/collectibles", label: nav("collectibles") },
+    { href: "/database", label: nav("database") },
     { href: "/guides", label: nav("guides") },
     { href: "/news", label: nav("news") },
+    { href: "/maps/gta5", label: nav("gta5") },
+    { href: "/creators", label: nav("creators") },
+    { href: "/pro", label: nav("pro") },
   ] as const;
 
   useEffect(() => {

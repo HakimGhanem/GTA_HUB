@@ -9,10 +9,14 @@ export async function Footer() {
 
   const footerLinks = [
     { href: "/map", label: t("interactiveMap") },
+    { href: "/maps/gta5", label: nav("gta5") },
     { href: "/locations", label: nav("locations") },
     { href: "/collectibles", label: nav("collectibles") },
+    { href: "/database", label: nav("database") },
     { href: "/guides", label: nav("guides") },
     { href: "/news", label: nav("news") },
+    { href: "/creators", label: nav("creators") },
+    { href: "/pro", label: nav("pro") },
     { href: "/about", label: t("about") },
     { href: "/privacy", label: t("privacy") },
   ] as const;

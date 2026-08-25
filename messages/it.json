@@ -5,7 +5,11 @@
     "collectibles": "Collezionabili",
     "guides": "Guide",
     "openMap": "Apri mappa",
-    "news": "News"
+    "news": "News",
+    "database": "Database",
+    "creators": "Creator",
+    "pro": "Pro",
+    "gta5": "Mappa GTA 5"
   },
   "home": {
     "title": "Mappa interattiva gratis di GTA 6",
@@ -18,9 +22,13 @@
     "faqTitle": "Domande frequenti",
     "badge": "GTA VI · Mappa interattiva",
     "collectiblesCardTitle": "Collezionabili",
-    "collectiblesCardDesc": "Pacchetti nascosti, salti acrobatici, street art e fauna — completa il 100%.",
+    "collectiblesCardDesc": "Pacchetti nascosti, salti acrobatici, street art e fauna — metodi per categoria e pin di esempio (totali in attesa).",
     "guidesCardTitle": "Guide",
     "guidesCardDesc": "Consigli per principianti, guide su Vice City e sul mondo per il giorno del lancio.",
+    "databaseCardTitle": "Database GTA HUB",
+    "databaseCardDesc": "Personaggi, veicoli e armi con fonte — solo fatti confermati dai trailer.",
+    "gta5CardTitle": "Mappa interattiva GTA 5",
+    "gta5CardDesc": "Collezionabili di Los Santos e tracker locale illimitato in attesa di Leonida.",
     "faq": {
       "q1": "Cos'è Map-6?",
       "a1": "Map-6 è una mappa interattiva gratuita per GTA 6, inclusi Vice City e dintorni, con POI, collezionabili, coordinate e ricerca.",
@@ -63,8 +71,9 @@
   },
   "collectibles": {
     "title": "Collezionabili di GTA 6",
-    "subtitle": "Ogni tipo di collezionabile in GTA 6 — mappati, categorizzati e pronti per il completamento al 100%.",
-    "mapped": "{current} / {total} mappati"
+    "subtitle": "Tipi di collezionabili GTA 6 — pin di esempio mappati. Totali ufficiali in attesa di Rockstar.",
+    "mapped": "{current} / {total} mappati",
+    "samples": "{current} pin di esempio · totali non confermati finché Rockstar non li pubblica"
   },
   "guides": {
     "title": "Guide alla mappa di GTA 6",
@@ -99,7 +108,7 @@
     "newsDesc": "Ultime news sui trailer di GTA 6, mappa interattiva e guide preordine."
   },
   "footer": {
-    "copyright": "© {year} Map-6 — Mappa interattiva di GTA 6.",
+    "copyright": "© {year} Map-6 — GTA HUB. Mappe e guide GTA.",
     "affiliate": "In qualità di Associato Amazon, guadagno dagli acquisti idonei.",
     "maptiles": "Tessere mappa © GTADB / GTA VI Mapping Community — CC BY 4.0",
     "privacy": "Privacy",
@@ -107,7 +116,7 @@
     "about": "Chi siamo"
   },
   "header": {
-    "tagline": "Mappa interattiva di GTA 6",
+    "tagline": "GTA HUB · mappa, guide, shop",
     "navLabel": "Navigazione principale",
     "menu": "Menu",
     "navigation": "Navigazione",

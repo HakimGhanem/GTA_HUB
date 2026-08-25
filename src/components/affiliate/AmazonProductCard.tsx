@@ -1,6 +1,8 @@
-import { AmazonAffiliateLink } from "@/components/affiliate/AmazonAffiliateLink";
+import { getLocale } from "next-intl/server";
+import { StoreOfferButtons } from "@/components/affiliate/StoreOfferButtons";
 import type { PreorderProduct } from "@/data/preorder-products";
 import { productEnvVar } from "@/data/preorder-products";
+import { offersForProduct } from "@/lib/affiliate/store-links";
 
 const PLATFORM_COLORS: Record<PreorderProduct["platform"], string> = {
   PS5: "bg-blue-500/20 text-blue-300",
@@ -16,17 +18,22 @@ type AmazonProductCardProps = {
    * Ignored in production — empty ASINs never render there.
    */
   showPlaceholders?: boolean;
+  /** next-intl locale. When omitted, read from the request (fallback "fr"). */
+  locale?: string;
 };
 
-export function AmazonProductCard({
+export async function AmazonProductCard({
   product,
   showPlaceholders = false,
+  locale: localeProp,
 }: AmazonProductCardProps) {
+  const locale = localeProp ?? (await getLocale().catch(() => "fr"));
   const hasAsin = product.asin.length > 0;
   const allowPlaceholder =
     showPlaceholders && process.env.NODE_ENV !== "production";
+  const offers = offersForProduct(product, locale);
 
-  if (!hasAsin && !allowPlaceholder) return null;
+  if (!hasAsin && !allowPlaceholder && offers.length === 0) return null;
 
   return (
     <div className="flex flex-col rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/30">
@@ -48,14 +55,7 @@ export function AmazonProductCard({
         {product.description}
       </p>
 
-      {hasAsin ? (
-        <AmazonAffiliateLink
-          asin={product.asin}
-          className="mt-4 inline-flex items-center justify-center rounded-full bg-[#FF9900] px-5 py-2.5 text-sm font-semibold text-black transition-colors hover:bg-[#FFB84D]"
-        >
-          View on Amazon →
-        </AmazonAffiliateLink>
-      ) : (
+      {!hasAsin && allowPlaceholder ? (
         <div className="mt-4 rounded-lg border border-dashed border-white/15 bg-white/[0.02] px-4 py-3">
           <p className="text-xs font-medium text-white/50">
             ASIN slot — paste SiteStripe link
@@ -64,7 +64,9 @@ export function AmazonProductCard({
             {productEnvVar(product.envKey)}=B0XXXXXXXX
           </code>
         </div>
-      )}
+      ) : null}
+
+      <StoreOfferButtons offers={offers} />
     </div>
   );
 }

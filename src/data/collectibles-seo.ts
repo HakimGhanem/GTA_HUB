@@ -1,7 +1,7 @@
 /**
  * Editorial collectibles copy — AdSense-ready depth for hub + type pages.
- * Counts are franchise expectations / placeholders until Rockstar publishes finals.
- * Speculation is labeled; Map-6 is not affiliated with Rockstar.
+ * Sample pins only. Never invent Rockstar totals. Speculation is labeled.
+ * Map-6 is not affiliated with Rockstar.
  */
 
 export type CollectibleSeo = {
@@ -17,7 +17,7 @@ export const COLLECTIBLES_HUB_SEO = {
     "GTA 6 collectibles guide: hidden packages, stunt jumps, street art & wildlife photography — how Map-6 tracks completion routes before launch.",
   about: [
     "Collectibles are the long-tail completion loop that has defined Grand Theft Auto since the 3D era: find every package, clear every jump, photograph every mural, and prove you explored the world instead of racing through the critical path. For Grand Theft Auto VI, Map-6 treats collectibles as a first-class map layer — even while Rockstar has not published final counts, reward tables, or Social Club challenge names for every category.",
-    "What we do know from franchise history and official GTA 6 trailer context is directional, not contractual. Hidden packages (or a spiritual successor) rewarded thorough exploration in earlier games. Stunt jumps rewarded vehicle mastery on vertical city terrain. Photo challenges and wildlife objectives appeared in GTA Online and Red Dead Redemption 2–adjacent design language. Street art and mural photography fit Vice City’s neon visual identity. Until Rockstar ships the final design, Map-6 labels every count on these pages as an expected range, not a confirmed total.",
+    "What we do know from franchise history and official GTA 6 trailer context is directional, not contractual. Hidden packages (or a spiritual successor) rewarded thorough exploration in earlier games. Stunt jumps rewarded vehicle mastery on vertical city terrain. Photo challenges and wildlife objectives appeared in GTA Online and Red Dead Redemption 2–adjacent design language. Street art and mural photography fit Vice City’s neon visual identity. Until Rockstar ships the final design, Map-6 does not publish invented totals. Pins on these pages are samples; official category counts remain pending.",
     "The interactive map at /map is the operational tool: filter by Collectibles, open a pin, copy coordinates, and share a deep link with friends or a Discord raid group. Category pages below explain how each loop typically works, what regions are richest based on trailer geography (Vice City beachfront, Port Gellhorn docks, Grassrivers wetlands, Leonida Keys islands), and how to avoid wasting time on rumor lists that invent exact street addresses Rockstar never showed.",
     "Editorial rules for Map-6 collectible coverage: (1) never invent a “datamined” total; (2) never present community guesses as Rockstar confirmation; (3) always link back to the live map so readers can verify pins themselves; (4) attribute community basemap tiles to GTADB under CC BY 4.0 where applicable. When launch day arrives, we will revise totals and pin lists against the shipping build rather than freezing pre-launch speculation as fact.",
     "If you are planning a 100% completion run, start with regional hubs — Vice City, Ocean Drive, Port Gellhorn, Grassrivers, Leonida Keys, Ambrosia Island, Mount Kalaga — then layer collectible filters. Pair this hub with the Hidden Packages guide and the beginner map guide so your route planning stays on verified Map-6 tools instead of unverified spreadsheet leaks.",
@@ -26,7 +26,7 @@ export const COLLECTIBLES_HUB_SEO = {
     "Open /map and enable the Collectibles category filter.",
     "Use Share to copy a deep link with coordinates and zoom for your group.",
     "Cross-check regional location guides before trusting a single pin.",
-    "Treat package/jump/art/wildlife totals on Map-6 as placeholders until launch.",
+    "Treat sample pin counts as planning markers — official Rockstar totals are unconfirmed until launch.",
     "Revisit Map-6 after day-one patches — Rockstar often adjusts spawn logic.",
   ],
   faq: [
@@ -43,7 +43,7 @@ export const COLLECTIBLES_HUB_SEO = {
     {
       question: "Why are some collectible lists incomplete?",
       answer:
-        "Because GTA 6 has not launched yet. Publishing a fake “all 100 packages” list would violate Map-6 editorial standards and AdSense/search quality expectations. We map what is responsible to publish and expand after release.",
+        "Because GTA 6 has not launched yet. Publishing a fake complete list would violate Map-6 editorial standards and AdSense/search quality expectations. We map sample pins we can stand behind and expand after release.",
     },
   ],
 } as const;
@@ -58,7 +58,7 @@ export const COLLECTIBLE_TYPE_SEO: Record<string, CollectibleSeo> = {
       "Map-6 does not claim a confirmed package count. Trailer footage of Vice City docks, Ocean Drive hotels, and Port Gellhorn shipping yards suggests high density of prop clutter — historically fertile ground for package placement — but that is geographic reasoning, not a leak. Sample pins on this page are planning markers for those biomes, not a complete launch checklist.",
       "How to use Map-6 for packages: open the interactive map, filter Collectibles, focus Port Gellhorn and Vice City waterfront first, then Grassrivers boardwalks and Keys marinas. Share pins with `?loc=` deep links so co-op partners land on the same zoom. Measure tools help estimate walking loops between clusters without inventing in-game GPS routes Rockstar has not shown.",
       "Editorial caution: lists circulating on social media that claim “exact package #47 under the third crane” before launch are almost always fabricated or misread mods. Map-6 will only escalate sample pins to verified locations after the retail build exists. Until then, treat this page as a method guide plus a growing community-mapped set.",
-      "Related reading: the Hidden Packages guide under /guides goes deeper on franchise history and completion strategy. Regional pages for Port Gellhorn and Ocean Drive explain why those districts historically hide shoreline collectibles. When Rockstar publishes official totals, we will revise the mapped counter on this page and the collectibles hub.",
+      "Related reading: the Hidden Packages guide under /guides goes deeper on franchise history and completion strategy. Regional pages for Port Gellhorn and Ocean Drive explain why those districts historically hide shoreline collectibles. When Rockstar publishes official totals, we will replace sample-pin copy with confirmed counts on this page and the collectibles hub.",
       "Accessibility tip for streamers: use Map-6 streamer theme and overlay URLs so chat can call out package candidates without covering gameplay. Tag shares with `?ref=` if you want attribution on return visits.",
     ],
     howToTrack: [
@@ -107,7 +107,7 @@ export const COLLECTIBLE_TYPE_SEO: Record<string, CollectibleSeo> = {
       {
         question: "How many stunt jumps will GTA 6 have?",
         answer:
-          "Unknown. Map-6 lists an expected planning total as a placeholder. Prior games varied widely; Rockstar’s final number will replace our placeholder after launch.",
+          "Unknown. Map-6 does not invent a jump count. Sample pins mark likely ramp biomes from trailer geography; official totals will replace this note after launch.",
       },
       {
         question: "Do jumps require specific cars?",

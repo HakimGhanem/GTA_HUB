@@ -10,6 +10,7 @@ export function NavLinks() {
     { href: "/map", label: t("map") },
     { href: "/locations", label: t("locations") },
     { href: "/collectibles", label: t("collectibles") },
+    { href: "/database", label: t("database") },
     { href: "/guides", label: t("guides") },
     { href: "/news", label: t("news") },
   ] as const;

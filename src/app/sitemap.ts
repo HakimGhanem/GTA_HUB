@@ -6,6 +6,10 @@ import { locales } from "@/i18n/routing";
 import { SITE } from "@/lib/constants";
 import { listPublishedArticles } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
+import {
+  HUB_KIND_PARAMS,
+  getEntitiesByParam,
+} from "@/data/hub";
 
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
 
@@ -40,6 +44,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/collectibles",
     "/guides",
     "/news",
+    "/database",
+    "/maps/gta5",
+    "/creators",
+    "/pro",
     "/about",
     "/privacy",
   ];
@@ -89,6 +97,24 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   );
 
+  const databaseKindPages = HUB_KIND_PARAMS.flatMap((kind) =>
+    localizedEntries(`/database/${kind}`, {
+      lastModified: now,
+      changeFrequency: "weekly",
+      priority: 0.7,
+    }),
+  );
+
+  const databaseEntityPages = HUB_KIND_PARAMS.flatMap((kind) =>
+    getEntitiesByParam(kind).flatMap((entity) =>
+      localizedEntries(`/database/${kind}/${entity.slug}`, {
+        lastModified: now,
+        changeFrequency: "monthly",
+        priority: 0.65,
+      }),
+    ),
+  );
+
   // News: published only; lastModified from article.updatedAt
   // EN primary in MVP — still emit locale variants for hreflang consistency
   let newsPages: MetadataRoute.Sitemap = [];
@@ -112,6 +138,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...locationPages,
     ...collectiblePages,
     ...guidePages,
+    ...databaseKindPages,
+    ...databaseEntityPages,
     ...newsPages,
   ];
 }

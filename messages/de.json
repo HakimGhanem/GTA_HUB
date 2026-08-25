@@ -5,7 +5,11 @@
     "collectibles": "Sammelobjekte",
     "guides": "Guides",
     "openMap": "Karte öffnen",
-    "news": "News"
+    "news": "News",
+    "database": "Datenbank",
+    "creators": "Creator",
+    "pro": "Pro",
+    "gta5": "GTA-5-Karte"
   },
   "home": {
     "title": "Kostenlose interaktive GTA-6-Karte",
@@ -18,9 +22,13 @@
     "faqTitle": "FAQ",
     "badge": "GTA VI · Interaktive Karte",
     "collectiblesCardTitle": "Sammelobjekte",
-    "collectiblesCardDesc": "Versteckte Pakete, Stunt-Sprünge, Street Art & Wildlife — 100 % Abschluss verfolgen.",
+    "collectiblesCardDesc": "Versteckte Pakete, Stunt-Sprünge, Street Art & Wildlife — Kategoriemethoden und Beispiel-Pins (Gesamtzahlen offen).",
     "guidesCardTitle": "Guides",
     "guidesCardDesc": "Einsteigertipps, Vice-City-Guides und Welt-Guides für den Launch-Tag.",
+    "databaseCardTitle": "GTA-HUB-Datenbank",
+    "databaseCardDesc": "Quellgekennzeichnete Charaktere, Fahrzeuge und Waffen — nur bestätigte Trailer-Fakten.",
+    "gta5CardTitle": "Interaktive GTA-5-Karte",
+    "gta5CardDesc": "Los-Santos-Sammelobjekte und unbegrenzter lokaler Tracker bis Leonida.",
     "faq": {
       "q1": "Was ist Map-6?",
       "a1": "Map-6 ist eine kostenlose interaktive Karte für GTA 6, einschließlich Vice City und Umgebung, mit POIs, Sammelobjekten, Koordinaten und Suche.",
@@ -63,8 +71,9 @@
   },
   "collectibles": {
     "title": "GTA-6-Sammelobjekte",
-    "subtitle": "Alle Sammelobjekt-Typen in GTA 6 — kartiert, kategorisiert und bereit für 100 % Abschluss.",
-    "mapped": "{current} / {total} kartiert"
+    "subtitle": "GTA-6-Sammelobjekt-Typen — Beispiel-Pins kartiert. Offizielle Gesamtzahlen ausstehend.",
+    "mapped": "{current} / {total} kartiert",
+    "samples": "{current} Beispiel-Pins · Gesamtzahlen unbestätigt, bis Rockstar sie veröffentlicht"
   },
   "guides": {
     "title": "GTA-6-Karten-Guides",
@@ -99,7 +108,7 @@
     "newsDesc": "Aktuelle GTA-6-Trailer-News, interaktive Karte und Vorbestell-Guides."
   },
   "footer": {
-    "copyright": "© {year} Map-6 — Interaktive GTA-6-Karte.",
+    "copyright": "© {year} Map-6 — GTA HUB. Interaktive GTA-Karten und Guides.",
     "affiliate": "Als Amazon-Partner verdiene ich an qualifizierten Verkäufen.",
     "maptiles": "Kartenkacheln © GTADB / GTA VI Mapping Community — CC BY 4.0",
     "privacy": "Datenschutz",
@@ -107,7 +116,7 @@
     "about": "Über uns"
   },
   "header": {
-    "tagline": "Interaktive GTA-6-Karte",
+    "tagline": "GTA HUB · Karte, Guides, Shop",
     "navLabel": "Hauptnavigation",
     "menu": "Menü",
     "navigation": "Navigation",

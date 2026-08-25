@@ -140,3 +140,21 @@ export function productsForIntents(intents: AffiliateIntent[]): PreorderProduct[
 export function liveProductsForIntent(intent: AffiliateIntent): PreorderProduct[] {
   return productsForIntent(intent).filter((p) => p.asin.length > 0);
 }
+
+/**
+ * Honest retailer search query — product label / edition, never a fake SKU.
+ */
+export function searchQueryForProduct(product: PreorderProduct): string {
+  switch (product.envKey) {
+    case "GTA6_PS5":
+    case "GTA6_COLLECTORS_PS5":
+      return "GTA 6 PS5";
+    case "GTA6_XBOX":
+    case "GTA6_COLLECTORS_XBOX":
+      return "GTA 6 Xbox";
+    case "GTA5_PS5":
+      return "GTA 5 PS5";
+    default:
+      return product.label.replace(/\s+/g, " ").trim();
+  }
+}

@@ -18,6 +18,23 @@ export const CONFIDENCE_COLORS: Record<LocationConfidence, string> = {
   seed: "#a78bfa",
 };
 
+export const ALL_CONFIDENCE_LEVELS: LocationConfidence[] = [
+  "confirmed",
+  "trailer",
+  "community",
+  "rumor",
+  "seed",
+];
+
+/** Dark-UI badge colors for location cards and pages. */
+export function getConfidenceBadgeStyle(confidence: LocationConfidence): {
+  color: string;
+  backgroundColor: string;
+} {
+  const color = CONFIDENCE_COLORS[confidence];
+  return { color, backgroundColor: `${color}22` };
+}
+
 /** Derive trust label from Location.source (and optional confidence). */
 export function resolveConfidence(
   location: Pick<Location, "source" | "confidence">,

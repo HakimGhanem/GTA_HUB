@@ -36,6 +36,15 @@ export const GUIDE_AFFILIATE_INTENTS: Record<string, AffiliateIntent[]> = {
     "console_upgrade",
   ],
   "gta-6-map-clip-kit": ["streaming_setup", "headset", "display_120hz"],
+  "gta-6-pc-release-date": ["console_upgrade", "preorder_standard"],
+  "gta-6-pc-recommended-specs": ["storage_ssd", "display_120hz", "headset"],
+  "gta-6-ps5-vs-xbox": [
+    "console_upgrade",
+    "preorder_standard",
+    "controller",
+  ],
+  "gta-6-price-france": ["preorder_standard", "preorder_collectors"],
+  "gta-6-faq": ["preorder_standard"],
 };
 
 export function affiliateIntentsForGuide(

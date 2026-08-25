@@ -6,7 +6,8 @@ export type CollectibleType = {
   name: string;
   description: string;
   icon: string;
-  total: number;
+  /** Official Rockstar total when published. Omit until then — never invent. */
+  total?: number;
 };
 
 export type Collectible = {
@@ -24,33 +25,29 @@ export const COLLECTIBLE_TYPES: CollectibleType[] = [
     slug: "hidden-packages",
     name: "Hidden Packages",
     description:
-      "Classic GTA collectibles scattered across the map. Track hidden packages in Vice City, Port Gellhorn, and the Everglades.",
+      "Classic GTA-style collectibles — sample pins in Vice City, Port Gellhorn, and the Everglades. Official totals pending Rockstar.",
     icon: "📦",
-    total: 100,
   },
   {
     slug: "stunt-jumps",
     name: "Stunt Jumps",
     description:
-      "Every stunt jump ramp in GTA 6. Complete them all for 100% completion and bragging rights.",
+      "Sample stunt-jump ramps to watch in GTA 6. A complete ramp list and official totals are pending Rockstar.",
     icon: "🚀",
-    total: 50,
   },
   {
     slug: "street-art",
     name: "Street Art",
     description:
-      "Spray-can murals and graffiti spots to photograph across GTA 6.",
+      "Sample mural and graffiti pins to photograph across GTA 6. Official street-art totals are unconfirmed.",
     icon: "🎨",
-    total: 80,
   },
   {
     slug: "wildlife",
     name: "Wildlife Photography",
     description:
-      "Rare animals to snap in the Grassrivers and Leonida Keys for the Social Club challenge.",
+      "Sample wildlife photo spots in the Grassrivers and Leonida Keys. A Social Club challenge is unconfirmed.",
     icon: "📸",
-    total: 20,
   },
 ];
 
@@ -82,3 +79,12 @@ export function getCollectiblesByType(type: string) {
 export function getCollectibleBySlug(slug: string) {
   return COLLECTIBLES.find((c) => c.slug === slug);
 }
+
+/** Honest sample-count copy — never pair with an invented Rockstar total. */
+export function formatCollectibleSampleCount(count: number): string {
+  const unit = count === 1 ? "sample pin" : "sample pins";
+  return `${count} ${unit} · totals unconfirmed`;
+}
+
+export const COLLECTIBLES_TOTALS_NOTE =
+  "Sample pins only. Official category totals are pending Rockstar.";

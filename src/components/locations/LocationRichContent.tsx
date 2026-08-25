@@ -1,21 +1,38 @@
 import { getLocale, getTranslations } from "next-intl/server";
+import type { Location } from "@/data/locations";
 import type { RegionalLocationSeo } from "@/data/location-seo-content";
 import { AdUnit } from "@/components/ads/AdUnit";
 import { Cs2ExploreBlock } from "@/components/locations/Cs2ExploreBlock";
 import { AD_SLOTS } from "@/lib/ads-config";
+import {
+  getConfidenceBadgeStyle,
+  resolveConfidence,
+} from "@/lib/location-confidence";
+import { getConfidenceLabel } from "@/lib/location-display";
 
 type Props = {
   name: string;
   seo: RegionalLocationSeo;
+  location: Pick<Location, "source" | "confidence">;
 };
 
-export async function LocationRichContent({ name, seo }: Props) {
+export async function LocationRichContent({ name, seo, location }: Props) {
   const t = await getTranslations("locations");
+  const tRoot = await getTranslations();
   const locale = await getLocale();
+  const confidence = resolveConfidence(location);
 
   return (
     <article className="prose prose-invert max-w-none">
       <section className="mb-10">
+        <p className="mb-3 not-prose">
+          <span
+            className="inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ring-1 ring-white/15"
+            style={getConfidenceBadgeStyle(confidence)}
+          >
+            {getConfidenceLabel(confidence, tRoot)}
+          </span>
+        </p>
         <h2 className="mb-4 text-2xl font-bold text-white">
           {t("aboutTitle", { name })}
         </h2>

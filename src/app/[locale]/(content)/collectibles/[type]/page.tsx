@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import {
   COLLECTIBLE_TYPES,
+  COLLECTIBLES_TOTALS_NOTE,
   getCollectibleType,
   getCollectiblesByType,
 } from "@/data/collectibles";
@@ -55,10 +56,9 @@ export default async function CollectibleTypePage({ params }: Props) {
         {seo?.metaDescription ?? collectibleType.description}
       </p>
       <p className="mt-4 text-sm text-white/40">
-        {t("mapped", { current: items.length, total: collectibleType.total })}
-        {" · "}
-        totals are placeholders until Rockstar publishes finals
+        {t("samples", { current: items.length })}
       </p>
+      <p className="mt-1 text-xs text-white/35">{COLLECTIBLES_TOTALS_NOTE}</p>
 
       {seo ? (
         <article className="mt-10 space-y-4 text-white/70">

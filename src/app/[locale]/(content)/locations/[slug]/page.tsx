@@ -11,6 +11,11 @@ import {
 import { getRegionalLocationSeo } from "@/data/location-seo-content";
 import { shouldNoindexLocation } from "@/lib/location-indexing";
 import {
+  getConfidenceBadgeStyle,
+  resolveConfidence,
+} from "@/lib/location-confidence";
+import { getConfidenceLabel } from "@/lib/location-display";
+import {
   buildMetadata,
   jsonLdPlace,
   jsonLdRegionalLocation,
@@ -75,8 +80,10 @@ export default async function LocationPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("locations");
+  const tRoot = await getTranslations();
   const location = getLocationBySlug(slug);
   if (!location) notFound();
+  const confidence = resolveConfidence(location);
 
   const noindex = shouldNoindexLocation(location);
   const regionalSeo = getRegionalLocationSeo(slug, locale);
@@ -111,9 +118,17 @@ export default async function LocationPage({ params }: Props) {
           </Link>
 
           <div className="mb-6">
-            <span className="mb-2 inline-block rounded-full bg-pink-500/20 px-3 py-1 text-xs font-medium text-pink-300">
-              {CATEGORY_LABELS[location.category]}
-            </span>
+            <div className="mb-2 flex flex-wrap items-center gap-2">
+              <span className="inline-block rounded-full bg-pink-500/20 px-3 py-1 text-xs font-medium text-pink-300">
+                {CATEGORY_LABELS[location.category]}
+              </span>
+              <span
+                className="inline-block rounded-full px-3 py-1 text-xs font-medium ring-1 ring-white/15"
+                style={getConfidenceBadgeStyle(confidence)}
+              >
+                {getConfidenceLabel(confidence, tRoot)}
+              </span>
+            </div>
             <h1 className="text-3xl font-bold">{location.name}</h1>
             <p className="mt-1 text-sm text-white/50">{location.region}</p>
           </div>
@@ -132,7 +147,11 @@ export default async function LocationPage({ params }: Props) {
           </Link>
 
           {regionalSeo && (
-            <LocationRichContent name={location.name} seo={regionalSeo} />
+            <LocationRichContent
+              name={location.name}
+              seo={regionalSeo}
+              location={location}
+            />
           )}
         </div>
 

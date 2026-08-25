@@ -4,7 +4,15 @@ import { useCallback, useEffect, useState } from "react";
 import type { GameId } from "@/lib/games";
 import { trackEvent } from "@/lib/analytics/track";
 
-const STORAGE_PREFIX = "map6-progress:";
+export const STORAGE_PREFIX = "map6-progress:";
+
+export type MapProgressBackup = {
+  v: 1;
+  app: "map-6";
+  gameId: GameId;
+  exportedAt: string;
+  found: string[];
+};
 
 export type MapProgress = {
   found: Set<string>;
@@ -34,6 +42,54 @@ function writeSlugs(gameId: GameId, slugs: string[]) {
   } catch {
     /* quota / private mode */
   }
+}
+
+function parseFoundSlugs(raw: unknown): string[] {
+  if (Array.isArray(raw)) {
+    return raw.filter((s): s is string => typeof s === "string" && s.length > 0);
+  }
+  if (raw && typeof raw === "object") {
+    const rec = raw as Record<string, unknown>;
+    const list = rec.found ?? rec.slugs;
+    if (Array.isArray(list)) {
+      return list.filter((s): s is string => typeof s === "string" && s.length > 0);
+    }
+  }
+  return [];
+}
+
+/** JSON backup for one game’s unlimited local found set. */
+export function exportProgress(gameId: GameId): string {
+  const payload: MapProgressBackup = {
+    v: 1,
+    app: "map-6",
+    gameId,
+    exportedAt: new Date().toISOString(),
+    found: readSlugs(gameId),
+  };
+  return JSON.stringify(payload, null, 2);
+}
+
+/** Restore a backup into `map6-progress:{gameId}` (replaces that game’s set). */
+export function importProgress(gameId: GameId, json: string): void {
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(json) as unknown;
+  } catch {
+    throw new Error("Invalid progress JSON");
+  }
+  if (Array.isArray(parsed)) {
+    writeSlugs(gameId, [...new Set(parseFoundSlugs(parsed))]);
+    return;
+  }
+  if (parsed && typeof parsed === "object") {
+    if (!("found" in parsed) && !("slugs" in parsed)) {
+      throw new Error("Progress JSON has no found list");
+    }
+    writeSlugs(gameId, [...new Set(parseFoundSlugs(parsed))]);
+    return;
+  }
+  throw new Error("Invalid progress JSON");
 }
 
 /** Per-game “found” checklist — unlimited local (MapGenie free cap is 100). */
