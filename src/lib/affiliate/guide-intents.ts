@@ -45,6 +45,11 @@ export const GUIDE_AFFILIATE_INTENTS: Record<string, AffiliateIntent[]> = {
   ],
   "gta-6-price-france": ["preorder_standard", "preorder_collectors"],
   "gta-6-faq": ["preorder_standard"],
+  "gta-6-extended-look-how-to-watch": [
+    "streaming_setup",
+    "headset",
+    "display_120hz",
+  ],
 };
 
 export function affiliateIntentsForGuide(
