@@ -54,7 +54,40 @@ export default async function CreatorsPage({ params }: Props) {
       </div>
 
       <article className="mt-10 space-y-4 text-white/70">
-        <h2 className="text-xl font-semibold text-white">Share URLs</h2>
+        <h2 className="text-xl font-semibold text-white">
+          Tonight — Extended Look (+6 h window)
+        </h2>
+        <p>
+          Netflix subscribers see{" "}
+          <em>Grand Theft Auto VI: An Extended Look</em> at 21:00 CEST; the
+          official YouTube / VI-site upload follows at 03:00 CEST. That six-hour
+          gap is a clip window, not an official-partner badge. Map-6 is a fan
+          map. Open overlay, Share a Landmarks pin, append{" "}
+          <code className="text-white/80">ref=</code>, credit GTADB CC BY 4.0 if
+          you talk tiles. Do not overlay fake leak lists or a PC date. Hours:{" "}
+          <Link
+            href="/news/gta-6-extended-look-watch-times"
+            className="text-pink-300 underline"
+          >
+            watch times
+          </Link>
+          . Pause list:{" "}
+          <Link
+            href="/news/gta-6-extended-look-map-watch-for"
+            className="text-pink-300 underline"
+          >
+            what to pause
+          </Link>
+          . Live log:{" "}
+          <Link
+            href="/news/gta-6-extended-look-live-notes"
+            className="text-pink-300 underline"
+          >
+            live notes
+          </Link>
+          .
+        </p>
+        <h2 className="pt-4 text-xl font-semibold text-white">Share URLs</h2>
         <p>
           The toolbar Share button copies the current game, location, x/y,
           zoom, and theme. Append{" "}
