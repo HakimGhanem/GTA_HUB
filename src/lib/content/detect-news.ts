@@ -1,9 +1,10 @@
+import { randomUUID } from "crypto";
 import { XMLParser } from "fast-xml-parser";
 import { KEYWORDS, getP0Keywords } from "@/data/keywords";
 import { enrichTopicFunnel } from "./funnel";
 import { eventKeyFromHeadline } from "./ids";
-import { getTopicByEventKey, upsertTopic } from "./repository";
-import type { ContentCluster } from "./schema";
+import { bulkUpsertTopics, listTopics } from "./repository";
+import type { ContentCluster, Topic } from "./schema";
 
 const FEEDS = [
   // Purchase / setup intent first — higher EPC near launch (Amazon)
@@ -150,6 +151,11 @@ export async function detectNewsTopics(): Promise<DetectNewsResult> {
   let created = 0;
   let skipped = 0;
 
+  // One collection read plus one batched write for the whole run. Resolving
+  // each item's eventKey and writing it individually made detection quadratic.
+  const seenEventKeys = new Set((await listTopics()).map((t) => t.eventKey));
+  const fresh: Topic[] = [];
+
   for (const item of parserItems) {
     const title = (item.title || "").trim();
     const link = (item.link || "").trim();
@@ -161,11 +167,11 @@ export async function detectNewsTopics(): Promise<DetectNewsResult> {
 
     const cluster = inferCluster(`${title} ${item.description || ""}`);
     const eventKey = eventKeyFromHeadline(title);
-    const existing = await getTopicByEventKey(eventKey);
-    if (existing) {
+    if (seenEventKeys.has(eventKey)) {
       skipped++;
       continue;
     }
+    seenEventKeys.add(eventKey);
 
     const score = scoreItem(title, link, item.pubDate);
     const enriched = enrichTopicFunnel({
@@ -181,7 +187,9 @@ export async function detectNewsTopics(): Promise<DetectNewsResult> {
       createdAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
     });
-    await upsertTopic({
+    const now = new Date().toISOString();
+    fresh.push({
+      id: randomUUID(),
       headline: enriched.headline,
       summary: enriched.summary,
       sourceUrls: enriched.sourceUrls,
@@ -194,9 +202,13 @@ export async function detectNewsTopics(): Promise<DetectNewsResult> {
       affiliateIntents: enriched.affiliateIntents,
       clipHook: enriched.clipHook,
       funnelScore: enriched.funnelScore,
+      createdAt: now,
+      updatedAt: now,
     });
     created++;
   }
+
+  await bulkUpsertTopics(fresh);
 
   return { created, skipped, feedErrors };
 }

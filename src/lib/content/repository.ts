@@ -86,6 +86,15 @@ export async function listPublishedArticles(locale = "en"): Promise<Article[]> {
   });
 }
 
+export async function listLocalesForNewsSlug(slug: string): Promise<string[]> {
+  const published = await listArticles({ status: "published" });
+  return [
+    ...new Set(
+      published.filter((article) => article.slug === slug).map((a) => a.locale),
+    ),
+  ];
+}
+
 export async function getArticleBySlug(
   slug: string,
   locale = "en",
@@ -190,30 +199,69 @@ export async function upsertTopic(
   input: Omit<Topic, "id" | "createdAt" | "updatedAt"> & { id?: string },
 ): Promise<Topic> {
   const id = input.id ?? randomUUID();
-  const existing = (await listTopics()).find((t) => t.id === id);
-  const topic: Topic = {
-    ...input,
-    id,
-    createdAt: existing?.createdAt ?? nowIso(),
-    updatedAt: nowIso(),
-  };
-
   const fs = await getFirestore();
+
   if (fs) {
+    const ref = fs.collection(COLLECTIONS.topics).doc(id);
+    const snap = await ref.get();
+    const topic: Topic = {
+      ...input,
+      id,
+      createdAt: (snap.data()?.createdAt as string | undefined) ?? nowIso(),
+      updatedAt: nowIso(),
+    };
     const { id: _id, ...data } = topic;
-    await fs
-      .collection(COLLECTIONS.topics)
-      .doc(id)
-      .set(omitUndefined(data as Record<string, unknown>), { merge: true });
+    await ref.set(omitUndefined(data as Record<string, unknown>), {
+      merge: true,
+    });
     return topic;
   }
 
   const all = await fileStore.listTopics();
-  const idx = all.findIndex((t) => t.id === id || t.eventKey === topic.eventKey);
+  const idx = all.findIndex((t) => t.id === id || t.eventKey === input.eventKey);
+  const topic: Topic = {
+    ...input,
+    id,
+    createdAt: all[idx]?.createdAt ?? nowIso(),
+    updatedAt: nowIso(),
+  };
   if (idx >= 0) all[idx] = { ...all[idx], ...topic, id: all[idx].id };
   else all.push(topic);
   await fileStore.saveTopics(all);
   return topic;
+}
+
+/**
+ * Batched `upsertTopic` for multi-topic writes. Pass topics that came from
+ * `listTopics()` so `createdAt` survives the merge.
+ */
+export async function bulkUpsertTopics(topics: Topic[]): Promise<number> {
+  if (!topics.length) return 0;
+  const fs = await getFirestore();
+
+  if (fs) {
+    const CHUNK = 450; // Firestore caps a batch at 500 writes
+    for (let i = 0; i < topics.length; i += CHUNK) {
+      const batch = fs.batch();
+      for (const t of topics.slice(i, i + CHUNK)) {
+        const { id, ...data } = { ...t, updatedAt: nowIso() };
+        batch.set(
+          fs.collection(COLLECTIONS.topics).doc(id),
+          omitUndefined(data as Record<string, unknown>),
+          { merge: true },
+        );
+      }
+      await batch.commit();
+    }
+    return topics.length;
+  }
+
+  const byId = new Map((await fileStore.listTopics()).map((t) => [t.id, t]));
+  for (const t of topics) {
+    byId.set(t.id, { ...byId.get(t.id), ...t, updatedAt: nowIso() });
+  }
+  await fileStore.saveTopics([...byId.values()]);
+  return topics.length;
 }
 
 export async function saveKeywordMetrics(metrics: KeywordMetric[]) {

@@ -9,9 +9,9 @@ import {
 } from "@/lib/content/generate-draft";
 import { publishArticleLocal } from "@/lib/content/publish";
 import {
+  bulkUpsertTopics,
   listArticles,
   listTopics,
-  upsertTopic,
 } from "@/lib/content/repository";
 import { articlePath } from "@/lib/content/schema";
 import { SITE } from "@/lib/constants";
@@ -85,18 +85,21 @@ export async function POST(request: Request) {
   }
 
   const topics = await listTopics();
-  const enriched = topics.map(enrichTopicFunnel);
-
-  for (const t of enriched) {
-    if (t.status !== "new" && t.status !== "scored") continue;
-    await upsertTopic({
-      ...t,
-      score: t.funnelScore ?? t.score,
-    });
-  }
-
-  const ranked = rankTopicsForDaily(enriched, limit);
+  const ranked = rankTopicsForDaily(topics, limit);
   const picks = ranked.filter(isGoodDailyTopic);
+
+  // Only the topics this run acts on get their funnel fields persisted.
+  // Sweeping the whole collection cost one sequential Firestore round-trip per
+  // topic and never finished inside the Cloud Run request timeout. `enrichOnly`
+  // still sweeps everything, batched.
+  const enrichTargets = enrichOnly
+    ? topics
+        .map(enrichTopicFunnel)
+        .filter((t) => t.status === "new" || t.status === "scored")
+    : ranked;
+  const enrichedCount = await bulkUpsertTopics(
+    enrichTargets.map((t) => ({ ...t, score: t.funnelScore ?? t.score })),
+  );
 
   const drafted: { id: string; slug: string; seoScore: number }[] = [];
   const skippedDraft: { id: string; reason: string }[] = [];
@@ -209,6 +212,7 @@ export async function POST(request: Request) {
     detect: wantDetect && !enrichOnly,
     draft: wantDraft && !enrichOnly,
     publish: wantPublish && !enrichOnly,
+    enrichedCount,
     detectResult,
     picks: picks.map((t) => ({
       id: t.id,
