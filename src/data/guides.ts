@@ -1,34 +1,54 @@
+import { COMPETITIVE_GUIDES } from "./guides-competitive";
+
+export type GuideFaq = { question: string; answer: string };
+
+export type GuideComparison = {
+  caption?: string;
+  headers: string[];
+  rows: string[][];
+};
+
 export type Guide = {
   slug: string;
   title: string;
   description: string;
+  /**
+   * Answer-first summary: a standalone paragraph that resolves the query
+   * without the rest of the page. Rendered in `AnswerBox` and exposed to
+   * answer engines via `abstract` + `speakable` in the JSON-LD.
+   */
+  answer?: string;
   category: "beginner" | "exploration" | "collectibles" | "lore";
   readTime: number;
   publishedAt: string;
   content: string[];
+  faq?: GuideFaq[];
+  comparison?: GuideComparison;
 };
 
 export const GUIDES: Guide[] = [
   {
     slug: "gta-6-preorder-guide",
-    title: "GTA 6 Pre-Order Guide — PS5, Xbox & Collector's Edition",
+    title: "GTA 6 Pre-Order Guide — PS5, Xbox, Standard & Ultimate",
     description:
-      "Where to pre-order GTA 6 on Amazon: Standard and Collector's editions for PS5 and Xbox, plus hardware picks for launch day.",
+      "Where to pre-order GTA 6: official Standard ($79.99) and Ultimate ($99.99) for PS5 and Xbox, Vintage Vice City Pack, preload Nov 12, plus hardware picks.",
+    answer:
+      "Pre-order GTA 6 from official channels only: the PlayStation Store, the Microsoft Store, or an established retailer such as Amazon. Standard is $79.99 and Ultimate $99.99 in the US; eligible pre-orders placed before November 20, 2026 include the Vintage Vice City Pack, and preload starts November 12.",
     category: "beginner",
     readTime: 14,
     publishedAt: "2026-07-27",
     content: [
-      "Grand Theft Auto VI launches November 19, 2026 on PlayStation 5 and Xbox Series X|S. This Map-6 pre-order guide is the calm checklist you want before launch week turns into sold-out physical stock, confused digital vs disc carts, and a console that suddenly needs a new SSD. We cover where to buy, how Standard compares with Collector's Edition thinking, platform lock-in, hardware you can purchase now, and how to keep exploring Leonida on the interactive map while you wait.",
-      "Rockstar has confirmed console launch platforms publicly. PC timing, if any, is not something Map-6 invents — when Take-Two or Rockstar publish it, our news feed and this page get updated. Until then, treat every “PC day-and-date” rumor as noise. Your real decision is PS5 versus Xbox Series X|S, physical versus digital, and whether you want memorabilia on top of the game itself.",
-      "Amazon remains one of the most practical pre-order channels for many players: clear order pages, cancellation until ship on most pre-orders, Prime shipping on eligible items, and easy returns when something goes wrong. Map-6 surfaces Amazon product cards with SiteStripe-ready ASINs as soon as official listings appear. Some links may be Amazon Associates affiliates; Map-6 is a fan map, not Rockstar or Take-Two — see the site disclosure.",
-      "Standard Edition is the full game without the shelf-tax. Collector's Edition is for fans who want the unboxing moment: steelbooks, art books, statues, and whatever exclusive extras Rockstar eventually lists. Exact Collector contents and pricing are provisional until Rockstar publishes them. Do not buy Collector expecting a meaningful Online power advantage; historically Rockstar keeps core progression accessible without the box extras. If you are undecided, Standard plus a headset or SSD upgrade often feels better day-to-day than a box you open once.",
+      "Grand Theft Auto VI launches November 19, 2026 on PlayStation 5 and Xbox Series X|S. This Map-6 pre-order guide is the calm checklist you want before launch week turns into sold-out physical stock, confused digital vs code-in-box carts, and a console that suddenly needs a new SSD. Official US prices from Take-Two: Standard $79.99, Ultimate $99.99. Eligible purchases before November 20, 2026 include the Vintage Vice City Pack; digital copies include a month of GTA+. Preload starts November 12. We cover where to buy, platform lock-in, hardware you can purchase now, and how to keep exploring Leonida on the interactive map while you wait.",
+      "Rockstar has confirmed console launch platforms publicly. PC timing, if any, is not something Map-6 invents — when Take-Two or Rockstar publish it, our news feed and this page get updated. Until then, treat every “PC day-and-date” rumor as noise. Your real decision is PS5 versus Xbox Series X|S, Standard versus Ultimate, and digital versus physical (the physical Standard box contains a download code, not a disc).",
+      "Amazon remains one of the most practical pre-order channels for many players: clear order pages, cancellation until ship on most pre-orders, Prime shipping on eligible items, and easy returns when something goes wrong. Pre-orders opened June 25, 2026, and Amazon.fr listed both Standard code-in-box SKUs — PS5 and Xbox Series X|S — under the €79.99 RRP, so the product cards link straight to them. Some links may be Amazon Associates affiliates; Map-6 is a fan map, not Rockstar or Take-Two — see the site disclosure.",
+      "Standard Edition is the full game at $79.99 US. Ultimate Edition ($99.99 US) is the official premium tier — exclusive vehicles, weapons, apparel, and story-threaded extras per Take-Two — not a statue box. A physical Ultimate SKU is not listed; Standard owners can buy an Ultimate Upgrade later on PlayStation or Microsoft stores after redeeming the base code. There is no announced Collector’s Edition in the launch pair. If you are undecided, Standard plus a headset or SSD upgrade often feels better day-to-day than paying $20 for cosmetics you have not seen itemized.",
       "Platform choice is sticky. PS5 and Xbox editions are separate SKUs. Cross-saves are not announced for GTA 6. Pick the ecosystem you already use for friends, Game Pass or PS Plus habits, and capture tools. Buying a second console “just for GTA 6” rarely pays off unless you were upgrading anyway. Pair this page with our best-setup guide for DualSense spares, wireless headsets, console-compatible storage, and HDMI 2.1 / 120Hz display picks.",
       "Physical stock evaporates near launch; digital Standard does not. Pre-order early if you want a disc or a Collector box on the shelf. Double-check region, edition, and digital-versus-physical before checkout. Amazon usually lets you cancel until the item ships — useful if Rockstar later clarifies bonuses or you change platforms. Compare Collector premiums only after the official contents list is public; “leak lists” of statue height and pin counts are not purchase advice.",
       "While editions are pending, hardware is not. Launch week is the worst time to discover a dying fan, a full internal drive, or a TV stuck at 60Hz on the wrong HDMI port. Leave headroom for patches and captures on storage. Audio sells marathon Vice City nights. Displays do not need to be OLED to enjoy the game, but HDMI 2.1 readiness protects performance modes when Rockstar ships them. Use the product grids on this page and the best-setup guide as a shortlist, not a flex list.",
       "Creators and clip hunters: Map-6 is also a content tool. Open /map, filter Landmarks or Collectibles, Share a deep link with theme and optional creator `ref`, or drop the chrome-free /overlay URL into OBS or Kick’s browser source. Our clip-kit guide walks through streamer and neon themes, Share buttons, and attribution tags. That workflow keeps viewers on verified geography instead of blurry Discord screenshots.",
       "Map literacy while you wait: start at /map (or /en/map). Use category filters to isolate landmarks, collectibles, shops, missions, and secrets. The HUD shows map X/Y in the same space used across Map-6 — copy those when you pause Trailer 2 on a neon strip or causeway. Regional hubs under /locations (Vice City, Ocean Drive, Leonida Keys, Port Gellhorn, Grassrivers, Ambrosia Island, Mount Kalaga) add longer prose. Cartography lineage includes community work such as GTADB assets under CC BY 4.0 where noted; we label speculation and keep thin auto-imported stubs out of the sitemap.",
       "Companion reading on Map-6: the Collector's Edition comparison for shelf-versus-play math, the best-setup checklist for launch hardware, the beginner interactive map guide for filters and coordinates, Vice City and Leonida lore guides for geography, and the Cities: Skylines II fan rebuild (Steam map ID 153426) if you want a street-level 3D wander of community-estimated Leonida. None of those replace official Rockstar Newswire for release facts.",
-      "Editorial promise: we do not invent store SKUs, fake leak checklists, or “guaranteed” Collector contents. When Amazon ASINs go live, product cards light up. When Rockstar confirms bonuses, we revise the editions section. Until then, lock platform, decide physical versus digital, upgrade the gear that actually bottlenecks your living room, and keep /map bookmarked so November 19 is navigation — not shopping panic.",
+      "Editorial promise: we do not invent store SKUs, fake leak checklists, or “guaranteed” Collector contents. Our cards point at the two Standard listings that genuinely exist on Amazon.fr, and when Rockstar confirms more bonuses we revise the editions section. Beyond that: lock platform, decide physical code-in-box versus digital, upgrade the gear that actually bottlenecks your living room, and keep /map bookmarked so November 19 is navigation — not shopping panic.",
       "Quick launch-week plan: (1) confirm PS5 or Xbox SKU, (2) Standard or Collector only after the official list, (3) tick headset / storage / display if needed, (4) cancel or adjust Amazon pre-order if plans change before ship, (5) open Map-6 filters and save deep links for the districts you care about. That is the whole pre-order loop — practical, reversible, and free of rumor-driven FOMO.",
       "If PC details arrive later, revisit this page — do not assume console pre-orders transfer. Until then, console SKUs are the only honest cart. Keep exploring Leonida on /map with GTADB-attributed cartography so hype energy goes into geography literacy instead of refresh-spam on empty product pages.",
     ],
@@ -38,47 +58,51 @@ export const GUIDES: Guide[] = [
     title: "Best Setup for GTA 6 — PS5, Xbox, Headset & Storage",
     description:
       "Launch-day hardware checklist: console upgrade, DualSense, headset, SSD space, and 120Hz display picks before Vice City drops.",
+    answer:
+      "A PlayStation 5 or Xbox Series X|S is the only hard requirement for GTA 6. Extra SSD space, a headset and a 120 Hz display are comfort upgrades worth sorting before launch week rather than on the day.",
     category: "beginner",
     readTime: 14,
     publishedAt: "2026-08-16",
     content: [
-      "GTA 6 launches November 19, 2026 on PlayStation 5 and Xbox Series X|S. The week before launch is the worst time to discover a dying console fan, a full SSD, or a TV that cannot do HDMI 2.1. This Map-6 guide is a purchase-intent checklist — what to lock in now, what can wait until official game ASINs go live, and how your living-room setup connects to exploring Leonida on the interactive map.",
+      "GTA 6 launches November 19, 2026 on PlayStation 5 and Xbox Series X|S. The week before launch is the worst time to discover a dying console fan, a full SSD, or a TV that cannot do HDMI 2.1. This Map-6 guide is a purchase-intent checklist — what to lock in now, what can wait until launch week, and how your living-room setup connects to exploring Leonida on the interactive map.",
       "Start with the platform you already own. Buying a second console just for GTA 6 rarely pays off unless you were upgrading anyway. If your PS5 or Series X is healthy, skip to controllers, headset, and storage. If you are still on last-gen or a shared TV, console_upgrade intent is the highest-ticket decision on this page. Cross-saves between PlayStation and Xbox are not announced — lock the ecosystem your friends and subscriptions already live in.",
       "Storage matters more than marketing slides admit. Open-world Rockstar titles are huge; leave headroom for day-one patches, seasonal updates, and video captures. A 1TB NVMe that your console officially supports (or a reputable expansion card on Xbox) is the practical mid-funnel add-on while game editions are not listable yet. Do not fill the drive to the last gigabyte the night before launch — installs fail in the most annoying ways when Prime shipping is already stressed.",
       "Controllers are consumables in open-world games. A DualSense spare (or Xbox wireless pad) keeps co-op and couch sessions alive when sticks drift or batteries die mid-chase. Haptic feedback is part of the PS5 pitch; treat a second pad as insurance, not luxury. If you stream or record, test the pad you will actually use on camera before you care about RGB flourishes.",
       "Audio sells long sessions. A Pulse 3D or equivalent wireless headset keeps party chat and footsteps usable during marathon Vice City nights and Kick/TikTok commentary. Wired options still win for lowest latency on some desks; wireless wins for couch comfort. Match the headset to the console’s official wireless stack when you can — dongle chaos on launch night is a solved problem you do not need to reintroduce.",
       "Displays: you do not need an OLED to enjoy GTA 6, but HDMI 2.1 / 120Hz readiness protects performance modes when Rockstar ships them. Treat 4K120 marketing carefully — match the panel to the console HDMI port you will actually use, enable the correct AV settings, and confirm Game Mode is on. A bright mid-range 120Hz set often beats a dim “cinema” panel for night neon and swamp evenings alike. If you only have a 60Hz TV, you can still play; upgrade when the panel is the real bottleneck, not because a thumbnail told you to.",
       "Capture and creator gear sits one layer above “just play.” A clean HDMI capture path (console → capture → PC, or console passthrough to TV) matters if you clip Ocean Drive runs. Pair that with the Map-6 clip kit: Share deep links like `/en/map?loc=ocean-drive&theme=streamer&ref=yourhandle`, and use `/en/overlay` as an OBS or Kick browser source. Streamer theme enlarges POI labels on camera; Neon sells short-form contrast. Attribution `ref` tags persist in-session so later Share copies keep your handle.",
-      "Use the product cards and affiliate grids on Map-6 as an Amazon shortlist, not a mandatory cart. Map-6 is a fan map; some links may earn a commission on qualifying purchases — see the disclosure. When Standard and Collector listings appear, jump to the pre-order guide and the Collector's Edition comparison for edition math. Hardware you buy now still helps if you later choose digital Standard over a physical box.",
+      "Use the product cards and affiliate grids on Map-6 as an Amazon shortlist, not a mandatory cart. Map-6 is a fan map; some links may earn a commission on qualifying purchases — see the disclosure. When Standard and Ultimate listings appear, jump to the pre-order guide and the Ultimate vs Standard comparison for edition math. Hardware you buy now still helps if you later choose digital Standard over a physical box.",
       "Map workflow once the setup is ready: open /map, filter Landmarks while scrubbing trailers, switch Collectibles when you plan 100% routes, and copy X/Y from the HUD into your notes. Regional pages under /locations give prose context for Vice City, the Keys, Port Gellhorn, Grassrivers, Ambrosia Island, and Mount Kalaga. Community cartography (including GTADB under CC BY 4.0 where noted) backs the basemap; we label speculation and keep empty stubs out of search indexes.",
       "Room and comfort details people skip: cable management to the HDMI 2.1 port, surge protection for launch-night storms, a phone charger within reach for two-factor on store accounts, and enough ventilation that a 40-hour weekend does not cook the console. If you share a TV, agree on HDR and volume norms before Lucia’s first cutscene, not during it.",
       "Budget tiers, honestly: (A) healthy console + spare pad + headset + free space — enough to enjoy launch; (B) add 1TB storage and a 120Hz panel — smoother capture and performance modes; (C) add capture card and streamer overlay habits — creator loop. Jumping straight to C without A is how people own RGB and still cannot install the game.",
-      "Next step: tick console → pad → headset → storage → display, then bookmark /map so launch week is navigation, not shopping panic. Related Map-6 reading: pre-order guide, Collector's Edition comparison, clip kit, beginner map guide, and the Cities: Skylines II Leonida rebuild (map ID 153426) for a 3D street-level companion while you wait.",
+      "Next step: tick console → pad → headset → storage → display, then bookmark /map so launch week is navigation, not shopping panic. Related Map-6 reading: pre-order guide, Ultimate vs Standard comparison, clip kit, beginner map guide, and the Cities: Skylines II Leonida rebuild (map ID 153426) for a 3D street-level companion while you wait.",
       "Account and store readiness belongs on the checklist beside hardware: recover PlayStation Network or Xbox account emails, enable purchase PINs if kids share the console, and confirm payment methods before midnight queues. A perfect OLED does not help if checkout fails. Pair store readiness with the pre-order guide so edition choice and hardware choice do not collide on the same stressed evening.",
     ],
   },
   {
     slug: "gta-6-collectors-edition",
-    title: "GTA 6 Collector's Edition — Worth It vs Standard?",
+    title: "GTA 6 Collector's Edition — Not Announced (Use Ultimate)",
     description:
-      "Compare GTA 6 Collector's vs Standard on PS5 and Xbox: who should pay the premium, what usually ships in Rockstar boxes, and when to pre-order.",
+      "No official GTA 6 Collector’s Edition in the Take-Two launch pair. Standard $79.99 vs Ultimate $99.99, Vintage Vice City Pack, and what to do if you wanted a statue box.",
+    answer:
+      "Take-Two has not announced a GTA 6 Collector's Edition. The official launch pair is Standard at $79.99 and Ultimate at $99.99, so Ultimate is the closest thing to a premium tier.",
     category: "beginner",
     readTime: 12,
     publishedAt: "2026-08-16",
     content: [
-      "Collector's editions are where Rockstar monetizes shelf pride — steelbooks, statues, art books, lithographs, and exclusive in-game extras layered on top of the full game. Standard is the playable title without the memorabilia tax. Until Rockstar publishes the exact GTA 6 Collector contents and price, treat every leak list as provisional. This Map-6 comparison helps you decide with clear criteria instead of FOMO screenshots.",
+      "Searchers still type “gta 6 collector edition.” Official launch editions from Take-Two are Standard ($79.99 US) and Ultimate ($99.99 US) — not a statue-and-steelbook Collector SKU. Physical Standard is a download code in the box. If you wanted memorabilia, wait for a later special edition Rockstar has not announced; do not buy leak “Collector lists.” This page keeps the collector keyword honest and points you at Ultimate vs Standard math.",
       "Buy Standard if you want day-one play, digital convenience, or the best dollars-per-hour of story and Online. Buy Collector if you keep series memorabilia, care about the physical unboxing content, display statues next to older Rockstar boxes, or need SKUs that historically sell out first. Do not buy Collector hoping for a meaningful multiplayer advantage — Rockstar rarely gates core Online power behind box extras. Cosmetics and trinkets are common; power spikes are not the honest pitch.",
       "Platform choice still matters more than statue height. PS5 versus Xbox Series X|S editions are separate SKUs, and cross-saves are not announced. Lock the console ecosystem you already use for friends and subscriptions before arguing about art-book paper stock. A Collector on the wrong platform is an expensive paperweight if your co-op life lives elsewhere.",
       "Physical versus digital interacts with Collector logic. Many Collector bundles are physical-first by nature (you are paying for objects). Standard digital never “sells out.” If you are undecided and hate missing boxes, that is a signal toward Collector — but only after the official contents list is public. If you are undecided and hate clutter, Standard plus a headset or SSD from our best-setup guide usually wins the living room.",
       "Pricing discipline: write down the premium over Standard. Ask what you would pay for the same statue or art book alone. If the answer is “less than half the premium,” you are buying FOMO, not value. Rockstar Collector boxes can be beautiful; they are still optional. Map-6 will update this section when official SKUs and bonuses are confirmed — we will not invent pin counts or “exclusive weapon that changes the meta.”",
-      "Amazon pre-order cards below light up as ASINs appear. Until then, use the hardware grid if you still need a launch machine. Pair this page with the full pre-order guide for shipping tips, cancellation norms, and platform reminders. Amazon typically allows canceling a pre-order until ship, which gives you a window if Rockstar clarifies bonuses or you change your mind.",
+      "Amazon pre-order cards below point at the live PS5 and Xbox code-in-box listings, whose stock swings with Rockstar's per-retailer key quotas. Use the hardware grid too if you still need a launch machine. Pair this page with the full pre-order guide for shipping tips, cancellation norms, and platform reminders. Amazon typically allows canceling a pre-order until ship, which gives you a window if Rockstar clarifies bonuses or you change your mind.",
       "FOMO check, restated: physical Collector stock evaporates near launch; digital Standard does not. Scalper markets punish late buyers. That pressure is real — and still not a reason to buy a box you will not display. If storage space, budget, or interest is thin, Standard is the adult choice. If you already lined a shelf with GTA and Red Dead Collectors, you already know your answer.",
       "How this ties to Map-6: editions do not change geography. Whether you own Standard or Collector, the interactive map at /map is the same — filters for landmarks and collectibles, deep links with coordinates and themes, regional hubs under /locations, and GTADB-attributed community cartography (CC BY 4.0 where noted). Use launch week for exploration checklists, not for refreshing scalper listings.",
       "Creators: a Collector unboxing is content once; a shareable Map-6 pin with `?theme=streamer&ref=yourhandle` is content every trailer drop. See the clip-kit guide for OBS overlay URLs and Share workflows. Your audience cares more about “where is this neon hotel” than about the foam tray under a statue.",
       "Related Map-6 reading: pre-order guide for where to buy, best-setup for gear that affects every session, beginner map guide for filters and HUD coordinates, Vice City and Leonida lore for world context, hidden-packages for collectible theory, and Cities: Skylines II map ID 153426 for a fan 3D wander. Map-6 stays independent of Rockstar and Take-Two; affiliate links may earn a commission on qualifying buys — see the disclosure.",
       "Decision template: (1) platform locked, (2) official Collector list published, (3) premium vs Standard written down, (4) shelf space and budget honest, (5) pre-order only then. If step 2 is missing, wait or buy Standard. That is the entire “worth it?” answer without fake leaks.",
       "We will revise this guide when Rockstar’s Newswire or store pages confirm contents. Until then, treat rumor compilations as entertainment, not a shopping list — and keep /map bookmarked so your money goes toward playtime you can actually navigate.",
-      "Stock timing deserves its own paragraph. If you want a physical Collector, treat the week Rockstar publishes contents as your decision window — not three days before launch when boxes are already gray-market. If you are fine with Standard digital, you can wait longer and still play day one. Map-6 will surface Amazon cards as soon as ASINs exist; until then, spend energy on platform lock-in and the best-setup checklist rather than refreshing rumor threads.",
+      "Stock timing deserves its own paragraph. If you want a physical Collector, treat the week Rockstar publishes contents as your decision window — not three days before launch when boxes are already gray-market. If you are fine with Standard digital, you can wait longer and still play day one. Map-6 links the Amazon.fr listings that exist rather than inventing SKUs; past that, spend energy on platform lock-in and the best-setup checklist rather than refreshing rumor threads.",
       "Gift and household edge cases: buying Collector for someone else only works if you know their platform and that they want memorabilia. Buying Standard for a shared console is simpler. If your household splits PS5 and Xbox, do not assume one Collector covers both — SKUs do not cross. Keep /map bookmarked either way; geography does not care which box arrived.",
     ],
   },
@@ -87,6 +111,8 @@ export const GUIDES: Guide[] = [
     title: "GTA 6 Map Clip Kit — TikTok, Kick & OBS Overlay",
     description:
       "Turn Map-6 into short-form content: shareable deep-links, streamer theme, transparent OBS overlay, and creator ref tags for Kick / TikTok / Twitch.",
+    answer:
+      "Use Map-6 deep links, the streamer theme and the transparent /overlay browser source to put a live GTA 6 map into OBS, Kick, Twitch or a TikTok edit. All of it is free and works without an account.",
     category: "exploration",
     readTime: 12,
     publishedAt: "2026-08-16",
@@ -98,7 +124,7 @@ export const GUIDES: Guide[] = [
       "Clip workflow that actually ships: (1) scrub Trailer 2 or a Newswire still, (2) match a neon strip, causeway, or skyline curve on Map-6 using Landmarks filter, (3) Share the pin with theme + ref, (4) paste into TikTok/Kick/Twitch caption with timestamp, (5) optional — cut to overlay during the “where is this?” beat. Fifteen seconds of clear geography beats sixty seconds of zoomed mush.",
       "Filters are part of the kit. Trailer hunting is noisy; isolate Landmarks while you match Ocean Drive hotels, switch Collectibles when you tease 100% routes, and use Secrets only when you are clear that a pin is rumor-grade. Category filters live in the map sidebar — same tools readers use in the beginner map guide. Teach chat the filter once and your Q&A gets shorter.",
       "Coordinates for power users: the status HUD shows map X/Y in Map-6’s shared space. Speak them on stream or paste into a notes doc with trailer timestamps. After launch, those notes convert into verified collectible pins instead of “somewhere near the beach” folklore. Coordinates stay in the browser session; see the Privacy Policy for how Map-6 handles local data.",
-      "Hardware that helps creators convert: capture card for clean console passthrough, headset for commentary, 120Hz display if you mirror gameplay beside the overlay. Product cards on related Map-6 pages are optional Amazon picks — fill ASINs when ready. Pair with the best-setup guide if your “clip kit” is also a living-room upgrade. Editions (Standard vs Collector) do not change the map; see the Collector comparison only if you care about shelf content.",
+      "Hardware that helps creators convert: capture card for clean console passthrough, headset for commentary, 120Hz display if you mirror gameplay beside the overlay. Product cards on related Map-6 pages are optional Amazon picks, never requirements. Pair with the best-setup guide if your “clip kit” is also a living-room upgrade. Editions (Standard vs Collector) do not change the map; see the Collector comparison only if you care about shelf content.",
       "Attribution: add `?ref=kick-yourname` once; Map-6 remembers it for the session so later Share / Overlay copies keep your tag. No login required. Use a stable handle across platforms so analytics and shoutouts stay readable. Do not invent “official partner” claims — Map-6 is a fan project; GTADB community cartography is credited under CC BY 4.0 where noted.",
       "Accessibility and pacing: landscape phone recording still wants readable labels — Streamer theme helps. On weak machines, zoom out one level and clear dense Collectibles filters while overlaying. If the browser source stutters, lower FPS in OBS for the map source or shut it down between segments. Your gameplay capture stays primary; the map is the geographic chorus, not the whole band.",
       "Content ideas that fit Map-6 honestly: “match this trailer frame,” “Keys causeway quiz,” “Port Gellhorn vs Ambrosia contrast,” “Grassrivers wetland transition,” “Mount Kalaga north frontier.” Avoid fake leak packages and invented interior tours. Label speculation. Link regional /locations pages when you want viewers to read more than a caption allows.",
@@ -113,6 +139,8 @@ export const GUIDES: Guide[] = [
     title: "GTA 6 Map in Cities: Skylines II — Explore Leonida in 3D",
     description:
       "A fan rebuilt Vice City, the Keys, and Port Gellhorn in Cities: Skylines II (map ID 153426). How to load it, and how Map-6 complements the 3D walkthrough.",
+    answer:
+      "A fan rebuilt Vice City, the Keys and Port Gellhorn as a Cities: Skylines II map (ID 153426), which lets you walk the geography in 3D. It is a fan interpretation of trailer footage, not Rockstar data.",
     category: "exploration",
     readTime: 12,
     publishedAt: "2026-08-05",
@@ -138,6 +166,8 @@ export const GUIDES: Guide[] = [
     title: "GTA 6 Interactive Map — Complete Beginner's Guide",
     description:
       "Learn how to use the Map-6 interactive map to explore Vice City, track coordinates, and find every collectible.",
+    answer:
+      "Open the Map-6 interactive map, filter by category, click a pin to read its summary and copy the in-game coordinates, then use Share to send that exact view to someone else. It is free and needs no account.",
     category: "beginner",
     readTime: 16,
     publishedAt: "2026-07-01",
@@ -162,6 +192,8 @@ export const GUIDES: Guide[] = [
     title: "Vice City — Every Known Location in GTA 6",
     description:
       "A region-by-region breakdown of Vice City: Ocean Drive, Little Vice, the beachfront, and downtown high-rises confirmed from trailers.",
+    answer:
+      "Vice City is GTA 6's main urban region, built around the Ocean Drive art deco beachfront, Little Vice and a downtown high-rise core. Everything Map-6 pins there is identified from official trailer footage, not leaks.",
     category: "exploration",
     readTime: 16,
     publishedAt: "2026-07-05",
@@ -186,6 +218,8 @@ export const GUIDES: Guide[] = [
     title: "Hidden Packages in GTA 6 — What We Know So Far",
     description:
       "Will hidden packages return in GTA 6? Everything we know about classic collectibles so far.",
+    answer:
+      "Rockstar has not confirmed hidden packages for GTA 6. The loop appeared in most earlier entries, so Map-6 tracks it as an expected category with sample pins rather than presenting a verified list.",
     category: "collectibles",
     readTime: 14,
     publishedAt: "2026-07-10",
@@ -211,6 +245,8 @@ export const GUIDES: Guide[] = [
     title: "GTA 6 World — Lore & Geography Overview",
     description:
       "From Ambrosia Island to Mount Kalaga: understand the geography and fiction of GTA 6's Leonida setting.",
+    answer:
+      "GTA 6 is set in the fictional state of Leonida, a Florida analogue. Its regions include Vice City, the Leonida Keys, Port Gellhorn, the Grassrivers wetlands, Ambrosia Island and Mount Kalaga.",
     category: "lore",
     readTime: 15,
     publishedAt: "2026-07-12",
@@ -236,12 +272,14 @@ export const GUIDES: Guide[] = [
     title: "GTA 6 Pre-Order PS5 — Standard, Digital & Launch Checklist",
     description:
       "How to pre-order GTA 6 on PlayStation 5: edition choice, Amazon tips, SSD and DualSense picks, and Map-6 prep while you wait.",
+    answer:
+      "On PlayStation 5, pre-order GTA 6 through the PlayStation Store for a digital copy or a retailer for the code-in-box Standard edition. Both cost $79.99 US; the physical box contains a download code, not a disc.",
     category: "beginner",
     readTime: 11,
     publishedAt: "2026-08-24",
     content: [
-      "Grand Theft Auto VI launches November 19, 2026 on PlayStation 5. If you already live in Sony’s ecosystem, the PS5 SKU is the default honest cart — this Map-6 guide focuses on PlayStation pre-orders, not Xbox cross-shopping. We cover where to buy, Standard versus Collector thinking, hardware that actually matters on PS5, and how to use the interactive map while Amazon game ASINs are still pending.",
-      "Rockstar has confirmed PS5 as a day-one platform. PC timing, if any, will come from official channels only — Map-6 will not invent it. Amazon remains a practical pre-order channel for many EU players: Prime shipping on eligible items, straightforward returns, and cancellation on most pre-orders until ship. Affiliate product cards below activate when official ASINs appear.",
+      "Grand Theft Auto VI launches November 19, 2026 on PlayStation 5. If you already live in Sony’s ecosystem, the PS5 SKU is the default honest cart — this Map-6 guide focuses on PlayStation pre-orders, not Xbox cross-shopping. We cover where to buy, Standard versus Collector thinking, hardware that actually matters on PS5, and how to use the interactive map while you wait for launch day.",
+      "Rockstar has confirmed PS5 as a day-one platform. PC timing, if any, will come from official channels only — Map-6 will not invent it. Amazon remains a practical pre-order channel for many EU players: Prime shipping on eligible items, straightforward returns, and cancellation on most pre-orders until ship. The affiliate product card below goes to the live PS5 Standard code-in-box listing, which Amazon.fr has priced under Rockstar's €79.99 RRP.",
       "Choose the PS5 Standard Edition if you want the full game without memorabilia tax — best dollars-per-hour for story and Online. Collector’s Edition is for shelf pride after Rockstar publishes the official contents list. Do not buy Collector expecting Online power; historically Rockstar keeps core progression accessible without the box.",
       "PS5-specific checklist: confirm you are signed into the correct PSN account, enable purchase PINs if the console is shared, and leave internal SSD headroom for day-one patches and captures. A spare DualSense and Pulse 3D-class headset matter more than statue height. HDMI 2.1 and 120Hz readiness protect performance modes when Rockstar ships them.",
       "While game listings are pending, hardware is not. The product grid below highlights console-compatible storage, controllers, and audio that help launch week regardless of edition. Pair this page with the full pre-order guide for Xbox comparisons and the best-setup guide for a living-room checklist.",
@@ -251,17 +289,19 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "gta-6-preorder-price-editions",
-    title: "GTA 6 Pre-Order Price & Editions — What to Expect",
+    title: "GTA 6 Pre-Order Price & Editions — $79.99 vs $99.99",
     description:
-      "GTA 6 Standard vs Collector pricing logic, platform SKUs, and how to compare editions without leak-list FOMO before Rockstar confirms details.",
+      "Official GTA 6 US prices: Standard $79.99, Ultimate $99.99. Vintage Vice City Pack before Nov 20, preload Nov 12, code-in-box physical — no fake Collector MSRP.",
+    answer:
+      "GTA 6 costs $79.99 US for the Standard Edition and $99.99 US for the Ultimate Edition. Eligible purchases made before November 20, 2026 include the Vintage Vice City Pack, and preload opens November 12.",
     category: "beginner",
     readTime: 10,
     publishedAt: "2026-08-24",
     content: [
-      "Pricing and edition contents for Grand Theft Auto VI remain provisional until Rockstar and retailers publish final SKUs. This Map-6 guide explains how to compare Standard, digital, physical, and Collector premiums without treating rumor spreadsheets as checkout advice — and what to do while Amazon ASINs are still empty.",
-      "Standard Edition is the baseline: full game, no memorabilia tax. Collector’s Edition historically adds physical collectibles — steelbooks, statues, art books — plus cosmetic or trinket in-game extras Rockstar will confirm closer to launch. Write down the premium over Standard and ask whether you would pay that for the objects alone.",
+      "Take-Two’s public US prices: Standard Edition $79.99, Ultimate Edition $99.99. That $20 gap is the only official premium Map-6 will quote. This page compares digital vs physical (code-in-box, no disc), the November 20 Vintage Vice City Pack window, and platform SKUs — without treating rumor Collector spreadsheets as checkout advice.",
+      "Standard is the full game. Ultimate adds the marketed premium extras (vehicles, weapons, apparel, story-threaded content). Eligible purchases of either edition before November 20, 2026 include the Vintage Vice City Pack; eligible digital copies include a month of GTA+. Physical Ultimate is not listed. Standard owners can buy an Ultimate Upgrade later after redeeming the base code.",
       "Platform SKUs are separate. PS5 and Xbox Series X|S listings do not cross-convert; cross-saves are not announced for GTA 6. Digital Standard never sells out; physical Collector stock historically evaporates near launch. That asymmetry should guide FOMO, not unverified pin counts on social media.",
-      "Amazon pre-order norms: cancellation until ship on most orders, region locks on physical discs, and separate ASINs per platform and edition. Map-6 surfaces affiliate cards when official listings go live — until then, lock platform, decide physical versus digital, and upgrade bottleneck hardware from the best-setup guide.",
+      "Amazon pre-order norms: you are only billed at dispatch, cancellation stays open until then, a lowest-price guarantee applies, and there is a separate listing per platform. The box holds a download code with region restrictions on redemption, not a disc. Map-6 links those listings directly — past that, lock platform, decide code-in-box versus digital, and upgrade bottleneck hardware from the best-setup guide.",
       "Regional pricing varies. This page targets Amazon.fr-style EU shopping; verify VAT-inclusive prices on the product page before checkout. Gift buyers should screenshot the cart with the correct platform — Collector on the wrong console is an expensive mistake.",
       "What not to buy on hype alone: leak compilations of statue dimensions, fake “Ultimate Edition” weapon lists, and scalper markups three days before launch. Wait for Newswire or store pages, then compare. Map-6 updates this guide when official prices and contents land.",
       "While you wait: explore /map with Collectibles and Landmarks filters, read gta-6-ultimate-edition-vs-standard and gta-6-collectors-edition for longer decision templates, and bookmark gta-6-release-date for the public November 19, 2026 console launch timeline.",
@@ -269,15 +309,41 @@ export const GUIDES: Guide[] = [
   },
   {
     slug: "gta-6-ultimate-edition-vs-standard",
-    title: "GTA 6 Ultimate Edition vs Standard — Comparison Guide",
+    title: "GTA 6 Ultimate Edition vs Standard — Official Comparison",
     description:
-      "Standard, Collector, and rumored Ultimate tiers explained: who should pay the premium, what Rockstar has not confirmed, and sane pre-order discipline.",
+      "Official GTA 6 editions: Standard $79.99 vs Ultimate $99.99. Pack bonuses, no physical Ultimate, upgrade path, and who should skip the $20.",
+    answer:
+      "The $99.99 Ultimate Edition adds exclusive vehicles, weapons, apparel and story-threaded extras on top of the $79.99 Standard Edition. There is no physical Ultimate box — Standard owners can buy the Ultimate Upgrade later on the PlayStation or Microsoft store.",
     category: "beginner",
     readTime: 9,
     publishedAt: "2026-08-24",
+    comparison: {
+      caption: "Official US retail baseline (Take-Two / Rockstar Support)",
+      headers: ["", "Standard", "Ultimate"],
+      rows: [
+        ["US price", "$79.99", "$99.99"],
+        ["Full game", "Yes", "Yes"],
+        ["Vintage Vice City Pack before Nov 20, 2026", "Yes if eligible", "Yes if eligible"],
+        ["GTA+ month (eligible digital)", "Yes", "Yes"],
+        ["Ultimate extras", "Buy upgrade later", "Included"],
+        ["Physical", "Code-in-box, no disc", "Digital only (no physical Ultimate listed)"],
+      ],
+    },
+    faq: [
+      {
+        question: "Is GTA 6 Ultimate Edition worth $20 more?",
+        answer:
+          "Only if the official extras on the store page (vehicles, weapons, apparel, story-threaded content) are worth $20 to you. The Vintage Vice City Pack is a pre-order window for both editions, not an Ultimate exclusive. Map-6 will not invent a power-advantage pitch.",
+      },
+      {
+        question: "Can I upgrade from Standard to Ultimate later?",
+        answer:
+          "Yes. Rockstar Support says Standard owners can buy the Ultimate Edition Upgrade from PlayStation or Microsoft stores after redeeming the Standard code. Physical Ultimate is not listed.",
+      },
+    ],
     content: [
-      "Retailers and forums often use “Ultimate Edition” language before Rockstar settles official tier names. For GTA 6, treat any Ultimate SKU as unconfirmed until Newswire or store pages say otherwise. This comparison maps Standard, Collector, and hypothetical Ultimate bundles to decision criteria — not leak wishlists.",
-      "Standard Edition: full game, best value for playtime and digital convenience. Collector’s Edition: memorabilia and shelf pride after official contents publish. Ultimate (if it exists) would likely bundle digital extras, season-pass-style Online content, or both — historically announced late in the marketing cycle, not years early on fan wikis.",
+      "Ultimate is official. Take-Two prices Grand Theft Auto VI Standard at $79.99 US and Ultimate at $99.99 US. Ultimate is described as an exclusive collection of premium vehicles, weapons, apparel, and action threaded across Jason and Lucia’s story. This comparison is the decision page — not a leak wishlist and not a Collector statue guide.",
+      "Buy Standard if you want the full game and the Vintage Vice City Pack (eligible purchases before November 20, 2026) without the $20 extras. Buy Ultimate if the official extra list on the store page is worth $20 to you. Do not buy Ultimate for a rumored Online power advantage. Standard owners can purchase the Ultimate Edition Upgrade later on PlayStation or Microsoft stores after redeeming the base game. Physical Ultimate is not available.",
       "Buy Standard if you want Vice City on day one without clutter. Buy Collector if you display Rockstar boxes and the official object list justifies the premium. Do not buy a rumored Ultimate tier for speculative Online advantage — Rockstar rarely gates core power behind box tiers.",
       "Platform lock-in beats edition hype. PS5 and Xbox SKUs are separate; cross-saves are not announced. A Collector on the wrong platform is wasted money regardless of tier name. Lock ecosystem first, then edition.",
       "Pricing discipline: note the delta between tiers only after official lists. If Ultimate appears, compare its extras against buying Standard plus a headset or SSD from our best-setup guide — hardware often improves every session more than a digital wallpaper pack.",
@@ -290,6 +356,8 @@ export const GUIDES: Guide[] = [
     title: "GTA 6 Collectibles Map — Hidden Packages, Jumps & 100%",
     description:
       "Use Map-6 to track GTA 6 collectibles: hidden packages, stunt jumps, street art, and wildlife samples across Leonida with honest placeholders pre-launch.",
+    answer:
+      "Map-6 tracks four expected GTA 6 collectible categories: hidden packages, stunt jumps, street art and wildlife photography. Rockstar has not confirmed final totals, so counts shown before launch are labelled placeholders.",
     category: "collectibles",
     readTime: 12,
     publishedAt: "2026-08-24",
@@ -308,11 +376,13 @@ export const GUIDES: Guide[] = [
     title: "GTA 6 Release Date — November 19, 2026 Timeline",
     description:
       "Confirmed GTA 6 release date for PS5 and Xbox Series X|S, delay history, preload expectations, and how to prep with Map-6 before launch day.",
+    answer:
+      "Grand Theft Auto VI releases on November 19, 2026 for PlayStation 5 and Xbox Series X|S. Rockstar has not announced a PC, last-gen or mobile version. Preload is expected to open on November 12, 2026.",
     category: "beginner",
     readTime: 8,
     publishedAt: "2026-08-24",
     content: [
-      "Grand Theft Auto VI is scheduled to release on November 19, 2026 for PlayStation 5 and Xbox Series X|S per Rockstar’s public console plans repeated in Take-Two guidance. Map-6 tracks that date for planning — not as insider speculation — and links to pre-order and setup guides when you are ready to buy hardware or editions.",
+      "Grand Theft Auto VI is scheduled to release on November 19, 2026 for PlayStation 5 and Xbox Series X|S per Rockstar’s public console plans repeated in Take-Two guidance. Eligible digital (and physical code-in-box) copies can preload from November 12, 2026 — preload is not early access. Map-6 tracks that calendar for planning and links to pre-order and setup guides when you are ready to buy hardware or editions.",
       "Delay history matters for expectations: the title moved from earlier windows to November 19, 2026 for additional polish. Treat any new “insider moved again” claim as unverified until Newswire or an earnings call confirms it. This page updates on official moves only.",
       "Preload and midnight queues: console stores typically open preloads in the days before launch. Leave SSD space, test party chat, and confirm PSN or Xbox account access before November 18 — a perfect TV does not help if checkout fails.",
       "PC players: Rockstar has not announced a simultaneous PC date in public materials Map-6 cites. Do not assume console pre-orders transfer. Revisit this page if official PC timing arrives.",
@@ -457,6 +527,7 @@ export const GUIDES: Guide[] = [
       "Editorial promise: we cite rockstargames.com/VI and Netflix Tudum for the dated drop; we label the YouTube +6 h window as the staggered release reported from Rockstar’s own schedule; we do not print a fake official runtime, a fake PC day, or a complete collectible list. After the upload is public, we publish live notes from what is on screen — not from Discord.",
     ],
   },
+  ...COMPETITIVE_GUIDES,
 ];
 
 export function getGuideBySlug(slug: string) {

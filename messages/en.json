@@ -18,8 +18,10 @@
     "introBody": "Map-6 is a free interactive GTA 6 map and guide hub for Leonida: Vice City, Ocean Drive, Grassrivers, Port Gellhorn, the Keys, and more. Use the map to filter landmarks and collectibles, copy coordinates, measure distances, and share deep links. Read regional guides and sourced news when you need context — we label speculation and we do not invent leaks. Community basemap tiles are attributed to GTADB (CC BY 4.0) where used.",
     "ctaMap": "Open Interactive Map",
     "ctaSetup": "Launch setup guide",
+    "ctaMapGuide": "GTA 6 map guide",
     "hardwareTitle": "Ready for launch day?",
     "ctaLocations": "Browse Locations",
+    "intentTitle": "What people search next",
     "featuredTitle": "Featured Locations",
     "faqTitle": "FAQ",
     "badge": "GTA VI · Interactive Map",
@@ -77,12 +79,22 @@
   },
   "guides": {
     "title": "GTA 6 Map Guides",
-    "subtitle": "In-depth guides to help you master GTA 6 before and after launch day.",
+    "subtitle": "Map, characters, official editions, and launch prep — confirmed facts labeled, rumors left outside the index.",
+    "shortAnswer": "Short answer",
     "readMin": "{min} min read",
+    "hubs": {
+      "map": "Map & locations",
+      "buy": "Pre-order & editions",
+      "world": "Characters & story",
+      "prep": "Setup & safety"
+    },
     "backToAll": "← All guides",
     "ctaTitle": "Ready to explore?",
     "ctaBody": "Open the interactive map and start tracking locations.",
     "ctaButton": "Open Interactive Map",
+    "relatedTitle": "Keep exploring",
+    "relatedMap": "Interactive GTA 6 map",
+    "relatedMapGuide": "How to use the GTA 6 map",
     "gearTitle": "Gear & editions",
     "openOverlay": "Open OBS overlay →",
     "categories": {
@@ -102,8 +114,8 @@
     "mapDesc": "Free interactive GTA 6 map: 1400+ community POIs, filters, coords & measure tools for Vice City. Share deep links — updated for launch.",
     "collectiblesTitle": "GTA 6 Collectibles — Hidden Packages, Stunt Jumps & More | Map-6",
     "collectiblesDesc": "Track every GTA 6 collectible on the interactive map: hidden packages, stunt jumps, street art, and wildlife photography spots.",
-    "guidesTitle": "GTA 6 Map Guides — Vice City & World | Map-6",
-    "guidesDesc": "Expert guides for the GTA 6 interactive map: beginner tips, Vice City locations, hidden packages, and world lore.",
+    "guidesTitle": "GTA 6 Guides — Map, Characters, Pre-Order | Map-6",
+    "guidesDesc": "GTA 6 guides: interactive map, map size vs GTA 5, Lucia & Jason, Standard vs Ultimate, Ocean Drive, platforms, and collectibles.",
     "newsTitle": "GTA 6 News & Trailer Updates | Map-6",
     "newsDesc": "Latest GTA 6 trailer news, interactive map updates, and preorder guides from Map-6."
   },
@@ -113,6 +125,8 @@
     "maptiles": "Map tiles © GTADB / GTA VI Mapping Community — CC BY 4.0",
     "privacy": "Privacy",
     "interactiveMap": "Interactive Map",
+    "mapGuide": "GTA 6 map guide",
+    "collectiblesMap": "Collectibles map",
     "about": "About"
   },
   "header": {
@@ -251,6 +265,24 @@
       "inView": "In view · ",
       "panHint": "Pan or zoom the map, or search to find specific locations.",
       "searchHint": "Search to browse all {count} locations."
+    }
+  },
+  "affiliate": {
+    "viewOnAmazon": "View on Amazon →",
+    "gearAndEditions": "Gear & editions",
+    "hardwareTitle": "Ready for launch day?",
+    "hardwareSubtitle": "Consoles & accessories via Amazon — preorder the game when official listings drop.",
+    "hardwareGuideLink": "Full pre-order guide →",
+    "intents": {
+      "preorder_standard": "Pre-order (standard)",
+      "preorder_collectors": "Collector's edition",
+      "console_upgrade": "Console upgrade",
+      "controller": "Controller",
+      "headset": "Headset",
+      "display_120hz": "120Hz display",
+      "storage_ssd": "SSD / storage",
+      "streaming_setup": "Streaming kit",
+      "retro_gta": "Classic GTA"
     }
   },
   "cookieConsent": {

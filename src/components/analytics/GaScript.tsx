@@ -1,6 +1,7 @@
+import Script from "next/script";
 import { GA_MEASUREMENT_ID, USE_DIRECT_GA4 } from "@/lib/analytics/env";
 
-/** Consent Mode v2 defaults — must run before gtag config or GTM load. */
+/** Consent Mode v2 defaults — inline so it runs before deferred gtag/GTM. */
 export function ConsentDefaultsScript() {
   if (!USE_DIRECT_GA4 && !process.env.NEXT_PUBLIC_GTM_ID?.trim()) return null;
 
@@ -26,28 +27,26 @@ gtag('consent', 'default', {
 }
 
 /**
- * Direct GA4 gtag (when no GTM container). Loads after ConsentDefaultsScript.
+ * Direct GA4 gtag (when no GTM container). After first paint.
  */
 export function GaScript() {
   if (!USE_DIRECT_GA4 || !GA_MEASUREMENT_ID) return null;
 
   return (
     <>
-      <script
-        async
+      <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+        strategy="afterInteractive"
       />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
+      <Script id="ga4-config" strategy="afterInteractive">
+        {`
 gtag('js', new Date());
 gtag('config', '${GA_MEASUREMENT_ID}', {
   send_page_view: true,
   anonymize_ip: true
 });
-`,
-        }}
-      />
+`}
+      </Script>
     </>
   );
 }

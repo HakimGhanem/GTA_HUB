@@ -8,7 +8,8 @@ import {
   getCollectiblesByType,
 } from "@/data/collectibles";
 import { getCollectibleTypeSeo } from "@/data/collectibles-seo";
-import { buildMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildMetadata, jsonLdCollectionPage } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; type: string }> };
 
@@ -24,9 +25,10 @@ export async function generateMetadata({ params }: Props) {
 
   return buildMetadata({
     locale,
-    title: `${collectibleType.name} — GTA 6 Map | Map-6`,
+    title: `${collectibleType.name} in GTA 6 — Collectibles Guide | Map-6`,
     description: seo?.metaDescription ?? collectibleType.description,
     path: `/collectibles/${type}`,
+    image: `/api/og/collectible/${type}`,
   });
 }
 
@@ -40,9 +42,25 @@ export default async function CollectibleTypePage({ params }: Props) {
 
   const items = getCollectiblesByType(type);
   const seo = getCollectibleTypeSeo(type);
+  const tNav = await getTranslations("nav");
+
+  const structuredData = jsonLdCollectionPage({
+    name: `${collectibleType.name} — GTA 6`,
+    description: seo?.metaDescription ?? collectibleType.description,
+    path: `/collectibles/${type}`,
+    locale,
+    breadcrumb: [
+      { name: tNav("collectibles"), path: "/collectibles" },
+      { name: collectibleType.name, path: `/collectibles/${type}` },
+    ],
+    items: [],
+    faq: seo?.faq ? [...seo.faq] : undefined,
+  });
 
   return (
     <main className="mx-auto max-w-5xl flex-1 px-4 py-10">
+      <JsonLd data={structuredData} />
+
       <Link
         href="/collectibles"
         className="mb-4 inline-block text-sm text-white/50 hover:text-white"

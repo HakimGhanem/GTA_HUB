@@ -1,13 +1,16 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { ArticleBody } from "@/components/news/ArticleBody";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getArticleBySlug,
+  listLocalesForNewsSlug,
   listPublishedArticles,
 } from "@/lib/content/repository";
 import type { AffiliateIntent } from "@/lib/affiliate/intents";
+import { evergreenPathForNews } from "@/lib/content/news-canonical";
 import { buildMetadata, jsonLdNewsArticle } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -30,13 +33,24 @@ export async function generateMetadata({ params }: Props) {
     return { robots: { index: false, follow: false } };
   }
 
+  const evergreen = evergreenPathForNews(slug);
+  const translated = article.locale === locale;
+  const articleLocales = await listLocalesForNewsSlug(slug);
+
   return buildMetadata({
     locale,
     title: `${article.title} | Map-6`,
     description: article.description,
     path: `/news/${slug}`,
-    image: article.heroImage || "/og-default.png",
+    image: `/api/og/news/${article.locale}/${slug}`,
     openGraphType: "article",
+    canonicalLocale: article.locale,
+    hreflangLocales: articleLocales.length ? articleLocales : [article.locale],
+    markdownAlternate: true,
+    robots:
+      evergreen || !translated
+        ? { index: false, follow: true }
+        : { index: true, follow: true },
   });
 }
 
@@ -46,6 +60,8 @@ export default async function NewsArticlePage({ params }: Props) {
 
   const article = await getArticleBySlug(slug, locale);
   if (!article || article.status !== "published") notFound();
+
+  const tNav = await getTranslations("nav");
 
   const showAffiliate =
     article.cluster === "preorder" ||
@@ -70,22 +86,23 @@ export default async function NewsArticlePage({ params }: Props) {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            jsonLdNewsArticle({
-              title: article.title,
-              description: article.description,
-              slug: article.slug,
-              locale: article.locale,
-              publishedAt: article.publishedAt || article.createdAt,
-              updatedAt: article.updatedAt,
-              image: article.heroImage,
-              author: article.author,
-            }),
-          ),
-        }}
+      <JsonLd
+        data={jsonLdNewsArticle(
+          {
+            title: article.title,
+            description: article.description,
+            slug: article.slug,
+            locale: article.locale,
+            publishedAt: article.publishedAt || article.createdAt,
+            updatedAt: article.updatedAt,
+            image: article.heroImage,
+            author: article.author,
+          },
+          [
+            { name: tNav("news"), path: "/news" },
+            { name: article.title, path: `/news/${article.slug}` },
+          ],
+        )}
       />
 
       <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
@@ -99,6 +116,18 @@ export default async function NewsArticlePage({ params }: Props) {
         <p className="mb-2 text-xs uppercase tracking-wider text-pink-400">
           {article.cluster}
         </p>
+        {evergreenPathForNews(slug) ? (
+          <p className="mb-4 rounded-xl border border-pink-400/25 bg-pink-500/10 px-4 py-3 text-sm text-white/70">
+            Evergreen version:{" "}
+            <Link
+              href={evergreenPathForNews(slug)!}
+              className="font-medium text-pink-300 underline hover:text-pink-200"
+            >
+              full Map-6 guide
+            </Link>{" "}
+            — this news post is a dated briefing.
+          </p>
+        ) : null}
         <h1 className="text-3xl font-bold leading-tight">{article.title}</h1>
         <p className="mt-4 text-white/60">{article.description}</p>
         <p className="mt-2 text-xs text-white/40">

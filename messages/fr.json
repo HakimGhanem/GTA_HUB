@@ -16,8 +16,10 @@
     "subtitle": "1400+ POIs à travers Vice City et Leonida — filtrez les collectibles, partagez des pins, suivez les coords. Carte GTA 6 gratuite pour le lancement, avec guides qui séparent géographie confirmée et rumeurs.",
     "ctaMap": "Ouvrir la carte interactive",
     "ctaSetup": "Guide setup lancement",
+    "ctaMapGuide": "Guide carte GTA 6",
     "hardwareTitle": "Prêt pour le jour J ?",
     "ctaLocations": "Parcourir les lieux",
+    "intentTitle": "Ce que les gens cherchent ensuite",
     "featuredTitle": "Lieux en vedette",
     "faqTitle": "Questions fréquentes",
     "badge": "GTA VI · Carte interactive",
@@ -77,12 +79,22 @@
   },
   "guides": {
     "title": "Guides de la carte GTA 6",
-    "subtitle": "Guides complets pour maîtriser GTA 6 avant et après la sortie.",
+    "subtitle": "Carte, personnages, éditions officielles et prep lancement — faits confirmés, rumeurs étiquetées.",
+    "shortAnswer": "Réponse courte",
     "readMin": "{min} min de lecture",
+    "hubs": {
+      "map": "Carte & lieux",
+      "buy": "Précommande & éditions",
+      "world": "Personnages & histoire",
+      "prep": "Setup & sécurité"
+    },
     "backToAll": "← Tous les guides",
     "ctaTitle": "Prêt à explorer ?",
     "ctaBody": "Ouvrez la carte interactive et suivez les lieux.",
     "ctaButton": "Ouvrir la carte interactive",
+    "relatedTitle": "Continuer",
+    "relatedMap": "Carte interactive GTA 6",
+    "relatedMapGuide": "Utiliser la carte GTA 6",
     "gearTitle": "Matériel & éditions",
     "openOverlay": "Ouvrir l’overlay OBS →",
     "categories": {
@@ -102,8 +114,8 @@
     "mapDesc": "Carte GTA 6 interactive gratuite : 1400+ POI, filtres, coordonnées et mesure pour Vice City. Liens partageables — MAJ lancement.",
     "collectiblesTitle": "Collectibles GTA 6 — Paquets cachés, sauts acrobatiques & plus | Map-6",
     "collectiblesDesc": "Suivez chaque collectible GTA 6 sur la carte interactive : paquets cachés, sauts acrobatiques, street art et spots photo faune.",
-    "guidesTitle": "Guides carte GTA 6 — Vice City & Monde | Map-6",
-    "guidesDesc": "Guides experts pour la carte interactive GTA 6 : conseils débutants, lieux de Vice City, paquets cachés et lore du monde.",
+    "guidesTitle": "Guides GTA 6 — Carte, personnages, précommande | Map-6",
+    "guidesDesc": "Guides GTA 6 : carte interactive, taille vs GTA 5, Lucia & Jason, Standard vs Ultimate, Ocean Drive, plateformes et collectibles.",
     "newsTitle": "Actus GTA 6 & Trailers | Map-6",
     "newsDesc": "Dernières actus trailers GTA 6, carte interactive et guides précommande."
   },
@@ -113,6 +125,8 @@
     "maptiles": "Tuiles cartographiques © GTADB / GTA VI Mapping Community — CC BY 4.0",
     "privacy": "Confidentialité",
     "interactiveMap": "Carte interactive",
+    "mapGuide": "Guide carte GTA 6",
+    "collectiblesMap": "Carte collectibles",
     "about": "À propos"
   },
   "header": {
@@ -251,6 +265,24 @@
       "inView": "À l'écran · ",
       "panHint": "Déplacez ou zoomez la carte, ou lancez une recherche.",
       "searchHint": "Recherchez pour parcourir les {count} lieux."
+    }
+  },
+  "affiliate": {
+    "viewOnAmazon": "Voir sur Amazon →",
+    "gearAndEditions": "Matériel & éditions",
+    "hardwareTitle": "Prêt pour le jour J ?",
+    "hardwareSubtitle": "Consoles et accessoires via Amazon — précommandez le jeu dès que les fiches officielles sont en ligne.",
+    "hardwareGuideLink": "Guide précommande complet →",
+    "intents": {
+      "preorder_standard": "Précommande (Standard)",
+      "preorder_collectors": "Édition Collector",
+      "console_upgrade": "Changer de console",
+      "controller": "Manette",
+      "headset": "Casque",
+      "display_120hz": "Écran 120 Hz",
+      "storage_ssd": "SSD / stockage",
+      "streaming_setup": "Kit streaming",
+      "retro_gta": "GTA classiques"
     }
   },
   "cookieConsent": {

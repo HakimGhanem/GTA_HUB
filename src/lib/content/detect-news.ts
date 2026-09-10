@@ -55,6 +55,19 @@ function inferCluster(text: string): ContentCluster {
     (t.includes("setup") && /ps5|xbox|console|tv|monitor/i.test(t))
   )
     return "setup";
+  if (
+    t.includes("lucia") ||
+    t.includes("jason duval") ||
+    t.includes("protagonist")
+  )
+    return "characters";
+  if (t.includes("gta 6 story") || t.includes("gta vi story")) return "story";
+  if (
+    t.includes("vehicle") ||
+    t.includes("vapid") ||
+    t.includes("vintage vice")
+  )
+    return "vehicles";
   if (t.includes("release date") || t.includes("launch") || t.includes("delay"))
     return "release";
   if (

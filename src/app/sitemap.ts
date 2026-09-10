@@ -2,9 +2,14 @@ import type { MetadataRoute } from "next";
 import { COLLECTIBLE_TYPES } from "@/data/collectibles";
 import { GUIDES } from "@/data/guides";
 import { getAllLocations } from "@/data/all-locations";
+import {
+  guideHreflangLocales,
+  hasGuideTranslation,
+} from "@/data/guides-i18n";
 import { locales } from "@/i18n/routing";
 import { SITE } from "@/lib/constants";
-import { listPublishedArticles } from "@/lib/content/repository";
+import { evergreenPathForNews } from "@/lib/content/news-canonical";
+import { listArticles } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
 import {
   HUB_KIND_PARAMS,
@@ -13,10 +18,10 @@ import {
 
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
 
-function hreflangAlternates(path: string) {
+function hreflangAlternates(path: string, localeList: readonly string[] = locales) {
   const suffix = path === "/" ? "" : path;
   const languages = Object.fromEntries(
-    locales.map((locale) => [locale, `${SITE.url}/${locale}${suffix}`]),
+    localeList.map((locale) => [locale, `${SITE.url}/${locale}${suffix}`]),
   ) as Record<string, string>;
   languages["x-default"] = `${SITE.url}/en${suffix}`;
   return { languages };
@@ -25,13 +30,43 @@ function hreflangAlternates(path: string) {
 function localizedEntries(
   path: string,
   options: SitemapOptions,
+  localeList: readonly string[] = locales,
 ): MetadataRoute.Sitemap {
   const suffix = path === "/" ? "" : path;
-  return locales.map((locale) => ({
+  return localeList.map((locale) => ({
     url: `${SITE.url}/${locale}${suffix}`,
-    alternates: hreflangAlternates(path),
+    alternates: hreflangAlternates(path, localeList),
     ...options,
   }));
+}
+
+async function newsSitemapEntries(
+  now: Date,
+): Promise<MetadataRoute.Sitemap> {
+  const published = await listArticles({ status: "published" });
+  const indexable = published.filter(
+    (article) => !evergreenPathForNews(article.slug),
+  );
+
+  const localesBySlug = new Map<string, string[]>();
+  for (const article of indexable) {
+    const list = localesBySlug.get(article.slug) ?? [];
+    list.push(article.locale);
+    localesBySlug.set(article.slug, list);
+  }
+
+  return indexable.map((article) => {
+    const localeList = localesBySlug.get(article.slug) ?? [article.locale];
+    return {
+      url: `${SITE.url}/${article.locale}/news/${article.slug}`,
+      lastModified: new Date(
+        article.updatedAt || article.publishedAt || now,
+      ),
+      changeFrequency: "daily" as const,
+      priority: 0.85,
+      alternates: hreflangAlternates(`/news/${article.slug}`, localeList),
+    };
+  });
 }
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
@@ -89,13 +124,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   );
 
-  const guidePages = GUIDES.flatMap((g) =>
-    localizedEntries(`/guides/${g.slug}`, {
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    }),
-  );
+  const guidePages = GUIDES.flatMap((g) => {
+    const localeList = guideHreflangLocales(g.slug);
+    return localeList
+      .filter((locale) => hasGuideTranslation(g.slug, locale))
+      .map((locale) => ({
+        url: `${SITE.url}/${locale}/guides/${g.slug}`,
+        lastModified: now,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+        alternates: hreflangAlternates(`/guides/${g.slug}`, localeList),
+      }));
+  });
 
   const databaseKindPages = HUB_KIND_PARAMS.flatMap((kind) =>
     localizedEntries(`/database/${kind}`, {
@@ -119,16 +159,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // EN primary in MVP — still emit locale variants for hreflang consistency
   let newsPages: MetadataRoute.Sitemap = [];
   try {
-    const published = await listPublishedArticles("en");
-    newsPages = published.flatMap((article) =>
-      locales.map((locale) => ({
-        url: `${SITE.url}/${locale}/news/${article.slug}`,
-        lastModified: new Date(article.updatedAt || article.publishedAt || now),
-        changeFrequency: "daily" as const,
-        priority: 0.85,
-        alternates: hreflangAlternates(`/news/${article.slug}`),
-      })),
-    );
+    newsPages = await newsSitemapEntries(now);
   } catch {
     newsPages = [];
   }

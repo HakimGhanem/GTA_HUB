@@ -1,12 +1,13 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { JsonLd } from "@/components/seo/JsonLd";
 import {
   COLLECTIBLE_TYPES,
   COLLECTIBLES_TOTALS_NOTE,
   getCollectiblesByType,
 } from "@/data/collectibles";
 import { COLLECTIBLES_HUB_SEO } from "@/data/collectibles-seo";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, jsonLdCollectionPage } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -29,9 +30,25 @@ export default async function CollectiblesPage({ params }: Props) {
   setRequestLocale(locale);
 
   const t = await getTranslations("collectibles");
+  const tNav = await getTranslations("nav");
+
+  const structuredData = jsonLdCollectionPage({
+    name: t("title"),
+    description: COLLECTIBLES_HUB_SEO.metaDescription,
+    path: "/collectibles",
+    locale,
+    breadcrumb: [{ name: tNav("collectibles"), path: "/collectibles" }],
+    items: COLLECTIBLE_TYPES.map((type) => ({
+      name: type.name,
+      path: `/collectibles/${type.slug}`,
+    })),
+    faq: [...COLLECTIBLES_HUB_SEO.faq],
+  });
 
   return (
     <main className="mx-auto max-w-5xl flex-1 px-4 py-10">
+      <JsonLd data={structuredData} />
+
       <h1 className="mb-2 text-3xl font-bold">{t("title")}</h1>
       <p className="mb-2 max-w-2xl text-white/60">{t("subtitle")}</p>
       <p className="mb-8 max-w-2xl text-sm text-white/45">{COLLECTIBLES_TOTALS_NOTE}</p>

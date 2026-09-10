@@ -16,8 +16,10 @@
     "subtitle": "1400+ POIs em Vice City e Leonida — filtre colecionáveis, compartilhe pins, acompanhe coords. Mapa interativo grátis do GTA 6 para scrubbing de trailers e o dia do lançamento, com guias que separam geografia confirmada de rumores.",
     "ctaMap": "Abrir mapa interativo",
     "ctaSetup": "Guia de setup",
+    "ctaMapGuide": "Guia do mapa GTA 6",
     "hardwareTitle": "Pronto para o lançamento?",
     "ctaLocations": "Explorar locais",
+    "intentTitle": "O que as pessoas buscam em seguida",
     "featuredTitle": "Locais em destaque",
     "faqTitle": "Perguntas frequentes",
     "badge": "GTA VI · Mapa interativo",
@@ -78,7 +80,14 @@
   "guides": {
     "title": "Guias do mapa GTA 6",
     "subtitle": "Guias detalhados para dominar o GTA 6 antes e depois do lançamento.",
+    "shortAnswer": "Resposta curta",
     "readMin": "{min} min de leitura",
+    "hubs": {
+      "map": "Mapa e locais",
+      "buy": "Pré-venda e edições",
+      "world": "Personagens e história",
+      "prep": "Setup e segurança"
+    },
     "categories": {
       "beginner": "Iniciante",
       "exploration": "Exploração",
@@ -89,6 +98,9 @@
     "ctaTitle": "Ready to explore?",
     "ctaBody": "Open the interactive map and start tracking locations.",
     "ctaButton": "Open Interactive Map",
+    "relatedTitle": "Continuar explorando",
+    "relatedMap": "Mapa interativo de GTA 6",
+    "relatedMapGuide": "Como usar o mapa de GTA 6",
     "gearTitle": "Gear & editions",
     "openOverlay": "Open OBS overlay →"
   },
@@ -102,8 +114,8 @@
     "mapDesc": "Mapa interativo grátis do GTA 6: 1400+ POIs, filtros, coordenadas e medição em Vice City. Links para compartilhar — pronto para o lançamento.",
     "collectiblesTitle": "Colecionáveis GTA 6 — Pacotes escondidos, saltos acrobáticos e mais | Map-6",
     "collectiblesDesc": "Rastreie cada colecionável do GTA 6 no mapa interativo: pacotes escondidos, saltos acrobáticos, arte de rua e spots de fotografia de fauna.",
-    "guidesTitle": "Guias do mapa GTA 6 — Vice City e mundo | Map-6",
-    "guidesDesc": "Guias especializados para o mapa interativo do GTA 6: dicas para iniciantes, locais de Vice City, pacotes escondidos e lore do mundo.",
+    "guidesTitle": "Guias GTA 6 — Mapa, personagens, pré-venda | Map-6",
+    "guidesDesc": "Guias GTA 6: mapa interativo, tamanho vs GTA 5, Lucia e Jason, Standard vs Ultimate, Ocean Drive, plataformas e colecionáveis.",
     "newsTitle": "Notícias GTA 6 e trailers | Map-6",
     "newsDesc": "Últimas notícias de trailers GTA 6, mapa interativo e guias de pré-venda."
   },
@@ -113,6 +125,8 @@
     "maptiles": "Tiles do mapa © GTADB / GTA VI Mapping Community — CC BY 4.0",
     "privacy": "Privacidade",
     "interactiveMap": "Mapa interativo",
+    "mapGuide": "Guia do mapa GTA 6",
+    "collectiblesMap": "Mapa de colecionáveis",
     "about": "Sobre"
   },
   "header": {
@@ -251,6 +265,24 @@
       "inView": "In view · ",
       "panHint": "Pan or zoom the map, or search to find specific locations.",
       "searchHint": "Search to browse all {count} locations."
+    }
+  },
+  "affiliate": {
+    "viewOnAmazon": "Ver na Amazon →",
+    "gearAndEditions": "Hardware e edições",
+    "hardwareTitle": "Pronto para o lançamento?",
+    "hardwareSubtitle": "Consolas e acessórios na Amazon — reserve o jogo quando as fichas oficiais surgirem.",
+    "hardwareGuideLink": "Guia completo de pré-venda →",
+    "intents": {
+      "preorder_standard": "Pré-venda (Standard)",
+      "preorder_collectors": "Edição de Colecionador",
+      "console_upgrade": "Upgrade de consola",
+      "controller": "Controlador",
+      "headset": "Auscultadores",
+      "display_120hz": "Ecrã 120 Hz",
+      "storage_ssd": "SSD / armazenamento",
+      "streaming_setup": "Kit de streaming",
+      "retro_gta": "GTA clássicos"
     }
   },
   "cookieConsent": {

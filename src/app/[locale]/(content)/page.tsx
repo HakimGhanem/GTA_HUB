@@ -4,7 +4,9 @@ import { HardwarePromo } from "@/components/affiliate/HardwarePromo";
 import { HomeMapHero } from "@/components/home/HomeMapHero";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { ClassicMapsPromo } from "@/components/map/ClassicMapsPromo";
-import { LOCATIONS } from "@/data/locations";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getLocationBySlug } from "@/data/all-locations";
+import { getGuideBySlug } from "@/data/guides";
 import { listPublishedArticles } from "@/lib/content/repository";
 import { buildMetadata, jsonLdFAQ } from "@/lib/seo";
 
@@ -30,7 +32,11 @@ export default async function HomePage({ params }: Props) {
 
   const t = await getTranslations("home");
   const tLoc = await getTranslations("locations");
-  const featured = LOCATIONS.slice(0, 4);
+  const featured = (
+    ["vice-city", "ocean-drive", "grassrivers", "leonida-keys"] as const
+  )
+    .map((slug) => getLocationBySlug(slug))
+    .filter((loc): loc is NonNullable<typeof loc> => Boolean(loc));
   const latestNews = (await listPublishedArticles(locale)).slice(0, 3);
 
   const faq = [
@@ -43,16 +49,13 @@ export default async function HomePage({ params }: Props) {
 
   return (
     <main className="flex-1">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdFAQ(faq)) }}
-      />
+      <JsonLd data={jsonLdFAQ(faq)} />
 
       <HomeMapHero
         locale={locale}
         brand={t("title")}
         ctaFullscreen={t("ctaMap")}
-        ctaGuides={t("ctaSetup")}
+        ctaGuides={t("ctaMapGuide")}
       />
 
       <section className="mx-auto max-w-5xl px-4 py-12">
@@ -96,6 +99,33 @@ export default async function HomePage({ params }: Props) {
             <h2 className="text-xl font-semibold">{t("gta5CardTitle")}</h2>
             <p className="mt-2 text-sm text-white/60">{t("gta5CardDesc")}</p>
           </Link>
+        </div>
+
+        <div className="mb-10">
+          <h2 className="mb-4 text-2xl font-bold">{t("intentTitle")}</h2>
+          <div className="grid gap-3 sm:grid-cols-2">
+            {(
+              [
+                "gta-6-map-guide",
+                "gta-6-collectibles-map",
+                "gta-6-map-size",
+                "gta-6-characters-lucia-jason",
+              ] as const
+            ).map((slug) => {
+              const guide = getGuideBySlug(slug);
+              if (!guide) return null;
+              return (
+                <Link
+                  key={slug}
+                  href={`/guides/${slug}`}
+                  className="rounded-xl border border-white/10 bg-white/5 px-5 py-4 transition-colors hover:border-pink-400/40"
+                >
+                  <h3 className="font-semibold text-white">{guide.title}</h3>
+                  <p className="mt-1 text-sm text-white/55">{guide.description}</p>
+                </Link>
+              );
+            })}
+          </div>
         </div>
 
         <h2 className="mb-6 text-2xl font-bold">{t("featuredTitle")}</h2>

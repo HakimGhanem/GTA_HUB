@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations, setRequestLocale } from "next-intl/server";
 import { AdSenseScript } from "@/components/ads/AdSenseScript";
+import { AiReferralTracker } from "@/components/analytics/AiReferralTracker";
 import { Analytics } from "@/components/analytics/Analytics";
 import { ConsentBridge } from "@/components/analytics/ConsentBridge";
 import { ConsentDefaultsScript, GaScript } from "@/components/analytics/GaScript";
@@ -11,6 +12,7 @@ import { GtmNoScript, GtmScript } from "@/components/analytics/GtmScript";
 import { ChromeGate } from "@/components/layout/ChromeGate";
 import { Header } from "@/components/layout/Header";
 import { CookieConsent } from "@/components/privacy/CookieConsent";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { routing } from "@/i18n/routing";
 import { ADSENSE_CLIENT } from "@/lib/ads-config";
 import {
@@ -24,11 +26,14 @@ import "../globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+  preload: false,
 });
 
 const gscVerification = process.env.NEXT_PUBLIC_GSC_VERIFICATION;
@@ -77,11 +82,14 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
   const tHeader = await getTranslations("header");
 
-  const structuredData = [
-    jsonLdWebSite(locale),
-    jsonLdOrganization(),
-    jsonLdWebApplication(locale),
-  ];
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      jsonLdWebSite(locale),
+      jsonLdOrganization(),
+      jsonLdWebApplication(locale),
+    ].map(({ "@context": _context, ...node }) => node),
+  };
 
   return (
     <html
@@ -90,13 +98,7 @@ export default async function LocaleLayout({ children, params }: Props) {
     >
       <head>
         <ConsentDefaultsScript />
-        <GtmScript />
-        <GaScript />
-        <AdSenseScript />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <JsonLd data={structuredData} />
       </head>
       <body className="flex h-full flex-col bg-[#0a0e17] text-white">
         <GtmNoScript />
@@ -109,7 +111,11 @@ export default async function LocaleLayout({ children, params }: Props) {
             <Header />
           </ChromeGate>
           <div className="flex min-h-0 flex-1 flex-col">{children}</div>
+          <GtmScript />
+          <GaScript />
+          <AdSenseScript />
           <Analytics />
+          <AiReferralTracker />
           <ChromeGate>
             <CookieConsent />
           </ChromeGate>

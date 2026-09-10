@@ -28,6 +28,7 @@
 .env.local
 .env*.local
 .env
+config/google_search_console_credentials.json
 
 # debug
 npm-debug.log*

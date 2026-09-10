@@ -180,6 +180,8 @@ export function suggestMapCta(cluster: ContentCluster): string {
   if (cluster === "collectibles") return "/map?game=gta6";
   if (cluster === "locations") return "/map?game=gta6";
   if (cluster === "map") return "/map";
+  if (cluster === "characters" || cluster === "story") return "/map";
+  if (cluster === "vehicles") return "/map?game=gta6";
   return "/map";
 }
 

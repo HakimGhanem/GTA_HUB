@@ -1,9 +1,14 @@
+import { fillPrices, getBestPriceCopy } from "./best-price-i18n";
+import { getCs2GuideCopy } from "./cs2-guide-i18n";
+import { getPreorderGuideCopy } from "./preorder-guide-i18n";
+import { locales } from "@/i18n/routing";
 import { getGuideBySlug, type Guide } from "./guides";
 
 export type LocalizedGuide = Pick<
   Guide,
   "title" | "description" | "content" | "readTime"
->;
+> &
+  Partial<Pick<Guide, "comparison" | "faq" | "answer">>;
 
 const FR: Record<string, LocalizedGuide> = {
   "gta-6-map-guide": {
@@ -11,6 +16,8 @@ const FR: Record<string, LocalizedGuide> = {
     description:
       "Apprenez à utiliser la carte interactive Map-6 pour explorer Vice City, suivre les coordonnées et trouver chaque collectible.",
     readTime: 16,
+    answer:
+      "Ouvrez la carte interactive Map-6, filtrez par catégorie, cliquez sur un pin pour lire son résumé et copier les coordonnées in-game, puis utilisez Share pour envoyer cette vue exacte à quelqu’un. C’est gratuit et sans compte.",
     content: [
       "Map-6 est une carte interactive gratuite du monde ouvert de Grand Theft Auto VI — Vice City, les Leonida Keys, Port Gellhorn, les Grassrivers, Ambrosia Island, Mount Kalaga et les axes qui relient ces régions. Que vous analysiez les trailers image par image ou prépariez une checklist pour le lancement, ce guide détaille chaque outil pour trouver rapidement les landmarks, partager des points précis et éviter le spam de pins non vérifiés.",
       "Commencez sur /map (ou /fr/map). La carte occupe l’écran pour panoramiquer et zoomer sans encombrement. Une barre latérale liste les points d’intérêt cherchables ; les filtres de catégorie isolent landmarks, collectibles, magasins, missions et secrets. Un clic centre la caméra et ouvre un résumé avant la page du lieu. La recherche bat le scroll quand vous connaissez déjà un nom comme Ocean Drive.",
@@ -32,6 +39,8 @@ const FR: Record<string, LocalizedGuide> = {
     description:
       "Découpage région par région de Vice City : Ocean Drive, Little Vice, front de mer et gratte-ciel downtown confirmés par les trailers.",
     readTime: 16,
+    answer:
+      "Vice City est la principale région urbaine de GTA 6, construite autour du front de mer art déco d’Ocean Drive, de Little Vice et d’un centre-ville de tours. Tout ce que Map-6 y place vient des trailers officiels, pas de leaks.",
     content: [
       "Vice City revient comme centre culturel et visuel de Grand Theft Auto VI — la Miami fictionnelle de Rockstar, plages, art déco et downtown en tours. Sur Map-6, c’est à la fois un hub régional et un ensemble de pins filtrables pendant le visionnage des trailers. Ce guide sépare le raisonnablement confirmé de l’inférence communautaire, sans inventer de noms de magasins ni d’intérieurs fictifs.",
       "Ocean Drive est la carte postale : façades d’hôtels néon, palmiers, nightlife. Attendez-vous à du tourisme, des photo ops et une forte densité piétonne une fois le jeu sorti. Notre page Ocean Drive développe les repères et renvoie à la carte centrée sur la strip. En scrub trailer, verrouillez le filtre Landmarks pour garder les hôtels lisibles.",
@@ -55,6 +64,8 @@ const FR: Record<string, LocalizedGuide> = {
     description:
       "Les paquets cachés reviendront-ils dans GTA 6 ? Tout ce qu’on sait sur ces collectibles classiques.",
     readTime: 14,
+    answer:
+      "Rockstar n’a pas confirmé les hidden packages dans GTA 6. La boucle existait dans la plupart des épisodes précédents : Map-6 la suit comme une catégorie attendue avec des pins d’exemple, pas comme une liste vérifiée.",
     content: [
       "Les paquets cachés sont une boucle collectible emblématique de Grand Theft Auto. Des cités 3D à GTA V, Rockstar récompense ceux qui grimpent les toits, plongent sous les jetées et fouillent derrière les props. Pour GTA 6, la communauté attend un successeur spirituel — même si nom, nombre et récompenses ne sont pas encore publics. Le rôle de Map-6 : les suivre honnêtement quand les preuves existent, pas inventer une liste complète pour le clic.",
       "Confirmé vs supposé : Rockstar insiste sur l’exploration et un monde plus dense. Map-6 n’invente pas comptes, icônes ni tables de récompenses. Nous suivons datamines et props trailer avec prudence, mais nous ne publierons pas de fausse liste « 120 lieux » avant des preuves de qualité lancement. Si une page promet tous les paquets aujourd’hui, elle devine.",
@@ -79,6 +90,8 @@ const FR: Record<string, LocalizedGuide> = {
     description:
       "D’Ambrosia Island aux Grassrivers et Mount Kalaga : comprendre la géographie et la fiction du cadre de GTA 6.",
     readTime: 15,
+    answer:
+      "GTA 6 se déroule dans l’État fictif de Leonida, un analogue de la Floride. Ses régions incluent Vice City, les Leonida Keys, Port Gellhorn, les marais des Grassrivers, Ambrosia Island et Mount Kalaga.",
     content: [
       "Leonida est le stand-in floridien de Rockstar : plages et nightlife, marais, ports industriels, kitsch touristique, richesse derrière des ponts. Comprendre cette géographie rend les trailers lisibles et Map-6 utile — un modèle mental du néon d’Ocean Drive au calme nord de Mount Kalaga.",
       "Vice City est la métropole phare : art déco, néons, plages, skyline moderne. Elle porte la nostalgie Vice City années 80 tout en actualisant le vibe South Florida contemporain. Notre guide Vice City va plus loin sur les districts ; cet aperçu place la ville dans l’État et renvoie à /map filtrée Landmarks pour la preuve spatiale.",
@@ -103,10 +116,12 @@ const FR: Record<string, LocalizedGuide> = {
     description:
       "Checklist hardware avant le lancement : console, DualSense, casque, SSD et écran 120 Hz.",
     readTime: 14,
+    answer:
+      "Une PlayStation 5 ou une Xbox Series X|S est la seule vraie exigence pour GTA 6. SSD supplémentaire, casque et écran 120 Hz sont du confort — à régler avant la semaine de lancement, pas le jour J.",
     content: [
-      "GTA 6 sort le 19 novembre 2026 sur PS5 et Xbox Series X|S. La semaine d’avant est le pire moment pour découvrir une console HS, un SSD plein ou une TV sans HDMI 2.1. Cette page Map-6 est une checklist d’achat — quoi verrouiller maintenant, quoi attendre les ASINs jeu, et comment le salon se connecte à l’exploration de Leonida sur la carte interactive.",
+      "GTA 6 sort le 19 novembre 2026 sur PS5 et Xbox Series X|S. La semaine d’avant est le pire moment pour découvrir une console HS, un SSD plein ou une TV sans HDMI 2.1. Cette page Map-6 est une checklist d’achat — quoi verrouiller maintenant, quoi laisser pour la semaine de lancement, et comment le salon se connecte à l’exploration de Leonida sur la carte interactive.",
       "Gardez la plateforme que vous avez déjà. Un second console pour GTA 6 seul est rarement rentable. Si votre machine est saine, passez aux manettes, casque et stockage. Si vous êtes encore last-gen, l’upgrade console est le ticket le plus cher. Pas de cross-saves annoncés entre PlayStation et Xbox — verrouillez l’écosystème de vos amis et abonnements.",
-      "Le stockage compte : laissez de la marge pour patchs day-one, updates saisonniers et captures. Un SSD 1 To compatible console (ou carte d’expansion Xbox sérieuse) est le add-on mid-funnel tant que les ASINs jeu ne sont pas live. Ne remplissez pas le disque à la dernière Go la veille — les installs ratent au pire moment.",
+      "Le stockage compte : laissez de la marge pour patchs day-one, updates saisonniers et captures. Un SSD 1 To compatible console (ou carte d’expansion Xbox sérieuse) est le add-on mid-funnel le plus utile à côté de la précommande du jeu. Ne remplissez pas le disque à la dernière Go la veille — les installs ratent au pire moment.",
       "Les manettes sont consommables en open world. Une DualSense de rechange (ou pad Xbox) sauve le co-op quand les sticks dérivent. Le retour haptique fait partie du pitch PS5 ; trez un second pad comme assurance. Si vous streamez, testez le pad caméra avant le RGB.",
       "L’audio vend les longues sessions — Pulse 3D ou équivalent pour chat et pas. Le filaire gagne parfois en latence ; le wireless gagne sur le canapé. Matchez le stack wireless officiel de la console quand vous pouvez — le chaos de dongles le soir du lancement est un problème résolu à ne pas réintroduire.",
       "Écran : pas besoin d’OLED, mais HDMI 2.1 / 120 Hz protège les modes perf. Traitez le marketing 4K120 avec prudence — matchez le panneau au port HDMI réellement utilisé, activez le bon AV et le Game Mode. Un 120 Hz mid-range lumineux bat souvent un panneau « cinéma » sombre pour néon et marais. En 60 Hz vous jouerez quand même ; upgez quand le panneau est le vrai goulot.",
@@ -126,19 +141,21 @@ const FR: Record<string, LocalizedGuide> = {
     description:
       "Comparer Collector vs Standard sur PS5 et Xbox : pour qui payer le premium, et quand précommander.",
     readTime: 12,
+    answer:
+      "Take-Two n’a annoncé aucune Collector’s Edition de GTA 6. Le duo officiel au lancement est Standard à 79,99 $ et Ultimate à 99,99 $ : Ultimate est donc l’édition premium la plus proche.",
     content: [
       "Les Collector monétisent le shelf pride — steelbook, statue, artbook, lithos, extras in-game. Standard = le jeu sans la taxe memorabilia. Tant que Rockstar n’a pas publié le contenu exact et le prix, traitez chaque liste leak comme provisoire. Cette comparaison Map-6 aide à décider avec des critères clairs, pas du FOMO screenshot.",
       "Standard si vous voulez jouer jour-1, le digital, ou le meilleur rapport heures de jeu. Collector si vous collectionnez, voulez l’unboxing, exposez à côté d’anciennes boîtes Rockstar, ou visez des SKUs qui partent en premier. N’achetez pas Collector pour un avantage Online réel — Rockstar garde rarement le power core derrière la boîte. Cosmétiques oui ; power spike non.",
       "La plateforme compte plus que la hauteur de statue. PS5 vs Xbox = SKUs séparés ; pas de cross-saves annoncés. Verrouillez l’écosystème amis/abonnements avant de débattre du papier de l’artbook. Un Collector sur la mauvaise plateforme est un presse-papier cher.",
       "Physique vs digital interagit avec la logique Collector. Beaucoup de bundles Collector sont physical-first. Le Standard digital ne « se vend pas ». Si vous détestez rater les boîtes, signal vers Collector — mais seulement après la liste officielle. Si vous détestez le clutter, Standard + casque/SSD du best-setup gagne souvent le salon.",
       "Discipline prix : écrivez le premium vs Standard. Demandez ce que vous paieriez pour la même statue seule. Si « moins de la moitié du premium », vous achetez du FOMO. Map-6 mettra à jour cette section quand les SKUs officiels seront confirmés — pas d’invention de pin counts ni d’« arme exclusive meta ».",
-      "Les cartes Amazon s’allument dès que les ASINs existent. Sinon, regardez la grille hardware. Couplez avec le guide précommande pour shipping, annulation, rappels plateforme. Amazon autorise en général l’annulation jusqu’à l’expédition.",
+      "Les cartes Amazon pointent vers les fiches PS5 et Xbox réellement en ligne (boîte code, 60 € au lieu de 79,99 €), dont le stock varie selon les quotas de clés. Regardez aussi la grille hardware. Couplez avec le guide précommande pour shipping, annulation, rappels plateforme. Amazon autorise en général l’annulation jusqu’à l’expédition.",
       "FOMO : le Collector physique part avant le digital Standard. Les marchés scalper punissent les retardataires. Cette pression est réelle — et ce n’est toujours pas une raison d’acheter une boîte que vous n’exposerez pas. Budget ou intérêt mince → Standard. Déjà une étagère de Collectors GTA/RDR → vous connaissez la réponse.",
       "Lien Map-6 : les éditions ne changent pas la géographie. Standard ou Collector, /map reste la même — filtres landmarks/collectibles, deep links, hubs /locations, cartographie GTADB (CC BY 4.0). Utilisez la semaine de lancement pour des checklists d’exploration, pas pour rafraîchir les listings scalper.",
       "Créateurs : un unboxing Collector est du contenu une fois ; un pin Map-6 `?theme=streamer&ref=tonpseudo` est du contenu à chaque trailer. Voir le clip kit. Votre audience se soucie plus de « où est cet hôtel néon » que de la mousse sous la statue.",
       "Lectures liées : précommande, best-setup, guide carte, Vice City, lore Leonida, paquets cachés, CS2 ID 153426. Map-6 est indépendant de Rockstar ; liens affiliés possibles — voir la mention.",
       "Template de décision : (1) plateforme lockée, (2) liste Collector officielle publiée, (3) premium écrit, (4) place et budget honnêtes, (5) précommande seulement alors. Si l’étape 2 manque, attendez ou prenez Standard.",
-      "Timing stock : si vous voulez un Collector physique, traitez la semaine de publication des contenus comme fenêtre de décision — pas trois jours avant le lancement. Si le Standard digital vous va, vous pouvez attendre plus longtemps et jouer jour-1. Map-6 allumera les cartes Amazon dès les ASINs ; d’ici là, plateforme + best-setup plutôt que refresh de rumeurs.",
+      "Timing stock : si vous voulez un Collector physique, traitez la semaine de publication des contenus comme fenêtre de décision — pas trois jours avant le lancement. Si le Standard digital vous va, vous pouvez attendre plus longtemps et jouer jour-1. Map-6 pointe vers les fiches Amazon existantes sans inventer de SKU ; pour le reste, plateforme + best-setup plutôt que refresh de rumeurs.",
       "Cadeaux et foyers : offrir un Collector ne marche que si vous connaissez plateforme et goût memorabilia. Standard pour une console partagée est plus simple. Foyer PS5 + Xbox : un Collector ne couvre pas les deux. /map en favori dans tous les cas.",
       "Questions à se poser à voix haute : vais-je exposer la statue dans six mois ? Ai-je déjà regretté un Collector précédent ? Mon foyer a-t-il la place ? Le premium paie-t-il plus que casque + SSD ? Si trois non, Standard. Si trois oui et liste officielle publiée, Collector. Map-6 ne juge pas — il refuse seulement les fausses listes leak comme argument d’achat.",
       "Après précommande : notez la politique d’annulation Amazon, surveillez le Newswire pour bonus, gardez /map pour l’exploration, et n’achetez pas un second SKU « au cas où » cross-save. Une seule plateforme, une édition choisie, un plan hardware — c’est assez de décisions avant Vice City.",
@@ -149,6 +166,8 @@ const FR: Record<string, LocalizedGuide> = {
     description:
       "Deep-links partageables, thème streamer, overlay transparent OBS, tags créateur pour Kick / TikTok / Twitch.",
     readTime: 12,
+    answer:
+      "Utilisez les deep links Map-6, le thème streamer et la source navigateur transparente /overlay pour afficher une carte GTA 6 en direct dans OBS, Kick, Twitch ou un montage TikTok. Tout est gratuit et sans compte.",
     content: [
       "Map-6 sert au scrub trailer et à la navigation launch — donc aussi aux clips. Ce kit explique deep-link, thèmes streamer/neon, overlay transparent OBS/Kick, et tag `ref` créateur. Pratique, répétable, sans énergie « leak map exclusive ». Extended Look ce soir (Netflix 21h CEST, YouTube officiel 3h) : même workflow — filtre Landmarks, Share, overlay. Voir /news/gta-6-extended-look-map-watch-for et /creators. Six heures d’exclusivité Netflix = fenêtre clip, pas un badge partenaire.",
       "Les URLs portent jeu, lieu, coords, zoom, thème et `ref`. Ex. `/fr/map?loc=ocean-drive&x=420&y=280&z=5&theme=streamer&ref=tonpseudo`. Bouton Share sur la carte. Les viewers qui cliquent atterrissent sur la même caméra — boucle de rétention que les captures Discord n’offrent pas.",
@@ -289,19 +308,216 @@ const FR: Record<string, LocalizedGuide> = {
   },
 };
 
+const ES: Record<string, LocalizedGuide> = {
+  "gta-6-characters-lucia-jason": {
+    title: "Personajes de GTA 6 — Lucia Caminos y Jason Duval",
+    description:
+      "Protagonistas confirmados Lucia y Jason: cambio dual, relación y cómo Map-6 une su historia con la geografía de Leonida.",
+    readTime: 11,
+    answer:
+      "GTA 6 tiene dos protagonistas jugables, Lucia Caminos y Jason Duval, y puedes alternar entre ellos. Rockstar ha confirmado la pareja y su relación; el detalle del cambio durante las misiones no es público.",
+    content: [
+      "GTA VI es el primer GTA principal centrado en una pareja. Los leads jugables confirmados son Lucia Caminos y Jason Duval. Fuentes: trailers oficiales y marketing Rockstar/Take-Two, no wikis inventadas. Lucia es la primera protagonista femenina no opcional. El cambio dual vuelve; algunas misiones bloquean una perspectiva. Abre /map con Landmarks.",
+    ],
+  },
+  "gta-6-map-size": {
+    title: "Tamaño del mapa de GTA 6 — Leonida vs GTA 5",
+    description:
+      "Lo que ha dicho Rockstar frente a las estimaciones fans de 2–2,5× GTA 5. Cómo sentir la escala en Map-6.",
+    readTime: 10,
+    answer:
+      "Rockstar no ha publicado una superficie en kilómetros cuadrados para el mapa de GTA 6. Las estimaciones de la comunidad sitúan Leonida entre 2 y 2,5 veces el mapa de GTA 5: es una estimación, no una cifra confirmada.",
+    content: [
+      "Oficial: la mayor evolución de la serie, estado de Leonida. No oficial: reconstrucciones comunitarias ~2×–2,5× GTA 5. Destinos nombrados: Vice City, Keys, Port Gellhorn, Ambrosia, Grassrivers, Mount Kalaga. Abre /map y compara con ?game=gta5.",
+    ],
+  },
+  "gta-6-ps5-vs-xbox": {
+    title: "GTA 6 PS5 vs Xbox — ¿Qué consola comprar?",
+    description:
+      "Misma fecha, SKUs separados, sin cross-saves anunciados. Sin tablas FPS inventadas.",
+    readTime: 9,
+    answer:
+      "PS5 y Xbox Series X|S reciben GTA 6 el 19 de noviembre de 2026, y Rockstar no ha anunciado guardado ni progresión cruzada entre ambas. Compra en la plataforma donde ya están tus amigos y tu biblioteca.",
+    content: [
+      "Ambas consolas el 19 de noviembre de 2026. Elige el ecosistema de tus amigos. Standard 79,99 $ vs Ultimate 99,99 $ US. Pack Vintage Vice City antes del 20 de noviembre. Map-6 no cambia de consola.",
+    ],
+  },
+  "gta-6-story": {
+    title: "Historia de GTA 6 — Lucia, Jason y Leonida",
+    description:
+      "La premisa oficial: una pareja, un golpe que sale mal, Leonida. Sin leaks de final.",
+    readTime: 8,
+    answer:
+      "Rockstar solo ha confirmado la premisa general: Lucia Caminos y Jason Duval, un golpe que sale mal y el estado de Leonida como escenario. Los resúmenes detallados de la trama que circulan no son oficiales.",
+    content: [
+      "Premisa oficial corta. El resto es rumor. La historia es geografía: usa /map y el hub de personajes. Lanzamiento 19 de noviembre de 2026; PC no anunciado.",
+    ],
+  },
+  "gta-6-platforms-ps5-xbox": {
+    title: "Plataformas GTA 6 — PS5 y Xbox, PC sin anunciar",
+    description:
+      "PS5 y Xbox Series X|S el 19 de noviembre de 2026. PC, last-gen y móvil: no anunciados.",
+    readTime: 7,
+    answer:
+      "GTA 6 sale únicamente en PlayStation 5 y Xbox Series X|S, el 19 de noviembre de 2026. PC, PlayStation 4, Xbox One y móvil no han sido anunciados por Rockstar.",
+    content: [
+      "Solo dos plataformas de lanzamiento confirmadas. Precarga el 12 de noviembre. Físico = código, no disco. Trata APK/EXE como estafa.",
+    ],
+  },
+  "gta-6-trailer-3-what-we-know": {
+    title: "GTA 6 Trailer 3 — rumores de fecha e indicios del mapa",
+    description:
+      "Sin fecha oficial hasta que Rockstar la publique. Cómo emparejar el metraje en Map-6.",
+    readTime: 8,
+    answer:
+      "No hay fecha anunciada para el Tráiler 3 de GTA 6. Rockstar publica sus tráileres en su Newswire y redes sin aviso previo, así que cualquier fecha concreta que circule es un rumor.",
+    content: [
+      "Map-6 no inventa el calendario. Abre /map, Landmarks, pausa neón y siluetas, Share el deep link. Nada de packs de Telegram.",
+    ],
+  },
+  "ocean-drive-gta-6": {
+    title: "Ocean Drive GTA 6 — guía del frente marítimo",
+    description:
+      "La franja art déco de Vice City. Hub largo: /locations/ocean-drive.",
+    readTime: 9,
+    answer:
+      "Ocean Drive es la avenida art déco inspirada en South Beach, en el paseo marítimo de Vice City en GTA 6. Aparece en los tráileres oficiales y está marcada en el mapa interactivo de Map-6.",
+    content: [
+      "Postal de GTA 6. Empieza en /locations/ocean-drive y View on Map. Empareja tejados, no el rosa del grading.",
+    ],
+  },
+  "gta-6-pc-requirements": {
+    title: "Requisitos PC de GTA 6 — no anunciados",
+    description:
+      "Sin fecha ni specs oficiales de PC. No uses tablas GPU falsas.",
+    readTime: 8,
+    answer:
+      "No existen requisitos oficiales de PC para GTA 6, porque Rockstar no ha anunciado versión ni fecha de PC. Cualquier tabla de especificaciones mínimas o recomendadas que circule hoy es especulación.",
+    content: [
+      "Lanzamiento confirmado en consolas. PC TBD. Cualquier tabla «oficial» hoy es inventada. Lee el scam watch.",
+    ],
+  },
+  "gta-6-vehicles": {
+    title: "Vehículos GTA 6 — trailers y pack Vintage Vice City",
+    description:
+      "Coches, barcos y el Vapid Stanier ’55 del pack de preventa. Sin garage falso.",
+    readTime: 8,
+    answer:
+      "Rockstar no ha publicado una lista de vehículos de GTA 6. Lo realmente confirmado procede de los tráileres oficiales y de los vehículos vintage incluidos en el Vintage Vice City Pack de reserva.",
+    content: [
+      "Trailers muestran un fantasy amplio de vehículos. Pack Vintage (antes del 20 de noviembre): Stanier ’55. Ultimate promete extras — no listamos SKUs no publicados.",
+    ],
+  },
+  "gta-6-scam-watch": {
+    title: "Estafas GTA 6 — descargas falsas, betas y APK",
+    description:
+      "No hay instalador PC, APK ni beta pública anunciada por Rockstar.",
+    readTime: 7,
+    answer:
+      "No hay instalador de PC, ni APK de Android, ni claves beta de GTA 6: el juego sale en PS5 y Xbox Series X|S el 19 de noviembre de 2026. Compra solo en PlayStation Store, Microsoft Store o una tienda establecida.",
+    content: [
+      "Claves, APK, EXE y logins clonados son inseguros. Preordena en tiendas oficiales. Standard 79,99 $ / Ultimate 99,99 $ US.",
+    ],
+  },
+};
+
+/**
+ * Answer-box copy for the guides above, which have no entry in the FR/ES maps.
+ */
+const DEDICATED_ANSWERS: Record<string, Record<string, string>> = {
+  fr: {
+    "gta-6-preorder-guide":
+      "Précommandez GTA 6 uniquement via les canaux officiels : PlayStation Store, Microsoft Store ou un revendeur établi comme Amazon. La Standard est à 79,99 $ et l'Ultimate à 99,99 $ US ; les précommandes éligibles avant le 20 novembre 2026 incluent le pack Vintage Vice City, et le préchargement démarre le 12 novembre.",
+    "gta-6-map-cities-skylines-2":
+      "Un fan a reconstruit Vice City, les Keys et Port Gellhorn en carte Cities: Skylines II (ID 153426), ce qui permet de parcourir la géographie en 3D. C'est une interprétation fan des images des trailers, pas des données Rockstar.",
+  },
+};
+
+/**
+ * Guides whose body is rendered by a bespoke component, so only the headline
+ * copy lives here. Their translations sit in their own `*-i18n` module.
+ */
+function dedicatedHeadline(
+  slug: string,
+  locale: string,
+): Pick<LocalizedGuide, "title" | "description" | "answer"> | null {
+  const answer = DEDICATED_ANSWERS[locale]?.[slug];
+
+  switch (slug) {
+    case "gta-6-preorder-guide": {
+      const copy = getPreorderGuideCopy(locale);
+      return { title: copy.title, description: copy.description, answer };
+    }
+    case "gta-6-map-cities-skylines-2": {
+      const copy = getCs2GuideCopy(locale);
+      return { title: copy.title, description: copy.description, answer };
+    }
+    case "gta-6-best-price": {
+      const copy = getBestPriceCopy(locale);
+      return {
+        title: fillPrices(copy.title, locale),
+        description: fillPrices(copy.description, locale),
+        answer,
+      };
+    }
+    default:
+      return null;
+  }
+}
+
 export function getLocalizedGuide(
   slug: string,
   locale: string,
 ): LocalizedGuide | null {
   const base = getGuideBySlug(slug);
   if (!base) return null;
-  if (locale === "fr" && FR[slug]) {
-    return FR[slug];
-  }
-  return {
+
+  const baseCopy: LocalizedGuide = {
     title: base.title,
     description: base.description,
     content: base.content,
     readTime: base.readTime,
+    answer: base.answer,
+    comparison: base.comparison,
+    faq: base.faq,
   };
+
+  const translated =
+    locale === "fr" ? FR[slug] : locale === "es" ? ES[slug] : undefined;
+
+  if (translated) {
+    // A locale that has not translated its table, FAQ or answer box keeps the
+    // English one rather than dropping the block entirely.
+    return {
+      ...translated,
+      answer: translated.answer ?? base.answer,
+      comparison: translated.comparison ?? base.comparison,
+      faq: translated.faq ?? base.faq,
+    };
+  }
+
+  const headline = dedicatedHeadline(slug, locale);
+  if (!headline) return baseCopy;
+
+  return { ...baseCopy, ...headline, answer: headline.answer ?? base.answer };
+}
+
+const DEDICATED_GUIDE_LOCALES: Record<string, readonly string[]> = {
+  "gta-6-preorder-guide": ["en", "fr", "es"],
+  "gta-6-map-cities-skylines-2": ["en", "fr", "es"],
+  "gta-6-best-price": ["en", "fr", "es"],
+};
+
+/** True when this locale has unique guide copy — not an EN fallback. */
+export function hasGuideTranslation(slug: string, locale: string): boolean {
+  if (locale === "en") return Boolean(getGuideBySlug(slug));
+  const dedicated = DEDICATED_GUIDE_LOCALES[slug];
+  if (dedicated) return dedicated.includes(locale);
+  if (locale === "fr") return Boolean(FR[slug]);
+  if (locale === "es") return Boolean(ES[slug]);
+  return false;
+}
+
+export function guideHreflangLocales(slug: string): string[] {
+  return locales.filter((locale) => hasGuideTranslation(slug, locale));
 }

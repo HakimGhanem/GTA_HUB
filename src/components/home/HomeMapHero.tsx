@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { GameMap } from "@/components/map/GameMap";
 
@@ -11,15 +11,45 @@ type HomeMapHeroProps = {
   ctaGuides: string;
 };
 
+function MapCanvas({ locale }: { locale: string }) {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const win = window as Window & {
+      requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number;
+      cancelIdleCallback?: (id: number) => void;
+    };
+    if (win.requestIdleCallback) {
+      const id = win.requestIdleCallback(() => setReady(true), { timeout: 1200 });
+      return () => win.cancelIdleCallback?.(id);
+    }
+    const t = window.setTimeout(() => setReady(true), 200);
+    return () => window.clearTimeout(t);
+  }, []);
+
+  if (!ready) {
+    return (
+      <div
+        className="h-full w-full bg-[#0a0e17]"
+        aria-hidden
+      />
+    );
+  }
+
+  return (
+    <GameMap
+      locale={locale}
+      showSidebar={false}
+      className="h-full w-full"
+      theme="default"
+    />
+  );
+}
+
 function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroProps) {
   return (
     <section className="relative h-[calc(100dvh-3.5rem)] min-h-[28rem] w-full overflow-hidden">
-      <GameMap
-        locale={locale}
-        showSidebar={false}
-        className="h-full w-full"
-        theme="default"
-      />
+      <MapCanvas locale={locale} />
 
       <div className="pointer-events-none absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-4 pb-24 pt-6 sm:px-6 sm:pt-8">
         <div className="mx-auto flex max-w-5xl flex-col items-start gap-3">
@@ -37,7 +67,7 @@ function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroPr
               {ctaFullscreen}
             </Link>
             <Link
-              href="/guides/best-setup-gta-6-ps5-xbox"
+              href="/guides/gta-6-map-guide"
               className="rounded-full border border-white/25 bg-black/40 px-5 py-2 text-sm font-semibold text-white/90 backdrop-blur-md transition-colors hover:border-white/45 hover:text-white"
             >
               {ctaGuides}

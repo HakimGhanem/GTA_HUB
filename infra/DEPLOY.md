@@ -164,13 +164,33 @@ Déjà en place dans le code :
 | JSON-LD WebSite, Organization, WebApplication | `layout.tsx` |
 | JSON-LD FAQ (homepage) | `(content)/page.tsx` |
 | JSON-LD Place par location | `locations/[slug]/page.tsx` |
-| llms.txt pour crawlers IA | `public/llms.txt` |
 | Redirect canonical domain | `src/middleware.ts` |
+
+### Surface IA (GEO)
+
+| Élément | Fichier / URL |
+|---------|---------------|
+| `llms.txt` généré depuis les données live | `src/app/llms.txt/route.ts` |
+| `llms-full.txt` (corpus éditorial complet) | `src/app/llms-full.txt/route.ts` |
+| Miroirs markdown `<url>.md` | `src/app/md/[...path]/route.ts` + rewrite dans `middleware.ts` |
+| Builders partagés | `src/lib/ai/{inventory,llms,markdown}.ts` |
+| Allow explicite des crawlers IA | `src/app/robots.ts` |
+| Log `ai_crawler_hit` (Cloud Logging) | `src/middleware.ts` |
+| Événement GA4 `ai_referral` | `src/components/analytics/AiReferralTracker.tsx` |
+| Bloc answer-first + `speakable` | `AnswerBox.tsx`, champ `answer` des guides, `jsonLdGuidePage()` |
+| `sameAs` / `knowsAbout` sur Organization | `src/lib/seo.ts` + `NEXT_PUBLIC_SOCIAL_PROFILES` |
+
+Ces fichiers sont générés, pas maintenus à la main : un nouveau guide ou un
+nouveau hub régional apparaît automatiquement dans `llms.txt` et en markdown.
+
+Mesure : dans GA4, créer une exploration sur l'événement `ai_referral`
+(dimension `ai_source`). Côté crawlers, filtrer les logs Cloud Run sur
+`jsonPayload.event="ai_crawler_hit"`.
 
 ### Actions manuelles acquisition
 
 - [ ] Créer **og-default.png** 1200×630 dans `public/`
-- [ ] Profils Reddit/Twitter/Discord avec lien map6.live/map
+- [ ] Profils Reddit/Twitter/Discord avec lien map6.live/map, puis renseigner `NEXT_PUBLIC_SOCIAL_PROFILES`
 - [ ] Backlinks communauté GTA (GTADB attribution = lien naturel)
 - [ ] Publier guides `/guides/*` régulièrement (IndexNow après chaque ajout)
 - [ ] Surveiller GSC : CTR, requêtes « gta 6 map », « vice city map »

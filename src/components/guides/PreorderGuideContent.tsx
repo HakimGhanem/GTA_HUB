@@ -1,3 +1,7 @@
+import { ComparisonTable } from "@/components/guides/ComparisonTable";
+import { RetailerPriceComparator } from "@/components/guides/RetailerPriceComparator";
+import { getBestPriceCopy } from "@/data/best-price-i18n";
+import { Link } from "@/i18n/navigation";
 import { AmazonAffiliateLink } from "@/components/affiliate/AmazonAffiliateLink";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
 import { AmazonProductCard } from "@/components/affiliate/AmazonProductCard";
@@ -22,7 +26,9 @@ export function PreorderGuideContent({ locale }: Props) {
 
   const gameProducts = PREORDER_PRODUCTS.filter(
     (p) =>
-      (p.edition === "standard" || p.edition === "collectors") &&
+      (p.edition === "standard" ||
+        p.edition === "ultimate" ||
+        p.edition === "collectors") &&
       (showPlaceholders || p.asin.length > 0),
   );
   const hardwareProducts = PREORDER_PRODUCTS.filter(
@@ -49,8 +55,13 @@ export function PreorderGuideContent({ locale }: Props) {
         {copy.editionsTitle}
       </h2>
       <p className="leading-relaxed text-white/80">{copy.editionsBody}</p>
+      <ComparisonTable
+        caption={copy.comparison.caption}
+        headers={copy.comparison.headers}
+        rows={copy.comparison.rows}
+      />
 
-      {gameProducts.length > 0 ? (
+      {gameProducts.length > 0 && (
         <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
           {gameProducts.map((product) => (
             <AmazonProductCard
@@ -60,11 +71,29 @@ export function PreorderGuideContent({ locale }: Props) {
             />
           ))}
         </div>
-      ) : (
-        <p className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-white/70">
-          {copy.editionsPending}
-        </p>
       )}
+
+      <p className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-white/70">
+        {copy.stockNote}
+      </p>
+
+      <h2 className="mt-10 text-2xl font-bold text-white">
+        {copy.retailersTitle}
+      </h2>
+      <p className="leading-relaxed text-white/80">{copy.retailersBody}</p>
+      <RetailerPriceComparator
+        locale={locale}
+        copy={getBestPriceCopy(locale)}
+        compact
+      />
+      <p className="not-prose">
+        <Link
+          href="/guides/gta-6-best-price"
+          className="text-sm font-medium text-pink-400 underline hover:text-pink-300"
+        >
+          {copy.retailersLinkLabel}
+        </Link>
+      </p>
 
       <AdUnit slot={AD_SLOTS.inArticle} format="fluid" layout="in-article" />
 
@@ -118,7 +147,7 @@ export function PreorderGuideContent({ locale }: Props) {
         <AffiliateProductGrid
           intents={["headset", "storage_ssd", "display_120hz", "streaming_setup"]}
           liveOnly
-          title="Launch setup upgrades"
+          title={copy.setupUpgradesTitle}
         />
       </div>
 

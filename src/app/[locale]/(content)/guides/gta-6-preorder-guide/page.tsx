@@ -1,9 +1,16 @@
-import { setRequestLocale } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PreorderGuideContent } from "@/components/guides/PreorderGuideContent";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getGuideBySlug } from "@/data/guides";
+import {
+  guideHreflangLocales,
+  hasGuideTranslation,
+} from "@/data/guides-i18n";
 import { getPreorderGuideCopy } from "@/data/preorder-guide-i18n";
-import { buildMetadata, jsonLdArticle } from "@/lib/seo";
+import { GTA6_RELEASE } from "@/lib/constants";
+import { buildMetadata, jsonLdGuidePage } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -13,12 +20,20 @@ export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   const copy = getPreorderGuideCopy(locale);
 
+  const translated = hasGuideTranslation(SLUG, locale);
+
   return buildMetadata({
     locale,
     title: `${copy.title} | Map-6`,
     description: copy.description,
     path: `/guides/${SLUG}`,
+    image: `/api/og/guide/${translated ? locale : "en"}/${SLUG}`,
     openGraphType: "article",
+    canonicalLocale: translated ? locale : "en",
+    hreflangLocales: guideHreflangLocales(SLUG),
+    robots: translated
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
   });
 }
 
@@ -30,20 +45,30 @@ export default async function PreorderGuidePage({ params }: Props) {
   const copy = getPreorderGuideCopy(locale);
   if (!guide) return null;
 
-  const article = {
-    ...guide,
-    title: copy.title,
-    description: copy.description,
-  };
+  const tNav = await getTranslations("nav");
+  const releaseDate = GTA6_RELEASE.toLocaleDateString(
+    locale === "fr" ? "fr-FR" : locale === "es" ? "es-ES" : "en-US",
+    { year: "numeric", month: "long", day: "numeric" },
+  );
+
+  const structuredData = jsonLdGuidePage(
+    { ...guide, title: copy.title, description: copy.description },
+    {
+      locale,
+      breadcrumb: [
+        { name: tNav("guides"), path: "/guides" },
+        { name: copy.title, path: `/guides/${SLUG}` },
+      ],
+      faq: copy.faq.map(({ question, answer }) => ({
+        question,
+        answer: answer.replaceAll("{date}", releaseDate),
+      })),
+    },
+  );
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLdArticle(article)),
-        }}
-      />
+      <JsonLd data={structuredData} />
 
       <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
         <Link
@@ -74,6 +99,8 @@ export default async function PreorderGuidePage({ params }: Props) {
             {copy.ctaButton}
           </Link>
         </div>
+
+        <RelatedMapLinks locale={locale} currentGuideSlug={SLUG} />
       </main>
     </>
   );

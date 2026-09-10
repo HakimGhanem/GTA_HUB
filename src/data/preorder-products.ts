@@ -7,29 +7,53 @@ export type PreorderProduct = {
   label: string;
   description: string;
   platform: "PS5" | "Xbox" | "PC" | "Multi";
-  edition: "standard" | "collectors" | "hardware" | "accessory";
+  edition: "standard" | "ultimate" | "collectors" | "hardware" | "accessory";
   badge?: string;
 };
 
-/** Fill ASINs via SiteStripe → paste into .env or Cloud Build substitutions */
+/**
+ * Fill ASINs via SiteStripe → paste into .env or Cloud Build substitutions.
+ * Amazon.fr lists Standard only (PS5 + Xbox, code-in-box). Ultimate is
+ * store-exclusive digital, and no Collector's SKU exists — those slots stay empty.
+ */
 export const PREORDER_PRODUCTS: PreorderProduct[] = [
   {
     envKey: "GTA6_PS5",
-    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_PS5 ?? "",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_PS5 ?? "B0GZW5D8YF",
     label: "Grand Theft Auto VI — PS5",
     description:
-      "Standard edition for PlayStation 5. Digital or physical — check Amazon for current availability.",
+      "Standard edition for PlayStation 5, code-in-box (no disc). Amazon.fr has listed it under the €79.99 RRP; stock comes and goes because Rockstar allots key quotas.",
     platform: "PS5",
     edition: "standard",
     badge: "Most popular",
   },
   {
     envKey: "GTA6_XBOX",
-    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_XBOX ?? "",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_XBOX ?? "B0GZW3TCF7",
     label: "Grand Theft Auto VI — Xbox Series X|S",
-    description: "Standard edition for Xbox Series X and Series S consoles.",
+    description:
+      "Standard edition for Xbox Series X and Series S, code-in-box (no disc). Same discounted Amazon.fr pricing and same quota-driven stock swings as the PS5 SKU.",
     platform: "Xbox",
     edition: "standard",
+  },
+  {
+    envKey: "GTA6_ULTIMATE_PS5",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_ULTIMATE_PS5 ?? "",
+    label: "GTA 6 Ultimate Edition — PS5",
+    description:
+      "Official $99.99 US premium tier — digital extras. No physical Ultimate listed.",
+    platform: "PS5",
+    edition: "ultimate",
+    badge: "Ultimate",
+  },
+  {
+    envKey: "GTA6_ULTIMATE_XBOX",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_ULTIMATE_XBOX ?? "",
+    label: "GTA 6 Ultimate Edition — Xbox",
+    description: "Official Ultimate Edition for Xbox Series X|S.",
+    platform: "Xbox",
+    edition: "ultimate",
+    badge: "Ultimate",
   },
   {
     envKey: "GTA6_COLLECTORS_PS5",

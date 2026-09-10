@@ -1,18 +1,20 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { getAllLocations } from "@/data/all-locations";
-import { getIndexableLocations } from "@/lib/location-indexing";
+import { getLocationDescription } from "@/data/locations-i18n";
+import { getBrowsableLocations } from "@/lib/location-indexing";
 import { useDebouncedValue } from "@/hooks/useDebouncedValue";
 
 const PAGE_SIZE = 24;
 
 export function LocationsList() {
   const t = useTranslations("locations");
+  const locale = useLocale();
   const all = useMemo(
-    () => getIndexableLocations(getAllLocations()),
+    () => getBrowsableLocations(getAllLocations()),
     [],
   );
   const [query, setQuery] = useState("");
@@ -26,9 +28,9 @@ export function LocationsList() {
       (loc) =>
         loc.name.toLowerCase().includes(q) ||
         loc.region.toLowerCase().includes(q) ||
-        loc.description.toLowerCase().includes(q),
+        getLocationDescription(loc, locale).toLowerCase().includes(q),
     );
-  }, [all, debouncedQuery]);
+  }, [all, debouncedQuery, locale]);
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
   const currentPage = Math.min(page, totalPages);

@@ -9,6 +9,9 @@ export const CONTENT_CLUSTERS = [
   "release",
   "setup",
   "clip",
+  "characters",
+  "story",
+  "vehicles",
 ] as const;
 
 export type ContentCluster = (typeof CONTENT_CLUSTERS)[number];

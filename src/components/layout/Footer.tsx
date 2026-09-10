@@ -9,6 +9,8 @@ export async function Footer() {
 
   const footerLinks = [
     { href: "/map", label: t("interactiveMap") },
+    { href: "/guides/gta-6-map-guide", label: t("mapGuide") },
+    { href: "/guides/gta-6-collectibles-map", label: t("collectiblesMap") },
     { href: "/maps/gta5", label: nav("gta5") },
     { href: "/locations", label: nav("locations") },
     { href: "/collectibles", label: nav("collectibles") },

@@ -8,6 +8,18 @@ export const SITE = {
   locale: "en_US",
 } as const;
 
+/**
+ * Official Map-6 profiles, emitted as `sameAs` on the Organization node.
+ * Comma-separated absolute URLs; empty until the community accounts exist —
+ * an invented profile is worse than none for entity resolution.
+ */
+export const SITE_PROFILES: string[] = (
+  process.env.NEXT_PUBLIC_SOCIAL_PROFILES ?? ""
+)
+  .split(",")
+  .map((url) => url.trim())
+  .filter(Boolean);
+
 /** GTA 6 release — update when Rockstar confirms final date */
 export const GTA6_RELEASE = new Date("2026-11-19T00:00:00Z");
 

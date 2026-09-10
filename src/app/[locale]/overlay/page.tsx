@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
+import { SITE } from "@/lib/constants";
 import { OverlayPageClient } from "./OverlayPageClient";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -10,7 +11,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: "Map-6 Overlay · OBS / Kick",
     description: "Transparent Map-6 browser source for OBS, Kick, and Twitch.",
     robots: { index: false, follow: false },
-    alternates: { canonical: `https://map-6.com/${locale}/overlay` },
+    alternates: { canonical: `${SITE.url}/${locale}/overlay` },
   };
 }
 

@@ -5,6 +5,11 @@ const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
 const nextConfig: NextConfig = {
   output: "standalone",
+  // Basemap + fonts are read from disk by the OG image routes, so file tracing
+  // cannot discover them on its own.
+  outputFileTracingIncludes: {
+    "/api/og/**": ["./assets/og/**"],
+  },
   transpilePackages: ["maplibre-gl", "react-map-gl"],
   serverExternalPackages: ["firebase-admin"],
   poweredByHeader: false,

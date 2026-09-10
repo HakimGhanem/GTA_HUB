@@ -3,11 +3,10 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { LocationRichContent } from "@/components/locations/LocationRichContent";
 import { LocationMap } from "@/components/map/LocationMap";
-import {
-  getAllLocations,
-  getLocationBySlug,
-  type Location,
-} from "@/data/all-locations";
+import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getAllLocations, getLocationBySlug } from "@/data/all-locations";
+import { getLocationDescription } from "@/data/locations-i18n";
 import { getRegionalLocationSeo } from "@/data/location-seo-content";
 import { shouldNoindexLocation } from "@/lib/location-indexing";
 import {
@@ -53,27 +52,22 @@ export async function generateMetadata({ params }: Props) {
         `${location.name} GTA 6 — Map, Collectibles & Guide | Map-6`,
       description: regionalSeo.metaDescription,
       path: `/locations/${location.slug}`,
+      image: `/api/og/location/${location.slug}`,
       openGraphType: "article",
       robots,
+      markdownAlternate: true,
     });
   }
 
   return buildMetadata({
     locale,
     title: `${location.name} — GTA 6 Map | Map-6`,
-    description: location.description,
+    description: getLocationDescription(location, locale),
     path: `/locations/${location.slug}`,
+    image: `/api/og/location/${location.slug}`,
     robots,
   });
 }
-
-const CATEGORY_LABELS: Record<Location["category"], string> = {
-  landmark: "Landmark",
-  collectible: "Collectible",
-  shop: "Shop",
-  mission: "Mission",
-  secret: "Secret",
-};
 
 export default async function LocationPage({ params }: Props) {
   const { locale, slug } = await params;
@@ -94,8 +88,12 @@ export default async function LocationPage({ params }: Props) {
         location.slug,
         regionalSeo.schemaDescription,
         regionalSeo.faq,
+        locale,
       )
-    : jsonLdPlace(location);
+    : jsonLdPlace(
+        { ...location, description: getLocationDescription(location, locale) },
+        locale,
+      );
 
   return (
     <>
@@ -103,10 +101,7 @@ export default async function LocationPage({ params }: Props) {
         <meta name="robots" content="noindex,nofollow" />
       )}
 
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main className="flex-1">
         <div className="mx-auto max-w-5xl px-4 py-8">
@@ -133,7 +128,9 @@ export default async function LocationPage({ params }: Props) {
             <p className="mt-1 text-sm text-white/50">{location.region}</p>
           </div>
 
-          <p className="mb-6 max-w-2xl text-white/70">{location.description}</p>
+          <p className="mb-6 max-w-2xl text-white/70">
+            {getLocationDescription(location, locale)}
+          </p>
 
           <p className="mb-4 font-mono text-sm text-white/40">
             {t("coordinates", { x: location.x, y: location.y })}
@@ -153,6 +150,8 @@ export default async function LocationPage({ params }: Props) {
               location={location}
             />
           )}
+
+          <RelatedMapLinks locale={locale} locationSlug={location.slug} />
         </div>
 
         <div className="h-80 border-t border-white/10">

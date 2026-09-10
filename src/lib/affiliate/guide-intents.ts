@@ -42,7 +42,10 @@ export const GUIDE_AFFILIATE_INTENTS: Record<string, AffiliateIntent[]> = {
     "console_upgrade",
     "preorder_standard",
     "controller",
+    "preorder_collectors",
   ],
+  "gta-6-platforms-ps5-xbox": ["preorder_standard", "console_upgrade"],
+  "gta-6-pc-requirements": ["console_upgrade", "storage_ssd", "display_120hz"],
   "gta-6-price-france": ["preorder_standard", "preorder_collectors"],
   "gta-6-faq": ["preorder_standard"],
   "gta-6-extended-look-how-to-watch": [
