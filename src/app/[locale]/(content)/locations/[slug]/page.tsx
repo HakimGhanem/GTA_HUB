@@ -75,6 +75,7 @@ export default async function LocationPage({ params }: Props) {
 
   const t = await getTranslations("locations");
   const tRoot = await getTranslations();
+  const tCategory = await getTranslations("map.categories");
   const location = getLocationBySlug(slug);
   if (!location) notFound();
   const confidence = resolveConfidence(location);
@@ -115,7 +116,7 @@ export default async function LocationPage({ params }: Props) {
           <div className="mb-6">
             <div className="mb-2 flex flex-wrap items-center gap-2">
               <span className="inline-block rounded-full bg-pink-500/20 px-3 py-1 text-xs font-medium text-pink-300">
-                {CATEGORY_LABELS[location.category]}
+                {tCategory(location.category)}
               </span>
               <span
                 className="inline-block rounded-full px-3 py-1 text-xs font-medium ring-1 ring-white/15"
