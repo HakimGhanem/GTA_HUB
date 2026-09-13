@@ -294,5 +294,23 @@
     "desc": "We use cookies for essential site features, analytics, and Google AdSense ads (clearly labeled “Advertisement”). See our <privacyLink>Privacy Policy</privacyLink>. You can change your choice anytime by clearing site data.",
     "essential": "Essential only",
     "acceptAll": "Accept all"
+  },
+  "newsletter": {
+    "title": "Launch-Alarm — Sammelobjekt-Karten am Tag eins",
+    "desc": "GTA 6 erscheint am 19. November 2026. Trag deine E-Mail ein: Du bekommst die Sammelobjekt-Karten an dem Tag, an dem sie spielbar sind, plus eine kurze Nachricht, falls sich vorher etwas Wichtiges ändert.",
+    "bannerTitle": "Launch-Alarm — 19. November",
+    "bannerDesc": "Sammelobjekt-Karten für Tag eins, direkt in dein Postfach.",
+    "emailLabel": "E-Mail-Adresse",
+    "placeholder": "du@beispiel.com",
+    "cta": "Benachrichtigen",
+    "sending": "Wird gesendet…",
+    "joined": "Erledigt",
+    "success": "Eingetragen — die Bestätigung liegt in deinem Postfach.",
+    "duplicate": "Du standst bereits auf der Liste — nichts weiter zu tun.",
+    "privacy": "Maximal zwei E-Mails. Nie geteilt, nie verkauft, Abmeldung per Antwort.",
+    "errorInvalid": "Diese E-Mail sieht falsch aus — bitte prüfen.",
+    "errorRate": "Zu viele Versuche. Probier es in einer Minute erneut.",
+    "errorGeneric": "Konnte nicht gespeichert werden. Versuch es erneut oder schreib an hello@map-6.com.",
+    "dismiss": "Schließen"
   }
 }

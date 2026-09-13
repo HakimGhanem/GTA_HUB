@@ -294,5 +294,23 @@
     "desc": "We use cookies for essential site features, analytics, and Google AdSense ads (clearly labeled “Advertisement”). See our <privacyLink>Privacy Policy</privacyLink>. You can change your choice anytime by clearing site data.",
     "essential": "Essential only",
     "acceptAll": "Accept all"
+  },
+  "newsletter": {
+    "title": "Launch alert — day-one collectible maps",
+    "desc": "GTA 6 lands 19 November 2026. Leave your email and we send the collectible maps the day they are playable, plus one heads-up if anything major changes before then.",
+    "bannerTitle": "Launch alert — 19 November",
+    "bannerDesc": "Day-one collectible maps, straight to your inbox.",
+    "emailLabel": "Email address",
+    "placeholder": "you@example.com",
+    "cta": "Notify me",
+    "sending": "Sending…",
+    "joined": "Done",
+    "success": "You are in — check your inbox for the confirmation.",
+    "duplicate": "You were already on the list — nothing else to do.",
+    "privacy": "Two emails maximum. Never shared, never sold, unsubscribe by replying.",
+    "errorInvalid": "That email looks wrong — check the spelling.",
+    "errorRate": "Too many attempts. Try again in a minute.",
+    "errorGeneric": "We could not save that. Try again, or mail hello@map-6.com.",
+    "dismiss": "Close"
   }
 }

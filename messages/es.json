@@ -294,5 +294,23 @@
     "desc": "We use cookies for essential site features, analytics, and Google AdSense ads (clearly labeled “Advertisement”). See our <privacyLink>Privacy Policy</privacyLink>. You can change your choice anytime by clearing site data.",
     "essential": "Essential only",
     "acceptAll": "Accept all"
+  },
+  "newsletter": {
+    "title": "Aviso de lanzamiento — mapas de coleccionables del día uno",
+    "desc": "GTA 6 sale el 19 de noviembre de 2026. Deja tu email y te enviamos los mapas de coleccionables el día en que se puedan jugar, más un aviso si algo importante cambia antes.",
+    "bannerTitle": "Aviso de lanzamiento — 19 de noviembre",
+    "bannerDesc": "Mapas de coleccionables del día uno, directos a tu bandeja.",
+    "emailLabel": "Dirección de email",
+    "placeholder": "tu@ejemplo.com",
+    "cta": "Avisarme",
+    "sending": "Enviando…",
+    "joined": "Listo",
+    "success": "Ya estás dentro — revisa tu bandeja, te enviamos la confirmación.",
+    "duplicate": "Ya estabas en la lista — nada más que hacer.",
+    "privacy": "Dos emails como máximo. Nunca compartidos ni vendidos, baja respondiendo.",
+    "errorInvalid": "Ese email parece incorrecto — revisa cómo está escrito.",
+    "errorRate": "Demasiados intentos. Inténtalo en un minuto.",
+    "errorGeneric": "No pudimos guardarlo. Inténtalo de nuevo o escribe a hello@map-6.com.",
+    "dismiss": "Cerrar"
   }
 }

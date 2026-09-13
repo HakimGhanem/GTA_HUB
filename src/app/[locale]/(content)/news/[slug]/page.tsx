@@ -7,6 +7,7 @@ import { ArticleHero } from "@/components/news/ArticleHero";
 import { AuthorBlock } from "@/components/news/AuthorBlock";
 import { ThinContentWarning } from "@/components/news/ThinContentWarning";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
+import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
   getArticleBySlug,
@@ -227,6 +228,8 @@ export default async function NewsArticlePage({ params }: Props) {
             ) : null}
           </div>
         </div>
+
+        <LaunchAlertInline />
       </main>
     </>
   );

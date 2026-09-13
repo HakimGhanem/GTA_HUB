@@ -11,6 +11,7 @@ import { ConsentDefaultsScript, GaScript } from "@/components/analytics/GaScript
 import { GtmNoScript, GtmScript } from "@/components/analytics/GtmScript";
 import { ChromeGate } from "@/components/layout/ChromeGate";
 import { Header } from "@/components/layout/Header";
+import { LaunchAlertBanner } from "@/components/newsletter/LaunchAlertBanner";
 import { CookieConsent } from "@/components/privacy/CookieConsent";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { routing } from "@/i18n/routing";
@@ -119,6 +120,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Analytics />
           <AiReferralTracker />
           <ChromeGate>
+            <LaunchAlertBanner />
             <CookieConsent />
           </ChromeGate>
         </NextIntlClientProvider>

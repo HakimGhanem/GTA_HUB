@@ -294,5 +294,23 @@
     "desc": "Nous utilisons des cookies pour le fonctionnement du site, l’analyse d’audience et les annonces Google AdSense (clairement identifiées « Publicité »). Consultez notre <privacyLink>politique de confidentialité</privacyLink>. Vous pouvez modifier votre choix en effaçant les données du site.",
     "essential": "Essentiels seulement",
     "acceptAll": "Tout accepter"
+  },
+  "newsletter": {
+    "title": "Alerte lancement — les cartes des collectibles day-one",
+    "desc": "GTA 6 sort le 19 novembre 2026. Laisse ton email : on t'envoie les cartes des collectibles le jour où elles deviennent jouables, et un message si quelque chose d'important change d'ici là.",
+    "bannerTitle": "Alerte lancement — 19 novembre",
+    "bannerDesc": "Les cartes des collectibles day-one, direct dans ta boîte mail.",
+    "emailLabel": "Adresse email",
+    "placeholder": "toi@exemple.com",
+    "cta": "Me prévenir",
+    "sending": "Envoi…",
+    "joined": "C'est fait",
+    "success": "C'est bon — un email de confirmation vient de partir.",
+    "duplicate": "Tu étais déjà inscrit — rien de plus à faire.",
+    "privacy": "Deux emails maximum. Jamais partagés, jamais revendus, désinscription en répondant.",
+    "errorInvalid": "Cet email semble incorrect — vérifie l'orthographe.",
+    "errorRate": "Trop de tentatives. Réessaie dans une minute.",
+    "errorGeneric": "Impossible d'enregistrer. Réessaie, ou écris à hello@map-6.com.",
+    "dismiss": "Fermer"
   }
 }

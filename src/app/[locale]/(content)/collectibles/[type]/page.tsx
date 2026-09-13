@@ -8,6 +8,7 @@ import {
   getCollectiblesByType,
 } from "@/data/collectibles";
 import { getCollectibleTypeSeo } from "@/data/collectibles-seo";
+import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildMetadata, jsonLdCollectionPage } from "@/lib/seo";
 
@@ -140,6 +141,8 @@ export default async function CollectibleTypePage({ params }: Props) {
           </dl>
         </section>
       ) : null}
+
+      <LaunchAlertInline />
     </main>
   );
 }

@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
+import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getGuideBySlug, GUIDES } from "@/data/guides";
 import {
@@ -174,6 +175,8 @@ export default async function GuidePage({ params }: Props) {
             </Link>
           )}
         </div>
+
+        <LaunchAlertInline />
 
         <RelatedMapLinks locale={locale} currentGuideSlug={slug} />
       </main>
