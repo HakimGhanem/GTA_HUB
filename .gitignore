@@ -24,6 +24,10 @@
 .DS_Store
 *.pem
 
+# local tooling + scratch notes (per-machine, not project state)
+/.cursor
+/Idees_a_creuser.txt
+
 # env (never commit secrets / local overrides)
 .env.local
 .env*.local
