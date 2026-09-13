@@ -99,17 +99,6 @@ export async function POST(req: Request) {
     ].join("\n"),
   });
 
-  // Confirmation to the subscriber — proof of consent, and it makes the sender
-  // familiar so the launch-day email is not mistaken for spam.
-  if (cleanSource === "launch" && !duplicate) {
-    const confirmation = buildConfirmation(cleanLocale);
-    await sendMail({
-      to: cleanEmail,
-      subject: confirmation.subject,
-      text: confirmation.text,
-    });
-  }
-
   // A signup that reached neither Firestore nor the inbox is lost — say so
   // rather than showing the user a success state.
   if (!persisted && !sent) {
@@ -120,6 +109,8 @@ export async function POST(req: Request) {
     );
   }
 
+  // Confirmation to the subscriber — proof of consent, and it makes the sender
+  // familiar so the launch-day email is not mistaken for spam.
   if (!duplicate && isMailConfigured()) {
     const confirm = buildConfirmation(cleanLocale);
     await sendMail({
