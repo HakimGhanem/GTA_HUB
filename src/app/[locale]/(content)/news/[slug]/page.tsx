@@ -2,6 +2,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { ArticleBody } from "@/components/news/ArticleBody";
+import { ArticleFaq } from "@/components/news/ArticleFaq";
+import { ArticleHero } from "@/components/news/ArticleHero";
+import { AuthorBlock } from "@/components/news/AuthorBlock";
+import { ThinContentWarning } from "@/components/news/ThinContentWarning";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -11,7 +15,12 @@ import {
 } from "@/lib/content/repository";
 import type { AffiliateIntent } from "@/lib/affiliate/intents";
 import { evergreenPathForNews } from "@/lib/content/news-canonical";
-import { buildMetadata, jsonLdNewsArticle } from "@/lib/seo";
+import { countMarkdownWords } from "@/lib/content/word-count";
+import {
+  articleHeroSrc,
+  buildMetadata,
+  jsonLdNewsArticle,
+} from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
@@ -42,7 +51,7 @@ export async function generateMetadata({ params }: Props) {
     title: `${article.title} | Map-6`,
     description: article.description,
     path: `/news/${slug}`,
-    image: `/api/og/news/${article.locale}/${slug}`,
+    image: articleHeroSrc(article),
     openGraphType: "article",
     canonicalLocale: article.locale,
     hreflangLocales: articleLocales.length ? articleLocales : [article.locale],
@@ -62,6 +71,8 @@ export default async function NewsArticlePage({ params }: Props) {
   if (!article || article.status !== "published") notFound();
 
   const tNav = await getTranslations("nav");
+  const heroSrc = articleHeroSrc(article);
+  const wordCount = countMarkdownWords(article.bodyMarkdown);
 
   const showAffiliate =
     article.cluster === "preorder" ||
@@ -95,8 +106,15 @@ export default async function NewsArticlePage({ params }: Props) {
             locale: article.locale,
             publishedAt: article.publishedAt || article.createdAt,
             updatedAt: article.updatedAt,
-            image: article.heroImage,
+            image: heroSrc,
             author: article.author,
+            cluster: article.cluster,
+            keywords: [
+              article.primaryKeyword,
+              ...article.secondaryKeywords,
+            ].filter(Boolean),
+            wordCount,
+            faqs: article.faqs,
           },
           [
             { name: tNav("news"), path: "/news" },
@@ -131,11 +149,15 @@ export default async function NewsArticlePage({ params }: Props) {
         <h1 className="text-3xl font-bold leading-tight">{article.title}</h1>
         <p className="mt-4 text-white/60">{article.description}</p>
         <p className="mt-2 text-xs text-white/40">
-          {article.publishedAt?.slice(0, 10)} · {article.author}
-          {article.primaryKeyword ? ` · ${article.primaryKeyword}` : ""}
+          {article.publishedAt?.slice(0, 10)}
         </p>
 
+        <AuthorBlock name={article.author || "Map-6 Editorial"} />
+        <ThinContentWarning wordCount={wordCount} />
+        <ArticleHero title={article.title} src={heroSrc} />
+
         <ArticleBody markdown={article.bodyMarkdown} />
+        <ArticleFaq faqs={article.faqs ?? []} />
 
         {article.sources.length > 0 ? (
           <section className="mt-10 border-t border-white/10 pt-6">

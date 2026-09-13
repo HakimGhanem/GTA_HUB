@@ -49,7 +49,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "*", allow: "/", disallow: DISALLOWED_PATHS },
       { userAgent: AI_CRAWLERS, allow: "/", disallow: DISALLOWED_PATHS },
     ],
-    sitemap: `${SITE.url}/sitemap.xml`,
+    sitemap: [`${SITE.url}/sitemap.xml`, `${SITE.url}/news.xml`],
     host: SITE.url,
   };
 }

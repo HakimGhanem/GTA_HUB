@@ -1,8 +1,20 @@
 import { randomUUID } from "crypto";
+import { EDITORIAL_ARTICLES } from "@/data/news/editorial-articles";
 import type { Article, ArticleStatus, KeywordMetric, Topic } from "./schema";
 import { COLLECTIONS, getFirestore } from "./firestore";
 import { fileStore } from "./file-store";
 import { scoreArticleSeo } from "./seo-score";
+
+function applyEditorialOverrides(byId: Map<string, Article>) {
+  for (const article of EDITORIAL_ARTICLES) {
+    for (const [id, existing] of byId) {
+      if (existing.slug === article.slug && existing.locale === article.locale) {
+        byId.delete(id);
+      }
+    }
+    byId.set(article.id, article);
+  }
+}
 
 function nowIso() {
   return new Date().toISOString();
@@ -44,6 +56,7 @@ async function loadAllArticlesMerged(): Promise<Article[]> {
     }
   }
 
+  applyEditorialOverrides(byId);
   return [...byId.values()];
 }
 

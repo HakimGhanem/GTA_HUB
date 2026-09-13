@@ -8,7 +8,7 @@ export default function ContentLayout({
 }) {
   return (
     <>
-      <div id="main-content" className="flex min-h-0 flex-1 flex-col">
+      <div id="main-content" className="flex flex-1 flex-col">
         {children}
       </div>
       <AdBanner />

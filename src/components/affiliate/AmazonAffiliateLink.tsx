@@ -3,10 +3,15 @@ import { getLocale } from "next-intl/server";
 import {
   AMAZON_ENABLED,
 } from "@/lib/amazon-affiliate";
-import { buildAmazonUrlForLocale } from "@/lib/affiliate/store-links";
+import type { PreorderProduct } from "@/data/preorder-products";
+import { buildAmazonProductUrlForLocale } from "@/lib/affiliate/store-links";
 
 type AmazonAffiliateLinkProps = {
-  asin: string;
+  /**
+   * Takes the whole product, not a bare ASIN: each marketplace needs its own
+   * ASIN, so the destination can only be resolved from the product slot.
+   */
+  product: PreorderProduct;
   children: ReactNode;
   className?: string;
   /** next-intl locale. When omitted, read from the request. */
@@ -18,13 +23,13 @@ type AmazonAffiliateLinkProps = {
  * Routes to the locale Amazon storefront when that store tag is enabled.
  */
 export async function AmazonAffiliateLink({
-  asin,
+  product,
   children,
   className,
   locale: localeProp,
 }: AmazonAffiliateLinkProps) {
   const locale = localeProp ?? (await getLocale().catch(() => "fr"));
-  const href = buildAmazonUrlForLocale(asin, locale);
+  const href = buildAmazonProductUrlForLocale(product, locale);
 
   return (
     <a

@@ -122,14 +122,12 @@ ${intentLines || "- Compare editions and launch hardware before stocks move."}
 
 ${topic.summary}
 
-Map-6 turns this into a **funnel page**: map deep-link + ${funnel.funnelKind ?? "mixed"} intent — not a generic news dump.
+What map hunters should do with this: confirm the source, pause official footage for landmarks, and ignore invented trailer calendars.
 
 ## Verified facts vs rumors
 
 - **Confirmed**: only details explicitly stated by Rockstar or shown in official media.
 - **Rumors**: community leaks stay labeled as unverified — we will not invent a trailer date or product ASIN.
-
-Primary focus keyword: **${phrase}**.
 ${purchaseBlock}
 ## Map & location angle
 

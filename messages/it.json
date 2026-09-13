@@ -127,7 +127,9 @@
     "interactiveMap": "Mappa interattiva",
     "mapGuide": "Guida mappa GTA 6",
     "collectiblesMap": "Mappa collezionabili",
-    "about": "Chi siamo"
+    "trailerAnalysis": "Analisi dei trailer",
+    "about": "Chi siamo",
+    "sources": "Tutte le fonti"
   },
   "header": {
     "tagline": "GTA HUB · mappa, guide, shop",
@@ -269,6 +271,8 @@
   },
   "affiliate": {
     "viewOnAmazon": "Vedi su Amazon →",
+    "viewOnStore": "Vedi su {store} →",
+    "searchOnStore": "Cerca su {store} →",
     "gearAndEditions": "Hardware ed edizioni",
     "hardwareTitle": "Pronto per il lancio?",
     "hardwareSubtitle": "Console e accessori su Amazon — preordina il gioco quando arrivano le schede ufficiali.",

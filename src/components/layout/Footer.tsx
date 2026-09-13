@@ -17,6 +17,7 @@ export async function Footer() {
     { href: "/database", label: nav("database") },
     { href: "/guides", label: nav("guides") },
     { href: "/news", label: nav("news") },
+    { href: "/trailer", label: t("trailerAnalysis") },
     { href: "/creators", label: nav("creators") },
     { href: "/pro", label: nav("pro") },
     { href: "/about", label: t("about") },
@@ -35,19 +36,22 @@ export async function Footer() {
           ))}
         </div>
       </div>
-      {GTADB.enabled && (
-        <p className="mx-auto mt-3 max-w-5xl px-4 text-xs text-white/30">
-          {t("maptiles")}{" "}
-          <a
-            href={GTADB.attributionUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-white/50"
-          >
-            gtadb.org
-          </a>
-        </p>
-      )}
+      {/* Community data attribution is owed whether or not tiles are enabled */}
+      <p className="mx-auto mt-3 max-w-5xl px-4 text-xs text-white/40">
+        {t("maptiles")}{" "}
+        <a
+          href={GTADB.attributionUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline hover:text-white/60"
+        >
+          gtadb.org
+        </a>
+        {" · "}
+        <Link href="/attributions" className="underline hover:text-white/60">
+          {t("sources")}
+        </Link>
+      </p>
       <AmazonAffiliateDisclosure />
     </footer>
   );

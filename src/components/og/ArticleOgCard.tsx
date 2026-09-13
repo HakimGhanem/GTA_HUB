@@ -19,6 +19,7 @@ type Props = {
   meta: string[];
   view: BasemapView;
   basemap: string;
+  cluster?: string;
 };
 
 function titleSize(title: string) {
@@ -41,6 +42,7 @@ export function articleOgCard({
   meta,
   view,
   basemap,
+  cluster,
 }: Props): ReactElement {
   const headline = trim(title);
 
@@ -58,10 +60,8 @@ export function articleOgCard({
           padding: 56,
         }}
       >
-        {brandRow()}
-
         <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-          {pill(kicker)}
+          {pill(kicker, cluster)}
           <div
             style={{
               display: "flex",
@@ -74,6 +74,16 @@ export function articleOgCard({
             {headline}
           </div>
           {meta.length > 0 && metaRow(meta)}
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+          }}
+        >
+          {brandRow()}
         </div>
       </div>
     </div>

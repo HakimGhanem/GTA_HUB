@@ -1,6 +1,9 @@
 import { setRequestLocale } from "next-intl/server";
+import { CreatorLinkBuilder } from "@/components/creators/CreatorLinkBuilder";
+import { getAllLocations } from "@/data/all-locations";
 import { Link } from "@/i18n/navigation";
 import { SITE } from "@/lib/constants";
+import { getIndexableLocations } from "@/lib/location-indexing";
 import { buildMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -19,6 +22,10 @@ export async function generateMetadata({ params }: Props) {
 export default async function CreatorsPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
+
+  const builderLocations = getIndexableLocations(getAllLocations()).map(
+    ({ slug, name, x, y }) => ({ slug, name, x, y }),
+  );
 
   return (
     <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
@@ -53,57 +60,20 @@ export default async function CreatorsPage({ params }: Props) {
         </Link>
       </div>
 
+      <CreatorLinkBuilder locale={locale} locations={builderLocations} />
+
       <article className="mt-10 space-y-4 text-white/70">
-        <h2 className="text-xl font-semibold text-white">
-          Tonight — Extended Look (+6 h window)
-        </h2>
+        <h2 className="text-xl font-semibold text-white">Share URLs</h2>
         <p>
-          Netflix subscribers see{" "}
-          <em>Grand Theft Auto VI: An Extended Look</em> at 21:00 CEST; the
-          official YouTube / VI-site upload follows at 03:00 CEST. That six-hour
-          gap is a clip window, not an official-partner badge. Map-6 is a fan
-          map. Open overlay, Share a Landmarks pin, append{" "}
-          <code className="text-white/80">ref=</code>, credit GTADB CC BY 4.0 if
-          you talk tiles. Do not overlay fake leak lists or a PC date. Hours:{" "}
-          <Link
-            href="/news/gta-6-extended-look-watch-times"
-            className="text-pink-300 underline"
-          >
-            watch times
-          </Link>
-          . Pause list:{" "}
-          <Link
-            href="/news/gta-6-extended-look-map-watch-for"
-            className="text-pink-300 underline"
-          >
-            what to pause
-          </Link>
-          . Live log:{" "}
-          <Link
-            href="/news/gta-6-extended-look-live-notes"
-            className="text-pink-300 underline"
-          >
-            live notes
-          </Link>
-          .
-        </p>
-        <h2 className="pt-4 text-xl font-semibold text-white">Share URLs</h2>
-        <p>
-          The toolbar Share button copies the current game, location, x/y,
-          zoom, and theme. Append{" "}
-          <code className="text-white/80">
-            &amp;ref=yourhandle
-          </code>{" "}
-          once; Map-6 remembers it for the session so later copies keep your
-          tag. Example shape:{" "}
-          <code className="break-all text-white/80">
-            /{locale}/map?loc=ocean-drive&amp;theme=streamer&amp;ref=yourhandle
-          </code>
-          .
+          The builder above writes the same URLs the map toolbar copies: game,
+          location, x/y, zoom, and theme. On the map itself, append{" "}
+          <code className="text-white/80">&amp;ref=yourhandle</code> once and
+          Map-6 remembers it for the session, so later Share copies keep your
+          tag without retyping it.
         </p>
         <h2 className="pt-4 text-xl font-semibold text-white">Overlay</h2>
         <p>
-          Chrome-free Browser Source:{" "}
+          The overlay is a chrome-free Browser Source:{" "}
           <Link
             href="/overlay?theme=streamer"
             className="text-pink-300 underline"
@@ -114,6 +84,22 @@ export default async function CreatorsPage({ params }: Props) {
           back. Kick and Twitch browser sources use the same URL. Streamer
           theme enlarges labels; Neon is high-contrast for shorts; Default is
           calmer for talking-head scenes.
+        </p>
+        <h2 className="pt-4 text-xl font-semibold text-white">
+          Clipping official beats
+        </h2>
+        <p>
+          Trailers and Netflix specials land on their own schedule, and the gap
+          between a first upload and the official mirror is a clip window — not
+          an official-partner badge. Open the overlay, Share a Landmarks pin,
+          keep your <code className="text-white/80">ref=</code>, and credit
+          GTADB CC BY 4.0 if you talk about tiles. Do not overlay fake leak
+          lists or an invented PC date. Timings and pause lists for each beat
+          live in{" "}
+          <Link href="/news" className="text-pink-300 underline">
+            news
+          </Link>
+          , which we date so you can tell a live post from an archive.
         </p>
         <h2 className="pt-4 text-xl font-semibold text-white">Attribution</h2>
         <p>

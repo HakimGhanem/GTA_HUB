@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { listPublishedArticles } from "@/lib/content/repository";
-import { buildMetadata } from "@/lib/seo";
+import { articleOgImagePath, buildMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
@@ -39,28 +39,62 @@ export default async function NewsIndexPage({ params }: Props) {
         </p>
       ) : (
         <div className="space-y-4">
-          {articles.map((article) => (
-            <Link
-              key={article.id}
-              href={`/news/${article.slug}`}
-              className="group block rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40 hover:bg-white/10"
-            >
-              <div className="mb-2 flex flex-wrap items-center gap-3 text-xs text-white/40">
-                <span className="rounded-full bg-white/10 px-2 py-0.5 capitalize">
-                  {article.cluster}
-                </span>
-                {article.publishedAt ? (
-                  <time dateTime={article.publishedAt}>
-                    {article.publishedAt.slice(0, 10)}
-                  </time>
+          {articles.map((article, index) => {
+            const image = articleOgImagePath(article.locale, article.slug);
+            const featured = index === 0;
+            return (
+              <Link
+                key={article.id}
+                href={`/news/${article.slug}`}
+                className="group block overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-colors hover:border-pink-400/40 hover:bg-white/10"
+              >
+                {featured ? (
+                  <img
+                    src={image}
+                    alt=""
+                    width={1200}
+                    height={630}
+                    className="aspect-[1200/630] w-full object-cover"
+                  />
                 ) : null}
-              </div>
-              <h2 className="text-xl font-semibold group-hover:text-pink-300">
-                {article.title}
-              </h2>
-              <p className="mt-2 text-sm text-white/60">{article.description}</p>
-            </Link>
-          ))}
+                <div
+                  className={
+                    featured
+                      ? "p-6"
+                      : "flex gap-4 p-4 sm:items-center sm:p-5"
+                  }
+                >
+                  {featured ? null : (
+                    <img
+                      src={image}
+                      alt=""
+                      width={320}
+                      height={168}
+                      className="hidden h-24 w-40 shrink-0 rounded-lg object-cover sm:block"
+                    />
+                  )}
+                  <div className="min-w-0">
+                    <div className="mb-2 flex flex-wrap items-center gap-3 text-xs text-white/40">
+                      <span className="rounded-full bg-white/10 px-2 py-0.5 capitalize">
+                        {article.cluster}
+                      </span>
+                      {article.publishedAt ? (
+                        <time dateTime={article.publishedAt}>
+                          {article.publishedAt.slice(0, 10)}
+                        </time>
+                      ) : null}
+                    </div>
+                    <h2 className="text-xl font-semibold group-hover:text-pink-300">
+                      {article.title}
+                    </h2>
+                    <p className="mt-2 text-sm text-white/60">
+                      {article.description}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       )}
     </main>

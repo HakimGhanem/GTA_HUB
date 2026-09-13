@@ -432,9 +432,12 @@ export function GameMap({
       )}
 
       {!overlayMode && game.attribution && (
-        <p className="pointer-events-none absolute bottom-3 right-14 z-10 max-w-[12rem] text-right text-[9px] leading-tight text-white/30 sm:bottom-4">
+        <a
+          href={`/${locale}/attributions`}
+          className="absolute bottom-3 right-14 z-10 max-w-[12rem] text-right text-[10px] leading-tight text-white/45 underline decoration-white/20 hover:text-white/70 sm:bottom-4"
+        >
           {game.attribution}
-        </p>
+        </a>
       )}
 
       {!overlayMode && !gtadbNative && game.tile.kind === "grid" && !game.primary && (

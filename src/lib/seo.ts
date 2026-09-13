@@ -49,6 +49,38 @@ function pageUrl(locale: string, path = "") {
   return `${SITE.url}${localizedPath(locale, path)}`;
 }
 
+/** Unique 1200×630 card used for OG, JSON-LD, and on-page heroes. */
+export function articleOgImagePath(locale: string, slug: string) {
+  return `/api/og/news/${locale}/${slug}`;
+}
+
+export function articleHeroSrc(article: {
+  locale: string;
+  slug: string;
+  heroImage?: string;
+}) {
+  if (article.heroImage && !article.heroImage.includes("og-default")) {
+    return article.heroImage;
+  }
+  return articleOgImagePath(article.locale, article.slug);
+}
+
+function withDiscoverRobots(robots: Metadata["robots"]): Metadata["robots"] {
+  if (!robots || typeof robots === "string") return robots;
+  const index = robots.index ?? true;
+  const follow = robots.follow ?? true;
+  return {
+    ...robots,
+    googleBot: {
+      index,
+      follow,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  };
+}
+
 function hreflangAlternates(path: string, localeList: readonly string[] = locales) {
   const suffix = path === "/" || path === "" ? "" : path;
   const languages = Object.fromEntries(
@@ -98,7 +130,7 @@ export function buildMetadata({
       description,
       images: [image],
     },
-    robots,
+    robots: withDiscoverRobots(robots),
   };
 }
 
@@ -145,9 +177,9 @@ export function jsonLdOrganization() {
     description: SITE.description,
     logo: {
       "@type": "ImageObject",
-      url: `${SITE.url}/og-default.png`,
-      width: 1200,
-      height: 630,
+      url: `${SITE.url}/icon-192.png`,
+      width: 192,
+      height: 192,
     },
     knowsAbout: KNOWS_ABOUT,
     publishingPrinciples: `${SITE.url}/en/about`,
@@ -447,6 +479,88 @@ export function jsonLdCollectionPage(options: {
   return { "@context": "https://schema.org", "@graph": graph };
 }
 
+/**
+ * Trailer scrub page: CollectionPage + one VideoObject per embedded trailer.
+ *
+ * `creator` names Rockstar Games and no `contentUrl` is emitted, because the
+ * page frames the official upload instead of hosting a copy.
+ */
+export function jsonLdTrailerPage(options: {
+  name: string;
+  description: string;
+  path: string;
+  locale?: string;
+  answer?: string;
+  breadcrumb: BreadcrumbTrailItem[];
+  videos: {
+    slug: string;
+    name: string;
+    description: string;
+    uploadDate: string;
+    duration: string;
+    embedUrl: string;
+    watchUrl: string;
+    thumbnailUrl: string;
+  }[];
+  faq?: { question: string; answer: string }[];
+}) {
+  const {
+    name,
+    description,
+    path,
+    locale = "en",
+    answer,
+    breadcrumb,
+    videos,
+    faq,
+  } = options;
+  const url = pageUrl(locale, path);
+
+  const graph: Record<string, unknown>[] = [
+    {
+      "@type": "CollectionPage",
+      "@id": url,
+      name,
+      description,
+      url,
+      inLanguage: inLanguage(locale),
+      isPartOf: { "@id": `${SITE.url}/#website` },
+      breadcrumb: { "@id": `${url}#breadcrumb` },
+      ...(answer ? { abstract: answer, speakable: SPEAKABLE } : {}),
+      ...(videos.length
+        ? { mainEntity: videos.map((v) => ({ "@id": `${url}#${v.slug}` })) }
+        : {}),
+    },
+    { ...breadcrumbNode(breadcrumb, locale), "@id": `${url}#breadcrumb` },
+    ...videos.map((video) => ({
+      "@type": "VideoObject",
+      "@id": `${url}#${video.slug}`,
+      name: video.name,
+      description: video.description,
+      uploadDate: video.uploadDate,
+      duration: video.duration,
+      thumbnailUrl: video.thumbnailUrl,
+      embedUrl: video.embedUrl,
+      url: video.watchUrl,
+      inLanguage: inLanguage(locale),
+      creator: { "@type": "Organization", name: "Rockstar Games" },
+      isPartOf: { "@id": url },
+    })),
+  ];
+
+  if (faq?.length) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      url,
+      inLanguage: inLanguage(locale),
+      mainEntity: jsonLdFAQEntities(faq),
+    });
+  }
+
+  return { "@context": "https://schema.org", "@graph": graph };
+}
+
 export function jsonLdArticle(
   guide: {
     title: string;
@@ -480,31 +594,70 @@ export function jsonLdNewsArticle(
     updatedAt?: string;
     image?: string;
     author?: string;
+    cluster?: string;
+    keywords?: string[];
+    wordCount?: number;
+    faqs?: { question: string; answer: string }[];
   },
   breadcrumb?: BreadcrumbTrailItem[],
 ) {
   const url = `${SITE.url}/${article.locale}/news/${article.slug}`;
-  const image = article.image?.startsWith("http")
-    ? article.image
-    : `${SITE.url}${article.image || "/og-default.png"}`;
+  const aboutUrl = `${SITE.url}/${article.locale}/about`;
+  const fallbackOg = articleOgImagePath(article.locale, article.slug);
+  const rawImage =
+    article.image && !article.image.includes("og-default")
+      ? article.image
+      : fallbackOg;
+  const image = rawImage.startsWith("http")
+    ? rawImage
+    : `${SITE.url}${rawImage}`;
+
+  const headline =
+    article.title.length > 110
+      ? `${article.title.slice(0, 107).trimEnd()}…`
+      : article.title;
+
+  const keywordList = [
+    "GTA 6",
+    ...(article.keywords ?? []),
+    ...article.slug.split("-").filter((part) => part.length > 2 && part !== "gta"),
+  ];
+  const keywords = [...new Set(keywordList.map((k) => k.trim()).filter(Boolean))].join(
+    ", ",
+  );
 
   const graph: Record<string, unknown>[] = [
     {
       "@type": "NewsArticle",
       "@id": `${url}#article`,
-      headline: article.title,
+      headline,
       description: article.description,
       url,
       mainEntityOfPage: { "@type": "WebPage", "@id": url },
       inLanguage: inLanguage(article.locale),
       datePublished: article.publishedAt,
       dateModified: article.updatedAt || article.publishedAt,
+      articleSection: article.cluster || "news",
+      keywords,
+      ...(article.wordCount ? { wordCount: article.wordCount } : {}),
       image: { "@type": "ImageObject", url: image, width: 1200, height: 630 },
       isPartOf: { "@id": `${SITE.url}/#website` },
-      author: article.author
-        ? { "@type": "Organization", name: article.author }
-        : { "@id": `${SITE.url}/#organization` },
-      publisher: { "@id": `${SITE.url}/#organization` },
+      author: {
+        "@type": "Organization",
+        name: article.author || "Map-6 Editorial",
+        url: aboutUrl,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: SITE.name,
+        url: SITE.url,
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE.url}/icon-192.png`,
+          width: 192,
+          height: 192,
+        },
+      },
       ...(breadcrumb?.length
         ? { breadcrumb: { "@id": `${url}#breadcrumb` } }
         : {}),
@@ -515,6 +668,16 @@ export function jsonLdNewsArticle(
     graph.push({
       ...breadcrumbNode(breadcrumb, article.locale),
       "@id": `${url}#breadcrumb`,
+    });
+  }
+
+  if (article.faqs?.length) {
+    graph.push({
+      "@type": "FAQPage",
+      "@id": `${url}#faq`,
+      url,
+      inLanguage: inLanguage(article.locale),
+      mainEntity: jsonLdFAQEntities(article.faqs),
     });
   }
 

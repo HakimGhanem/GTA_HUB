@@ -4,10 +4,10 @@ import {
   CONFIDENCE_BLURB,
   CONFIDENCE_LABEL,
   HUB_KIND_PARAMS,
-  KIND_BLURB,
   KIND_TITLE,
   countByKind,
 } from "@/data/hub";
+import { getHubKindContent } from "@/data/hub/kind-content";
 import { SITE } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo";
 
@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props) {
     locale,
     title: `GTA 6 Database — Characters, Vehicles, Weapons | ${SITE.name}`,
     description:
-      "Source-tagged GTA 6 encyclopedia: confirmed characters, trailer-visible vehicle types, and an empty weapons list until Rockstar publishes one. No leak catalogs.",
+      "Source-tagged GTA 6 encyclopedia: confirmed characters, trailer-visible vehicle types, and what is actually known about GTA 6 weapons. No leak catalogs.",
     path: "/database",
   });
 }
@@ -49,9 +49,13 @@ export default async function DatabaseHubPage({ params }: Props) {
             className="rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40"
           >
             <h2 className="text-xl font-semibold">{KIND_TITLE[kind]}</h2>
-            <p className="mt-2 text-sm text-white/60">{KIND_BLURB[kind]}</p>
+            <p className="mt-2 text-sm text-white/60">
+              {getHubKindContent(kind, locale).blurb}
+            </p>
             <p className="mt-4 text-xs text-white/40">
-              {counts[kind]} sourced {counts[kind] === 1 ? "entry" : "entries"}
+              {counts[kind] > 0
+                ? `${counts[kind]} sourced ${counts[kind] === 1 ? "entry" : "entries"}`
+                : "No entries yet — read what is known"}
             </p>
           </Link>
         ))}

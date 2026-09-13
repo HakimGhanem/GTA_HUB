@@ -38,6 +38,7 @@ export async function GET(_request: Request, { params }: Context) {
       meta: formatOgDate(article.publishedAt, locale),
       view,
       basemap,
+      cluster: article.cluster,
     }),
   );
 }

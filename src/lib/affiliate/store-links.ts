@@ -1,10 +1,13 @@
 import { buildAmazonAffiliateUrl } from "@/lib/amazon-affiliate";
 import type { PreorderProduct } from "@/data/preorder-products";
 import { searchQueryForProduct } from "@/lib/affiliate/catalog";
+import { isAmazonStoreId } from "@/lib/affiliate/amazon-markets";
 import {
   STORES,
   amazonStoreForLocale,
+  asinForStore,
   buildStoreProductUrl,
+  buildStoreSearchUrl,
   storeAppliesToProduct,
   type AffiliateStore,
   type AffiliateStoreId,
@@ -17,11 +20,17 @@ export type StoreOffer = {
   href: string;
   kind: StoreLinkKind;
   variant: "amazon" | "secondary";
+  /**
+   * `product` links straight to the item, `search` lands on tagged search
+   * results because we have no ASIN for that marketplace yet.
+   */
+  target: "product" | "search";
   cta: string;
 };
 
 const OFFER_ORDER: AffiliateStoreId[] = [
   "amazon_fr",
+  "amazon_co_uk",
   "amazon_com",
   "amazon_de",
   "amazon_es",
@@ -30,6 +39,9 @@ const OFFER_ORDER: AffiliateStoreId[] = [
   "xbox",
   "fnac",
   "bestbuy",
+  "instant_gaming",
+  "eneba",
+  "cdkeys",
 ];
 
 const PS_LOCALE_PATH: Record<string, string> = {
@@ -48,6 +60,26 @@ const XBOX_LOCALE_PATH: Record<string, string> = {
   es: "es-ES",
   it: "it-IT",
   pt: "pt-PT",
+};
+
+/** Instant Gaming translates the search segment itself, not just the prefix. */
+const INSTANT_GAMING_SEARCH_PATH: Record<string, string> = {
+  en: "en/search",
+  fr: "fr/rechercher",
+  de: "de/suche",
+  es: "es/busquedas",
+  it: "it/ricerca",
+  pt: "pt/pesquisar",
+};
+
+/** Eneba serves English at the root and prefixes the other languages. */
+const ENEBA_LOCALE_PREFIX: Record<string, string> = {
+  en: "",
+  fr: "/fr",
+  de: "/de",
+  es: "/es",
+  it: "/it",
+  pt: "/pt",
 };
 
 function envTrim(key: string): string {
@@ -111,10 +143,49 @@ export function buildBestBuySearchUrl(query: string): string {
   return applyAffiliateBase(base, official, query);
 }
 
-export function buildAmazonUrlForLocale(asin: string, locale: string): string {
+/**
+ * Instant Gaming: affiliate wrap when NEXT_PUBLIC_INSTANT_GAMING_AFFILIATE_BASE
+ * is set, else official localised search.
+ */
+export function buildInstantGamingSearchUrl(
+  query: string,
+  locale = "en",
+): string {
+  const path = INSTANT_GAMING_SEARCH_PATH[locale] ?? INSTANT_GAMING_SEARCH_PATH.en;
+  const official = `https://www.instant-gaming.com/${path}/?q=${encodeURIComponent(query)}`;
+  const base = envTrim("NEXT_PUBLIC_INSTANT_GAMING_AFFILIATE_BASE");
+  if (!base) return official;
+  return applyAffiliateBase(base, official, query);
+}
+
+/** Eneba: affiliate wrap when NEXT_PUBLIC_ENEBA_AFFILIATE_BASE is set. */
+export function buildEnebaSearchUrl(query: string, locale = "en"): string {
+  const prefix = ENEBA_LOCALE_PREFIX[locale] ?? "";
+  const official = `https://www.eneba.com${prefix}/store/all?text=${encodeURIComponent(query)}`;
+  const base = envTrim("NEXT_PUBLIC_ENEBA_AFFILIATE_BASE");
+  if (!base) return official;
+  return applyAffiliateBase(base, official, query);
+}
+
+/** CDKeys: affiliate wrap when NEXT_PUBLIC_CDKEYS_AFFILIATE_BASE is set. */
+export function buildCdkeysSearchUrl(query: string): string {
+  const official = `https://www.cdkeys.com/catalogsearch/result/?q=${encodeURIComponent(query)}`;
+  const base = envTrim("NEXT_PUBLIC_CDKEYS_AFFILIATE_BASE");
+  if (!base) return official;
+  return applyAffiliateBase(base, official, query);
+}
+
+/** Amazon link for a product on the locale's marketplace, ASIN or search. */
+export function buildAmazonProductUrlForLocale(
+  product: PreorderProduct,
+  locale: string,
+): string {
   const store = amazonStoreForLocale(locale);
-  if (store && asin) return buildStoreProductUrl(store, asin);
-  return buildAmazonAffiliateUrl(asin);
+  if (!store) return buildAmazonAffiliateUrl(product.asin);
+  const asin = asinForStore(store, product);
+  return asin
+    ? buildStoreProductUrl(store, asin)
+    : buildStoreSearchUrl(store, searchQueryForProduct(product));
 }
 
 export function buildOfferUrl(
@@ -123,13 +194,13 @@ export function buildOfferUrl(
   locale: string,
 ): string {
   const query = searchQueryForProduct(product);
+  if (isAmazonStoreId(store.id)) {
+    const asin = asinForStore(store, product);
+    return asin
+      ? buildStoreProductUrl(store, asin)
+      : buildStoreSearchUrl(store, query);
+  }
   switch (store.id) {
-    case "amazon_fr":
-    case "amazon_com":
-    case "amazon_de":
-    case "amazon_es":
-    case "amazon_it":
-      return buildStoreProductUrl(store, product.asin);
     case "playstation":
       return buildPlaystationSearchUrl(query, locale);
     case "xbox":
@@ -138,15 +209,24 @@ export function buildOfferUrl(
       return buildFnacSearchUrl(query);
     case "bestbuy":
       return buildBestBuySearchUrl(query);
+    case "instant_gaming":
+      return buildInstantGamingSearchUrl(query, locale);
+    case "eneba":
+      return buildEnebaSearchUrl(query, locale);
+    case "cdkeys":
+      return buildCdkeysSearchUrl(query);
     default:
       return store.baseUrl;
   }
 }
 
-function ctaForStore(store: AffiliateStore): string {
-  if (store.id.startsWith("amazon")) return `View on ${store.label} →`;
-  if (store.kind === "official") return `Search on ${store.label} →`;
-  return `Search on ${store.label} →`;
+/**
+ * English default. Callers with a translator should override via
+ * `localizeOffers` so a FR page never shows an English CTA.
+ */
+function ctaForStore(store: AffiliateStore, target: StoreOffer["target"]): string {
+  const verb = target === "product" ? "View on" : "Search on";
+  return `${verb} ${store.label} →`;
 }
 
 export function offersForProduct(
@@ -154,18 +234,34 @@ export function offersForProduct(
   locale: string,
 ): StoreOffer[] {
   return STORES.filter((store) => storeAppliesToProduct(store, product, locale))
-    .sort(
-      (a, b) =>
-        OFFER_ORDER.indexOf(a.id) - OFFER_ORDER.indexOf(b.id),
-    )
-    .map((store) => ({
-      id: store.id,
-      label: store.label,
-      href: buildOfferUrl(store, product, locale),
-      kind: store.kind,
-      variant: store.id.startsWith("amazon") ? "amazon" : "secondary",
-      cta: ctaForStore(store),
-    }));
+    .sort((a, b) => OFFER_ORDER.indexOf(a.id) - OFFER_ORDER.indexOf(b.id))
+    .map((store) => {
+      const isAmazon = isAmazonStoreId(store.id);
+      const hasAsin = isAmazon && asinForStore(store, product).length > 0;
+      const target: StoreOffer["target"] = hasAsin ? "product" : "search";
+      return {
+        id: store.id,
+        label: store.label,
+        href: buildOfferUrl(store, product, locale),
+        kind: store.kind,
+        variant: isAmazon ? "amazon" : "secondary",
+        target,
+        cta: ctaForStore(store, target),
+      };
+    });
+}
+
+/** Replace the English fallback CTAs with translated ones. */
+export function localizeOffers(
+  offers: StoreOffer[],
+  t: (key: "viewOnStore" | "searchOnStore", values: { store: string }) => string,
+): StoreOffer[] {
+  return offers.map((offer) => ({
+    ...offer,
+    cta: t(offer.target === "product" ? "viewOnStore" : "searchOnStore", {
+      store: offer.label,
+    }),
+  }));
 }
 
 export function productHasOffers(

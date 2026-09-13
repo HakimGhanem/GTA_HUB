@@ -102,9 +102,9 @@ export function PreorderGuideContent({ locale }: Props) {
       </h2>
       <p className="leading-relaxed text-white/80">
         {copy.platformBeforePs5}
-        {ps5Standard?.asin ? (
+        {ps5Standard ? (
           <AmazonAffiliateLink
-            asin={ps5Standard.asin}
+            product={ps5Standard}
             className="text-pink-400 underline hover:text-pink-300"
           >
             {copy.platformPs5}
@@ -113,9 +113,9 @@ export function PreorderGuideContent({ locale }: Props) {
           copy.platformPs5
         )}
         {copy.platformBetween}
-        {xboxStandard?.asin ? (
+        {xboxStandard ? (
           <AmazonAffiliateLink
-            asin={xboxStandard.asin}
+            product={xboxStandard}
             className="text-pink-400 underline hover:text-pink-300"
           >
             {copy.platformXbox}

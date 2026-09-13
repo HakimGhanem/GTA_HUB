@@ -129,7 +129,36 @@ export function brandRow(tagline = "GTA 6 INTERACTIVE MAP"): ReactElement {
   );
 }
 
-export function pill(label: string): ReactElement {
+const PILL_TONES: Record<string, { fg: string; bg: string; border: string }> = {
+  preorder: {
+    fg: "#f9a8d4",
+    bg: "rgba(236,72,153,0.22)",
+    border: "rgba(236,72,153,0.45)",
+  },
+  trailer: {
+    fg: "#67e8f9",
+    bg: "rgba(6,182,212,0.22)",
+    border: "rgba(6,182,212,0.45)",
+  },
+  map: {
+    fg: "#86efac",
+    bg: "rgba(34,197,94,0.22)",
+    border: "rgba(34,197,94,0.45)",
+  },
+  setup: {
+    fg: "#fcd34d",
+    bg: "rgba(245,158,11,0.22)",
+    border: "rgba(245,158,11,0.45)",
+  },
+  release: {
+    fg: "#c4b5fd",
+    bg: "rgba(139,92,246,0.22)",
+    border: "rgba(139,92,246,0.45)",
+  },
+};
+
+export function pill(label: string, tone = "preorder"): ReactElement {
+  const colors = PILL_TONES[tone] ?? PILL_TONES.preorder;
   return (
     <div
       style={{
@@ -138,9 +167,9 @@ export function pill(label: string): ReactElement {
         fontSize: 19,
         letterSpacing: 3,
         textTransform: "uppercase",
-        color: ACCENT_SOFT,
-        backgroundColor: "rgba(236,72,153,0.22)",
-        border: "1px solid rgba(236,72,153,0.45)",
+        color: colors.fg,
+        backgroundColor: colors.bg,
+        border: `1px solid ${colors.border}`,
         borderRadius: 999,
         padding: "8px 20px",
       }}

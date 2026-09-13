@@ -131,9 +131,14 @@ export default async function AboutPage({ params }: Props) {
                 target="_blank"
               >
                 CC BY 4.0
-              </a>{" "}
-              where applicable. We clone data responsibly; we do not scrape live
-              gtadb.org.
+              </a>
+              , plus other community datasets on their own terms. Every source,
+              licence and modification is listed on{" "}
+              <Link href="/attributions" className="text-pink-300 underline">
+                attributions
+              </Link>
+              , including the projects that declare no licence at all. We clone
+              data responsibly; we do not scrape live gtadb.org.
             </li>
             <li>
               <strong className="text-white/90">Thin auto-POIs stay out of

@@ -6,6 +6,8 @@ import {
   guideHreflangLocales,
   hasGuideTranslation,
 } from "@/data/guides-i18n";
+import { ATTRIBUTIONS_LOCALES } from "@/data/attributions-i18n";
+import { trailerHreflangLocales } from "@/data/trailer-i18n";
 import { locales } from "@/i18n/routing";
 import { SITE } from "@/lib/constants";
 import { evergreenPathForNews } from "@/lib/content/news-canonical";
@@ -15,6 +17,10 @@ import {
   HUB_KIND_PARAMS,
   getEntitiesByParam,
 } from "@/data/hub";
+import {
+  hubKindLocales,
+  isIndexableKind,
+} from "@/data/hub/kind-content";
 
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
 
@@ -108,6 +114,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   );
 
+  // Trailer scrub page: only the locales with dedicated copy — the rest are
+  // noindex fallbacks to EN.
+  const trailerPages = localizedEntries(
+    "/trailer",
+    { lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    trailerHreflangLocales(),
+  );
+
+  const attributionPages = localizedEntries(
+    "/attributions",
+    { lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    ATTRIBUTIONS_LOCALES,
+  );
+
   const locationPages = getIndexableLocations(getAllLocations()).flatMap((loc) =>
     localizedEntries(`/locations/${loc.slug}`, {
       lastModified: now,
@@ -137,23 +157,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }));
   });
 
-  const databaseKindPages = HUB_KIND_PARAMS.flatMap((kind) =>
-    localizedEntries(`/database/${kind}`, {
+  // Only locales with real copy, and only categories worth indexing
+  const databaseKindPages = HUB_KIND_PARAMS.filter((kind) =>
+    isIndexableKind(kind, getEntitiesByParam(kind).length),
+  ).flatMap((kind) => {
+    const localeList = hubKindLocales(kind);
+    return localeList.map((locale) => ({
+      url: `${SITE.url}/${locale}/database/${kind}`,
       lastModified: now,
-      changeFrequency: "weekly",
+      changeFrequency: "weekly" as const,
       priority: 0.7,
-    }),
-  );
+      alternates: hreflangAlternates(`/database/${kind}`, localeList),
+    }));
+  });
 
-  const databaseEntityPages = HUB_KIND_PARAMS.flatMap((kind) =>
-    getEntitiesByParam(kind).flatMap((entity) =>
-      localizedEntries(`/database/${kind}/${entity.slug}`, {
+  const databaseEntityPages = HUB_KIND_PARAMS.flatMap((kind) => {
+    const localeList = hubKindLocales(kind);
+    return getEntitiesByParam(kind).flatMap((entity) =>
+      localeList.map((locale) => ({
+        url: `${SITE.url}/${locale}/database/${kind}/${entity.slug}`,
         lastModified: now,
-        changeFrequency: "monthly",
+        changeFrequency: "monthly" as const,
         priority: 0.65,
-      }),
-    ),
-  );
+        alternates: hreflangAlternates(`/database/${kind}/${entity.slug}`, localeList),
+      })),
+    );
+  });
 
   // News: published only; lastModified from article.updatedAt
   // EN primary in MVP — still emit locale variants for hreflang consistency
@@ -166,6 +195,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...staticPages,
+    ...trailerPages,
+    ...attributionPages,
     ...locationPages,
     ...collectiblePages,
     ...guidePages,

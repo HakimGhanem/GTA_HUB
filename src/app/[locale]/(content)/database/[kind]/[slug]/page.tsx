@@ -12,6 +12,10 @@ import {
   jsonLdHubEntity,
   type HubKindParam,
 } from "@/data/hub";
+import {
+  hasHubKindTranslation,
+  hubKindLocales,
+} from "@/data/hub/kind-content";
 import { SITE } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo";
 
@@ -33,12 +37,22 @@ export async function generateMetadata({ params }: Props) {
   if (!isHubKindParam(kind)) return {};
   const entity = getEntity(kind, slug);
   if (!entity) return {};
+
+  // Entity prose is English-only — point other locales at /en instead of
+  // publishing six indexable copies of the same text.
+  const translated = hasHubKindTranslation(kind, locale);
+
   return buildMetadata({
     locale,
     title: `${entity.name} — GTA 6 ${KIND_TITLE[kind]} | ${SITE.name}`,
     description: entity.summary,
     path: `/database/${kind}/${slug}`,
     openGraphType: "article",
+    canonicalLocale: translated ? locale : "en",
+    hreflangLocales: hubKindLocales(kind),
+    robots: translated
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
   });
 }
 

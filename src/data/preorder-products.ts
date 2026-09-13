@@ -1,9 +1,17 @@
 import { AMAZON_STORE, buildAmazonAffiliateUrl } from "@/lib/amazon-affiliate";
+import type { AmazonStoreId } from "@/lib/affiliate/amazon-markets";
 
 export type PreorderProduct = {
   /** Env key suffix — e.g. GTA6_PS5 → NEXT_PUBLIC_AMAZON_ASIN_GTA6_PS5 */
   envKey: string;
+  /** amazon.fr ASIN — the historical default marketplace */
   asin: string;
+  /**
+   * ASINs on the other marketplaces. They differ from the amazon.fr one, so a
+   * missing entry degrades to a tagged search link instead of a dead /dp/ page.
+   * Override per deploy with NEXT_PUBLIC_AMAZON_UK_ASIN_<KEY> and friends.
+   */
+  asinByStore?: Partial<Record<AmazonStoreId, string>>;
   label: string;
   description: string;
   platform: "PS5" | "Xbox" | "PC" | "Multi";
@@ -20,6 +28,8 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
   {
     envKey: "GTA6_PS5",
     asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_PS5 ?? "B0GZW5D8YF",
+    // "Grand Theft Auto VI - PlayStation 5 (Code in Box)", £69.99 — checked live.
+    asinByStore: { amazon_co_uk: "B0H25M1QJS" },
     label: "Grand Theft Auto VI — PS5",
     description:
       "Standard edition for PlayStation 5, code-in-box (no disc). Amazon.fr has listed it under the €79.99 RRP; stock comes and goes because Rockstar allots key quotas.",
@@ -30,6 +40,8 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
   {
     envKey: "GTA6_XBOX",
     asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA6_XBOX ?? "B0GZW3TCF7",
+    // "Grand Theft Auto VI - Xbox Series X/S (Code in Box)", £69.99 — checked live.
+    asinByStore: { amazon_co_uk: "B0H25SH979" },
     label: "Grand Theft Auto VI — Xbox Series X|S",
     description:
       "Standard edition for Xbox Series X and Series S, code-in-box (no disc). Same discounted Amazon.fr pricing and same quota-driven stock swings as the PS5 SKU.",

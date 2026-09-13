@@ -1,8 +1,8 @@
-import { getLocale } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import { StoreOfferButtons } from "@/components/affiliate/StoreOfferButtons";
 import type { PreorderProduct } from "@/data/preorder-products";
 import { productEnvVar } from "@/data/preorder-products";
-import { offersForProduct } from "@/lib/affiliate/store-links";
+import { localizeOffers, offersForProduct } from "@/lib/affiliate/store-links";
 
 const PLATFORM_COLORS: Record<PreorderProduct["platform"], string> = {
   PS5: "bg-blue-500/20 text-blue-300",
@@ -28,10 +28,13 @@ export async function AmazonProductCard({
   locale: localeProp,
 }: AmazonProductCardProps) {
   const locale = localeProp ?? (await getLocale().catch(() => "fr"));
+  const t = await getTranslations({ locale, namespace: "affiliate" });
   const hasAsin = product.asin.length > 0;
   const allowPlaceholder =
     showPlaceholders && process.env.NODE_ENV !== "production";
-  const offers = offersForProduct(product, locale);
+  const offers = localizeOffers(offersForProduct(product, locale), (key, values) =>
+    t(key, values),
+  );
 
   if (!hasAsin && !allowPlaceholder && offers.length === 0) return null;
 

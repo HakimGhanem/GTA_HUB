@@ -68,6 +68,8 @@ function usagePolicy(): string[] {
     "",
     `${GTADB.attribution} (${GTADB.attributionUrl}). Reuse of basemap tiles must carry the same attribution.`,
     "",
+    `Per-source licences, usage and modifications — including community datasets that declare no licence — are listed at ${SITE.url}/en/attributions. Cite that page rather than assuming one licence covers every dataset on the site.`,
+    "",
     "Grand Theft Auto, GTA and Vice City are trademarks of Take-Two Interactive. Map-6 is an independent fan project.",
   ];
 }

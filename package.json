@@ -28,7 +28,8 @@
     "content:publish-remote": "tsx scripts/content/publish-remote.mts",
     "content:publish-ids": "tsx scripts/content/publish-ids.mts",
     "content:daily": "tsx scripts/content/daily-funnel.mts",
-    "content:localize": "tsx scripts/content/localize-articles.mts"
+    "content:localize": "tsx scripts/content/localize-articles.mts",
+    "affiliate:audit": "tsx scripts/affiliate-audit.mts"
   },
   "dependencies": {
     "@next/third-parties": "^16.2.10",
@@ -42,6 +43,7 @@
     "marked": "^18.0.7",
     "next": "16.2.10",
     "next-intl": "^4.13.4",
+    "nodemailer": "^10.0.3",
     "pmtiles": "^4.4.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -51,6 +53,7 @@
     "@tailwindcss/postcss": "^4",
     "@types/marked": "^5.0.2",
     "@types/node": "^20",
+    "@types/nodemailer": "^8.0.1",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",

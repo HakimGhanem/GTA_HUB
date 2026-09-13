@@ -25,7 +25,7 @@ const FAQ = [
   {
     question: "Who made the tiles?",
     answer:
-      "GTA 5 satellite / landmark layers come from community datasets (including GTADB under CC BY 4.0 where enabled). GTA 6 basemap tiles are likewise community cartography, not Rockstar files.",
+      "GTA 5 satellite and landmark layers come from community datasets — GTADB under CC BY 4.0, plus world-object coordinates from DurtyFree's data dumps, which declare no licence and are credited by permission. GTA 6 basemap tiles are likewise community cartography, not Rockstar files. Every source is listed on our attributions page.",
   },
 ];
 
@@ -101,11 +101,17 @@ export default async function Gta5MapLandingPage({ params }: Props) {
             us.
           </p>
           <p>
-            Data is community-sourced. GTADB satellite tiles and imported
-            world POIs are credited under CC BY 4.0 where those assets are
-            enabled. Classic Vice City and San Andreas maps use other
-            community basemaps (see the map HUD attribution). None of this is
-            an official Rockstar file dump.
+            Data is community-sourced, and each source carries its own terms.
+            GTADB satellite tiles are used under CC BY 4.0. The imported world
+            POIs — ATMs, gas pumps, vending machines, telescopes — come from
+            DurtyFree&apos;s GTA V data dumps, a project that declares no
+            licence: we credit it, we keep the extract minimal, and we remove
+            it on request. Classic Vice City and San Andreas maps use other
+            community basemaps. Full per-source breakdown on{" "}
+            <Link href="/attributions" className="text-pink-300 underline">
+              attributions
+            </Link>
+            . None of this is an official Rockstar file dump.
           </p>
           <p>
             GTA 6 is the primary product. Pins on Leonida mix editorial hubs

@@ -83,6 +83,8 @@ export type Article = {
   clipHook?: string;
   /** Suggested map deep-link path */
   mapCtaPath?: string;
+  /** Optional FAQ block — rendered on-page and as FAQPage JSON-LD */
+  faqs?: { question: string; answer: string }[];
 };
 
 export type Topic = {
