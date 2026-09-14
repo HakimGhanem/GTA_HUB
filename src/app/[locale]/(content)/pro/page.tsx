@@ -15,6 +15,9 @@ export async function generateMetadata({ params }: Props) {
     description:
       "Map-6 Pro is planned before GTA 6 launch: cloud progress sync, optional no-ads, branded overlay. 2.99–3.99 €/mo framing. Waitlist only — no Stripe yet. Local export works today.",
     path: "/pro",
+    // English copy only — the other locales would be duplicates of /en.
+    canonicalLocale: "en",
+    hreflangLocales: ["en"],
   });
 }
 

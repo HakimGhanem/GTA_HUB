@@ -21,6 +21,9 @@ export async function generateMetadata({ params }: Props) {
     description:
       "Source-tagged GTA 6 encyclopedia: confirmed characters, trailer-visible vehicle types, and what is actually known about GTA 6 weapons. No leak catalogs.",
     path: "/database",
+    // English copy only — the other locales would be duplicates of /en.
+    canonicalLocale: "en",
+    hreflangLocales: ["en"],
   });
 }
 

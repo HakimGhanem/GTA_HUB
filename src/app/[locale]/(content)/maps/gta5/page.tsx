@@ -37,6 +37,9 @@ export async function generateMetadata({ params }: Props) {
     description:
       "Free GTA 5 interactive map on Map-6: Los Santos POIs, collectibles, unlimited local progress (no 100-pin cap), plus Vice City and San Andreas. Switch with ?game=gta5.",
     path: "/maps/gta5",
+    // English copy only — the other locales would be duplicates of /en.
+    canonicalLocale: "en",
+    hreflangLocales: ["en"],
   });
 }
 

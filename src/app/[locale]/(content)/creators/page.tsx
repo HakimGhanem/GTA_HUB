@@ -16,6 +16,9 @@ export async function generateMetadata({ params }: Props) {
     description:
       "Use Map-6 on Kick, TikTok, Twitch, or OBS: chrome-free overlay, streamer theme, shareable pin URLs, and creator ref tags. Fan project — not an official Rockstar partner program.",
     path: "/creators",
+    // English copy only — the other locales would be duplicates of /en.
+    canonicalLocale: "en",
+    hreflangLocales: ["en"],
   });
 }
 

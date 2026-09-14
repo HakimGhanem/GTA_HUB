@@ -85,13 +85,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/collectibles",
     "/guides",
     "/news",
-    "/database",
-    "/maps/gta5",
-    "/creators",
-    "/pro",
     "/about",
     "/privacy",
   ];
+
+  /**
+   * Shipped with English copy only. Listing the six locale variants would put
+   * five duplicates of the same text in the index, so they stay out of the
+   * sitemap and canonicalise to `/en` until the copy is translated.
+   */
+  const englishOnlyPaths = ["/database", "/maps/gta5", "/creators", "/pro"];
+
   const staticPages = staticPaths.flatMap((path) =>
     localizedEntries(path, {
       lastModified: now,
@@ -112,6 +116,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
               ? 0.35
               : 0.85,
     }),
+  );
+
+  const englishOnlyPages = englishOnlyPaths.flatMap((path) =>
+    localizedEntries(
+      path,
+      { lastModified: now, changeFrequency: "daily", priority: 0.85 },
+      ["en"],
+    ),
   );
 
   // Trailer scrub page: only the locales with dedicated copy — the rest are
@@ -195,6 +207,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...staticPages,
+    ...englishOnlyPages,
     ...trailerPages,
     ...attributionPages,
     ...locationPages,
