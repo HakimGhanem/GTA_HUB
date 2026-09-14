@@ -32,24 +32,52 @@ gcloud artifacts repositories create cloud-run-source-deploy \
 
 ### Deploy
 
+Le déploiement passe par Cloud Build, qui construit l'image **et** met à jour le
+service. Toutes les substitutions (`_AMAZON_*`, `_MAP_*`, `_SITE_URL`…) ont une
+valeur par défaut dans `cloudbuild.yaml` : une invocation nue reproduit donc la
+prod à l'identique.
+
 ```bash
-chmod +x scripts/deploy-cloudrun.sh
-export GCP_PROJECT=votre-project-id
-export NEXT_PUBLIC_SITE_URL=https://map6.live
-./scripts/deploy-cloudrun.sh
+gcloud builds submit --region=europe-west1 --config=cloudbuild.yaml .
 ```
+
+Le build dure ~5 min. Pour surcharger une valeur le temps d'un déploiement :
+
+```bash
+gcloud builds submit --region=europe-west1 --config=cloudbuild.yaml . \
+  --substitutions=_AMAZON_UK_TAG=map6uk-21
+```
+
+> `scripts/deploy-cloudrun.sh` est l'ancien chemin, antérieur à `cloudbuild.yaml`.
+> Il ne connaît aucune des substitutions Amazon/carte et produit une image
+> incomplète. Ne pas l'utiliser.
 
 ### Variables d'environnement Cloud Run
 
-Dans la console ou via CLI après deploy :
+Les `NEXT_PUBLIC_*` sont inlinées **à la construction** : elles se règlent par
+substitution Cloud Build, pas sur le service. Seuls les secrets serveur
+(`SMTP_*`, `CONTENT_API_SECRET`, `INDEXNOW_KEY`, `FIRESTORE_*`) vivent comme
+variables d'environnement Cloud Run.
 
 ```bash
-gcloud run services update map6 --region europe-west1 \
-  --set-env-vars="NEXT_PUBLIC_SITE_URL=https://map6.live,\
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXX,\
-NEXT_PUBLIC_GSC_VERIFICATION=xxx,\
-NEXT_PUBLIC_BING_VERIFICATION=xxx,\
-NEXT_PUBLIC_GTADB_ENABLED=true"
+gcloud run services update map6 --region=europe-west1 \
+  --update-env-vars="SMTP_PASSWORD=xxxx"
+```
+
+> **Toujours `--update-env-vars`, jamais `--set-env-vars`.** Le second remplace
+> l'intégralité du bloc et efface silencieusement les 35 variables déjà en place,
+> dont les identifiants SMTP et le secret de l'API contenu. `cloudbuild.yaml`
+> utilise `--update-env-vars` pour cette raison : les secrets survivent aux
+> déploiements.
+
+### Trafic
+
+Un `update-traffic --to-revisions=<révision>=100` **épingle** le service : les
+déploiements suivants créent une révision qui reste à 0 %. Pour revenir au
+comportement normal :
+
+```bash
+gcloud run services update-traffic map6 --region=europe-west1 --to-latest
 ```
 
 **Tuiles GTADB (~plusieurs Go)** : ne pas mettre dans l'image Docker.
@@ -64,7 +92,10 @@ Health check : `GET /api/health` → `{"status":"ok"}`
 
 ## 2. DNS Squarespace → Cloud Run
 
-Domaines achetés : **map6.live** (canonical) + **map-6.com** (redirect).
+Domaines achetés : **map-6.com** (canonical) + **map6.live** (redirect 301).
+
+Le sens a été inversé après le rebranding : `middleware.ts` redirige `map6.live`,
+`www.map6.live` et `www.map-6.com` vers `map-6.com`.
 
 ### Étape A — Domain mapping Cloud Run
 
