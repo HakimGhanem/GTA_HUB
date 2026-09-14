@@ -38,15 +38,22 @@ valeur par défaut dans `cloudbuild.yaml` : une invocation nue reproduit donc la
 prod à l'identique.
 
 ```bash
-gcloud builds submit --region=europe-west1 --config=cloudbuild.yaml .
+gcloud builds submit --region=europe-west1 --project=gtahub-503009 \
+  --config=cloudbuild.yaml .
 ```
 
 Le build dure ~5 min. Pour surcharger une valeur le temps d'un déploiement :
 
 ```bash
-gcloud builds submit --region=europe-west1 --config=cloudbuild.yaml . \
-  --substitutions=_AMAZON_UK_TAG=map6uk-21
+gcloud builds submit --region=europe-west1 --project=gtahub-503009 \
+  --config=cloudbuild.yaml . --substitutions=_AMAZON_UK_TAG=map6uk-21
 ```
+
+> **Toujours passer `--project=gtahub-503009`.** Sans lui, Cloud Build utilise
+> le projet par défaut de `gcloud config`, et `$PROJECT_ID` dans `cloudbuild.yaml`
+> suit. `gcloud run deploy` ne se plaint pas d'un service absent : il en **crée**
+> un, vide de secrets et sans mapping de domaine. Le build est vert, la prod
+> n'a pas bougé, et un service fantôme facture dans l'autre projet.
 
 > `scripts/deploy-cloudrun.sh` est l'ancien chemin, antérieur à `cloudbuild.yaml`.
 > Il ne connaît aucune des substitutions Amazon/carte et produit une image
