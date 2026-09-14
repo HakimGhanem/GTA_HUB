@@ -9,6 +9,15 @@ export const COLLECTIONS = {
 
 let db: Firestore | null | undefined;
 
+/**
+ * A failed credential probe is retried instead of being cached for the life of
+ * the instance: the probe is the first RPC of a cold start, so a slow metadata
+ * server used to disable Firestore for every later request on that container —
+ * waitlist signups then survived only as notification emails.
+ */
+const PROBE_RETRY_MS = 60_000;
+let lastProbeFailureAt = 0;
+
 function hasExplicitFirebaseCreds(): boolean {
   return Boolean(
     process.env.FIREBASE_SERVICE_ACCOUNT_JSON ||
@@ -26,8 +35,9 @@ function isGcpRuntime(): boolean {
  * Returns null to fall back to data/content/*.json file store.
  */
 export async function getFirestore(): Promise<Firestore | null> {
-  if (db !== undefined) return db;
+  if (db) return db;
 
+  // Configuration, unlike credentials, cannot change under us — no retry.
   if (process.env.FIRESTORE_ENABLED !== "true") {
     db = null;
     return null;
@@ -37,6 +47,8 @@ export async function getFirestore(): Promise<Firestore | null> {
     db = null;
     return null;
   }
+
+  if (Date.now() - lastProbeFailureAt < PROBE_RETRY_MS) return null;
 
   try {
     const { initializeApp, getApps, cert, applicationDefault } = await import(
@@ -84,7 +96,7 @@ export async function getFirestore(): Promise<Firestore | null> {
     return db;
   } catch (err) {
     console.warn("[content] Firestore unavailable, using file store:", err);
-    db = null;
+    lastProbeFailureAt = Date.now();
     return null;
   }
 }

@@ -2,18 +2,28 @@
 
 import { Link } from "@/i18n/navigation";
 import clsx from "clsx";
-import type { Location, LocationCategory } from "@/data/locations";
+import type {
+  Location,
+  LocationCategory,
+  LocationConfidence,
+} from "@/data/locations";
 import { formatNumber } from "@/lib/format";
 import {
   ALL_CATEGORIES,
   CATEGORY_COLORS,
+  OFFICIAL_CONFIDENCES,
   countByCategory,
   listSubtypes,
   type FoundFilter,
   type MapFilters,
 } from "@/lib/map-filters";
 import {
+  ALL_CONFIDENCE_LEVELS,
+  CONFIDENCE_COLORS,
+} from "@/lib/location-confidence";
+import {
   getCategoryLabel,
+  getConfidenceLabel,
   getLocationDisplayName,
   getSubtypeLabel,
 } from "@/lib/location-display";
@@ -93,6 +103,31 @@ export function MapSidebar({
   function clearSubtypes() {
     onFiltersChange({ ...filters, subtypes: new Set() });
   }
+
+  function toggleConfidence(level: LocationConfidence) {
+    const next = new Set(filters.confidences);
+    if (next.has(level)) next.delete(level);
+    else next.add(level);
+    onFiltersChange({ ...filters, confidences: next });
+  }
+
+  function selectAllConfidences() {
+    onFiltersChange({
+      ...filters,
+      confidences: new Set(ALL_CONFIDENCE_LEVELS),
+    });
+  }
+
+  function selectOfficialConfidences() {
+    onFiltersChange({
+      ...filters,
+      confidences: new Set(OFFICIAL_CONFIDENCES),
+    });
+  }
+
+  const officialOnly =
+    filters.confidences.size === OFFICIAL_CONFIDENCES.length &&
+    OFFICIAL_CONFIDENCES.every((level) => filters.confidences.has(level));
 
   return (
     <aside
@@ -239,6 +274,60 @@ export function MapSidebar({
         </div>
       </div>
 
+      <div className="border-b border-white/10 p-4">
+        <div className="mb-2 flex items-center justify-between">
+          <p className="text-xs font-medium uppercase tracking-wider text-white/50">
+            {t("map.sidebar.sourceFilters")}
+          </p>
+          <div className="flex gap-2 text-[10px]">
+            <button
+              type="button"
+              onClick={selectOfficialConfidences}
+              className={clsx(
+                officialOnly
+                  ? "text-emerald-300"
+                  : "text-pink-400 hover:text-pink-300",
+              )}
+            >
+              {t("map.sidebar.confidenceFilterOfficial")}
+            </button>
+            <button
+              type="button"
+              onClick={selectAllConfidences}
+              className="text-white/40 hover:text-white/70"
+            >
+              {t("map.sidebar.confidenceFilterAll")}
+            </button>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-1.5">
+          {ALL_CONFIDENCE_LEVELS.map((level) => {
+            const active = filters.confidences.has(level);
+            return (
+              <button
+                key={level}
+                type="button"
+                onClick={() => toggleConfidence(level)}
+                aria-pressed={active}
+                className={clsx(
+                  "rounded-full px-2 py-0.5 text-[10px] font-medium",
+                  active
+                    ? "text-white"
+                    : "bg-white/5 text-white/40 hover:text-white/70",
+                )}
+                style={
+                  active
+                    ? { backgroundColor: `${CONFIDENCE_COLORS[level]}44` }
+                    : undefined
+                }
+              >
+                {getConfidenceLabel(level, t)}
+              </button>
+            );
+          })}
+        </div>
+      </div>
+
       {subtypes.length > 0 && (
         <div className="border-b border-white/10 p-4">
           <div className="mb-2 flex items-center justify-between">
@@ -295,6 +384,7 @@ export function MapSidebar({
                   categories: new Set(ALL_CATEGORIES),
                   foundFilter: "all",
                   subtypes: new Set(),
+                  confidences: new Set(ALL_CONFIDENCE_LEVELS),
                 })
               }
               className="mt-3 text-xs text-pink-400 hover:text-pink-300"

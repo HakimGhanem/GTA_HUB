@@ -1,4 +1,12 @@
-import type { Location, LocationCategory } from "@/data/locations";
+import type {
+  Location,
+  LocationCategory,
+  LocationConfidence,
+} from "@/data/locations";
+import {
+  ALL_CONFIDENCE_LEVELS,
+  resolveConfidence,
+} from "@/lib/location-confidence";
 
 export const CATEGORY_LABELS: Record<LocationCategory, string> = {
   landmark: "Landmarks",
@@ -54,7 +62,14 @@ export type MapFilters = {
   foundFilter: FoundFilter;
   /** Empty = all subtypes */
   subtypes: Set<string>;
+  /** Empty = none. Default is every confidence level. */
+  confidences: Set<LocationConfidence>;
 };
+
+export const OFFICIAL_CONFIDENCES: LocationConfidence[] = [
+  "confirmed",
+  "trailer",
+];
 
 export function countByCategory(
   locations: Location[],
@@ -94,6 +109,10 @@ export function filterLocations(
       if (filters.foundFilter === "hide_found" && found) return false;
       if (filters.foundFilter === "found_only" && !found) return false;
     }
+    if (filters.confidences.size === 0) return false;
+    if (filters.confidences.size < ALL_CONFIDENCE_LEVELS.length) {
+      if (!filters.confidences.has(resolveConfidence(loc))) return false;
+    }
     if (!q) return true;
     return (
       loc.name.toLowerCase().includes(q) ||
@@ -110,5 +129,6 @@ export function defaultMapFilters(): MapFilters {
     categories: new Set(ALL_CATEGORIES),
     foundFilter: "all",
     subtypes: new Set(),
+    confidences: new Set(ALL_CONFIDENCE_LEVELS),
   };
 }
