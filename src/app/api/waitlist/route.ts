@@ -117,6 +117,8 @@ export async function POST(req: Request) {
       to: cleanEmail,
       subject: confirm.subject,
       text: confirm.text,
+      html: confirm.html,
+      headers: confirm.headers,
     });
   }
 

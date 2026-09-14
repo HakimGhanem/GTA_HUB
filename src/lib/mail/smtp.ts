@@ -44,6 +44,8 @@ export type MailInput = {
   html?: string;
   to?: string;
   replyTo?: string;
+  /** Extra SMTP headers — List-Unsubscribe and friends. */
+  headers?: Record<string, string>;
 };
 
 /**
@@ -66,6 +68,7 @@ export async function sendMail(
       text: input.text,
       ...(input.html ? { html: input.html } : {}),
       ...(input.replyTo ? { replyTo: input.replyTo } : {}),
+      ...(input.headers ? { headers: input.headers } : {}),
     });
     return { sent: true };
   } catch (err) {
