@@ -22,6 +22,10 @@ import {
   CONFIDENCE_COLORS,
 } from "@/lib/location-confidence";
 import {
+  formatTrailerStamp,
+  getLocationTrailerHits,
+} from "@/lib/location-evidence";
+import {
   getCategoryLabel,
   getConfidenceLabel,
   getLocationDisplayName,
@@ -396,6 +400,7 @@ export function MapSidebar({
           <ul className="space-y-0.5" role="listbox" aria-label="Matching locations">
             {visible.map((loc) => {
               const found = isFound?.(loc.slug) ?? false;
+              const firstHit = getLocationTrailerHits(loc.slug)[0];
               return (
                 <li key={loc.slug}>
                   <div
@@ -433,6 +438,8 @@ export function MapSidebar({
                       </span>
                       <span className="mt-0.5 block truncate pl-4 text-xs text-white/40">
                         {loc.region}
+                        {firstHit ? ` · ${formatTrailerStamp(firstHit)}` : ""}
+                        {loc.edition === "ultimate" ? " · Ultimate" : ""}
                       </span>
                     </button>
                     {onToggleFound && (

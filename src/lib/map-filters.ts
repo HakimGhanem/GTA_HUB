@@ -52,6 +52,10 @@ export const SUBTYPE_LABELS: Record<string, string> = {
   bench: "Bench",
   "parking-meter": "Parking meter",
   rampage: "Rampage",
+  "mod-shop": "Mod shop",
+  salon: "Salon",
+  clothing: "Clothing",
+  tattoo: "Tattoo",
 };
 
 export type FoundFilter = "all" | "hide_found" | "found_only";
@@ -118,7 +122,8 @@ export function filterLocations(
       loc.name.toLowerCase().includes(q) ||
       loc.region.toLowerCase().includes(q) ||
       loc.description.toLowerCase().includes(q) ||
-      (loc.subtype?.toLowerCase().includes(q) ?? false)
+      (loc.subtype?.toLowerCase().includes(q) ?? false) ||
+      (loc.edition === "ultimate" && q.includes("ultimate"))
     );
   });
 }

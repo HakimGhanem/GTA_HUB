@@ -15,6 +15,10 @@ import {
 } from "@/lib/location-confidence";
 import { getConfidenceLabel } from "@/lib/location-display";
 import {
+  formatTrailerStamp,
+  getLocationTrailerHits,
+} from "@/lib/location-evidence";
+import {
   buildMetadata,
   jsonLdPlace,
   jsonLdRegionalLocation,
@@ -79,6 +83,7 @@ export default async function LocationPage({ params }: Props) {
   const location = getLocationBySlug(slug);
   if (!location) notFound();
   const confidence = resolveConfidence(location);
+  const trailerHits = getLocationTrailerHits(location.slug);
 
   const noindex = shouldNoindexLocation(location);
   const regionalSeo = getRegionalLocationSeo(slug, locale);
@@ -124,6 +129,11 @@ export default async function LocationPage({ params }: Props) {
               >
                 {getConfidenceLabel(confidence, tRoot)}
               </span>
+              {location.edition === "ultimate" && (
+                <span className="inline-block rounded-full bg-amber-400/20 px-3 py-1 text-xs font-semibold text-amber-200 ring-1 ring-amber-300/30">
+                  {tRoot("map.popup.ultimate")}
+                </span>
+              )}
             </div>
             <h1 className="text-3xl font-bold">{location.name}</h1>
             <p className="mt-1 text-sm text-white/50">{location.region}</p>
@@ -136,6 +146,43 @@ export default async function LocationPage({ params }: Props) {
           <p className="mb-4 font-mono text-sm text-white/40">
             {t("coordinates", { x: location.x, y: location.y })}
           </p>
+
+          {(trailerHits.length > 0 || location.sourceUrl) && (
+            <section className="mb-6 max-w-2xl rounded-xl border border-white/10 bg-white/5 p-4">
+              <h2 className="text-sm font-semibold text-white">
+                {t("trailerBeatsTitle")}
+              </h2>
+              <ul className="mt-2 space-y-1.5">
+                {trailerHits.map((hit) => (
+                  <li key={`${hit.trailerSlug}-${hit.at}`}>
+                    <a
+                      href={hit.watchUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-pink-300 hover:text-pink-200"
+                    >
+                      {formatTrailerStamp(hit)}
+                    </a>
+                  </li>
+                ))}
+                {location.sourceUrl && (
+                  <li>
+                    <a
+                      href={location.sourceUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-sm text-white/60 underline hover:text-white"
+                    >
+                      {t("officialSource")}
+                    </a>
+                  </li>
+                )}
+              </ul>
+              {location.edition === "ultimate" && (
+                <p className="mt-3 text-xs text-white/45">{t("ultimateNote")}</p>
+              )}
+            </section>
+          )}
 
           <Link
             href={`/map?loc=${location.slug}&x=${location.x}&y=${location.y}`}

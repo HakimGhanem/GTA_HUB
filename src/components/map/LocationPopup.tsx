@@ -8,6 +8,10 @@ import {
   resolveConfidence,
 } from "@/lib/location-confidence";
 import {
+  formatTrailerStamp,
+  getLocationTrailerHits,
+} from "@/lib/location-evidence";
+import {
   getCategoryLabel,
   getConfidenceLabel,
   getLocationDisplayDescription,
@@ -37,6 +41,7 @@ export function LocationPopup({
   const subtypeLabel = location.subtype
     ? getSubtypeLabel(location.subtype, t)
     : null;
+  const trailerHits = getLocationTrailerHits(location.slug);
 
   return (
     <div className="min-w-[220px] max-w-[280px] p-1">
@@ -55,6 +60,11 @@ export function LocationPopup({
         >
           {getConfidenceLabel(confidence, t)}
         </span>
+        {location.edition === "ultimate" && (
+          <span className="rounded bg-amber-200 px-1.5 py-0.5 text-[10px] font-semibold text-amber-900">
+            {t("map.popup.ultimate")}
+          </span>
+        )}
       </div>
       <h3 className="text-[15px] font-semibold leading-snug text-gray-900">{name}</h3>
       <p className="mt-1.5 text-xs leading-relaxed text-gray-600">{description}</p>
@@ -65,6 +75,41 @@ export function LocationPopup({
           y: location.y,
         })}
       </p>
+      {(trailerHits.length > 0 || location.sourceUrl) && (
+        <ul className="mt-2 space-y-1">
+          {trailerHits.map((hit) => (
+            <li key={`${hit.trailerSlug}-${hit.at}`}>
+              <a
+                href={hit.watchUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] font-medium text-pink-600 hover:text-pink-500"
+              >
+                {t("map.popup.watchTrailer", {
+                  stamp: formatTrailerStamp(hit),
+                })}
+              </a>
+            </li>
+          ))}
+          {location.sourceUrl && (
+            <li>
+              <a
+                href={location.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[11px] text-gray-500 underline hover:text-gray-700"
+              >
+                {t("map.popup.officialSource")}
+              </a>
+            </li>
+          )}
+        </ul>
+      )}
+      {location.edition === "ultimate" && (
+        <p className="mt-1.5 text-[10px] leading-snug text-gray-500">
+          {t("map.popup.regionalPin")}
+        </p>
+      )}
       <div className="mt-3 flex flex-wrap gap-2">
         {onToggleFound && (
           <button

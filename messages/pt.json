@@ -57,6 +57,9 @@
     "viewOnMap": "Ver no mapa",
     "backToAll": "← Todos os locais",
     "coordinates": "Coordenadas: X: {x}, Y: {y}",
+    "trailerBeatsTitle": "Visto nos trailers oficiais",
+    "officialSource": "Fonte Rockstar",
+    "ultimateNote": "Destino Ultimate Edition. O pin marca a região, não um endereço.",
     "aboutTitle": "Sobre {name}",
     "findTitle": "O que encontrar em {name}",
     "faqTitle": "Perguntas frequentes",
@@ -188,7 +191,11 @@
       "jukebox": "Jukebox",
       "bench": "Bench",
       "parking-meter": "Parking meter",
-      "rampage": "Rampage"
+      "rampage": "Rampage",
+      "mod-shop": "Oficina",
+      "salon": "Salão",
+      "clothing": "Roupa",
+      "tattoo": "Tatuagem"
     },
     "confidence": {
       "confirmed": "Confirmed",
@@ -252,7 +259,11 @@
       "found": "Found ✓",
       "details": "Details",
       "center": "Center map",
-      "coords": "{region} · X {x}, Y {y}"
+      "coords": "{region} · X {x}, Y {y}",
+      "watchTrailer": "Ver {stamp}",
+      "officialSource": "Fonte oficial",
+      "ultimate": "Ultimate",
+      "regionalPin": "Pin regional — a Rockstar não publicou um endereço."
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

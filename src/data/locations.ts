@@ -12,6 +12,8 @@ export type LocationConfidence =
   | "rumor"
   | "seed";
 
+export type LocationEdition = "ultimate";
+
 export type Location = {
   slug: string;
   name: string;
@@ -21,11 +23,18 @@ export type Location = {
   y: number;
   region: string;
   source?: string;
+  /** Public citation — official Rockstar / Newswire / store page */
+  sourceUrl?: string;
   /** Explicit trust label; otherwise derived from source */
   confidence?: LocationConfidence;
   /** Fine-grained type — e.g. atm, letter-scrap, stunt-jump */
   subtype?: string;
+  /** Premium-edition destination named by Rockstar */
+  edition?: LocationEdition;
 };
+
+const ROCKSTAR_VI = "https://www.rockstargames.com/VI";
+const ROCKSTAR_EDITIONS = "https://www.rockstargames.com/VI/editions";
 
 export const LOCATIONS: Location[] = [
   {
@@ -37,6 +46,9 @@ export const LOCATIONS: Location[] = [
     x: 0,
     y: 120,
     region: "Leonida Keys",
+    source: "official",
+    sourceUrl: ROCKSTAR_VI,
+    confidence: "confirmed",
   },
   {
     slug: "ocean-drive",
@@ -47,6 +59,9 @@ export const LOCATIONS: Location[] = [
     x: 420,
     y: 280,
     region: "Vice City",
+    source: "official",
+    sourceUrl: ROCKSTAR_VI,
+    confidence: "confirmed",
   },
   {
     slug: "hidden-package-01",
@@ -67,6 +82,9 @@ export const LOCATIONS: Location[] = [
     x: -1500,
     y: 900,
     region: "Grassrivers",
+    source: "official",
+    sourceUrl: ROCKSTAR_VI,
+    confidence: "confirmed",
   },
   {
     slug: "leonida-keys",
@@ -77,6 +95,9 @@ export const LOCATIONS: Location[] = [
     x: 1200,
     y: -500,
     region: "Leonida Keys",
+    source: "official",
+    sourceUrl: ROCKSTAR_VI,
+    confidence: "confirmed",
   },
   {
     slug: "port-gellhorn",
@@ -87,6 +108,9 @@ export const LOCATIONS: Location[] = [
     x: -1200,
     y: -500,
     region: "Port Gellhorn",
+    source: "official",
+    sourceUrl: ROCKSTAR_VI,
+    confidence: "confirmed",
   },
   {
     slug: "ambrosia-island",
@@ -97,6 +121,9 @@ export const LOCATIONS: Location[] = [
     x: 1100,
     y: -620,
     region: "Leonida Keys",
+    source: "official",
+    sourceUrl: ROCKSTAR_VI,
+    confidence: "confirmed",
   },
   {
     slug: "mount-kalaga",
@@ -107,6 +134,9 @@ export const LOCATIONS: Location[] = [
     x: -2000,
     y: 3500,
     region: "Mount Kalaga",
+    source: "official",
+    sourceUrl: ROCKSTAR_VI,
+    confidence: "confirmed",
   },
   {
     slug: "grassroots-weapons",
@@ -127,6 +157,81 @@ export const LOCATIONS: Location[] = [
     x: -1800,
     y: 900,
     region: "Grassrivers",
+  },
+  {
+    slug: "rideout-customs",
+    name: "Rideout Customs",
+    description:
+      "Official Ultimate Edition vehicle mod shop named on rockstargames.com/VI/editions. Pin is a Vice City regional marker — Rockstar has not published a street address.",
+    category: "shop",
+    x: 90,
+    y: 210,
+    region: "Vice City",
+    source: "official",
+    sourceUrl: ROCKSTAR_EDITIONS,
+    confidence: "confirmed",
+    subtype: "mod-shop",
+    edition: "ultimate",
+  },
+  {
+    slug: "saras-unisex-salon",
+    name: "Sara's Unisex Salon",
+    description:
+      "Official Ultimate Edition salon (hair, makeup, nails) listed on Rockstar’s editions page. Pin is regional in Vice City until a storefront address ships.",
+    category: "shop",
+    x: 140,
+    y: 250,
+    region: "Vice City",
+    source: "official",
+    sourceUrl: ROCKSTAR_EDITIONS,
+    confidence: "confirmed",
+    subtype: "salon",
+    edition: "ultimate",
+  },
+  {
+    slug: "stock-305",
+    name: "Stock 305",
+    description:
+      "Official Ultimate Edition streetwear store. Rockstar places it in Vice City’s Stockyard; this pin sits on that district hub, not a verified door.",
+    category: "shop",
+    x: -700,
+    y: 1240,
+    region: "Vice City",
+    source: "official",
+    sourceUrl: ROCKSTAR_EDITIONS,
+    confidence: "confirmed",
+    subtype: "clothing",
+    edition: "ultimate",
+  },
+  {
+    slug: "electric-fang-tattoo",
+    name: "Electric Fang Tattoo",
+    description:
+      "Official Ultimate Edition tattoo parlor in Stockyard (FAILE designs per Rockstar). Pin marks the district, not a street address.",
+    category: "shop",
+    x: -650,
+    y: 1195,
+    region: "Vice City",
+    source: "official",
+    sourceUrl: ROCKSTAR_EDITIONS,
+    confidence: "confirmed",
+    subtype: "tattoo",
+    edition: "ultimate",
+  },
+  {
+    slug: "one-eyed-willies",
+    name: "One-Eyed Willie's",
+    description:
+      "Official Ultimate Edition off-road mod shop. Rockstar names Lake Leonida; the pin is a northern regional marker near Mount Kalaga, not a shoreline address.",
+    category: "shop",
+    x: -1880,
+    y: 3280,
+    region: "Mount Kalaga",
+    source: "official",
+    sourceUrl: ROCKSTAR_EDITIONS,
+    confidence: "confirmed",
+    subtype: "mod-shop",
+    edition: "ultimate",
   },
 ];
 

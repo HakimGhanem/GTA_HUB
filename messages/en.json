@@ -57,6 +57,9 @@
     "viewOnMap": "View on map",
     "backToAll": "← All locations",
     "coordinates": "Coordinates: X: {x}, Y: {y}",
+    "trailerBeatsTitle": "Seen in official trailers",
+    "officialSource": "Rockstar source",
+    "ultimateNote": "Ultimate Edition destination. The pin marks the named region, not a street address.",
     "aboutTitle": "About {name}",
     "findTitle": "What to find in {name}",
     "faqTitle": "Frequently Asked Questions",
@@ -188,7 +191,11 @@
       "jukebox": "Jukebox",
       "bench": "Bench",
       "parking-meter": "Parking meter",
-      "rampage": "Rampage"
+      "rampage": "Rampage",
+      "mod-shop": "Mod shop",
+      "salon": "Salon",
+      "clothing": "Clothing",
+      "tattoo": "Tattoo"
     },
     "confidence": {
       "confirmed": "Confirmed",
@@ -252,7 +259,11 @@
       "found": "Found ✓",
       "details": "Details",
       "center": "Center map",
-      "coords": "{region} · X {x}, Y {y}"
+      "coords": "{region} · X {x}, Y {y}",
+      "watchTrailer": "Watch {stamp}",
+      "officialSource": "Official source",
+      "ultimate": "Ultimate",
+      "regionalPin": "Regional pin — Rockstar has not published a street address."
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

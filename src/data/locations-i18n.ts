@@ -134,6 +134,16 @@ const FR: Record<string, string> = {
     "Étals du marché aux poissons et quais à glace du front de mer ouvrier.",
   "grassrivers-boardwalk-trail":
     "Passerelle en bois surélevée à travers les hautes herbes et les chenaux peu profonds.",
+  "rideout-customs":
+    "Atelier de custom officiel de l’édition Ultimate, nommé sur rockstargames.com/VI/editions. Le pin est un marqueur régional Vice City — pas une adresse.",
+  "saras-unisex-salon":
+    "Salon officiel Ultimate (coiffure, maquillage, ongles) listé par Rockstar. Pin régional à Vice City tant qu’aucune vitrine n’est publiée.",
+  "stock-305":
+    "Boutique streetwear officielle Ultimate. Rockstar la place dans le Stockyard de Vice City ; le pin est sur ce hub de quartier, pas une porte.",
+  "electric-fang-tattoo":
+    "Salon de tatouage officiel Ultimate dans le Stockyard (designs FAILE selon Rockstar). Le pin marque le district, pas une adresse.",
+  "one-eyed-willies":
+    "Atelier off-road officiel Ultimate. Rockstar cite Lake Leonida ; le pin est un marqueur nord près de Mount Kalaga, pas un quai.",
 };
 
 const ES: Record<string, string> = {

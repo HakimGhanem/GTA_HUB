@@ -9,6 +9,10 @@ import {
   resolveConfidence,
 } from "@/lib/location-confidence";
 import { getConfidenceLabel } from "@/lib/location-display";
+import {
+  formatTrailerStamp,
+  getLocationTrailerHits,
+} from "@/lib/location-evidence";
 
 type LocationCardProps = {
   location: Location;
@@ -20,6 +24,7 @@ export function LocationCard({ location }: LocationCardProps) {
   const tLoc = useTranslations("locations");
   const tCategory = useTranslations("map.categories");
   const confidence = resolveConfidence(location);
+  const firstHit = getLocationTrailerHits(location.slug)[0];
 
   return (
     <article className="rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/40 hover:bg-white/10">
@@ -38,6 +43,11 @@ export function LocationCard({ location }: LocationCardProps) {
             >
               {getConfidenceLabel(confidence, t)}
             </span>
+            {location.edition === "ultimate" && (
+              <span className="rounded-full bg-amber-400/20 px-2 py-0.5 text-[10px] font-semibold text-amber-200 ring-1 ring-amber-300/25">
+                {t("map.popup.ultimate")}
+              </span>
+            )}
           </div>
         </div>
         <p className="line-clamp-2 text-sm text-white/60">
@@ -45,6 +55,7 @@ export function LocationCard({ location }: LocationCardProps) {
         </p>
         <p className="mt-3 font-mono text-xs text-white/40">
           {location.region} · X: {location.x}, Y: {location.y}
+          {firstHit ? ` · ${formatTrailerStamp(firstHit)}` : ""}
         </p>
       </Link>
       <Link
