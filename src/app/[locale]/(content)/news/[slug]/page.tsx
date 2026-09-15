@@ -15,8 +15,9 @@ import {
   listPublishedArticles,
 } from "@/lib/content/repository";
 import type { AffiliateIntent } from "@/lib/affiliate/intents";
+import { filterIndexableLocales, isIndexableLocale } from "@/i18n/routing";
 import { evergreenPathForNews } from "@/lib/content/news-canonical";
-import { countMarkdownWords } from "@/lib/content/word-count";
+import { countMarkdownWords, MIN_ARTICLE_WORDS } from "@/lib/content/word-count";
 import {
   articleHeroSrc,
   buildMetadata,
@@ -45,7 +46,10 @@ export async function generateMetadata({ params }: Props) {
 
   const evergreen = evergreenPathForNews(slug);
   const translated = article.locale === locale;
-  const articleLocales = await listLocalesForNewsSlug(slug);
+  const thin = countMarkdownWords(article.bodyMarkdown) < MIN_ARTICLE_WORDS;
+  const articleLocales = filterIndexableLocales(
+    await listLocalesForNewsSlug(slug),
+  );
 
   return buildMetadata({
     locale,
@@ -55,10 +59,10 @@ export async function generateMetadata({ params }: Props) {
     image: articleHeroSrc(article),
     openGraphType: "article",
     canonicalLocale: article.locale,
-    hreflangLocales: articleLocales.length ? articleLocales : [article.locale],
+    hreflangLocales: articleLocales.length ? articleLocales : ["en"],
     markdownAlternate: true,
     robots:
-      evergreen || !translated
+      evergreen || !translated || thin || !isIndexableLocale(locale)
         ? { index: false, follow: true }
         : { index: true, follow: true },
   });

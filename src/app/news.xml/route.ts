@@ -1,11 +1,17 @@
 import { SITE } from "@/lib/constants";
+import { evergreenPathForNews } from "@/lib/content/news-canonical";
 import { listPublishedArticles } from "@/lib/content/repository";
+import { countMarkdownWords, MIN_ARTICLE_WORDS } from "@/lib/content/word-count";
 
 export const dynamic = "force-dynamic";
 
 /** EN news RSS feed — https://map-6.com/news.xml */
 export async function GET() {
-  const articles = await listPublishedArticles("en");
+  const articles = (await listPublishedArticles("en")).filter(
+    (a) =>
+      !evergreenPathForNews(a.slug) &&
+      countMarkdownWords(a.bodyMarkdown) >= MIN_ARTICLE_WORDS,
+  );
 
   const items = articles
     .map((a) => {

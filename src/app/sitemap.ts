@@ -8,7 +8,12 @@ import {
 } from "@/data/guides-i18n";
 import { ATTRIBUTIONS_LOCALES } from "@/data/attributions-i18n";
 import { trailerHreflangLocales } from "@/data/trailer-i18n";
-import { locales } from "@/i18n/routing";
+import {
+  filterIndexableLocales,
+  INDEXABLE_LOCALES,
+  isIndexableLocale,
+} from "@/i18n/routing";
+import { countMarkdownWords, MIN_ARTICLE_WORDS } from "@/lib/content/word-count";
 import { SITE } from "@/lib/constants";
 import { evergreenPathForNews } from "@/lib/content/news-canonical";
 import { listArticles } from "@/lib/content/repository";
@@ -24,7 +29,10 @@ import {
 
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
 
-function hreflangAlternates(path: string, localeList: readonly string[] = locales) {
+function hreflangAlternates(
+  path: string,
+  localeList: readonly string[] = INDEXABLE_LOCALES,
+) {
   const suffix = path === "/" ? "" : path;
   const languages = Object.fromEntries(
     localeList.map((locale) => [locale, `${SITE.url}/${locale}${suffix}`]),
@@ -36,7 +44,7 @@ function hreflangAlternates(path: string, localeList: readonly string[] = locale
 function localizedEntries(
   path: string,
   options: SitemapOptions,
-  localeList: readonly string[] = locales,
+  localeList: readonly string[] = INDEXABLE_LOCALES,
 ): MetadataRoute.Sitemap {
   const suffix = path === "/" ? "" : path;
   return localeList.map((locale) => ({
@@ -51,7 +59,10 @@ async function newsSitemapEntries(
 ): Promise<MetadataRoute.Sitemap> {
   const published = await listArticles({ status: "published" });
   const indexable = published.filter(
-    (article) => !evergreenPathForNews(article.slug),
+    (article) =>
+      !evergreenPathForNews(article.slug) &&
+      isIndexableLocale(article.locale) &&
+      countMarkdownWords(article.bodyMarkdown) >= MIN_ARTICLE_WORDS,
   );
 
   const localesBySlug = new Map<string, string[]>();
@@ -131,7 +142,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const trailerPages = localizedEntries(
     "/trailer",
     { lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    trailerHreflangLocales(),
+    filterIndexableLocales(trailerHreflangLocales()),
   );
 
   const attributionPages = localizedEntries(
@@ -157,7 +168,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   );
 
   const guidePages = GUIDES.flatMap((g) => {
-    const localeList = guideHreflangLocales(g.slug);
+    const localeList = filterIndexableLocales(guideHreflangLocales(g.slug));
     return localeList
       .filter((locale) => hasGuideTranslation(g.slug, locale))
       .map((locale) => ({
@@ -173,7 +184,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const databaseKindPages = HUB_KIND_PARAMS.filter((kind) =>
     isIndexableKind(kind, getEntitiesByParam(kind).length),
   ).flatMap((kind) => {
-    const localeList = hubKindLocales(kind);
+    const localeList = filterIndexableLocales(hubKindLocales(kind));
     return localeList.map((locale) => ({
       url: `${SITE.url}/${locale}/database/${kind}`,
       lastModified: now,
@@ -184,7 +195,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   });
 
   const databaseEntityPages = HUB_KIND_PARAMS.flatMap((kind) => {
-    const localeList = hubKindLocales(kind);
+    const localeList = filterIndexableLocales(hubKindLocales(kind));
     return getEntitiesByParam(kind).flatMap((entity) =>
       localeList.map((locale) => ({
         url: `${SITE.url}/${locale}/database/${kind}/${entity.slug}`,

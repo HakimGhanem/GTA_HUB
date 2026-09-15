@@ -1,5 +1,10 @@
 import type { Metadata } from "next";
-import { locales, type Locale } from "@/i18n/routing";
+import {
+  filterIndexableLocales,
+  isIndexableLocale,
+  locales,
+  type Locale,
+} from "@/i18n/routing";
 import { SITE, SITE_PROFILES } from "./constants";
 
 const LOCALE_OG: Record<Locale, string> = {
@@ -81,13 +86,22 @@ function withDiscoverRobots(robots: Metadata["robots"]): Metadata["robots"] {
   };
 }
 
-function hreflangAlternates(path: string, localeList: readonly string[] = locales) {
+function hreflangAlternates(
+  path: string,
+  localeList: readonly string[] = filterIndexableLocales(),
+) {
   const suffix = path === "/" || path === "" ? "" : path;
   const languages = Object.fromEntries(
     localeList.map((loc) => [loc, `${SITE.url}/${loc}${suffix}`]),
   ) as Record<string, string>;
   languages["x-default"] = `${SITE.url}/en${suffix}`;
   return languages;
+}
+
+function resolveCanonicalLocale(locale: string, override?: string) {
+  if (override && isIndexableLocale(override)) return override;
+  if (isIndexableLocale(locale)) return locale;
+  return "en";
 }
 
 export function buildMetadata({
@@ -102,7 +116,11 @@ export function buildMetadata({
   hreflangLocales,
   markdownAlternate = false,
 }: PageMeta): Metadata {
-  const url = pageUrl(canonicalLocale ?? locale, path);
+  const resolvedCanonical = resolveCanonicalLocale(locale, canonicalLocale);
+  const url = pageUrl(resolvedCanonical, path);
+  const resolvedRobots = isIndexableLocale(locale)
+    ? robots
+    : { index: false, follow: true };
 
   return {
     title,
@@ -110,7 +128,10 @@ export function buildMetadata({
     metadataBase: new URL(SITE.url),
     alternates: {
       canonical: url,
-      languages: hreflangAlternates(path, hreflangLocales ?? locales),
+      languages: hreflangAlternates(
+        path,
+        filterIndexableLocales(hreflangLocales ?? locales),
+      ),
       ...(markdownAlternate
         ? { types: { "text/markdown": `${url}.md` } }
         : {}),
@@ -130,7 +151,7 @@ export function buildMetadata({
       description,
       images: [image],
     },
-    robots: withDiscoverRobots(robots),
+    robots: withDiscoverRobots(resolvedRobots),
   };
 }
 

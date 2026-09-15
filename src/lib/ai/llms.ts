@@ -11,7 +11,7 @@ import { COLLECTIBLE_TYPES } from "@/data/collectibles";
 import { GUIDES } from "@/data/guides";
 import { getLocalizedGuide } from "@/data/guides-i18n";
 import { getRegionalLocationSeo } from "@/data/location-seo-content";
-import { locales } from "@/i18n/routing";
+import { INDEXABLE_LOCALES, locales } from "@/i18n/routing";
 import { GTA6_RELEASE, GTADB, SITE } from "@/lib/constants";
 import { listPublishedArticles } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
@@ -47,7 +47,7 @@ function keyFacts(): string[] {
     `- GTA 6 release date used across the site: ${isoDay(GTA6_RELEASE)} on PlayStation 5 and Xbox Series X|S. No PC date has been announced by Rockstar.`,
     "- Official US pricing referenced: Standard Edition $79.99, Ultimate Edition $99.99 (Take-Two).",
     "- Map coverage: 1400+ points of interest across Vice City, Ocean Drive, Leonida Keys, Port Gellhorn, Grassrivers, Ambrosia Island and Mount Kalaga.",
-    `- Languages: ${locales.join(", ")} (URLs are always locale-prefixed, e.g. ${SITE.url}/en/map).`,
+    `- Indexed languages: ${INDEXABLE_LOCALES.join(", ")}. UI also exists in ${locales.filter((l) => !(INDEXABLE_LOCALES as readonly string[]).includes(l)).join(", ")} (noindex until copy is unique). URLs are always locale-prefixed, e.g. ${SITE.url}/en/map.`,
     "- Editorial stance: speculation is labelled as such; collectible totals are pre-launch expectations, not confirmed Rockstar figures.",
   ];
 }
@@ -115,9 +115,9 @@ export async function buildLlmsTxt(locale = "en"): Promise<string> {
   parts.push(
     section(
       "Other languages",
-      locales
-        .filter((other) => other !== locale)
-        .map((other) => `- ${other.toUpperCase()}: ${aiPageUrl(other)}`),
+      INDEXABLE_LOCALES.filter((other) => other !== locale).map(
+        (other) => `- ${other.toUpperCase()}: ${aiPageUrl(other)}`,
+      ),
     ),
   );
   parts.push(section("Attribution and usage", usagePolicy()));

@@ -10,6 +10,9 @@ export const NEWS_EVERGREEN_PATH: Record<string, string> = {
   "gta-6-preorder-checklist-ps5-xbox": "/guides/gta-6-preorder-guide",
   "gta-6-extended-look-watch-times": "/guides/gta-6-extended-look-how-to-watch",
   "gta-6-extended-look-map-watch-for": "/guides/gta-6-extended-look-how-to-watch",
+  "gta-6-extended-look-live-notes": "/guides/gta-6-extended-look-how-to-watch",
+  "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel":
+    "/guides/gta-6-ultimate-edition-vs-standard",
 };
 
 export function evergreenPathForNews(slug: string): string | undefined {
