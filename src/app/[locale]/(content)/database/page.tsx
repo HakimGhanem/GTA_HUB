@@ -24,6 +24,7 @@ export async function generateMetadata({ params }: Props) {
     // English copy only — the other locales would be duplicates of /en.
     canonicalLocale: "en",
     hreflangLocales: ["en"],
+    robots: { index: false, follow: true },
   });
 }
 

@@ -8,8 +8,8 @@ import {
   resolveConfidence,
 } from "@/lib/location-confidence";
 import {
-  formatTrailerStamp,
-  getLocationTrailerHits,
+  formatTrailerEvidenceLine,
+  getLocationTrailerEvidence,
 } from "@/lib/location-evidence";
 import {
   getCategoryLabel,
@@ -18,7 +18,7 @@ import {
   getLocationDisplayName,
   getSubtypeLabel,
 } from "@/lib/location-display";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 type LocationPopupProps = {
   location: Location;
@@ -33,6 +33,7 @@ export function LocationPopup({
   found = false,
   onToggleFound,
 }: LocationPopupProps) {
+  const locale = useLocale();
   const t = useTranslations();
   const confidence = resolveConfidence(location);
   const name = getLocationDisplayName(location, t);
@@ -41,7 +42,7 @@ export function LocationPopup({
   const subtypeLabel = location.subtype
     ? getSubtypeLabel(location.subtype, t)
     : null;
-  const trailerHits = getLocationTrailerHits(location.slug);
+  const trailerHits = getLocationTrailerEvidence(location.slug, locale);
 
   return (
     <div className="min-w-[220px] max-w-[280px] p-1">
@@ -86,7 +87,7 @@ export function LocationPopup({
                 className="text-[11px] font-medium text-pink-600 hover:text-pink-500"
               >
                 {t("map.popup.watchTrailer", {
-                  stamp: formatTrailerStamp(hit),
+                  stamp: formatTrailerEvidenceLine(hit),
                 })}
               </a>
             </li>

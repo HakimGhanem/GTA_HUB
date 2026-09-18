@@ -58,6 +58,9 @@
     "backToAll": "← Todas las ubicaciones",
     "coordinates": "Coordenadas: X: {x}, Y: {y}",
     "trailerBeatsTitle": "Visto en tráilers oficiales",
+    "trailerBeatsHint": "Solo uploads oficiales de Rockstar. Pausa en la silueta y compara el pin.",
+    "trailerPageLink": "Análisis de tráilers con códigos de tiempo",
+    "trailerEstimateNote": "Los códigos de tiempo son aproximados hasta verificar cada plano.",
     "officialSource": "Fuente Rockstar",
     "ultimateNote": "Destino Ultimate Edition. El pin marca la región, no una dirección.",
     "aboutTitle": "Sobre {name}",
@@ -325,6 +328,8 @@
     "errorInvalid": "Ese email parece incorrecto — revisa cómo está escrito.",
     "errorRate": "Demasiados intentos. Inténtalo en un minuto.",
     "errorGeneric": "No pudimos guardarlo. Inténtalo de nuevo o escribe a hello@map-6.com.",
-    "dismiss": "Cerrar"
+    "dismiss": "Cerrar",
+    "preorderCta": "Preventa",
+    "setupCta": "Setup"
   }
 }

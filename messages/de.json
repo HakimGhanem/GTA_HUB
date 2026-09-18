@@ -58,6 +58,9 @@
     "backToAll": "← Alle Orte",
     "coordinates": "Koordinaten: X: {x}, Y: {y}",
     "trailerBeatsTitle": "In official trailers",
+    "trailerBeatsHint": "Nur offizielle Rockstar-Uploads. An der Silhouette pausieren, dann den Pin vergleichen.",
+    "trailerPageLink": "Vollständige Trailer-Zeitleiste",
+    "trailerEstimateNote": "Zeitstempel sind Näherungswerte, bis jeder Beat Bild für Bild geprüft ist.",
     "officialSource": "Rockstar source",
     "ultimateNote": "Ultimate Edition destination. The pin marks the named region, not a street address.",
     "aboutTitle": "Über {name}",
@@ -325,6 +328,8 @@
     "errorInvalid": "Diese E-Mail sieht falsch aus — bitte prüfen.",
     "errorRate": "Zu viele Versuche. Probier es in einer Minute erneut.",
     "errorGeneric": "Konnte nicht gespeichert werden. Versuch es erneut oder schreib an hello@map-6.com.",
-    "dismiss": "Schließen"
+    "dismiss": "Schließen",
+    "preorderCta": "Vorbestellen",
+    "setupCta": "Setup"
   }
 }

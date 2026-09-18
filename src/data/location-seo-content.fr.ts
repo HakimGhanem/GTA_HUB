@@ -54,6 +54,16 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
         answer:
           "Oui. Filtrez la carte interactive Map-6 par la catégorie Collectibles ou parcourez les pages POI de Vice City pour localiser paquets cachés, stunt jumps, street art et spots de photo animalière. Les coordonnées se copient directement pour les partager ou les croiser avec des guides communautaires.",
       },
+      {
+        question: "Comment Vice City se relie-t-elle au reste de Leonida ?",
+        answer:
+          "Les trailers montrent des ponts-chaussées praticables vers les Leonida Keys et une circulation continue vers les zones rurales et humides, sans écran de chargement. Approches portuaires, autoroutes et fronts de mer apparaissent aussi dans le marketing. Les réseaux routiers exacts restent cartographiés par la communauté ; utilisez les hubs Map-6 pour passer de Vice City à Ocean Drive, Grassrivers, Port Gellhorn, Ambrosia Island et Mount Kalaga.",
+      },
+      {
+        question: "Vice City aura-t-elle une vie nocturne jour/nuit ?",
+        answer:
+          "Les trailers insistent sur les néons, les clubs, les trottoirs bondés et les passages jour/nuit le long de la côte et du centre. Rockstar n’a pas publié de liste d’activités : traitez les noms de clubs ou missions VIP comme de la spéculation. Visuellement, Vice City est autant une destination after-dark qu’une métropole diurne — le contraste central avec les régions plus calmes de Leonida.",
+      },
     ],
   },
 

@@ -7,18 +7,20 @@ import { writeLaunchAlertState } from "@/lib/waitlist/local";
 
 type Status = "idle" | "sending" | "done" | "error";
 
-export type LaunchAlertPlacement = "inline" | "banner";
+export type LaunchAlertPlacement = "inline" | "banner" | "strip";
 
 type Props = {
   placement: LaunchAlertPlacement;
   onSuccess?: () => void;
+  /** Single-row field + button, no status spacer until a message exists. */
+  compact?: boolean;
 };
 
 /**
  * Email field + submit for the GTA 6 launch alert. Layout-agnostic: the
  * inline card and the sticky banner both wrap it with their own heading.
  */
-export function LaunchAlertForm({ placement, onSuccess }: Props) {
+export function LaunchAlertForm({ placement, onSuccess, compact }: Props) {
   const t = useTranslations("newsletter");
   const locale = useLocale();
   const inputId = useId();
@@ -111,14 +113,18 @@ export function LaunchAlertForm({ placement, onSuccess }: Props) {
               : t("cta")}
         </button>
       </div>
-      <p
-        aria-live="polite"
-        className={`mt-2 text-xs ${
-          status === "error" ? "text-amber-300" : "text-emerald-300"
-        }`}
-      >
-        {message}
-      </p>
+      {message ? (
+        <p
+          aria-live="polite"
+          className={`mt-2 text-xs ${
+            status === "error" ? "text-amber-300" : "text-emerald-300"
+          }`}
+        >
+          {message}
+        </p>
+      ) : compact ? null : (
+        <p aria-live="polite" className="mt-2 text-xs" />
+      )}
     </form>
   );
 }

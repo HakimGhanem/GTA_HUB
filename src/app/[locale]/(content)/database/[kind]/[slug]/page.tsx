@@ -50,9 +50,7 @@ export async function generateMetadata({ params }: Props) {
     openGraphType: "article",
     canonicalLocale: translated ? locale : "en",
     hreflangLocales: hubKindLocales(kind),
-    robots: translated
-      ? { index: true, follow: true }
-      : { index: false, follow: true },
+    robots: { index: false, follow: true },
   });
 }
 

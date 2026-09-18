@@ -4,8 +4,8 @@ import { useTranslations } from "next-intl";
 import { LaunchAlertForm } from "./LaunchAlertForm";
 
 /**
- * End-of-content capture block. The `data-launch-alert-inline` marker tells
- * LaunchAlertBanner to stay out of the way on pages that already ask.
+ * End-of-content capture. The banner still shows — footer inline is a
+ * second chance after a long read, not a replacement.
  */
 export function LaunchAlertInline() {
   const t = useTranslations("newsletter");

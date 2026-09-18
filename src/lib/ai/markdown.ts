@@ -12,7 +12,7 @@ import { getLocalizedGuide } from "@/data/guides-i18n";
 import { getRegionalLocationSeo } from "@/data/location-seo-content";
 import { getLocationDescription } from "@/data/locations-i18n";
 import { SITE } from "@/lib/constants";
-import { evergreenPathForNews } from "@/lib/content/news-canonical";
+import { siteEvergreenPathForNews } from "@/lib/content/news-canonical";
 import { getArticleBySlug } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
 import {
@@ -164,7 +164,7 @@ async function newsMarkdown(locale: string, slug: string): Promise<string | null
   const article = await getArticleBySlug(slug, locale);
   if (!article || article.status !== "published") return null;
 
-  const evergreen = evergreenPathForNews(slug);
+  const evergreen = siteEvergreenPathForNews(slug);
   const body: string[] = [
     `# ${article.title}`,
     "",

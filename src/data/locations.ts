@@ -41,7 +41,7 @@ export const LOCATIONS: Location[] = [
     slug: "vice-city",
     name: "Vice City",
     description:
-      "The neon-lit heart of GTA 6. Vice City returns as the central hub, blending Miami-inspired architecture with Rockstar's signature satire.",
+      "Leonida’s neon metro. Rockstar shows the downtown skyline in Trailer 1 (~1:10) and Trailer 2 (~1:24) — glass towers and coastal freeways, not Keys causeways or Grassrivers mangroves.",
     category: "landmark",
     x: 0,
     y: 120,
@@ -54,7 +54,7 @@ export const LOCATIONS: Location[] = [
     slug: "ocean-drive",
     name: "Ocean Drive",
     description:
-      "Iconic beachfront strip lined with art deco hotels, nightlife, and high-end storefronts — a prime spot for exploration and collectibles.",
+      "Vice City’s postcard strip. Trailer 1 opens on the beach at ~0:06; Trailer 2 returns after dark at ~1:01 — art deco hotels and wet asphalt, not downtown towers.",
     category: "landmark",
     x: 420,
     y: 280,
@@ -77,7 +77,7 @@ export const LOCATIONS: Location[] = [
     slug: "grassrivers",
     name: "Grassrivers",
     description:
-      "Vast Everglades-inspired wetlands with airboats, alligators, and remote swamp settlements — GTA 6's untamed wilderness.",
+      "Everglades-flat wetlands. Trailer 1’s alligator store (~0:31) and Trailer 2’s mangroves (~1:42) are the official tells — airboats and sawgrass, not Vice City neon.",
     category: "landmark",
     x: -1500,
     y: 900,
@@ -90,7 +90,7 @@ export const LOCATIONS: Location[] = [
     slug: "leonida-keys",
     name: "Leonida Keys",
     description:
-      "Tropical island archipelago linked to Vice City by causeway bridges — inspired by the Florida Keys.",
+      "Island chain south of the metro. Trailer 1’s causeway (~0:47) and Trailer 2’s stilt house (~0:08) are the frames to pause — count the spans before guessing a Key.",
     category: "landmark",
     x: 1200,
     y: -500,
@@ -103,7 +103,7 @@ export const LOCATIONS: Location[] = [
     slug: "port-gellhorn",
     name: "Port Gellhorn",
     description:
-      "Northern industrial port city with shipping yards, warehouses, and Gulf Coast smuggling routes.",
+      "Working-coast freight city. Trailer 1’s cranes (~0:58) and Trailer 2’s port yard (~2:13) show containers and gantries — the opposite economy from Ocean Drive.",
     category: "landmark",
     x: -1200,
     y: -500,
@@ -116,7 +116,7 @@ export const LOCATIONS: Location[] = [
     slug: "ambrosia-island",
     name: "Ambrosia Island",
     description:
-      "Luxury island getaway off the Leonida coast. Rumored to host exclusive properties, yachts, and high-stakes missions.",
+      "Gated wealth island. Trailer 2 (~1:58) shows walled mansions and private moorings — public Keys motels this is not. Borders stay estimated until Rockstar draws them.",
     category: "landmark",
     x: 1100,
     y: -620,
@@ -129,7 +129,7 @@ export const LOCATIONS: Location[] = [
     slug: "mount-kalaga",
     name: "Mount Kalaga",
     description:
-      "Leonida’s northern wilderness frontier — forests, rivers, and canyons with a hunting-country feel. Named by Rockstar; exact borders still estimated.",
+      "Named northern wilderness. Trailer 2 (~2:29) is the elevation frame: tree cover and ridgelines, not mangrove flatness. Pin is orientation, not a summit GPS.",
     category: "landmark",
     x: -2000,
     y: 3500,

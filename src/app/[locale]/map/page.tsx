@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Suspense } from "react";
+import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { MapPageClient } from "./MapPageClient";
 import { buildMetadata } from "@/lib/seo";
 
@@ -32,10 +33,16 @@ export default async function MapPage({ params }: Props) {
   setRequestLocale(locale);
 
   return (
-    <main id="main-content" className="h-[calc(100dvh-3.5rem)] flex-1">
-      <Suspense fallback={<MapLoading />}>
-        <MapPageClient />
-      </Suspense>
+    <main
+      id="main-content"
+      className="flex h-[calc(100dvh-3.5rem)] flex-1 flex-col"
+    >
+      <ConversionStrip variant="map" />
+      <div className="min-h-0 flex-1">
+        <Suspense fallback={<MapLoading />}>
+          <MapPageClient />
+        </Suspense>
+      </div>
     </main>
   );
 }

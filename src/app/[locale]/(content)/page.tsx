@@ -7,6 +7,7 @@ import { ClassicMapsPromo } from "@/components/map/ClassicMapsPromo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getLocationBySlug } from "@/data/all-locations";
 import { getGuideBySlug } from "@/data/guides";
+import { isIndexableNewsArticle } from "@/lib/content/news-canonical";
 import { listPublishedArticles } from "@/lib/content/repository";
 import { buildMetadata, jsonLdFAQ } from "@/lib/seo";
 
@@ -37,7 +38,9 @@ export default async function HomePage({ params }: Props) {
   )
     .map((slug) => getLocationBySlug(slug))
     .filter((loc): loc is NonNullable<typeof loc> => Boolean(loc));
-  const latestNews = (await listPublishedArticles(locale)).slice(0, 3);
+  const latestNews = (await listPublishedArticles(locale))
+    .filter(isIndexableNewsArticle)
+    .slice(0, 3);
 
   const faq = [
     { question: t("faq.q1"), answer: t("faq.a1") },

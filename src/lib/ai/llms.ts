@@ -13,6 +13,7 @@ import { getLocalizedGuide } from "@/data/guides-i18n";
 import { getRegionalLocationSeo } from "@/data/location-seo-content";
 import { INDEXABLE_LOCALES, locales } from "@/i18n/routing";
 import { GTA6_RELEASE, GTADB, SITE } from "@/lib/constants";
+import { isIndexableNewsArticle } from "@/lib/content/news-canonical";
 import { listPublishedArticles } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
 import {
@@ -76,7 +77,9 @@ function usagePolicy(): string[] {
 
 async function newsEntries(locale: string): Promise<AiEntry[]> {
   try {
-    const articles = await listPublishedArticles(locale);
+    const articles = (await listPublishedArticles(locale)).filter(
+      isIndexableNewsArticle,
+    );
     return articles.slice(0, MAX_NEWS_ITEMS).map((article) => ({
       title: `${article.title} (${(article.publishedAt || article.updatedAt).slice(0, 10)})`,
       url: `${SITE.url}/${article.locale}/news/${article.slug}`,

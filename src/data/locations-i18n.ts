@@ -65,21 +65,21 @@ const TEMPLATES: Record<string, DescriptionTemplates> = {
 /** Hand-written prose for indexable hubs and curated POIs. */
 const FR: Record<string, string> = {
   "vice-city":
-    "Le cœur néon de GTA 6. Vice City revient en hub central, mêlant architecture inspirée de Miami et satire signature de Rockstar.",
+    "Métropole néon de Leonida. Rockstar montre le skyline au Trailer 1 (~1:10) et au Trailer 2 (~1:24) — tours de verre et autoroutes côtières, pas les causeways des Keys ni les mangroves de Grassrivers.",
   "ocean-drive":
-    "Front de mer iconique bordé d'hôtels art déco, de vie nocturne et de boutiques haut de gamme — un terrain de choix pour l'exploration et les collectibles.",
+    "Le strip carte postale de Vice City. Le Trailer 1 ouvre sur la plage vers ~0:06 ; le Trailer 2 y revient de nuit vers ~1:01 — hôtels art déco et asphalte mouillé, pas les tours du centre.",
   "hidden-package-01":
     "Collectible GTA classique caché près des docks. Les paquets cachés devraient revenir dans GTA 6 — marquez ce point sur votre carte.",
   grassrivers:
-    "Vastes zones humides inspirées des Everglades, avec hydroglisseurs, alligators et hameaux isolés en pleine mangrove — la nature sauvage de GTA 6.",
+    "Marais plats façon Everglades. La supérette à alligator du Trailer 1 (~0:31) et les mangroves du Trailer 2 (~1:42) sont les plans officiels — hydroglisseurs et sawgrass, pas le néon de Vice City.",
   "leonida-keys":
-    "Archipel tropical relié à Vice City par des ponts-chaussées — inspiré des Florida Keys.",
+    "Chaîne d’îles au sud de la métropole. Le causeway du Trailer 1 (~0:47) et la maison sur pilotis du Trailer 2 (~0:08) sont les images à figer — comptez les travées avant de nommer un key.",
   "port-gellhorn":
-    "Ville portuaire industrielle du nord, avec chantiers navals, entrepôts et routes de contrebande du golfe.",
+    "Ville de fret sur la côte ouvrière. Les grues du Trailer 1 (~0:58) et le chantier du Trailer 2 (~2:13) montrent conteneurs et portiques — l’économie inverse d’Ocean Drive.",
   "ambrosia-island":
-    "Île de villégiature luxueuse au large de la côte de Leonida. Elle abriterait propriétés exclusives, yachts et missions à gros enjeux.",
+    "Île de richesse fermée. Le Trailer 2 (~1:58) montre villas murées et mouillages privés — ce n’est pas un motel des Keys. Les frontières restent estimées tant que Rockstar ne les trace pas.",
   "mount-kalaga":
-    "La frontière sauvage du nord de Leonida — forêts, rivières et canyons aux airs de pays de chasse. Nommé par Rockstar ; les limites exactes restent estimées.",
+    "Wilderness nord nommée par Rockstar. Le Trailer 2 (~2:29) est le plan de dénivelé : forêt et crêtes, pas la platitude des mangroves. Le pin oriente, ce n’est pas un GPS de sommet.",
   "grassroots-weapons":
     "Armurerie locale desservant la région de Vice City. Repérez tous les ramassages d'armes et les boutiques avant le jour du lancement.",
   "everglades-lookout":

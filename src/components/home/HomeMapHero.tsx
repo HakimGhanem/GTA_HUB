@@ -3,6 +3,7 @@
 import { Suspense, useEffect, useState } from "react";
 import { Link } from "@/i18n/navigation";
 import { GameMap } from "@/components/map/GameMap";
+import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 
 type HomeMapHeroProps = {
   locale: string;
@@ -73,6 +74,7 @@ function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroPr
               {ctaGuides}
             </Link>
           </div>
+          <ConversionStrip variant="hero" />
         </div>
       </div>
 

@@ -11,9 +11,9 @@ import {
 } from "@/lib/waitlist/local";
 import { LaunchAlertForm } from "./LaunchAlertForm";
 
-/** Late enough that it reads as an offer to an engaged reader, not a wall. */
-const REVEAL_DELAY_MS = 25_000;
-const REVEAL_SCROLL_RATIO = 0.35;
+/** Fast enough for ChatGPT / bounce sessions. Email is first-party. */
+const REVEAL_DELAY_MS = 6_000;
+const REVEAL_SCROLL_RATIO = 0.2;
 const HIDE_AFTER_SUCCESS_MS = 5_000;
 
 function scrolledPastThreshold(target: EventTarget | null): boolean {
@@ -29,14 +29,11 @@ function scrolledPastThreshold(target: EventTarget | null): boolean {
 }
 
 /**
- * Sticky launch-alert bar. Held back until the visitor has chosen a cookie
- * option (so it never stacks on the consent dialog) and until they have either
- * read for a while or scrolled — and never on a page that already has the
- * inline block.
+ * Sticky launch-alert bar. Shown after a short dwell or light scroll —
+ * independent of cookie consent. Sits above the cookie dialog when that
+ * dialog is still open so the two bars do not stack.
  */
 export function LaunchAlertBanner() {
-  // Remount per route so each page re-arms its own reveal timer and scroll
-  // threshold from a hidden state.
   const pathname = usePathname();
   return <Banner key={pathname} />;
 }
@@ -44,6 +41,7 @@ export function LaunchAlertBanner() {
 function Banner() {
   const t = useTranslations("newsletter");
   const [visible, setVisible] = useState(false);
+  const [cookieOpen, setCookieOpen] = useState(false);
 
   const dismiss = useCallback(() => {
     writeLaunchAlertState("dismissed");
@@ -52,15 +50,18 @@ function Banner() {
   }, []);
 
   useEffect(() => {
+    setCookieOpen(readCookieConsent() === null);
+    const onConsent = () => setCookieOpen(false);
+    window.addEventListener("map6-consent", onConsent);
+    return () => window.removeEventListener("map6-consent", onConsent);
+  }, []);
+
+  useEffect(() => {
     if (readLaunchAlertState()) return;
-    if (document.querySelector("[data-launch-alert-inline]")) return;
 
-    let consented = readCookieConsent() !== null;
-    let delayElapsed = false;
     let armed = false;
-
     const reveal = () => {
-      if (armed || !consented) return;
+      if (armed || readLaunchAlertState()) return;
       armed = true;
       setVisible(true);
       trackEvent("launch_alert_view", { placement: "banner" });
@@ -69,24 +70,18 @@ function Banner() {
     const onScroll = (e: Event) => {
       if (scrolledPastThreshold(e.target)) reveal();
     };
-    // A visitor who answers the cookie dialog late still gets the banner.
-    const onConsent = () => {
-      consented = true;
-      if (delayElapsed) reveal();
+    const onJoined = () => {
+      if (readLaunchAlertState() === "joined") setVisible(false);
     };
 
-    const timer = window.setTimeout(() => {
-      delayElapsed = true;
-      reveal();
-    }, REVEAL_DELAY_MS);
-    // Capture phase: the page scrolls inside a container, not the window.
+    const timer = window.setTimeout(reveal, REVEAL_DELAY_MS);
     document.addEventListener("scroll", onScroll, true);
-    window.addEventListener("map6-consent", onConsent);
+    window.addEventListener("map6-launch-alert", onJoined);
 
     return () => {
       window.clearTimeout(timer);
       document.removeEventListener("scroll", onScroll, true);
-      window.removeEventListener("map6-consent", onConsent);
+      window.removeEventListener("map6-launch-alert", onJoined);
     };
   }, []);
 
@@ -99,7 +94,9 @@ function Banner() {
   return (
     <aside
       aria-label={t("bannerTitle")}
-      className="fixed inset-x-0 bottom-0 z-[90] border-t border-pink-400/25 bg-[#0d121c]/95 px-4 py-3 shadow-2xl backdrop-blur-md"
+      className={`fixed inset-x-0 z-[90] border-t border-pink-400/25 bg-[#0d121c]/95 px-4 py-3 shadow-2xl backdrop-blur-md ${
+        cookieOpen ? "bottom-[9.5rem] sm:bottom-28" : "bottom-0"
+      }`}
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
@@ -109,7 +106,7 @@ function Banner() {
           <p className="mt-0.5 text-xs text-white/55">{t("bannerDesc")}</p>
         </div>
         <div className="flex items-center gap-2 sm:w-[26rem]">
-          <LaunchAlertForm placement="banner" onSuccess={onSuccess} />
+          <LaunchAlertForm placement="banner" compact onSuccess={onSuccess} />
           <button
             type="button"
             onClick={dismiss}

@@ -30,6 +30,9 @@ export function writeLaunchAlertState(state: LaunchAlertState): void {
   try {
     const payload: Stored = { state, at: Date.now() };
     window.localStorage.setItem(LAUNCH_ALERT_KEY, JSON.stringify(payload));
+    window.dispatchEvent(
+      new CustomEvent("map6-launch-alert", { detail: { state } }),
+    );
   } catch {
     /* private mode / storage full — the banner just shows again */
   }

@@ -23,7 +23,7 @@ import {
 } from "@/lib/location-confidence";
 import {
   formatTrailerStamp,
-  getLocationTrailerHits,
+  getLocationTrailerEvidence,
 } from "@/lib/location-evidence";
 import {
   getCategoryLabel,
@@ -31,7 +31,7 @@ import {
   getLocationDisplayName,
   getSubtypeLabel,
 } from "@/lib/location-display";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
 export const SIDEBAR_LIST_LIMIT = 80;
 
@@ -69,6 +69,7 @@ export function MapSidebar({
   onToggleFound,
   onClearProgress,
 }: MapSidebarProps) {
+  const locale = useLocale();
   const t = useTranslations();
   const visible = locations.slice(0, SIDEBAR_LIST_LIMIT);
   const isTruncated = locations.length > SIDEBAR_LIST_LIMIT;
@@ -400,7 +401,7 @@ export function MapSidebar({
           <ul className="space-y-0.5" role="listbox" aria-label="Matching locations">
             {visible.map((loc) => {
               const found = isFound?.(loc.slug) ?? false;
-              const firstHit = getLocationTrailerHits(loc.slug)[0];
+              const firstHit = getLocationTrailerEvidence(loc.slug, locale)[0];
               return (
                 <li key={loc.slug}>
                   <div

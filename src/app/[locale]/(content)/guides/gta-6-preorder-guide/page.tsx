@@ -1,6 +1,8 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PreorderGuideContent } from "@/components/guides/PreorderGuideContent";
+import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
+import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getGuideBySlug } from "@/data/guides";
@@ -87,6 +89,7 @@ export default async function PreorderGuidePage({ params }: Props) {
           {guide.readTime} min · {guide.publishedAt}
         </p>
 
+        <ConversionStrip variant="page" />
         <PreorderGuideContent locale={locale} />
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">
@@ -100,6 +103,7 @@ export default async function PreorderGuidePage({ params }: Props) {
           </Link>
         </div>
 
+        <LaunchAlertInline />
         <RelatedMapLinks locale={locale} currentGuideSlug={SLUG} />
       </main>
     </>

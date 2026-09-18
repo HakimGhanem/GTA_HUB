@@ -1,5 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { isIndexableNewsArticle } from "@/lib/content/news-canonical";
 import { listPublishedArticles } from "@/lib/content/repository";
 import { articleOgImagePath, buildMetadata } from "@/lib/seo";
 
@@ -20,7 +21,9 @@ export default async function NewsIndexPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("news");
-  const articles = await listPublishedArticles(locale);
+  const articles = (await listPublishedArticles(locale)).filter(
+    isIndexableNewsArticle,
+  );
 
   return (
     <main className="mx-auto max-w-5xl flex-1 px-4 py-10">

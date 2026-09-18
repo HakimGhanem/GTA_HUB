@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Link } from "@/i18n/navigation";
 import { getTranslations } from "next-intl/server";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
+import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getGuideBySlug, GUIDES } from "@/data/guides";
@@ -102,6 +103,8 @@ export default async function GuidePage({ params }: Props) {
         <p className="mt-2 text-xs text-white/40">
           {localized.readTime} min · {guide.publishedAt}
         </p>
+
+        <ConversionStrip variant="page" />
 
         {localized.answer ? (
           <AnswerBox label={t("shortAnswer")}>{localized.answer}</AnswerBox>

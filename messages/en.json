@@ -58,6 +58,9 @@
     "backToAll": "← All locations",
     "coordinates": "Coordinates: X: {x}, Y: {y}",
     "trailerBeatsTitle": "Seen in official trailers",
+    "trailerBeatsHint": "Official Rockstar uploads only. Pause on the silhouette, then compare the pin — we do not invent district names Rockstar has not shown.",
+    "trailerPageLink": "Full timestamped trailer scrub",
+    "trailerEstimateNote": "Timestamps are approximate until each beat is verified frame by frame. Treat them as a scrub start, not a citation.",
     "officialSource": "Rockstar source",
     "ultimateNote": "Ultimate Edition destination. The pin marks the named region, not a street address.",
     "aboutTitle": "About {name}",
@@ -325,6 +328,8 @@
     "errorInvalid": "That email looks wrong — check the spelling.",
     "errorRate": "Too many attempts. Try again in a minute.",
     "errorGeneric": "We could not save that. Try again, or mail hello@map-6.com.",
-    "dismiss": "Close"
+    "dismiss": "Close",
+    "preorderCta": "Pre-order",
+    "setupCta": "Setup"
   }
 }

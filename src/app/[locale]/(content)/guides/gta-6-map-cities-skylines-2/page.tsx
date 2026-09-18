@@ -1,6 +1,8 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { Cs2GuideContent } from "@/components/guides/Cs2GuideContent";
+import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
+import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getCs2GuideCopy } from "@/data/cs2-guide-i18n";
@@ -79,8 +81,11 @@ export default async function Cs2GuidePage({ params }: Props) {
           {guide.readTime} min · {guide.publishedAt}
         </p>
 
+        <ConversionStrip variant="page" />
+
         <Cs2GuideContent locale={locale} />
 
+        <LaunchAlertInline />
         <RelatedMapLinks locale={locale} currentGuideSlug={SLUG} />
       </main>
     </>

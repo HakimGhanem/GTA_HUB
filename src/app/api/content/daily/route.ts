@@ -1,6 +1,4 @@
 import { NextResponse } from "next/server";
-import { GUIDES } from "@/data/guides";
-import { REGIONAL_LOCATION_SLUGS } from "@/data/location-seo-types";
 import { assertContentSecret } from "@/lib/content/auth";
 import { detectNewsTopics } from "@/lib/content/detect-news";
 import { getFirestore } from "@/lib/content/firestore";
@@ -9,7 +7,7 @@ import {
   generateDraftFromTopic,
   isGoodDailyTopic,
 } from "@/lib/content/generate-draft";
-import { collidingEvergreenPath } from "@/lib/content/news-canonical";
+import { siteEvergreenPathForNews } from "@/lib/content/news-canonical";
 import { publishArticleLocal } from "@/lib/content/publish";
 import {
   bulkUpsertTopics,
@@ -146,12 +144,7 @@ export async function POST(request: Request) {
     const draftedIds = new Set(drafted.map((d) => d.id));
     const pickKeys = new Set(picks.map((t) => t.eventKey));
 
-    const evergreen = {
-      guides: GUIDES.map((g) => g.slug),
-      locations: REGIONAL_LOCATION_SLUGS,
-    };
-    const cannibalises = (slug: string) =>
-      collidingEvergreenPath(slug, evergreen);
+    const cannibalises = (slug: string) => siteEvergreenPathForNews(slug);
 
     // Prefer articles just drafted this run, then rest of drafted queue (seo≥60)
     const queue = articles

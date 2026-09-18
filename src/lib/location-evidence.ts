@@ -1,3 +1,4 @@
+import { getTrailerCopy } from "@/data/trailer-i18n";
 import {
   TRAILERS,
   formatTimecode,
@@ -7,10 +8,17 @@ import {
 export type LocationTrailerHit = {
   trailerSlug: string;
   trailerName: string;
+  beatId: string;
   at: number;
   timecode: string;
   watchUrl: string;
   verified: boolean;
+};
+
+export type LocationTrailerEvidence = LocationTrailerHit & {
+  trailerLabel: string;
+  title: string;
+  look: string;
 };
 
 const TRAILER_NAMES: Record<string, string> = {
@@ -27,6 +35,7 @@ function buildHitsBySlug(): Map<string, LocationTrailerHit[]> {
       const hit: LocationTrailerHit = {
         trailerSlug: trailer.slug,
         trailerName: name,
+        beatId: beat.id,
         at: beat.at,
         timecode: formatTimecode(beat.at),
         watchUrl: trailerWatchUrl(trailer, beat.at),
@@ -46,7 +55,28 @@ export function getLocationTrailerHits(slug: string): LocationTrailerHit[] {
   return HITS_BY_SLUG.get(slug) ?? [];
 }
 
+export function getLocationTrailerEvidence(
+  slug: string,
+  locale: string,
+): LocationTrailerEvidence[] {
+  const copy = getTrailerCopy(locale);
+  return getLocationTrailerHits(slug).map((hit) => {
+    const beat = copy.beats[hit.beatId];
+    return {
+      ...hit,
+      trailerName: copy.trailers[hit.trailerSlug]?.name ?? hit.trailerName,
+      trailerLabel: copy.trailers[hit.trailerSlug]?.name ?? hit.trailerName,
+      title: beat?.title ?? hit.beatId,
+      look: beat?.look ?? "",
+    };
+  });
+}
+
 export function formatTrailerStamp(hit: LocationTrailerHit): string {
   const prefix = hit.verified ? "" : "~";
   return `${hit.trailerName} · ${prefix}${hit.timecode}`;
+}
+
+export function formatTrailerEvidenceLine(hit: LocationTrailerEvidence): string {
+  return `${formatTrailerStamp(hit)} — ${hit.title}`;
 }

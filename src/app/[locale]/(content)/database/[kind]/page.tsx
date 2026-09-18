@@ -13,7 +13,6 @@ import {
   getHubKindContent,
   hasHubKindTranslation,
   hubKindLocales,
-  isIndexableKind,
   type EvidenceTier,
 } from "@/data/hub/kind-content";
 import { SITE } from "@/lib/constants";
@@ -38,8 +37,6 @@ export async function generateMetadata({ params }: Props) {
 
   const content = getHubKindContent(kind, locale);
   const translated = hasHubKindTranslation(kind, locale);
-  const indexable =
-    translated && isIndexableKind(kind, getEntitiesByParam(kind).length);
 
   return buildMetadata({
     locale,
@@ -48,9 +45,7 @@ export async function generateMetadata({ params }: Props) {
     path: `/database/${kind}`,
     canonicalLocale: translated ? locale : "en",
     hreflangLocales: hubKindLocales(kind),
-    robots: indexable
-      ? { index: true, follow: true }
-      : { index: false, follow: true },
+    robots: { index: false, follow: true },
   });
 }
 

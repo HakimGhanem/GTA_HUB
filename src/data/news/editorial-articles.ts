@@ -382,4 +382,226 @@ Next reads: [pre-order price & editions](/en/guides/gta-6-preorder-price-edition
     ],
     notes: "Editorial PS5 preorder briefing for Discover.",
   },
+  {
+    id: "editorial-trailer-frames-leonida-hubs",
+    slug: "gta-6-trailer-frames-leonida-hubs",
+    locale: "en",
+    title: "GTA 6 Trailer Frames Mapped to Leonida Hubs",
+    description:
+      "Official Trailer 1 and Trailer 2 seconds mapped to Map-6’s seven Leonida hubs: what to pause on, and what we refuse to invent before launch.",
+    bodyMarkdown: `Rockstar has published **two** official Grand Theft Auto VI trailers: **Trailer 1** on 4 December 2023 (1:31) and **Trailer 2** on 6 May 2025 (2:47). This briefing is the written index of the frames Map-6 already ties to regional hubs. It is not a third trailer, a collectible dump, or a replacement for the [timestamped player](/en/trailer).
+
+The [map guide](/en/guides/gta-6-map-guide) teaches the HUD. This page answers a narrower question: **which official second belongs to which named region**, and which seconds we leave unpaired.
+
+Timestamps stay **approximate** until we finish a frame-by-frame pass on the Rockstar uploads. Treat them as a scrub start. Rockstar does not publish chapter markers.
+
+## The pairing rule
+
+A beat gets a hub only when the **terrain type** is visible: towers vs causeway spans vs mangroves vs cranes vs gated waterfront vs elevation. Color grade is not geography. A teal night look can sit on Ocean Drive or downtown Vice City; the roofline and the waterline decide.
+
+If two hubs still fit, we **do not pick**. An honest gap beats a forced pin. Story interiors (Lucia in custody, the prison-release lot) stay off the map on purpose.
+
+## Trailer 1 — 4 December 2023
+
+| ~Time | Hub | What to pause on |
+|---|---|---|
+| 0:06 | [Ocean Drive](/en/locations/ocean-drive) | Art deco facades, palm rows, a wide beach strip |
+| 0:31 | [Grassrivers](/en/locations/grassrivers) | Alligator in strip-mall retail — wetland sprawl, not a Vice City block |
+| 0:47 | [Leonida Keys](/en/locations/leonida-keys) | Low bridges, small islands — count the spans |
+| 0:58 | [Port Gellhorn](/en/locations/port-gellhorn) | Container stacks and gantry cranes |
+| 1:10 | [Vice City](/en/locations/vice-city) | Glass towers and freeway curves at dusk |
+
+Ambrosia Island and Mount Kalaga do **not** get a Trailer 1 row. We will not invent one from a blur.
+
+## Trailer 2 — 6 May 2025
+
+| ~Time | Hub | What to pause on |
+|---|---|---|
+| 0:08 | [Leonida Keys](/en/locations/leonida-keys) | Stilt house, shallow water, boats as transport |
+| 1:01 | [Ocean Drive](/en/locations/ocean-drive) | Neon hotels, crowds, wet asphalt — match rooflines, not pink saturation |
+| 1:24 | [Vice City](/en/locations/vice-city) | Dense skyline plus elevated roadway |
+| 1:42 | [Grassrivers](/en/locations/grassrivers) | Mangroves and airboats — the road stops being a grid |
+| 1:58 | [Ambrosia Island](/en/locations/ambrosia-island) | Walled mansions, private moorings |
+| 2:13 | [Port Gellhorn](/en/locations/port-gellhorn) | Freight waterline vs the beach frames |
+| 2:29 | [Mount Kalaga](/en/locations/mount-kalaga) | Tree cover and actual elevation |
+
+Open the matching hub, then [deep-link the map](/en/map) with \`?loc=\`. Copy HUD X/Y only after the silhouette matches. Confidence stays **trailer-visible**, not “confirmed street.”
+
+## What this is not
+
+- **Not a collectible list.** Trailers show biomes. Packages, jumps, and shop names wait for evidence.
+- **Not Trailer 3.** Anything sold as a third cinematic stays unconfirmed until Rockstar Newswire posts it. See the [Trailer 3 guide](/en/guides/gta-6-trailer-3-what-we-know) for that watch.
+- **Not district borders.** Vice City downtown vs Ocean Drive is a visual contrast, not a shapefile Rockstar published.
+- **Not a leak wiki.** Community GTADB pins can sit next to these hubs. They are working hypotheses.
+
+If you only have time for one pass: play Trailer 2 from the [official player](/en/trailer), keep Landmarks on, and walk the seven rows above. That is the entire pre-launch atlas Rockstar has actually shown.
+
+Console launch remains **19 November 2026** on PlayStation 5 and Xbox Series X|S. Re-check [rockstargames.com/VI](https://www.rockstargames.com/VI) before you spend. Editions do not change pins.
+`,
+    cluster: "map",
+    primaryKeyword: "gta 6 trailer map locations",
+    secondaryKeywords: [
+      "gta 6 trailer timestamps",
+      "leonida regions trailer",
+      "gta vi map hubs",
+    ],
+    sources: [
+      {
+        url: "https://www.rockstargames.com/VI",
+        title: "Rockstar Games — Grand Theft Auto VI",
+      },
+      {
+        url: "https://map-6.com/en/trailer",
+        title: "Map-6 — Timestamped trailer analysis",
+      },
+    ],
+    status: "published",
+    author: AUTHOR,
+    reviewer: "editorial",
+    publishedAt: "2026-09-15T16:00:00.000Z",
+    updatedAt: NOW,
+    createdAt: "2026-09-15T16:00:00.000Z",
+    relatedLocationSlugs: [
+      "vice-city",
+      "ocean-drive",
+      "grassrivers",
+      "leonida-keys",
+      "port-gellhorn",
+      "ambrosia-island",
+      "mount-kalaga",
+    ],
+    relatedGuideSlugs: ["gta-6-map-guide"],
+    eventKey: "trailer-frames-leonida-hubs-2026-09",
+    funnelKind: "map_deep_link",
+    mapCtaPath: "/map",
+    faqs: [
+      {
+        question: "Are these GTA 6 trailer timestamps official?",
+        answer:
+          "No. They are Map-6 scrub notes, labeled approximate until each beat is checked against the Rockstar YouTube uploads. Rockstar does not publish chapter markers.",
+      },
+      {
+        question: "Why are Ambrosia Island and Mount Kalaga missing from Trailer 1?",
+        answer:
+          "Those biomes are not clearly placeable in Trailer 1. Trailer 2 supplies the gated-wealth (~1:58) and elevation (~2:29) frames. We do not back-fill Trailer 1 with guesses.",
+      },
+      {
+        question: "Does this replace the Map-6 trailer page?",
+        answer:
+          "No. The /trailer page is the official-player scrub. This article is the written hub index for search and notes. Use both: pause there, read the pairing here.",
+      },
+    ],
+    notes: "Indexable evidence table — does not clone the map guide or /trailer.",
+  },
+  {
+    id: "editorial-trailer-frames-leonida-hubs-fr",
+    slug: "gta-6-trailer-frames-leonida-hubs",
+    locale: "fr",
+    title: "Plans trailer GTA 6 associés aux hubs Leonida",
+    description:
+      "Secondes officielles des Trailers 1 et 2 associées aux sept hubs Leonida de Map-6 : quoi mettre en pause, et ce que nous refusons d’inventer.",
+    bodyMarkdown: `Rockstar a publié **deux** trailers officiels de Grand Theft Auto VI : le **Trailer 1** le 4 décembre 2023 (1:31) et le **Trailer 2** le 6 mai 2025 (2:47). Ce briefing est l’index écrit des plans que Map-6 relie déjà aux hubs régionaux. Ce n’est pas un troisième trailer, ni un dump de collectibles, ni un remplacement du [lecteur horodaté](/fr/trailer).
+
+Le [guide carte](/fr/guides/gta-6-map-guide) explique le HUD. Cette page répond à une question plus étroite : **quelle seconde officielle appartient à quelle région nommée**, et lesquelles nous laissons sans pin.
+
+Les timecodes restent **approximatifs** jusqu’à la passe image par image sur les uploads Rockstar. Point de départ de scrub. Rockstar ne publie pas de chapitres.
+
+## La règle d’association
+
+Un passage reçoit un hub seulement si le **type de terrain** est visible : tours vs travées de causeway vs mangroves vs grues vs front de mer fermé vs dénivelé. L’étalonnage n’est pas de la géographie. Un bleu-nuit peut être Ocean Drive ou le centre de Vice City ; la ligne de toit et la ligne d’eau tranchent.
+
+Si deux hubs restent possibles, nous **ne choisissons pas**. Un trou assumé vaut mieux qu’un pin forcé. Les intérieurs de récit (Lucia en détention, le parking de sortie de prison) restent hors carte.
+
+## Trailer 1 — 4 décembre 2023
+
+| ~Temps | Hub | Quoi figer |
+|---|---|---|
+| 0:06 | [Ocean Drive](/fr/locations/ocean-drive) | Façades art déco, palmiers, large bande de plage |
+| 0:31 | [Grassrivers](/fr/locations/grassrivers) | Alligator dans un commerce de bord de route — étalement de marais, pas un bloc de Vice City |
+| 0:47 | [Leonida Keys](/fr/locations/leonida-keys) | Ponts bas, petites îles — comptez les travées |
+| 0:58 | [Port Gellhorn](/fr/locations/port-gellhorn) | Piles de conteneurs et portiques |
+| 1:10 | [Vice City](/fr/locations/vice-city) | Tours de verre et courbes d’autoroute au crépuscule |
+
+Ambrosia Island et Mount Kalaga n’ont **pas** de ligne Trailer 1. Nous n’en inventons pas à partir d’un flou.
+
+## Trailer 2 — 6 mai 2025
+
+| ~Temps | Hub | Quoi figer |
+|---|---|---|
+| 0:08 | [Leonida Keys](/fr/locations/leonida-keys) | Maison sur pilotis, eau peu profonde, bateaux |
+| 1:01 | [Ocean Drive](/fr/locations/ocean-drive) | Hôtels néon, foule, asphalte mouillé — les toits, pas la saturation rose |
+| 1:24 | [Vice City](/fr/locations/vice-city) | Skyline dense et voie surélevée |
+| 1:42 | [Grassrivers](/fr/locations/grassrivers) | Mangroves et hydroglisseurs — la route cesse d’être une grille |
+| 1:58 | [Ambrosia Island](/fr/locations/ambrosia-island) | Villas murées, mouillages privés |
+| 2:13 | [Port Gellhorn](/fr/locations/port-gellhorn) | Ligne d’eau fret vs plans de plage |
+| 2:29 | [Mount Kalaga](/fr/locations/mount-kalaga) | Forêt et vrai dénivelé |
+
+Ouvrez le hub, puis le [deep link carte](/fr/map) avec \`?loc=\`. Ne copiez le X/Y du HUD qu’après la correspondance de silhouette. La confiance reste **visible au trailer**, pas « rue confirmée ».
+
+## Ce que ce n’est pas
+
+- **Pas une liste de collectibles.** Les trailers montrent des biomes. Paquets, jumps et noms de boutiques attendent des preuves.
+- **Pas le Trailer 3.** Tout ce qui se vend comme troisième cinématique reste non confirmé tant que Rockstar Newswire ne le publie pas. Voir le [guide Trailer 3](/fr/guides/gta-6-trailer-3-what-we-know).
+- **Pas des frontières de quartiers.** Vice City centre vs Ocean Drive est un contraste visuel, pas un shapefile Rockstar.
+- **Pas un wiki de leaks.** Les pins GTADB peuvent voisinier ces hubs. Ce sont des hypothèses de travail.
+
+Si vous n’avez le temps que d’une passe : lancez le Trailer 2 depuis le [lecteur officiel](/fr/trailer), filtrez Landmarks, et descendez les sept lignes. C’est tout l’atlas pré-lancement que Rockstar a réellement montré.
+
+Le lancement console reste le **19 novembre 2026** sur PlayStation 5 et Xbox Series X|S. Revérifiez [rockstargames.com/VI](https://www.rockstargames.com/VI) avant de payer. L’édition n’ajoute aucun pin.
+`,
+    cluster: "map",
+    primaryKeyword: "carte gta 6 trailer lieux",
+    secondaryKeywords: [
+      "gta 6 trailer timecodes",
+      "régions leonida trailer",
+      "hubs carte gta vi",
+    ],
+    sources: [
+      {
+        url: "https://www.rockstargames.com/VI",
+        title: "Rockstar Games — Grand Theft Auto VI",
+      },
+      {
+        url: "https://map-6.com/fr/trailer",
+        title: "Map-6 — Analyse trailer horodatée",
+      },
+    ],
+    status: "published",
+    author: AUTHOR,
+    reviewer: "editorial",
+    publishedAt: "2026-09-15T16:00:00.000Z",
+    updatedAt: NOW,
+    createdAt: "2026-09-15T16:00:00.000Z",
+    relatedLocationSlugs: [
+      "vice-city",
+      "ocean-drive",
+      "grassrivers",
+      "leonida-keys",
+      "port-gellhorn",
+      "ambrosia-island",
+      "mount-kalaga",
+    ],
+    relatedGuideSlugs: ["gta-6-map-guide"],
+    eventKey: "trailer-frames-leonida-hubs-2026-09",
+    funnelKind: "map_deep_link",
+    mapCtaPath: "/map",
+    faqs: [
+      {
+        question: "Ces timecodes trailer GTA 6 sont-ils officiels ?",
+        answer:
+          "Non. Ce sont des notes de scrub Map-6, étiquetées approximatives jusqu’à vérification sur les uploads YouTube Rockstar. Rockstar ne publie pas de chapitres.",
+      },
+      {
+        question: "Pourquoi Ambrosia et Mount Kalaga manquent-ils au Trailer 1 ?",
+        answer:
+          "Ces biomes ne sont pas clairement plaçables dans le Trailer 1. Le Trailer 2 fournit les plans richesse fermée (~1:58) et dénivelé (~2:29). Nous ne complétons pas le Trailer 1 par des conjectures.",
+      },
+      {
+        question: "Cet article remplace-t-il la page trailer Map-6 ?",
+        answer:
+          "Non. /trailer est le scrub sur le lecteur officiel. Cet article est l’index écrit des hubs pour la recherche et les notes. Les deux se complètent.",
+      },
+    ],
+    notes: "Table de preuves indexable — ne clone ni le guide carte ni /trailer.",
+  },
 ];

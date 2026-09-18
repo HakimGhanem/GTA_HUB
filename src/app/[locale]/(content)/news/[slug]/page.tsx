@@ -7,6 +7,7 @@ import { ArticleHero } from "@/components/news/ArticleHero";
 import { AuthorBlock } from "@/components/news/AuthorBlock";
 import { ThinContentWarning } from "@/components/news/ThinContentWarning";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
+import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
 import {
@@ -15,9 +16,12 @@ import {
   listPublishedArticles,
 } from "@/lib/content/repository";
 import type { AffiliateIntent } from "@/lib/affiliate/intents";
-import { filterIndexableLocales, isIndexableLocale } from "@/i18n/routing";
-import { evergreenPathForNews } from "@/lib/content/news-canonical";
-import { countMarkdownWords, MIN_ARTICLE_WORDS } from "@/lib/content/word-count";
+import { filterIndexableLocales } from "@/i18n/routing";
+import {
+  isIndexableNewsArticle,
+  siteEvergreenPathForNews,
+} from "@/lib/content/news-canonical";
+import { countMarkdownWords } from "@/lib/content/word-count";
 import {
   articleHeroSrc,
   buildMetadata,
@@ -44,9 +48,7 @@ export async function generateMetadata({ params }: Props) {
     return { robots: { index: false, follow: false } };
   }
 
-  const evergreen = evergreenPathForNews(slug);
   const translated = article.locale === locale;
-  const thin = countMarkdownWords(article.bodyMarkdown) < MIN_ARTICLE_WORDS;
   const articleLocales = filterIndexableLocales(
     await listLocalesForNewsSlug(slug),
   );
@@ -62,7 +64,7 @@ export async function generateMetadata({ params }: Props) {
     hreflangLocales: articleLocales.length ? articleLocales : ["en"],
     markdownAlternate: true,
     robots:
-      evergreen || !translated || thin || !isIndexableLocale(locale)
+      !translated || !isIndexableNewsArticle(article)
         ? { index: false, follow: true }
         : { index: true, follow: true },
   });
@@ -139,11 +141,11 @@ export default async function NewsArticlePage({ params }: Props) {
         <p className="mb-2 text-xs uppercase tracking-wider text-pink-400">
           {article.cluster}
         </p>
-        {evergreenPathForNews(slug) ? (
+        {siteEvergreenPathForNews(slug) ? (
           <p className="mb-4 rounded-xl border border-pink-400/25 bg-pink-500/10 px-4 py-3 text-sm text-white/70">
             Evergreen version:{" "}
             <Link
-              href={evergreenPathForNews(slug)!}
+              href={siteEvergreenPathForNews(slug)!}
               className="font-medium text-pink-300 underline hover:text-pink-200"
             >
               full Map-6 guide
@@ -161,31 +163,9 @@ export default async function NewsArticlePage({ params }: Props) {
         <ThinContentWarning wordCount={wordCount} />
         <ArticleHero title={article.title} src={heroSrc} />
 
-        <ArticleBody markdown={article.bodyMarkdown} />
-        <ArticleFaq faqs={article.faqs ?? []} />
-
-        {article.sources.length > 0 ? (
-          <section className="mt-10 border-t border-white/10 pt-6">
-            <h2 className="mb-3 text-lg font-semibold">Sources</h2>
-            <ul className="space-y-2 text-sm text-white/60">
-              {article.sources.map((s) => (
-                <li key={s.url}>
-                  <a
-                    href={s.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-pink-300 underline hover:text-pink-200"
-                  >
-                    {s.title}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </section>
-        ) : null}
-
+        <ConversionStrip variant="page" />
         {showAffiliate ? (
-          <div className="mt-8">
+          <div className="mt-2">
             <AffiliateProductGrid
               intents={affiliateIntents.slice(0, 4)}
               liveOnly
@@ -208,6 +188,29 @@ export default async function NewsArticlePage({ params }: Props) {
               </Link>
             </p>
           </div>
+        ) : null}
+
+        <ArticleBody markdown={article.bodyMarkdown} />
+        <ArticleFaq faqs={article.faqs ?? []} />
+
+        {article.sources.length > 0 ? (
+          <section className="mt-10 border-t border-white/10 pt-6">
+            <h2 className="mb-3 text-lg font-semibold">Sources</h2>
+            <ul className="space-y-2 text-sm text-white/60">
+              {article.sources.map((s) => (
+                <li key={s.url}>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pink-300 underline hover:text-pink-200"
+                  >
+                    {s.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
         ) : null}
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">

@@ -11,7 +11,7 @@ import {
 import { getConfidenceLabel } from "@/lib/location-display";
 import {
   formatTrailerStamp,
-  getLocationTrailerHits,
+  getLocationTrailerEvidence,
 } from "@/lib/location-evidence";
 
 type LocationCardProps = {
@@ -24,7 +24,7 @@ export function LocationCard({ location }: LocationCardProps) {
   const tLoc = useTranslations("locations");
   const tCategory = useTranslations("map.categories");
   const confidence = resolveConfidence(location);
-  const firstHit = getLocationTrailerHits(location.slug)[0];
+  const firstHit = getLocationTrailerEvidence(location.slug, locale)[0];
 
   return (
     <article className="rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/40 hover:bg-white/10">

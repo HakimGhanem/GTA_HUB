@@ -14,9 +14,10 @@ import {
   resolveConfidence,
 } from "@/lib/location-confidence";
 import { getConfidenceLabel } from "@/lib/location-display";
+import { LocationTrailerEvidence } from "@/components/locations/LocationTrailerEvidence";
 import {
-  formatTrailerStamp,
-  getLocationTrailerHits,
+  formatTrailerEvidenceLine,
+  getLocationTrailerEvidence,
 } from "@/lib/location-evidence";
 import {
   buildMetadata,
@@ -83,16 +84,26 @@ export default async function LocationPage({ params }: Props) {
   const location = getLocationBySlug(slug);
   if (!location) notFound();
   const confidence = resolveConfidence(location);
-  const trailerHits = getLocationTrailerHits(location.slug);
+  const trailerHits = getLocationTrailerEvidence(location.slug, locale);
 
   const noindex = shouldNoindexLocation(location);
   const regionalSeo = getRegionalLocationSeo(slug, locale);
+
+  const schemaDescription = regionalSeo
+    ? trailerHits.length > 0
+      ? `${regionalSeo.schemaDescription} ${
+          locale === "fr"
+            ? "Plans trailer officiels"
+            : "Official trailer frames"
+        }: ${trailerHits.map((hit) => formatTrailerEvidenceLine(hit)).join("; ")}.`
+      : regionalSeo.schemaDescription
+    : undefined;
 
   const jsonLd = regionalSeo
     ? jsonLdRegionalLocation(
         location.name,
         location.slug,
-        regionalSeo.schemaDescription,
+        schemaDescription ?? regionalSeo.schemaDescription,
         regionalSeo.faq,
         locale,
       )
@@ -147,41 +158,12 @@ export default async function LocationPage({ params }: Props) {
             {t("coordinates", { x: location.x, y: location.y })}
           </p>
 
-          {(trailerHits.length > 0 || location.sourceUrl) && (
-            <section className="mb-6 max-w-2xl rounded-xl border border-white/10 bg-white/5 p-4">
-              <h2 className="text-sm font-semibold text-white">
-                {t("trailerBeatsTitle")}
-              </h2>
-              <ul className="mt-2 space-y-1.5">
-                {trailerHits.map((hit) => (
-                  <li key={`${hit.trailerSlug}-${hit.at}`}>
-                    <a
-                      href={hit.watchUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-pink-300 hover:text-pink-200"
-                    >
-                      {formatTrailerStamp(hit)}
-                    </a>
-                  </li>
-                ))}
-                {location.sourceUrl && (
-                  <li>
-                    <a
-                      href={location.sourceUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-sm text-white/60 underline hover:text-white"
-                    >
-                      {t("officialSource")}
-                    </a>
-                  </li>
-                )}
-              </ul>
-              {location.edition === "ultimate" && (
-                <p className="mt-3 text-xs text-white/45">{t("ultimateNote")}</p>
-              )}
-            </section>
+          <LocationTrailerEvidence
+            slug={location.slug}
+            sourceUrl={location.sourceUrl}
+          />
+          {location.edition === "ultimate" && (
+            <p className="mb-4 text-xs text-white/45">{t("ultimateNote")}</p>
           )}
 
           <Link

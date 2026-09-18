@@ -1,3 +1,8 @@
+import { GUIDES } from "@/data/guides";
+import { REGIONAL_LOCATION_SLUGS } from "@/data/location-seo-types";
+import { isIndexableLocale } from "@/i18n/routing";
+import { countMarkdownWords, MIN_ARTICLE_WORDS } from "@/lib/content/word-count";
+
 /** News slugs that duplicate an evergreen guide/location — noindex news, keep follow. */
 export const NEWS_EVERGREEN_PATH: Record<string, string> = {
   "gta-6-trailer-3-what-we-know": "/guides/gta-6-trailer-3-what-we-know",
@@ -17,6 +22,16 @@ export const NEWS_EVERGREEN_PATH: Record<string, string> = {
 
 export function evergreenPathForNews(slug: string): string | undefined {
   return NEWS_EVERGREEN_PATH[slug];
+}
+
+const SITE_EVERGREEN = {
+  guides: GUIDES.map((guide) => guide.slug),
+  locations: [...REGIONAL_LOCATION_SLUGS],
+};
+
+/** Curated map first, then topic-containment against live guides and hubs. */
+export function siteEvergreenPathForNews(slug: string): string | undefined {
+  return collidingEvergreenPath(slug, SITE_EVERGREEN);
 }
 
 /**
@@ -108,4 +123,17 @@ export function collidingEvergreenPath(
     topicsCollide(slug, candidate),
   );
   return location ? `/locations/${location}` : undefined;
+}
+
+/** Same bar as sitemap / article robots — listing must not surface thin or duplicate news. */
+export function isIndexableNewsArticle(article: {
+  slug: string;
+  locale: string;
+  bodyMarkdown: string;
+  status?: string;
+}): boolean {
+  if (article.status && article.status !== "published") return false;
+  if (!isIndexableLocale(article.locale)) return false;
+  if (siteEvergreenPathForNews(article.slug)) return false;
+  return countMarkdownWords(article.bodyMarkdown) >= MIN_ARTICLE_WORDS;
 }

@@ -8,7 +8,7 @@ export const dynamic = "force-dynamic";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 const ALLOWED_SOURCES = new Set(["pro", "creators", "launch"]);
-const ALLOWED_PLACEMENTS = new Set(["banner", "inline"]);
+const ALLOWED_PLACEMENTS = new Set(["banner", "inline", "strip"]);
 const MAX_EMAIL_LENGTH = 254;
 
 /** Per-IP throttle. In-memory, so it resets on deploy and is per instance. */

@@ -11,21 +11,11 @@ import { trailerHreflangLocales } from "@/data/trailer-i18n";
 import {
   filterIndexableLocales,
   INDEXABLE_LOCALES,
-  isIndexableLocale,
 } from "@/i18n/routing";
-import { countMarkdownWords, MIN_ARTICLE_WORDS } from "@/lib/content/word-count";
 import { SITE } from "@/lib/constants";
-import { evergreenPathForNews } from "@/lib/content/news-canonical";
+import { isIndexableNewsArticle } from "@/lib/content/news-canonical";
 import { listArticles } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
-import {
-  HUB_KIND_PARAMS,
-  getEntitiesByParam,
-} from "@/data/hub";
-import {
-  hubKindLocales,
-  isIndexableKind,
-} from "@/data/hub/kind-content";
 
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
 
@@ -58,12 +48,7 @@ async function newsSitemapEntries(
   now: Date,
 ): Promise<MetadataRoute.Sitemap> {
   const published = await listArticles({ status: "published" });
-  const indexable = published.filter(
-    (article) =>
-      !evergreenPathForNews(article.slug) &&
-      isIndexableLocale(article.locale) &&
-      countMarkdownWords(article.bodyMarkdown) >= MIN_ARTICLE_WORDS,
-  );
+  const indexable = published.filter(isIndexableNewsArticle);
 
   const localesBySlug = new Map<string, string[]>();
   for (const article of indexable) {
@@ -104,8 +89,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    * Shipped with English copy only. Listing the six locale variants would put
    * five duplicates of the same text in the index, so they stay out of the
    * sitemap and canonicalise to `/en` until the copy is translated.
+   * /pro and /database stay noindex (thin / waitlist) — not listed here.
    */
-  const englishOnlyPaths = ["/database", "/maps/gta5", "/creators", "/pro"];
+  const englishOnlyPaths = ["/maps/gta5", "/creators"];
 
   const staticPages = staticPaths.flatMap((path) =>
     localizedEntries(path, {
@@ -180,33 +166,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       }));
   });
 
-  // Only locales with real copy, and only categories worth indexing
-  const databaseKindPages = HUB_KIND_PARAMS.filter((kind) =>
-    isIndexableKind(kind, getEntitiesByParam(kind).length),
-  ).flatMap((kind) => {
-    const localeList = filterIndexableLocales(hubKindLocales(kind));
-    return localeList.map((locale) => ({
-      url: `${SITE.url}/${locale}/database/${kind}`,
-      lastModified: now,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-      alternates: hreflangAlternates(`/database/${kind}`, localeList),
-    }));
-  });
-
-  const databaseEntityPages = HUB_KIND_PARAMS.flatMap((kind) => {
-    const localeList = filterIndexableLocales(hubKindLocales(kind));
-    return getEntitiesByParam(kind).flatMap((entity) =>
-      localeList.map((locale) => ({
-        url: `${SITE.url}/${locale}/database/${kind}/${entity.slug}`,
-        lastModified: now,
-        changeFrequency: "monthly" as const,
-        priority: 0.65,
-        alternates: hreflangAlternates(`/database/${kind}/${entity.slug}`, localeList),
-      })),
-    );
-  });
-
   // News: published only; lastModified from article.updatedAt
   // EN primary in MVP — still emit locale variants for hreflang consistency
   let newsPages: MetadataRoute.Sitemap = [];
@@ -224,8 +183,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...locationPages,
     ...collectiblePages,
     ...guidePages,
-    ...databaseKindPages,
-    ...databaseEntityPages,
     ...newsPages,
   ];
 }

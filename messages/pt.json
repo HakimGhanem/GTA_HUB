@@ -58,6 +58,9 @@
     "backToAll": "← Todos os locais",
     "coordinates": "Coordenadas: X: {x}, Y: {y}",
     "trailerBeatsTitle": "Visto nos trailers oficiais",
+    "trailerBeatsHint": "Apenas uploads oficiais da Rockstar. Pause na silhueta e compare o pin.",
+    "trailerPageLink": "Análise dos trailers com timecodes",
+    "trailerEstimateNote": "Os timecodes são aproximados até cada plano ser verificado fotograma a fotograma.",
     "officialSource": "Fonte Rockstar",
     "ultimateNote": "Destino Ultimate Edition. O pin marca a região, não um endereço.",
     "aboutTitle": "Sobre {name}",
@@ -325,6 +328,8 @@
     "errorInvalid": "Esse email parece errado — verifica a escrita.",
     "errorRate": "Demasiadas tentativas. Tenta de novo daqui a um minuto.",
     "errorGeneric": "Não conseguimos guardar. Tenta de novo ou escreve para hello@map-6.com.",
-    "dismiss": "Fechar"
+    "dismiss": "Fechar",
+    "preorderCta": "Pré-encomenda",
+    "setupCta": "Setup"
   }
 }
