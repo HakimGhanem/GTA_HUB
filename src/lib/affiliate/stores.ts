@@ -2,7 +2,6 @@ import { AMAZON_STORE } from "@/lib/amazon-affiliate";
 import type { PreorderProduct } from "@/data/preorder-products";
 import {
   AMAZON_STORE_IDS,
-  amazonTagEnvVar,
   asinForAmazonStore,
   existsOnAmazon,
   isAmazonStoreId,
@@ -53,6 +52,19 @@ function envTrim(key: string): string {
 }
 
 /**
+ * Next only inlines NEXT_PUBLIC_* when the key is a string literal.
+ * `process.env[amazonTagEnvVar(id)]` stays empty in the Cloud Run bundle.
+ */
+const AMAZON_TAGS: Record<AmazonStoreId, string> = {
+  amazon_fr: process.env.NEXT_PUBLIC_AMAZON_AFFILIATE_TAG?.trim() ?? "",
+  amazon_co_uk: process.env.NEXT_PUBLIC_AMAZON_UK_TAG?.trim() ?? "",
+  amazon_com: process.env.NEXT_PUBLIC_AMAZON_US_TAG?.trim() ?? "",
+  amazon_de: process.env.NEXT_PUBLIC_AMAZON_DE_TAG?.trim() ?? "",
+  amazon_es: process.env.NEXT_PUBLIC_AMAZON_ES_TAG?.trim() ?? "",
+  amazon_it: process.env.NEXT_PUBLIC_AMAZON_IT_TAG?.trim() ?? "",
+};
+
+/**
  * Associates tags are per-marketplace: an amazon.fr tag does not track on
  * amazon.co.uk. Each storefront therefore requires its own tag and never
  * borrows another market's, so a click is either tracked or not offered.
@@ -63,7 +75,7 @@ function amazonStore(
   locales: string[],
   baseUrl: string,
 ): AffiliateStore {
-  const tag = envTrim(amazonTagEnvVar(id));
+  const tag = AMAZON_TAGS[id];
   return {
     id,
     label,

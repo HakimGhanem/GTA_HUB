@@ -41,8 +41,8 @@ ARG NEXT_PUBLIC_AMAZON_AFFILIATE_TAG=map6-21
 ARG NEXT_PUBLIC_AMAZON_STORE=https://www.amazon.fr
 # One Associates tag per marketplace — a locale with no tag shows no Amazon
 # offer at all, so leaving these empty silently demonetises it.
-ARG NEXT_PUBLIC_AMAZON_UK_TAG=
-ARG NEXT_PUBLIC_AMAZON_US_TAG=
+ARG NEXT_PUBLIC_AMAZON_UK_TAG=map60f-21
+ARG NEXT_PUBLIC_AMAZON_US_TAG=map6-20
 ARG NEXT_PUBLIC_AMAZON_DE_TAG=
 ARG NEXT_PUBLIC_AMAZON_ES_TAG=
 ARG NEXT_PUBLIC_AMAZON_IT_TAG=
