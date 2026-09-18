@@ -1,6 +1,20 @@
 import { AMAZON_STORE, buildAmazonAffiliateUrl } from "@/lib/amazon-affiliate";
 import type { AmazonStoreId } from "@/lib/affiliate/amazon-markets";
 
+export type ProductFormat = "code_in_box" | "digital" | "hardware" | "accessory";
+
+export type ProductCommerce = {
+  format: ProductFormat;
+  /** Official Take-Two US MSRP when published */
+  msrpUsd?: number;
+  /** Publisher EUR RRP (FR/EU) */
+  msrpEur?: number;
+  /** Last checked Amazon.fr street price */
+  streetEur?: number;
+  /** Last checked Amazon.co.uk street price */
+  streetGbp?: number;
+};
+
 export type PreorderProduct = {
   /** Env key suffix — e.g. GTA6_PS5 → NEXT_PUBLIC_AMAZON_ASIN_GTA6_PS5 */
   envKey: string;
@@ -17,6 +31,20 @@ export type PreorderProduct = {
   platform: "PS5" | "Xbox" | "PC" | "Multi";
   edition: "standard" | "ultimate" | "collectors" | "hardware" | "accessory";
   badge?: string;
+  commerce?: ProductCommerce;
+};
+
+const STANDARD_COMMERCE: ProductCommerce = {
+  format: "code_in_box",
+  msrpUsd: 79.99,
+  msrpEur: 79.99,
+  streetEur: 60,
+  streetGbp: 69.99,
+};
+
+const ULTIMATE_COMMERCE: ProductCommerce = {
+  format: "digital",
+  msrpUsd: 99.99,
 };
 
 /**
@@ -36,6 +64,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
     platform: "PS5",
     edition: "standard",
     badge: "Most popular",
+    commerce: STANDARD_COMMERCE,
   },
   {
     envKey: "GTA6_XBOX",
@@ -47,6 +76,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
       "Standard edition for Xbox Series X and Series S, code-in-box (no disc). Same discounted Amazon.fr pricing and same quota-driven stock swings as the PS5 SKU.",
     platform: "Xbox",
     edition: "standard",
+    commerce: STANDARD_COMMERCE,
   },
   {
     envKey: "GTA6_ULTIMATE_PS5",
@@ -57,6 +87,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
     platform: "PS5",
     edition: "ultimate",
     badge: "Ultimate",
+    commerce: ULTIMATE_COMMERCE,
   },
   {
     envKey: "GTA6_ULTIMATE_XBOX",
@@ -66,6 +97,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
     platform: "Xbox",
     edition: "ultimate",
     badge: "Ultimate",
+    commerce: ULTIMATE_COMMERCE,
   },
   {
     envKey: "GTA6_COLLECTORS_PS5",
@@ -93,6 +125,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
     description: "Need a console for launch day? Bundle a PS5 with your GTA 6 preorder.",
     platform: "PS5",
     edition: "hardware",
+    commerce: { format: "hardware" },
   },
   {
     envKey: "XBOX_SERIES_X",
@@ -101,6 +134,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
     description: "Microsoft's most powerful console — ready for Vice City at 4K.",
     platform: "Xbox",
     edition: "hardware",
+    commerce: { format: "hardware" },
   },
   {
     envKey: "DUALSENSE",
@@ -109,8 +143,53 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
     description: "Extra controller for co-op sessions and long Vice City nights.",
     platform: "PS5",
     edition: "accessory",
+    commerce: { format: "accessory" },
   },
 ];
+
+const NUMBER_LOCALE: Record<string, string> = {
+  fr: "fr-FR",
+  es: "es-ES",
+  de: "de-DE",
+  it: "it-IT",
+  pt: "pt-PT",
+  en: "en-GB",
+};
+
+function money(amount: number, currency: "USD" | "EUR" | "GBP", locale: string) {
+  return new Intl.NumberFormat(NUMBER_LOCALE[locale] ?? "en-GB", {
+    style: "currency",
+    currency,
+  }).format(amount);
+}
+
+/** Street price first, official RRP as compare-at. Null when we have no figure. */
+export function displayProductPrice(
+  product: PreorderProduct,
+  locale: string,
+): { primary: string; compare?: string } | null {
+  const c = product.commerce;
+  if (!c) return null;
+  if (locale === "fr" && c.streetEur != null) {
+    return {
+      primary: money(c.streetEur, "EUR", locale),
+      compare: c.msrpEur != null ? money(c.msrpEur, "EUR", locale) : undefined,
+    };
+  }
+  if (locale === "en" && c.streetGbp != null) {
+    return {
+      primary: money(c.streetGbp, "GBP", locale),
+      compare: c.msrpUsd != null ? money(c.msrpUsd, "USD", "en") : undefined,
+    };
+  }
+  if (c.msrpUsd != null) {
+    return { primary: money(c.msrpUsd, "USD", locale) };
+  }
+  if (c.msrpEur != null) {
+    return { primary: money(c.msrpEur, "EUR", locale) };
+  }
+  return null;
+}
 
 export function getConfiguredProducts() {
   return PREORDER_PRODUCTS.filter((p) => p.asin.length > 0);

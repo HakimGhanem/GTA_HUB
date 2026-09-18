@@ -1,7 +1,8 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { StoreOfferButtons } from "@/components/affiliate/StoreOfferButtons";
 import type { PreorderProduct } from "@/data/preorder-products";
-import { productEnvVar } from "@/data/preorder-products";
+import { displayProductPrice, productEnvVar } from "@/data/preorder-products";
+import { getProductCopy } from "@/data/product-copy-i18n";
 import { localizeOffers, offersForProduct } from "@/lib/affiliate/store-links";
 
 const PLATFORM_COLORS: Record<PreorderProduct["platform"], string> = {
@@ -29,12 +30,21 @@ export async function AmazonProductCard({
 }: AmazonProductCardProps) {
   const locale = localeProp ?? (await getLocale().catch(() => "fr"));
   const t = await getTranslations({ locale, namespace: "affiliate" });
+  const copy = getProductCopy(product, locale);
   const hasAsin = product.asin.length > 0;
   const allowPlaceholder =
     showPlaceholders && process.env.NODE_ENV !== "production";
-  const offers = localizeOffers(offersForProduct(product, locale), (key, values) =>
-    t(key, values),
+  const verb =
+    product.edition === "hardware" || product.edition === "accessory"
+      ? "buy"
+      : "preorder";
+  const offers = localizeOffers(
+    offersForProduct(product, locale),
+    (key, values) => t(key, values),
+    verb,
   );
+  const price = displayProductPrice(product, locale);
+  const format = product.commerce?.format;
 
   if (!hasAsin && !allowPlaceholder && offers.length === 0) return null;
 
@@ -46,16 +56,36 @@ export async function AmazonProductCard({
         >
           {product.platform}
         </span>
-        {product.badge && (
+        {copy.badge && (
           <span className="rounded-full bg-pink-500/20 px-2 py-0.5 text-xs font-medium text-pink-300">
-            {product.badge}
+            {copy.badge}
           </span>
         )}
+        {format === "code_in_box" ? (
+          <span className="rounded-full border border-white/10 px-2 py-0.5 text-xs text-white/50">
+            {t("formatCodeInBox")}
+          </span>
+        ) : null}
+        {format === "digital" ? (
+          <span className="rounded-full border border-emerald-400/20 px-2 py-0.5 text-xs text-emerald-300">
+            {t("formatDigital")}
+          </span>
+        ) : null}
       </div>
 
-      <h3 className="text-lg font-semibold text-white">{product.label}</h3>
+      <h3 className="text-lg font-semibold text-white">{copy.label}</h3>
+      {price ? (
+        <p className="mt-2 flex items-baseline gap-2">
+          <span className="text-2xl font-bold text-white">{price.primary}</span>
+          {price.compare ? (
+            <span className="text-sm text-white/40 line-through">
+              {price.compare}
+            </span>
+          ) : null}
+        </p>
+      ) : null}
       <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">
-        {product.description}
+        {copy.description}
       </p>
 
       {!hasAsin && allowPlaceholder ? (
@@ -69,7 +99,10 @@ export async function AmazonProductCard({
         </div>
       ) : null}
 
-      <StoreOfferButtons offers={offers} />
+      <StoreOfferButtons
+        offers={offers}
+        otherStoresLabel={t("otherStores")}
+      />
     </div>
   );
 }

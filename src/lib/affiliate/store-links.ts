@@ -26,6 +26,8 @@ export type StoreOffer = {
    */
   target: "product" | "search";
   cta: string;
+  /** First-ranked checkout — the only button shown until "other stores". */
+  primary: boolean;
 };
 
 const OFFER_ORDER: AffiliateStoreId[] = [
@@ -229,39 +231,76 @@ function ctaForStore(store: AffiliateStore, target: StoreOffer["target"]): strin
   return `${verb} ${store.label} →`;
 }
 
+function offerScore(
+  store: AffiliateStore,
+  target: StoreOffer["target"],
+  locale: string,
+): number {
+  const primaryAmazon = amazonStoreForLocale(locale)?.id;
+  const isAmazon = isAmazonStoreId(store.id);
+  if (isAmazon && target === "product" && store.id === primaryAmazon) return 100;
+  if (isAmazon && target === "product") return 70;
+  if (store.id === "playstation" || store.id === "xbox") return 60;
+  if (store.kind === "affiliate" && target === "product") return 40;
+  if (isAmazon && target === "search") return 10;
+  return 20;
+}
+
 export function offersForProduct(
   product: PreorderProduct,
   locale: string,
 ): StoreOffer[] {
-  return STORES.filter((store) => storeAppliesToProduct(store, product, locale))
-    .sort((a, b) => OFFER_ORDER.indexOf(a.id) - OFFER_ORDER.indexOf(b.id))
+  const ranked = STORES.filter((store) =>
+    storeAppliesToProduct(store, product, locale),
+  )
     .map((store) => {
       const isAmazon = isAmazonStoreId(store.id);
       const hasAsin = isAmazon && asinForStore(store, product).length > 0;
       const target: StoreOffer["target"] = hasAsin ? "product" : "search";
-      return {
-        id: store.id,
-        label: store.label,
-        href: buildOfferUrl(store, product, locale),
-        kind: store.kind,
-        variant: isAmazon ? "amazon" : "secondary",
-        target,
-        cta: ctaForStore(store, target),
-      };
+      return { store, target, score: offerScore(store, target, locale) };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return OFFER_ORDER.indexOf(a.store.id) - OFFER_ORDER.indexOf(b.store.id);
     });
+
+  return ranked.map(({ store, target }, index) => {
+    const isAmazon = isAmazonStoreId(store.id);
+    return {
+      id: store.id,
+      label: store.label,
+      href: buildOfferUrl(store, product, locale),
+      kind: store.kind,
+      variant: isAmazon ? "amazon" : "secondary",
+      target,
+      cta: ctaForStore(store, target),
+      primary: index === 0,
+    };
+  });
 }
+
+export type OfferCtaKey =
+  | "viewOnStore"
+  | "searchOnStore"
+  | "preorderOnStore"
+  | "buyOnStore";
 
 /** Replace the English fallback CTAs with translated ones. */
 export function localizeOffers(
   offers: StoreOffer[],
-  t: (key: "viewOnStore" | "searchOnStore", values: { store: string }) => string,
+  t: (key: OfferCtaKey, values: { store: string }) => string,
+  verb: "preorder" | "buy" = "preorder",
 ): StoreOffer[] {
-  return offers.map((offer) => ({
-    ...offer,
-    cta: t(offer.target === "product" ? "viewOnStore" : "searchOnStore", {
-      store: offer.label,
-    }),
-  }));
+  return offers.map((offer) => {
+    const key: OfferCtaKey = offer.primary
+      ? verb === "buy"
+        ? "buyOnStore"
+        : "preorderOnStore"
+      : offer.target === "search"
+        ? "searchOnStore"
+        : "viewOnStore";
+    return { ...offer, cta: t(key, { store: offer.label }) };
+  });
 }
 
 export function productHasOffers(

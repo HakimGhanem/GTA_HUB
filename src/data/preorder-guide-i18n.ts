@@ -1,8 +1,25 @@
+export type PreorderPathCopy = {
+  title: string;
+  all: string;
+  ps5: string;
+  xbox: string;
+  console: string;
+  pc: string;
+  pcBody: string;
+};
+
 export type PreorderGuideCopy = {
   eyebrow: string;
   title: string;
   description: string;
   intro: string;
+  /** Short above-the-fold lead — the long intro stays for SEO body below */
+  introLead: string;
+  path: PreorderPathCopy;
+  standardTitle: string;
+  standardLead: string;
+  ultimateTitle: string;
+  ultimateLead: string;
   whereTitle: string;
   whereBody: string;
   editionsTitle: string;
@@ -43,6 +60,24 @@ const EN: PreorderGuideCopy = {
     "Where to pre-order GTA 6: official Standard ($79.99) and Ultimate ($99.99) for PS5 and Xbox, Vintage Vice City Pack, preload November 12, plus hardware picks.",
   intro:
     "Grand Theft Auto VI launches on {date} for PlayStation 5 and Xbox Series X|S. Official US prices from Take-Two: Standard $79.99, Ultimate $99.99. Eligible purchases before November 20, 2026 include the Vintage Vice City Pack; eligible digital copies include a month of GTA+. Preload starts November 12. This Map-6 pre-order guide is the calm checklist for day-one copies, Standard versus Ultimate, platform lock-in, and the hardware you can buy now. We stay practical: no fake Collector leak lists, no invented PC day-and-date claims, and clear pointers back to the interactive map so hype energy goes into Leonida literacy — filters, deep links, and GTADB-attributed cartography (CC BY 4.0 where noted).",
+  introLead:
+    "GTA 6 launches {date} on PS5 and Xbox Series X|S. Standard is $79.99 / from £69.99 or €60 in a code-in-box; Ultimate is $99.99 digital-only. Pick your platform, then pre-order — digital never sells out.",
+  path: {
+    title: "Start here",
+    all: "Show all",
+    ps5: "I have a PS5",
+    xbox: "I have an Xbox",
+    console: "I need a console",
+    pc: "Waiting for PC",
+    pcBody:
+      "Rockstar has not announced a PC date. Console pre-orders do not transfer. Set a launch alert on this page and skip any site that claims a PC SKU or day-and-date Steam listing.",
+  },
+  standardTitle: "Pre-order Standard",
+  standardLead:
+    "Full game. Code-in-box on Amazon (no disc) or digital on the official store. Cancel on Amazon until it ships. Vintage Vice City Pack if you buy before 20 November 2026.",
+  ultimateTitle: "Ultimate — official stores only",
+  ultimateLead:
+    "$20 more for official extras. Digital only: no Amazon box, no Collector statue. If the extras list is not worth $20, stay on Standard and upgrade later.",
   whereTitle: "Where to pre-order GTA 6",
   whereBody:
     "Rockstar has confirmed GTA 6 for PlayStation 5 and Xbox Series X|S. PC timing, if any, will be cited from official channels when it exists — Map-6 will not invent it. Amazon is one of the safest places to pre-order for many players: reliable shipping, easy returns, Prime delivery on eligible items, cancellation on most pre-orders until the item ships, and a lowest-price guarantee that bills you the cheapest price seen before dispatch. Pre-orders opened June 25, 2026, and Amazon.fr undercut the €79.99 RRP at €60 for both platforms. Use the product cards below to jump straight to the PS5 or Xbox listing. Some links may be Amazon Associates affiliates; Map-6 is a fan-made interactive map, not Rockstar or Take-Two — see the site disclosure. While you wait for launch, keep exploring Vice City, the Leonida Keys, Port Gellhorn, Grassrivers, Ambrosia Island, and Mount Kalaga on /map with Landmarks filtered, and Share deep links into your notes so launch week is navigation rather than shopping panic.",
@@ -61,10 +96,10 @@ const EN: PreorderGuideCopy = {
     ],
   },
   stockNote:
-    "Stock caveat: Amazon.fr only lists the Standard code-in-box SKUs — one for PS5, one for Xbox Series X|S. Ultimate is digital-only on the PlayStation and Microsoft stores, and there is no Collector's SKU to hunt. Because Rockstar allots key quotas per retailer, both listings sold out within 48 hours of opening and have flipped between “in stock at €60” and “currently unavailable” since. If a card lands on an unavailable page, check back after the next Rockstar beat rather than paying a marketplace markup — and remember the digital store never sells out.",
-  retailersTitle: "Amazon vs Fnac vs Cdiscount vs Carrefour",
+    "Stock caveat: Amazon lists Standard as code-in-box (no disc) — one PS5 SKU, one Xbox SKU. UK and FR have gone in and out of stock because Rockstar allots key quotas. Ultimate is digital-only on PlayStation Store and Xbox Store. There is no Collector's SKU. If a box listing is unavailable, do not pay a marketplace markup — the official digital store never sells out.",
+  retailersTitle: "Amazon UK, Amazon US, or the official stores?",
   retailersBody:
-    "Amazon is not the only shop undercutting the €79.99 store price. Fnac, Cdiscount and Carrefour list the same Standard code-in-box SKU around €60, with the same Vintage Vice City Pack eligibility and no store-exclusive bonus anywhere — the only real differences are stock, delivery and how late you can cancel. Compare all six storefronts below, official stores included.",
+    "English traffic: Amazon.co.uk is the live code-in-box listing (tagged). Amazon.com stays a search fallback until a US ASIN is confirmed — we will not invent one. If the box is unavailable, buy digital on PlayStation Store or Xbox Store; those never sell out and have no store-exclusive bonus.",
   retailersLinkLabel: "See the full GTA 6 price comparison →",
   platformTitle: "PS5 or Xbox — which platform?",
   platformBeforePs5: "Both consoles run GTA 6 at launch. Choose the platform you already own to avoid buying twice, and remember cross-saves are not announced. PlayStation players should grab the ",
@@ -135,6 +170,24 @@ const FR: PreorderGuideCopy = {
     "Où précommander GTA 6 : Standard (79,99 $) et Ultimate (99,99 $) officielles, pack Vintage Vice City, preload 12 novembre, plus le matériel.",
   intro:
     "Grand Theft Auto VI sort le {date} sur PlayStation 5 et Xbox Series X|S. Les précommandes sont ouvertes depuis le 25 juin 2026, et Amazon.fr casse le prix conseillé de 79,99 € à 60 € sur les deux plateformes. Ce guide précommande Map-6 est la checklist calme pour les copies day-one : le raisonnement Ultimate vs Standard, le lock plateforme, la réalité du stock par quotas, et le hardware achetable maintenant. On reste pratique : pas de fausses listes leak Rockstar, pas de PC inventé day-and-date, et des renvois clairs vers la carte interactive pour que l'énergie hype aille vers la littératie Leonida — filtres, deep links, cartographie GTADB (CC BY 4.0).",
+  introLead:
+    "GTA 6 sort le {date} sur PS5 et Xbox Series X|S. Standard : 79,99 $ / dès 60 € en boîte code ; Ultimate : 99,99 $, digital uniquement. Choisissez la plateforme, puis précommandez — le digital n'est jamais en rupture.",
+  path: {
+    title: "Par où commencer",
+    all: "Tout voir",
+    ps5: "J'ai une PS5",
+    xbox: "J'ai une Xbox",
+    console: "Il me faut une console",
+    pc: "J'attends le PC",
+    pcBody:
+      "Rockstar n'a pas annoncé de date PC. Les précommandes console ne se transfèrent pas. Activez l'alerte lancement sur cette page et ignorez tout site qui invente un SKU PC ou un Steam day-and-date.",
+  },
+  standardTitle: "Précommander la Standard",
+  standardLead:
+    "Le jeu complet. Boîte code Amazon (pas de disque) ou digital sur le store officiel. Annulation Amazon jusqu'à l'expédition. Pack Vintage Vice City si achat avant le 20 novembre 2026.",
+  ultimateTitle: "Ultimate — stores officiels seulement",
+  ultimateLead:
+    "20 $ de plus pour les extras officiels. Digital uniquement : pas de boîte Amazon, pas de statue Collector. Si la liste ne vaut pas 20 $, restez en Standard et upgredez plus tard.",
   whereTitle: "Où précommander GTA 6",
   whereBody:
     "Rockstar a confirmé GTA 6 sur PlayStation 5 et Xbox Series X|S. Le timing PC, s'il existe, sera cité depuis les canaux officiels — Map-6 ne l'invente pas. Amazon reste l'un des canaux les plus sûrs : livraison fiable et gratuite, retours simples, prélèvement seulement à l'expédition, annulation possible jusque-là, et garantie du prix le plus bas qui vous débite le tarif le plus avantageux vu avant l'envoi. Les boîtes code sont annoncées pour le 12 novembre, une semaine avant la sortie, de quoi lancer le préchargement. Utilisez les cartes produits ci-dessous pour aller directement sur la fiche PS5 ou Xbox. Certains liens peuvent être affiliés Amazon Associates ; Map-6 est une carte fan-made, pas Rockstar ni Take-Two. En attendant le lancement, explorez Vice City, les Keys, Port Gellhorn, Grassrivers, Ambrosia et Mount Kalaga sur /map avec Landmarks, et Sharez des deep links dans vos notes pour que la semaine de lancement soit de la navigation, pas de la panique shopping.",
@@ -227,6 +280,24 @@ const ES: PreorderGuideCopy = {
     "Dónde hacer la preventa de GTA 6 en Amazon: ediciones Standard y Coleccionista para PS5 y Xbox, más hardware para el día del lanzamiento.",
   intro:
     "Grand Theft Auto VI se lanza el {date} en PlayStation 5 y Xbox Series X|S. Las preventas están abiertas desde el 25 de junio de 2026 y Amazon.fr rebaja el PVP de 79,99 € a 60 € en ambas plataformas. Esta guía de preventa de Map-6 es la checklist calmada para copias day-one: el razonamiento Ultimate vs Standard, el lock de plataforma, la realidad del stock por cupos y el hardware que puedes comprar ya. Seguimos siendo prácticos: sin falsas listas leak de Rockstar, sin PC inventado day-and-date, y con enlaces claros al mapa interactivo para que la energía del hype vaya a la literacidad de Leonida — filtros, deep links, cartografía GTADB (CC BY 4.0).",
+  introLead:
+    "GTA 6 sale el {date} en PS5 y Xbox Series X|S. Standard: 79,99 $ / desde 60 € en caja con código; Ultimate: 99,99 $, solo digital. Elige plataforma y reserva — lo digital nunca se agota.",
+  path: {
+    title: "Empieza aquí",
+    all: "Ver todo",
+    ps5: "Tengo una PS5",
+    xbox: "Tengo una Xbox",
+    console: "Necesito consola",
+    pc: "Espero el PC",
+    pcBody:
+      "Rockstar no ha anunciado fecha de PC. Las preventas de consola no se transfieren. Activa la alerta de lanzamiento en esta página e ignora cualquier web que invente un SKU de PC o un Steam day-and-date.",
+  },
+  standardTitle: "Reservar Standard",
+  standardLead:
+    "El juego completo. Caja con código en Amazon (sin disco) o digital en la tienda oficial. Cancelación en Amazon hasta el envío. Pack Vintage Vice City si compras antes del 20 de noviembre de 2026.",
+  ultimateTitle: "Ultimate — solo tiendas oficiales",
+  ultimateLead:
+    "20 $ más por extras oficiales. Solo digital: sin caja Amazon, sin estatua Coleccionista. Si la lista no vale 20 $, quédate en Standard y mejora después.",
   whereTitle: "Dónde preordenar GTA 6",
   whereBody:
     "Rockstar ha confirmado GTA 6 para PlayStation 5 y Xbox Series X|S. El timing de PC, si existe, se citará desde canales oficiales — Map-6 no lo inventa. Amazon es uno de los canales más seguros: envío fiable, devoluciones fáciles, Prime en elegibles y cancelación de preventas hasta el envío en la mayoría de casos. Usa las tarjetas de producto de abajo para ir directo a la ficha de PS5 o Xbox. Algunos enlaces pueden ser de afiliados Amazon Associates; Map-6 es un mapa fan-made, no Rockstar ni Take-Two. Mientras esperas el lanzamiento, explora Vice City, las Keys, Port Gellhorn, Grassrivers, Ambrosia y Mount Kalaga en /map con Landmarks, y comparte deep links en tus notas para que la semana de lanzamiento sea navegación, no pánico de compras.",

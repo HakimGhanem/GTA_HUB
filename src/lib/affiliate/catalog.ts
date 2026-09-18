@@ -5,6 +5,8 @@ import type { AffiliateIntent } from "./intents";
 const PRODUCT_INTENTS: Record<string, AffiliateIntent[]> = {
   GTA6_PS5: ["preorder_standard"],
   GTA6_XBOX: ["preorder_standard"],
+  GTA6_ULTIMATE_PS5: ["preorder_collectors"],
+  GTA6_ULTIMATE_XBOX: ["preorder_collectors"],
   GTA6_COLLECTORS_PS5: ["preorder_collectors"],
   GTA6_COLLECTORS_XBOX: ["preorder_collectors"],
   PS5: ["console_upgrade"],
@@ -147,11 +149,13 @@ export function liveProductsForIntent(intent: AffiliateIntent): PreorderProduct[
 export function searchQueryForProduct(product: PreorderProduct): string {
   switch (product.envKey) {
     case "GTA6_PS5":
-    case "GTA6_COLLECTORS_PS5":
       return "GTA 6 PS5";
+    case "GTA6_ULTIMATE_PS5":
+      return "GTA 6 Ultimate PS5";
     case "GTA6_XBOX":
-    case "GTA6_COLLECTORS_XBOX":
       return "GTA 6 Xbox";
+    case "GTA6_ULTIMATE_XBOX":
+      return "GTA 6 Ultimate Xbox";
     case "GTA5_PS5":
       return "GTA 5 PS5";
     default:
