@@ -37,8 +37,8 @@ substitutions:
   # One Associates tag per marketplace. An empty tag removes every Amazon offer
   # on the locales that marketplace serves — /en earns nothing until UK or US
   # is filled. Check with `npm run affiliate:audit`.
-  _AMAZON_UK_TAG: ""
-  _AMAZON_US_TAG: ""
+  _AMAZON_UK_TAG: "map60f-21"
+  _AMAZON_US_TAG: "map6-20"
   _AMAZON_DE_TAG: ""
   _AMAZON_ES_TAG: ""
   _AMAZON_IT_TAG: ""
