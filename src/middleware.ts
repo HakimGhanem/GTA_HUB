@@ -1,7 +1,7 @@
 import createMiddleware from "next-intl/middleware";
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { routing } from "./i18n/routing";
+import { isParkedLocale, routing } from "./i18n/routing";
 
 const intlMiddleware = createMiddleware(routing);
 
@@ -19,6 +19,31 @@ const AI_CRAWLER_PATTERN =
 
 function requestHost(request: NextRequest): string {
   return request.headers.get("host")?.split(":")[0]?.toLowerCase() ?? "";
+}
+
+/**
+ * ES/PT/DE/IT: news is gone (410). Everything else 302s to the EN path so
+ * AdSense reviewers cannot click into thin translated shells.
+ */
+function parkedLocaleRedirect(request: NextRequest): NextResponse | null {
+  const { pathname, search } = request.nextUrl;
+  const match = pathname.match(/^\/([a-z]{2})(?=\/|$)/);
+  if (!match || !isParkedLocale(match[1])) return null;
+
+  const rest = pathname.slice(match[0].length) || "/";
+  if (rest === "/news" || rest.startsWith("/news/")) {
+    return new NextResponse("This translation is no longer published.", {
+      status: 410,
+      headers: { "content-type": "text/plain; charset=utf-8" },
+    });
+  }
+
+  const target = request.nextUrl.clone();
+  target.pathname = `/en${rest === "/" ? "" : rest}`;
+  target.search = search;
+  const response = NextResponse.redirect(target, 302);
+  response.cookies.set("NEXT_LOCALE", "en");
+  return response;
 }
 
 function skipIntl(pathname: string): boolean {
@@ -73,6 +98,9 @@ export function middleware(request: NextRequest) {
   }
 
   logAiCrawler(request);
+
+  const parked = parkedLocaleRedirect(request);
+  if (parked) return parked;
 
   // `/en/guides/foo.md` → markdown mirror, without shadowing the HTML route.
   if (request.nextUrl.pathname.endsWith(".md")) {

@@ -2,14 +2,11 @@
 
 import { useLocale } from "next-intl";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { INDEXABLE_LOCALES } from "@/i18n/routing";
 
-const locales = [
+const SWITCHABLE = [
   { code: "en", label: "EN", flag: "🇬🇧" },
   { code: "fr", label: "FR", flag: "🇫🇷" },
-  { code: "es", label: "ES", flag: "🇪🇸" },
-  { code: "pt", label: "PT", flag: "🇧🇷" },
-  { code: "de", label: "DE", flag: "🇩🇪" },
-  { code: "it", label: "IT", flag: "🇮🇹" },
 ] as const;
 
 export function LocaleSwitcher() {
@@ -17,13 +14,13 @@ export function LocaleSwitcher() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const switchLocale = (newLocale: string) => {
+  const switchLocale = (newLocale: (typeof INDEXABLE_LOCALES)[number]) => {
     router.replace(pathname, { locale: newLocale });
   };
 
   return (
     <div className="flex gap-1">
-      {locales.map(({ code, label, flag }) => (
+      {SWITCHABLE.map(({ code, label, flag }) => (
         <button
           key={code}
           type="button"

@@ -5,6 +5,7 @@ import { enrichTopicFunnel } from "./funnel";
 import { eventKeyFromHeadline } from "./ids";
 import { bulkUpsertTopics, listTopics } from "./repository";
 import type { ContentCluster, Topic } from "./schema";
+import { fetchYoutubeVeille } from "./youtube-veille";
 
 const FEEDS = [
   // Purchase / setup intent first — higher EPC near launch (Amazon)
@@ -145,9 +146,71 @@ export type DetectNewsResult = {
   created: number;
   skipped: number;
   feedErrors: string[];
+  youtube: {
+    status: "ok" | "no_key" | "error";
+    fetched: number;
+    created: number;
+    quotaUsed: number;
+    error?: string;
+  };
 };
 
-/** RSS → scored topics. Does not invent ASINs or trailer dates. */
+type IncomingItem = {
+  title: string;
+  link: string;
+  publishedAt?: string;
+  description: string;
+  eventKey: string;
+  extraScore?: number;
+};
+
+function toTopic(
+  item: IncomingItem,
+  seenEventKeys: Set<string>,
+): Topic | "skip-gta" | "skip-dup" {
+  if (!/gta\s*(6|vi)|grand theft auto/i.test(item.title)) return "skip-gta";
+  if (seenEventKeys.has(item.eventKey)) return "skip-dup";
+  seenEventKeys.add(item.eventKey);
+
+  const cluster = inferCluster(`${item.title} ${item.description}`);
+  const score = Math.min(
+    100,
+    scoreItem(item.title, item.link, item.publishedAt) + (item.extraScore ?? 0),
+  );
+  const now = new Date().toISOString();
+  const enriched = enrichTopicFunnel({
+    id: "",
+    headline: item.title,
+    summary: item.description.replace(/<[^>]+>/g, "").slice(0, 400),
+    sourceUrls: [item.link],
+    cluster,
+    score,
+    eventKey: item.eventKey,
+    status: "scored",
+    primaryKeywordHint: keywordHint(cluster),
+    createdAt: now,
+    updatedAt: now,
+  });
+  return {
+    id: randomUUID(),
+    headline: enriched.headline,
+    summary: enriched.summary,
+    sourceUrls: enriched.sourceUrls,
+    cluster: enriched.cluster,
+    score: enriched.funnelScore ?? enriched.score,
+    eventKey: enriched.eventKey,
+    status: "scored",
+    primaryKeywordHint: enriched.primaryKeywordHint,
+    funnelKind: enriched.funnelKind,
+    affiliateIntents: enriched.affiliateIntents,
+    clipHook: enriched.clipHook,
+    funnelScore: enriched.funnelScore,
+    createdAt: now,
+    updatedAt: now,
+  };
+}
+
+/** RSS + YouTube Data API metadata → scored topics. No ASINs or trailer dates invented. */
 export async function detectNewsTopics(): Promise<DetectNewsResult> {
   const parserItems: RssItem[] = [];
   const feedErrors: string[] = [];
@@ -161,67 +224,68 @@ export async function detectNewsTopics(): Promise<DetectNewsResult> {
     }
   }
 
+  const youtube = await fetchYoutubeVeille();
+  if (youtube.status === "error" && youtube.error) {
+    feedErrors.push(`youtube: ${youtube.error}`);
+  }
+
   let created = 0;
   let skipped = 0;
+  let youtubeCreated = 0;
 
   // One collection read plus one batched write for the whole run. Resolving
   // each item's eventKey and writing it individually made detection quadratic.
   const seenEventKeys = new Set((await listTopics()).map((t) => t.eventKey));
   const fresh: Topic[] = [];
 
-  for (const item of parserItems) {
-    const title = (item.title || "").trim();
-    const link = (item.link || "").trim();
-    if (!title || !link) continue;
-    if (!/gta\s*(6|vi)|grand theft auto/i.test(title)) {
+  const incoming: IncomingItem[] = [
+    ...parserItems.flatMap((item) => {
+      const title = (item.title || "").trim();
+      const link = (item.link || "").trim();
+      if (!title || !link) return [];
+      return [
+        {
+          title,
+          link,
+          publishedAt: item.pubDate,
+          description: (item.description || title).replace(/<[^>]+>/g, ""),
+          eventKey: eventKeyFromHeadline(title),
+        },
+      ];
+    }),
+    ...youtube.videos.map((video) => ({
+      title: video.title,
+      link: video.url,
+      publishedAt: video.publishedAt,
+      description: video.summary,
+      eventKey: `yt-${video.videoId}`,
+      extraScore: video.extraScore,
+    })),
+  ];
+
+  for (const item of incoming) {
+    const topic = toTopic(item, seenEventKeys);
+    if (topic === "skip-gta" || topic === "skip-dup") {
       skipped++;
       continue;
     }
-
-    const cluster = inferCluster(`${title} ${item.description || ""}`);
-    const eventKey = eventKeyFromHeadline(title);
-    if (seenEventKeys.has(eventKey)) {
-      skipped++;
-      continue;
-    }
-    seenEventKeys.add(eventKey);
-
-    const score = scoreItem(title, link, item.pubDate);
-    const enriched = enrichTopicFunnel({
-      id: "",
-      headline: title,
-      summary: (item.description || title).replace(/<[^>]+>/g, "").slice(0, 400),
-      sourceUrls: [link],
-      cluster,
-      score,
-      eventKey,
-      status: "scored",
-      primaryKeywordHint: keywordHint(cluster),
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    });
-    const now = new Date().toISOString();
-    fresh.push({
-      id: randomUUID(),
-      headline: enriched.headline,
-      summary: enriched.summary,
-      sourceUrls: enriched.sourceUrls,
-      cluster: enriched.cluster,
-      score: enriched.funnelScore ?? enriched.score,
-      eventKey: enriched.eventKey,
-      status: "scored",
-      primaryKeywordHint: enriched.primaryKeywordHint,
-      funnelKind: enriched.funnelKind,
-      affiliateIntents: enriched.affiliateIntents,
-      clipHook: enriched.clipHook,
-      funnelScore: enriched.funnelScore,
-      createdAt: now,
-      updatedAt: now,
-    });
+    fresh.push(topic);
     created++;
+    if (item.eventKey.startsWith("yt-")) youtubeCreated++;
   }
 
   await bulkUpsertTopics(fresh);
 
-  return { created, skipped, feedErrors };
+  return {
+    created,
+    skipped,
+    feedErrors,
+    youtube: {
+      status: youtube.status,
+      fetched: youtube.videos.length,
+      created: youtubeCreated,
+      quotaUsed: youtube.quotaUsed,
+      error: youtube.error,
+    },
+  };
 }

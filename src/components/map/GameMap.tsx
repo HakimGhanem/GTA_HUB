@@ -48,6 +48,7 @@ import { MapScaleBar } from "./MapScaleBar";
 import { MapSidebar } from "./MapSidebar";
 import { MapStatusBar } from "./MapStatusBar";
 import { MapToolbar } from "./MapToolbar";
+import { useTranslations } from "next-intl";
 
 type GameMapProps = {
   gameId?: GameId;
@@ -86,6 +87,7 @@ export function GameMap({
   onSelectGame,
   onDeepLinkChange,
 }: GameMapProps) {
+  const t = useTranslations("map");
   const game = useMemo(() => getGameConfig(gameId), [gameId]);
   const bounds = game.bounds;
   const mapRef = useRef<MapRef>(null);
@@ -394,13 +396,14 @@ export function GameMap({
             largeLabels={streamerUi}
             isFound={progress.isFound}
             onToggleFound={progress.toggleFound}
+            gameId={gameId}
           />
         )}
       </Map>
 
       {!overlayMode && game.id === "gta6" && (
         <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-md -translate-x-1/2 rounded-md border border-pink-400/20 bg-black/55 px-3 py-1.5 text-center text-[10px] text-white/70 backdrop-blur-sm">
-          GTA 6 map live · mark found locally · trust badges on pins
+          {t("liveBanner")}
         </p>
       )}
 

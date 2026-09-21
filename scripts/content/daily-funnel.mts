@@ -2,7 +2,7 @@
 /**
  * Daily funnel factory — Europe/Paris 17:00 target.
  *
- * 1) detect RSS → topics (funnel-scored)
+ * 1) detect RSS + YouTube metadata → topics (funnel-scored)
  * 2) draft top N purchase/mixed topics (affiliate intents beat trailer ties)
  * 3) optional auto-publish when CONTENT_DAILY_AUTO_PUBLISH=true
  * 4) IndexNow / revalidate via publish API when remote
@@ -94,7 +94,7 @@ async function main() {
     console.log("\n— detect —");
     const detected = await detectNewsTopics();
     console.log(
-      `created=${detected.created} skipped=${detected.skipped}`,
+      `created=${detected.created} skipped=${detected.skipped} youtube=${detected.youtube.status} ytCreated=${detected.youtube.created} quota=${detected.youtube.quotaUsed}`,
     );
     if (detected.feedErrors.length) {
       console.warn("Feed errors:", detected.feedErrors);

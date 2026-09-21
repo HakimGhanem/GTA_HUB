@@ -27,7 +27,7 @@ import { revalidatePath, revalidateTag } from "next/cache";
  * Body / query (Scheduler message-body JSON):
  *   {
  *     "limit"?: 1|2,          // drafts/publishes per run (default 2, max 2)
- *     "detect"?: boolean,     // RSS → topics (default false; cron should pass true)
+ *     "detect"?: boolean,     // RSS + YouTube metadata → topics (default false; cron: true)
  *     "draft"?: boolean,      // draft good ranked topics (default false; cron: true)
  *     "publish"?: boolean,    // publish drafted queue seo≥60 (or CONTENT_DAILY_AUTO_PUBLISH)
  *     "enrichOnly"?: boolean  // stamp funnel fields only; skips detect/draft/publish

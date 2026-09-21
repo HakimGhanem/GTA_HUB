@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense, useEffect, useState } from "react";
+import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { GameMap } from "@/components/map/GameMap";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
@@ -48,6 +49,8 @@ function MapCanvas({ locale }: { locale: string }) {
 }
 
 function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroProps) {
+  const t = useTranslations("home");
+
   return (
     <section className="relative h-[calc(100dvh-3.5rem)] min-h-[28rem] w-full overflow-hidden">
       <MapCanvas locale={locale} />
@@ -55,11 +58,25 @@ function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroPr
       <div className="pointer-events-none absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-4 pb-24 pt-6 sm:px-6 sm:pt-8">
         <div className="mx-auto flex max-w-5xl flex-col items-start gap-3">
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pink-300/90">
-            Map-6
+            {t("badge")}
           </p>
           <h1 className="max-w-xl text-3xl font-bold tracking-tight text-white drop-shadow sm:text-4xl">
             {brand}
           </h1>
+          <p className="max-w-lg text-sm leading-relaxed text-white/80 sm:text-base">
+            {t("heroLine")}
+          </p>
+          <ul className="flex flex-wrap gap-1.5 text-[11px] font-medium text-white/70">
+            <li className="rounded-full border border-white/20 bg-black/40 px-2.5 py-0.5">
+              {t("trustPoi")}
+            </li>
+            <li className="rounded-full border border-white/20 bg-black/40 px-2.5 py-0.5">
+              {t("trustOfficial")}
+            </li>
+            <li className="rounded-full border border-white/20 bg-black/40 px-2.5 py-0.5">
+              {t("trustNoLeak")}
+            </li>
+          </ul>
           <div className="pointer-events-auto flex flex-wrap gap-3 pt-1">
             <Link
               href="/map"

@@ -2,6 +2,8 @@
 
 import { Link } from "@/i18n/navigation";
 import type { Location } from "@/data/all-locations";
+import { PIN_NOTE_MAX, usePinNote } from "@/hooks/usePinNotes";
+import { DEFAULT_GAME_ID, type GameId } from "@/lib/games";
 import { CATEGORY_COLORS } from "@/lib/map-filters";
 import {
   CONFIDENCE_COLORS,
@@ -25,13 +27,34 @@ type LocationPopupProps = {
   onClose: () => void;
   found?: boolean;
   onToggleFound?: () => void;
+  gameId?: GameId;
 };
+
+function reportMailto(
+  location: Location,
+  name: string,
+  confidenceLabel: string,
+): string {
+  const subject = `Pin report: ${name} (${location.slug})`;
+  const body = [
+    `Slug: ${location.slug}`,
+    `Name: ${name}`,
+    `Coords: ${location.x}, ${location.y}`,
+    `Region: ${location.region}`,
+    `Confidence: ${confidenceLabel}`,
+    "",
+    "Issue:",
+    "",
+  ].join("\n");
+  return `mailto:hello@map-6.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+}
 
 export function LocationPopup({
   location,
   onClose,
   found = false,
   onToggleFound,
+  gameId = DEFAULT_GAME_ID,
 }: LocationPopupProps) {
   const locale = useLocale();
   const t = useTranslations();
@@ -43,6 +66,8 @@ export function LocationPopup({
     ? getSubtypeLabel(location.subtype, t)
     : null;
   const trailerHits = getLocationTrailerEvidence(location.slug, locale);
+  const { note, setNote } = usePinNote(gameId, location.slug);
+  const confidenceLabel = getConfidenceLabel(confidence, t);
 
   return (
     <div className="min-w-[220px] max-w-[280px] p-1">
@@ -59,7 +84,7 @@ export function LocationPopup({
           className="rounded px-1.5 py-0.5 text-[10px] font-medium text-gray-800"
           style={{ backgroundColor: `${CONFIDENCE_COLORS[confidence]}55` }}
         >
-          {getConfidenceLabel(confidence, t)}
+          {confidenceLabel}
         </span>
         {location.edition === "ultimate" && (
           <span className="rounded bg-amber-200 px-1.5 py-0.5 text-[10px] font-semibold text-amber-900">
@@ -111,6 +136,19 @@ export function LocationPopup({
           {t("map.popup.regionalPin")}
         </p>
       )}
+      <label className="mt-2 block">
+        <span className="text-[10px] font-medium uppercase tracking-wide text-gray-500">
+          {t("map.popup.noteLabel")}
+        </span>
+        <textarea
+          value={note}
+          onChange={(e) => setNote(e.target.value)}
+          rows={2}
+          maxLength={PIN_NOTE_MAX}
+          placeholder={t("map.popup.notePlaceholder")}
+          className="mt-1 w-full resize-none rounded border border-gray-200 bg-white px-2 py-1 text-xs text-gray-800 placeholder:text-gray-400 focus:border-pink-400 focus:outline-none"
+        />
+      </label>
       <div className="mt-3 flex flex-wrap gap-2">
         {onToggleFound && (
           <button
@@ -139,6 +177,12 @@ export function LocationPopup({
         >
           {t("map.popup.center")}
         </Link>
+        <a
+          href={reportMailto(location, name, confidenceLabel)}
+          className="rounded-full border border-gray-200 px-3 py-1 text-xs text-gray-500 hover:bg-gray-50 hover:text-gray-800"
+        >
+          {t("map.popup.report")}
+        </a>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ import {
   listPublishedArticles,
 } from "@/lib/content/repository";
 import type { AffiliateIntent } from "@/lib/affiliate/intents";
-import { filterIndexableLocales } from "@/i18n/routing";
+import { filterIndexableLocales, isIndexableLocale } from "@/i18n/routing";
 import {
   isIndexableNewsArticle,
   siteEvergreenPathForNews,
@@ -76,7 +76,9 @@ export default async function NewsArticlePage({ params }: Props) {
   setRequestLocale(locale);
 
   const article = await getArticleBySlug(slug, locale);
-  if (!article || article.status !== "published") notFound();
+  if (!isIndexableLocale(locale) || !article || article.status !== "published") {
+    notFound();
+  }
 
   const tNav = await getTranslations("nav");
   const heroSrc = articleHeroSrc(article);

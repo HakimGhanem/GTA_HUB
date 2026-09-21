@@ -13,6 +13,10 @@
   },
   "home": {
     "title": "Mapa interactivo gratis de GTA 6",
+    "heroLine": "Pines confirmados vs comunidad. Timestamps de metraje oficial. Sin mapas filtrados.",
+    "trustPoi": "1.500+ POIs",
+    "trustOfficial": "Filtro solo oficial",
+    "trustNoLeak": "Sin mapas leak",
     "subtitle": "1400+ POIs en Vice City y Leonida — filtra coleccionables, comparte pines, sigue coords. Mapa interactivo gratis de GTA 6 para scrubbing de trailers y el día del lanzamiento, con guías que separan geografía confirmada de rumores.",
     "ctaMap": "Abrir mapa interactivo",
     "ctaSetup": "Guía de setup",
@@ -58,6 +62,7 @@
     "backToAll": "← Todas las ubicaciones",
     "coordinates": "Coordenadas: X: {x}, Y: {y}",
     "trailerBeatsTitle": "Visto en tráilers oficiales",
+    "hubStillCaption": "{name} en el mapa GTA 6 de Map-6 — timestamps de tráilers oficiales abajo.",
     "trailerBeatsHint": "Solo uploads oficiales de Rockstar. Pausa en la silueta y compara el pin.",
     "trailerPageLink": "Análisis de tráilers con códigos de tiempo",
     "trailerEstimateNote": "Los códigos de tiempo son aproximados hasta verificar cada plano.",
@@ -169,6 +174,7 @@
   },
   "map": {
     "legend": "Legend",
+    "liveBanner": "Mapa interactivo GTA 6 · oficial vs comunidad · sin leaks",
     "categories": {
       "landmark": "Landmark",
       "collectible": "Collectible",
@@ -267,7 +273,10 @@
       "watchTrailer": "Ver {stamp}",
       "officialSource": "Fuente oficial",
       "ultimate": "Ultimate",
-      "regionalPin": "Pin regional — Rockstar no ha publicado una dirección."
+      "regionalPin": "Pin regional — Rockstar no ha publicado una dirección.",
+      "noteLabel": "Tu nota",
+      "notePlaceholder": "Solo local — nunca se sube",
+      "report": "Reportar pin"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

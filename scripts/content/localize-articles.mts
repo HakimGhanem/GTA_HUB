@@ -15,8 +15,9 @@ import { argValue, hasFlag } from "./_shared.mts";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "../..");
 const LOCALES = ["fr", "es", "pt", "de", "it"] as const;
-
 type Locale = (typeof LOCALES)[number];
+/** Parked locales stay in the type maps; do not emit new ES/PT/DE/IT copies. */
+const ACTIVE_LOCALES = ["fr"] as const satisfies readonly Locale[];
 
 const UI: Record<
   Locale,
@@ -600,7 +601,7 @@ async function main() {
   const now = new Date().toISOString();
 
   for (const en of sources) {
-    for (const locale of LOCALES) {
+    for (const locale of ACTIVE_LOCALES) {
       const existing = articles.find(
         (a) => a.slug === en.slug && a.locale === locale,
       );

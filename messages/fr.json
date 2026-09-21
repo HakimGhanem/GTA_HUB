@@ -13,6 +13,10 @@
   },
   "home": {
     "title": "Carte interactive GTA 6 gratuite",
+    "heroLine": "Pins confirmés vs communauté. Timestamps sur images officielles. Pas de carte leak.",
+    "trustPoi": "1 500+ POI",
+    "trustOfficial": "Filtre official-only",
+    "trustNoLeak": "Pas de leak map",
     "subtitle": "1400+ POIs à travers Vice City et Leonida — filtrez les collectibles, partagez des pins, suivez les coords. Carte GTA 6 gratuite pour le lancement, avec guides qui séparent géographie confirmée et rumeurs.",
     "ctaMap": "Ouvrir la carte interactive",
     "ctaSetup": "Guide setup lancement",
@@ -58,6 +62,7 @@
     "backToAll": "← Tous les lieux",
     "coordinates": "Coordonnées : X : {x}, Y : {y}",
     "trailerBeatsTitle": "Vu dans les trailers officiels",
+    "hubStillCaption": "{name} sur la carte GTA 6 Map-6 — timestamps trailers officiels ci-dessous.",
     "trailerBeatsHint": "Uploads officiels Rockstar uniquement. Pausez sur la silhouette, puis comparez le pin — nous n’inventons pas de quartier que Rockstar n’a pas montré.",
     "trailerPageLink": "Scrub trailer horodaté complet",
     "trailerEstimateNote": "Les timecodes sont approximatifs tant que chaque plan n’est pas vérifié image par image. Point de départ de scrub, pas une citation.",
@@ -169,6 +174,7 @@
   },
   "map": {
     "legend": "Légende",
+    "liveBanner": "Carte GTA 6 interactive · officiel vs communauté · pas de leak",
     "categories": {
       "landmark": "Monument",
       "collectible": "Collectible",
@@ -267,7 +273,10 @@
       "watchTrailer": "Voir {stamp}",
       "officialSource": "Source officielle",
       "ultimate": "Ultimate",
-      "regionalPin": "Pin régional — Rockstar n’a pas publié d’adresse."
+      "regionalPin": "Pin régional — Rockstar n’a pas publié d’adresse.",
+      "noteLabel": "Votre note",
+      "notePlaceholder": "Local seulement — jamais envoyé",
+      "report": "Signaler"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

@@ -160,6 +160,7 @@ export default async function LocationPage({ params }: Props) {
 
           <LocationTrailerEvidence
             slug={location.slug}
+            name={location.name}
             sourceUrl={location.sourceUrl}
           />
           {location.edition === "ultimate" && (

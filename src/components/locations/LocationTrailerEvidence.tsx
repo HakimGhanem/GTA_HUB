@@ -1,5 +1,6 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { REGIONAL_LOCATION_SLUGS } from "@/data/location-seo-types";
 import {
   formatTrailerEvidenceLine,
   getLocationTrailerEvidence,
@@ -7,14 +8,18 @@ import {
 
 type Props = {
   slug: string;
+  name?: string;
   sourceUrl?: string;
 };
 
-export async function LocationTrailerEvidence({ slug, sourceUrl }: Props) {
+const REGIONAL = new Set<string>(REGIONAL_LOCATION_SLUGS);
+
+export async function LocationTrailerEvidence({ slug, name, sourceUrl }: Props) {
   const locale = await getLocale();
   const t = await getTranslations("locations");
   const hits = getLocationTrailerEvidence(slug, locale);
-  if (hits.length === 0 && !sourceUrl) return null;
+  const isHub = REGIONAL.has(slug);
+  if (hits.length === 0 && !sourceUrl && !isHub) return null;
 
   const unverified = hits.some((hit) => !hit.verified);
 
@@ -22,6 +27,20 @@ export async function LocationTrailerEvidence({ slug, sourceUrl }: Props) {
     <section className="mb-10 max-w-2xl rounded-xl border border-white/10 bg-white/5 p-5">
       <h2 className="text-xl font-bold text-white">{t("trailerBeatsTitle")}</h2>
       <p className="mt-2 text-sm text-white/55">{t("trailerBeatsHint")}</p>
+      {isHub ? (
+        <figure className="mt-4 overflow-hidden rounded-lg border border-white/10">
+          <img
+            src={`/api/og/location/${slug}`}
+            alt={t("hubStillCaption", { name: name ?? slug })}
+            width={1200}
+            height={630}
+            className="h-auto w-full"
+          />
+          <figcaption className="px-3 py-2 text-[11px] text-white/45">
+            {t("hubStillCaption", { name: name ?? slug })}
+          </figcaption>
+        </figure>
+      ) : null}
       {hits.length > 0 && (
         <ul className="mt-4 space-y-3">
           {hits.map((hit) => (

@@ -9,6 +9,7 @@ import type {
 } from "maplibre-gl";
 import type { Location } from "@/data/all-locations";
 import { toMapLibreCoords, type MapBounds } from "@/lib/coordinates";
+import type { GameId } from "@/lib/games";
 import { CATEGORY_COLORS } from "@/lib/map-filters";
 import { LocationPopup } from "./LocationPopup";
 
@@ -60,6 +61,7 @@ type LocationMarkersProps = {
   largeLabels?: boolean;
   isFound?: (slug: string) => boolean;
   onToggleFound?: (slug: string) => void;
+  gameId?: GameId;
 };
 
 export function LocationMarkers({
@@ -72,6 +74,7 @@ export function LocationMarkers({
   largeLabels = false,
   isFound,
   onToggleFound,
+  gameId,
 }: LocationMarkersProps) {
   const [popupLoc, setPopupLoc] = useState<Location | null>(null);
 
@@ -516,6 +519,7 @@ export function LocationMarkers({
             onToggleFound={
               onToggleFound ? () => onToggleFound(popupLoc.slug) : undefined
             }
+            gameId={gameId}
           />
         </Popup>
       )}
