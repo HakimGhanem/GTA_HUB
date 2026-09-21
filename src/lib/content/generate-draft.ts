@@ -175,6 +175,8 @@ See the sources list below for outbound citations used in this draft.
 
 const DRAFT_RULES = `You are a Map-6 editor. Write factual GTA 6 news drafts.
 Rules: never invent trailer dates or product ASINs; label rumors; include ≥3 markdown internal links to /en/map, /en/locations, /en/guides/*;
+write at least 600 words of original prose (no "AdSense depth" padding, no "Primary keyword:" lines);
+embed exactly two in-body figures using this markdown only: ![Vice City on Map-6](/api/og/location/vice-city "Vice City hub") and ![Ocean Drive on Map-6](/api/og/location/ocean-drive "Ocean Drive hub") — never hotlink Rockstar screenshots;
 title 30-60 chars; meta description 120-160 chars; cite sources.`;
 
 const DRAFT_SCHEMA = {

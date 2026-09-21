@@ -1,7 +1,9 @@
 import type { Article } from "@/lib/content/schema";
+import { locationFigure } from "@/lib/content/key-news";
+import { KEY_FR_ARTICLES } from "./editorial-key-fr";
 
 const AUTHOR = "Map-6 Editorial";
-const NOW = "2026-09-13T12:00:00.000Z";
+const NOW = "2026-09-21T09:00:00.000Z";
 
 /**
  * Hand-expanded Discover pieces. Merged last in the repository so they win
@@ -18,6 +20,7 @@ export const EDITORIAL_ARTICLES: Article[] = [
     bodyMarkdown: `Take-Two’s Strauss Zelnick told the market that Grand Theft Auto VI’s premium tier — the **$99.99 Ultimate Edition** — is outpacing the **$79.99 Standard Edition** in pre-orders. The game is still locked to **November 19, 2026** on PlayStation 5 and Xbox Series X|S. That combination (a $20 premium *and* a lead in the cart) is the story. It is not a new launch date, a PC confirmation, or a reason to treat every “89%” screenshot as a Newswire stat.
 
 This briefing separates **what an executive said**, **what outlets inferred**, and **what you should actually buy**. For SKU-by-SKU checkout, use the [pre-order guide](/en/guides/gta-6-preorder-guide) and the [Ultimate vs Standard comparison](/en/guides/gta-6-ultimate-edition-vs-standard). Geography does not change by edition — the [interactive map](/en/map) is the same for every SKU.
+${locationFigure("vice-city", "Vice City hub on the Map-6 GTA 6 map", "Same Vice City pins for Standard and Ultimate — editions do not change the atlas.")}
 
 ## What Zelnick Actually Said
 
@@ -65,6 +68,7 @@ What Ultimate is **not**:
 - A physical disc with extra missions etched on it.
 
 If you are undecided, Standard plus a headset or SSD from the [best-setup guide](/en/guides/best-setup-gta-6-ps5-xbox) often improves every session more than an unseen vehicle pack.
+${locationFigure("ocean-drive", "Ocean Drive on the Map-6 GTA 6 map", "Ocean Drive is trailer geography, not an Ultimate unlock.")}
 
 ## What This Means for Your Pre-Order Decision
 
@@ -138,7 +142,8 @@ While you wait for November 19, geography is free: [Vice City](/en/locations/vic
       "Post-event recap of GTA 6 An Extended Look: confirmed Leonida geography, what we saw of Jason and Lucia, Map-6 pins we refreshed, and what Rockstar still has not said.",
     bodyMarkdown: `An Extended Look is no longer a countdown. Rockstar’s official session landed **27 August 2026 at 3 PM ET (21:00 CEST)** on Netflix first, then on YouTube and [rockstargames.com/VI](https://www.rockstargames.com/VI) **six hours later**. Netflix Tudum framed it as in-game PlayStation 5 footage — not a new leak calendar and not a 100% collectible dump.
 
-This page started as a live desk. It is now the **post-event recap** we said we would write from **official frames only**. We still will not invent shop names, collectible totals, a PC date, or a runtime Rockstar did not print. For the how-to-watch path, see the [Extended Look guide](/en/guides/gta-6-extended-look-how-to-watch). For the pause list we used that night, see [what to pause](/en/news/gta-6-extended-look-map-watch-for).
+This page started as a live desk. It is now the **post-event recap** we said we would write from **official frames only**. We still will not invent shop names, collectible totals, a PC date, or a runtime Rockstar did not print. Systems and timestamps: [Extended Look breakdown](/en/guides/gta-6-extended-look-breakdown) and the [trailer scrub](/en/trailer). Wanted HUD: [six-star explainer](/en/guides/gta-6-wanted-system). How to watch leftovers: [Extended Look guide](/en/guides/gta-6-extended-look-how-to-watch). Pause list: [what to pause](/en/news/gta-6-extended-look-map-watch-for).
+${locationFigure("vice-city", "Vice City after the Extended Look, on Map-6", "Vice City metro remains the easiest Extended Look match — skyline, water, freeway seams.")}
 
 ## Key Geography Confirmed in the Extended Look
 
@@ -157,6 +162,7 @@ The look did what a long in-game package is supposed to do: it spent time in **p
 **Ambrosia Island.** Gated wealth, yachts, exclusive shoreline. [Ambrosia Island](/en/locations/ambrosia-island). Contrast shots against Vice City neon are the tell.
 
 **Mount Kalaga.** Elevation, forest, river — the northern wilderness opposite the beach postcard. [Mount Kalaga](/en/locations/mount-kalaga) and the deep link [/en/map?loc=mount-kalaga](/en/map?loc=mount-kalaga).
+${locationFigure("mount-kalaga", "Mount Kalaga wilderness hub on Map-6", "Mount Kalaga is elevation and forest — the opposite postcard from Ocean Drive.")}
 
 None of that is a new continent. The Extended Look **re-confirmed the atlas** with more in-game time. Borders Rockstar has not drawn stay **estimated** on Map-6.
 
@@ -230,6 +236,8 @@ If another official look drops, we update this slug again from frames — we do 
     createdAt: "2026-08-27T14:00:00.000Z",
     relatedLocationSlugs: ["vice-city", "ocean-drive", "mount-kalaga"],
     relatedGuideSlugs: [
+      "gta-6-extended-look-breakdown",
+      "gta-6-wanted-system",
       "gta-6-extended-look-how-to-watch",
       "gta-6-map-guide",
     ],
@@ -265,6 +273,7 @@ If another official look drops, we update this slug again from frames — we do 
     bodyMarkdown: `If you already live on PlayStation, the **PS5 SKU is the honest cart** for Grand Theft Auto VI. Rockstar has confirmed **November 19, 2026** on PS5 and Xbox Series X|S. This page is the PlayStation pre-order briefing: editions, the $20 gap, physical vs digital, and a checklist that does not invent a sell-out clock.
 
 Xbox shoppers should use the [full pre-order guide](/en/guides/gta-6-preorder-guide) instead of forcing a PS5 article to do both jobs. Platform lock-in is the first decision; edition is the second.
+${locationFigure("vice-city", "Vice City on Map-6 — same map for every PS5 edition", "The PS5 SKU does not unlock a larger Leonida. It unlocks the same map as Xbox.")}
 
 ## PS5 Pre-Order Options in 2026
 
@@ -329,6 +338,7 @@ Buy physical if you want a shelf object and you accept code-in-box rules. Do not
 6. Leave **SSD headroom** for the day-one patch and captures.
 7. Ignore “PC day-one guaranteed” and unlabeled insider calendars.
 8. Bookmark the [interactive map](/en/map) so launch week is geography, not tab chaos.
+${locationFigure("ocean-drive", "Ocean Drive hub for PS5 launch-week notes", "Save Ocean Drive before checkout — launch night is a geography problem, not a SKU problem.")}
 
 Affiliate cards on Map-6 are labeled and do not change the price you pay. Game ASINs appear when official listings exist — we never invent them.
 
@@ -400,6 +410,7 @@ Timestamps stay **approximate** until we finish a frame-by-frame pass on the Roc
 A beat gets a hub only when the **terrain type** is visible: towers vs causeway spans vs mangroves vs cranes vs gated waterfront vs elevation. Color grade is not geography. A teal night look can sit on Ocean Drive or downtown Vice City; the roofline and the waterline decide.
 
 If two hubs still fit, we **do not pick**. An honest gap beats a forced pin. Story interiors (Lucia in custody, the prison-release lot) stay off the map on purpose.
+${locationFigure("vice-city", "Vice City downtown hub used for Trailer 1 ~1:10", "Trailer 1’s dusk towers belong on the Vice City hub — not on Keys causeways.")}
 
 ## Trailer 1 — 4 December 2023
 
@@ -426,6 +437,15 @@ Ambrosia Island and Mount Kalaga do **not** get a Trailer 1 row. We will not inv
 | 2:29 | [Mount Kalaga](/en/locations/mount-kalaga) | Tree cover and actual elevation |
 
 Open the matching hub, then [deep-link the map](/en/map) with \`?loc=\`. Copy HUD X/Y only after the silhouette matches. Confidence stays **trailer-visible**, not “confirmed street.”
+${locationFigure("ocean-drive", "Ocean Drive hub for Trailer 2 ~1:01", "Trailer 2’s wet-asphalt hotels are Ocean Drive energy — match rooflines, not pink grade.")}
+
+## How to use the table on a second pass
+
+Play the official uploads from the [timestamped player](/en/trailer), keep **Landmarks** on, and walk the rows in order. When a beat matches, open the hub page, then the ?loc= deep link, then write one line: timestamp, hub, confidence. Do not batch-pin seven districts from memory after the credits.
+
+A useful second pass is slower than the first. Pause two seconds early, look at the **horizon** before the subject, and only then decide Keys vs Grassrivers. Water alone is not a region. If chat is already naming a shop, ignore the name until a readable sign is on screen. Map-6 would rather be a day late than publish a fake street.
+
+The [beginner map guide](/en/guides/gta-6-map-guide) is the HUD lesson. This article is only the **index of official seconds**. Use both. Editions and pre-order SKUs do not add pins — see the [pre-order guide](/en/guides/gta-6-preorder-guide) if you came here from a shopping tab.
 
 ## What this is not
 
@@ -511,6 +531,7 @@ Les timecodes restent **approximatifs** jusqu’à la passe image par image sur 
 Un passage reçoit un hub seulement si le **type de terrain** est visible : tours vs travées de causeway vs mangroves vs grues vs front de mer fermé vs dénivelé. L’étalonnage n’est pas de la géographie. Un bleu-nuit peut être Ocean Drive ou le centre de Vice City ; la ligne de toit et la ligne d’eau tranchent.
 
 Si deux hubs restent possibles, nous **ne choisissons pas**. Un trou assumé vaut mieux qu’un pin forcé. Les intérieurs de récit (Lucia en détention, le parking de sortie de prison) restent hors carte.
+${locationFigure("vice-city", "Hub Vice City pour le Trailer 1 vers 1:10", "Les tours du crépuscule du Trailer 1 vont sur Vice City — pas sur les causeways des Keys.")}
 
 ## Trailer 1 — 4 décembre 2023
 
@@ -537,6 +558,15 @@ Ambrosia Island et Mount Kalaga n’ont **pas** de ligne Trailer 1. Nous n’en 
 | 2:29 | [Mount Kalaga](/fr/locations/mount-kalaga) | Forêt et vrai dénivelé |
 
 Ouvrez le hub, puis le [deep link carte](/fr/map) avec \`?loc=\`. Ne copiez le X/Y du HUD qu’après la correspondance de silhouette. La confiance reste **visible au trailer**, pas « rue confirmée ».
+${locationFigure("ocean-drive", "Hub Ocean Drive pour le Trailer 2 vers 1:01", "Les hôtels sur asphalte mouillé du Trailer 2 sont Ocean Drive — les toits, pas le rose.")}
+
+## Comment relire le tableau
+
+Lancez les uploads officiels depuis le [lecteur horodaté](/fr/trailer), filtrez **Landmarks**, et descendez les lignes dans l’ordre. Quand un plan colle, ouvrez la page hub, puis le deep link ?loc=, puis une ligne : timecode, hub, confiance. Ne posez pas sept pins de mémoire après le générique.
+
+La deuxième passe est plus lente. Pausez deux secondes trop tôt, regardez **l’horizon** avant le sujet, puis tranchez Keys vs Grassrivers. L’eau seule n’est pas une région. Si le chat nomme déjà une boutique, ignorez le nom tant qu’une enseigne n’est pas lisible. Map-6 préfère un jour de retard à une fausse rue.
+
+Le [guide carte](/fr/guides/gta-6-map-guide) est la leçon HUD. Cet article n’est que **l’index des secondes officielles**. Les éditions n’ajoutent aucun pin — voir le [guide précommande](/fr/guides/gta-6-preorder-guide) si vous venez d’un onglet shopping.
 
 ## Ce que ce n’est pas
 
@@ -604,4 +634,5 @@ Le lancement console reste le **19 novembre 2026** sur PlayStation 5 et Xbox Ser
     ],
     notes: "Table de preuves indexable — ne clone ni le guide carte ni /trailer.",
   },
+  ...KEY_FR_ARTICLES,
 ];

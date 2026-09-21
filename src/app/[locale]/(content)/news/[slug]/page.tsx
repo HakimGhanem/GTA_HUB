@@ -22,6 +22,7 @@ import {
   siteEvergreenPathForNews,
 } from "@/lib/content/news-canonical";
 import { countMarkdownWords } from "@/lib/content/word-count";
+import { extractMarkdownImages } from "@/lib/content/markdown";
 import {
   articleHeroSrc,
   buildMetadata,
@@ -114,6 +115,7 @@ export default async function NewsArticlePage({ params }: Props) {
             publishedAt: article.publishedAt || article.createdAt,
             updatedAt: article.updatedAt,
             image: heroSrc,
+            images: extractMarkdownImages(article.bodyMarkdown).map((img) => img.src),
             author: article.author,
             cluster: article.cluster,
             keywords: [

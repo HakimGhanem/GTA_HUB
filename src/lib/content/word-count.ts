@@ -12,4 +12,5 @@ export function countMarkdownWords(markdown: string): number {
   return stripped.match(TOKEN_RE)?.length ?? 0;
 }
 
-export const MIN_ARTICLE_WORDS = 400;
+/** Discover / AdSense floor. Thin briefs stay published but noindex. */
+export const MIN_ARTICLE_WORDS = 600;

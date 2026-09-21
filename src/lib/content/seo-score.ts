@@ -1,4 +1,6 @@
 import type { Article, SeoChecklist } from "./schema";
+import { extractMarkdownImages } from "./markdown";
+import { countMarkdownWords, MIN_ARTICLE_WORDS } from "./word-count";
 
 const INTERNAL_PATH_RE =
   /\]\((\/(?:en|fr|es|pt|de|it)?\/?(?:map|locations|collectibles|guides|news|privacy)[^)]*)\)/gi;
@@ -37,6 +39,18 @@ export function scoreArticleSeo(article: Article): SeoChecklist {
     );
   }
 
+  const wordCount = countMarkdownWords(article.bodyMarkdown);
+  if (wordCount < MIN_ARTICLE_WORDS) {
+    issues.push(`Word count ${wordCount} (need ≥ ${MIN_ARTICLE_WORDS})`);
+  }
+
+  const bodyImages = extractMarkdownImages(article.bodyMarkdown);
+  const hasHero =
+    Boolean(article.heroImage) && !article.heroImage?.includes("og-default");
+  if (bodyImages.length < 2 && !hasHero) {
+    issues.push("Need ≥ 2 in-body images (Map-6 location crops)");
+  }
+
   if (!article.primaryKeyword) {
     issues.push("Missing primary keyword");
   } else if (
@@ -54,6 +68,8 @@ export function scoreArticleSeo(article: Article): SeoChecklist {
   if (sourcesCount < 2) score -= 20;
   if (uniqueInternal.size < 3) score -= 20;
   if (!article.primaryKeyword) score -= 10;
+  if (wordCount < MIN_ARTICLE_WORDS) score -= 20;
+  if (bodyImages.length < 2 && !hasHero) score -= 15;
   score = Math.max(0, score);
 
   return {

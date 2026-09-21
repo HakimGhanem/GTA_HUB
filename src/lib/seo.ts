@@ -614,6 +614,7 @@ export function jsonLdNewsArticle(
     publishedAt: string;
     updatedAt?: string;
     image?: string;
+    images?: string[];
     author?: string;
     cluster?: string;
     keywords?: string[];
@@ -629,9 +630,19 @@ export function jsonLdNewsArticle(
     article.image && !article.image.includes("og-default")
       ? article.image
       : fallbackOg;
-  const image = rawImage.startsWith("http")
+  const heroAbs = rawImage.startsWith("http")
     ? rawImage
     : `${SITE.url}${rawImage}`;
+  const extra = (article.images ?? [])
+    .filter((src) => src && !src.includes("og-default"))
+    .map((src) => (src.startsWith("http") ? src : `${SITE.url}${src}`));
+  const imageUrls = [...new Set([heroAbs, ...extra])];
+  const image = imageUrls.map((url) => ({
+    "@type": "ImageObject",
+    url,
+    width: 1200,
+    height: 630,
+  }));
 
   const headline =
     article.title.length > 110
@@ -661,12 +672,16 @@ export function jsonLdNewsArticle(
       articleSection: article.cluster || "news",
       keywords,
       ...(article.wordCount ? { wordCount: article.wordCount } : {}),
-      image: { "@type": "ImageObject", url: image, width: 1200, height: 630 },
+      image,
+      thumbnailUrl: imageUrls[0],
       isPartOf: { "@id": `${SITE.url}/#website` },
       author: {
-        "@type": "Organization",
+        "@type": "Person",
         name: article.author || "Map-6 Editorial",
         url: aboutUrl,
+        jobTitle: "GTA 6 Coverage",
+        image: `${SITE.url}/images/map6-editorial-avatar.png`,
+        worksFor: { "@id": `${SITE.url}/#organization` },
       },
       publisher: {
         "@type": "Organization",
