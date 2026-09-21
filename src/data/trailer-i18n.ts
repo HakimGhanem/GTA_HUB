@@ -19,6 +19,7 @@ export type TrailerCopy = {
   noHubLabel: string;
   playLabel: string;
   privacyNote: string;
+  embedBlockedNote: string;
   watchOnYouTube: string;
   trailers: Record<string, { name: string; summary: string }>;
   beats: Record<string, TrailerBeatCopy>;
@@ -33,12 +34,12 @@ export type TrailerCopy = {
 
 const EN: TrailerCopy = {
   eyebrow: "Frame-by-frame map analysis",
-  title: "GTA 6 Trailers — Timestamped Map Analysis",
+  title: "GTA 6 Trailers & Extended Look — Timestamped Map Analysis",
   description:
-    "Both official Grand Theft Auto VI trailers with a timestamped scrub list: what to pause on, and which Map-6 region each frame points to.",
+    "Official GTA 6 trailers plus An Extended Look, with timestamped beats: what to pause on, which mechanic it shows, and which Map-6 region the frame points to.",
   answerLabel: "Short answer",
   answer:
-    "Rockstar has released two official Grand Theft Auto VI trailers: Trailer 1 on December 4, 2023 (1:31) and Trailer 2 on May 6, 2025 (2:47). This page plays both from the official Rockstar upload and pairs each map-relevant beat with the matching Map-6 region, so you can jump from a frame to the pin instead of scrolling Discord.",
+    "Rockstar has released two official trailers and An Extended Look (August 27, 2026, 26:49, in-game PS5 footage). This page pairs each beat with a YouTube timestamp and, when the terrain is readable, a Map-6 hub — so you jump from a frame to a pin instead of a Discord screenshot.",
   intro:
     "A trailer is only useful to a map project when someone writes down where each shot sits. That is what this page does: press a timestamp, watch the beat, then open the Map-6 hub it belongs to and compare the coastline, the causeways, or the crane silhouettes yourself. We never claim a district name Rockstar has not shown, and estimated geography stays labeled as an estimate.",
   howTitle: "How to scrub a trailer with Map-6",
@@ -60,8 +61,15 @@ const EN: TrailerCopy = {
   playLabel: "Play {name} on YouTube's player",
   privacyNote:
     "Nothing loads from YouTube until you press play — no third-party request, no cookie, no tracking pixel before that click.",
+  embedBlockedNote:
+    "YouTube age-restricts this upload, so it cannot play inside Map-6. Each timestamp opens the official Rockstar video at that second.",
   watchOnYouTube: "Watch on YouTube",
   trailers: {
+    "extended-look": {
+      name: "An Extended Look",
+      summary:
+        "August 27, 2026 · 26:49 · Official in-game PS5 footage. Netflix first, then YouTube. Mechanics, wanted HUD, and more time in Leonida than both trailers combined.",
+    },
     "trailer-1": {
       name: "Trailer 1",
       summary:
@@ -130,16 +138,68 @@ const EN: TrailerCopy = {
       title: "Forest and elevation",
       look: "Tree cover, ridgelines, and actual altitude change — the clearest evidence Leonida is not flat coastline all the way through.",
     },
+    "el-lockpick": {
+      title: "Slim Jim lock-pick minigame",
+      look: "A timing meter driven by the right stick. Older cars fall to this; higher-end locks are a different problem. No geography to pin.",
+    },
+    "el-3d-map": {
+      title: "Pause map goes 3D",
+      look: "Building volumes instead of flat road lines. Useful for density talk, not for a new district name.",
+    },
+    "el-one-hand-shotgun": {
+      title: "One-handed shotgun while carrying cash",
+      look: "Lucia fires with one arm occupied. Combat reads the body — this is a systems beat, not a location pin.",
+    },
+    "el-binoculars": {
+      title: "Binoculars for scouting",
+      look: "Distance scouting before a job. Pause on the skyline behind the optic if you want a hub match; the tool itself is not a pin.",
+    },
+    "el-dialogue-bar": {
+      title: "Dialogue choices at a rooftop bar",
+      look: "A named rooftop beat (Effluvia in press recaps). Vice City energy — match towers and water, not a guessed street name.",
+    },
+    "el-six-star": {
+      title: "Six-star wanted meter visible",
+      look: "Six star slots on the HUD during the chase (four lit in the clearest stills). Hollow vs solid vs colour-shift is the real story — see the wanted-system guide.",
+    },
+    "el-masks": {
+      title: "Face coverings from the item wheel",
+      look: "Masks go on before a robbery. This is how you deny the police a description — it feeds the hollow-star state.",
+    },
+    "el-holster": {
+      title: "Weapons holster automatically in a store",
+      look: "You walk in as a customer until you decide otherwise. Robbery is a choice, not a default animation.",
+    },
+    "el-lifeinvader": {
+      title: "Lifeinvader livestream on R3",
+      look: "A live feed pulled up mid-chase. Satire layer, not a map pin.",
+    },
+    "el-instant-swap": {
+      title: "Instant firearm swap, no wheel",
+      look: "Two carried guns, swapped without opening the weapon wheel. Combat beat.",
+    },
+    "el-character-swap": {
+      title: "Jason ↔ Lucia mid-chase",
+      look: "Character switch during a pursuit. Dual-lead is a system, not just a story beat.",
+    },
+    "el-weapon-pickup": {
+      title: "Faster weapon pickups in a firefight",
+      look: "Office shootout — animation speed, not a new district. Do not invent a building name from the interior.",
+    },
+    "el-fishing": {
+      title: "Fishing returns",
+      look: "A leisure beat with an RDR2 nod. Water biome — do not file it as Keys vs Grassrivers unless the shoreline is readable.",
+    },
   },
   rightsTitle: "Why this page embeds rather than reuploads",
   rightsBody:
-    "Both videos play from Rockstar Games' own YouTube upload through the official player, which is what framing a freely accessible video means: the rights holder controls the file, the view count, and can pull it at any time. Map-6 never downloads, mirrors, or reposts a trailer or its frames, and never overlays anything on the player. Map-6 is an unofficial fan project with no affiliation to Rockstar Games or Take-Two Interactive. Grand Theft Auto and all related marks belong to their owners.",
+    "These videos play from Rockstar Games' own YouTube upload through the official player, which is what framing a freely accessible video means: the rights holder controls the file, the view count, and can pull it at any time. An Extended Look is age-restricted on YouTube, so Map-6 cannot embed it — timestamps open the official watch page instead. Map-6 never downloads, mirrors, or reposts a trailer or its frames, and never overlays anything on the player. Map-6 is an unofficial fan project with no affiliation to Rockstar Games or Take-Two Interactive. Grand Theft Auto and all related marks belong to their owners.",
   faqTitle: "FAQ",
   faq: [
     {
-      question: "How many official GTA 6 trailers are there?",
+      question: "How many official GTA 6 videos are on this page?",
       answer:
-        "Two. Trailer 1 arrived on December 4, 2023 and runs 1:31. Trailer 2 arrived on May 6, 2025 and runs 2:47. Anything else circulating as 'Trailer 3' is unconfirmed unless Rockstar Newswire posts it.",
+        "Three official Rockstar uploads: Trailer 1 (December 4, 2023, 1:31), Trailer 2 (May 6, 2025, 2:47), and An Extended Look (August 27, 2026, 26:49). Anything circulating as 'Trailer 3' is unconfirmed unless Rockstar Newswire posts it.",
     },
     {
       question: "Are the timestamps on this page official?",
@@ -169,12 +229,12 @@ const EN: TrailerCopy = {
 
 const FR: TrailerCopy = {
   eyebrow: "Analyse carte image par image",
-  title: "Trailers GTA 6 — Analyse carte horodatée",
+  title: "Trailers GTA 6 et Extended Look — Analyse carte horodatée",
   description:
-    "Les deux trailers officiels de Grand Theft Auto VI avec une liste horodatée : quoi mettre en pause, et à quelle région Map-6 chaque plan correspond.",
+    "Les trailers officiels GTA 6 plus An Extended Look, avec des passages horodatés : quoi pauser, quelle mécanique, et quelle région Map-6 le plan pointe.",
   answerLabel: "Réponse courte",
   answer:
-    "Rockstar a publié deux trailers officiels de Grand Theft Auto VI : le Trailer 1 le 4 décembre 2023 (1:31) et le Trailer 2 le 6 mai 2025 (2:47). Cette page lit les deux depuis l'upload officiel Rockstar et associe chaque plan utile à la région Map-6 correspondante, pour passer d'une image au pin sans scroller Discord.",
+    "Rockstar a publié deux trailers officiels et An Extended Look (27 août 2026, 26:49, images in-game PS5). Cette page associe chaque passage à un timestamp YouTube et, quand le terrain est lisible, à un hub Map-6 — d’une image à un pin, pas à un screenshot Discord.",
   intro:
     "Un trailer ne sert un projet cartographique que si quelqu'un note où se situe chaque plan. C'est le rôle de cette page : cliquez un timecode, regardez le passage, puis ouvrez le hub Map-6 correspondant et comparez vous-même le littoral, les causeways ou les silhouettes de grues. Nous n'affirmons jamais un nom de quartier que Rockstar n'a pas montré, et la géographie estimée reste étiquetée comme telle.",
   howTitle: "Comment scruter un trailer avec Map-6",
@@ -196,8 +256,15 @@ const FR: TrailerCopy = {
   playLabel: "Lire {name} dans le lecteur YouTube",
   privacyNote:
     "Rien n'est chargé depuis YouTube avant que vous appuyiez sur lecture — aucune requête tierce, aucun cookie, aucun pixel de suivi avant ce clic.",
+  embedBlockedNote:
+    "YouTube restreint cet upload par âge : il ne peut pas se lire dans Map-6. Chaque timestamp ouvre la vidéo officielle Rockstar à la seconde près.",
   watchOnYouTube: "Voir sur YouTube",
   trailers: {
+    "extended-look": {
+      name: "An Extended Look",
+      summary:
+        "27 août 2026 · 26:49 · Images in-game PS5 officielles. Netflix d’abord, puis YouTube. Mécaniques, HUD wanted, et plus de temps dans Leonida que les deux trailers réunis.",
+    },
     "trailer-1": {
       name: "Trailer 1",
       summary:
@@ -266,16 +333,68 @@ const FR: TrailerCopy = {
       title: "Forêt et relief",
       look: "Couvert forestier, lignes de crête et vrai dénivelé — la preuve la plus claire que Leonida n'est pas un littoral plat de bout en bout.",
     },
+    "el-lockpick": {
+      title: "Minijeu Slim Jim",
+      look: "Un mètre de timing au stick droit. Les vieilles voitures tombent comme ça ; les serrures haut de gamme sont un autre problème. Pas de géographie à pinner.",
+    },
+    "el-3d-map": {
+      title: "La carte pause passe en 3D",
+      look: "Volumes de bâtiments au lieu de traits de route plats. Utile pour parler densité, pas pour inventer un quartier.",
+    },
+    "el-one-hand-shotgun": {
+      title: "Fusil à une main, cash dans l’autre",
+      look: "Lucia tire avec un bras occupé. Le combat lit le corps — beat système, pas un pin lieu.",
+    },
+    "el-binoculars": {
+      title: "Jumelles pour scout",
+      look: "Observation à distance avant un job. Pausez sur la skyline derrière l’optique si vous voulez un hub ; l’outil n’est pas un pin.",
+    },
+    "el-dialogue-bar": {
+      title: "Choix de dialogue sur un rooftop",
+      look: "Un beat de bar en toiture (Effluvia dans les recaps presse). Énergie Vice City — matchez tours et eau, pas un nom de rue deviné.",
+    },
+    "el-six-star": {
+      title: "Compteur wanted à six étoiles visible",
+      look: "Six emplacements d’étoiles pendant la course (quatre allumées sur les plans les plus clairs). Creux / plein / changement de couleur : voir le guide wanted.",
+    },
+    "el-masks": {
+      title: "Cagoules depuis la roue d’objets",
+      look: "Le masque se met avant le hold-up. C’est comme ça qu’on refuse une description à la police — état étoile creuse.",
+    },
+    "el-holster": {
+      title: "Armes rangées auto dans un magasin",
+      look: "Vous entrez en client jusqu’à décider le contraire. Le braquage est un choix, pas une animation par défaut.",
+    },
+    "el-lifeinvader": {
+      title: "Livestream Lifeinvader sur R3",
+      look: "Un flux live au milieu d’une course. Couche satire, pas un pin carte.",
+    },
+    "el-instant-swap": {
+      title: "Swap d’arme instantané, sans roue",
+      look: "Deux armes portées, échangées sans ouvrir la roue. Beat combat.",
+    },
+    "el-character-swap": {
+      title: "Jason ↔ Lucia en pleine course",
+      look: "Changement de perso pendant une poursuite. Le duo est un système, pas seulement un récit.",
+    },
+    "el-weapon-pickup": {
+      title: "Ramassage d’arme plus rapide",
+      look: "Fusillade de bureau — vitesse d’animation, pas un nouveau quartier. N’inventez pas un nom d’immeuble depuis l’intérieur.",
+    },
+    "el-fishing": {
+      title: "La pêche revient",
+      look: "Beat loisir, clin d’œil RDR2. Biome aquatique — ne classez pas Keys vs Grassrivers tant que le rivage n’est pas lisible.",
+    },
   },
   rightsTitle: "Pourquoi cette page intègre au lieu de réhéberger",
   rightsBody:
-    "Les deux vidéos sont lues depuis l'upload YouTube de Rockstar Games via le lecteur officiel : c'est ce que signifie encadrer une vidéo librement accessible — l'ayant droit garde le fichier, les vues, et peut la retirer à tout moment. Map-6 ne télécharge, ne copie et ne republie jamais un trailer ni ses images, et ne superpose rien au lecteur. Map-6 est un projet de fans non officiel, sans aucune affiliation avec Rockstar Games ou Take-Two Interactive. Grand Theft Auto et les marques associées appartiennent à leurs propriétaires.",
+    "Ces vidéos sont lues depuis l'upload YouTube de Rockstar Games via le lecteur officiel : l'ayant droit garde le fichier, les vues, et peut les retirer à tout moment. An Extended Look est restreint par âge sur YouTube, donc Map-6 ne peut pas l’embarquer — les timestamps ouvrent la page officielle. Map-6 ne télécharge, ne copie et ne republie jamais un trailer ni ses images, et ne superpose rien au lecteur. Map-6 est un projet de fans non officiel, sans aucune affiliation avec Rockstar Games ou Take-Two Interactive. Grand Theft Auto et les marques associées appartiennent à leurs propriétaires.",
   faqTitle: "FAQ",
   faq: [
     {
-      question: "Combien y a-t-il de trailers officiels GTA 6 ?",
+      question: "Combien de vidéos officielles GTA 6 sur cette page ?",
       answer:
-        "Deux. Le Trailer 1 est sorti le 4 décembre 2023 et dure 1:31. Le Trailer 2 est sorti le 6 mai 2025 et dure 2:47. Tout ce qui circule comme « Trailer 3 » n'est pas confirmé tant que Rockstar Newswire ne le publie pas.",
+        "Trois uploads officiels Rockstar : Trailer 1 (4 décembre 2023, 1:31), Trailer 2 (6 mai 2025, 2:47) et An Extended Look (27 août 2026, 26:49). Tout ce qui circule comme « Trailer 3 » n’est pas confirmé tant que Rockstar Newswire ne le publie pas.",
     },
     {
       question: "Les timecodes de cette page sont-ils officiels ?",

@@ -21,6 +21,7 @@ export async function Footer() {
     { href: "/creators", label: nav("creators") },
     { href: "/pro", label: nav("pro") },
     { href: "/about", label: t("about") },
+    { href: "/press", label: t("press") },
     { href: "/privacy", label: t("privacy") },
   ] as const;
 

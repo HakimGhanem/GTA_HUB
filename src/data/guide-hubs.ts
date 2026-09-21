@@ -30,6 +30,8 @@ export const GUIDE_HUBS: { id: GuideHubId; slugs: string[] }[] = [
   {
     id: "world",
     slugs: [
+      "gta-6-extended-look-breakdown",
+      "gta-6-wanted-system",
       "gta-6-characters-lucia-jason",
       "gta-6-story",
       "leonida-lore-overview",

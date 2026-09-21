@@ -306,6 +306,123 @@ const FR: Record<string, LocalizedGuide> = {
       "Promesse : on cite rockstargames.com/VI et Netflix Tudum pour le drop daté ; on étiquette la fenêtre YouTube +6 h comme la diffusion décalée rapportée depuis le calendrier Rockstar ; pas de fausse durée officielle, pas de jour PC, pas de liste collectibles complète. Après l’upload public, des notes live depuis l’écran — pas depuis Discord.",
     ],
   },
+  "gta-6-extended-look-breakdown": {
+    title: "Extended Look GTA 6 — chaque mécanique et timestamp",
+    description:
+      "An Extended Look (27 août 2026, 26:49) : mécaniques horodatées, HUD wanted à six étoiles, combat, braquages — chaque passage lié à un hub Map-6 quand le terrain est lisible.",
+    readTime: 12,
+    answer:
+      "An Extended Look, c’est 26 minutes 49 secondes d’images in-game PS5 officielles le 27 août 2026. Ça confirme un wanted à six étoiles avec icônes d’intel, le switch de persos en course, le crochetage, et une Leonida plus dense — pas un dump collectibles ni une date PC. Map-6 horodate chaque passage sur /trailer et relie les plans lisibles aux hubs régionaux.",
+    comparison: {
+      caption: "Ce que le Look a vraiment changé — sourcé, pas du Discord",
+      headers: ["Système", "À l’écran / officiel", "Ce qu’on n’invente pas"],
+      rows: [
+        [
+          "Wanted",
+          "Six emplacements ; creux vs plein ; icônes (couple, vêtements, visage, véhicule)",
+          "Une table complète des couleurs ou le CCTV comme 5e icône garantie",
+        ],
+        [
+          "Combat",
+          "Armes à une main, swap instantané, ramassages plus rapides, visée qui lit le corps en preview",
+          "Dégâts, noms d’armes, arbre de perks",
+        ],
+        [
+          "Braquages",
+          "Masques depuis la roue ; armes rangées en magasin ; arbitrage vitesse/valeur en presse",
+          "PV de coffre, tables de butin, missions nommées",
+        ],
+        [
+          "Véhicules",
+          "Minijeu Slim Jim sur les vieilles caisses ; WAINK / cloneur en preview",
+          "Liste complète des tiers de sécurité",
+        ],
+        [
+          "Taille de carte",
+          "Plus de temps in-game dans les biomes nommés ; langage preview ~2× GTA 5 et 3× RDR2",
+          "Un km² imprimé par Rockstar",
+        ],
+        [
+          "Activités",
+          "Basket, pêche, plongée, courses, salle, et plus dans le montage",
+          "Une checklist 100 % complète",
+        ],
+      ],
+    },
+    faq: [
+      {
+        question: "Combien dure l’Extended Look GTA 6 ?",
+        answer:
+          "L’upload YouTube officiel Rockstar dure 26 minutes 49 secondes. Netflix l’a diffusé en premier le 27 août 2026 ; YouTube et rockstargames.com/VI le même jour. Map-6 n’invente pas une autre durée.",
+      },
+      {
+        question: "L’Extended Look confirme-t-il six étoiles wanted ?",
+        answer:
+          "Oui — le HUD montre six emplacements pendant la course. Le vrai changement, c’est creux vs plein et la rangée d’intel sous le mètre. Voir le guide wanted et le passage ~15:21 sur /trailer.",
+      },
+      {
+        question: "Où regarder chaque timestamp sur la carte ?",
+        answer:
+          "Ouvrez /trailer. Chaque passage ouvre l’offset YouTube officiel (l’upload est restreint par âge, donc pas d’embed). Quand le terrain est lisible, la même ligne lie un hub Map-6.",
+      },
+    ],
+    content: [
+      "gta6map.io a sorti une liste de timestamps propre. Le job de Map-6, c’est la liste plus la géographie. An Extended Look est le plus long paquet in-game officiel — Netflix d’abord le 27 août 2026, puis l’upload YouTube Rockstar (tJbzMqJGH4k, 26:49). Cette page est le recap systèmes. Le scrub cliquable, avec liens hubs, est sur /trailer. On n’invente toujours pas de noms de boutiques, de totaux collectibles, ni de date PC.",
+      "Passages indexés (approximatifs tant que non vérifiés image par image — /trailer les préfixe d’un ~) : Slim Jim ~6:07 ; carte pause en volumes ~8:00 ; fusil à une main ~9:21 ; jumelles ~10:48 ; dialogue rooftop Vice City ~10:50 ; mètre six étoiles ~15:21 ; masques ~17:50 ; holster auto ~17:57 ; Lifeinvader ~18:04 ; swap d’arme ~18:31 ; switch Jason/Lucia ~18:41 ; ramassages plus rapides ~25:00 ; pêche ~25:52. Chaque ligne ouvre YouTube à la seconde et, si le rivage ou la skyline est lisible, un hub régional.",
+      "Le wanted est le système citation-grade. Six emplacements après les cinq de GTA 5. Étoile creuse : crime signalé, pas de description. Pleine : poursuite. Un changement de couleur (blanc vers rouge, après une réplique qu’ils ont perdu le véhicule) se lit wanted-sans-yeux. Sous les étoiles : couple, vêtements, visage, voiture — quatre icônes à l’écran. Le CCTV est du langage preview, pas un cinquième glyphe garanti. HUD interactif : /guides/gta-6-wanted-system.",
+      "Combat et braquages sont des arbitrages, pas des fiches de stats. Les previews décrivent des marqueurs létaux vs articulations, des armes à une main, un swap deux armes sans roue. Braquages : masques depuis la roue, armes rangées à l’entrée d’un magasin, coffre vitesse-contre-valeur dans la presse. Map-6 ne publiera pas de dégâts ni de titres de mission depuis un frame compressé.",
+      "Les voitures ne sont plus gratuites. Les vieilles prennent un Slim Jim. La sécu haut de gamme et une app de scan avant vol apparaissent en preview (WAINK / cloneur). Le Look montre l’icône véhicule qui tombe quand ils changent de caisse. Assez pour une phrase système. Pas assez pour inventer une table de serrures.",
+      "L’échelle reste étiquetée. Rockstar n’a pas imprimé de km². Langage preview (TGG, repris par GamesRadar) : environ deux fois GTA 5, trois fois RDR2, Vice City seule environ deux fois Los Santos. Les reconstructions communautaires oscillent encore entre ~83 km² et ~125 km². On les imprime comme estimations sur /guides/gta-6-map-size. Le job du Look pour un site carte : plus de temps dans les sept hubs.",
+      "Ce que le Look n’a pas fait : totaux collectibles, fenêtre PC, cross-saves, frontières officielles. Les chiffres rapportés-mais-pas-officiels qu’on refuse en une : 30 FPS console d’une session hands-off, campagne de 80 h d’un playthrough designer.",
+      "Usage Map-6 : /trailer et /map dans deux onglets. Filtre Landmarks. Quand un passage a un hub, Sharez un deep link. Créateurs : /overlay?theme=streamer et un tag ref=. Recap géo : /news/gta-6-extended-look-live-notes. Horaires Netflix / YouTube : /guides/gta-6-extended-look-how-to-watch.",
+    ],
+  },
+  "gta-6-wanted-system": {
+    title: "Système wanted GTA 6 — six étoiles, étoiles creuses, intel police",
+    description:
+      "Comment marche le wanted à six étoiles d’après l’Extended Look officiel : étoiles creuses vs pleines, icônes (vêtements, véhicule, couple), et ce qui reste du langage preview.",
+    readTime: 9,
+    answer:
+      "Le wanted GTA 6 a six étoiles. Creuses : la police sait qu’il y a eu un crime mais n’a pas de description. Pleines : ils sont sur vous. Les icônes sous le mètre suivent ce qu’ils savent — vêtements, visage, véhicule, couple — donc changer de tenue, de caisse ou se masquer peut faire tomber l’intel sans bouger le nombre d’étoiles.",
+    comparison: {
+      caption: "États d’étoiles et intel — visible vs preview only",
+      headers: ["Élément", "Statut", "Ce que vous pouvez faire"],
+      rows: [
+        ["Six emplacements", "À l’écran dans la course (~15:21)", "Comptez-les vous-même contre le ciel"],
+        ["Étoiles creuses", "À l’écran — crime connu, pas de description", "Masque, changez de tenue, hors caméra"],
+        ["Blanc plein", "À l’écran — poursuite active", "Cassez la ligne de vue ; l’intel compte encore"],
+        ["Changement de couleur (rouge)", "À l’écran après « plus le véhicule »", "Wanted sans yeux — pas un nouveau max"],
+        ["Couple / vêtements / visage / caisse", "À l’écran ; la rangée se réordonne", "Séparez-vous, rechangez, changez de voiture"],
+        ["CCTV comme 5e icône", "Interviews preview, pas un glyphe figé de cette course", "Probable, pas compté"],
+      ],
+    },
+    faq: [
+      {
+        question: "GTA 6 a-t-il six étoiles wanted ?",
+        answer:
+          "Oui. Le HUD de l’Extended Look montre six emplacements. GTA 5 plafonnait à cinq. Map-6 n’inventera pas ce que déploie une sixième étoile au-delà du langage NOOSE des recaps.",
+      },
+      {
+        question: "Que veulent dire les icônes sous les étoiles ?",
+        answer:
+          "C’est de l’intel police, pas des étoiles en plus. Quatre dans la course : couple, vêtements, description, véhicule. Les previews mentionnent aussi le CCTV. L’icône voiture s’éteint quand ils changent de caisse ; le compteur d’étoiles peut rester.",
+      },
+      {
+        question: "Peut-on perdre un wanted en changeant de tenue ?",
+        answer:
+          "Vous pouvez faire tomber l’intel vêtements et visage, ce qui garde les étoiles creuses. Ce n’est pas un wipe garanti. Map-6 ne publiera pas de timer de planque tant que Rockstar n’en imprime pas un.",
+      },
+    ],
+    content: [
+      "La plupart des pages « système wanted GTA 6 » réécrivent IGN une fois. Ici : un HUD cliquable, lié aux timestamps /trailer et à la géographie Map-6. Source : An Extended Look (27 août 2026, YouTube officiel tJbzMqJGH4k). Secondaire : previews nommées (IGN, citations Nelson), étiquetées preview, pas Newswire.",
+      "Comptez les emplacements, pas l’ambiance. Vers ~15:21 le mètre est contre le ciel, quatre étoiles allumées, deux éteintes — le cap est six. Les recaps « course à quatre étoiles » décrivent le niveau actuel, pas le maximum.",
+      "Creux versus plein est la nouvelle grammaire. Creuse : le crime est à la radio, la description non. Pleine : ils ont les yeux ou une description qui tient. Le Look change aussi la couleur après une réplique qu’ils n’ont plus le véhicule — le wanted tient, la posture change. On décrit un état, pas un mode nommé que Rockstar n’a pas imprimé.",
+      "La rangée d’intel est ce qui rend le système intéressant. Quatre icônes à l’écran : deux têtes, un cintre, un buste, une voiture. Elles se réordonnent quand une tombe. Lucia quitte la caisse, l’icône véhicule s’éteint, les étoiles restent à quatre — c’est la leçon. Brûler l’ancienne voiture dix secondes plus tard ne prouve pas que l’incendie est un outil wanted.",
+      "Masques et roue d’objets : comment affamer la rangée. Cagoules avant le hold-up (~17:50). Armes rangées en magasin (~17:57). Les previews ajoutent le CCTV. Map-6 le marque rapporté, pas comme un cinquième glyphe compté. Ne copiez pas une infographie à cinq icônes si vous n’en avez pas vu cinq.",
+      "Jason et Lucia peuvent se séparer. Le switch en course (~18:41) implique qu’un corps porte la description pendant que l’autre est propre. Phrase système, pas un guide « split pour cheese six étoiles ».",
+      "Sur la carte : la course est de l’énergie Vice City / métro, pas Keys, pas Grassrivers. /map?loc=vice-city et les lignes Extended Look sur /trailer. Recap systèmes : /guides/gta-6-extended-look-breakdown. On révise si Rockstar publie un explainer HUD — on ne « complète » pas la rangée depuis un build leak.",
+    ],
+  },
 };
 
 const ES: Record<string, LocalizedGuide> = {

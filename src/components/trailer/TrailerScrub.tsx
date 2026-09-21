@@ -41,6 +41,10 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
   const playerRef = useRef<HTMLDivElement>(null);
 
   function play(at: number) {
+    if (trailer.embedBlocked) {
+      window.open(trailerWatchUrl(trailer, at), "_blank", "noopener,noreferrer");
+      return;
+    }
     setStartAt(at);
     playerRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
   }
@@ -59,7 +63,31 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
         ref={playerRef}
         className="mt-5 aspect-video overflow-hidden rounded-xl border border-white/10 bg-[#0a0e17]"
       >
-        {startAt === null ? (
+        {trailer.embedBlocked ? (
+          <a
+            href={trailerWatchUrl(trailer)}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={copy.playLabel.replace("{name}", name)}
+            className="group flex h-full w-full flex-col items-center justify-center gap-3 bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.22),transparent_65%)] px-6 text-center transition-colors hover:bg-[radial-gradient(ellipse_at_center,rgba(236,72,153,0.32),transparent_65%)]"
+          >
+            <span className="flex h-16 w-16 items-center justify-center rounded-full bg-pink-500 transition-transform group-hover:scale-110">
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="ml-1 h-7 w-7 fill-white"
+              >
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+            <span className="text-sm font-semibold text-white">
+              {name} · {formatTimecode(trailer.durationSeconds)}
+            </span>
+            <span className="max-w-md text-xs text-white/55">
+              {copy.embedBlockedNote}
+            </span>
+          </a>
+        ) : startAt === null ? (
           <button
             type="button"
             onClick={() => play(0)}

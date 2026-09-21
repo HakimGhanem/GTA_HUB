@@ -198,6 +198,11 @@ export default async function AboutPage({ params }: Props) {
             >
               privacy@map-6.com
             </a>
+            . Journalists:{" "}
+            <Link href="/press" className="text-pink-300 underline">
+              press kit
+            </Link>
+            .
           </p>
           <p className="mt-2 text-sm text-white/50">
             Rockstar Games, Grand Theft Auto, and GTA are trademarks of their

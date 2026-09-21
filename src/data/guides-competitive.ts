@@ -9,6 +9,129 @@ import type { Guide } from "./guides";
 /** Competitor-gap guides: characters, map size, editions facts, PC, safety. */
 export const COMPETITIVE_GUIDES: Guide[] = [
   {
+    slug: "gta-6-extended-look-breakdown",
+    title: "GTA 6 Extended Look Breakdown — Every Mechanic & Timestamp",
+    description:
+      "An Extended Look (Aug 27, 2026, 26:49): timestamped mechanics, six-star wanted HUD, combat, robberies — each beat linked to a Map-6 hub when the terrain is readable.",
+    answer:
+      "Rockstar’s An Extended Look is 26 minutes 49 seconds of official in-game PS5 footage from August 27, 2026. It confirms a six-star wanted meter with intel icons, dual-character switching in a chase, lock-picking, and a denser Leonida — not a collectible dump or a PC date. Map-6 timestamps each beat on /trailer and pairs readable frames with regional hubs.",
+    category: "lore",
+    readTime: 12,
+    publishedAt: "2026-09-21",
+    comparison: {
+      caption: "What the Look actually changed — sourced, not Discord math",
+      headers: ["System", "What is on screen / official", "What we will not claim"],
+      rows: [
+        [
+          "Wanted meter",
+          "Six star slots; hollow vs solid; intel icons (pair, clothes, face, vehicle)",
+          "A complete colour-state table or CCTV as a guaranteed fifth icon",
+        ],
+        [
+          "Combat",
+          "One-handed guns, instant two-gun swap, faster pickups, body-aware aiming in previews",
+          "Damage numbers, weapon names, or a full perk tree",
+        ],
+        [
+          "Robberies",
+          "Masks from the item wheel; weapons holster in stores; speed vs value trade-off in press",
+          "Safe HP, payout tables, or named heist missions",
+        ],
+        [
+          "Vehicles",
+          "Slim Jim timing minigame on older cars; WAINK / key-cloner language in previews",
+          "A full security-tier list or fence prices",
+        ],
+        [
+          "Map size",
+          "More in-game time in named biomes; studio/preview talk of ~2× GTA 5 and 3× RDR2",
+          "A published km² figure from Rockstar",
+        ],
+        [
+          "Activities",
+          "Basketball, fishing, diving, racing, gym, and more in the montage",
+          "A complete 100% activity checklist",
+        ],
+      ],
+    },
+    faq: [
+      {
+        question: "How long is the GTA 6 Extended Look?",
+        answer:
+          "The official Rockstar YouTube upload runs 26 minutes 49 seconds. Netflix premiered it first on August 27, 2026; YouTube and rockstargames.com/VI followed the same day. Map-6 does not invent a different runtime.",
+      },
+      {
+        question: "Does the Extended Look confirm six wanted stars?",
+        answer:
+          "Yes — the HUD shows six star slots during the chase. The smarter change is hollow vs solid stars and the intel row under the meter. See the wanted-system guide and the ~15:21 beat on /trailer.",
+      },
+      {
+        question: "Where can I watch each timestamp on the map?",
+        answer:
+          "Open /trailer. Each Extended Look beat jumps to the official YouTube offset (the upload is age-restricted, so it cannot embed). When the terrain is readable, the same row links a Map-6 hub.",
+      },
+    ],
+    content: [
+      "gta6map.io shipped a clean timestamp list. Map-6’s job is the list plus geography. An Extended Look is the longest official in-game package Rockstar has posted — Netflix first on 27 August 2026, then the Rockstar YouTube upload (video tJbzMqJGH4k, 26:49). This page is the systems recap. The clickable scrub, with Map-6 hub links, lives on /trailer. We still will not invent shop names, collectible totals, or a PC date.",
+      "Timestamped beats we index (approximate until frame-verified — /trailer prefixes them with ~): Slim Jim lock-pick ~6:07; pause-map building volumes ~8:00; one-handed shotgun ~9:21; binoculars ~10:48; rooftop dialogue in Vice City ~10:50; six-star meter ~15:21; masks ~17:50; auto-holster in a store ~17:57; Lifeinvader on R3 ~18:04; instant gun swap ~18:31; Jason/Lucia switch mid-chase ~18:41; faster weapon pickups ~25:00; fishing ~25:52. Each row opens YouTube at that second and, when the shoreline or skyline is readable, a regional hub.",
+      "Wanted is the citation-grade system. Six slots return after GTA 5’s five. Hollow stars mean a crime was reported without a description. Solid means pursuit. A colour shift (white to red in the Look, after dialogue that they lost the vehicle) reads as wanted-but-not-eyed. Under the stars: pair, clothes, face, vehicle — four icons on screen. CCTV is preview language, not a fifth guaranteed glyph in that chase. Interactive HUD: /guides/gta-6-wanted-system.",
+      "Combat and robberies are trade-offs, not stat sheets. Previews describe lethal vs joint markers, one-handed guns, and an instant two-weapon swap without the wheel. Robberies: masks from the item wheel, weapons holster as you enter a store, and a speed-versus-value safe choice in press writeups. Map-6 will not publish damage numbers or mission titles from a compressed frame.",
+      "Cars are no longer free. Older vehicles take a Slim Jim timing minigame. Higher-end security and a scan-before-you-steal app appear in preview coverage (WAINK / key cloner). The Look itself shows the vehicle intel icon dropping when Jason and Lucia change cars. That is enough to write a systems sentence. It is not enough to invent a lock-tier table.",
+      "Scale stays labeled. Rockstar has not printed km². Preview language repeated by GamesRadar and creators (TGG) puts Leonida around twice GTA 5 and three times Red Dead Redemption 2, with Vice City itself about twice Los Santos. Community reconstructions still wander between ~83 km² (older leak-image math) and ~125 km² (later mapping). We print those as estimates on /guides/gta-6-map-size — not as a Rockstar spec. The Look’s job for a map site is more time in the seven hubs: Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers, Ambrosia, Mount Kalaga.",
+      "What the Look did not do: publish collectible totals, a PC window, cross-saves, or official district borders. Reported-but-not-official numbers we refuse to promote as facts include a console 30 FPS claim from a hands-off session and an 80-hour campaign length from one designer’s playthrough. Those belong in a caveat paragraph, not a headline.",
+      "How to use Map-6 with this page: keep /trailer and /map in two tabs. Filter Landmarks. When a beat has a hub link, Share a deep link instead of a Discord crop. Creators: /overlay?theme=streamer and a ref= tag. Geography recap from official frames only: /news/gta-6-extended-look-live-notes. How-to-watch leftovers (Netflix window, +6 h YouTube): /guides/gta-6-extended-look-how-to-watch.",
+    ],
+  },
+  {
+    slug: "gta-6-wanted-system",
+    title: "GTA 6 Wanted System — Six Stars, Hollow Stars & Police Intel",
+    description:
+      "How GTA 6’s six-star wanted meter works from official Extended Look footage: hollow vs solid stars, heat icons (clothes, vehicle, pair), and what is still preview language.",
+    answer:
+      "GTA 6’s wanted meter has six stars. Hollow stars mean police know a crime happened but lack a description; solid stars mean they are on you. Icons under the meter track what they know — clothing, face, vehicle, travelling as a pair — so changing clothes, swapping cars, or masking can drop intel without the star count moving.",
+    category: "lore",
+    readTime: 9,
+    publishedAt: "2026-09-21",
+    comparison: {
+      caption: "Star states and intel — visible vs preview-only",
+      headers: ["Element", "Status", "What you can do about it"],
+      rows: [
+        ["Six star slots", "On screen in the Extended Look chase (~15:21)", "Count them yourself against open sky"],
+        ["Hollow stars", "On screen — crime known, no suspect description", "Mask, change clothes, stay off camera"],
+        ["Solid white", "On screen — active pursuit", "Break line of sight; intel still matters"],
+        ["Colour shift (red)", "On screen after ‘lost the vehicle’ radio", "Wanted without current eyes — not a new max level"],
+        ["Pair / clothes / face / car icons", "On screen; row reflows when one drops", "Split up, re-dress, swap cars"],
+        ["CCTV as a fifth icon", "Described in preview interviews, not a locked HUD glyph in that chase", "Treat as likely, not counted"],
+      ],
+    },
+    faq: [
+      {
+        question: "Does GTA 6 have six wanted stars?",
+        answer:
+          "Yes. The Extended Look HUD shows six slots. GTA 5 capped at five; six was the series default from GTA 3 through Chinatown Wars. Map-6 will not invent what a sixth star deploys beyond NOOSE-scale response language in recaps.",
+      },
+      {
+        question: "What do the icons under the GTA 6 wanted stars mean?",
+        answer:
+          "They are police intel, not extra stars. Four appear in the chase: travelling as a pair, clothing, a physical description, and the vehicle. Preview interviews also mention CCTV. The car icon goes out when Jason and Lucia switch vehicles; the star count can stay the same.",
+      },
+      {
+        question: "Can you lose a wanted level by changing clothes in GTA 6?",
+        answer:
+          "You can drop the clothing and face intel, which is how hollow stars stay hollow. That is not the same as a guaranteed star wipe. Map-6 will not publish a hide-in-alley timer until Rockstar prints one.",
+      },
+    ],
+    content: [
+      "Most ‘GTA 6 wanted system’ pages rewrite IGN once. This page is the HUD you can click, tied to timestamps on /trailer and to Map-6 geography. Source of truth: Rockstar’s An Extended Look (27 August 2026, official YouTube tJbzMqJGH4k). Secondary: named preview coverage (IGN, Rob Nelson quotes) labeled as preview, not Newswire.",
+      "Count the slots, not the vibes. At ~15:21 the meter sits against open sky with four stars lit and two dark — that is how you know the cap is six. Recaps that say ‘four-star chase’ are describing the current level, not the maximum. NOOSE-scale response language in press is about the top end, not a seventh star.",
+      "Hollow versus solid is the new grammar. A hollow star means the crime is on the radio and the description is not. Solid means they have eyes or a working description. The Look also shifts star colour after a line that they no longer have the vehicle — wanted persists, pursuit posture changes. We describe that as a state, not as a named mode Rockstar has not printed.",
+      "The intel row is why the system is interesting. Four icons are on screen in the chase: two heads (pair), a hanger (clothes), a bust (face), a car. They are right-aligned and reflow when one drops. Lucia leaving the car and the vehicle icon going out — stars still at four — is the teaching moment. Burning the old car ten seconds later does not by itself prove arson is a wanted tool; it is a thematic beat until Rockstar says otherwise.",
+      "Masks and the item wheel are how you starve the row. Face coverings go on before a robbery (~17:50). Weapons holster as you enter a store (~17:57). Preview interviews add CCTV as something police can hold. Map-6 marks CCTV as reported, not as a fifth counted glyph in that chase. Do not copy a five-icon infographic unless you watched five icons.",
+      "Jason and Lucia can split. Dual-lead switching mid-chase (~18:41) is the wanted-system implication: one body can carry the description while the other is clean. That is a systems sentence, not a ‘always split to cheese six stars’ guide. We will not publish a cheese table.",
+      "Where this sits on the map: the chase is Vice City / metro energy, not Keys, not Grassrivers. Use /map?loc=vice-city and the Extended Look rows on /trailer. Full systems recap: /guides/gta-6-extended-look-breakdown. We will revise this page if Rockstar posts a Newswire HUD explainer — we will not ‘complete’ the icon set from a leak build.",
+    ],
+  },
+  {
     slug: "gta-6-characters-lucia-jason",
     title: "GTA 6 Characters — Lucia Caminos & Jason Duval",
     description:
@@ -104,7 +227,9 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       rows: [
         ["“Biggest, most immersive evolution”", "Official Rockstar / Take-Two marketing", "Tone, not a km² figure"],
         ["Largest map in the series", "Studio language in previews; no published area", "Treat as qualitative"],
-        ["~2× to 2.5× GTA 5 land", "Community reconstruction (trailers + leak geography)", "Estimate — labeled as such"],
+        ["~2× GTA 5 / ~3× RDR2 / Vice City ~2× Los Santos", "Creator-reported from a Rockstar preview session (TGG); repeated by GamesRadar", "Preview language — not a published km²"],
+        ["~83 km² vs ~125 km²", "Older leak-image math vs later community mapping", "Both unofficial; do not pick a winner"],
+        ["~2× to 2.5× GTA 5 land", "Community reconstruction (trailers + older geography)", "Estimate — labeled as such"],
         ["Six named destination groups", "Vice City, Keys, Port Gellhorn, Ambrosia, Grassrivers, Mount Kalaga", "Use as Map-6 hubs"],
         ["700+ interiors", "Repeats in press, not a Rockstar spec sheet", "Unverified count — do not cite as fact"],
       ],
@@ -122,7 +247,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       },
     ],
     content: [
-      "“GTA 6 map size” is one of the highest-volume queries in this niche — and most ranking pages mash official slogans with Discord math. Map-6 splits them. Official: Rockstar and Take-Two call Grand Theft Auto VI the biggest, most immersive evolution of the series, set in the state of Leonida. Unofficial: community reconstructions (State of Leonida / GTADB-style projects, trailer stills, older leak geography) often land around two to two-and-a-half times GTA 5’s land. Those are not interchangeable facts.",
+      "“GTA 6 map size” is one of the highest-volume queries in this niche — and most ranking pages mash official slogans with Discord math. Map-6 splits them. Official: Rockstar and Take-Two call Grand Theft Auto VI the biggest, most immersive evolution of the series, set in the state of Leonida. Preview language, from creators in a Rockstar session (TGG) and repeated by GamesRadar: about twice GTA 5, about three times Red Dead Redemption 2, Vice City itself about twice Los Santos. Unofficial reconstructions still wander between ~83 km² (older leak-image math) and ~125 km² (later mapping). Those are not interchangeable facts. Map-6 will not reproduce a leaked development map — GamesRadar’s own map roundup skipped leak stills for the same DMCA reason.",
       "Named destinations you can actually use: Vice City, the Leonida Keys, Port Gellhorn, Ambrosia, Grassrivers, and Mount Kalaga National Park. Those six groups are the skeleton of Map-6’s regional hubs and filters. Additional neighborhoods will appear in-game; we will not invent a 40-district roster to pad word count.",
       "Density matters more than raw area. Previews talk about crowded streets, interiors, and activities filling the icon layer. Some outlets repeat “700+ interiors”; treat that as press language until Rockstar publishes a number. Map-6’s job pre-launch is relative position: neon coast versus keys versus port versus wetlands versus gated island versus northern wilderness — not a fake area calculator.",
       "How to feel scale on Map-6: open /map, zoom out until Vice City and the Keys chain share the screen, pan to Port Gellhorn versus Ambrosia, then north toward Mount Kalaga with Grassrivers as the wet middle. Switch ?game=gta5 to compare Los Santos muscle memory. Measure tool and HUD X/Y exist so you can log trailer travel time guesses without pretending they are official km.",

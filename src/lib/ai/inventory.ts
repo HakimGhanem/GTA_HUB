@@ -147,5 +147,11 @@ export function corePageEntries(locale: string): AiEntry[] {
       summary:
         "Who runs Map-6, editorial standards, and the fan-project disclosure.",
     },
+    {
+      title: "Press kit",
+      url: aiPageUrl(locale, "/press"),
+      summary:
+        "Fact sheet and suggested citation: source-tagged Leonida map, official-footage timestamps, no leaked development maps.",
+    },
   ];
 }

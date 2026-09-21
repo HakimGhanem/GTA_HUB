@@ -29,10 +29,39 @@ export type Trailer = {
    * `~` and shows a notice, so no estimate reads as a citable frame.
    */
   timestampsVerified: boolean;
+  /**
+   * YouTube age-restriction blocks third-party embeds. When true the scrub
+   * list opens the official watch URL at that offset instead of an iframe.
+   */
+  embedBlocked?: boolean;
   beats: TrailerBeat[];
 };
 
 export const TRAILERS: Trailer[] = [
+  {
+    slug: "extended-look",
+    videoId: "tJbzMqJGH4k",
+    publishedAt: "2026-08-27",
+    duration: "PT26M49S",
+    durationSeconds: 1609,
+    timestampsVerified: false,
+    embedBlocked: true,
+    beats: [
+      { id: "el-lockpick", at: 367 },
+      { id: "el-3d-map", at: 480 },
+      { id: "el-one-hand-shotgun", at: 561 },
+      { id: "el-binoculars", at: 648 },
+      { id: "el-dialogue-bar", at: 650, locationSlug: "vice-city" },
+      { id: "el-six-star", at: 921 },
+      { id: "el-masks", at: 1070 },
+      { id: "el-holster", at: 1077 },
+      { id: "el-lifeinvader", at: 1084 },
+      { id: "el-instant-swap", at: 1111 },
+      { id: "el-character-swap", at: 1121 },
+      { id: "el-weapon-pickup", at: 1500 },
+      { id: "el-fishing", at: 1552 },
+    ],
+  },
   {
     slug: "trailer-2",
     videoId: "VQRLujxTm3c",

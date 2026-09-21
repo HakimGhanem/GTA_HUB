@@ -82,6 +82,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/guides",
     "/news",
     "/about",
+    "/press",
     "/privacy",
   ];
 
@@ -99,7 +100,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency:
         path === "" || path === "/map" || path === "/news"
           ? "daily"
-          : path === "/privacy" || path === "/about"
+          : path === "/privacy" || path === "/about" || path === "/press"
             ? "monthly"
             : path === "/collectibles" || path === "/guides"
               ? "weekly"
@@ -111,7 +112,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             ? 0.95
             : path === "/privacy" || path === "/about"
               ? 0.35
-              : 0.85,
+              : path === "/press"
+                ? 0.55
+                : 0.85,
     }),
   );
 

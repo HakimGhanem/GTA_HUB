@@ -7,6 +7,7 @@ import { ClassicMapsPromo } from "@/components/map/ClassicMapsPromo";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getLocationBySlug } from "@/data/all-locations";
 import { getGuideBySlug } from "@/data/guides";
+import { getLocalizedGuide } from "@/data/guides-i18n";
 import { isIndexableNewsArticle } from "@/lib/content/news-canonical";
 import { listPublishedArticles } from "@/lib/content/repository";
 import { buildMetadata, jsonLdFAQ } from "@/lib/seo";
@@ -109,13 +110,13 @@ export default async function HomePage({ params }: Props) {
           <div className="grid gap-3 sm:grid-cols-2">
             {(
               [
-                "gta-6-map-guide",
-                "gta-6-collectibles-map",
+                "gta-6-extended-look-breakdown",
+                "gta-6-wanted-system",
                 "gta-6-map-size",
-                "gta-6-characters-lucia-jason",
+                "gta-6-map-guide",
               ] as const
             ).map((slug) => {
-              const guide = getGuideBySlug(slug);
+              const guide = getLocalizedGuide(slug, locale) ?? getGuideBySlug(slug);
               if (!guide) return null;
               return (
                 <Link

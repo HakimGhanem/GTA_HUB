@@ -43,15 +43,34 @@ export const KEYWORDS: KeywordRecord[] = [
     cluster: "trailer",
     priority: "P0",
     locale: "en",
-    targetSlugHint: "gta-6-extended-look-how-to-watch",
+    targetSlugHint: "gta-6-extended-look-breakdown",
     relatedInternalPaths: [
-      "/guides/gta-6-extended-look-how-to-watch",
-      "/news/gta-6-extended-look-watch-times",
+      "/guides/gta-6-extended-look-breakdown",
+      "/trailer",
+      "/guides/gta-6-wanted-system",
       "/map",
     ],
-    competitorNotes: "Official 27 Aug 2026 drop — Netflix first, YouTube +6h; no fake runtime",
+    competitorNotes:
+      "Beat gta6map.io: timestamps + Map-6 hubs + wanted HUD. How-to-watch is the leftover Netflix clock page.",
     status: "published",
     monetization: "mixed",
+  },
+  {
+    id: "kw-wanted-system",
+    phrase: "gta 6 wanted system",
+    cluster: "trailer",
+    priority: "P0",
+    locale: "en",
+    targetSlugHint: "gta-6-wanted-system",
+    relatedInternalPaths: [
+      "/guides/gta-6-wanted-system",
+      "/guides/gta-6-extended-look-breakdown",
+      "/trailer",
+    ],
+    competitorNotes:
+      "Interactive HUD + visible vs preview-only. IGN/SVG are text-only; gta6map.io is a short section.",
+    status: "published",
+    monetization: "adsense",
   },
   {
     id: "kw-netflix-trailer",

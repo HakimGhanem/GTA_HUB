@@ -16,6 +16,11 @@ import {
 import { affiliateIntentsForGuide } from "@/lib/affiliate/guide-intents";
 import { AD_SLOTS } from "@/lib/ads-config";
 import { ComparisonTable } from "@/components/guides/ComparisonTable";
+import {
+  WantedMeter,
+  WANTED_METER_EN,
+  WANTED_METER_FR,
+} from "@/components/guides/WantedMeter";
 import { AnswerBox } from "@/components/seo/AnswerBox";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { buildMetadata, jsonLdGuidePage } from "@/lib/seo";
@@ -110,6 +115,10 @@ export default async function GuidePage({ params }: Props) {
           <AnswerBox label={t("shortAnswer")}>{localized.answer}</AnswerBox>
         ) : null}
 
+        {slug === "gta-6-wanted-system" ? (
+          <WantedMeter copy={locale === "fr" ? WANTED_METER_FR : WANTED_METER_EN} />
+        ) : null}
+
         <article className="prose prose-invert mt-8 max-w-none">
           {localized.content.map((paragraph, i) => (
             <p key={i} className="mb-4 leading-relaxed text-white/80">
@@ -175,6 +184,17 @@ export default async function GuidePage({ params }: Props) {
               className="mt-3 ml-3 inline-block text-sm font-medium text-pink-300 underline hover:text-pink-200"
             >
               {t("openOverlay")}
+            </Link>
+          )}
+          {(slug === "gta-6-extended-look-breakdown" ||
+            slug === "gta-6-wanted-system") && (
+            <Link
+              href="/trailer"
+              className="mt-3 ml-3 inline-block text-sm font-medium text-pink-300 underline hover:text-pink-200"
+            >
+              {locale === "fr"
+                ? "Scrub horodaté → carte"
+                : "Timestamped scrub → map"}
             </Link>
           )}
         </div>
