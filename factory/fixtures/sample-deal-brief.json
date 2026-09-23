@@ -1,0 +1,36 @@
+{
+  "id": "sample-deal-stack",
+  "template": "deal-stack",
+  "locale": "en",
+  "hook": "Street price vs RRP — before launch week",
+  "caption": "GTA 6 edition prices on Map-6. Affiliate links may earn a commission. https://map-6.com/en/guides/gta-6-preorder-guide",
+  "ctaLabel": "Compare editions on Map-6",
+  "ctaUrl": "https://map-6.com/en/guides/gta-6-preorder-guide",
+  "items": [
+    {
+      "label": "Grand Theft Auto VI — PS5",
+      "platform": "PS5",
+      "edition": "standard",
+      "price": "€60",
+      "note": "Standard, code-in-box. Street price moves with key quotas."
+    },
+    {
+      "label": "Grand Theft Auto VI — Xbox",
+      "platform": "Xbox",
+      "edition": "standard",
+      "price": "€60",
+      "note": "Same RRP band as PS5. Watch the seller line."
+    },
+    {
+      "label": "Ultimate Edition — PS5",
+      "platform": "PS5",
+      "edition": "ultimate",
+      "price": "$99.99",
+      "note": "Official US premium tier — digital extras. No physical Ultimate listed."
+    }
+  ],
+  "createdAt": "2026-09-23T00:00:00.000Z",
+  "source": "map-data",
+  "eventKey": "sample-deal-stack",
+  "disclaimer": "Fan-made map. Not Rockstar or Take-Two. Official frames first."
+}

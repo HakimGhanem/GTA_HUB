@@ -1,0 +1,22 @@
+{
+  "clips": [
+    {
+      "id": "obs-ocean-drive-01",
+      "kind": "clip",
+      "path": "clips/obs-ocean-drive-01.mp4",
+      "durationSec": 12,
+      "tags": ["ocean-drive", "sunset", "own-capture"],
+      "licence": "own"
+    }
+  ],
+  "audio": [
+    {
+      "id": "bed-neon-01",
+      "kind": "audio",
+      "path": "audio/bed-neon-01.mp3",
+      "tags": ["bed", "neon"],
+      "licence": "licensed-music",
+      "notes": "Epidemic / Artlist — not GTA radio"
+    }
+  ]
+}

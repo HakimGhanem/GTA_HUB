@@ -1,0 +1,16 @@
+{
+  "name": "map6-factory",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render": "remotion render src/index.ts"
+  },
+  "dependencies": {
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "remotion": "^4.0.355",
+    "@remotion/cli": "^4.0.355",
+    "@remotion/renderer": "^4.0.355"
+  }
+}

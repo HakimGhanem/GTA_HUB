@@ -1,5 +1,9 @@
 # Content Factory — état de l'art (sept. 2026)
 
+Implémentation : dossier `factory/` (briefs JSON, Remotion 9:16, QA, file de publication).
+Voir `factory/README.md`.
+
+
 Objectif : produire beaucoup de contenu vidéo/social autour de GTA 6 et de Map-6, à haute
 cadence, sans se faire strike ni démonétiser, en réutilisant les compétences data engineering
 (pipelines, orchestration, idempotence, observabilité) déjà appliquées à `scripts/content/`.

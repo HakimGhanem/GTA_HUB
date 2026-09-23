@@ -1,0 +1,14 @@
+node_modules/
+out/*.mp4
+out/frames/
+out/publish-queue/
+data/briefs/*.json
+!data/briefs/.gitkeep
+data/registry/*.json
+!data/registry/.gitkeep
+data/ugc/*
+!data/ugc/.gitkeep
+data/assets/clips/*
+!data/assets/clips/.gitkeep
+data/assets/audio/*
+!data/assets/audio/.gitkeep

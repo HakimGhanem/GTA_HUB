@@ -1,0 +1,82 @@
+{
+  "id": "sample-poi-countdown",
+  "template": "poi-countdown",
+  "locale": "en",
+  "hook": "7 Leonida pins worth opening tonight",
+  "caption": "7 GTA 6 map pins to open on Map-6 — Vice City to Mount Kalaga. Free fan map, not Rockstar.",
+  "ctaLabel": "Open these pins on Map-6",
+  "ctaUrl": "https://map-6.com/en/map?theme=neon&ref=map6shorts",
+  "items": [
+    {
+      "slug": "ocean-drive",
+      "name": "Ocean Drive",
+      "region": "Vice City",
+      "line": "The postcard strip. Trailer 1 opens on the beach.",
+      "x": 420,
+      "y": 280,
+      "mapPath": "/en/map?loc=ocean-drive&theme=neon&ref=map6shorts"
+    },
+    {
+      "slug": "vice-city",
+      "name": "Vice City",
+      "region": "Leonida Keys",
+      "line": "Neon metro skyline — glass towers, not Keys causeways.",
+      "x": 0,
+      "y": 120,
+      "mapPath": "/en/map?loc=vice-city&theme=neon&ref=map6shorts"
+    },
+    {
+      "slug": "grassrivers",
+      "name": "Grassrivers",
+      "region": "Grassrivers",
+      "line": "Everglades-flat wetlands. Airboats and sawgrass.",
+      "x": -400,
+      "y": -200,
+      "mapPath": "/en/map?loc=grassrivers&theme=neon&ref=map6shorts"
+    },
+    {
+      "slug": "leonida-keys",
+      "name": "Leonida Keys",
+      "region": "Leonida Keys",
+      "line": "Causeways and island chain south of the metro.",
+      "x": 200,
+      "y": 400,
+      "mapPath": "/en/map?loc=leonida-keys&theme=neon&ref=map6shorts"
+    },
+    {
+      "slug": "port-gellhorn",
+      "name": "Port Gellhorn",
+      "region": "Port Gellhorn",
+      "line": "Working harbor opposite the tourist strip.",
+      "x": -800,
+      "y": -300,
+      "mapPath": "/en/map?loc=port-gellhorn&theme=neon&ref=map6shorts"
+    },
+    {
+      "slug": "ambrosia-island",
+      "name": "Ambrosia Island",
+      "region": "Ambrosia Island",
+      "line": "Offshore landmark — isolate it on the map filters.",
+      "x": 600,
+      "y": 500,
+      "mapPath": "/en/map?loc=ambrosia-island&theme=neon&ref=map6shorts"
+    },
+    {
+      "slug": "mount-kalaga",
+      "name": "Mount Kalaga",
+      "region": "Mount Kalaga",
+      "line": "Northern high ground. Not Vice City neon.",
+      "x": -200,
+      "y": 800,
+      "mapPath": "/en/map?loc=mount-kalaga&theme=neon&ref=map6shorts"
+    }
+  ],
+  "cues": [
+    { "startSec": 0, "endSec": 1.6, "text": "7 pins. One map." },
+    { "startSec": 16, "endSec": 18.5, "text": "Open the pin on Map-6" }
+  ],
+  "createdAt": "2026-09-23T00:00:00.000Z",
+  "source": "map-data",
+  "eventKey": "sample-poi-countdown",
+  "disclaimer": "Fan-made map. Not Rockstar or Take-Two. Official frames first."
+}
