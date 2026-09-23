@@ -1,7 +1,9 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { HardwarePromo } from "@/components/affiliate/HardwarePromo";
+import { WalletPromo } from "@/components/affiliate/WalletPromo";
 import { HomeMapHero } from "@/components/home/HomeMapHero";
+import { ViceCityHub } from "@/components/home/ViceCityHub";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { ClassicMapsPromo } from "@/components/map/ClassicMapsPromo";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -41,7 +43,7 @@ export default async function HomePage({ params }: Props) {
     .filter((loc): loc is NonNullable<typeof loc> => Boolean(loc));
   const latestNews = (await listPublishedArticles(locale))
     .filter(isIndexableNewsArticle)
-    .slice(0, 3);
+    .slice(0, 5);
 
   const faq = [
     { question: t("faq.q1"), answer: t("faq.a1") },
@@ -63,45 +65,47 @@ export default async function HomePage({ params }: Props) {
       />
 
       <section className="mx-auto max-w-5xl px-4 py-12">
-        <p className="mb-4 text-center text-base text-white/55 sm:text-lg">
+        <p className="mb-4 text-center text-base text-foreground/55 sm:text-lg">
           {t("subtitle")}
         </p>
 
-        <div className="mb-10 rounded-xl border border-white/10 bg-white/[0.03] p-6 sm:p-8">
-          <h2 className="mb-3 text-xl font-bold text-white">{t("introTitle")}</h2>
-          <p className="text-sm leading-relaxed text-white/65 sm:text-base">
+        <div className="mb-10 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8">
+          <h2 className="mb-3 text-xl font-bold text-foreground">{t("introTitle")}</h2>
+          <p className="text-sm leading-relaxed text-foreground/65 sm:text-base">
             {t("introBody")}
           </p>
         </div>
 
+        <ViceCityHub />
+
         <div className="mb-10 grid gap-4 sm:grid-cols-2">
           <Link
             href="/collectibles"
-            className="rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40"
+            className="rounded-xl border border-foreground/10 bg-foreground/5 p-6 transition-colors hover:border-pink-400/40"
           >
             <h2 className="text-xl font-semibold">{t("collectiblesCardTitle")}</h2>
-            <p className="mt-2 text-sm text-white/60">{t("collectiblesCardDesc")}</p>
+            <p className="mt-2 text-sm text-foreground/60">{t("collectiblesCardDesc")}</p>
           </Link>
           <Link
             href="/guides"
-            className="rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40"
+            className="rounded-xl border border-foreground/10 bg-foreground/5 p-6 transition-colors hover:border-pink-400/40"
           >
             <h2 className="text-xl font-semibold">{t("guidesCardTitle")}</h2>
-            <p className="mt-2 text-sm text-white/60">{t("guidesCardDesc")}</p>
+            <p className="mt-2 text-sm text-foreground/60">{t("guidesCardDesc")}</p>
           </Link>
           <Link
             href="/database"
-            className="rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40"
+            className="rounded-xl border border-foreground/10 bg-foreground/5 p-6 transition-colors hover:border-pink-400/40"
           >
             <h2 className="text-xl font-semibold">{t("databaseCardTitle")}</h2>
-            <p className="mt-2 text-sm text-white/60">{t("databaseCardDesc")}</p>
+            <p className="mt-2 text-sm text-foreground/60">{t("databaseCardDesc")}</p>
           </Link>
           <Link
             href="/maps/gta5"
-            className="rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40"
+            className="rounded-xl border border-foreground/10 bg-foreground/5 p-6 transition-colors hover:border-pink-400/40"
           >
             <h2 className="text-xl font-semibold">{t("gta5CardTitle")}</h2>
-            <p className="mt-2 text-sm text-white/60">{t("gta5CardDesc")}</p>
+            <p className="mt-2 text-sm text-foreground/60">{t("gta5CardDesc")}</p>
           </Link>
         </div>
 
@@ -122,10 +126,10 @@ export default async function HomePage({ params }: Props) {
                 <Link
                   key={slug}
                   href={`/guides/${slug}`}
-                  className="rounded-xl border border-white/10 bg-white/5 px-5 py-4 transition-colors hover:border-pink-400/40"
+                  className="rounded-xl border border-foreground/10 bg-foreground/5 px-5 py-4 transition-colors hover:border-pink-400/40"
                 >
-                  <h3 className="font-semibold text-white">{guide.title}</h3>
-                  <p className="mt-1 text-sm text-white/55">{guide.description}</p>
+                  <h3 className="font-semibold text-foreground">{guide.title}</h3>
+                  <p className="mt-1 text-sm text-foreground/55">{guide.description}</p>
                 </Link>
               );
             })}
@@ -166,6 +170,8 @@ export default async function HomePage({ params }: Props) {
           />
         </div>
 
+        <WalletPromo className="mt-16" />
+
         <HardwarePromo className="mt-16" title={t("hardwareTitle")} />
 
         {latestNews.length > 0 ? (
@@ -176,7 +182,7 @@ export default async function HomePage({ params }: Props) {
               </h2>
               <Link
                 href="/news"
-                className="text-sm text-pink-300 hover:text-pink-200"
+                className="text-sm text-accent hover:text-accent/80"
               >
                 {t("newsAll")}
               </Link>
@@ -186,7 +192,7 @@ export default async function HomePage({ params }: Props) {
                 <Link
                   key={article.id}
                   href={`/news/${article.slug}`}
-                  className="block rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/40"
+                  className="block rounded-xl border border-foreground/10 bg-foreground/5 p-5 transition-colors hover:border-pink-400/40"
                 >
                   <p className="text-xs uppercase tracking-wider text-pink-400/80">
                     {article.cluster}
@@ -195,7 +201,7 @@ export default async function HomePage({ params }: Props) {
                       : ""}
                   </p>
                   <h3 className="mt-1 text-lg font-semibold">{article.title}</h3>
-                  <p className="mt-1 text-sm text-white/60">
+                  <p className="mt-1 text-sm text-foreground/60">
                     {article.description}
                   </p>
                 </Link>
@@ -212,10 +218,10 @@ export default async function HomePage({ params }: Props) {
             {faq.map(({ question, answer }) => (
               <div
                 key={question}
-                className="rounded-xl border border-white/10 bg-white/5 p-5"
+                className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
               >
-                <dt className="font-semibold text-white">{question}</dt>
-                <dd className="mt-2 text-sm text-white/60">{answer}</dd>
+                <dt className="font-semibold text-foreground">{question}</dt>
+                <dd className="mt-2 text-sm text-foreground/60">{answer}</dd>
               </div>
             ))}
           </dl>

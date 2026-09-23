@@ -30,13 +30,13 @@ export function ConversionStrip({ variant }: { variant: Variant }) {
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
       <Link
         href="/guides/gta-6-preorder-guide"
-        className="font-semibold text-pink-300 underline-offset-2 hover:text-pink-200 hover:underline"
+        className="font-semibold text-accent underline-offset-2 hover:text-accent/80 hover:underline"
       >
         {t("preorderCta")}
       </Link>
       <Link
         href="/guides/best-setup-gta-6-ps5-xbox"
-        className="font-semibold text-white/70 underline-offset-2 hover:text-white hover:underline"
+        className="font-semibold text-foreground/70 underline-offset-2 hover:text-foreground hover:underline"
       >
         {t("setupCta")}
       </Link>
@@ -45,11 +45,11 @@ export function ConversionStrip({ variant }: { variant: Variant }) {
 
   if (variant === "map") {
     return (
-      <div className="shrink-0 border-b border-pink-400/20 bg-[#0d121c]/95 px-3 py-2">
+      <div className="shrink-0 border-b border-pink-400/20 bg-surface/95 px-3 py-2">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex min-w-0 items-center gap-3">
             <CountdownTimer />
-            <p className="truncate text-xs text-white/60 sm:text-sm">
+            <p className="truncate text-xs text-foreground/60 sm:text-sm">
               {t("bannerDesc")}
             </p>
           </div>
@@ -66,8 +66,8 @@ export function ConversionStrip({ variant }: { variant: Variant }) {
 
   if (variant === "hero") {
     return (
-      <div className="pointer-events-auto mt-3 w-full max-w-xl rounded-xl border border-white/15 bg-black/55 p-3 backdrop-blur-md">
-        <p className="text-xs font-semibold text-pink-200">{t("bannerTitle")}</p>
+      <div className="pointer-events-auto mt-3 w-full max-w-xl rounded-xl border border-foreground/15 bg-black/55 p-3 backdrop-blur-md">
+        <p className="text-xs font-semibold text-accent">{t("bannerTitle")}</p>
         <div className="mt-2">
           <LaunchAlertForm placement="strip" compact />
         </div>
@@ -84,13 +84,13 @@ export function ConversionStrip({ variant }: { variant: Variant }) {
       <div className="flex flex-wrap items-center justify-between gap-2">
         <p
           id="conversion-strip-title"
-          className="text-base font-semibold text-pink-200"
+          className="text-base font-semibold text-accent"
         >
           {t("bannerTitle")}
         </p>
         <CountdownTimer />
       </div>
-      <p className="mt-1 text-sm text-white/60">{t("bannerDesc")}</p>
+      <p className="mt-1 text-sm text-foreground/60">{t("bannerDesc")}</p>
       <div className="mt-4 max-w-xl">
         <LaunchAlertForm placement="strip" />
       </div>

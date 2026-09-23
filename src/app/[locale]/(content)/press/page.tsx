@@ -129,7 +129,7 @@ export default async function PressPage({ params }: Props) {
     <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
       <Link
         href="/"
-        className="mb-6 inline-block text-sm text-white/50 hover:text-white"
+        className="mb-6 inline-block text-sm text-foreground/50 hover:text-foreground"
       >
         {copy.back}
       </Link>
@@ -138,30 +138,30 @@ export default async function PressPage({ params }: Props) {
         {copy.kicker}
       </p>
       <h1 className="mb-4 text-3xl font-bold">{copy.title}</h1>
-      <p className="text-white/70">{copy.lead}</p>
+      <p className="text-foreground/70">{copy.lead}</p>
 
       <section className="mt-10">
-        <h2 className="mb-3 text-xl font-semibold text-white">{copy.citeTitle}</h2>
-        <blockquote className="rounded-xl border border-pink-400/30 bg-pink-500/10 px-5 py-4 text-white/85">
+        <h2 className="mb-3 text-xl font-semibold text-foreground">{copy.citeTitle}</h2>
+        <blockquote className="rounded-xl border border-pink-400/30 bg-pink-500/10 px-5 py-4 text-foreground/85">
           {copy.citeBody}
         </blockquote>
       </section>
 
       <section className="mt-10">
-        <h2 className="mb-3 text-xl font-semibold text-white">{copy.factsTitle}</h2>
-        <dl className="divide-y divide-white/10 rounded-xl border border-white/10">
+        <h2 className="mb-3 text-xl font-semibold text-foreground">{copy.factsTitle}</h2>
+        <dl className="divide-y divide-white/10 rounded-xl border border-foreground/10">
           {copy.facts.map(([term, value]) => (
             <div key={term} className="grid gap-1 px-4 py-3 sm:grid-cols-[10rem_1fr]">
-              <dt className="text-sm font-medium text-white/50">{term}</dt>
-              <dd className="text-sm text-white/80">{value}</dd>
+              <dt className="text-sm font-medium text-foreground/50">{term}</dt>
+              <dd className="text-sm text-foreground/80">{value}</dd>
             </div>
           ))}
         </dl>
       </section>
 
       <section className="mt-10">
-        <h2 className="mb-3 text-xl font-semibold text-white">{copy.whyTitle}</h2>
-        <div className="space-y-3 text-white/70">
+        <h2 className="mb-3 text-xl font-semibold text-foreground">{copy.whyTitle}</h2>
+        <div className="space-y-3 text-foreground/70">
           {copy.why.map((p) => (
             <p key={p.slice(0, 24)}>{p}</p>
           ))}
@@ -169,45 +169,45 @@ export default async function PressPage({ params }: Props) {
       </section>
 
       <section className="mt-10">
-        <h2 className="mb-3 text-xl font-semibold text-white">{copy.pagesTitle}</h2>
+        <h2 className="mb-3 text-xl font-semibold text-foreground">{copy.pagesTitle}</h2>
         <ul className="space-y-3">
           {copy.pages.map((page) => (
             <li
               key={page.href}
-              className="rounded-xl border border-white/10 bg-white/5 px-4 py-3"
+              className="rounded-xl border border-foreground/10 bg-foreground/5 px-4 py-3"
             >
-              <Link href={page.href} className="font-medium text-pink-300 underline">
+              <Link href={page.href} className="font-medium text-accent underline">
                 {page.label}
               </Link>
-              <p className="mt-1 text-sm text-white/50">{page.note}</p>
+              <p className="mt-1 text-sm text-foreground/50">{page.note}</p>
             </li>
           ))}
         </ul>
       </section>
 
       <section className="mt-10">
-        <h2 className="mb-3 text-xl font-semibold text-white">{copy.embedTitle}</h2>
-        <p className="mb-3 text-sm text-white/55">{copy.embedHint}</p>
-        <pre className="overflow-x-auto rounded-xl border border-white/10 bg-black/40 p-4 text-xs text-cyan-100">
+        <h2 className="mb-3 text-xl font-semibold text-foreground">{copy.embedTitle}</h2>
+        <p className="mb-3 text-sm text-foreground/55">{copy.embedHint}</p>
+        <pre className="overflow-x-auto rounded-xl border border-foreground/10 bg-black/40 p-4 text-xs text-cyan-100">
           {copy.embedCode}
         </pre>
-        <p className="mt-3 text-sm text-white/55">
+        <p className="mt-3 text-sm text-foreground/55">
           {copy.ogHint}{" "}
-          <a href={og} className="text-pink-300 underline">
+          <a href={og} className="text-accent underline">
             {og}
           </a>
         </p>
       </section>
 
       <section className="mt-10">
-        <h2 className="mb-3 text-xl font-semibold text-white">{copy.contactTitle}</h2>
-        <p className="text-white/70">
+        <h2 className="mb-3 text-xl font-semibold text-foreground">{copy.contactTitle}</h2>
+        <p className="text-foreground/70">
           {copy.contactBody}{" "}
-          <a href="mailto:hello@map-6.com" className="text-pink-300 underline">
+          <a href="mailto:hello@map-6.com" className="text-accent underline">
             hello@map-6.com
           </a>
         </p>
-        <p className="mt-4 text-sm text-white/45">{copy.legal}</p>
+        <p className="mt-4 text-sm text-foreground/45">{copy.legal}</p>
       </section>
     </main>
   );

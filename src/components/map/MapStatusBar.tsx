@@ -24,7 +24,7 @@ export function MapStatusBar({
   return (
     <div
       className={clsx(
-        "pointer-events-none flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-white/60",
+        "pointer-events-none flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] text-foreground/60",
       )}
     >
       {viewport && (
@@ -37,7 +37,7 @@ export function MapStatusBar({
         <span className="text-amber-300/90">Zoom in for individual markers</span>
       )}
       {measureActive && (
-        <span className="text-pink-300">Click map to add measure points · Esc to cancel</span>
+        <span className="text-accent">Click map to add measure points · Esc to cancel</span>
       )}
     </div>
   );

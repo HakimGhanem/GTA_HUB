@@ -9,7 +9,7 @@ const PLATFORM_COLORS: Record<PreorderProduct["platform"], string> = {
   PS5: "bg-blue-500/20 text-blue-300",
   Xbox: "bg-green-500/20 text-green-300",
   PC: "bg-purple-500/20 text-purple-300",
-  Multi: "bg-white/10 text-white/70",
+  Multi: "bg-foreground/10 text-foreground/70",
 };
 
 type AmazonProductCardProps = {
@@ -35,7 +35,9 @@ export async function AmazonProductCard({
   const allowPlaceholder =
     showPlaceholders && process.env.NODE_ENV !== "production";
   const verb =
-    product.edition === "hardware" || product.edition === "accessory"
+    product.edition === "hardware" ||
+    product.edition === "accessory" ||
+    product.edition === "gift_card"
       ? "buy"
       : "preorder";
   const offers = localizeOffers(
@@ -49,7 +51,7 @@ export async function AmazonProductCard({
   if (!hasAsin && !allowPlaceholder && offers.length === 0) return null;
 
   return (
-    <div className="flex flex-col rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/30">
+    <div className="flex flex-col rounded-xl border border-foreground/10 bg-foreground/5 p-5 transition-colors hover:border-pink-400/30">
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <span
           className={`rounded-full px-2 py-0.5 text-xs font-medium ${PLATFORM_COLORS[product.platform]}`}
@@ -57,12 +59,12 @@ export async function AmazonProductCard({
           {product.platform}
         </span>
         {copy.badge && (
-          <span className="rounded-full bg-pink-500/20 px-2 py-0.5 text-xs font-medium text-pink-300">
+          <span className="rounded-full bg-pink-500/20 px-2 py-0.5 text-xs font-medium text-accent">
             {copy.badge}
           </span>
         )}
         {format === "code_in_box" ? (
-          <span className="rounded-full border border-white/10 px-2 py-0.5 text-xs text-white/50">
+          <span className="rounded-full border border-foreground/10 px-2 py-0.5 text-xs text-foreground/50">
             {t("formatCodeInBox")}
           </span>
         ) : null}
@@ -73,27 +75,27 @@ export async function AmazonProductCard({
         ) : null}
       </div>
 
-      <h3 className="text-lg font-semibold text-white">{copy.label}</h3>
+      <h3 className="text-lg font-semibold text-foreground">{copy.label}</h3>
       {price ? (
         <p className="mt-2 flex items-baseline gap-2">
-          <span className="text-2xl font-bold text-white">{price.primary}</span>
+          <span className="text-2xl font-bold text-foreground">{price.primary}</span>
           {price.compare ? (
-            <span className="text-sm text-white/40 line-through">
+            <span className="text-sm text-foreground/40 line-through">
               {price.compare}
             </span>
           ) : null}
         </p>
       ) : null}
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-white/60">
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-foreground/60">
         {copy.description}
       </p>
 
       {!hasAsin && allowPlaceholder ? (
-        <div className="mt-4 rounded-lg border border-dashed border-white/15 bg-white/[0.02] px-4 py-3">
-          <p className="text-xs font-medium text-white/50">
+        <div className="mt-4 rounded-lg border border-dashed border-foreground/15 bg-foreground/[0.02] px-4 py-3">
+          <p className="text-xs font-medium text-foreground/50">
             ASIN slot — paste SiteStripe link
           </p>
-          <code className="mt-1 block text-[10px] text-white/30">
+          <code className="mt-1 block text-[10px] text-foreground/30">
             {productEnvVar(product.envKey)}=B0XXXXXXXX
           </code>
         </div>

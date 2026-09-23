@@ -146,7 +146,7 @@ export function LocationPopup({
           rows={2}
           maxLength={PIN_NOTE_MAX}
           placeholder={t("map.popup.notePlaceholder")}
-          className="mt-1 w-full resize-none rounded border border-gray-200 bg-white px-2 py-1 text-xs text-gray-800 placeholder:text-gray-400 focus:border-pink-400 focus:outline-none"
+          className="mt-1 w-full resize-none rounded border border-border bg-background px-2 py-1 text-xs text-foreground placeholder:text-muted focus:border-accent focus:outline-none"
         />
       </label>
       <div className="mt-3 flex flex-wrap gap-2">
@@ -157,7 +157,7 @@ export function LocationPopup({
             className={`rounded-full px-3 py-1 text-xs font-semibold ${
               found
                 ? "bg-emerald-500 text-white hover:bg-emerald-400"
-                : "border border-gray-300 text-gray-800 hover:bg-gray-50"
+                : "border border-border text-foreground hover:bg-foreground/5"
             }`}
           >
             {found ? t("map.popup.found") : t("map.popup.markFound")}
@@ -165,7 +165,7 @@ export function LocationPopup({
         )}
         <Link
           href={`/locations/${location.slug}`}
-          className="rounded-full bg-pink-500 px-3 py-1 text-xs font-semibold text-white hover:bg-pink-400"
+          className="rounded-full bg-pink-500 px-3 py-1 text-xs font-semibold text-accent-foreground hover:bg-pink-400"
           onClick={onClose}
         >
           {t("map.popup.details")}

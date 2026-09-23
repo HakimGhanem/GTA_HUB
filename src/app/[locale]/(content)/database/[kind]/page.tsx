@@ -24,7 +24,7 @@ const TIER_STYLE: Record<EvidenceTier, string> = {
   official: "border-emerald-400/30 bg-emerald-400/10 text-emerald-200",
   trailer: "border-sky-400/30 bg-sky-400/10 text-sky-200",
   precedent: "border-amber-400/30 bg-amber-400/10 text-amber-200",
-  policy: "border-white/15 bg-white/5 text-white/60",
+  policy: "border-foreground/15 bg-foreground/5 text-foreground/60",
 };
 
 export function generateStaticParams() {
@@ -85,19 +85,19 @@ export default async function DatabaseKindPage({ params }: Props) {
       <main className="mx-auto max-w-5xl flex-1 px-4 py-10">
         <Link
           href="/database"
-          className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+          className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
         >
           {content.backLabel}
         </Link>
         <h1 className="text-3xl font-bold">{content.title}</h1>
-        <p className="mt-3 max-w-2xl text-white/60">{content.blurb}</p>
-        <p className="mt-5 max-w-2xl leading-relaxed text-white/75">
+        <p className="mt-3 max-w-2xl text-foreground/60">{content.blurb}</p>
+        <p className="mt-5 max-w-2xl leading-relaxed text-foreground/75">
           {content.intro}
         </p>
 
         {entities.length === 0 ? (
-          <div className="mt-10 rounded-xl border border-dashed border-white/20 bg-white/[0.03] p-6 text-white/60">
-            <p className="font-semibold text-white">
+          <div className="mt-10 rounded-xl border border-dashed border-foreground/20 bg-foreground/[0.03] p-6 text-foreground/60">
+            <p className="font-semibold text-foreground">
               {content.empty?.heading ?? "Nothing official to list yet"}
             </p>
             {content.empty?.body ? (
@@ -112,17 +112,17 @@ export default async function DatabaseKindPage({ params }: Props) {
               <li key={entity.slug}>
                 <Link
                   href={`/database/${kindParam}/${entity.slug}`}
-                  className="block rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/40"
+                  className="block rounded-xl border border-foreground/10 bg-foreground/5 p-5 transition-colors hover:border-pink-400/40"
                 >
                   <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="text-lg font-semibold text-white">
+                    <h2 className="text-lg font-semibold text-foreground">
                       {entity.name}
                     </h2>
-                    <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white/70">
+                    <span className="rounded-full bg-foreground/10 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-foreground/70">
                       {CONFIDENCE_LABEL[entity.confidence]}
                     </span>
                   </div>
-                  <p className="mt-2 text-sm text-white/60">{entity.summary}</p>
+                  <p className="mt-2 text-sm text-foreground/60">{entity.summary}</p>
                 </Link>
               </li>
             ))}
@@ -138,17 +138,17 @@ export default async function DatabaseKindPage({ params }: Props) {
                 >
                   {content.tierLabels[section.tier]}
                 </span>
-                <h2 className="mt-2 text-xl font-semibold text-white">
+                <h2 className="mt-2 text-xl font-semibold text-foreground">
                   {section.heading}
                 </h2>
                 {section.body.map((paragraph, i) => (
-                  <p key={i} className="mt-3 leading-relaxed text-white/75">
+                  <p key={i} className="mt-3 leading-relaxed text-foreground/75">
                     {paragraph}
                   </p>
                 ))}
               </section>
             ))}
-            <p className="text-xs text-white/40">
+            <p className="text-xs text-foreground/40">
               {content.reviewedLabel} — {reviewedAt}
             </p>
           </div>
@@ -163,10 +163,10 @@ export default async function DatabaseKindPage({ params }: Props) {
               {content.faq.map(({ question, answer }) => (
                 <div
                   key={question}
-                  className="rounded-xl border border-white/10 bg-white/5 p-5"
+                  className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
                 >
-                  <dt className="font-semibold text-white">{question}</dt>
-                  <dd className="mt-2 text-sm leading-relaxed text-white/60">
+                  <dt className="font-semibold text-foreground">{question}</dt>
+                  <dd className="mt-2 text-sm leading-relaxed text-foreground/60">
                     {answer}
                   </dd>
                 </div>

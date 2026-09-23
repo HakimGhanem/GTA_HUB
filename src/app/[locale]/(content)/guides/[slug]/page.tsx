@@ -98,14 +98,14 @@ export default async function GuidePage({ params }: Props) {
       <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
         <Link
           href="/guides"
-          className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+          className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
         >
           {t("backToAll")}
         </Link>
 
         <h1 className="text-3xl font-bold leading-tight">{localized.title}</h1>
-        <p className="mt-4 text-white/60">{localized.description}</p>
-        <p className="mt-2 text-xs text-white/40">
+        <p className="mt-4 text-foreground/60">{localized.description}</p>
+        <p className="mt-2 text-xs text-foreground/40">
           {localized.readTime} min · {guide.publishedAt}
         </p>
 
@@ -121,7 +121,7 @@ export default async function GuidePage({ params }: Props) {
 
         <article className="prose prose-invert mt-8 max-w-none">
           {localized.content.map((paragraph, i) => (
-            <p key={i} className="mb-4 leading-relaxed text-white/80">
+            <p key={i} className="mb-4 leading-relaxed text-foreground/80">
               {paragraph}
             </p>
           ))}
@@ -143,10 +143,10 @@ export default async function GuidePage({ params }: Props) {
               {localized.faq.map(({ question, answer }) => (
                 <div
                   key={question}
-                  className="rounded-xl border border-white/10 bg-white/5 p-5"
+                  className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
                 >
-                  <dt className="font-semibold text-white">{question}</dt>
-                  <dd className="mt-2 text-sm text-white/60">{answer}</dd>
+                  <dt className="font-semibold text-foreground">{question}</dt>
+                  <dd className="mt-2 text-sm text-foreground/60">{answer}</dd>
                 </div>
               ))}
             </dl>
@@ -166,22 +166,22 @@ export default async function GuidePage({ params }: Props) {
         )}
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">
-          <p className="font-semibold text-pink-200">{t("ctaTitle")}</p>
-          <p className="mt-1 text-sm text-white/60">{t("ctaBody")}</p>
+          <p className="font-semibold text-accent">{t("ctaTitle")}</p>
+          <p className="mt-1 text-sm text-foreground/60">{t("ctaBody")}</p>
           <Link
             href={
               slug === "gta-6-map-clip-kit" || slug === "gta-6-collectibles-map"
                 ? "/map?theme=streamer"
                 : "/map"
             }
-            className="mt-4 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-white hover:bg-pink-400"
+            className="mt-4 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-accent-foreground hover:bg-pink-400"
           >
             {t("ctaButton")}
           </Link>
           {slug === "gta-6-map-clip-kit" && (
             <Link
               href="/overlay?theme=streamer"
-              className="mt-3 ml-3 inline-block text-sm font-medium text-pink-300 underline hover:text-pink-200"
+              className="mt-3 ml-3 inline-block text-sm font-medium text-accent underline hover:text-accent/80"
             >
               {t("openOverlay")}
             </Link>
@@ -190,7 +190,7 @@ export default async function GuidePage({ params }: Props) {
             slug === "gta-6-wanted-system") && (
             <Link
               href="/trailer"
-              className="mt-3 ml-3 inline-block text-sm font-medium text-pink-300 underline hover:text-pink-200"
+              className="mt-3 ml-3 inline-block text-sm font-medium text-accent underline hover:text-accent/80"
             >
               {locale === "fr"
                 ? "Scrub horodaté → carte"

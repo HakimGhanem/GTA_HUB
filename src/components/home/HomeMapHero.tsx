@@ -32,7 +32,7 @@ function MapCanvas({ locale }: { locale: string }) {
   if (!ready) {
     return (
       <div
-        className="h-full w-full bg-[#0a0e17]"
+        className="h-full w-full bg-background"
         aria-hidden
       />
     );
@@ -57,36 +57,36 @@ function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroPr
 
       <div className="pointer-events-none absolute inset-x-0 top-0 z-30 bg-gradient-to-b from-black/70 via-black/25 to-transparent px-4 pb-24 pt-6 sm:px-6 sm:pt-8">
         <div className="mx-auto flex max-w-5xl flex-col items-start gap-3">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-pink-300/90">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-accent/90">
             {t("badge")}
           </p>
-          <h1 className="max-w-xl text-3xl font-bold tracking-tight text-white drop-shadow sm:text-4xl">
+          <h1 className="max-w-xl text-3xl font-bold tracking-tight text-foreground drop-shadow sm:text-4xl">
             {brand}
           </h1>
-          <p className="max-w-lg text-sm leading-relaxed text-white/80 sm:text-base">
+          <p className="max-w-lg text-sm leading-relaxed text-foreground/80 sm:text-base">
             {t("heroLine")}
           </p>
-          <ul className="flex flex-wrap gap-1.5 text-[11px] font-medium text-white/70">
-            <li className="rounded-full border border-white/20 bg-black/40 px-2.5 py-0.5">
+          <ul className="flex flex-wrap gap-1.5 text-[11px] font-medium text-foreground/70">
+            <li className="rounded-full border border-foreground/20 bg-black/40 px-2.5 py-0.5">
               {t("trustPoi")}
             </li>
-            <li className="rounded-full border border-white/20 bg-black/40 px-2.5 py-0.5">
+            <li className="rounded-full border border-foreground/20 bg-black/40 px-2.5 py-0.5">
               {t("trustOfficial")}
             </li>
-            <li className="rounded-full border border-white/20 bg-black/40 px-2.5 py-0.5">
+            <li className="rounded-full border border-foreground/20 bg-black/40 px-2.5 py-0.5">
               {t("trustNoLeak")}
             </li>
           </ul>
           <div className="pointer-events-auto flex flex-wrap gap-3 pt-1">
             <Link
               href="/map"
-              className="rounded-full bg-pink-500 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-pink-500/25 transition-colors hover:bg-pink-400"
+              className="rounded-full bg-pink-500 px-5 py-2 text-sm font-semibold text-accent-foreground shadow-lg shadow-pink-500/25 transition-colors hover:bg-pink-400"
             >
               {ctaFullscreen}
             </Link>
             <Link
               href="/guides/gta-6-map-guide"
-              className="rounded-full border border-white/25 bg-black/40 px-5 py-2 text-sm font-semibold text-white/90 backdrop-blur-md transition-colors hover:border-white/45 hover:text-white"
+              className="rounded-full border border-foreground/25 bg-black/40 px-5 py-2 text-sm font-semibold text-foreground/90 backdrop-blur-md transition-colors hover:border-foreground/45 hover:text-foreground"
             >
               {ctaGuides}
             </Link>
@@ -96,7 +96,7 @@ function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroPr
       </div>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center bg-gradient-to-t from-[#0a0e17] via-[#0a0e17]/80 to-transparent pb-4 pt-16">
-        <span className="animate-bounce text-[10px] uppercase tracking-widest text-white/40">
+        <span className="animate-bounce text-[10px] uppercase tracking-widest text-foreground/40">
           Scroll
         </span>
       </div>
@@ -108,7 +108,7 @@ export function HomeMapHero(props: HomeMapHeroProps) {
   return (
     <Suspense
       fallback={
-        <div className="flex h-[calc(100dvh-3.5rem)] min-h-[28rem] items-center justify-center bg-[#0a0e17] text-white/40">
+        <div className="flex h-[calc(100dvh-3.5rem)] min-h-[28rem] items-center justify-center bg-background text-foreground/40">
           Loading map…
         </div>
       }

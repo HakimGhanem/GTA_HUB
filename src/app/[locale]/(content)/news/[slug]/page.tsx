@@ -89,6 +89,7 @@ export default async function NewsArticlePage({ params }: Props) {
     article.cluster === "release" ||
     article.cluster === "setup" ||
     article.cluster === "trailer" ||
+    article.cluster === "story" ||
     article.funnelKind === "purchase" ||
     article.funnelKind === "mixed" ||
     article.funnelKind === "clip_kit";
@@ -96,12 +97,7 @@ export default async function NewsArticlePage({ params }: Props) {
   // Prefer live hardware until GTA6 game ASINs exist — never show empty SiteStripe shells on news
   const affiliateIntents = (
     article.affiliateIntents?.length
-      ? [
-          ...article.affiliateIntents,
-          "console_upgrade",
-          "controller",
-          "headset",
-        ]
+      ? [...article.affiliateIntents]
       : ["console_upgrade", "controller", "headset", "preorder_standard"]
   ) as AffiliateIntent[];
 
@@ -137,7 +133,7 @@ export default async function NewsArticlePage({ params }: Props) {
       <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
         <Link
           href="/news"
-          className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+          className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
         >
           ← All news
         </Link>
@@ -146,11 +142,11 @@ export default async function NewsArticlePage({ params }: Props) {
           {article.cluster}
         </p>
         {siteEvergreenPathForNews(slug) ? (
-          <p className="mb-4 rounded-xl border border-pink-400/25 bg-pink-500/10 px-4 py-3 text-sm text-white/70">
+          <p className="mb-4 rounded-xl border border-pink-400/25 bg-pink-500/10 px-4 py-3 text-sm text-foreground/70">
             Evergreen version:{" "}
             <Link
               href={siteEvergreenPathForNews(slug)!}
-              className="font-medium text-pink-300 underline hover:text-pink-200"
+              className="font-medium text-accent underline hover:text-accent/80"
             >
               full Map-6 guide
             </Link>{" "}
@@ -158,8 +154,8 @@ export default async function NewsArticlePage({ params }: Props) {
           </p>
         ) : null}
         <h1 className="text-3xl font-bold leading-tight">{article.title}</h1>
-        <p className="mt-4 text-white/60">{article.description}</p>
-        <p className="mt-2 text-xs text-white/40">
+        <p className="mt-4 text-foreground/60">{article.description}</p>
+        <p className="mt-2 text-xs text-foreground/40">
           {article.publishedAt?.slice(0, 10)}
         </p>
 
@@ -175,18 +171,18 @@ export default async function NewsArticlePage({ params }: Props) {
               liveOnly
               title="Launch gear (available now)"
             />
-            <p className="mt-3 text-xs text-white/40">
+            <p className="mt-3 text-xs text-foreground/40">
               Game edition cards appear when official Amazon ASINs go live.{" "}
               <Link
                 href="/guides/gta-6-preorder-guide"
-                className="text-pink-300/80 underline hover:text-pink-200"
+                className="text-accent/80 underline hover:text-accent/80"
               >
                 Pre-order guide
               </Link>
               {" · "}
               <Link
                 href="/guides/best-setup-gta-6-ps5-xbox"
-                className="text-pink-300/80 underline hover:text-pink-200"
+                className="text-accent/80 underline hover:text-accent/80"
               >
                 Best setup checklist
               </Link>
@@ -198,16 +194,16 @@ export default async function NewsArticlePage({ params }: Props) {
         <ArticleFaq faqs={article.faqs ?? []} />
 
         {article.sources.length > 0 ? (
-          <section className="mt-10 border-t border-white/10 pt-6">
+          <section className="mt-10 border-t border-foreground/10 pt-6">
             <h2 className="mb-3 text-lg font-semibold">Sources</h2>
-            <ul className="space-y-2 text-sm text-white/60">
+            <ul className="space-y-2 text-sm text-foreground/60">
               {article.sources.map((s) => (
                 <li key={s.url}>
                   <a
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-pink-300 underline hover:text-pink-200"
+                    className="text-accent underline hover:text-accent/80"
                   >
                     {s.title}
                   </a>
@@ -218,21 +214,21 @@ export default async function NewsArticlePage({ params }: Props) {
         ) : null}
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">
-          <p className="font-semibold text-pink-200">Explore the map</p>
-          <p className="mt-1 text-sm text-white/60">
+          <p className="font-semibold text-accent">Explore the map</p>
+          <p className="mt-1 text-sm text-foreground/60">
             Track trailer locations and collectibles on the interactive GTA 6 map.
           </p>
           <div className="mt-4 flex flex-wrap gap-3">
             <Link
               href="/map"
-              className="inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-white hover:bg-pink-400"
+              className="inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-accent-foreground hover:bg-pink-400"
             >
               Open Interactive Map
             </Link>
             {article.relatedLocationSlugs[0] ? (
               <Link
                 href={`/locations/${article.relatedLocationSlugs[0]}`}
-                className="inline-block rounded-full border border-white/20 px-6 py-2 text-sm font-semibold text-white/80 hover:border-white/40"
+                className="inline-block rounded-full border border-foreground/20 px-6 py-2 text-sm font-semibold text-foreground/80 hover:border-foreground/40"
               >
                 Related location
               </Link>

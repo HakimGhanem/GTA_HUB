@@ -39,7 +39,7 @@ export default async function DatabaseHubPage({ params }: Props) {
         {SITE.hubName}
       </p>
       <h1 className="mt-2 text-3xl font-bold">GTA 6 database</h1>
-      <p className="mt-4 max-w-2xl text-white/60">
+      <p className="mt-4 max-w-2xl text-foreground/60">
         A small encyclopedia of what Rockstar has actually published. Every row
         carries a source URL and a confidence label. If it is not on Newswire
         or rockstargames.com/VI, it is not here.
@@ -50,13 +50,13 @@ export default async function DatabaseHubPage({ params }: Props) {
           <Link
             key={kind}
             href={`/database/${kind}`}
-            className="rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40"
+            className="rounded-xl border border-foreground/10 bg-foreground/5 p-6 transition-colors hover:border-pink-400/40"
           >
             <h2 className="text-xl font-semibold">{KIND_TITLE[kind]}</h2>
-            <p className="mt-2 text-sm text-white/60">
+            <p className="mt-2 text-sm text-foreground/60">
               {getHubKindContent(kind, locale).blurb}
             </p>
-            <p className="mt-4 text-xs text-white/40">
+            <p className="mt-4 text-xs text-foreground/40">
               {counts[kind] > 0
                 ? `${counts[kind]} sourced ${counts[kind] === 1 ? "entry" : "entries"}`
                 : "No entries yet — read what is known"}
@@ -71,12 +71,12 @@ export default async function DatabaseHubPage({ params }: Props) {
           {(["confirmed", "trailer", "unconfirmed"] as const).map((level) => (
             <div
               key={level}
-              className="rounded-xl border border-white/10 bg-white/5 p-5"
+              className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
             >
-              <dt className="font-semibold text-white">
+              <dt className="font-semibold text-foreground">
                 {CONFIDENCE_LABEL[level]}
               </dt>
-              <dd className="mt-2 text-sm text-white/60">
+              <dd className="mt-2 text-sm text-foreground/60">
                 {CONFIDENCE_BLURB[level]}
               </dd>
             </div>
@@ -84,13 +84,13 @@ export default async function DatabaseHubPage({ params }: Props) {
         </dl>
       </section>
 
-      <p className="mt-10 text-sm text-white/50">
+      <p className="mt-10 text-sm text-foreground/50">
         Geography lives on the{" "}
-        <Link href="/map" className="text-pink-300 underline">
+        <Link href="/map" className="text-accent underline">
           interactive map
         </Link>
         . Shopping lives in{" "}
-        <Link href="/guides/gta-6-preorder-guide" className="text-pink-300 underline">
+        <Link href="/guides/gta-6-preorder-guide" className="text-accent underline">
           pre-order guides
         </Link>
         . This hub does not invent leak casts, weapon stats, or collectible

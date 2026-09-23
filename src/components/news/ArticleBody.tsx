@@ -14,7 +14,7 @@ export function ArticleBody({ markdown, showInArticleAd = true }: Props) {
   const slot = AD_SLOTS.inArticle;
 
   return (
-    <div className="prose prose-invert mt-8 max-w-none prose-a:text-pink-300 prose-headings:text-white prose-strong:text-white">
+    <div className="prose mt-8 max-w-none text-foreground dark:prose-invert prose-a:text-accent prose-headings:text-foreground prose-strong:text-foreground">
       <div dangerouslySetInnerHTML={{ __html: parts[0] }} />
       {showInArticleAd && slot ? (
         <AdUnit slot={slot} format="fluid" layout="in-article" />

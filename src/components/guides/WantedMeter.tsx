@@ -74,11 +74,11 @@ export function WantedMeter({ copy }: { copy: WantedMeterCopy }) {
   });
 
   return (
-    <figure className="not-prose my-8 rounded-2xl border border-white/10 bg-[#0a0e17] p-5 sm:p-6">
-      <figcaption className="text-xs uppercase tracking-wider text-white/45">
+    <figure className="not-prose my-8 rounded-2xl border border-foreground/10 bg-background p-5 sm:p-6">
+      <figcaption className="text-xs uppercase tracking-wider text-foreground/45">
         {copy.title}
       </figcaption>
-      <p className="mt-2 text-sm text-white/55">{copy.hint}</p>
+      <p className="mt-2 text-sm text-foreground/55">{copy.hint}</p>
 
       <div
         className="mt-5 flex flex-wrap items-center gap-1.5"
@@ -94,16 +94,16 @@ export function WantedMeter({ copy }: { copy: WantedMeterCopy }) {
                 prev.map((s, j) => (j === i ? nextStar(s) : s)),
               )
             }
-            className="rounded-md p-1 transition-colors hover:bg-white/10"
+            className="rounded-md p-1 transition-colors hover:bg-foreground/10"
             aria-label={`${i + 1}: ${copy.legend.find((l) => l.state === state)?.label ?? state}`}
           >
             <Star state={state} />
           </button>
         ))}
       </div>
-      <p className="mt-2 text-xs text-white/40">{copy.starHint}</p>
+      <p className="mt-2 text-xs text-foreground/40">{copy.starHint}</p>
 
-      <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/50">
+      <ul className="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-xs text-foreground/50">
         {copy.legend.map((item) => (
           <li key={item.state} className="inline-flex items-center gap-1.5">
             <Star state={item.state} />
@@ -112,7 +112,7 @@ export function WantedMeter({ copy }: { copy: WantedMeterCopy }) {
         ))}
       </ul>
 
-      <p className="mt-6 text-xs uppercase tracking-wider text-white/45">
+      <p className="mt-6 text-xs uppercase tracking-wider text-foreground/45">
         {copy.iconsHeading}
       </p>
       <ul className="mt-3 grid gap-2 sm:grid-cols-2">
@@ -128,22 +128,22 @@ export function WantedMeter({ copy }: { copy: WantedMeterCopy }) {
                 className={`flex w-full items-start gap-3 rounded-xl border px-3 py-2.5 text-left transition-colors ${
                   on
                     ? "border-cyan-400/40 bg-cyan-500/10"
-                    : "border-white/10 bg-white/[0.03] opacity-60"
+                    : "border-foreground/10 bg-foreground/[0.03] opacity-60"
                 }`}
               >
                 <span
                   className={`mt-0.5 inline-block h-2.5 w-2.5 shrink-0 rounded-full ${
-                    on ? "bg-cyan-300" : "bg-white/20"
+                    on ? "bg-cyan-300" : "bg-foreground/20"
                   }`}
                 />
                 <span>
-                  <span className="block text-sm font-medium text-white">
+                  <span className="block text-sm font-medium text-foreground">
                     {icon.label}
                   </span>
-                  <span className="mt-0.5 block text-xs text-white/50">
+                  <span className="mt-0.5 block text-xs text-foreground/50">
                     {icon.detail}
                   </span>
-                  <span className="mt-1 block text-[10px] uppercase tracking-wide text-white/35">
+                  <span className="mt-1 block text-[10px] uppercase tracking-wide text-foreground/35">
                     {icon.onScreen ? copy.onScreen : copy.reported}
                   </span>
                 </span>

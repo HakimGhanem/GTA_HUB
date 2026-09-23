@@ -53,15 +53,15 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
     <section aria-labelledby={`${trailer.slug}-heading`} className="mt-12">
       <h2
         id={`${trailer.slug}-heading`}
-        className="text-2xl font-bold text-white"
+        className="text-2xl font-bold text-foreground"
       >
         {name}
       </h2>
-      <p className="mt-2 text-white/60">{summary}</p>
+      <p className="mt-2 text-foreground/60">{summary}</p>
 
       <div
         ref={playerRef}
-        className="mt-5 aspect-video overflow-hidden rounded-xl border border-white/10 bg-[#0a0e17]"
+        className="mt-5 aspect-video overflow-hidden rounded-xl border border-foreground/10 bg-background"
       >
         {trailer.embedBlocked ? (
           <a
@@ -80,10 +80,10 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
-            <span className="text-sm font-semibold text-white">
+            <span className="text-sm font-semibold text-foreground">
               {name} · {formatTimecode(trailer.durationSeconds)}
             </span>
-            <span className="max-w-md text-xs text-white/55">
+            <span className="max-w-md text-xs text-foreground/55">
               {copy.embedBlockedNote}
             </span>
           </a>
@@ -103,7 +103,7 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
                 <path d="M8 5v14l11-7z" />
               </svg>
             </span>
-            <span className="text-sm font-semibold text-white">
+            <span className="text-sm font-semibold text-foreground">
               {name} · {formatTimecode(trailer.durationSeconds)}
             </span>
           </button>
@@ -119,13 +119,13 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
         )}
       </div>
 
-      <p className="mt-2 flex flex-wrap items-center gap-x-3 text-xs text-white/40">
+      <p className="mt-2 flex flex-wrap items-center gap-x-3 text-xs text-foreground/40">
         <span>{copy.privacyNote}</span>
         <a
           href={trailerWatchUrl(trailer)}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:text-white/70"
+          className="underline hover:text-foreground/70"
         >
           {copy.watchOnYouTube}
         </a>
@@ -135,7 +135,7 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
         {rows.map((row) => (
           <li
             key={row.id}
-            className="rounded-xl border border-white/10 bg-white/[0.03] p-4 sm:flex sm:gap-4"
+            className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4 sm:flex sm:gap-4"
           >
             <button
               type="button"
@@ -144,7 +144,7 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
                 "{time}",
                 formatTimecode(row.at),
               )}
-              className="mb-2 inline-flex shrink-0 items-center gap-1.5 rounded-full bg-white/10 px-3 py-1 font-mono text-sm text-cyan-300 transition-colors hover:bg-pink-500 hover:text-white sm:mb-0 sm:self-start"
+              className="mb-2 inline-flex shrink-0 items-center gap-1.5 rounded-full bg-foreground/10 px-3 py-1 font-mono text-sm text-cyan-300 transition-colors hover:bg-pink-500 hover:text-foreground sm:mb-0 sm:self-start"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -158,19 +158,19 @@ export function TrailerScrub({ trailer, name, summary, rows, copy }: Props) {
             </button>
 
             <div className="min-w-0">
-              <p className="font-semibold text-white">{row.title}</p>
-              <p className="mt-1 text-sm leading-relaxed text-white/60">
+              <p className="font-semibold text-foreground">{row.title}</p>
+              <p className="mt-1 text-sm leading-relaxed text-foreground/60">
                 {row.look}
               </p>
               {row.mapHref && row.regionName ? (
                 <Link
                   href={row.mapHref}
-                  className="mt-2 inline-block text-sm text-pink-300 underline hover:text-pink-200"
+                  className="mt-2 inline-block text-sm text-accent underline hover:text-accent/80"
                 >
                   {row.regionName} — {copy.mapLinkLabel}
                 </Link>
               ) : (
-                <p className="mt-2 text-xs uppercase tracking-wide text-white/30">
+                <p className="mt-2 text-xs uppercase tracking-wide text-foreground/30">
                   {copy.noHubLabel}
                 </p>
               )}

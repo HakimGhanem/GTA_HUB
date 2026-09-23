@@ -21,7 +21,11 @@ const PRODUCT_INTENTS: Record<string, AffiliateIntent[]> = {
   HDMI_21_TV: ["display_120hz"],
   CAPTURE_CARD: ["streaming_setup"],
   CHARGE_DOCK: ["controller", "streaming_setup"],
-  GTA5_PS5: ["retro_gta"],
+  GTA5_PS5: ["retro_gta", "wallet_topup"],
+  PS_STORE_20: ["wallet_topup"],
+  PS_STORE_50: ["wallet_topup"],
+  XBOX_GIFT_20: ["wallet_topup"],
+  STEAM_WALLET_20: ["wallet_topup"],
 };
 
 /**
@@ -107,11 +111,55 @@ export const EXTENDED_PRODUCTS: PreorderProduct[] = [
   },
   {
     envKey: "GTA5_PS5",
-    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA5_PS5 ?? "",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_GTA5_PS5 ?? "B09WZ7TKNB",
     label: "Grand Theft Auto V — PS5",
     description: "Replay Los Santos on the classics map while waiting for GTA 6.",
     platform: "PS5",
     edition: "standard",
+  },
+  {
+    envKey: "PS_STORE_20",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_PS_STORE_20 ?? "B00I3P3DXK",
+    label: "PlayStation Store — €20 card",
+    description:
+      "France PSN email code. Redeem on the console, then buy official GTA Online Shark Cards or other store games. Not a GTA 6 SKU.",
+    platform: "PS5",
+    edition: "gift_card",
+    badge: "Wallet",
+    commerce: { format: "digital", streetEur: 20 },
+  },
+  {
+    envKey: "PS_STORE_50",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_PS_STORE_50 ?? "B00OQSZG6U",
+    label: "PlayStation Store — €50 card",
+    description:
+      "Larger France PSN top-up for PS Plus, Shark Cards, or a future GTA 6 digital checkout on that account.",
+    platform: "PS5",
+    edition: "gift_card",
+    badge: "Wallet",
+    commerce: { format: "digital", streetEur: 50 },
+  },
+  {
+    envKey: "XBOX_GIFT_20",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_XBOX_GIFT_20 ?? "B0186L6E3G",
+    label: "Xbox gift card — €20",
+    description:
+      "Official Xbox digital credit — Game Pass, GTA Online Shark Cards on Xbox, or store games. Region-locked to the listing.",
+    platform: "Xbox",
+    edition: "gift_card",
+    badge: "Wallet",
+    commerce: { format: "digital", streetEur: 20 },
+  },
+  {
+    envKey: "STEAM_WALLET_20",
+    asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_STEAM_WALLET_20 ?? "B00HRG5GQI",
+    label: "Steam Wallet — €20 card",
+    description:
+      "Euro Steam wallet listing. Stock swings — if Amazon is empty, use the tagged search. Funds GTA V / Online on PC, not a GTA 6 pre-order.",
+    platform: "PC",
+    edition: "gift_card",
+    badge: "Steam",
+    commerce: { format: "digital", streetEur: 20 },
   },
 ];
 
@@ -158,6 +206,14 @@ export function searchQueryForProduct(product: PreorderProduct): string {
       return "GTA 6 Ultimate Xbox";
     case "GTA5_PS5":
       return "GTA 5 PS5";
+    case "PS_STORE_20":
+      return "Carte PlayStation Store 20 euros";
+    case "PS_STORE_50":
+      return "Carte PlayStation Store 50 euros";
+    case "XBOX_GIFT_20":
+      return "Carte cadeau Xbox 20 euros";
+    case "STEAM_WALLET_20":
+      return "Carte Steam 20 euros";
     default:
       return product.label.replace(/\s+/g, " ").trim();
   }

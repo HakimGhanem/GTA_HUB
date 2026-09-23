@@ -22,7 +22,7 @@ export async function generateMetadata({ params }: Props) {
 
 function MapLoading() {
   return (
-    <div className="flex h-full items-center justify-center bg-[#0a0e17] text-white/50">
+    <div className="flex h-full items-center justify-center bg-background text-foreground/50">
       Loading map…
     </div>
   );

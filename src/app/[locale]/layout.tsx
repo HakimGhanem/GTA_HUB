@@ -11,6 +11,7 @@ import { ConsentDefaultsScript, GaScript } from "@/components/analytics/GaScript
 import { GtmNoScript, GtmScript } from "@/components/analytics/GtmScript";
 import { ChromeGate } from "@/components/layout/ChromeGate";
 import { Header } from "@/components/layout/Header";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { LaunchAlertBanner } from "@/components/newsletter/LaunchAlertBanner";
 import { CookieConsent } from "@/components/privacy/CookieConsent";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -96,33 +97,36 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
       <head>
         <ConsentDefaultsScript />
         <JsonLd data={structuredData} />
       </head>
-      <body className="flex h-full flex-col bg-[#0a0e17] text-white">
+      <body className="flex h-full flex-col bg-background text-foreground">
         <GtmNoScript />
         <NextIntlClientProvider messages={messages}>
-          <ConsentBridge />
-          <a href="#main-content" className="skip-link">
-            {tHeader("skipToContent")}
-          </a>
-          <ChromeGate>
-            <Header />
-          </ChromeGate>
-          <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
-            {children}
-          </div>
-          <GtmScript />
-          <GaScript />
-          <AdSenseScript />
-          <Analytics />
-          <AiReferralTracker />
-          <ChromeGate>
-            <LaunchAlertBanner />
-            <CookieConsent />
-          </ChromeGate>
+          <ThemeProvider>
+            <ConsentBridge />
+            <a href="#main-content" className="skip-link">
+              {tHeader("skipToContent")}
+            </a>
+            <ChromeGate>
+              <Header />
+            </ChromeGate>
+            <div className="flex min-h-0 flex-1 flex-col overflow-y-auto">
+              {children}
+            </div>
+            <GtmScript />
+            <GaScript />
+            <AdSenseScript />
+            <Analytics />
+            <AiReferralTracker />
+            <ChromeGate>
+              <LaunchAlertBanner />
+              <CookieConsent />
+            </ChromeGate>
+          </ThemeProvider>
         </NextIntlClientProvider>
       </body>
     </html>

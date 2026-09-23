@@ -49,7 +49,7 @@ export default async function AttributionsPage({ params }: Props) {
         {copy.eyebrow}
       </p>
       <h1 className="mt-2 text-3xl font-bold">{copy.title}</h1>
-      <div className="mt-5 space-y-3 text-white/70">
+      <div className="mt-5 space-y-3 text-foreground/70">
         {copy.intro.map((paragraph) => (
           <p key={paragraph.slice(0, 40)} className="leading-relaxed">
             {paragraph}
@@ -61,10 +61,10 @@ export default async function AttributionsPage({ params }: Props) {
         {ATTRIBUTIONS.map((entry) => (
           <li
             key={entry.id}
-            className="rounded-xl border border-white/10 bg-white/[0.03] p-5"
+            className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-3">
-              <h2 className="text-lg font-semibold text-white">
+              <h2 className="text-lg font-semibold text-foreground">
                 <a
                   href={entry.sourceUrl}
                   target="_blank"
@@ -87,16 +87,16 @@ export default async function AttributionsPage({ params }: Props) {
 
             <dl className="mt-4 space-y-2 text-sm">
               <div className="flex flex-wrap gap-2">
-                <dt className="w-40 shrink-0 text-white/40">
+                <dt className="w-40 shrink-0 text-foreground/40">
                   {copy.fieldLabels.license}
                 </dt>
-                <dd className="text-white/75">
+                <dd className="text-foreground/75">
                   {LICENSE_URL[entry.license] ? (
                     <a
                       href={LICENSE_URL[entry.license]}
                       target="_blank"
                       rel="license noopener noreferrer"
-                      className="text-pink-300 underline"
+                      className="text-accent underline"
                     >
                       {text(LICENSE_LABEL[entry.license], locale)}
                     </a>
@@ -104,28 +104,28 @@ export default async function AttributionsPage({ params }: Props) {
                     text(LICENSE_LABEL[entry.license], locale)
                   )}
                   {entry.copyright ? (
-                    <span className="text-white/45"> · {entry.copyright}</span>
+                    <span className="text-foreground/45"> · {entry.copyright}</span>
                   ) : null}
                 </dd>
               </div>
               <div className="flex flex-wrap gap-2">
-                <dt className="w-40 shrink-0 text-white/40">
+                <dt className="w-40 shrink-0 text-foreground/40">
                   {copy.fieldLabels.used}
                 </dt>
-                <dd className="text-white/75">{text(entry.used, locale)}</dd>
+                <dd className="text-foreground/75">{text(entry.used, locale)}</dd>
               </div>
               <div className="flex flex-wrap gap-2">
-                <dt className="w-40 shrink-0 text-white/40">
+                <dt className="w-40 shrink-0 text-foreground/40">
                   {copy.fieldLabels.changes}
                 </dt>
-                <dd className="text-white/75">{text(entry.changes, locale)}</dd>
+                <dd className="text-foreground/75">{text(entry.changes, locale)}</dd>
               </div>
               {entry.files?.length ? (
                 <div className="flex flex-wrap gap-2">
-                  <dt className="w-40 shrink-0 text-white/40">
+                  <dt className="w-40 shrink-0 text-foreground/40">
                     {copy.fieldLabels.files}
                   </dt>
-                  <dd className="font-mono text-xs text-white/55">
+                  <dd className="font-mono text-xs text-foreground/55">
                     {entry.files.join(" · ")}
                   </dd>
                 </div>
@@ -141,31 +141,31 @@ export default async function AttributionsPage({ params }: Props) {
         ))}
       </ul>
 
-      <section className="mt-12 space-y-6 text-sm text-white/65">
+      <section className="mt-12 space-y-6 text-sm text-foreground/65">
         <div>
-          <h2 className="text-lg font-semibold text-white">
+          <h2 className="text-lg font-semibold text-foreground">
             {copy.removalTitle}
           </h2>
           <p className="mt-2 leading-relaxed">
             {copy.removalBody}{" "}
-            <Link href="/about" className="text-pink-300 underline">
+            <Link href="/about" className="text-accent underline">
               /about
             </Link>
           </p>
         </div>
         <div>
-          <h2 className="text-lg font-semibold text-white">
+          <h2 className="text-lg font-semibold text-foreground">
             {copy.reuseTitle}
           </h2>
           <p className="mt-2 leading-relaxed">
             {copy.reuseBody}{" "}
-            <Link href="/creators" className="text-pink-300 underline">
+            <Link href="/creators" className="text-accent underline">
               /creators
             </Link>
           </p>
         </div>
         <div>
-          <h2 className="text-lg font-semibold text-white">
+          <h2 className="text-lg font-semibold text-foreground">
             {copy.trademarkTitle}
           </h2>
           <p className="mt-2 leading-relaxed">{copy.trademarkBody}</p>

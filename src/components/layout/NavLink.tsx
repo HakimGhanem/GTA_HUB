@@ -30,8 +30,8 @@ export function NavLink({
       className={clsx(
         "rounded-md px-2.5 py-1.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60",
         isActive
-          ? activeClassName ?? "bg-white/10 text-white"
-          : "text-white/70 hover:text-white",
+          ? activeClassName ?? "bg-foreground/10 text-foreground"
+          : "text-foreground/70 hover:text-foreground",
         className,
       )}
     >

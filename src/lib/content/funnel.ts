@@ -15,6 +15,7 @@ const REVENUE_INTENTS = new Set<AffiliateIntent>([
   "headset",
   "display_120hz",
   "storage_ssd",
+  "wallet_topup",
 ]);
 const CLIP_SIGNALS = [
   "trailer",

@@ -24,24 +24,24 @@ export function AuthorBlock({
   profileUrl = DEFAULTS.profileUrl,
 }: Props) {
   return (
-    <aside className="mt-5 flex gap-3 rounded-xl border border-white/10 bg-white/5 p-4">
+    <aside className="mt-5 flex gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-4">
       <img
         src={avatarUrl}
         alt=""
         width={48}
         height={48}
-        className="h-12 w-12 shrink-0 rounded-full border border-white/10 object-cover"
+        className="h-12 w-12 shrink-0 rounded-full border border-foreground/10 object-cover"
       />
       <div className="min-w-0">
-        <p className="text-sm font-semibold text-white">
-          <Link href={profileUrl} className="hover:text-pink-300">
+        <p className="text-sm font-semibold text-foreground">
+          <Link href={profileUrl} className="hover:text-accent">
             {name}
           </Link>
         </p>
-        <p className="text-xs uppercase tracking-wider text-pink-300/80">
+        <p className="text-xs uppercase tracking-wider text-accent/80">
           {role}
         </p>
-        <p className="mt-1 text-xs leading-relaxed text-white/55">{bio}</p>
+        <p className="mt-1 text-xs leading-relaxed text-foreground/55">{bio}</p>
       </div>
     </aside>
   );

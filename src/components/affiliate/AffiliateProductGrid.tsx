@@ -67,7 +67,7 @@ export async function AffiliateProductGrid({
   return (
     <div className={className}>
       {heading ? (
-        <h2 className="mb-4 text-xl font-semibold text-white">{heading}</h2>
+        <h2 className="mb-4 text-xl font-semibold text-foreground">{heading}</h2>
       ) : null}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {visible.map((product) => (

@@ -35,7 +35,7 @@ export function PreorderFunnel({ copy, games, hardware, shared }: Props) {
 
   return (
     <div>
-      <h2 className="mt-10 text-2xl font-bold text-white">{copy.title}</h2>
+      <h2 className="mt-10 text-2xl font-bold text-foreground">{copy.title}</h2>
       <div
         role="tablist"
         aria-label={copy.title}
@@ -52,8 +52,8 @@ export function PreorderFunnel({ copy, games, hardware, shared }: Props) {
               onClick={() => setPath(chip.id)}
               className={
                 active
-                  ? "rounded-full bg-pink-500 px-3.5 py-1.5 text-sm font-semibold text-white"
-                  : "rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-sm font-medium text-white/70 hover:border-white/30 hover:text-white"
+                  ? "rounded-full bg-accent px-3.5 py-1.5 text-sm font-semibold text-accent-foreground"
+                  : "rounded-full border border-foreground/15 bg-foreground/5 px-3.5 py-1.5 text-sm font-medium text-foreground/70 hover:border-foreground/30 hover:text-foreground"
               }
             >
               {chip.label}
@@ -63,7 +63,7 @@ export function PreorderFunnel({ copy, games, hardware, shared }: Props) {
       </div>
 
       {path === "pc" ? (
-        <p className="mt-6 rounded-xl border border-white/10 bg-white/5 p-5 text-sm leading-relaxed text-white/70">
+        <p className="mt-6 rounded-xl border border-foreground/10 bg-foreground/5 p-5 text-sm leading-relaxed text-foreground/70">
           {copy.pcBody}
         </p>
       ) : null}

@@ -1,15 +1,57 @@
 @import "tailwindcss";
 
+/* Tailwind v4: class-based dark mode (next-themes adds .dark / .light on <html>) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Semantic tokens — Next.js + Tailwind template, expanded.
+ * Dark is the :root fallback (current brand, no-js / before the theme script).
+ */
 :root {
+  color-scheme: dark;
   --background: #0a0e17;
   --foreground: #ededed;
-  --accent: #ec4899;
   --surface: #0d1220;
+  --muted: #9aa3b5;
+  --border: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --accent: #ec4899;
+  --accent-foreground: #ffffff;
+  --ring: #f472b6;
+}
+
+html.light {
+  color-scheme: light;
+  --background: #f4f6fb;
+  --foreground: #0a0e17;
+  --surface: #ffffff;
+  --muted: #5c6578;
+  --border: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --accent: #db2777;
+  --accent-foreground: #ffffff;
+  --ring: #db2777;
+}
+
+html.dark {
+  color-scheme: dark;
+  --background: #0a0e17;
+  --foreground: #ededed;
+  --surface: #0d1220;
+  --muted: #9aa3b5;
+  --border: color-mix(in oklab, var(--foreground) 12%, transparent);
+  --accent: #ec4899;
+  --accent-foreground: #ffffff;
+  --ring: #f472b6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ring: var(--ring);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -27,7 +69,7 @@ body {
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   background: var(--accent);
-  color: white;
+  color: var(--accent-foreground);
   font-weight: 600;
   font-size: 0.875rem;
   text-decoration: none;
@@ -62,12 +104,12 @@ body {
 }
 
 .maplibregl-ctrl-group {
-  background: rgb(0 0 0 / 70%) !important;
-  border: 1px solid rgb(255 255 255 / 10%) !important;
+  background: color-mix(in oklab, var(--surface) 82%, transparent) !important;
+  border: 1px solid var(--border) !important;
   backdrop-filter: blur(8px);
 }
 
-.maplibregl-ctrl-group button {
+.dark .maplibregl-ctrl-group button {
   filter: invert(1);
 }
 
@@ -79,6 +121,8 @@ body {
 .maplibregl-popup-content {
   border-radius: 12px;
   padding: 12px;
+  background: var(--surface);
+  color: var(--foreground);
   box-shadow: 0 8px 24px rgb(0 0 0 / 40%);
   /* Let scroll-zoom hit the map; only interactive bits capture pointer */
   pointer-events: none;
@@ -99,6 +143,7 @@ body {
   font-size: 18px;
   padding: 4px 8px;
   pointer-events: auto;
+  color: var(--muted);
 }
 
 .map-measure-cursor .maplibregl-canvas-container {

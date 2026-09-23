@@ -24,11 +24,11 @@ export async function LocationTrailerEvidence({ slug, name, sourceUrl }: Props) 
   const unverified = hits.some((hit) => !hit.verified);
 
   return (
-    <section className="mb-10 max-w-2xl rounded-xl border border-white/10 bg-white/5 p-5">
-      <h2 className="text-xl font-bold text-white">{t("trailerBeatsTitle")}</h2>
-      <p className="mt-2 text-sm text-white/55">{t("trailerBeatsHint")}</p>
+    <section className="mb-10 max-w-2xl rounded-xl border border-foreground/10 bg-foreground/5 p-5">
+      <h2 className="text-xl font-bold text-foreground">{t("trailerBeatsTitle")}</h2>
+      <p className="mt-2 text-sm text-foreground/55">{t("trailerBeatsHint")}</p>
       {isHub ? (
-        <figure className="mt-4 overflow-hidden rounded-lg border border-white/10">
+        <figure className="mt-4 overflow-hidden rounded-lg border border-foreground/10">
           <img
             src={`/api/og/location/${slug}`}
             alt={t("hubStillCaption", { name: name ?? slug })}
@@ -36,7 +36,7 @@ export async function LocationTrailerEvidence({ slug, name, sourceUrl }: Props) 
             height={630}
             className="h-auto w-full"
           />
-          <figcaption className="px-3 py-2 text-[11px] text-white/45">
+          <figcaption className="px-3 py-2 text-[11px] text-foreground/45">
             {t("hubStillCaption", { name: name ?? slug })}
           </figcaption>
         </figure>
@@ -49,12 +49,12 @@ export async function LocationTrailerEvidence({ slug, name, sourceUrl }: Props) 
                 href={hit.watchUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-medium text-pink-300 hover:text-pink-200"
+                className="text-sm font-medium text-accent hover:text-accent/80"
               >
                 {formatTrailerEvidenceLine(hit)}
               </a>
               {hit.look ? (
-                <p className="mt-1 text-sm text-white/60">{hit.look}</p>
+                <p className="mt-1 text-sm text-foreground/60">{hit.look}</p>
               ) : null}
             </li>
           ))}
@@ -63,7 +63,7 @@ export async function LocationTrailerEvidence({ slug, name, sourceUrl }: Props) 
       <p className="mt-4 text-sm">
         <Link
           href="/trailer"
-          className="font-medium text-pink-300 underline hover:text-pink-200"
+          className="font-medium text-accent underline hover:text-accent/80"
         >
           {t("trailerPageLink")}
         </Link>
@@ -74,7 +74,7 @@ export async function LocationTrailerEvidence({ slug, name, sourceUrl }: Props) 
               href={sourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/60 underline hover:text-white"
+              className="text-foreground/60 underline hover:text-foreground"
             >
               {t("officialSource")}
             </a>
@@ -82,7 +82,7 @@ export async function LocationTrailerEvidence({ slug, name, sourceUrl }: Props) 
         ) : null}
       </p>
       {unverified ? (
-        <p className="mt-3 text-xs text-white/40">{t("trailerEstimateNote")}</p>
+        <p className="mt-3 text-xs text-foreground/40">{t("trailerEstimateNote")}</p>
       ) : null}
     </section>
   );

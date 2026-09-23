@@ -54,7 +54,7 @@ export function LocationsList() {
             setPage(1);
           }}
           placeholder={t("searchPlaceholder")}
-          className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-white placeholder:text-white/40 focus:border-pink-400/50 focus:outline-none focus:ring-1 focus:ring-pink-400/50"
+          className="w-full rounded-lg border border-foreground/10 bg-foreground/5 px-4 py-2.5 text-foreground placeholder:text-foreground/40 focus:border-pink-400/50 focus:outline-none focus:ring-1 focus:ring-pink-400/50"
         />
       </div>
 
@@ -70,18 +70,18 @@ export function LocationsList() {
             type="button"
             disabled={currentPage <= 1}
             onClick={() => setPage((p) => p - 1)}
-            className="rounded-lg border border-white/10 px-4 py-2 text-sm disabled:opacity-30"
+            className="rounded-lg border border-foreground/10 px-4 py-2 text-sm disabled:opacity-30"
           >
             ←
           </button>
-          <span className="text-sm text-white/50">
+          <span className="text-sm text-foreground/50">
             {currentPage} / {totalPages}
           </span>
           <button
             type="button"
             disabled={currentPage >= totalPages}
             onClick={() => setPage((p) => p + 1)}
-            className="rounded-lg border border-white/10 px-4 py-2 text-sm disabled:opacity-30"
+            className="rounded-lg border border-foreground/10 px-4 py-2 text-sm disabled:opacity-30"
           >
             →
           </button>

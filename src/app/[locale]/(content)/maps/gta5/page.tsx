@@ -58,7 +58,7 @@ export default async function Gta5MapLandingPage({ params }: Props) {
           Classic maps
         </p>
         <h1 className="mt-2 text-3xl font-bold">GTA 5 interactive map</h1>
-        <p className="mt-4 text-white/60">
+        <p className="mt-4 text-foreground/60">
           Explore Los Santos and Blaine County in the browser — then stay for
           GTA 6 when November 19, 2026 arrives. Same Map-6 tools: filters,
           coordinates, share links, and a found tracker that does not stop at
@@ -68,25 +68,25 @@ export default async function Gta5MapLandingPage({ params }: Props) {
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             href="/map?game=gta5"
-            className="rounded-full bg-pink-500 px-5 py-2 text-sm font-semibold text-white hover:bg-pink-400"
+            className="rounded-full bg-pink-500 px-5 py-2 text-sm font-semibold text-accent-foreground hover:bg-pink-400"
           >
             Open GTA 5 map
           </Link>
           <Link
             href="/map?game=vc"
-            className="rounded-full border border-white/20 px-5 py-2 text-sm text-white hover:bg-white/10"
+            className="rounded-full border border-foreground/20 px-5 py-2 text-sm text-foreground hover:bg-foreground/10"
           >
             Vice City
           </Link>
           <Link
             href="/map?game=sa"
-            className="rounded-full border border-white/20 px-5 py-2 text-sm text-white hover:bg-white/10"
+            className="rounded-full border border-foreground/20 px-5 py-2 text-sm text-foreground hover:bg-foreground/10"
           >
             San Andreas
           </Link>
         </div>
 
-        <article className="mt-10 space-y-4 text-white/70">
+        <article className="mt-10 space-y-4 text-foreground/70">
           <p>
             Most people who type “GTA 5 interactive map” already know MapGenie.
             That product earned the category: dense categories, a mobile app,
@@ -111,7 +111,7 @@ export default async function Gta5MapLandingPage({ params }: Props) {
             licence: we credit it, we keep the extract minimal, and we remove
             it on request. Classic Vice City and San Andreas maps use other
             community basemaps. Full per-source breakdown on{" "}
-            <Link href="/attributions" className="text-pink-300 underline">
+            <Link href="/attributions" className="text-accent underline">
               attributions
             </Link>
             . None of this is an official Rockstar file dump.
@@ -121,14 +121,14 @@ export default async function Gta5MapLandingPage({ params }: Props) {
             with community GTADB landmarks. Collectible category totals for VI
             are not official — we show sample pins only. If you landed here
             for “all GTA 6 hidden packages,” that list does not exist yet.
-            Use <Link href="/collectibles" className="text-pink-300 underline">/collectibles</Link>{" "}
+            Use <Link href="/collectibles" className="text-accent underline">/collectibles</Link>{" "}
             for honest category pages and{" "}
-            <Link href="/map" className="text-pink-300 underline">/map</Link> for
+            <Link href="/map" className="text-accent underline">/map</Link> for
             trailer geography.
           </p>
           <p>
             Creators can overlay the same engine:{" "}
-            <Link href="/overlay?game=gta5" className="text-pink-300 underline">
+            <Link href="/overlay?game=gta5" className="text-accent underline">
               /overlay?game=gta5
             </Link>{" "}
             plus streamer theme and a <code>ref=</code> handle. The clip kit
@@ -139,14 +139,14 @@ export default async function Gta5MapLandingPage({ params }: Props) {
             Related Map-6 reading: the beginner GTA 6 map guide, hidden-packages
             theory (historical patterns, not fake VI counts), pre-order and
             setup guides if you are also shopping for November, and the{" "}
-            <Link href="/database" className="text-pink-300 underline">
+            <Link href="/database" className="text-accent underline">
               source-tagged GTA 6 database
             </Link>
             . Map-6 is a fan hub — not Rockstar, not Take-Two, not MapGenie.
           </p>
         </article>
 
-        <ProgressBackup defaultGame="gta5" className="mt-10 rounded-xl border border-white/10 bg-white/5 p-5 text-sm text-white/70" />
+        <ProgressBackup defaultGame="gta5" className="mt-10 rounded-xl border border-foreground/10 bg-foreground/5 p-5 text-sm text-foreground/70" />
 
         <section className="mt-12">
           <h2 className="mb-4 text-2xl font-bold">FAQ</h2>
@@ -154,10 +154,10 @@ export default async function Gta5MapLandingPage({ params }: Props) {
             {FAQ.map(({ question, answer }) => (
               <div
                 key={question}
-                className="rounded-xl border border-white/10 bg-white/5 p-5"
+                className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
               >
-                <dt className="font-semibold text-white">{question}</dt>
-                <dd className="mt-2 text-sm text-white/60">{answer}</dd>
+                <dt className="font-semibold text-foreground">{question}</dt>
+                <dd className="mt-2 text-sm text-foreground/60">{answer}</dd>
               </div>
             ))}
           </dl>

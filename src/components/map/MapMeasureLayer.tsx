@@ -56,7 +56,7 @@ export function MapMeasureLayer({
         const { lng, lat } = toMapLibreCoords(p.x, p.y, mapBounds);
         return (
           <Marker key={`${p.x}-${p.y}-${i}`} longitude={lng} latitude={lat} anchor="center">
-            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-[10px] font-bold text-white ring-2 ring-white">
+            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-pink-500 text-[10px] font-bold text-accent-foreground ring-2 ring-white">
               {i + 1}
             </span>
           </Marker>
@@ -70,10 +70,10 @@ export function MapMeasureLayer({
               <p className="text-[10px] font-semibold uppercase tracking-wider text-pink-400">
                 Distance
               </p>
-              <p className="mt-0.5 font-mono text-sm text-white">
+              <p className="mt-0.5 font-mono text-sm text-foreground">
                 {formatGameDistance(total)}
               </p>
-              <p className="mt-0.5 text-[10px] text-white/50">
+              <p className="mt-0.5 text-[10px] text-foreground/50">
                 {points.length} point{points.length !== 1 ? "s" : ""}
               </p>
             </div>
@@ -81,14 +81,14 @@ export function MapMeasureLayer({
               <button
                 type="button"
                 onClick={onClear}
-                className="rounded-md px-2 py-1 text-[10px] text-white/60 hover:bg-white/10 hover:text-white"
+                className="rounded-md px-2 py-1 text-[10px] text-foreground/60 hover:bg-foreground/10 hover:text-foreground"
               >
                 Clear
               </button>
               <button
                 type="button"
                 onClick={onClose}
-                className="rounded-md px-2 py-1 text-[10px] text-white/60 hover:bg-white/10 hover:text-white"
+                className="rounded-md px-2 py-1 text-[10px] text-foreground/60 hover:bg-foreground/10 hover:text-foreground"
                 aria-label="Close measure tool"
               >
                 ✕

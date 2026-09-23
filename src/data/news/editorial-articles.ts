@@ -1,5 +1,6 @@
 import type { Article } from "@/lib/content/schema";
 import { locationFigure } from "@/lib/content/key-news";
+import { HUB_ARTICLES } from "./editorial-hub-articles";
 import { KEY_FR_ARTICLES } from "./editorial-key-fr";
 
 const AUTHOR = "Map-6 Editorial";
@@ -634,5 +635,6 @@ Le lancement console reste le **19 novembre 2026** sur PlayStation 5 et Xbox Ser
     ],
     notes: "Table de preuves indexable — ne clone ni le guide carte ni /trailer.",
   },
+  ...HUB_ARTICLES,
   ...KEY_FR_ARTICLES,
 ];

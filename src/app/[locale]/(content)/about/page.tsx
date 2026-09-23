@@ -24,20 +24,20 @@ export default async function AboutPage({ params }: Props) {
     <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
       <Link
         href="/"
-        className="mb-6 inline-block text-sm text-white/50 hover:text-white"
+        className="mb-6 inline-block text-sm text-foreground/50 hover:text-foreground"
       >
         ← Home
       </Link>
 
       <h1 className="mb-2 text-3xl font-bold">About Map-6</h1>
-      <p className="mb-8 text-sm text-white/50">
+      <p className="mb-8 text-sm text-foreground/50">
         Independent GTA 6 map & guide site — not affiliated with Rockstar Games
         or Take-Two Interactive.
       </p>
 
-      <div className="space-y-8 text-white/70">
+      <div className="space-y-8 text-foreground/70">
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">What we do</h2>
+          <h2 className="mb-3 text-xl font-semibold text-foreground">What we do</h2>
           <p>
             {SITE.name} ({SITE.url}) is a free interactive map and editorial
             guide for <em>Grand Theft Auto VI</em>. Our job is practical: help
@@ -52,31 +52,31 @@ export default async function AboutPage({ params }: Props) {
           </p>
           <ul className="mt-3 list-disc space-y-2 pl-5">
             <li>
-              <Link href="/map" className="text-pink-300 underline">
+              <Link href="/map" className="text-accent underline">
                 Interactive map
               </Link>{" "}
               — filters, coordinates, measure, shareable deep links
             </li>
             <li>
-              <Link href="/locations" className="text-pink-300 underline">
+              <Link href="/locations" className="text-accent underline">
                 Locations directory
               </Link>{" "}
               — regional hubs (Vice City, Ocean Drive, Grassrivers, and more)
             </li>
             <li>
-              <Link href="/guides" className="text-pink-300 underline">
+              <Link href="/guides" className="text-accent underline">
                 Guides
               </Link>{" "}
               — beginner map use, lore, setup, clip kit
             </li>
             <li>
-              <Link href="/news" className="text-pink-300 underline">
+              <Link href="/news" className="text-accent underline">
                 News & trailer updates
               </Link>{" "}
               — sourced posts, rumors labeled
             </li>
             <li>
-              <Link href="/collectibles" className="text-pink-300 underline">
+              <Link href="/collectibles" className="text-accent underline">
                 Collectibles hub
               </Link>{" "}
               — category methods, not invented totals
@@ -85,7 +85,7 @@ export default async function AboutPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             Who Map-6 is for
           </h2>
           <p>
@@ -104,29 +104,29 @@ export default async function AboutPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             Editorial standards
           </h2>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong className="text-white/90">No fake leaks</strong> — we do
+              <strong className="text-foreground/90">No fake leaks</strong> — we do
               not invent trailer dates, datamined exclusives, or fabricated
               screenshots.
             </li>
             <li>
-              <strong className="text-white/90">Rumors labeled</strong> —
+              <strong className="text-foreground/90">Rumors labeled</strong> —
               unverified claims are never presented as Rockstar confirmation.
             </li>
             <li>
-              <strong className="text-white/90">Sources listed</strong> — news
+              <strong className="text-foreground/90">Sources listed</strong> — news
               articles cite Rockstar or reputable outlets when we state facts.
             </li>
             <li>
-              <strong className="text-white/90">Map attribution</strong> —
+              <strong className="text-foreground/90">Map attribution</strong> —
               community tiles and landmark data from GTADB / contributors under{" "}
               <a
                 href="https://gtadb.org"
-                className="text-pink-300 underline"
+                className="text-accent underline"
                 rel="noopener noreferrer"
                 target="_blank"
               >
@@ -134,14 +134,14 @@ export default async function AboutPage({ params }: Props) {
               </a>
               , plus other community datasets on their own terms. Every source,
               licence and modification is listed on{" "}
-              <Link href="/attributions" className="text-pink-300 underline">
+              <Link href="/attributions" className="text-accent underline">
                 attributions
               </Link>
               , including the projects that declare no licence at all. We clone
               data responsibly; we do not scrape live gtadb.org.
             </li>
             <li>
-              <strong className="text-white/90">Thin auto-POIs stay out of
+              <strong className="text-foreground/90">Thin auto-POIs stay out of
               search</strong>{" "}
               — mass community imports without unique prose are noindex so the
               public index stays editorial.
@@ -150,7 +150,7 @@ export default async function AboutPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             How the map is built
           </h2>
           <p>
@@ -170,14 +170,14 @@ export default async function AboutPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">Advertising</h2>
+          <h2 className="mb-3 text-xl font-semibold text-foreground">Advertising</h2>
           <p>
             We may show Google AdSense units, always labeled{" "}
-            <strong className="text-white/90">Advertisement</strong>, and Amazon
+            <strong className="text-foreground/90">Advertisement</strong>, and Amazon
             Associates links where relevant (also disclosed). Ads help keep the
             map free. We keep ads off the fullscreen map and overlay routes so
             gameplay tools stay usable. Details:{" "}
-            <Link href="/privacy" className="text-pink-300 underline">
+            <Link href="/privacy" className="text-accent underline">
               Privacy Policy
             </Link>
             .
@@ -189,22 +189,22 @@ export default async function AboutPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">Contact</h2>
+          <h2 className="mb-3 text-xl font-semibold text-foreground">Contact</h2>
           <p>
             Privacy & partnership:{" "}
             <a
               href="mailto:privacy@map-6.com"
-              className="text-pink-300 underline"
+              className="text-accent underline"
             >
               privacy@map-6.com
             </a>
             . Journalists:{" "}
-            <Link href="/press" className="text-pink-300 underline">
+            <Link href="/press" className="text-accent underline">
               press kit
             </Link>
             .
           </p>
-          <p className="mt-2 text-sm text-white/50">
+          <p className="mt-2 text-sm text-foreground/50">
             Rockstar Games, Grand Theft Auto, and GTA are trademarks of their
             respective owners. Map-6 is a fan project. We are not endorsed by
             Rockstar Games or Take-Two Interactive.

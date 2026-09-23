@@ -94,16 +94,16 @@ function Banner() {
   return (
     <aside
       aria-label={t("bannerTitle")}
-      className={`fixed inset-x-0 z-[90] border-t border-pink-400/25 bg-[#0d121c]/95 px-4 py-3 shadow-2xl backdrop-blur-md ${
+      className={`fixed inset-x-0 z-[90] border-t border-pink-400/25 bg-surface/95 px-4 py-3 shadow-2xl backdrop-blur-md ${
         cookieOpen ? "bottom-[9.5rem] sm:bottom-28" : "bottom-0"
       }`}
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="min-w-0">
-          <p className="text-sm font-semibold text-pink-200">
+          <p className="text-sm font-semibold text-accent">
             {t("bannerTitle")}
           </p>
-          <p className="mt-0.5 text-xs text-white/55">{t("bannerDesc")}</p>
+          <p className="mt-0.5 text-xs text-foreground/55">{t("bannerDesc")}</p>
         </div>
         <div className="flex items-center gap-2 sm:w-[26rem]">
           <LaunchAlertForm placement="banner" compact onSuccess={onSuccess} />
@@ -111,7 +111,7 @@ function Banner() {
             type="button"
             onClick={dismiss}
             aria-label={t("dismiss")}
-            className="shrink-0 self-start rounded-full p-2 text-white/40 hover:text-white/80"
+            className="shrink-0 self-start rounded-full p-2 text-foreground/40 hover:text-foreground/80"
           >
             <svg viewBox="0 0 20 20" className="h-4 w-4" aria-hidden="true">
               <path

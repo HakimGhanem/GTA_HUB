@@ -17,18 +17,18 @@ type Props = {
 
 export function ClassicMapsPromo({ title, hint, maps }: Props) {
   return (
-    <section className="rounded-xl border border-white/10 bg-white/[0.03] p-6">
-      <h2 className="text-lg font-semibold text-white">{title}</h2>
-      <p className="mt-1 text-sm text-white/55">{hint}</p>
+    <section className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-6">
+      <h2 className="text-lg font-semibold text-foreground">{title}</h2>
+      <p className="mt-1 text-sm text-foreground/55">{hint}</p>
       <div className="mt-4 grid gap-3 sm:grid-cols-3">
         {maps.map((m) => (
           <Link
             key={m.game}
             href={m.href}
-            className="rounded-lg border border-white/10 bg-white/5 p-4 transition-colors hover:border-pink-400/40"
+            className="rounded-lg border border-foreground/10 bg-foreground/5 p-4 transition-colors hover:border-pink-400/40"
           >
-            <p className="font-semibold text-pink-200">{m.label}</p>
-            <p className="mt-1 text-xs leading-relaxed text-white/55">{m.desc}</p>
+            <p className="font-semibold text-accent">{m.label}</p>
+            <p className="mt-1 text-xs leading-relaxed text-foreground/55">{m.desc}</p>
           </Link>
         ))}
       </div>

@@ -4,7 +4,7 @@ const AMAZON_CLASS =
   "inline-flex w-full items-center justify-center rounded-full bg-[#FF9900] px-5 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#FFB84D]";
 
 const SECONDARY_CLASS =
-  "inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-white/40 hover:bg-white/10";
+  "inline-flex w-full items-center justify-center rounded-full border border-foreground/20 bg-foreground/5 px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-foreground/40 hover:bg-foreground/10";
 
 const PLAYSTATION_CLASS =
   "inline-flex w-full items-center justify-center rounded-full border border-blue-400/40 bg-blue-500/10 px-5 py-3 text-sm font-semibold text-blue-100 transition-colors hover:bg-blue-500/20";
@@ -64,7 +64,7 @@ export function StoreOfferButtons({
       <OfferLink offer={primary} primary />
       {rest.length > 0 ? (
         <details className="group">
-          <summary className="cursor-pointer list-none text-center text-xs font-medium text-white/45 underline-offset-2 hover:text-white/70 hover:underline [&::-webkit-details-marker]:hidden">
+          <summary className="cursor-pointer list-none text-center text-xs font-medium text-foreground/45 underline-offset-2 hover:text-foreground/70 hover:underline [&::-webkit-details-marker]:hidden">
             {otherStoresLabel}
           </summary>
           <div className="mt-2 flex flex-col gap-2">

@@ -5,6 +5,11 @@ export const KEY_NEWS_SLUGS = [
   "gta-6-trailer-frames-leonida-hubs",
   "gta-6-extended-look-live-notes",
   "gta-6-trailer-watch-map-checklist",
+  "gta-6-official-facts-roundup",
+  "gta-6-leaks-timeline-verified",
+  "gta-6-gameplay-systems-2026",
+  "gta-series-history-to-leonida",
+  "gta-online-wallet-cards-before-vi",
 ] as const;
 
 export type KeyNewsSlug = (typeof KEY_NEWS_SLUGS)[number];

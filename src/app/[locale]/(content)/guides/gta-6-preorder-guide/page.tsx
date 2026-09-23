@@ -75,7 +75,7 @@ export default async function PreorderGuidePage({ params }: Props) {
       <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
         <Link
           href="/guides"
-          className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+          className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
         >
           {copy.backToGuides}
         </Link>
@@ -84,8 +84,8 @@ export default async function PreorderGuidePage({ params }: Props) {
           {copy.eyebrow}
         </p>
         <h1 className="text-3xl font-bold leading-tight">{copy.title}</h1>
-        <p className="mt-4 text-white/60">{copy.description}</p>
-        <p className="mt-2 text-xs text-white/40">
+        <p className="mt-4 text-foreground/60">{copy.description}</p>
+        <p className="mt-2 text-xs text-foreground/40">
           {guide.readTime} min · {guide.publishedAt}
         </p>
 
@@ -93,11 +93,11 @@ export default async function PreorderGuidePage({ params }: Props) {
         <PreorderGuideContent locale={locale} />
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">
-          <p className="font-semibold text-pink-200">{copy.ctaTitle}</p>
-          <p className="mt-1 text-sm text-white/60">{copy.ctaBody}</p>
+          <p className="font-semibold text-accent">{copy.ctaTitle}</p>
+          <p className="mt-1 text-sm text-foreground/60">{copy.ctaBody}</p>
           <Link
             href="/map"
-            className="mt-4 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-white hover:bg-pink-400"
+            className="mt-4 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-accent-foreground hover:bg-pink-400"
           >
             {copy.ctaButton}
           </Link>

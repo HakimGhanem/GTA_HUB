@@ -16,10 +16,10 @@ export function AnswerBox({
       aria-label={label}
       className="mt-6 rounded-xl border border-pink-400/25 bg-pink-500/5 p-5"
     >
-      <p className="text-xs font-semibold uppercase tracking-wide text-pink-300">
+      <p className="text-xs font-semibold uppercase tracking-wide text-accent">
         {label}
       </p>
-      <p className="geo-answer mt-2 text-base leading-relaxed text-white/90">
+      <p className="geo-answer mt-2 text-base leading-relaxed text-foreground/90">
         {children}
       </p>
     </section>

@@ -402,7 +402,7 @@ export function GameMap({
       </Map>
 
       {!overlayMode && game.id === "gta6" && (
-        <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-md -translate-x-1/2 rounded-md border border-pink-400/20 bg-black/55 px-3 py-1.5 text-center text-[10px] text-white/70 backdrop-blur-sm">
+        <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-md -translate-x-1/2 rounded-md border border-pink-400/20 bg-black/55 px-3 py-1.5 text-center text-[10px] text-foreground/70 backdrop-blur-sm">
           {t("liveBanner")}
         </p>
       )}
@@ -426,7 +426,7 @@ export function GameMap({
             "pointer-events-none absolute bottom-3 left-3 z-20 rounded-md px-2 py-1 text-[11px] font-semibold tracking-wide backdrop-blur-sm",
             mapTheme === "neon"
               ? "bg-fuchsia-500/30 text-fuchsia-100"
-              : "bg-black/50 text-white/90",
+              : "bg-black/50 text-foreground/90",
           )}
         >
           MAP<span className="text-pink-300">6</span>
@@ -437,14 +437,14 @@ export function GameMap({
       {!overlayMode && game.attribution && (
         <a
           href={`/${locale}/attributions`}
-          className="absolute bottom-3 right-14 z-10 max-w-[12rem] text-right text-[10px] leading-tight text-white/45 underline decoration-white/20 hover:text-white/70 sm:bottom-4"
+          className="absolute bottom-3 right-14 z-10 max-w-[12rem] text-right text-[10px] leading-tight text-foreground/45 underline decoration-white/20 hover:text-foreground/70 sm:bottom-4"
         >
           {game.attribution}
         </a>
       )}
 
       {!overlayMode && !gtadbNative && game.tile.kind === "grid" && !game.primary && (
-        <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-xs -translate-x-1/2 rounded-md border border-white/10 bg-black/50 px-2 py-1 text-center text-[10px] text-white/50 backdrop-blur-sm">
+        <p className="pointer-events-none absolute left-1/2 top-3 z-10 max-w-xs -translate-x-1/2 rounded-md border border-foreground/10 bg-black/50 px-2 py-1 text-center text-[10px] text-foreground/50 backdrop-blur-sm">
           {game.label} · seed POIs · add raster tiles via env
         </p>
       )}

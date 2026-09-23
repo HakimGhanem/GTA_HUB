@@ -50,7 +50,42 @@
       "a5": "Yes, the map and guides are free. We may show clearly labeled Google AdSense units on content pages (not on the fullscreen map/overlay) and disclosed Amazon affiliate links. See About and Privacy for details."
     },
     "newsTitle": "Latest news",
-    "newsAll": "All news →"
+    "newsAll": "All news →",
+    "hub": {
+      "navLabel": "GTA 6 hub",
+      "preorder": "Pre-order",
+      "storyMap": "Story & map",
+      "history": "GTA history",
+      "online": "GTA Online",
+      "cards": "Store cards"
+    },
+    "destinationsTitle": "Named Leonida destinations",
+    "destinationsCta": "Open the full map →",
+    "storyTitle": "The story so far",
+    "storyBody": "Rockstar is selling a modern Bonnie-and-Clyde couple in a Florida-shaped state. Lucia Caminos walks out of the Leonida Penitentiary; Jason Duval tried to step away from crime in the Keys. Official trailers and An Extended Look sketch the premise — Map-6 will not invent the last heist or the ending.",
+    "charactersTitle": "Lucia & Jason",
+    "luciaRole": "First female lead",
+    "luciaTitle": "Lucia Caminos",
+    "luciaBody": "Official bio: her father taught her to fight; fighting for family put her in prison; luck got her out. She wants the life her mother never got — and she intends to take it. Fan-wiki arcs stay off this card.",
+    "jasonRole": "Partner in crime",
+    "jasonTitle": "Jason Duval",
+    "jasonBody": "Rockstar frames him as someone who grew up around criminals and tried another life in the Keys. Meeting Lucia might be the way out — or the way back in. Premise only.",
+    "featuresTitle": "Systems shown in An Extended Look",
+    "featureDualTitle": "Two protagonists",
+    "featureDualBody": "Switch Lucia and Jason in free roam. Some missions lock a perspective; the other can help as AI.",
+    "featureWantedTitle": "Six-star wanted HUD",
+    "featureWantedBody": "Six stars are back, plus icons for what police know — face, guns, car — not only how loud you are.",
+    "featureLifestyleTitle": "Lifestyle on the model",
+    "featureLifestyleBody": "Food, gym, and sleep change how they look, in a San Andreas spirit. No official stat sheet.",
+    "relatedTitle": "More from the hub",
+    "relatedReleaseTitle": "GTA 6 release date",
+    "relatedReleaseDesc": "November 19, 2026 on PS5 and Xbox. PC is a separate, unconfirmed calendar.",
+    "relatedHistoryTitle": "History of Grand Theft Auto",
+    "relatedHistoryDesc": "From top-down cities to Los Santos Online to the Leonida bet — why Vice City is back.",
+    "relatedOnlineTitle": "GTA Online while you wait",
+    "relatedOnlineDesc": "Los Santos is still live. Official Shark Cards via PSN, Xbox, or Steam wallets — not a GTA 6 pack.",
+    "relatedCardsTitle": "PS, Xbox & Steam cards",
+    "relatedCardsDesc": "Amazon gift-card ASINs to top up the wallets you already use, then buy cash in Rockstar’s store."
   },
   "locations": {
     "title": "All Locations",
@@ -150,7 +185,11 @@
     "navigation": "Navigation",
     "launchLabel": "GTA VI launch",
     "skipToContent": "Skip to content",
-    "countdownAria": "Countdown to GTA 6 release"
+    "countdownAria": "Countdown to GTA 6 release",
+    "themeToggle": "Theme: {theme}",
+    "themeLight": "Light",
+    "themeDark": "Dark",
+    "themeSystem": "System"
   },
   "countdown": {
     "label": "GTA 6 launches in",
@@ -309,6 +348,9 @@
     "hardwareTitle": "Ready for launch day?",
     "hardwareSubtitle": "Consoles & accessories via Amazon — preorder the game when official listings drop.",
     "hardwareGuideLink": "Full pre-order guide →",
+    "walletTitle": "PS, Steam & Xbox cards — Shark Cards while you wait",
+    "walletSubtitle": "Official store credit on Amazon. Redeem on your account, then buy GTA Online cash from Rockstar. Not a GTA 6 SKU.",
+    "walletGuideLink": "How wallet cards work →",
     "intents": {
       "preorder_standard": "Pre-order (standard)",
       "preorder_collectors": "Collector's edition",
@@ -318,7 +360,8 @@
       "display_120hz": "120Hz display",
       "storage_ssd": "SSD / storage",
       "streaming_setup": "Streaming kit",
-      "retro_gta": "Classic GTA"
+      "retro_gta": "Classic GTA",
+      "wallet_topup": "Store & Shark cards"
     }
   },
   "cookieConsent": {

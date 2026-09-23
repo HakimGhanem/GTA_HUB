@@ -71,7 +71,7 @@ export function OverlayPageClient() {
   return (
     <Suspense
       fallback={
-        <div className="flex h-full items-center justify-center text-sm text-white/40">
+        <div className="flex h-full items-center justify-center text-sm text-foreground/40">
           Loading overlay…
         </div>
       }

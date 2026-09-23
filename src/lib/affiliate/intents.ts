@@ -12,6 +12,7 @@ export const AFFILIATE_INTENTS = [
   "storage_ssd",
   "streaming_setup",
   "retro_gta",
+  "wallet_topup",
 ] as const;
 
 export type AffiliateIntent = (typeof AFFILIATE_INTENTS)[number];
@@ -115,6 +116,25 @@ export const INTENT_META: Record<AffiliateIntent, IntentMeta> = {
     payoutTier: "low",
     clipAngle: "Play GTA 5 / SA on the Map-6 classics maps",
     signals: ["gta 5", "gta v", "san andreas", "definitive", "trilogy"],
+  },
+  wallet_topup: {
+    id: "wallet_topup",
+    label: "Store & Shark cards",
+    jobToBeDone: "Top up PSN / Xbox / Steam, then buy official GTA Online cash",
+    payoutTier: "medium",
+    clipAngle: "PS / Steam / Xbox cards for Shark Cards while you wait",
+    signals: [
+      "shark card",
+      "shark cards",
+      "playstation store",
+      "carte playstation",
+      "steam wallet",
+      "carte steam",
+      "xbox gift",
+      "carte cadeau",
+      "gift card",
+      "psn",
+    ],
   },
 };
 

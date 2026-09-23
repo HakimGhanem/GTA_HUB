@@ -40,7 +40,7 @@ export function MobileNav() {
       <button
         type="button"
         onClick={() => setOpen(true)}
-        className="rounded-lg border border-white/15 bg-white/5 px-3 py-1.5 text-sm text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
+        className="rounded-lg border border-foreground/15 bg-foreground/5 px-3 py-1.5 text-sm text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
         aria-expanded={open}
         aria-controls="mobile-nav-panel"
         aria-label={t("menu")}
@@ -58,15 +58,15 @@ export function MobileNav() {
           />
           <nav
             id="mobile-nav-panel"
-            className="absolute right-0 top-0 flex h-full w-[min(100%,20rem)] flex-col border-l border-white/10 bg-[#0d1220] shadow-2xl"
+            className="absolute right-0 top-0 flex h-full w-[min(100%,20rem)] flex-col border-l border-foreground/10 bg-surface shadow-2xl"
             aria-label={t("navigation")}
           >
-            <div className="flex items-center justify-between border-b border-white/10 px-4 py-4">
-              <span className="font-semibold text-white">{t("navigation")}</span>
+            <div className="flex items-center justify-between border-b border-foreground/10 px-4 py-4">
+              <span className="font-semibold text-foreground">{t("navigation")}</span>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="rounded-md px-2 py-1 text-white/60 hover:text-white"
+                className="rounded-md px-2 py-1 text-foreground/60 hover:text-foreground"
                 aria-label={t("menu")}
               >
                 ✕
@@ -80,15 +80,15 @@ export function MobileNav() {
                   href={href}
                   onClick={() => setOpen(false)}
                   className="block px-3 py-2.5 text-base"
-                  activeClassName="bg-pink-500/20 text-pink-200"
+                  activeClassName="bg-accent/15 text-accent"
                 >
                   {label}
                 </NavLink>
               ))}
             </div>
 
-            <div className="mt-auto border-t border-white/10 p-4">
-              <p className="mb-2 text-xs uppercase tracking-wider text-white/40">
+            <div className="mt-auto border-t border-foreground/10 p-4">
+              <p className="mb-2 text-xs uppercase tracking-wider text-foreground/40">
                 {t("launchLabel")}
               </p>
               <CountdownTimer />

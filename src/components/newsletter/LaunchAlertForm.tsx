@@ -99,12 +99,12 @@ export function LaunchAlertForm({ placement, onSuccess, compact }: Props) {
             setEmail(e.target.value);
           }}
           placeholder={t("placeholder")}
-          className="min-w-0 flex-1 rounded-md border border-white/15 bg-[#0d1220] px-3 py-2 text-sm text-white placeholder:text-white/35 focus:border-pink-400/60 focus:outline-none disabled:opacity-60"
+          className="min-w-0 flex-1 rounded-md border border-foreground/15 bg-surface px-3 py-2 text-sm text-foreground placeholder:text-foreground/35 focus:border-pink-400/60 focus:outline-none disabled:opacity-60"
         />
         <button
           type="submit"
           disabled={status === "sending" || status === "done"}
-          className="shrink-0 rounded-full bg-pink-500 px-5 py-2 text-sm font-semibold text-white hover:bg-pink-400 disabled:opacity-60"
+          className="shrink-0 rounded-full bg-pink-500 px-5 py-2 text-sm font-semibold text-accent-foreground hover:bg-pink-400 disabled:opacity-60"
         >
           {status === "sending"
             ? t("sending")

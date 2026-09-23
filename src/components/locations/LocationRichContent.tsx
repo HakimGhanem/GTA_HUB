@@ -27,16 +27,16 @@ export async function LocationRichContent({ name, seo, location }: Props) {
       <section className="mb-10">
         <p className="mb-3 not-prose">
           <span
-            className="inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ring-1 ring-white/15"
+            className="inline-block rounded-full px-2.5 py-0.5 text-[11px] font-medium ring-1 ring-foreground/15"
             style={getConfidenceBadgeStyle(confidence)}
           >
             {getConfidenceLabel(confidence, tRoot)}
           </span>
         </p>
-        <h2 className="mb-4 text-2xl font-bold text-white">
+        <h2 className="mb-4 text-2xl font-bold text-foreground">
           {t("aboutTitle", { name })}
         </h2>
-        <div className="space-y-4 text-white/70">
+        <div className="space-y-4 text-foreground/70">
           {seo.about.map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
@@ -50,10 +50,10 @@ export async function LocationRichContent({ name, seo, location }: Props) {
       )}
 
       <section className="mb-10">
-        <h2 className="mb-4 text-2xl font-bold text-white">
+        <h2 className="mb-4 text-2xl font-bold text-foreground">
           {t("findTitle", { name })}
         </h2>
-        <ul className="list-disc space-y-2 pl-5 text-white/70">
+        <ul className="list-disc space-y-2 pl-5 text-foreground/70">
           {seo.poiTypes.map((item) => (
             <li key={item}>{item}</li>
           ))}
@@ -61,15 +61,15 @@ export async function LocationRichContent({ name, seo, location }: Props) {
       </section>
 
       <section className="mb-10">
-        <h2 className="mb-4 text-2xl font-bold text-white">{t("faqTitle")}</h2>
+        <h2 className="mb-4 text-2xl font-bold text-foreground">{t("faqTitle")}</h2>
         <dl className="space-y-4">
           {seo.faq.map(({ question, answer }) => (
             <div
               key={question}
-              className="rounded-xl border border-white/10 bg-white/5 p-5"
+              className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
             >
-              <dt className="font-semibold text-white">{question}</dt>
-              <dd className="mt-2 text-sm text-white/60">{answer}</dd>
+              <dt className="font-semibold text-foreground">{question}</dt>
+              <dd className="mt-2 text-sm text-foreground/60">{answer}</dd>
             </div>
           ))}
         </dl>

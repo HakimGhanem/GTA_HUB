@@ -83,7 +83,7 @@ export default async function TrailerPage({ params }: Props) {
       <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
         <Link
           href="/news"
-          className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+          className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
         >
           {copy.backToNews}
         </Link>
@@ -95,21 +95,21 @@ export default async function TrailerPage({ params }: Props) {
 
         <AnswerBox label={copy.answerLabel}>{copy.answer}</AnswerBox>
 
-        <p className="mt-6 text-lg leading-relaxed text-white/80">
+        <p className="mt-6 text-lg leading-relaxed text-foreground/80">
           {copy.intro}
         </p>
 
-        <h2 className="mt-10 text-2xl font-bold text-white">{copy.howTitle}</h2>
-        <ol className="mt-3 list-decimal space-y-2 pl-5 text-white/70">
+        <h2 className="mt-10 text-2xl font-bold text-foreground">{copy.howTitle}</h2>
+        <ol className="mt-3 list-decimal space-y-2 pl-5 text-foreground/70">
           {copy.howSteps.map((step) => (
             <li key={step}>{step}</li>
           ))}
         </ol>
 
-        <h2 className="mt-10 text-2xl font-bold text-white">
+        <h2 className="mt-10 text-2xl font-bold text-foreground">
           {copy.beatsTitle}
         </h2>
-        <p className="mt-2 text-white/60">{copy.beatsIntro}</p>
+        <p className="mt-2 text-foreground/60">{copy.beatsIntro}</p>
         {anyEstimated && (
           <p className="mt-3 rounded-xl border border-amber-400/25 bg-amber-500/5 p-4 text-sm text-amber-200/80">
             {copy.estimateNotice}
@@ -156,13 +156,13 @@ export default async function TrailerPage({ params }: Props) {
         <div className="mt-10 flex flex-wrap gap-3">
           <Link
             href="/map"
-            className="inline-flex rounded-full bg-pink-500 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-pink-400"
+            className="inline-flex rounded-full bg-pink-500 px-5 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-pink-400"
           >
             {copy.ctaMap}
           </Link>
           <Link
             href="/news"
-            className="inline-flex rounded-full border border-white/15 px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:border-pink-400/40"
+            className="inline-flex rounded-full border border-foreground/15 px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:border-pink-400/40"
           >
             {copy.ctaNews}
           </Link>
@@ -170,20 +170,20 @@ export default async function TrailerPage({ params }: Props) {
 
         <AdUnit slot={AD_SLOTS.inArticle} format="fluid" layout="in-article" />
 
-        <h2 className="mt-10 text-2xl font-bold text-white">
+        <h2 className="mt-10 text-2xl font-bold text-foreground">
           {copy.rightsTitle}
         </h2>
-        <p className="mt-2 leading-relaxed text-white/60">{copy.rightsBody}</p>
+        <p className="mt-2 leading-relaxed text-foreground/60">{copy.rightsBody}</p>
 
-        <h2 className="mt-10 text-2xl font-bold text-white">{copy.faqTitle}</h2>
+        <h2 className="mt-10 text-2xl font-bold text-foreground">{copy.faqTitle}</h2>
         <dl className="mt-4 space-y-4">
           {copy.faq.map(({ question, answer }) => (
             <div
               key={question}
-              className="rounded-xl border border-white/10 bg-white/5 p-5"
+              className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
             >
-              <dt className="font-semibold text-white">{question}</dt>
-              <dd className="mt-2 text-sm text-white/60">{answer}</dd>
+              <dt className="font-semibold text-foreground">{question}</dt>
+              <dd className="mt-2 text-sm text-foreground/60">{answer}</dd>
             </div>
           ))}
         </dl>

@@ -14,19 +14,19 @@ export function LaunchAlertInline() {
     <section
       data-launch-alert-inline
       aria-labelledby="launch-alert-title"
-      className="mt-10 rounded-xl border border-white/10 bg-white/5 p-6"
+      className="mt-10 rounded-xl border border-foreground/10 bg-foreground/5 p-6"
     >
       <p
         id="launch-alert-title"
-        className="text-lg font-semibold text-white"
+        className="text-lg font-semibold text-foreground"
       >
         {t("title")}
       </p>
-      <p className="mt-2 max-w-2xl text-sm text-white/60">{t("desc")}</p>
+      <p className="mt-2 max-w-2xl text-sm text-foreground/60">{t("desc")}</p>
       <div className="mt-4 max-w-xl">
         <LaunchAlertForm placement="inline" />
       </div>
-      <p className="mt-2 text-xs text-white/40">{t("privacy")}</p>
+      <p className="mt-2 text-xs text-foreground/40">{t("privacy")}</p>
     </section>
   );
 }

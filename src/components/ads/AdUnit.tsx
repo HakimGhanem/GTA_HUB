@@ -6,6 +6,7 @@ import {
   ADSENSE_ENABLED,
   ADSENSE_UNITS_VISIBLE,
 } from "@/lib/ads-config";
+import { isPro } from "@/lib/isPro";
 
 type AdUnitProps = {
   slot: string;
@@ -39,9 +40,21 @@ export function AdUnit({
   const pushed = useRef(false);
   const insRef = useRef<HTMLModElement>(null);
   const [fill, setFill] = useState<FillState>("pending");
+  const [pro, setPro] = useState(false);
 
   useEffect(() => {
-    if (!ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot || pushed.current)
+    setPro(isPro());
+    const onChange = () => setPro(isPro());
+    window.addEventListener("map6-pro", onChange);
+    window.addEventListener("storage", onChange);
+    return () => {
+      window.removeEventListener("map6-pro", onChange);
+      window.removeEventListener("storage", onChange);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (pro || !ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot || pushed.current)
       return;
     pushed.current = true;
     try {
@@ -81,9 +94,15 @@ export function AdUnit({
       window.clearTimeout(t1);
       window.clearTimeout(t2);
     };
-  }, [slot]);
+  }, [pro, slot]);
 
-  if (!ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot || fill === "unfilled")
+  if (
+    pro ||
+    !ADSENSE_ENABLED ||
+    !ADSENSE_UNITS_VISIBLE ||
+    !slot ||
+    fill === "unfilled"
+  )
     return null;
 
   const isFluid = format === "fluid";
@@ -93,14 +112,14 @@ export function AdUnit({
     <aside
       className={
         filled
-          ? `my-6 max-h-[320px] overflow-hidden rounded-xl border border-white/10 bg-white/[0.02] ${className}`
+          ? `my-6 max-h-[320px] overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] ${className}`
           : "sr-only"
       }
       aria-label={filled ? label : undefined}
       aria-hidden={!filled}
     >
       {filled ? (
-        <p className="border-b border-white/5 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-white/40">
+        <p className="border-b border-foreground/5 px-3 py-1.5 text-[10px] font-medium uppercase tracking-wider text-foreground/40">
           {label}
         </p>
       ) : null}

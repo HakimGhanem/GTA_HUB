@@ -26,36 +26,36 @@ export function MapLegend({ activeCategories, className }: MapLegendProps) {
   return (
     <div
       className={clsx(
-        "pointer-events-auto rounded-lg border border-white/10 bg-black/75 px-3 py-2.5 backdrop-blur-md",
+        "pointer-events-auto rounded-lg border border-foreground/10 bg-black/75 px-3 py-2.5 backdrop-blur-md",
         className,
       )}
       aria-label={t("map.legend")}
     >
-      <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-white/50">
+      <p className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-foreground/50">
         {t("map.legend")}
       </p>
       <ul className="space-y-1.5">
         {visible.map((cat) => (
-          <li key={cat} className="flex items-center gap-2 text-xs text-white/90">
+          <li key={cat} className="flex items-center gap-2 text-xs text-foreground/90">
             <span
-              className="h-2.5 w-2.5 shrink-0 rounded-full ring-1 ring-white/30"
+              className="h-2.5 w-2.5 shrink-0 rounded-full ring-1 ring-foreground/30"
               style={{ backgroundColor: CATEGORY_COLORS[cat] }}
             />
             {getCategoryLabel(cat, t)}
           </li>
         ))}
       </ul>
-      <p className="mb-1.5 mt-3 text-[10px] font-semibold uppercase tracking-wider text-white/50">
+      <p className="mb-1.5 mt-3 text-[10px] font-semibold uppercase tracking-wider text-foreground/50">
         Source
       </p>
       <ul className="space-y-1">
         {ALL_CONFIDENCE_LEVELS.map((level) => (
           <li
             key={level}
-            className="flex items-center gap-2 text-[11px] text-white/80"
+            className="flex items-center gap-2 text-[11px] text-foreground/80"
           >
             <span
-              className="h-2 w-2 shrink-0 rounded-full ring-1 ring-white/30"
+              className="h-2 w-2 shrink-0 rounded-full ring-1 ring-foreground/30"
               style={{ backgroundColor: CONFIDENCE_COLORS[level] }}
             />
             {getConfidenceLabel(level, t)}

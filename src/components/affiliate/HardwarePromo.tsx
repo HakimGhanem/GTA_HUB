@@ -18,14 +18,14 @@ export function HardwarePromo({
     <section className={className} aria-labelledby="hardware-promo-heading">
       <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
         <div>
-          <h2 id="hardware-promo-heading" className="text-2xl font-bold text-white">
+          <h2 id="hardware-promo-heading" className="text-2xl font-bold text-foreground">
             {title ?? t("hardwareTitle")}
           </h2>
-          <p className="mt-1 text-sm text-white/55">{t("hardwareSubtitle")}</p>
+          <p className="mt-1 text-sm text-foreground/55">{t("hardwareSubtitle")}</p>
         </div>
         <Link
           href="/guides/gta-6-preorder-guide"
-          className="text-sm text-pink-300 hover:text-pink-200"
+          className="text-sm text-accent hover:text-accent/80"
         >
           {t("hardwareGuideLink")}
         </Link>

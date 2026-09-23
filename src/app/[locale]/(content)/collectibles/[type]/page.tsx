@@ -64,23 +64,23 @@ export default async function CollectibleTypePage({ params }: Props) {
 
       <Link
         href="/collectibles"
-        className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+        className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
       >
         ← {t("title")}
       </Link>
 
       <span className="text-4xl">{collectibleType.icon}</span>
       <h1 className="mt-2 text-3xl font-bold">{collectibleType.name}</h1>
-      <p className="mt-2 max-w-2xl text-white/60">
+      <p className="mt-2 max-w-2xl text-foreground/60">
         {seo?.metaDescription ?? collectibleType.description}
       </p>
-      <p className="mt-4 text-sm text-white/40">
+      <p className="mt-4 text-sm text-foreground/40">
         {t("samples", { current: items.length })}
       </p>
-      <p className="mt-1 text-xs text-white/35">{COLLECTIBLES_TOTALS_NOTE}</p>
+      <p className="mt-1 text-xs text-foreground/35">{COLLECTIBLES_TOTALS_NOTE}</p>
 
       {seo ? (
-        <article className="mt-10 space-y-4 text-white/70">
+        <article className="mt-10 space-y-4 text-foreground/70">
           {seo.about.map((p) => (
             <p key={p.slice(0, 48)}>{p}</p>
           ))}
@@ -89,35 +89,35 @@ export default async function CollectibleTypePage({ params }: Props) {
 
       {seo ? (
         <section className="mt-10">
-          <h2 className="mb-4 text-2xl font-bold text-white">How to track</h2>
-          <ul className="list-disc space-y-2 pl-5 text-white/70">
+          <h2 className="mb-4 text-2xl font-bold text-foreground">How to track</h2>
+          <ul className="list-disc space-y-2 pl-5 text-foreground/70">
             {seo.howToTrack.map((step) => (
               <li key={step}>{step}</li>
             ))}
           </ul>
-          <p className="mt-4 text-sm text-white/50">
-            <Link href="/map" className="text-pink-300 underline">
+          <p className="mt-4 text-sm text-foreground/50">
+            <Link href="/map" className="text-accent underline">
               Open interactive map
             </Link>
             {" · "}
-            <Link href="/guides" className="text-pink-300 underline">
+            <Link href="/guides" className="text-accent underline">
               All guides
             </Link>
           </p>
         </section>
       ) : null}
 
-      <h2 className="mt-12 mb-4 text-2xl font-bold text-white">Sample pins</h2>
+      <h2 className="mt-12 mb-4 text-2xl font-bold text-foreground">Sample pins</h2>
       <ul className="space-y-3">
         {items.map((item) => (
           <li key={item.slug}>
             <Link
               href={`/map?loc=${item.slug}&x=${item.x}&y=${item.y}`}
-              className="block rounded-xl border border-white/10 bg-white/5 p-4 transition-colors hover:border-pink-400/40"
+              className="block rounded-xl border border-foreground/10 bg-foreground/5 p-4 transition-colors hover:border-pink-400/40"
             >
-              <h3 className="font-semibold text-white">{item.name}</h3>
-              <p className="mt-1 text-sm text-white/60">{item.description}</p>
-              <p className="mt-2 font-mono text-xs text-white/40">
+              <h3 className="font-semibold text-foreground">{item.name}</h3>
+              <p className="mt-1 text-sm text-foreground/60">{item.description}</p>
+              <p className="mt-2 font-mono text-xs text-foreground/40">
                 {item.region} · X: {item.x}, Y: {item.y}
               </p>
             </Link>
@@ -127,15 +127,15 @@ export default async function CollectibleTypePage({ params }: Props) {
 
       {seo ? (
         <section className="mt-12">
-          <h2 className="mb-4 text-2xl font-bold text-white">FAQ</h2>
+          <h2 className="mb-4 text-2xl font-bold text-foreground">FAQ</h2>
           <dl className="space-y-4">
             {seo.faq.map(({ question, answer }) => (
               <div
                 key={question}
-                className="rounded-xl border border-white/10 bg-white/5 p-5"
+                className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
               >
-                <dt className="font-semibold text-white">{question}</dt>
-                <dd className="mt-2 text-sm text-white/60">{answer}</dd>
+                <dt className="font-semibold text-foreground">{question}</dt>
+                <dd className="mt-2 text-sm text-foreground/60">{answer}</dd>
               </div>
             ))}
           </dl>

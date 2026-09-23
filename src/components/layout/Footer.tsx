@@ -26,30 +26,30 @@ export async function Footer() {
   ] as const;
 
   return (
-    <footer className="shrink-0 border-t border-white/10 bg-[#0a0e17] px-4 py-6 text-sm text-white/50">
+    <footer className="shrink-0 border-t border-foreground/10 bg-background px-4 py-6 text-sm text-foreground/50">
       <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p>{t("copyright", { year: new Date().getFullYear() })}</p>
         <div className="flex flex-wrap gap-4">
           {footerLinks.map(({ href, label }) => (
-            <Link key={href} href={href} className="hover:text-white">
+            <Link key={href} href={href} className="hover:text-foreground">
               {label}
             </Link>
           ))}
         </div>
       </div>
       {/* Community data attribution is owed whether or not tiles are enabled */}
-      <p className="mx-auto mt-3 max-w-5xl px-4 text-xs text-white/40">
+      <p className="mx-auto mt-3 max-w-5xl px-4 text-xs text-foreground/40">
         {t("maptiles")}{" "}
         <a
           href={GTADB.attributionUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="underline hover:text-white/60"
+          className="underline hover:text-foreground/60"
         >
           gtadb.org
         </a>
         {" · "}
-        <Link href="/attributions" className="underline hover:text-white/60">
+        <Link href="/attributions" className="underline hover:text-foreground/60">
           {t("sources")}
         </Link>
       </p>

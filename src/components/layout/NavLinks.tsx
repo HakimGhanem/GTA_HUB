@@ -24,7 +24,7 @@ export function NavLinks() {
           key={href}
           href={href}
           className={className}
-          activeClassName="bg-white/10 text-white"
+          activeClassName="bg-foreground/10 text-foreground"
         >
           {label}
         </NavLink>

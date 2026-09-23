@@ -55,7 +55,7 @@ export default async function GuidesPage({ params }: Props) {
       <JsonLd data={structuredData} />
 
       <h1 className="mb-2 text-3xl font-bold">{t("title")}</h1>
-      <p className="mb-8 max-w-2xl text-white/60">{t("subtitle")}</p>
+      <p className="mb-8 max-w-2xl text-foreground/60">{t("subtitle")}</p>
 
       <div className="space-y-12">
         {GUIDE_HUBS.map((hub) => {
@@ -68,7 +68,7 @@ export default async function GuidesPage({ params }: Props) {
             <section key={hub.id} aria-labelledby={`hub-${hub.id}`}>
               <h2
                 id={`hub-${hub.id}`}
-                className="mb-4 text-lg font-semibold text-white"
+                className="mb-4 text-lg font-semibold text-foreground"
               >
                 {t(`hubs.${hub.id}`)}
               </h2>
@@ -82,10 +82,10 @@ export default async function GuidesPage({ params }: Props) {
                     <Link
                       key={guide.slug}
                       href={`/guides/${guide.slug}`}
-                      className="group block rounded-xl border border-white/10 bg-white/5 p-6 transition-colors hover:border-pink-400/40 hover:bg-white/10"
+                      className="group block rounded-xl border border-foreground/10 bg-foreground/5 p-6 transition-colors hover:border-pink-400/40 hover:bg-foreground/10"
                     >
-                      <div className="mb-2 flex items-center gap-3 text-xs text-white/40">
-                        <span className="rounded-full bg-white/10 px-2 py-0.5">
+                      <div className="mb-2 flex items-center gap-3 text-xs text-foreground/40">
+                        <span className="rounded-full bg-foreground/10 px-2 py-0.5">
                           {t(`categories.${guide.category}`)}
                         </span>
                         <span>
@@ -94,10 +94,10 @@ export default async function GuidesPage({ params }: Props) {
                           })}
                         </span>
                       </div>
-                      <h2 className="text-xl font-semibold group-hover:text-pink-300">
+                      <h2 className="text-xl font-semibold group-hover:text-accent">
                         {title}
                       </h2>
-                      <p className="mt-2 text-sm text-white/60">{description}</p>
+                      <p className="mt-2 text-sm text-foreground/60">{description}</p>
                     </Link>
                   );
                 })}

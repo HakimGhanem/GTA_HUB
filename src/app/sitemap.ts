@@ -90,9 +90,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    * Shipped with English copy only. Listing the six locale variants would put
    * five duplicates of the same text in the index, so they stay out of the
    * sitemap and canonicalise to `/en` until the copy is translated.
-   * /pro and /database stay noindex (thin / waitlist) — not listed here.
+   * /database stays noindex (thin). /pro is English-only checkout copy.
    */
-  const englishOnlyPaths = ["/maps/gta5", "/creators"];
+  const englishOnlyPaths = ["/maps/gta5", "/creators", "/pro"];
 
   const staticPages = staticPaths.flatMap((path) =>
     localizedEntries(path, {

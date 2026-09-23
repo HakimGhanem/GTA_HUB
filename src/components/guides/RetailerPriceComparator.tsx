@@ -41,30 +41,30 @@ function OfferCard({
       className={
         isBestPrice
           ? "flex flex-col rounded-xl border border-pink-400/40 bg-pink-500/[0.07] p-4"
-          : "flex flex-col rounded-xl border border-white/10 bg-white/[0.03] p-4"
+          : "flex flex-col rounded-xl border border-foreground/10 bg-foreground/[0.03] p-4"
       }
     >
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="font-semibold text-white">{retailer.label}</p>
-          <p className="mt-0.5 text-xs text-white/50">
+          <p className="font-semibold text-foreground">{retailer.label}</p>
+          <p className="mt-0.5 text-xs text-foreground/50">
             {copy.editionLabels[offer.edition]} ·{" "}
             {copy.formatLabels[offer.format]}
           </p>
         </div>
         {isBestPrice ? (
-          <span className="shrink-0 rounded-full bg-pink-500 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-white">
+          <span className="shrink-0 rounded-full bg-pink-500 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wide text-accent-foreground">
             {copy.bestPriceBadge}
           </span>
         ) : isOfficial ? (
-          <span className="shrink-0 rounded-full border border-white/15 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide text-white/50">
+          <span className="shrink-0 rounded-full border border-foreground/15 px-2.5 py-1 text-[11px] font-medium uppercase tracking-wide text-foreground/50">
             {copy.officialBadge}
           </span>
         ) : null}
       </div>
 
       <div className="mt-3 flex items-baseline gap-2">
-        <span className="text-2xl font-bold text-white">
+        <span className="text-2xl font-bold text-foreground">
           {offer.priceEur === null
             ? copy.noPriceLabel
             : `${formatEur(offer.priceEur, locale)} €`}
@@ -78,22 +78,22 @@ function OfferCard({
 
       <dl className="mt-3 space-y-1.5 text-xs">
         <div className="flex gap-2">
-          <dt className="w-20 shrink-0 text-white/40">
+          <dt className="w-20 shrink-0 text-foreground/40">
             {copy.fieldLabels.bonus}
           </dt>
-          <dd className="text-white/70">{copy.bonusLabels[offer.bonus]}</dd>
+          <dd className="text-foreground/70">{copy.bonusLabels[offer.bonus]}</dd>
         </div>
         <div className="flex gap-2">
-          <dt className="w-20 shrink-0 text-white/40">
+          <dt className="w-20 shrink-0 text-foreground/40">
             {copy.fieldLabels.policy}
           </dt>
-          <dd className="text-white/70">{copy.policyLabels[offer.policy]}</dd>
+          <dd className="text-foreground/70">{copy.policyLabels[offer.policy]}</dd>
         </div>
         <div className="flex gap-2">
-          <dt className="w-20 shrink-0 text-white/40">
+          <dt className="w-20 shrink-0 text-foreground/40">
             {copy.fieldLabels.availability}
           </dt>
-          <dd className="text-white/70">
+          <dd className="text-foreground/70">
             {copy.availabilityLabels[offer.availability]}
           </dd>
         </div>
@@ -105,8 +105,8 @@ function OfferCard({
         rel={relForRetailer(offer.retailer)}
         className={
           isBestPrice
-            ? "mt-4 rounded-lg bg-pink-500 px-4 py-2 text-center text-sm font-semibold text-white hover:bg-pink-400"
-            : "mt-4 rounded-lg border border-white/15 px-4 py-2 text-center text-sm font-semibold text-white/85 hover:border-white/30 hover:text-white"
+            ? "mt-4 rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-accent-foreground hover:bg-accent/85"
+            : "mt-4 rounded-lg border border-foreground/15 px-4 py-2 text-center text-sm font-semibold text-foreground/85 hover:border-foreground/30 hover:text-foreground"
         }
       >
         {copy.ctaLabel} — {retailer.label}
@@ -133,7 +133,7 @@ export function RetailerPriceComparator({
   return (
     <section className="not-prose my-8">
       {compact ? null : (
-        <p className="mb-6 leading-relaxed text-white/70">
+        <p className="mb-6 leading-relaxed text-foreground/70">
           {copy.comparatorBody}
         </p>
       )}
@@ -152,7 +152,7 @@ export function RetailerPriceComparator({
 
         return (
           <div key={platform} className="mb-8 last:mb-0">
-            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-white/45">
+            <h3 className="mb-3 text-sm font-semibold uppercase tracking-wider text-foreground/45">
               {copy.platformLabels[platform]}
             </h3>
             <ul className="grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
@@ -170,10 +170,10 @@ export function RetailerPriceComparator({
         );
       })}
 
-      <p className="mt-4 text-xs leading-relaxed text-white/45">
+      <p className="mt-4 text-xs leading-relaxed text-foreground/45">
         {copy.surveyNote.replace("{date}", surveyDate)}
       </p>
-      <p className="mt-2 text-xs leading-relaxed text-white/35">
+      <p className="mt-2 text-xs leading-relaxed text-foreground/35">
         {copy.disclosure}
       </p>
     </section>

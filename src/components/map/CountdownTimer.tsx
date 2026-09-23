@@ -29,11 +29,11 @@ function TimeDisplay({ time }: { time: TimeLeft }) {
   return (
     <>
       <span>{pad(time.days)}</span>
-      <span className="text-white/40">:</span>
+      <span className="text-foreground/40">:</span>
       <span>{pad(time.hours)}</span>
-      <span className="text-white/40">:</span>
+      <span className="text-foreground/40">:</span>
       <span>{pad(time.minutes)}</span>
-      <span className="text-white/40">:</span>
+      <span className="text-foreground/40">:</span>
       <span>{pad(time.seconds)}</span>
     </>
   );
@@ -43,11 +43,11 @@ function Placeholder() {
   return (
     <>
       <span>--</span>
-      <span className="text-white/40">:</span>
+      <span className="text-foreground/40">:</span>
       <span>--</span>
-      <span className="text-white/40">:</span>
+      <span className="text-foreground/40">:</span>
       <span>--</span>
-      <span className="text-white/40">:</span>
+      <span className="text-foreground/40">:</span>
       <span>--</span>
     </>
   );
@@ -66,7 +66,7 @@ export function CountdownTimer() {
 
   return (
     <div
-      className="flex items-center gap-1 font-mono text-sm tabular-nums text-pink-300"
+      className="flex items-center gap-1 font-mono text-sm tabular-nums text-accent"
       aria-label={t("countdownAria")}
       suppressHydrationWarning
     >

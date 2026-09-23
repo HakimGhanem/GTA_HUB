@@ -67,23 +67,23 @@ export function ProgressBackup({
     <div
       className={
         className ??
-        "rounded-xl border border-white/10 bg-white/5 p-5 text-sm text-white/70"
+        "rounded-xl border border-foreground/10 bg-foreground/5 p-5 text-sm text-foreground/70"
       }
     >
-      <p className="font-semibold text-white">Local progress backup</p>
-      <p className="mt-1 text-xs text-white/50">
-        Same <code className="text-white/70">map6-progress:</code> keys as the
+      <p className="font-semibold text-foreground">Local progress backup</p>
+      <p className="mt-1 text-xs text-foreground/50">
+        Same <code className="text-foreground/70">map6-progress:</code> keys as the
         live map. Unlimited local marks — no account, no server.
       </p>
       <div className="mt-4 flex flex-wrap items-center gap-3">
-        <label className="text-xs text-white/50" htmlFor={inputId}>
+        <label className="text-xs text-foreground/50" htmlFor={inputId}>
           Game
         </label>
         <select
           id={inputId}
           value={gameId}
           onChange={(e) => setGameId(parseGameId(e.target.value))}
-          className="rounded-md border border-white/15 bg-[#0d1220] px-2 py-1 text-white"
+          className="rounded-md border border-foreground/15 bg-surface px-2 py-1 text-foreground"
         >
           {GAME_IDS.map((id) => (
             <option key={id} value={id}>
@@ -94,11 +94,11 @@ export function ProgressBackup({
         <button
           type="button"
           onClick={downloadBackup}
-          className="rounded-full bg-pink-500 px-4 py-1.5 text-xs font-semibold text-white hover:bg-pink-400"
+          className="rounded-full bg-pink-500 px-4 py-1.5 text-xs font-semibold text-accent-foreground hover:bg-pink-400"
         >
           Export JSON
         </button>
-        <label className="cursor-pointer rounded-full border border-white/20 px-4 py-1.5 text-xs font-semibold text-white hover:bg-white/10">
+        <label className="cursor-pointer rounded-full border border-foreground/20 px-4 py-1.5 text-xs font-semibold text-foreground hover:bg-foreground/10">
           Import JSON
           <input
             type="file"

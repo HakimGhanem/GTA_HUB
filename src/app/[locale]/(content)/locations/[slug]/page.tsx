@@ -124,18 +124,18 @@ export default async function LocationPage({ params }: Props) {
         <div className="mx-auto max-w-5xl px-4 py-8">
           <Link
             href="/locations"
-            className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+            className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
           >
             {t("backToAll")}
           </Link>
 
           <div className="mb-6">
             <div className="mb-2 flex flex-wrap items-center gap-2">
-              <span className="inline-block rounded-full bg-pink-500/20 px-3 py-1 text-xs font-medium text-pink-300">
+              <span className="inline-block rounded-full bg-pink-500/20 px-3 py-1 text-xs font-medium text-accent">
                 {tCategory(location.category)}
               </span>
               <span
-                className="inline-block rounded-full px-3 py-1 text-xs font-medium ring-1 ring-white/15"
+                className="inline-block rounded-full px-3 py-1 text-xs font-medium ring-1 ring-foreground/15"
                 style={getConfidenceBadgeStyle(confidence)}
               >
                 {getConfidenceLabel(confidence, tRoot)}
@@ -147,14 +147,14 @@ export default async function LocationPage({ params }: Props) {
               )}
             </div>
             <h1 className="text-3xl font-bold">{location.name}</h1>
-            <p className="mt-1 text-sm text-white/50">{location.region}</p>
+            <p className="mt-1 text-sm text-foreground/50">{location.region}</p>
           </div>
 
-          <p className="mb-6 max-w-2xl text-white/70">
+          <p className="mb-6 max-w-2xl text-foreground/70">
             {getLocationDescription(location, locale)}
           </p>
 
-          <p className="mb-4 font-mono text-sm text-white/40">
+          <p className="mb-4 font-mono text-sm text-foreground/40">
             {t("coordinates", { x: location.x, y: location.y })}
           </p>
 
@@ -164,12 +164,12 @@ export default async function LocationPage({ params }: Props) {
             sourceUrl={location.sourceUrl}
           />
           {location.edition === "ultimate" && (
-            <p className="mb-4 text-xs text-white/45">{t("ultimateNote")}</p>
+            <p className="mb-4 text-xs text-foreground/45">{t("ultimateNote")}</p>
           )}
 
           <Link
             href={`/map?loc=${location.slug}&x=${location.x}&y=${location.y}`}
-            className="mb-8 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-white hover:bg-pink-400"
+            className="mb-8 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-accent-foreground hover:bg-pink-400"
           >
             {t("viewOnMap")}
           </Link>
@@ -185,7 +185,7 @@ export default async function LocationPage({ params }: Props) {
           <RelatedMapLinks locale={locale} locationSlug={location.slug} />
         </div>
 
-        <div className="h-80 border-t border-white/10">
+        <div className="h-80 border-t border-foreground/10">
           <LocationMap x={location.x} y={location.y} />
         </div>
       </main>

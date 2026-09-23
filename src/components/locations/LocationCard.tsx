@@ -27,18 +27,18 @@ export function LocationCard({ location }: LocationCardProps) {
   const firstHit = getLocationTrailerEvidence(location.slug, locale)[0];
 
   return (
-    <article className="rounded-xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-pink-400/40 hover:bg-white/10">
+    <article className="rounded-xl border border-foreground/10 bg-foreground/5 p-5 transition-colors hover:border-pink-400/40 hover:bg-foreground/10">
       <Link href={`/locations/${location.slug}`} className="group block">
         <div className="mb-2 flex items-center justify-between gap-2">
-          <h3 className="font-semibold text-white group-hover:text-pink-300">
+          <h3 className="font-semibold text-foreground group-hover:text-accent">
             {location.name}
           </h3>
           <div className="flex shrink-0 flex-wrap items-center justify-end gap-1.5">
-            <span className="rounded-full bg-white/10 px-2 py-0.5 text-xs text-white/60">
+            <span className="rounded-full bg-foreground/10 px-2 py-0.5 text-xs text-foreground/60">
               {tCategory(location.category)}
             </span>
             <span
-              className="rounded-full px-2 py-0.5 text-[10px] font-medium ring-1 ring-white/15"
+              className="rounded-full px-2 py-0.5 text-[10px] font-medium ring-1 ring-foreground/15"
               style={getConfidenceBadgeStyle(confidence)}
             >
               {getConfidenceLabel(confidence, t)}
@@ -50,17 +50,17 @@ export function LocationCard({ location }: LocationCardProps) {
             )}
           </div>
         </div>
-        <p className="line-clamp-2 text-sm text-white/60">
+        <p className="line-clamp-2 text-sm text-foreground/60">
           {getLocationDescription(location, locale)}
         </p>
-        <p className="mt-3 font-mono text-xs text-white/40">
+        <p className="mt-3 font-mono text-xs text-foreground/40">
           {location.region} · X: {location.x}, Y: {location.y}
           {firstHit ? ` · ${formatTrailerStamp(firstHit)}` : ""}
         </p>
       </Link>
       <Link
         href={`/map?loc=${location.slug}&x=${location.x}&y=${location.y}`}
-        className="mt-3 inline-block text-sm font-medium text-pink-300 underline hover:text-pink-200"
+        className="mt-3 inline-block text-sm font-medium text-accent underline hover:text-accent/80"
       >
         {tLoc("viewOnMap")}
       </Link>

@@ -50,15 +50,15 @@ export async function RelatedMapLinks({
 
   return (
     <nav
-      className="mt-10 rounded-xl border border-white/10 bg-white/[0.03] p-6"
+      className="mt-10 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-6"
       aria-labelledby="related-map-links"
     >
-      <h2 id="related-map-links" className="mb-3 text-lg font-semibold text-white">
+      <h2 id="related-map-links" className="mb-3 text-lg font-semibold text-foreground">
         {t("relatedTitle")}
       </h2>
       <ul className="flex flex-col gap-2 text-sm">
         <li>
-          <Link href="/map" className="text-pink-300 underline hover:text-pink-200">
+          <Link href="/map" className="text-accent underline hover:text-accent/80">
             {t("relatedMap")}
           </Link>
         </li>
@@ -66,7 +66,7 @@ export async function RelatedMapLinks({
           <li>
             <Link
               href="/guides/gta-6-map-guide"
-              className="text-pink-300 underline hover:text-pink-200"
+              className="text-accent underline hover:text-accent/80"
             >
               {t("relatedMapGuide")}
             </Link>
@@ -76,7 +76,7 @@ export async function RelatedMapLinks({
           <li key={item.slug}>
             <Link
               href={`/guides/${item.slug}`}
-              className="text-white/70 underline hover:text-white"
+              className="text-foreground/70 underline hover:text-foreground"
             >
               {item.title}
             </Link>

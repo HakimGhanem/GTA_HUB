@@ -57,7 +57,7 @@ export function MapToolbar({
   return (
     <div className="pointer-events-none absolute right-3 top-3 z-20 flex flex-col items-end gap-2 sm:right-4 sm:top-4">
       <div
-        className="pointer-events-auto flex items-center gap-0.5 rounded-lg border border-white/10 bg-black/55 p-0.5 backdrop-blur-md"
+        className="pointer-events-auto flex items-center gap-0.5 rounded-lg border border-foreground/10 bg-black/55 p-0.5 backdrop-blur-md"
         role="group"
         aria-label="Game map"
       >
@@ -74,8 +74,8 @@ export function MapToolbar({
                 active
                   ? g.primary
                     ? "bg-pink-500/25 text-pink-100"
-                    : "bg-white/12 text-white"
-                  : "text-white/45 hover:text-white/75",
+                    : "bg-foreground/12 text-foreground"
+                  : "text-foreground/45 hover:text-foreground/75",
               )}
               aria-pressed={active}
             >
@@ -86,7 +86,7 @@ export function MapToolbar({
       </div>
 
       <div
-        className="pointer-events-auto flex items-center gap-0.5 rounded-lg border border-white/10 bg-black/55 p-0.5 backdrop-blur-md"
+        className="pointer-events-auto flex items-center gap-0.5 rounded-lg border border-foreground/10 bg-black/55 p-0.5 backdrop-blur-md"
         role="group"
         aria-label="Map theme"
       >
@@ -99,7 +99,7 @@ export function MapToolbar({
               "rounded-md px-2 py-1 text-[10px] font-semibold tracking-wide transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/50",
               theme === t.id
                 ? "bg-pink-500/25 text-pink-100"
-                : "text-white/45 hover:text-white/75",
+                : "text-foreground/45 hover:text-foreground/75",
             )}
             aria-pressed={theme === t.id}
           >
@@ -117,7 +117,7 @@ export function MapToolbar({
               "rounded-lg border px-3 py-1.5 text-xs font-medium backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60",
               sidebarOpen
                 ? "border-pink-400/40 bg-pink-500/20 text-pink-200"
-                : "border-white/15 bg-black/70 text-white/90 hover:bg-black/85",
+                : "border-foreground/15 bg-black/70 text-foreground/90 hover:bg-black/85",
             )}
             aria-pressed={sidebarOpen}
             aria-label={sidebarOpen ? "Hide location panel" : "Show location panel"}
@@ -128,7 +128,7 @@ export function MapToolbar({
         <button
           type="button"
           onClick={onShare}
-          className="rounded-lg border border-white/15 bg-black/70 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
+          className="rounded-lg border border-foreground/15 bg-black/70 px-3 py-1.5 text-xs font-medium text-foreground/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
           aria-label="Copy share link"
           title={shareHint ?? "Copy map link"}
         >
@@ -137,7 +137,7 @@ export function MapToolbar({
         <button
           type="button"
           onClick={onCopyOverlay}
-          className="rounded-lg border border-white/15 bg-black/70 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
+          className="rounded-lg border border-foreground/15 bg-black/70 px-3 py-1.5 text-xs font-medium text-foreground/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
           aria-label="Copy OBS overlay URL"
           title="Copy OBS / Kick browser source URL"
         >
@@ -150,7 +150,7 @@ export function MapToolbar({
             "rounded-lg border px-3 py-1.5 text-xs font-medium backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60",
             measureActive
               ? "border-pink-400/40 bg-pink-500/20 text-pink-200"
-              : "border-white/15 bg-black/70 text-white/90 hover:bg-black/85",
+              : "border-foreground/15 bg-black/70 text-foreground/90 hover:bg-black/85",
           )}
           aria-pressed={measureActive}
           aria-label={measureActive ? "Stop measuring distance" : "Measure distance"}
@@ -160,7 +160,7 @@ export function MapToolbar({
         <button
           type="button"
           onClick={onFitBounds}
-          className="rounded-lg border border-white/15 bg-black/70 px-3 py-1.5 text-xs font-medium text-white/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
+          className="rounded-lg border border-foreground/15 bg-black/70 px-3 py-1.5 text-xs font-medium text-foreground/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
         >
           Reset view
         </button>
@@ -175,7 +175,7 @@ export function MapToolbar({
       <button
         type="button"
         onClick={copyCoords}
-        className="pointer-events-auto rounded-lg border border-white/10 bg-black/70 px-3 py-1.5 font-mono text-xs text-white/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
+        className="pointer-events-auto rounded-lg border border-foreground/10 bg-black/70 px-3 py-1.5 font-mono text-xs text-foreground/90 backdrop-blur-md hover:bg-black/85 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60"
         title="Copy coordinates"
         aria-label={`Copy coordinates: ${formatCoords(coords)}`}
       >

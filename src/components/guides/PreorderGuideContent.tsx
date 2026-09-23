@@ -60,7 +60,7 @@ export function PreorderGuideContent({ locale }: Props) {
 
   return (
     <article className="prose prose-invert mt-8 max-w-none">
-      <p className="text-lg leading-relaxed text-white/80">
+      <p className="text-lg leading-relaxed text-foreground/80">
         {withDate(copy.introLead)}
       </p>
 
@@ -68,10 +68,10 @@ export function PreorderGuideContent({ locale }: Props) {
         copy={copy.path}
         games={
           <section className="not-prose">
-            <h2 className="mt-10 text-2xl font-bold text-white">
+            <h2 className="mt-10 text-2xl font-bold text-foreground">
               {copy.standardTitle}
             </h2>
-            <p className="mt-2 text-sm leading-relaxed text-white/60">
+            <p className="mt-2 text-sm leading-relaxed text-foreground/60">
               {copy.standardLead}
             </p>
             <div className="my-6 grid gap-4 sm:grid-cols-2">
@@ -82,10 +82,10 @@ export function PreorderGuideContent({ locale }: Props) {
                 <div data-preorder-platform="xbox">{xboxStandard}</div>
               ) : null}
             </div>
-            <h3 className="mt-8 text-xl font-semibold text-white">
+            <h3 className="mt-8 text-xl font-semibold text-foreground">
               {copy.ultimateTitle}
             </h3>
-            <p className="mt-2 text-sm leading-relaxed text-white/60">
+            <p className="mt-2 text-sm leading-relaxed text-foreground/60">
               {copy.ultimateLead}
             </p>
             <div className="my-6 grid gap-4 sm:grid-cols-2">
@@ -100,10 +100,10 @@ export function PreorderGuideContent({ locale }: Props) {
         }
         hardware={
           <section>
-            <h2 className="mt-10 text-2xl font-bold text-white">
+            <h2 className="mt-10 text-2xl font-bold text-foreground">
               {copy.hardwareTitle}
             </h2>
-            <p className="leading-relaxed text-white/80">{copy.hardwareBody}</p>
+            <p className="leading-relaxed text-foreground/80">{copy.hardwareBody}</p>
             {hardwareProducts.length > 0 ? (
               <div className="not-prose my-8 grid gap-4 sm:grid-cols-2">
                 {hardwareProducts.map((product) => (
@@ -133,24 +133,24 @@ export function PreorderGuideContent({ locale }: Props) {
         }
         shared={
           <>
-            <p className="mt-4 rounded-xl border border-white/10 bg-white/5 p-4 text-sm leading-relaxed text-white/70">
+            <p className="mt-4 rounded-xl border border-foreground/10 bg-foreground/5 p-4 text-sm leading-relaxed text-foreground/70">
               {copy.stockNote}
             </p>
 
-            <h2 className="mt-10 text-2xl font-bold text-white">
+            <h2 className="mt-10 text-2xl font-bold text-foreground">
               {copy.editionsTitle}
             </h2>
-            <p className="leading-relaxed text-white/80">{copy.editionsBody}</p>
+            <p className="leading-relaxed text-foreground/80">{copy.editionsBody}</p>
             <ComparisonTable
               caption={copy.comparison.caption}
               headers={copy.comparison.headers}
               rows={copy.comparison.rows}
             />
 
-            <h2 className="mt-10 text-2xl font-bold text-white">
+            <h2 className="mt-10 text-2xl font-bold text-foreground">
               {copy.retailersTitle}
             </h2>
-            <p className="leading-relaxed text-white/80">{copy.retailersBody}</p>
+            <p className="leading-relaxed text-foreground/80">{copy.retailersBody}</p>
             {showFrRetailers ? (
               <RetailerPriceComparator
                 locale={locale}
@@ -161,7 +161,7 @@ export function PreorderGuideContent({ locale }: Props) {
             <p className="not-prose">
               <Link
                 href="/guides/gta-6-best-price"
-                className="text-sm font-medium text-pink-400 underline hover:text-pink-300"
+                className="text-sm font-medium text-pink-400 underline hover:text-accent"
               >
                 {copy.retailersLinkLabel}
               </Link>
@@ -169,24 +169,24 @@ export function PreorderGuideContent({ locale }: Props) {
 
             <AdUnit slot={AD_SLOTS.inArticle} format="fluid" layout="in-article" />
 
-            <h2 className="mt-10 text-2xl font-bold text-white">
+            <h2 className="mt-10 text-2xl font-bold text-foreground">
               {copy.tipsTitle}
             </h2>
-            <ol className="list-decimal space-y-3 pl-5 text-white/80">
+            <ol className="list-decimal space-y-3 pl-5 text-foreground/80">
               {copy.tips.map((tip) => (
                 <li key={tip}>{tip}</li>
               ))}
             </ol>
 
-            <h2 className="mt-10 text-2xl font-bold text-white">{copy.faqTitle}</h2>
+            <h2 className="mt-10 text-2xl font-bold text-foreground">{copy.faqTitle}</h2>
             <dl className="space-y-4">
               {copy.faq.map(({ question, answer }) => (
                 <div
                   key={question}
-                  className="rounded-xl border border-white/10 bg-white/5 p-5"
+                  className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
                 >
-                  <dt className="font-semibold text-white">{question}</dt>
-                  <dd className="mt-2 text-sm text-white/60">{withDate(answer)}</dd>
+                  <dt className="font-semibold text-foreground">{question}</dt>
+                  <dd className="mt-2 text-sm text-foreground/60">{withDate(answer)}</dd>
                 </div>
               ))}
             </dl>

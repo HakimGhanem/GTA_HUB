@@ -56,25 +56,25 @@ function CopyRow({
   return (
     <div className="mt-4">
       <div className="flex items-baseline justify-between gap-3">
-        <label className="text-xs font-semibold uppercase tracking-wider text-white/45">
+        <label className="text-xs font-semibold uppercase tracking-wider text-foreground/45">
           {label}
         </label>
-        {hint ? <span className="text-xs text-white/35">{hint}</span> : null}
+        {hint ? <span className="text-xs text-foreground/35">{hint}</span> : null}
       </div>
       <div className="mt-1.5 flex gap-2">
         <input
           readOnly
           value={value}
           onFocus={(e) => e.currentTarget.select()}
-          className="min-w-0 flex-1 rounded-lg border border-white/10 bg-black/40 px-3 py-2 font-mono text-xs text-white/80"
+          className="min-w-0 flex-1 rounded-lg border border-foreground/10 bg-black/40 px-3 py-2 font-mono text-xs text-foreground/80"
         />
         <button
           type="button"
           onClick={copy}
           className={
             primary
-              ? "shrink-0 rounded-lg bg-pink-500 px-4 py-2 text-sm font-semibold text-white hover:bg-pink-400"
-              : "shrink-0 rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold text-white/85 hover:border-white/30 hover:text-white"
+              ? "shrink-0 rounded-lg bg-accent px-4 py-2 text-sm font-semibold text-accent-foreground hover:bg-accent/85"
+              : "shrink-0 rounded-lg border border-foreground/15 px-4 py-2 text-sm font-semibold text-foreground/85 hover:border-foreground/30 hover:text-foreground"
           }
         >
           {copied ? "Copied" : "Copy"}
@@ -119,9 +119,9 @@ export function CreatorLinkBuilder({ locale, locations }: Props) {
   const credit = `Map: Map-6 — ${urls.share} · fan-made GTA 6 map, basemap GTADB (CC BY 4.0)`;
 
   return (
-    <section className="not-prose my-8 rounded-xl border border-white/10 bg-white/[0.03] p-5">
-      <h2 className="text-lg font-semibold text-white">Build your links</h2>
-      <p className="mt-1 text-sm text-white/55">
+    <section className="not-prose my-8 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-5">
+      <h2 className="text-lg font-semibold text-foreground">Build your links</h2>
+      <p className="mt-1 text-sm text-foreground/55">
         Pick a region, a theme, and your handle. Everything below updates as you
         type — no login, nothing stored on our side.
       </p>
@@ -130,7 +130,7 @@ export function CreatorLinkBuilder({ locale, locations }: Props) {
         <div>
           <label
             htmlFor="creator-region"
-            className="text-xs font-semibold uppercase tracking-wider text-white/45"
+            className="text-xs font-semibold uppercase tracking-wider text-foreground/45"
           >
             Region
           </label>
@@ -138,7 +138,7 @@ export function CreatorLinkBuilder({ locale, locations }: Props) {
             id="creator-region"
             value={slug}
             onChange={(e) => setSlug(e.target.value)}
-            className="mt-1.5 w-full rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-sm text-white"
+            className="mt-1.5 w-full rounded-lg border border-foreground/10 bg-black/40 px-3 py-2 text-sm text-foreground"
           >
             {locations.map((l) => (
               <option key={l.slug} value={l.slug}>
@@ -151,7 +151,7 @@ export function CreatorLinkBuilder({ locale, locations }: Props) {
         <div>
           <label
             htmlFor="creator-theme"
-            className="text-xs font-semibold uppercase tracking-wider text-white/45"
+            className="text-xs font-semibold uppercase tracking-wider text-foreground/45"
           >
             Theme
           </label>
@@ -159,7 +159,7 @@ export function CreatorLinkBuilder({ locale, locations }: Props) {
             id="creator-theme"
             value={theme}
             onChange={(e) => setTheme(e.target.value as MapTheme)}
-            className="mt-1.5 w-full rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-sm text-white"
+            className="mt-1.5 w-full rounded-lg border border-foreground/10 bg-black/40 px-3 py-2 text-sm text-foreground"
           >
             {MAP_THEMES.map((t) => (
               <option key={t} value={t}>
@@ -167,13 +167,13 @@ export function CreatorLinkBuilder({ locale, locations }: Props) {
               </option>
             ))}
           </select>
-          <p className="mt-1 text-xs text-white/35">{THEME_HINTS[theme]}</p>
+          <p className="mt-1 text-xs text-foreground/35">{THEME_HINTS[theme]}</p>
         </div>
 
         <div>
           <label
             htmlFor="creator-handle"
-            className="text-xs font-semibold uppercase tracking-wider text-white/45"
+            className="text-xs font-semibold uppercase tracking-wider text-foreground/45"
           >
             Your handle
           </label>
@@ -183,9 +183,9 @@ export function CreatorLinkBuilder({ locale, locations }: Props) {
             onChange={(e) => setHandle(e.target.value)}
             placeholder="yourhandle"
             spellCheck={false}
-            className="mt-1.5 w-full rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-sm text-white placeholder:text-white/25"
+            className="mt-1.5 w-full rounded-lg border border-foreground/10 bg-black/40 px-3 py-2 text-sm text-foreground placeholder:text-foreground/25"
           />
-          <p className="mt-1 text-xs text-white/35">
+          <p className="mt-1 text-xs text-foreground/35">
             Becomes <code>ref=</code>; letters, numbers, - and _ only.
           </p>
         </div>

@@ -133,7 +133,7 @@ export default async function BestPriceGuidePage({ params }: Props) {
       <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
         <Link
           href="/guides"
-          className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+          className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
         >
           {copy.backToGuides}
         </Link>
@@ -142,17 +142,17 @@ export default async function BestPriceGuidePage({ params }: Props) {
           {copy.eyebrow}
         </p>
         <h1 className="text-3xl font-bold leading-tight">{copy.title}</h1>
-        <p className="mt-4 text-white/60">{copy.description}</p>
-        <p className="mt-2 text-xs text-white/40">
+        <p className="mt-4 text-foreground/60">{copy.description}</p>
+        <p className="mt-2 text-xs text-foreground/40">
           {guide.readTime} min · {guide.publishedAt}
         </p>
 
         <article className="prose prose-invert mt-8 max-w-none">
-          <p className="text-lg leading-relaxed text-white/80">
+          <p className="text-lg leading-relaxed text-foreground/80">
             {fillPrices(copy.body[0], locale)}
           </p>
 
-          <h2 className="mt-10 text-2xl font-bold text-white">
+          <h2 className="mt-10 text-2xl font-bold text-foreground">
             {copy.comparatorTitle}
           </h2>
           <RetailerPriceComparator locale={locale} copy={copy} />
@@ -160,7 +160,7 @@ export default async function BestPriceGuidePage({ params }: Props) {
           <AdUnit slot={AD_SLOTS.inArticle} format="fluid" layout="in-article" />
 
           {copy.body.slice(1).map((paragraph, i) => (
-            <p key={i} className="mb-4 leading-relaxed text-white/80">
+            <p key={i} className="mb-4 leading-relaxed text-foreground/80">
               {fillPrices(paragraph, locale)}
             </p>
           ))}
@@ -174,10 +174,10 @@ export default async function BestPriceGuidePage({ params }: Props) {
             {copy.faq.map(({ question, answer }) => (
               <div
                 key={question}
-                className="rounded-xl border border-white/10 bg-white/5 p-5"
+                className="rounded-xl border border-foreground/10 bg-foreground/5 p-5"
               >
-                <dt className="font-semibold text-white">{question}</dt>
-                <dd className="mt-2 text-sm text-white/60">{answer}</dd>
+                <dt className="font-semibold text-foreground">{question}</dt>
+                <dd className="mt-2 text-sm text-foreground/60">{answer}</dd>
               </div>
             ))}
           </dl>
@@ -193,7 +193,7 @@ export default async function BestPriceGuidePage({ params }: Props) {
                 <li key={slug}>
                   <Link
                     href={`/guides/${slug}`}
-                    className="text-sm text-pink-400 underline hover:text-pink-300"
+                    className="text-sm text-pink-400 underline hover:text-accent"
                   >
                     {localized!.title}
                   </Link>
@@ -204,11 +204,11 @@ export default async function BestPriceGuidePage({ params }: Props) {
         )}
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">
-          <p className="font-semibold text-pink-200">{copy.ctaTitle}</p>
-          <p className="mt-1 text-sm text-white/60">{copy.ctaBody}</p>
+          <p className="font-semibold text-accent">{copy.ctaTitle}</p>
+          <p className="mt-1 text-sm text-foreground/60">{copy.ctaBody}</p>
           <Link
             href="/map"
-            className="mt-4 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-white hover:bg-pink-400"
+            className="mt-4 inline-block rounded-full bg-pink-500 px-6 py-2 text-sm font-semibold text-accent-foreground hover:bg-pink-400"
           >
             {copy.ctaButton}
           </Link>

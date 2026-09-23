@@ -27,17 +27,17 @@ export default async function PrivacyPage({ params }: Props) {
     <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
       <Link
         href="/"
-        className="mb-6 inline-block text-sm text-white/50 hover:text-white"
+        className="mb-6 inline-block text-sm text-foreground/50 hover:text-foreground"
       >
         ← Home
       </Link>
 
       <h1 className="mb-2 text-3xl font-bold">Privacy Policy</h1>
-      <p className="mb-8 text-sm text-white/50">Last updated: {LAST_UPDATED}</p>
+      <p className="mb-8 text-sm text-foreground/50">Last updated: {LAST_UPDATED}</p>
 
-      <div className="space-y-8 text-white/70">
+      <div className="space-y-8 text-foreground/70">
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             1. Who we are
           </h2>
           <p>
@@ -48,7 +48,7 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             2. Information we collect
           </h2>
           <p className="mb-3">
@@ -57,17 +57,17 @@ export default async function PrivacyPage({ params }: Props) {
           </p>
           <ul className="list-disc space-y-2 pl-5">
             <li>
-              <strong className="text-white/90">Usage data</strong> — pages
+              <strong className="text-foreground/90">Usage data</strong> — pages
               visited, referrer, browser type, device type, approximate location
               (country/region), and timestamps.
             </li>
             <li>
-              <strong className="text-white/90">Cookies and similar
+              <strong className="text-foreground/90">Cookies and similar
               technologies</strong> — small files stored on your device to
               measure traffic, deliver ads, and improve the site.
             </li>
             <li>
-              <strong className="text-white/90">Map interactions</strong> —
+              <strong className="text-foreground/90">Map interactions</strong> —
               coordinates you view or copy on the interactive map are processed
               locally in your browser and are not stored on our servers.
             </li>
@@ -75,7 +75,7 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             3. Third-party services
           </h2>
           <p className="mb-3">
@@ -84,14 +84,14 @@ export default async function PrivacyPage({ params }: Props) {
           </p>
           <ul className="list-disc space-y-3 pl-5">
             <li>
-              <strong className="text-white/90">Google AdSense</strong> — displays
+              <strong className="text-foreground/90">Google AdSense</strong> — displays
               advertisements. Google may use cookies to serve ads based on your
               prior visits to this site or other websites.{" "}
               <a
                 href="https://policies.google.com/technologies/ads"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 underline hover:text-pink-300"
+                className="text-pink-400 underline hover:text-accent"
               >
                 Google Advertising Policies
               </a>
@@ -100,44 +100,44 @@ export default async function PrivacyPage({ params }: Props) {
                 href="https://adssettings.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 underline hover:text-pink-300"
+                className="text-pink-400 underline hover:text-accent"
               >
                 Ad Settings
               </a>
             </li>
             <li>
-              <strong className="text-white/90">Google Analytics (GA4)</strong> —
+              <strong className="text-foreground/90">Google Analytics (GA4)</strong> —
               helps us understand how visitors use the site (page views, traffic
               sources).{" "}
               <a
                 href="https://policies.google.com/privacy"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 underline hover:text-pink-300"
+                className="text-pink-400 underline hover:text-accent"
               >
                 Google Privacy Policy
               </a>
             </li>
             <li>
-              <strong className="text-white/90">Microsoft Clarity</strong>{" "}
+              <strong className="text-foreground/90">Microsoft Clarity</strong>{" "}
               (optional) — session recordings and heatmaps to improve usability.{" "}
               <a
                 href="https://privacy.microsoft.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 underline hover:text-pink-300"
+                className="text-pink-400 underline hover:text-accent"
               >
                 Microsoft Privacy Statement
               </a>
             </li>
             <li>
-              <strong className="text-white/90">GTADB map tiles</strong> — map
+              <strong className="text-foreground/90">GTADB map tiles</strong> — map
               imagery is sourced from the GTA VI Mapping Community (GTADB) under
               CC BY 4.0. Loading tiles may involve requests to our hosting
               provider; no personal data is sent to GTADB through your browser.
             </li>
             <li>
-              <strong className="text-white/90">Amazon Associates</strong> — some
+              <strong className="text-foreground/90">Amazon Associates</strong> — some
               pages may include affiliate links to Amazon.fr. If you purchase
               through these links, we may earn a commission at no extra cost to
               you.{" "}
@@ -145,7 +145,7 @@ export default async function PrivacyPage({ params }: Props) {
                 href="https://affiliate-program.amazon.fr/help/operating/policies/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 underline hover:text-pink-300"
+                className="text-pink-400 underline hover:text-accent"
               >
                 Amazon Associates Programme Policies
               </a>
@@ -154,7 +154,7 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             4. Cookies
           </h2>
           <p className="mb-3">Cookies we or our partners may set include:</p>
@@ -170,7 +170,7 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             5. Legal bases (EEA/UK visitors)
           </h2>
           <p>
@@ -182,7 +182,7 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             6. Your rights
           </h2>
           <p className="mb-3">
@@ -197,7 +197,7 @@ export default async function PrivacyPage({ params }: Props) {
                 href="https://adssettings.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 underline hover:text-pink-300"
+                className="text-pink-400 underline hover:text-accent"
               >
                 Google Ad Settings
               </a>
@@ -208,7 +208,7 @@ export default async function PrivacyPage({ params }: Props) {
                 href="https://tools.google.com/dlpage/gaoptout"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 underline hover:text-pink-300"
+                className="text-pink-400 underline hover:text-accent"
               >
                 Google Analytics Opt-out
               </a>
@@ -219,7 +219,7 @@ export default async function PrivacyPage({ params }: Props) {
                 href="https://www.youronlinechoices.eu"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-pink-400 underline hover:text-pink-300"
+                className="text-pink-400 underline hover:text-accent"
               >
                 Your Online Choices
               </a>
@@ -228,7 +228,7 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             7. Children
           </h2>
           <p>
@@ -240,7 +240,7 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             8. Data retention
           </h2>
           <p>
@@ -251,7 +251,7 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             9. Changes to this policy
           </h2>
           <p>
@@ -263,14 +263,14 @@ export default async function PrivacyPage({ params }: Props) {
         </section>
 
         <section>
-          <h2 className="mb-3 text-xl font-semibold text-white">
+          <h2 className="mb-3 text-xl font-semibold text-foreground">
             10. Contact
           </h2>
           <p>
             For privacy-related questions about {SITE.name}, contact us at{" "}
             <a
               href="mailto:privacy@map-6.com"
-              className="text-pink-400 underline hover:text-pink-300"
+              className="text-pink-400 underline hover:text-accent"
             >
               privacy@map-6.com
             </a>
@@ -278,9 +278,9 @@ export default async function PrivacyPage({ params }: Props) {
           </p>
         </section>
 
-        <section className="rounded-xl border border-white/10 bg-white/5 p-5 text-sm">
+        <section className="rounded-xl border border-foreground/10 bg-foreground/5 p-5 text-sm">
           <p>
-            <strong className="text-white/90">Disclaimer:</strong> {SITE.name} is
+            <strong className="text-foreground/90">Disclaimer:</strong> {SITE.name} is
             a fan-made interactive map and is not affiliated with, endorsed by, or
             connected to Rockstar Games or Take-Two Interactive. Grand Theft Auto
             and GTA are trademarks of their respective owners.

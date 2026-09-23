@@ -41,25 +41,25 @@ export function CookieConsent() {
       role="dialog"
       aria-labelledby="cookie-consent-title"
       aria-describedby="cookie-consent-desc"
-      className="fixed inset-x-0 bottom-0 z-[100] border-t border-white/15 bg-[#0d121c]/95 p-4 shadow-2xl backdrop-blur-md"
+      className="fixed inset-x-0 bottom-0 z-[100] border-t border-foreground/15 bg-surface/95 p-4 shadow-2xl backdrop-blur-md"
     >
       <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
         <div className="max-w-2xl">
           <p
             id="cookie-consent-title"
-            className="text-sm font-semibold text-white"
+            className="text-sm font-semibold text-foreground"
           >
             {t("title")}
           </p>
           <p
             id="cookie-consent-desc"
-            className="mt-1 text-xs leading-relaxed text-white/60"
+            className="mt-1 text-xs leading-relaxed text-foreground/60"
           >
             {t.rich("desc", {
               privacyLink: (chunks) => (
                 <Link
                   href="/privacy"
-                  className="text-pink-300 underline hover:text-pink-200"
+                  className="text-accent underline hover:text-accent/80"
                 >
                   {chunks}
                 </Link>
@@ -71,14 +71,14 @@ export function CookieConsent() {
           <button
             type="button"
             onClick={() => save("essential")}
-            className="rounded-full border border-white/20 px-4 py-2 text-xs font-semibold text-white/80 hover:border-white/40"
+            className="rounded-full border border-foreground/20 px-4 py-2 text-xs font-semibold text-foreground/80 hover:border-foreground/40"
           >
             {t("essential")}
           </button>
           <button
             type="button"
             onClick={() => save("all")}
-            className="rounded-full bg-pink-500 px-4 py-2 text-xs font-semibold text-white hover:bg-pink-400"
+            className="rounded-full bg-pink-500 px-4 py-2 text-xs font-semibold text-accent-foreground hover:bg-pink-400"
           >
             {t("acceptAll")}
           </button>

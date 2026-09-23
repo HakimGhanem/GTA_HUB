@@ -67,7 +67,7 @@ export default async function Cs2GuidePage({ params }: Props) {
       <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
         <Link
           href="/guides"
-          className="mb-4 inline-block text-sm text-white/50 hover:text-white"
+          className="mb-4 inline-block text-sm text-foreground/50 hover:text-foreground"
         >
           {copy.backToGuides}
         </Link>
@@ -76,8 +76,8 @@ export default async function Cs2GuidePage({ params }: Props) {
           {copy.eyebrow}
         </p>
         <h1 className="text-3xl font-bold leading-tight">{copy.title}</h1>
-        <p className="mt-4 text-white/60">{copy.description}</p>
-        <p className="mt-2 text-xs text-white/40">
+        <p className="mt-4 text-foreground/60">{copy.description}</p>
+        <p className="mt-2 text-xs text-foreground/40">
           {guide.readTime} min · {guide.publishedAt}
         </p>
 

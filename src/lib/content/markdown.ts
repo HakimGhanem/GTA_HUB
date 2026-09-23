@@ -17,8 +17,8 @@ renderer.image = ({ href, title, text }: Tokens.Image) => {
   const alt = escapeHtml(text);
   const caption = escapeHtml(title || text);
   return `<figure class="article-figure my-8">
-  <img src="${escapeHtml(href)}" alt="${alt}" width="1200" height="630" loading="lazy" class="aspect-[1200/630] w-full rounded-xl border border-white/10 object-cover" />
-  <figcaption class="mt-2 text-center text-xs leading-relaxed text-white/45">${caption}</figcaption>
+  <img src="${escapeHtml(href)}" alt="${alt}" width="1200" height="630" loading="lazy" class="aspect-[1200/630] w-full rounded-xl border border-foreground/10 object-cover" />
+  <figcaption class="mt-2 text-center text-xs leading-relaxed text-foreground/45">${caption}</figcaption>
 </figure>`;
 };
 

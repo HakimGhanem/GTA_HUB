@@ -50,7 +50,42 @@
     "newsTitle": "Últimas notícias",
     "newsAll": "Todas as notícias →",
     "introTitle": "Por que o Map-6 existe",
-    "introBody": "Map-6 é um mapa interativo grátis do GTA 6 e hub de guias para Leonida: Vice City, Ocean Drive, Grassrivers, Port Gellhorn, as Keys e mais. Filtre landmarks e colecionáveis, copie coordenadas, meça distâncias e compartilhe deep links. Guias regionais e notícias com fontes dão contexto — rotulamos especulação e não inventamos leaks. Tiles da comunidade atribuídos à GTADB (CC BY 4.0) quando usados."
+    "introBody": "Map-6 é um mapa interativo grátis do GTA 6 e hub de guias para Leonida: Vice City, Ocean Drive, Grassrivers, Port Gellhorn, as Keys e mais. Filtre landmarks e colecionáveis, copie coordenadas, meça distâncias e compartilhe deep links. Guias regionais e notícias com fontes dão contexto — rotulamos especulação e não inventamos leaks. Tiles da comunidade atribuídos à GTADB (CC BY 4.0) quando usados.",
+    "hub": {
+      "navLabel": "Hub GTA 6",
+      "preorder": "Pré-venda",
+      "storyMap": "História e mapa",
+      "history": "História do GTA",
+      "online": "GTA Online",
+      "cards": "Cartões"
+    },
+    "destinationsTitle": "Destinos nomeados de Leonida",
+    "destinationsCta": "Abrir o mapa completo →",
+    "storyTitle": "A história até agora",
+    "storyBody": "A Rockstar vende um casal Bonnie e Clyde num estado à Florida. Lucia sai do penitenciário de Leonida; Jason tentou deixar o crime nas Keys. Trailers e o Extended Look são a premissa — o Map-6 não inventa o último golpe nem o final.",
+    "charactersTitle": "Lucia e Jason",
+    "luciaRole": "Primeira protagonista",
+    "luciaTitle": "Lucia Caminos",
+    "luciaBody": "Bio oficial: o pai ensinou-a a lutar; lutar pela família pô-la na prisão; a sorte tirou-a. Arcos de wikis fãs ficam de fora.",
+    "jasonRole": "Parceiro no crime",
+    "jasonTitle": "Jason Duval",
+    "jasonBody": "Criado entre criminosos, tentou outra vida nas Keys. Lucia pode ser a saída ou o regresso. Só premissa.",
+    "featuresTitle": "Sistemas vistos no Extended Look",
+    "featureDualTitle": "Dois protagonistas",
+    "featureDualBody": "Troca Lucia e Jason no mundo aberto. Algumas missões bloqueiam a perspetiva; o outro ajuda como IA.",
+    "featureWantedTitle": "Seis estrelas",
+    "featureWantedBody": "As seis estrelas voltam, mais ícones do que a polícia sabe — cara, armas, carro.",
+    "featureLifestyleTitle": "Estilo de vida no modelo",
+    "featureLifestyleBody": "Comida, ginásio e sono mudam o aspeto, no espírito de San Andreas. Sem ficha de stats oficial.",
+    "relatedTitle": "Mais do hub",
+    "relatedReleaseTitle": "Data de lançamento GTA 6",
+    "relatedReleaseDesc": "19 de novembro de 2026 na PS5 e Xbox. O PC é outro calendário, por confirmar.",
+    "relatedHistoryTitle": "História de Grand Theft Auto",
+    "relatedHistoryDesc": "De cidades top-down a Los Santos Online até à aposta Leonida.",
+    "relatedOnlineTitle": "GTA Online enquanto esperas",
+    "relatedOnlineDesc": "Los Santos continua online. Shark Cards oficiais via PSN, Xbox ou Steam.",
+    "relatedCardsTitle": "Cartões PS, Xbox e Steam",
+    "relatedCardsDesc": "ASINs Amazon para carregar as carteiras e comprar cash na loja da Rockstar."
   },
   "locations": {
     "title": "Todos os locais",
@@ -150,7 +185,11 @@
     "navigation": "Navegação",
     "launchLabel": "Lançamento do GTA VI",
     "skipToContent": "Ir para o conteúdo",
-    "countdownAria": "Contagem regressiva para o lançamento do GTA 6"
+    "countdownAria": "Contagem regressiva para o lançamento do GTA 6",
+    "themeToggle": "Tema: {theme}",
+    "themeLight": "Claro",
+    "themeDark": "Escuro",
+    "themeSystem": "Sistema"
   },
   "countdown": {
     "label": "GTA 6 lança em",
@@ -309,6 +348,9 @@
     "hardwareTitle": "Pronto para o lançamento?",
     "hardwareSubtitle": "Consolas e acessórios na Amazon — reserve o jogo quando as fichas oficiais surgirem.",
     "hardwareGuideLink": "Guia completo de pré-venda →",
+    "walletTitle": "Cartões PS, Steam e Xbox — Shark Cards enquanto esperas",
+    "walletSubtitle": "Crédito oficial de loja na Amazon. Resgata e compra cash de GTA Online na Rockstar. Não é um SKU de GTA 6.",
+    "walletGuideLink": "Como funcionam os cartões →",
     "intents": {
       "preorder_standard": "Pré-venda (Standard)",
       "preorder_collectors": "Edição de Colecionador",
@@ -318,7 +360,8 @@
       "display_120hz": "Ecrã 120 Hz",
       "storage_ssd": "SSD / armazenamento",
       "streaming_setup": "Kit de streaming",
-      "retro_gta": "GTA clássicos"
+      "retro_gta": "GTA clássicos",
+      "wallet_topup": "Cartões e Shark Cards"
     }
   },
   "cookieConsent": {

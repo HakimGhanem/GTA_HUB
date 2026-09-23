@@ -12,7 +12,7 @@ export function ArticleHero({ title, src }: Props) {
         alt={title}
         width={1200}
         height={630}
-        className="aspect-[1200/630] w-full rounded-xl border border-white/10 object-cover"
+        className="aspect-[1200/630] w-full rounded-xl border border-foreground/10 object-cover"
       />
     </figure>
   );

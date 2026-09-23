@@ -91,6 +91,30 @@ const FR: Record<string, ProductCopyOverride> = {
     description:
       "Rejouez Los Santos sur la carte classique en attendant GTA 6.",
   },
+  PS_STORE_20: {
+    label: "PlayStation Store — carte 20 €",
+    description:
+      "Code e-mail PSN France. Rechargez la console, puis achetez des Shark Cards officielles ou d’autres jeux. Ce n’est pas un SKU GTA 6.",
+    badge: "Portefeuille",
+  },
+  PS_STORE_50: {
+    label: "PlayStation Store — carte 50 €",
+    description:
+      "Recharge PSN France plus large pour PS Plus, Shark Cards, ou un futur achat digital GTA 6 sur ce compte.",
+    badge: "Portefeuille",
+  },
+  XBOX_GIFT_20: {
+    label: "Carte cadeau Xbox — 20 €",
+    description:
+      "Crédit Xbox officiel — Game Pass, Shark Cards GTA Online sur Xbox, ou jeux du store. Région de la fiche Amazon.",
+    badge: "Portefeuille",
+  },
+  STEAM_WALLET_20: {
+    label: "Porte-monnaie Steam — 20 €",
+    description:
+      "Fiche Steam euro. Le stock bouge — si Amazon est vide, passez par la recherche taguée. Sert à GTA V / Online PC, pas à une précommande GTA 6.",
+    badge: "Steam",
+  },
 };
 
 const ES: Record<string, ProductCopyOverride> = {
@@ -175,6 +199,30 @@ const ES: Record<string, ProductCopyOverride> = {
   GTA5_PS5: {
     description:
       "Vuelve a Los Santos en el mapa clásico mientras esperas GTA 6.",
+  },
+  PS_STORE_20: {
+    label: "PlayStation Store — tarjeta 20 €",
+    description:
+      "Código PSN Francia por email. Canjéalo en la consola y compra Shark Cards oficiales. No es un SKU de GTA 6.",
+    badge: "Monedero",
+  },
+  PS_STORE_50: {
+    label: "PlayStation Store — tarjeta 50 €",
+    description:
+      "Recarga PSN Francia más grande para PS Plus, Shark Cards o una futura compra digital de GTA 6 en esa cuenta.",
+    badge: "Monedero",
+  },
+  XBOX_GIFT_20: {
+    label: "Tarjeta Xbox — 20 €",
+    description:
+      "Crédito oficial Xbox — Game Pass, Shark Cards de GTA Online o juegos de la tienda.",
+    badge: "Monedero",
+  },
+  STEAM_WALLET_20: {
+    label: "Steam Wallet — 20 €",
+    description:
+      "Listado Steam en euros. El stock varía. Sirve para GTA V / Online en PC, no para reservar GTA 6.",
+    badge: "Steam",
   },
 };
 

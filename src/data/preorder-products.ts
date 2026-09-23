@@ -29,7 +29,13 @@ export type PreorderProduct = {
   label: string;
   description: string;
   platform: "PS5" | "Xbox" | "PC" | "Multi";
-  edition: "standard" | "ultimate" | "collectors" | "hardware" | "accessory";
+  edition:
+    | "standard"
+    | "ultimate"
+    | "collectors"
+    | "hardware"
+    | "accessory"
+    | "gift_card";
   badge?: string;
   commerce?: ProductCommerce;
 };

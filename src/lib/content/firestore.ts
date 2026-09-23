@@ -5,6 +5,7 @@ export const COLLECTIONS = {
   topics: "topics",
   keywordMetrics: "keyword_metrics",
   waitlist: "waitlist",
+  proUsers: "pro_users",
 } as const;
 
 let db: Firestore | null | undefined;
