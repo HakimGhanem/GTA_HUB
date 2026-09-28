@@ -54,13 +54,19 @@ export function AdUnit({
   }, []);
 
   useEffect(() => {
-    if (pro || !ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot) return;
+    if (pro || isPro() || !ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot)
+      return;
 
     const el = insRef.current;
     if (!el) return;
 
     const pushWhenWide = () => {
       if (pushed.current) return true;
+      // AdSense already claimed this slot (auto ads, or a queued push landed).
+      if (el.dataset.adsbygoogleStatus) {
+        pushed.current = true;
+        return true;
+      }
       if (el.getBoundingClientRect().width < 32) return false;
       pushed.current = true;
       try {
@@ -71,16 +77,29 @@ export function AdUnit({
       return true;
     };
 
+    // Only start the give-up clock once the loader has claimed the slot,
+    // otherwise a slow adsbygoogle.js makes us collapse a pending unit.
+    let giveUp: number | undefined;
+    const armGiveUp = () => {
+      if (giveUp !== undefined) return;
+      giveUp = window.setTimeout(() => {
+        if (el.getAttribute("data-ad-status") !== "filled") {
+          setFill((s) => (s === "filled" ? s : "unfilled"));
+        }
+      }, 5000);
+    };
+
     const check = () => {
       const status = el.getAttribute("data-ad-status");
       if (status === "filled") setFill("filled");
       else if (status === "unfilled") setFill("unfilled");
+      else if (el.dataset.adsbygoogleStatus) armGiveUp();
     };
 
     const observer = new MutationObserver(check);
     observer.observe(el, {
       attributes: true,
-      attributeFilter: ["data-ad-status"],
+      attributeFilter: ["data-ad-status", "data-adsbygoogle-status"],
       childList: true,
       subtree: true,
     });
@@ -93,33 +112,22 @@ export function AdUnit({
       ro.observe(el);
     }
 
-    const t1 = window.setTimeout(check, 2000);
-    const t2 = window.setTimeout(() => {
-      check();
-      if (el.getAttribute("data-ad-status") !== "filled") {
-        setFill((s) => (s === "filled" ? s : "unfilled"));
-      }
-    }, 5000);
+    check();
 
     return () => {
       observer.disconnect();
       ro?.disconnect();
-      window.clearTimeout(t1);
-      window.clearTimeout(t2);
+      if (giveUp !== undefined) window.clearTimeout(giveUp);
     };
   }, [pro, slot]);
 
-  if (
-    pro ||
-    !ADSENSE_ENABLED ||
-    !ADSENSE_UNITS_VISIBLE ||
-    !slot ||
-    fill === "unfilled"
-  )
-    return null;
+  if (pro || !ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot) return null;
 
   const isFluid = format === "fluid";
   const filled = fill === "filled";
+  // The <ins> must outlive an unfilled response: removing it strands the
+  // matching adsbygoogle.push() and the loader throws a TagError.
+  const collapsed = fill === "unfilled";
 
   return (
     <aside
@@ -142,8 +150,9 @@ export function AdUnit({
         style={{
           display: "block",
           width: "100%",
-          minHeight: 90,
-          maxHeight: 280,
+          minHeight: collapsed ? 0 : 90,
+          maxHeight: collapsed ? 0 : 280,
+          overflow: collapsed ? "hidden" : undefined,
           textAlign: isFluid ? "center" : undefined,
         }}
         data-ad-client={ADSENSE_CLIENT}
