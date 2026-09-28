@@ -54,18 +54,22 @@ export function AdUnit({
   }, []);
 
   useEffect(() => {
-    if (pro || !ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot || pushed.current)
-      return;
-    pushed.current = true;
-    try {
-      (window.adsbygoogle = window.adsbygoogle ?? []).push({});
-    } catch {
-      setFill("unfilled");
-      return;
-    }
+    if (pro || !ADSENSE_ENABLED || !ADSENSE_UNITS_VISIBLE || !slot) return;
 
     const el = insRef.current;
     if (!el) return;
+
+    const pushWhenWide = () => {
+      if (pushed.current) return true;
+      if (el.getBoundingClientRect().width < 32) return false;
+      pushed.current = true;
+      try {
+        (window.adsbygoogle = window.adsbygoogle ?? []).push({});
+      } catch {
+        setFill("unfilled");
+      }
+      return true;
+    };
 
     const check = () => {
       const status = el.getAttribute("data-ad-status");
@@ -81,6 +85,14 @@ export function AdUnit({
       subtree: true,
     });
 
+    let ro: ResizeObserver | undefined;
+    if (!pushWhenWide()) {
+      ro = new ResizeObserver(() => {
+        if (pushWhenWide()) ro?.disconnect();
+      });
+      ro.observe(el);
+    }
+
     const t1 = window.setTimeout(check, 2000);
     const t2 = window.setTimeout(() => {
       check();
@@ -91,6 +103,7 @@ export function AdUnit({
 
     return () => {
       observer.disconnect();
+      ro?.disconnect();
       window.clearTimeout(t1);
       window.clearTimeout(t2);
     };
@@ -113,7 +126,7 @@ export function AdUnit({
       className={
         filled
           ? `my-6 max-h-[320px] overflow-hidden rounded-xl border border-foreground/10 bg-foreground/[0.02] ${className}`
-          : "sr-only"
+          : `w-full min-w-0 ${className}`
       }
       aria-label={filled ? label : undefined}
       aria-hidden={!filled}
@@ -128,7 +141,8 @@ export function AdUnit({
         className="adsbygoogle block w-full"
         style={{
           display: "block",
-          minHeight: filled ? 90 : 1,
+          width: "100%",
+          minHeight: 90,
           maxHeight: 280,
           textAlign: isFluid ? "center" : undefined,
         }}

@@ -9,7 +9,7 @@ import { DEFAULT_GAME_ID, getGameConfig, type GameConfig } from "./games";
 
 /** SDF glyphs for GPU symbol labels (cluster counts, POI names). */
 const MAPLIBRE_GLYPHS =
-  "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf";
+  "https://tiles.basemaps.cartocdn.com/fonts/{fontstack}/{range}.pbf";
 
 function withGlyphs(style: StyleSpecification): StyleSpecification {
   return { ...style, glyphs: MAPLIBRE_GLYPHS };
