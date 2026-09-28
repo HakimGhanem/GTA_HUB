@@ -31,7 +31,6 @@ export function AuthorBlock({
         alt=""
         width={48}
         height={48}
-        sizes="48px"
         loading="lazy"
         className="h-12 w-12 shrink-0 rounded-full border border-foreground/10 object-cover"
       />

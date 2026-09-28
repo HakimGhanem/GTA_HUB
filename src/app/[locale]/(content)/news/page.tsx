@@ -78,7 +78,6 @@ export default async function NewsIndexPage({ params }: Props) {
                       alt=""
                       width={320}
                       height={168}
-                      sizes="160px"
                       loading="lazy"
                       className="hidden h-24 w-40 shrink-0 rounded-lg object-cover sm:block"
                     />

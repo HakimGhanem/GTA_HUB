@@ -12,12 +12,23 @@ function escapeHtml(value: string): string {
 
 const renderer = new marked.Renderer();
 
+/** Widths the Next image optimizer accepts out of the box (deviceSizes). */
+const SRCSET_WIDTHS = [640, 828, 1080, 1200, 1920];
+
+/** OG routes emit 1200×630 PNGs; the optimizer resizes them and serves WebP. */
+function optimizedSrc(href: string, width: number): string {
+  return `/_next/image?url=${encodeURIComponent(href)}&w=${width}&q=75`;
+}
+
 renderer.image = ({ href, title, text }: Tokens.Image) => {
   if (!ALLOWED_IMG.test(href)) return "";
   const alt = escapeHtml(text);
   const caption = escapeHtml(title || text);
+  const srcset = SRCSET_WIDTHS.map(
+    (w) => `${escapeHtml(optimizedSrc(href, w))} ${w}w`,
+  ).join(", ");
   return `<figure class="article-figure my-8">
-  <img src="${escapeHtml(href)}" alt="${alt}" width="1200" height="630" loading="lazy" class="aspect-[1200/630] w-full rounded-xl border border-foreground/10 object-cover" />
+  <img src="${escapeHtml(optimizedSrc(href, 1200))}" srcset="${srcset}" sizes="(min-width: 768px) 736px, 100vw" alt="${alt}" width="1200" height="630" loading="lazy" decoding="async" class="aspect-[1200/630] w-full rounded-xl border border-foreground/10 object-cover" />
   <figcaption class="mt-2 text-center text-xs leading-relaxed text-foreground/45">${caption}</figcaption>
 </figure>`;
 };
