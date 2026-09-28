@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { isIndexableLocale } from "@/i18n/routing";
@@ -53,11 +54,14 @@ export default async function NewsIndexPage({ params }: Props) {
                 className="group block overflow-hidden rounded-xl border border-foreground/10 bg-foreground/5 transition-colors hover:border-pink-400/40 hover:bg-foreground/10"
               >
                 {featured ? (
-                  <img
+                  <Image
                     src={image}
                     alt=""
                     width={1200}
                     height={630}
+                    sizes="(min-width: 1024px) 992px, 100vw"
+                    loading="eager"
+                    fetchPriority="high"
                     className="aspect-[1200/630] w-full object-cover"
                   />
                 ) : null}
@@ -69,11 +73,13 @@ export default async function NewsIndexPage({ params }: Props) {
                   }
                 >
                   {featured ? null : (
-                    <img
+                    <Image
                       src={image}
                       alt=""
                       width={320}
                       height={168}
+                      sizes="160px"
+                      loading="lazy"
                       className="hidden h-24 w-40 shrink-0 rounded-lg object-cover sm:block"
                     />
                   )}
