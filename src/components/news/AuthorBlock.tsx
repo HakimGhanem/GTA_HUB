@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 
 type Props = {
@@ -25,11 +26,13 @@ export function AuthorBlock({
 }: Props) {
   return (
     <aside className="mt-5 flex gap-3 rounded-xl border border-foreground/10 bg-foreground/5 p-4">
-      <img
+      <Image
         src={avatarUrl}
         alt=""
         width={48}
         height={48}
+        sizes="48px"
+        loading="lazy"
         className="h-12 w-12 shrink-0 rounded-full border border-foreground/10 object-cover"
       />
       <div className="min-w-0">

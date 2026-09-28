@@ -10,6 +10,11 @@ const nextConfig: NextConfig = {
   outputFileTracingIncludes: {
     "/api/og/**": ["./assets/og/**"],
   },
+  // Next streams metadata for any UA outside its bot allowlist, which leaves
+  // <title> and <meta description> at the end of <body>. Googlebot and every
+  // AI crawler we invite in robots.txt are outside that list, so they read a
+  // head with no title or description. Block metadata for everyone instead.
+  htmlLimitedBots: /.*/,
   transpilePackages: ["maplibre-gl", "react-map-gl"],
   serverExternalPackages: ["firebase-admin"],
   poweredByHeader: false,

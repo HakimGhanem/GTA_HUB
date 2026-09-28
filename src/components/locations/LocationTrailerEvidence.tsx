@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getLocale, getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { REGIONAL_LOCATION_SLUGS } from "@/data/location-seo-types";
@@ -29,11 +30,14 @@ export async function LocationTrailerEvidence({ slug, name, sourceUrl }: Props) 
       <p className="mt-2 text-sm text-foreground/55">{t("trailerBeatsHint")}</p>
       {isHub ? (
         <figure className="mt-4 overflow-hidden rounded-lg border border-foreground/10">
-          <img
+          <Image
             src={`/api/og/location/${slug}`}
             alt={t("hubStillCaption", { name: name ?? slug })}
             width={1200}
             height={630}
+            sizes="(min-width: 672px) 632px, 100vw"
+            loading="eager"
+            fetchPriority="high"
             className="h-auto w-full"
           />
           <figcaption className="px-3 py-2 text-[11px] text-foreground/45">
