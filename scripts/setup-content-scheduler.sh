@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Schedule Map-6 daily funnel at 17:00 Europe/Paris.
+# Schedule Map-6 commuter briefs at 07:00 and 17:00 Europe/Paris.
 #
 # Creates:
 # 1) Cloud Scheduler → HTTP POST /api/content/daily (detect → draft → publish)
@@ -11,17 +11,17 @@
 # Safe body-only update (keeps existing Authorization header):
 #   gcloud scheduler jobs update http map6-content-daily \
 #     --project=gtahub-503009 --location=europe-west1 \
-#     --message-body='{"limit":2,"detect":true,"draft":true,"publish":true}'
+#     --message-body='{"limit":1,"detect":true,"draft":true,"publish":true}'
 set -euo pipefail
 
 PROJECT_ID="${PROJECT_ID:-gtahub-503009}"
 REGION="${REGION:-europe-west1}"
 SERVICE="${SERVICE:-map6}"
 JOB_NAME="${JOB_NAME:-map6-content-daily}"
-SCHEDULE="${SCHEDULE:-0 17 * * *}"
+SCHEDULE="${SCHEDULE:-0 7,17 * * *}"
 TIME_ZONE="${TIME_ZONE:-Europe/Paris}"
-# Full growth path; set PUBLISH=false for draft-only until review is trusted
-MESSAGE_BODY="${MESSAGE_BODY:-{\"limit\":2,\"detect\":true,\"draft\":true,\"publish\":true}}"
+# One grounded brief per slot; set publish false for draft-only
+MESSAGE_BODY="${MESSAGE_BODY:-{\"limit\":1,\"detect\":true,\"draft\":true,\"publish\":true}}"
 
 if [[ -z "${CONTENT_API_SECRET:-}" ]]; then
   echo "CONTENT_API_SECRET is required" >&2
@@ -62,4 +62,4 @@ echo ""
 echo "Created/updated Scheduler job (detect→draft→publish)."
 echo "Body-only flip without touching the secret header:"
 echo "  gcloud scheduler jobs update http ${JOB_NAME} --location=${REGION} --project=${PROJECT_ID} \\"
-echo "    --message-body='{\"limit\":2,\"detect\":true,\"draft\":true,\"publish\":false}'"
+echo "    --message-body='{\"limit\":1,\"detect\":true,\"draft\":true,\"publish\":false}'"

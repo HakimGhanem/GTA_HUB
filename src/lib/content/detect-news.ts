@@ -95,6 +95,16 @@ function inferCluster(text: string): ContentCluster {
   return "trailer";
 }
 
+function cleanHeadline(title: string): string {
+  return title.replace(/\s*[-–—]\s*Google News.*$/i, "").trim();
+}
+
+function isJunkHeadline(title: string): boolean {
+  return /fans (think|say|react)|allegedly|according to leaks|everything we know|what we (already )?know|weekly recap|round-?up/i.test(
+    title,
+  );
+}
+
 function scoreItem(title: string, link: string, pubDate?: string): number {
   let score = 40;
   const lower = title.toLowerCase();
@@ -113,6 +123,7 @@ function scoreItem(title: string, link: string, pubDate?: string): number {
   if (/best setup|headset|ssd|120hz|ps5|xbox series/i.test(lower)) score += 18;
   if (/trailer|gameplay|extended look|netflix/i.test(lower)) score += 6;
   if (DOMAIN_BOOST.some((d) => link.includes(d))) score += 20;
+  if (link.includes("news.google.com")) score -= 15;
   if (link.includes("amazon.")) score += 10;
   if (pubDate) {
     const ageH = (Date.now() - new Date(pubDate).getTime()) / 36e5;
@@ -167,20 +178,22 @@ type IncomingItem = {
 function toTopic(
   item: IncomingItem,
   seenEventKeys: Set<string>,
-): Topic | "skip-gta" | "skip-dup" {
-  if (!/gta\s*(6|vi)|grand theft auto/i.test(item.title)) return "skip-gta";
+): Topic | "skip-gta" | "skip-dup" | "skip-junk" {
+  const headline = cleanHeadline(item.title);
+  if (!/gta\s*(6|vi)|grand theft auto/i.test(headline)) return "skip-gta";
+  if (isJunkHeadline(headline)) return "skip-junk";
   if (seenEventKeys.has(item.eventKey)) return "skip-dup";
   seenEventKeys.add(item.eventKey);
 
-  const cluster = inferCluster(`${item.title} ${item.description}`);
+  const cluster = inferCluster(`${headline} ${item.description}`);
   const score = Math.min(
     100,
-    scoreItem(item.title, item.link, item.publishedAt) + (item.extraScore ?? 0),
+    scoreItem(headline, item.link, item.publishedAt) + (item.extraScore ?? 0),
   );
   const now = new Date().toISOString();
   const enriched = enrichTopicFunnel({
     id: "",
-    headline: item.title,
+    headline,
     summary: item.description.replace(/<[^>]+>/g, "").slice(0, 400),
     sourceUrls: [item.link],
     cluster,
@@ -265,7 +278,7 @@ export async function detectNewsTopics(): Promise<DetectNewsResult> {
 
   for (const item of incoming) {
     const topic = toTopic(item, seenEventKeys);
-    if (topic === "skip-gta" || topic === "skip-dup") {
+    if (topic === "skip-gta" || topic === "skip-dup" || topic === "skip-junk") {
       skipped++;
       continue;
     }

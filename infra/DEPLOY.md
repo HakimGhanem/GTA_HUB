@@ -300,26 +300,26 @@ Review checklist before approve:
 - [ ] Title 30–60 chars, meta 120–160
 - [ ] Rumors explicitly labeled
 
-### Cron (daily funnel — 17:00 Europe/Paris)
+### Cron (commuter briefs — 07:00 and 17:00 Europe/Paris)
 
-**Goal:** volume pages that match **purchase** or **clip** intent (not generic news).
+**Goal:** one grounded brief per slot (metro / evening), not volume. Skip if the topic or draft fails the quality bar.
 
 ```bash
 # Full CLI pipeline (detect → draft top N → optional publish + IndexNow)
-npm run content:daily -- --limit 2
+npm run content:daily -- --limit 1
 # Auto-publish only when ready:
-# CONTENT_DAILY_AUTO_PUBLISH=true npm run content:daily -- --limit 2 --publish
+# CONTENT_DAILY_AUTO_PUBLISH=true npm run content:daily -- --limit 1 --publish
 
 # One-shot Scheduler bootstrap (HTTP detect→draft→publish)
 CONTENT_API_SECRET=... bash scripts/setup-content-scheduler.sh
 # Body-only (keeps secret header):
 # gcloud scheduler jobs update http map6-content-daily --location=europe-west1 \
-#   --message-body='{"limit":2,"detect":true,"draft":true,"publish":true}'
+#   --message-body='{"limit":1,"detect":true,"draft":true,"publish":true}'
 ```
 
 | Job | Schedule | TZ | Target |
 |-----|----------|-----|--------|
-| `map6-content-daily` | `0 17 * * *` | `Europe/Paris` | `POST /api/content/daily` (`detect`+`draft`+`publish`) |
+| `map6-content-daily` | `0 7,17 * * *` | `Europe/Paris` | `POST /api/content/daily` (`detect`+`draft`+`publish`, limit 1) |
 | analyze | `0 9 * * 1` | UTC | GSC CSV + `content:analyze` |
 
 IndexNow runs when the daily API publishes. CLI `content:daily` remains for local/full offline runs.

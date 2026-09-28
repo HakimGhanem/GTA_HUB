@@ -4,6 +4,7 @@ import { detectNewsTopics } from "@/lib/content/detect-news";
 import { getFirestore } from "@/lib/content/firestore";
 import { enrichTopicFunnel, rankTopicsForDaily } from "@/lib/content/funnel";
 import {
+  autoPublishBlockReason,
   generateDraftFromTopic,
   isGoodDailyTopic,
 } from "@/lib/content/generate-draft";
@@ -19,22 +20,22 @@ import { SITE } from "@/lib/constants";
 import { revalidatePath, revalidateTag } from "next/cache";
 
 /**
- * HTTP target for Cloud Scheduler (17:00 Europe/Paris).
+ * HTTP target for Cloud Scheduler (07:00 and 17:00 Europe/Paris).
  *
  * POST /api/content/daily
  * Authorization: Bearer CONTENT_API_SECRET
  *
  * Body / query (Scheduler message-body JSON):
  *   {
- *     "limit"?: 1|2,          // drafts/publishes per run (default 2, max 2)
+ *     "limit"?: 1|2,          // drafts/publishes per run (default 1, max 2)
  *     "detect"?: boolean,     // RSS + YouTube metadata → topics (default false; cron: true)
  *     "draft"?: boolean,      // draft good ranked topics (default false; cron: true)
- *     "publish"?: boolean,    // publish drafted queue seo≥60 (or CONTENT_DAILY_AUTO_PUBLISH)
+ *     "publish"?: boolean,    // publish drafted queue if quality bar passes
  *     "enrichOnly"?: boolean  // stamp funnel fields only; skips detect/draft/publish
  *   }
  *
  * Production cron (map6-content-daily):
- *   {"limit":2,"detect":true,"draft":true,"publish":true}
+ *   {"limit":1,"detect":true,"draft":true,"publish":true}
  *
  * Guardrails: CONTENT_API_SECRET required; Firestore required when
  * FIRESTORE_ENABLED=true; never invent ASINs/dates; skip draft if no good topic.
@@ -71,7 +72,7 @@ export async function POST(request: Request) {
     return false;
   };
 
-  const limit = Math.min(2, Math.max(1, Number(body.limit ?? q("limit") ?? 2)));
+  const limit = Math.min(2, Math.max(1, Number(body.limit ?? q("limit") ?? 1)));
   const wantDetect = flag(body.detect, "detect");
   const wantDraft = flag(body.draft, "draft");
   const wantPublish =
@@ -146,12 +147,12 @@ export async function POST(request: Request) {
 
     const cannibalises = (slug: string) => siteEvergreenPathForNews(slug);
 
-    // Prefer articles just drafted this run, then rest of drafted queue (seo≥60)
+    // Prefer articles just drafted this run, then rest of drafted queue
     const queue = articles
       .filter(
         (a) =>
           a.status === "drafted" &&
-          (a.seoScore ?? 0) >= 60 &&
+          !autoPublishBlockReason(a, a.seoScore ?? 0) &&
           !cannibalises(a.slug),
       )
       .sort((a, b) => {
@@ -187,8 +188,9 @@ export async function POST(request: Request) {
       const collision = cannibalises(a.slug);
       if (collision) {
         publishSkipped.push(`${a.slug}: duplicates evergreen ${collision}`);
-      } else if ((a.seoScore ?? 0) < 60) {
-        publishSkipped.push(`${a.slug}: seoScore=${a.seoScore ?? "n/a"} < 60`);
+      } else {
+        const blocked = autoPublishBlockReason(a, a.seoScore ?? 0);
+        if (blocked) publishSkipped.push(`${a.slug}: ${blocked}`);
       }
     }
   }

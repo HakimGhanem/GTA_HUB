@@ -1,6 +1,6 @@
 #!/usr/bin/env npx tsx
 /**
- * Daily funnel factory — Europe/Paris 17:00 target.
+ * Daily funnel factory — Europe/Paris 07:00 and 17:00.
  *
  * 1) detect RSS + YouTube metadata → topics (funnel-scored)
  * 2) draft top N purchase/mixed topics (affiliate intents beat trailer ties)
@@ -16,6 +16,7 @@ import { fileURLToPath } from "url";
 import { detectNewsTopics } from "../../src/lib/content/detect-news.ts";
 import { rankTopicsForDaily } from "../../src/lib/content/funnel.ts";
 import {
+  autoPublishBlockReason,
   generateDraftFromTopic,
   isGoodDailyTopic,
 } from "../../src/lib/content/generate-draft.ts";
@@ -82,7 +83,7 @@ async function submitSitemapPing() {
 }
 
 async function main() {
-  const limit = Number(argValue("--limit") ?? process.env.CONTENT_DAILY_LIMIT ?? 2);
+  const limit = Number(argValue("--limit") ?? process.env.CONTENT_DAILY_LIMIT ?? 1);
   const wantPublish =
     hasFlag("--publish") || process.env.CONTENT_DAILY_AUTO_PUBLISH === "true";
   const skipDetect = hasFlag("--skip-detect");
@@ -138,11 +139,9 @@ async function main() {
         continue;
       }
 
-      // Safety: only auto-publish purchase/map/clip funnels with SEO score ≥ 60
-      if ((article.seoScore ?? 0) < 60 && !hasFlag("--force")) {
-        console.log(
-          `skip publish ${article.slug} (seoScore=${article.seoScore ?? "n/a"} < 60)`,
-        );
+      const blocked = autoPublishBlockReason(article, article.seoScore ?? 0);
+      if (blocked && !hasFlag("--force")) {
+        console.log(`skip publish ${article.slug} (${blocked})`);
         continue;
       }
 
@@ -171,7 +170,7 @@ async function main() {
 
   console.log("\nDaily funnel complete.");
   console.log(
-    "Tip: schedule with Cloud Scheduler TZ=Europe/Paris → 0 17 * * * (see scripts/setup-content-scheduler.sh)",
+    "Tip: schedule with Cloud Scheduler TZ=Europe/Paris → 0 7,17 * * * (see scripts/setup-content-scheduler.sh)",
   );
 }
 

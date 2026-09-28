@@ -9,24 +9,61 @@ import { slugify } from "./ids";
 import { scoreArticleSeo } from "./seo-score";
 import { upsertArticle, upsertTopic } from "./repository";
 import type { Article, Topic } from "./schema";
+import { countMarkdownWords, MIN_ARTICLE_WORDS } from "./word-count";
 
 /** Skip weak / rumor-only topics — no draft if nothing worth publishing. */
-export const MIN_DAILY_FUNNEL_SCORE = 50;
+export const MIN_DAILY_FUNNEL_SCORE = 62;
+/** Auto-publish floor — thin SEO-passing shells stay drafted. */
+export const MIN_DAILY_PUBLISH_SEO = 75;
+
+const REJECT_TOPIC =
+  /fans (think|say|react)|allegedly|according to leaks|unconfirmed leak|everything we know|what we (already )?know|weekly recap|round-?up|google news/i;
 
 export function isGoodDailyTopic(topic: Topic): boolean {
   const enriched = enrichTopicFunnel(topic);
   const score = enriched.funnelScore ?? enriched.score;
   if (score < MIN_DAILY_FUNNEL_SCORE) return false;
-  // Pure rumor filler without purchase/map signal — skip
   const lower = `${enriched.headline} ${enriched.summary}`.toLowerCase();
+  if (REJECT_TOPIC.test(lower)) return false;
   if (
-    /rumor|allegedly|fans think|according to leaks/i.test(lower) &&
-    enriched.funnelKind === "clip_kit" &&
-    score < 65
+    /rumor|leak/i.test(lower) &&
+    !/rockstar|take-?two|official|newswire/i.test(lower) &&
+    score < 80
   ) {
     return false;
   }
   return true;
+}
+
+/** Why this draft must not go live unattended — null means the cron may publish. */
+export function autoPublishBlockReason(
+  article: Pick<Article, "bodyMarkdown" | "notes" | "sources">,
+  seoScore: number,
+): string | null {
+  const words = countMarkdownWords(article.bodyMarkdown);
+  if (words < MIN_ARTICLE_WORDS) {
+    return `word count ${words} < ${MIN_ARTICLE_WORDS}`;
+  }
+  if (seoScore < MIN_DAILY_PUBLISH_SEO) {
+    return `seoScore ${seoScore} < ${MIN_DAILY_PUBLISH_SEO}`;
+  }
+  const notes = article.notes ?? "";
+  if (!/\(Groq|\(OpenAI|\(Gemini/i.test(notes)) {
+    return "template fallback — not grounded";
+  }
+  if (
+    /^## What's new/m.test(article.bodyMarkdown) &&
+    /What map hunters should do/i.test(article.bodyMarkdown)
+  ) {
+    return "template skeleton";
+  }
+  const realSources = article.sources.filter(
+    (s) => !/rockstargames\.com\/VI\/?$/i.test(s.url),
+  );
+  if (realSources.length < 2) {
+    return `sources ${realSources.length} < 2`;
+  }
+  return null;
 }
 
 function pickKeywords(topic: Topic) {
@@ -173,11 +210,15 @@ See the sources list below for outbound citations used in this draft.
   };
 }
 
-const DRAFT_RULES = `You are a Map-6 editor. Write factual GTA 6 news drafts.
-Rules: never invent trailer dates or product ASINs; label rumors; include ≥3 markdown internal links to /en/map, /en/locations, /en/guides/*;
-write at least 600 words of original prose (no "AdSense depth" padding, no "Primary keyword:" lines);
-embed exactly two in-body figures using this markdown only: ![Vice City on Map-6](/api/og/location/vice-city "Vice City hub") and ![Ocean Drive on Map-6](/api/og/location/ocean-drive "Ocean Drive hub") — never hotlink Rockstar screenshots;
-title 30-60 chars; meta description 120-160 chars; cite sources.`;
+const DRAFT_RULES = `You are the Map-6 desk editor. Write a commuter brief (phone, 3–6 minutes) that a reader can finish on the metro.
+Open with a two-sentence lede: what happened, why it matters today. Then original analysis — do not rewrite the source article.
+Add only what Map-6 uniquely has: official vs rumor, which pins or guides change, what a player should do before launch. No invented trailer dates or product ASINs.
+Do not use stock headings like "What's new", "Verified facts vs rumors", "Clip kit", or "What to do next".
+No TikTok/Kick clip-kit as the spine — one short optional paragraph max if the story is footage.
+Write at least 700 words of original prose (no keyword stuffing, no "AdSense depth" padding, no "Primary keyword:" lines).
+Include ≥3 markdown internal links with descriptive anchors: [interactive map](/en/map), [locations](/en/locations), [pre-order guide](/en/guides/gta-6-preorder-guide), [map guide](/en/guides/gta-6-map-guide). Use only these paths.
+Embed exactly two in-body figures using this markdown only: ![Vice City on Map-6](/api/og/location/vice-city "Vice City hub") and ![Ocean Drive on Map-6](/api/og/location/ocean-drive "Ocean Drive hub") — never hotlink Rockstar screenshots.
+Title 30-60 chars; meta description 120-160 chars. Both must end on a complete word.`;
 
 const DRAFT_SCHEMA = {
   type: "object",
@@ -310,7 +351,7 @@ async function groqDraft(
         {
           role: "system",
           content:
-            "You are a games news researcher. Search the web, then report only facts you verified against a page you opened, each with its source. Never invent trailer dates or product ASINs. Mark anything unconfirmed as a rumor.",
+            "You are a games news researcher for a map-first GTA 6 desk. Search the web, open the pages, and report only facts you verified, each with its source. Prefer Rockstar, Take-Two, IGN, Bloomberg, GameSpot over aggregators. Never invent trailer dates or product ASINs. Mark anything unconfirmed as a rumor. Note what a commuter should take away in one line.",
         },
         {
           role: "user",
@@ -476,12 +517,14 @@ export type GenerateDraftResult = {
   issues: string[];
 };
 
-/** Draft one article from a topic (Groq, then OpenAI/Gemini, else template). Never invents ASINs/dates. */
+/** Draft one article from a topic (Groq, then OpenAI/Gemini). No template publish. */
 export async function generateDraftFromTopic(
   topic: Topic,
 ): Promise<GenerateDraftResult> {
-  const draft =
-    (await groqDraft(topic)) || (await llmDraft(topic)) || templateDraft(topic);
+  const draft = (await groqDraft(topic)) || (await llmDraft(topic));
+  if (!draft) {
+    throw new Error("no grounded draft (template fallback disabled)");
+  }
   const article = await upsertArticle(draft);
   const checklist = scoreArticleSeo(article);
   await upsertTopic({ ...topic, status: "drafted" });
