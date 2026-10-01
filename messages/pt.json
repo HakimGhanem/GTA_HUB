@@ -6,6 +6,7 @@
     "guides": "Guias",
     "openMap": "Abrir mapa",
     "news": "Notícias",
+    "live": "Ao vivo",
     "database": "Base",
     "creators": "Criadores",
     "pro": "Pro",
@@ -158,6 +159,8 @@
     "locationsDesc": "Diretório completo de locais do mapa GTA 6: marcos, colecionáveis, lojas, missões e segredos.",
     "mapTitle": "Mapa GTA 6 grátis — Interativo Vice City | Map-6",
     "mapDesc": "Mapa interativo grátis do GTA 6: 1400+ POIs, filtros, coordenadas e medição em Vice City. Links para compartilhar — pronto para o lançamento.",
+    "mapH1": "Mapa interativo de GTA 6",
+    "mapLead": "1.500+ pins · filtro oficial · coordenadas · sem leaks",
     "collectiblesTitle": "Colecionáveis GTA 6 — Pacotes escondidos, saltos acrobáticos e mais | Map-6",
     "collectiblesDesc": "Rastreie cada colecionável do GTA 6 no mapa interativo: pacotes escondidos, saltos acrobáticos, arte de rua e spots de fotografia de fauna.",
     "guidesTitle": "Guias GTA 6 — Mapa, personagens, pré-venda | Map-6",
@@ -176,6 +179,7 @@
     "trailerAnalysis": "Análise dos trailers",
     "about": "Sobre",
     "press": "Imprensa",
+    "contact": "Contacto",
     "sources": "Todas as fontes"
   },
   "header": {
@@ -363,6 +367,20 @@
       "retro_gta": "GTA clássicos",
       "wallet_topup": "Cartões e Shark Cards"
     }
+  },
+  "hubBanner": {
+    "eyebrow": "Pre-order",
+    "title": "Pre-order GTA 6 — Vice City is waiting",
+    "sub": "November 19, 2026 on PS5 and Xbox Series X|S. US list: Standard $79.99, Ultimate $99.99.",
+    "cta": "Pre-order GTA 6",
+    "ctaMap": "Open the interactive map",
+    "navLabel": "GTA 6 hub",
+    "navPreorder": "Pre-order now",
+    "navMap": "Story & map",
+    "navHistory": "GTA history",
+    "navOnline": "GTA Online",
+    "navCards": "Shark Cards",
+    "offersTitle": "Buy now — editions, wallets, hardware"
   },
   "cookieConsent": {
     "title": "Cookies & ads",

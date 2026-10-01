@@ -3,6 +3,7 @@ import { Link } from "@/i18n/navigation";
 import { HardwarePromo } from "@/components/affiliate/HardwarePromo";
 import { WalletPromo } from "@/components/affiliate/WalletPromo";
 import { HomeMapHero } from "@/components/home/HomeMapHero";
+import { HubConversionBanner } from "@/components/home/HubConversionBanner";
 import { ViceCityHub } from "@/components/home/ViceCityHub";
 import { LocationCard } from "@/components/locations/LocationCard";
 import { ClassicMapsPromo } from "@/components/map/ClassicMapsPromo";
@@ -74,6 +75,10 @@ export default async function HomePage({ params }: Props) {
           <p className="text-sm leading-relaxed text-foreground/65 sm:text-base">
             {t("introBody")}
           </p>
+        </div>
+
+        <div className="mb-10">
+          <HubConversionBanner />
         </div>
 
         <ViceCityHub />

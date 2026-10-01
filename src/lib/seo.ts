@@ -212,7 +212,7 @@ export function jsonLdWebApplication(locale = "en") {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: `${SITE.name} Interactive Map`,
+    name: "GTA 6 Interactive Map",
     url: `${SITE.url}/${locale}/map`,
     applicationCategory: "GameApplication",
     operatingSystem: "Web",

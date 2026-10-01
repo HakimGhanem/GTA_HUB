@@ -1,6 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { PreorderGuideContent } from "@/components/guides/PreorderGuideContent";
+import { HubConversionBanner } from "@/components/home/HubConversionBanner";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -90,6 +91,9 @@ export default async function PreorderGuidePage({ params }: Props) {
         </p>
 
         <ConversionStrip variant="page" />
+        <div className="mt-6">
+          <HubConversionBanner compact />
+        </div>
         <PreorderGuideContent locale={locale} />
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">

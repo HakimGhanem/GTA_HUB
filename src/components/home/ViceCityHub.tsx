@@ -13,14 +13,6 @@ const DESTINATIONS = [
 export async function ViceCityHub() {
   const t = await getTranslations("home");
 
-  const pills = [
-    { href: "/guides/gta-6-preorder-guide", label: t("hub.preorder") },
-    { href: "#story-map", label: t("hub.storyMap") },
-    { href: "/news/gta-series-history-to-leonida", label: t("hub.history") },
-    { href: "/news/gta-online-wallet-cards-before-vi", label: t("hub.online") },
-    { href: "#cards", label: t("hub.cards") },
-  ] as const;
-
   const related = [
     {
       href: "/guides/gta-6-release-date",
@@ -46,31 +38,6 @@ export async function ViceCityHub() {
 
   return (
     <div className="mb-12 space-y-10">
-      <nav
-        aria-label={t("hub.navLabel")}
-        className="flex flex-wrap gap-2 border-b border-foreground/10 pb-4"
-      >
-        {pills.map((pill) =>
-          pill.href.startsWith("#") ? (
-            <a
-              key={pill.href}
-              href={pill.href}
-              className="rounded-full border border-foreground/15 bg-foreground/5 px-3.5 py-1.5 text-sm font-medium text-foreground/80 transition-colors hover:border-pink-400/50 hover:text-foreground"
-            >
-              {pill.label}
-            </a>
-          ) : (
-            <Link
-              key={pill.href}
-              href={pill.href}
-              className="rounded-full border border-foreground/15 bg-foreground/5 px-3.5 py-1.5 text-sm font-medium text-foreground/80 transition-colors hover:border-pink-400/50 hover:text-foreground"
-            >
-              {pill.label}
-            </Link>
-          ),
-        )}
-      </nav>
-
       <section id="story-map" aria-labelledby="destinations-heading">
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <h2 id="destinations-heading" className="text-2xl font-bold">

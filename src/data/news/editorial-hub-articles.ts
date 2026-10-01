@@ -31,9 +31,9 @@ export const HUB_ARTICLES: Article[] = [
     id: "editorial-official-facts-roundup-en",
     slug: "gta-6-official-facts-roundup",
     locale: "en",
-    title: "GTA 6 Official Facts — Date, Map Names, Lucia & Jason",
+    title: "GTA 6 Release Date, Price & Official Facts — Leonida, Lucia & Jason",
     description:
-      "What Rockstar has actually locked for Grand Theft Auto VI: November 19 2026, PS5 and Xbox, named Leonida hubs, dual protagonists, and the Extended Look systems. Rumors stay labeled.",
+      "GTA 6 release date: November 19, 2026 on PS5 and Xbox. Official prices, editions, named Leonida hubs, Lucia and Jason, Extended Look systems. Rumors stay labeled.",
     bodyMarkdown: `Rockstar’s public page for *Grand Theft Auto VI* is still the only document that should decide a pre-order, a console upgrade, or a map pin. This briefing is a **facts desk**, not a rumor dump. If a claim is not on [rockstargames.com/VI](https://www.rockstargames.com/VI), a Newswire post, or a Take-Two earnings remark, Map-6 labels it **unconfirmed**.
 
 The game launches **November 19, 2026** on **PlayStation 5** and **Xbox Series X|S**. That date replaced earlier windows after Rockstar asked for more polish time. PC is **not** in the same sentence. Treat “day-one Steam” posts as noise until a separate Rockstar calendar exists. Editions and US list prices live in the [pre-order guide](/en/guides/gta-6-preorder-guide): Standard **$79.99**, Ultimate **$99.99**, with Ultimate as a **digital extras tier**, not a statue box.
@@ -327,27 +327,29 @@ Systems change between a summer look and a November patch. This page will date-s
     id: "editorial-franchise-history-en",
     slug: "gta-series-history-to-leonida",
     locale: "en",
-    title: "Grand Theft Auto History — From Top-Down Chaos to Leonida",
+    title: "GTA History — Every Mainline Game From 1997 to GTA 6 Leonida",
     description:
-      "How the GTA series moved from 2D cities to 3D vice, San Andreas scale, Los Santos Online, and the Leonida bet. A Map-6 history for people who arrived via a gift-card hub.",
+      "Complete GTA history for searchers: GTA 1, III, Vice City, San Andreas, IV, V, GTA Online, then GTA 6 on November 19 2026. Why Vice City returned, and how Map-6 maps each era.",
     bodyMarkdown: `Most “history of GTA” pages exist to park a product grid under a nostalgia heading. This one exists because Map-6 readers keep asking **why Vice City again** and **why a couple instead of a trio**. The short answer: Rockstar has spent three decades widening the joke from “steal a car” to “live in a satire of an American state.” Leonida is the next state-sized punchline.
 ${VC("Vice City as the 2026 return of a 2002 idea", "The 2002 Vice City was a city. 2026 Vice City is a metro inside a named state.")}
 
 ## 1997–2001 — cameras in the sky
 
-The first *Grand Theft Auto* games were top-down crime toys. Liberty City, San Andreas, and Vice City existed as names before they existed as 3D places. The loop was already there: heat, radio, and a city that punishes greed with more cops. If you only know *GTA V*, this era is why the wanted star still feels like a joke that got expensive.
+The first *Grand Theft Auto* games were top-down crime toys. DMA Design’s prototype was a cop chase; the fun appeared when the police cars went feral. Liberty City, San Andreas, and Vice City existed as **names** before they existed as 3D places. The loop was already there: heat, radio, and a city that punishes greed with more cops. *London 1969* proved the joke could travel. *GTA 2* (1999) added gang reputation in Anywhere City and showed the top-down view was running out of road. If you only know *GTA V*, this era is why the wanted star still feels like a joke that got expensive.
 
 ## 2001–2006 — the 3D punchlines
 
-*GTA III* put the camera behind the shoulder and made Liberty City a character. *Vice City* (2002) sold 1980s heat, pink, and radio as identity. *San Andreas* (2004) made the map a state: city, countryside, gym, and a body that remembered what you ate. That last idea is the one the 2026 Extended Look just put back on Lucia and Jason.
+*GTA III* (2001) put the camera behind the shoulder and made Liberty City a character. Claude barely spoke; the city did. *Vice City* (2002) sold 1980s heat, pink, and radio as identity — Tommy Vercetti was the first lead who sounded like a star. *San Andreas* (2004) made the map a **state**: city, countryside, gym, and a body that remembered what you ate. That last idea is the one the 2026 Extended Look just put back on Lucia and Jason.
 
-Map-6 still ships a [classic Vice City map](/en/map?game=vc) and a [San Andreas map](/en/map?game=sa) for that reason. Practice collectible eyes on old cities while the new one is a trailer.
+Portable side stories (*Advance*, *Liberty City Stories*, *Vice City Stories*) trained a generation to treat a GTA city as a pocket atlas. Map-6 still ships a [classic Vice City map](/en/map?game=vc) and a [San Andreas map](/en/map?game=sa) for that reason. Practice collectible eyes on old cities while the new one is a trailer. Do not paste 2002 street names onto the 2026 pin list.
 
 ## 2008–2013 — HD cities, then the endless session
 
-*GTA IV* made Liberty City heavier and more physical. *GTA V* (2013) split the campaign across three men and then refused to end: **GTA Online** became the live product. Los Santos is still where most players spend money — Shark Cards, businesses, a wanted loop that never shipped a sixth star in the UI people remember.
+*GTA IV* (2008) made Liberty City heavier and more physical — Niko, motion capture, a denser HD parody. Episodes around Lost MC and Gay Tony proved the city could host other leads. *GTA V* (2013) split the campaign across three men and then refused to end: **GTA Online** became the live product. Los Santos is still where most players spend money — Shark Cards, businesses, a wanted loop that never shipped a sixth star in the UI people remember.
 
-That Online decade is why a gift-card shop can honestly say “you can still cause chaos in Los Santos.” It is also why Map-6 keeps a [GTA 5 map](/en/map?game=gta5) next to Leonida. The wait for November 19 is not an empty calendar if you still have Blaine County collectibles to finish.
+That Online decade is why a gift-card shop can honestly say “you can still cause chaos in Los Santos.” It is also why Map-6 keeps a [GTA 5 map](/en/map?game=gta5) next to Leonida. The wait for November 19, 2026 is not an empty calendar if you still have Blaine County collectibles to finish. Wallet credit for Shark Cards is a disclosed Amazon path — not a Map-6 key shop. See the [GTA Online wallet briefing](/en/news/gta-online-wallet-cards-before-vi).
+
+Ready to lock a console SKU? Use the [GTA 6 pre-order guide](/en/guides/gta-6-preorder-guide) (Standard and Ultimate listings, not a fake countdown).
 
 ## 2023–2026 — the Leonida bet
 
@@ -376,8 +378,10 @@ When Rockstar names a new district after launch, we add a hub. We do not retrofi
     primaryKeyword: "gta history",
     secondaryKeywords: [
       "grand theft auto history",
+      "every gta game in order",
       "vice city history",
       "gta online before gta 6",
+      "gta 6 leonida",
     ],
     sources: [ROCKSTAR_VI],
     publishedAt: "2026-09-23T13:00:00.000Z",
@@ -389,13 +393,28 @@ When Rockstar names a new district after launch, we add a hub. We do not retrofi
     ],
     eventKey: "franchise-history-leonida-2026-09",
     funnelKind: "mixed",
-    affiliateIntents: ["retro_gta", "wallet_topup", "console_upgrade"],
+    affiliateIntents: [
+      "preorder_standard",
+      "retro_gta",
+      "wallet_topup",
+      "console_upgrade",
+    ],
     mapCtaPath: "/map?game=gta5",
     faqs: [
+      {
+        question: "When does GTA 6 release?",
+        answer:
+          "November 19, 2026 on PlayStation 5 and Xbox Series X|S. PC is not in the same official sentence. Preload is expected from November 12, 2026.",
+      },
       {
         question: "Is GTA 6 a sequel to GTA Vice City?",
         answer:
           "It returns to Vice City as a setting inside the new state of Leonida. It is a new mainline game with new protagonists, not a remake of the 2002 story.",
+      },
+      {
+        question: "What is the order of every mainline GTA?",
+        answer:
+          "GTA (1997), GTA 2 (1999), GTA III (2001), Vice City (2002), San Andreas (2004), GTA IV (2008), GTA V (2013), then GTA 6 (2026). Spin-offs and stories sit beside those pillars.",
       },
       {
         question: "Why does Map-6 still have GTA 5 and Vice City maps?",
@@ -511,9 +530,9 @@ Play first; pay for cash only if the grind is the part you hate. The [GTA 5 map]
     id: "editorial-official-facts-roundup-fr",
     slug: "gta-6-official-facts-roundup",
     locale: "fr",
-    title: "GTA 6 : les faits officiels — date, lieux, Lucia & Jason",
+    title: "Date de sortie GTA 6, prix et faits officiels — Leonida, Lucia & Jason",
     description:
-      "Ce que Rockstar a vraiment verrouillé : 19 novembre 2026, PS5 et Xbox, hubs Leonida nommés, duo de protagonistes, systèmes de l’Extended Look. Les rumeurs restent étiquetées.",
+      "Date de sortie GTA 6 : 19 novembre 2026 sur PS5 et Xbox. Prix, éditions, hubs Leonida nommés, duo Lucia et Jason, systèmes de l’Extended Look. Les rumeurs restent étiquetées.",
     bodyMarkdown: `La page publique de *Grand Theft Auto VI* reste le seul document qui devrait décider d’une précommande, d’une console ou d’un pin. Ce briefing est un **bureau des faits**, pas un dump de rumeurs. Si une affirmation n’est pas sur [rockstargames.com/VI](https://www.rockstargames.com/VI), un Newswire ou une remarque Take-Two, Map-6 la labelle **non confirmée**.
 
 Le jeu sort le **19 novembre 2026** sur **PlayStation 5** et **Xbox Series X|S**. Cette date a remplacé des fenêtres plus tôt après un appel à plus de finition. Le PC n’est **pas** dans la même phrase. Traitez les posts « Steam day-one » comme du bruit. Éditions et prix : [guide précommande](/fr/guides/gta-6-preorder-guide) — Standard **79,99 $** US, Ultimate **99,99 $**, l’Ultimate étant un **palier d’extras digitaux**, pas un coffret statue.
@@ -807,27 +826,29 @@ Les systèmes bougent entre un look d’été et un patch de novembre. Cette pag
     id: "editorial-franchise-history-fr",
     slug: "gta-series-history-to-leonida",
     locale: "fr",
-    title: "Histoire de GTA — du chaos vue de dessus jusqu’à Leonida",
+    title: "Histoire de GTA : tous les opus, de 1997 à GTA 6 et Leonida",
     description:
-      "Comment la série est passée des villes 2D au vice en 3D, à l’échelle San Andreas, à Los Santos Online, puis au pari Leonida. Une histoire Map-6 pour ceux qui arrivent via un hub de cartes cadeaux.",
+      "Histoire complète de Grand Theft Auto : GTA 1, III, Vice City, San Andreas, IV, V, GTA Online, puis GTA 6 le 19 novembre 2026. Pourquoi Vice City revient, et comment Map-6 cartographie chaque ère.",
     bodyMarkdown: `La plupart des pages « histoire de GTA » existent pour glisser une grille produits sous un titre nostalgie. Celle-ci existe parce que les lecteurs Map-6 demandent **pourquoi Vice City encore** et **pourquoi un couple plutôt qu’un trio**. Réponse courte : Rockstar a passé trois décennies à élargir la blague, de « vole une voiture » à « vis dans la satire d’un État américain ». Leonida est la prochaine punchline à l’échelle d’un État.
 ${VC("Vice City, retour 2026 d’une idée 2002", "Le Vice City 2002 était une ville. Celui de 2026 est un métro dans un État nommé.")}
 
 ## 1997–2001 — caméras dans le ciel
 
-Les premiers *Grand Theft Auto* étaient des jouets criminels vue de dessus. Liberty City, San Andreas et Vice City existaient comme noms avant d’exister en 3D. La boucle était déjà là : recherche, radio, une ville qui punit l’avidité avec plus de flics.
+Les premiers *Grand Theft Auto* étaient des jouets criminels vue de dessus. Le proto DMA Design était une chasse policière ; le fun est apparu quand les voitures de flics sont devenues folles. Liberty City, San Andreas et Vice City existaient comme **noms** avant d’exister en 3D. La boucle était déjà là : recherche, radio, une ville qui punit l’avidité avec plus de flics. *London 1969* a prouvé que la blague voyageait. *GTA 2* (1999) a ajouté la réputation de gangs dans Anywhere City et montré que la vue de dessus saturait. Si vous ne connaissez que *GTA V*, c’est pour ça que l’étoile de recherche a encore l’air d’une blague devenue chère.
 
 ## 2001–2006 — les punchlines 3D
 
-*GTA III* a mis la caméra derrière l’épaule. *Vice City* (2002) a vendu la chaleur 80s, le rose et la radio comme identité. *San Andreas* (2004) a fait de la carte un État : ville, campagne, salle, un corps qui se souvient de ce que vous mangez. C’est cette idée que l’Extended Look 2026 remet sur Lucia et Jason.
+*GTA III* (2001) a mis la caméra derrière l’épaule et a fait de Liberty City un personnage. Claude parlait peu ; la ville parlait. *Vice City* (2002) a vendu la chaleur 80s, le rose et la radio comme identité — Tommy Vercetti est le premier lead qui sonnait comme une star. *San Andreas* (2004) a fait de la carte un **État** : ville, campagne, salle, un corps qui se souvient de ce que vous mangez. C’est cette idée que l’Extended Look 2026 remet sur Lucia et Jason.
 
-Map-6 garde une [carte Vice City classique](/fr/map?game=vc) et une [carte San Andreas](/fr/map?game=sa) pour ça. Entraînez l’œil collectible sur les vieilles villes.
+Les histoires portables (*Advance*, *Liberty City Stories*, *Vice City Stories*) ont appris à une génération à traiter une ville GTA comme un atlas de poche. Map-6 garde une [carte Vice City classique](/fr/map?game=vc) et une [carte San Andreas](/fr/map?game=sa) pour ça. Entraînez l’œil collectible sur les vieilles villes. Ne collez pas les noms de rues 2002 sur la liste 2026.
 
 ## 2008–2013 — villes HD, puis la session sans fin
 
-*GTA IV* a rendu Liberty City plus lourde. *GTA V* (2013) a coupé la campagne en trois hommes puis a refusé de s’arrêter : **GTA Online** est devenu le produit live. Los Santos est encore là où la plupart des joueurs dépensent — Shark Cards, businesses, une boucle de recherche qui n’a pas renvoyé la sixième étoile dans l’UI dont les gens se souviennent.
+*GTA IV* (2008) a rendu Liberty City plus lourde et plus physique — Niko, motion capture, une parodie HD plus dense. Les épisodes Lost MC et Gay Tony ont prouvé que la ville pouvait héberger d’autres leads. *GTA V* (2013) a coupé la campagne en trois hommes puis a refusé de s’arrêter : **GTA Online** est devenu le produit live. Los Santos est encore là où la plupart des joueurs dépensent — Shark Cards, businesses, une boucle de recherche qui n’a pas renvoyé la sixième étoile dans l’UI dont les gens se souviennent.
 
-C’est pour ça qu’une boutique de cartes peut dire honnêtement « vous pouvez encore semer le chaos à Los Santos ». C’est aussi pour ça que Map-6 garde une [carte GTA 5](/fr/map?game=gta5) à côté de Leonida.
+C’est pour ça qu’une boutique de cartes peut dire honnêtement « vous pouvez encore semer le chaos à Los Santos ». C’est aussi pour ça que Map-6 garde une [carte GTA 5](/fr/map?game=gta5) à côté de Leonida. L’attente du 19 novembre 2026 n’est pas un calendrier vide s’il vous reste des collectibles Blaine County. Le crédit portefeuille Shark Cards est un chemin Amazon déclaré — pas une boutique de clés Map-6. Voir le [briefing wallets GTA Online](/fr/news/gta-online-wallet-cards-before-vi).
+
+Prêt à verrouiller un SKU console ? [Guide précommande GTA 6](/fr/guides/gta-6-preorder-guide) (fiches Standard et Ultimate, pas un faux compte à rebours).
 
 ## 2023–2026 — le pari Leonida
 
@@ -856,8 +877,10 @@ Quand Rockstar nommera un nouveau district après le lancement, nous ajouterons 
     primaryKeyword: "histoire gta",
     secondaryKeywords: [
       "histoire grand theft auto",
+      "tous les gta",
       "histoire vice city",
       "gta online avant gta 6",
+      "gta 6 leonida",
     ],
     sources: [ROCKSTAR_VI],
     publishedAt: "2026-09-23T13:00:00.000Z",
@@ -869,13 +892,28 @@ Quand Rockstar nommera un nouveau district après le lancement, nous ajouterons 
     ],
     eventKey: "franchise-history-leonida-2026-09",
     funnelKind: "mixed",
-    affiliateIntents: ["retro_gta", "wallet_topup", "console_upgrade"],
+    affiliateIntents: [
+      "preorder_standard",
+      "retro_gta",
+      "wallet_topup",
+      "console_upgrade",
+    ],
     mapCtaPath: "/map?game=gta5",
     faqs: [
+      {
+        question: "Quelle est la date de sortie de GTA 6 ?",
+        answer:
+          "Le 19 novembre 2026 sur PlayStation 5 et Xbox Series X|S. Le PC n’est pas dans la même phrase officielle. Préchargement attendu dès le 12 novembre 2026.",
+      },
       {
         question: "GTA 6 est-il une suite de GTA Vice City ?",
         answer:
           "Il revient à Vice City comme décor dans le nouvel État de Leonida. C’est un nouveau jeu principal, pas un remake de l’histoire 2002.",
+      },
+      {
+        question: "Quel est l’ordre de tous les GTA principaux ?",
+        answer:
+          "GTA (1997), GTA 2 (1999), GTA III (2001), Vice City (2002), San Andreas (2004), GTA IV (2008), GTA V (2013), puis GTA 6 (2026). Les spin-offs et Stories s’ajoutent à ces piliers.",
       },
       {
         question: "Pourquoi Map-6 a-t-il encore des cartes GTA 5 et Vice City ?",

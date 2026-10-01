@@ -1,48 +1,64 @@
-# Map-6 content factory
+# Map-6 factory desk
 
-Vertical shorts (1080×1920) from **our data**, not scraped Reels.
+Personal shorts tool. Not MoneyPrinter: **our data + our captures**, two human gates, official publish APIs.
 
 ```
-brief (JSON) → Remotion render → QA → queue / Ayrshare|Postiz|BrightBean
+brief → approve script → render → QA → approve render → queue (Postiz / Ayrshare)
 ```
 
-UGC is a **file + waiver** the creator sends. There is no Instagram DM scraper.
-
-## Commands (from repo root)
+## Daily use
 
 ```bash
 npm install --prefix factory
 
-npm run factory:studio          # Remotion preview
-npm run factory:brief           # 7 Leonida pins from Map-6 data
+# 1. Draft from Map-6 pins / deals / your gameplay
+npm run factory:brief -- --prompt "Vice City"
 npm run factory:brief -- --template deal
-npm run factory:brief -- --prompt "Vice City neon"
-npm run factory:brief -- --from-detect
+npm run factory:brief -- --template gameplay --prompt "chase ls"
+
+# 2. Review (CLI or localhost desk)
+npm run factory:review
+npm run factory:desk          # http://127.0.0.1:3847
+
+npm run factory:review -- --approve-script <id>
 npm run factory:render -- --brief <id>
 npm run factory:qa -- --brief <id>
+npm run factory:review -- --approve-render <id>
 npm run factory:publish -- --brief <id> --dry-run
-npm run factory:ugc -- --file ./clip.mp4 --handle name --waiver
-npm run factory:daily           # brief + render + QA + queue
 ```
 
-## Templates
+## Publishing
 
-| id | Source | Risk |
-|---|---|---|
-| `poi-countdown` | browsable POIs / hubs | lowest |
-| `deal-stack` | `preorder-products.ts` | lowest (disclose affiliate) |
-| `ugc-credit` | submitted file + `--waiver` | needs human review |
+Post for Me ($10/mo, 1000 posts): their API clients are audited, so we skip the
+TikTok audit and Meta App Review. Needs `FACTORY_PUBLIC_MEDIA_BASE` — the mp4 must
+be on a public URL before it can be sent.
 
-## Publish
+```bash
+npm run factory:publish -- --list-accounts        # ids for POSTFORME_ACCOUNT_*
+npm run factory:publish -- --brief <id> --via postforme
+npm run factory:publish -- --brief <id> --via postforme --tiktok-draft
+```
 
-Default is a **local queue** (`factory/out/publish-queue/`). Sending needs a public MP4 URL (`FACTORY_PUBLIC_MEDIA_BASE`) plus one of:
+Verify once, in a logged-out window, that the TikTok post is actually public: an
+unaudited client returns 200 and silently posts `SELF_ONLY`.
 
-- `AYRSHARE_API_KEY`
-- `POSTIZ_API_KEY` + `POSTIZ_INTEGRATION_ID`
-- `BRIGHTBEAN_API_KEY` + `BRIGHTBEAN_URL` + `BRIGHTBEAN_ACCOUNT_ID`
+`--skip-review` on `factory:daily` auto-approves both gates (for tests only).
 
-Daily caps: IG 50, TikTok 15, YouTube 100.
+## Gameplay (your files only)
 
-## Asset bank
+```bash
+npm run factory:ingest -- --file ./obs-chase.mp4 --tags gta5,chase,ls
+npm run factory:ingest -- --file ./bed-night.mp3 --kind audio --licence licensed-music --tags night
+```
 
-Drop own gameplay / licensed beds in `data/assets/` and list them in `data/assets/manifest.json` (see `manifest.example.json`). Radio GTA and third-party YouTube rips stay out.
+No YouTube rips. No trending hits. Beds = Epidemic / Artlist / YT Audio Library.
+
+## Prompting the agent
+
+Works today: *« 8 pins Vice City, approve script, render »*  
+Works after ingest: *« 10 cuts GTA5 tag chase, licensed night bed »*  
+Does not work: *« trending audio + other people’s Reels »*
+
+## Research log
+
+Edits and approvals append `factory/data/registry/review-log.jsonl` (hook before/after, optional `--seconds`).

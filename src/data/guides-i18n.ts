@@ -14,7 +14,7 @@ const FR: Record<string, LocalizedGuide> = {
   "gta-6-map-guide": {
     title: "Carte interactive GTA 6 — Guide débutant complet",
     description:
-      "Apprenez à utiliser la carte interactive Map-6 pour explorer Vice City, suivre les coordonnées et trouver chaque collectible.",
+      "Utiliser la carte interactive GTA 6 sur Map-6 : filtres, coordonnées, collectibles et vues partageables à travers Vice City et Leonida.",
     readTime: 16,
     answer:
       "Ouvrez la carte interactive Map-6, filtrez par catégorie, cliquez sur un pin pour lire son résumé et copier les coordonnées in-game, puis utilisez Share pour envoyer cette vue exacte à quelqu’un. C’est gratuit et sans compte.",

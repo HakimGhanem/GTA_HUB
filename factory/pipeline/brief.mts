@@ -17,10 +17,12 @@ import type { Location } from "../../src/data/locations.ts";
 import {
   BEAT_SEC,
   END_SEC,
+  GAMEPLAY_DEFAULT_SEC,
   HOOK_SEC,
   type DealBeat,
   type FactoryLocale,
   type FactoryTemplate,
+  type GameplayClip,
   type PoiBeat,
   type VideoBrief,
 } from "../src/schema/brief.ts";
@@ -28,9 +30,12 @@ import {
   argValue,
   DISCLAIMER,
   hasFlag,
+  loadManifest,
+  paths,
   saveBrief,
   slugify,
 } from "./_shared.mts";
+import path from "path";
 
 const TEMPLATE_ALIASES: Record<string, FactoryTemplate> = {
   poi: "poi-countdown",
@@ -39,6 +44,9 @@ const TEMPLATE_ALIASES: Record<string, FactoryTemplate> = {
   "deal-stack": "deal-stack",
   ugc: "ugc-credit",
   "ugc-credit": "ugc-credit",
+  play: "gameplay-cut",
+  gameplay: "gameplay-cut",
+  "gameplay-cut": "gameplay-cut",
 };
 
 function oneLine(text: string, max = 96): string {
@@ -129,6 +137,9 @@ function templateHook(
 ): string {
   if (template === "deal-stack") return "Street price vs RRP — before launch week";
   if (template === "ugc-credit") return "Community clip · credited";
+  if (template === "gameplay-cut") {
+    return query ? query.slice(0, 60) : "Own capture. Cut, caption, post.";
+  }
   if (query) return `${count} ${query} pins on the fan map`;
   return `${count} Leonida pins worth opening tonight`;
 }
@@ -137,7 +148,48 @@ function templateCaption(brief: Pick<VideoBrief, "hook" | "ctaUrl" | "template">
   if (brief.template === "deal-stack") {
     return `${brief.hook} Compare GTA 6 editions on Map-6. Affiliate links may earn a commission. ${brief.ctaUrl}`;
   }
+  if (brief.template === "gameplay-cut") {
+    return `${brief.hook} Own capture on Map-6. Licensed bed only. ${brief.ctaUrl}`;
+  }
   return `${brief.hook} Free GTA 6 fan map — not Rockstar. ${brief.ctaUrl}`;
+}
+
+function resolveAsset(relOrAbs: string): string {
+  return path.isAbsolute(relOrAbs)
+    ? relOrAbs
+    : path.join(paths.assets, relOrAbs);
+}
+
+function pickGameplay(query?: string, limit = 1): GameplayClip[] {
+  const own = loadManifest().clips.filter((c) => c.licence === "own");
+  const words = (query ?? "").toLowerCase().split(/\s+/).filter((w) => w.length > 2);
+  const ranked = [...own]
+    .map((c) => {
+      const hay = `${c.id} ${c.tags.join(" ")} ${c.notes ?? ""}`.toLowerCase();
+      const s = words.reduce((n, w) => n + (hay.includes(w) ? 2 : 0), 0);
+      return { c, s };
+    })
+    .sort((a, b) => b.s - a.s || a.c.id.localeCompare(b.c.id));
+  const picked = (words.length ? ranked.filter((x) => x.s > 0) : ranked)
+    .slice(0, limit)
+    .map((x) => x.c);
+  return picked.map((c) => ({
+    id: c.id,
+    path: resolveAsset(c.path),
+    durationSec: c.durationSec ?? GAMEPLAY_DEFAULT_SEC,
+    tags: c.tags,
+    label: c.id,
+  }));
+}
+
+function pickBed(query?: string): string | undefined {
+  const beds = loadManifest().audio.filter((a) => a.licence === "licensed-music");
+  if (!beds.length) return undefined;
+  const words = (query ?? "").toLowerCase().split(/\s+/);
+  const hit = beds.find((a) =>
+    words.some((w) => `${a.id} ${a.tags.join(" ")}`.toLowerCase().includes(w)),
+  );
+  return resolveAsset((hit ?? beds[0]).path);
 }
 
 async function maybeLlmHook(
@@ -205,7 +257,7 @@ async function main() {
   }
 
   const locale = (argValue("--locale") ?? "en") as FactoryLocale;
-  const limit = Number(argValue("--limit") ?? 7);
+  const limit = Number(argValue("--limit") ?? (template === "gameplay-cut" ? 1 : 7));
   const query =
     argValue("--prompt") ??
     (hasFlag("--from-detect") ? await fromDetect() : undefined);
@@ -214,8 +266,23 @@ async function main() {
     `${template}-${query ?? "daily"}-${new Date().toISOString().slice(0, 10)}`,
   );
 
-  let items: PoiBeat[] | DealBeat[];
-  if (template === "deal-stack") {
+  let items: PoiBeat[] | DealBeat[] = [];
+  let clips: GameplayClip[] | undefined;
+  let footagePath: string | undefined;
+  let bedPath: string | undefined;
+  let gameplaySec: number | undefined;
+
+  if (template === "gameplay-cut") {
+    clips = pickGameplay(query, limit);
+    if (!clips.length) {
+      throw new Error(
+        "No own gameplay in factory/data/assets/manifest.json. Run: npm run factory:ingest -- --file ./clip.mp4 --tags gta5,chase",
+      );
+    }
+    footagePath = clips[0].path;
+    gameplaySec = Math.min(clips[0].durationSec, 18);
+    bedPath = argValue("--bed") ?? pickBed(query);
+  } else if (template === "deal-stack") {
     items = dealBeats();
   } else {
     items = pickLocations(query, limit).map((loc) => toPoiBeat(loc, locale));
@@ -224,15 +291,20 @@ async function main() {
     }
   }
 
-  const names = items.map((i) => ("name" in i ? i.name : i.label));
+  const names =
+    clips?.map((c) => c.label) ??
+    items.map((i) => ("name" in i ? i.name : i.label));
   const hook =
+    argValue("--hook") ??
     (await maybeLlmHook(template, names, query)) ??
-    templateHook(template, items.length, query);
+    templateHook(template, items.length || clips?.length || 1, query);
 
   const ctaUrl =
     template === "deal-stack"
       ? `${siteUrl()}/${locale}/guides/gta-6-preorder-guide`
-      : mapUrl(locale, "slug" in items[0] ? items[0].slug : undefined);
+      : template === "gameplay-cut"
+        ? `${siteUrl()}/${locale}/maps/gta5`
+        : mapUrl(locale, "slug" in (items[0] ?? {}) ? items[0].slug : undefined);
 
   const brief: VideoBrief = {
     id: briefId,
@@ -243,9 +315,15 @@ async function main() {
     ctaLabel:
       template === "deal-stack"
         ? "Compare editions on Map-6"
-        : "Open these pins on Map-6",
+        : template === "gameplay-cut"
+          ? "More on the Map-6 GTA 5 map"
+          : "Open these pins on Map-6",
     ctaUrl,
     items,
+    footagePath,
+    bedPath,
+    clips,
+    gameplaySec,
     cues: [
       { startSec: 0, endSec: HOOK_SEC, text: hook },
       {
@@ -265,12 +343,13 @@ async function main() {
   };
   brief.caption = templateCaption(brief);
 
-  const file = saveBrief(brief);
+  const file = saveBrief(brief, { openScriptGate: true });
   console.log(`Brief ${brief.id}`);
   console.log(`  template=${brief.template} items=${brief.items.length}`);
   console.log(`  hook=${brief.hook}`);
   console.log(`  wrote ${file}`);
-  console.log(`Next: npm run factory:render -- --brief ${brief.id}`);
+  console.log(`Next: npm run factory:review -- --approve-script ${brief.id}`);
+  console.log(`  or:  npm run factory:desk`);
 }
 
 main().catch((err) => {

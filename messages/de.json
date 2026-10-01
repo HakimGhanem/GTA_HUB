@@ -6,6 +6,7 @@
     "guides": "Guides",
     "openMap": "Karte öffnen",
     "news": "News",
+    "live": "Live",
     "database": "Datenbank",
     "creators": "Creator",
     "pro": "Pro",
@@ -158,6 +159,8 @@
     "locationsDesc": "Vollständiges Verzeichnis der GTA-6-Kartenorte: Wahrzeichen, Sammelobjekte, Shops, Missionen und Geheimnisse.",
     "mapTitle": "GTA-6-Karte kostenlos — Interaktiv Vice City | Map-6",
     "mapDesc": "Kostenlose interaktive GTA-6-Karte: 1400+ POIs, Filter, Koordinaten & Messwerkzeuge für Vice City. Deep Links teilen — launchbereit.",
+    "mapH1": "GTA-6-Interaktivkarte",
+    "mapLead": "1.500+ Pins · Nur-offiziell · Koordinaten · keine Leaks",
     "collectiblesTitle": "GTA-6-Sammelobjekte — Versteckte Pakete, Stunt-Sprünge & mehr | Map-6",
     "collectiblesDesc": "Verfolge jedes GTA-6-Sammelobjekt auf der interaktiven Karte: versteckte Pakete, Stunt-Sprünge, Street Art und Wildlife-Fotospots.",
     "guidesTitle": "GTA-6-Guides — Karte, Charaktere, Vorbestellung | Map-6",
@@ -176,6 +179,7 @@
     "trailerAnalysis": "Trailer-Analyse",
     "about": "Über uns",
     "press": "Presse",
+    "contact": "Kontakt",
     "sources": "Alle Datenquellen"
   },
   "header": {
@@ -363,6 +367,20 @@
       "retro_gta": "Klassische GTA",
       "wallet_topup": "Store- & Shark-Karten"
     }
+  },
+  "hubBanner": {
+    "eyebrow": "Pre-order",
+    "title": "Pre-order GTA 6 — Vice City is waiting",
+    "sub": "November 19, 2026 on PS5 and Xbox Series X|S. US list: Standard $79.99, Ultimate $99.99.",
+    "cta": "Pre-order GTA 6",
+    "ctaMap": "Open the interactive map",
+    "navLabel": "GTA 6 hub",
+    "navPreorder": "Pre-order now",
+    "navMap": "Story & map",
+    "navHistory": "GTA history",
+    "navOnline": "GTA Online",
+    "navCards": "Shark Cards",
+    "offersTitle": "Buy now — editions, wallets, hardware"
   },
   "cookieConsent": {
     "title": "Cookies & ads",

@@ -1,16 +1,14 @@
 import React from "react";
 import { Composition } from "remotion";
 import { DealStack } from "./compositions/DealStack";
+import { GameplayCut } from "./compositions/GameplayCut";
 import { PoiCountdown } from "./compositions/PoiCountdown";
 import { UgcCredit } from "./compositions/UgcCredit";
 import {
-  BEAT_SEC,
-  END_SEC,
   FPS,
   HEIGHT,
-  HOOK_SEC,
-  UGC_BUMPER_SEC,
   WIDTH,
+  briefDurationFrames,
   type VideoBrief,
 } from "./schema/brief";
 import sampleDeal from "../fixtures/sample-deal-brief.json";
@@ -20,10 +18,7 @@ const defaultPoi = samplePoi as VideoBrief;
 const defaultDeal = sampleDeal as VideoBrief;
 
 function framesFor(brief: VideoBrief): number {
-  if (brief.template === "ugc-credit") {
-    return Math.round((UGC_BUMPER_SEC + END_SEC + 8) * FPS);
-  }
-  return Math.round((HOOK_SEC + brief.items.length * BEAT_SEC + END_SEC) * FPS);
+  return briefDurationFrames(brief);
 }
 
 export const RemotionRoot: React.FC = () => {
@@ -68,6 +63,26 @@ export const RemotionRoot: React.FC = () => {
               handle: "creator",
               waiverId: "demo",
             },
+          },
+        }}
+        calculateMetadata={({ props }) => ({
+          durationInFrames: framesFor(props.brief),
+        })}
+      />
+      <Composition
+        id="GameplayCut"
+        component={GameplayCut}
+        width={WIDTH}
+        height={HEIGHT}
+        fps={FPS}
+        durationInFrames={framesFor({ ...defaultPoi, template: "gameplay-cut" })}
+        defaultProps={{
+          brief: {
+            ...defaultPoi,
+            template: "gameplay-cut",
+            hook: "Own capture. Licensed bed. No trending hits.",
+            ctaLabel: "More pins on Map-6",
+            gameplaySec: 12,
           },
         }}
         calculateMetadata={({ props }) => ({

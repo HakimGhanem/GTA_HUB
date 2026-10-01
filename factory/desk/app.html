@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Map-6 factory desk</title>
+  <style>
+    :root { color-scheme: dark; --bg:#07090f; --ink:#f3efe6; --mute:#8b93a7; --pink:#ec4899; --cyan:#22d3ee; --line:#1c2436; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 15px/1.45 ui-sans-serif, system-ui, sans-serif; background: var(--bg); color: var(--ink); }
+    header { padding: 22px 28px 10px; display: flex; justify-content: space-between; align-items: baseline; }
+    header b { letter-spacing: .18em; color: var(--pink); font-size: 12px; }
+    header span { color: var(--mute); font-size: 13px; }
+    main { display: grid; grid-template-columns: 320px 1fr; min-height: calc(100vh - 70px); }
+    nav { border-right: 1px solid var(--line); padding: 8px; }
+    .job { width: 100%; text-align: left; background: transparent; color: inherit; border: 0; border-radius: 12px; padding: 12px; cursor: pointer; }
+    .job:hover, .job.on { background: #121826; }
+    .st { font-size: 11px; letter-spacing: .08em; color: var(--cyan); }
+    article { padding: 20px 28px 40px; }
+    h1 { font-size: 28px; margin: 0 0 8px; }
+    textarea { width: 100%; min-height: 70px; background: #10151f; color: var(--ink); border: 1px solid var(--line); border-radius: 10px; padding: 10px; font: inherit; }
+    .row { display: flex; gap: 8px; flex-wrap: wrap; margin: 14px 0; }
+    button.act { border: 0; border-radius: 999px; padding: 10px 16px; font-weight: 700; cursor: pointer; }
+    .ok { background: var(--pink); color: #fff; }
+    .go { background: var(--cyan); color: #062026; }
+    .no { background: #3f1d2e; color: #ffb4d0; }
+    video { width: min(360px, 100%); border-radius: 16px; background: #000; }
+    pre { white-space: pre-wrap; color: var(--mute); font-size: 13px; }
+    .empty { padding: 40px; color: var(--mute); }
+  </style>
+</head>
+<body>
+  <header>
+    <b>MAP-6 DESK</b>
+    <span>localhost only · script gate → render gate → queue</span>
+  </header>
+  <main>
+    <nav id="list"></nav>
+    <article id="pane" class="empty">Pick a job.</article>
+  </main>
+  <script>
+    const started = Date.now();
+    let jobs = [];
+    let current = null;
+
+    const $ = (id) => document.getElementById(id);
+    const seconds = () => Math.round((Date.now() - started) / 1000);
+
+    async function api(url, opts) {
+      const res = await fetch(url, opts);
+      const data = await res.json().catch(() => ({}));
+      if (!res.ok) throw new Error(data.error || res.statusText);
+      return data;
+    }
+
+    async function refresh(selectId) {
+      jobs = (await api("/api/queue")).jobs;
+      $("list").innerHTML = jobs.length
+        ? jobs.map((j) => `<button class="job ${j.id === current ? "on" : ""}" data-id="${j.id}">
+            <div class="st">${j.status}</div>
+            <div>${j.hook}</div>
+          </button>`).join("")
+        : `<div class="empty">Queue empty. Run factory:brief</div>`;
+      $("list").querySelectorAll(".job").forEach((btn) => {
+        btn.onclick = () => show(btn.dataset.id);
+      });
+      if (selectId) show(selectId);
+    }
+
+    function show(id) {
+      current = id;
+      const j = jobs.find((x) => x.id === id);
+      if (!j) return;
+      $("list").querySelectorAll(".job").forEach((b) => b.classList.toggle("on", b.dataset.id === id));
+      const video = j.hasVideo
+        ? `<video controls src="/media/${encodeURIComponent(j.id)}.mp4"></video>`
+        : `<p class="empty">No render yet.</p>`;
+      $("pane").className = "";
+      $("pane").innerHTML = `
+        <div class="st">${j.template} · ${j.id}</div>
+        <h1>${j.hook}</h1>
+        <p>${j.caption}</p>
+        <label>Hook / caption edit</label>
+        <textarea id="hook">${j.hook}</textarea>
+        <div class="row">
+          <button class="act go" id="save">Save hook</button>
+          <button class="act ok" id="as">Approve script</button>
+          <button class="act go" id="render">Render + QA</button>
+          <button class="act ok" id="ar">Approve render</button>
+          <button class="act no" id="rs">Reject script</button>
+          <button class="act no" id="rr">Reject render</button>
+          <button class="act go" id="q">Queue publish</button>
+        </div>
+        ${video}
+        <pre>${(j.qaIssues || []).join("\n") || "No QA issues."}</pre>
+      `;
+      $("save").onclick = () => act("hook", { text: $("hook").value });
+      $("as").onclick = () => act("approve-script");
+      $("ar").onclick = () => act("approve-render");
+      $("rs").onclick = () => act("reject", { gate: "script" });
+      $("rr").onclick = () => act("reject", { gate: "render" });
+      $("render").onclick = () => act("render");
+      $("q").onclick = () => act("queue");
+    }
+
+    async function act(kind, extra = {}) {
+      try {
+        await api("/api/action", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ id: current, kind, seconds: seconds(), ...extra }),
+        });
+        await refresh(current);
+      } catch (err) {
+        alert(err.message);
+      }
+    }
+
+    refresh();
+  </script>
+</body>
+</html>

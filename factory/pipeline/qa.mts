@@ -118,7 +118,11 @@ function main() {
     briefId: brief.id,
     eventKey: brief.eventKey,
     template: brief.template,
-    status: issues.length ? "qa_failed" : "qa_passed",
+    status: issues.length ? "qa_failed" : "awaiting_render",
+    editCount: existing?.editCount ?? 0,
+    reviewer: existing?.reviewer,
+    scriptApprovedAt: existing?.scriptApprovedAt,
+    renderApprovedAt: existing?.renderApprovedAt,
     outputPath: existsSync(outFile) ? outFile : existing?.outputPath,
     sha256: hash,
     durationSec: probe.duration,
@@ -141,7 +145,7 @@ function main() {
     console.log(`  ${probe.width}×${probe.height} ${probe.duration.toFixed(2)}s`);
   }
   if (hash) console.log(`  sha256 ${hash.slice(0, 12)}…`);
-  console.log(`Next: npm run factory:publish -- --brief ${brief.id} --dry-run`);
+  console.log(`Next: npm run factory:review -- --approve-render ${brief.id}`);
 }
 
 main();

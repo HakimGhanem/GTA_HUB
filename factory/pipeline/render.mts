@@ -8,14 +8,17 @@
 import { spawnSync } from "child_process";
 import { existsSync } from "fs";
 import path from "path";
+import { canRender } from "../src/schema/job.ts";
 import { COMPOSITION_IDS } from "../src/schema/brief.ts";
 import {
   argValue,
   ensureDirs,
   factoryRoot,
+  getJob,
+  hasFlag,
   loadBrief,
+  patchJob,
   paths,
-  upsertJob,
   writeJson,
 } from "./_shared.mts";
 
@@ -24,6 +27,12 @@ function main() {
   if (!id) throw new Error("Usage: factory:render -- --brief <id>");
   ensureDirs();
   const brief = loadBrief(id);
+  const job = getJob(brief.id);
+  if (!hasFlag("--force") && (!job || !canRender(job.status))) {
+    throw new Error(
+      `Script gate: approve first (npm run factory:review -- --approve-script ${brief.id}) or pass --force`,
+    );
+  }
   const composition = COMPOSITION_IDS[brief.template];
   const propsPath = path.join(paths.briefs, `${brief.id}.props.json`);
   const outFile = path.join(paths.out, `${brief.id}.mp4`);
@@ -55,18 +64,11 @@ function main() {
     process.exit(result.status ?? 1);
   }
 
-  upsertJob({
-    id: brief.id,
-    briefId: brief.id,
-    eventKey: brief.eventKey,
-    template: brief.template,
-    status: "rendered",
-    outputPath: outFile,
-    qaIssues: [],
-    platforms: ["instagram", "tiktok", "youtube"],
-    createdAt: brief.createdAt,
-    updatedAt: new Date().toISOString(),
-  });
+  if (getJob(brief.id)) {
+    patchJob(brief.id, { status: "rendered", outputPath: outFile });
+  } else {
+    throw new Error("Job missing after brief. Re-run factory:brief.");
+  }
 
   console.log(`Rendered ${outFile}`);
   console.log(`Next: npm run factory:qa -- --brief ${brief.id}`);

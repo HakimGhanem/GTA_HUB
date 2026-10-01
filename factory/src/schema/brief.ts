@@ -4,6 +4,7 @@ export const FACTORY_TEMPLATES = [
   "poi-countdown",
   "deal-stack",
   "ugc-credit",
+  "gameplay-cut",
 ] as const;
 
 export type FactoryTemplate = (typeof FACTORY_TEMPLATES)[number];
@@ -43,6 +44,14 @@ export type DealBeat = {
   note: string;
 };
 
+export type GameplayClip = {
+  id: string;
+  path: string;
+  durationSec: number;
+  tags: string[];
+  label: string;
+};
+
 export type UgcCredit = {
   handle: string;
   sourceUrl?: string;
@@ -63,6 +72,10 @@ export type VideoBrief = {
   credit?: UgcCredit;
   voiceoverPath?: string;
   footagePath?: string;
+  /** Licensed bed only — never a trending hit. */
+  bedPath?: string;
+  clips?: GameplayClip[];
+  gameplaySec?: number;
   createdAt: string;
   source: BriefSource;
   eventKey: string;
@@ -73,6 +86,7 @@ export const COMPOSITION_IDS: Record<FactoryTemplate, string> = {
   "poi-countdown": "PoiCountdown",
   "deal-stack": "DealStack",
   "ugc-credit": "UgcCredit",
+  "gameplay-cut": "GameplayCut",
 };
 
 export const FPS = 30;
@@ -83,6 +97,7 @@ export const HOOK_SEC = 1.6;
 export const BEAT_SEC = 1.85;
 export const END_SEC = 2.6;
 export const UGC_BUMPER_SEC = 2.4;
+export const GAMEPLAY_DEFAULT_SEC = 12;
 
 export function isPoiBeat(item: PoiBeat | DealBeat): item is PoiBeat {
   return "slug" in item;
@@ -91,6 +106,9 @@ export function isPoiBeat(item: PoiBeat | DealBeat): item is PoiBeat {
 export function briefDurationSec(brief: VideoBrief): number {
   if (brief.template === "ugc-credit") {
     return UGC_BUMPER_SEC + END_SEC + 8;
+  }
+  if (brief.template === "gameplay-cut") {
+    return (brief.gameplaySec ?? GAMEPLAY_DEFAULT_SEC) + END_SEC;
   }
   return HOOK_SEC + brief.items.length * BEAT_SEC + END_SEC;
 }

@@ -1,9 +1,22 @@
 import { createHash } from "crypto";
 import { config as loadEnv } from "dotenv";
-import { mkdirSync, readFileSync, writeFileSync, existsSync } from "fs";
+import {
+  appendFileSync,
+  mkdirSync,
+  readFileSync,
+  writeFileSync,
+  existsSync,
+} from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
-import type { FactoryJob, DailyQuota, PublishPlatform } from "../src/schema/job.ts";
+import type { MediaAsset } from "../src/schema/asset.ts";
+import type {
+  FactoryJob,
+  DailyQuota,
+  PublishPlatform,
+  ReviewEvent,
+} from "../src/schema/job.ts";
+import { normalizeStatus } from "../src/schema/job.ts";
 import type { VideoBrief } from "../src/schema/brief.ts";
 import type { UgcSubmission } from "../src/schema/ugc.ts";
 
@@ -68,9 +81,49 @@ function quotaPath() {
   return path.join(paths.registry, "quota.json");
 }
 
+type AssetManifest = {
+  clips: MediaAsset[];
+  audio: MediaAsset[];
+};
+
 export function loadJobs(): FactoryJob[] {
   if (!existsSync(jobsPath())) return [];
-  return readJson<FactoryJob[]>(jobsPath());
+  return readJson<FactoryJob[]>(jobsPath()).map((j) => ({
+    editCount: 0,
+    ...j,
+    status: normalizeStatus(j.status),
+  }));
+}
+
+export function getJob(id: string): FactoryJob | undefined {
+  return loadJobs().find((j) => j.id === id);
+}
+
+export function patchJob(id: string, patch: Partial<FactoryJob>): FactoryJob {
+  const existing = getJob(id);
+  if (!existing) throw new Error(`Job not found: ${id}`);
+  const next = { ...existing, ...patch, id, updatedAt: new Date().toISOString() };
+  upsertJob(next);
+  return next;
+}
+
+export function appendReview(event: ReviewEvent) {
+  ensureDirs();
+  appendFileSync(
+    path.join(paths.registry, "review-log.jsonl"),
+    `${JSON.stringify(event)}\n`,
+  );
+}
+
+export function loadManifest(): AssetManifest {
+  const file = path.join(paths.assets, "manifest.json");
+  if (!existsSync(file)) return { clips: [], audio: [] };
+  const raw = readJson<Partial<AssetManifest>>(file);
+  return { clips: raw.clips ?? [], audio: raw.audio ?? [] };
+}
+
+export function saveManifest(manifest: AssetManifest) {
+  writeJson(path.join(paths.assets, "manifest.json"), manifest);
 }
 
 export function saveJobs(jobs: FactoryJob[]) {
@@ -105,11 +158,29 @@ export function bumpQuota(platforms: PublishPlatform[]) {
   saveQuota(q);
 }
 
-export function saveBrief(brief: VideoBrief): string {
+export function saveBrief(
+  brief: VideoBrief,
+  opts: { openScriptGate?: boolean } = {},
+): string {
   ensureDirs();
   const file = path.join(paths.briefs, `${brief.id}.json`);
   writeJson(file, brief);
   writeJson(path.join(paths.briefs, "latest.json"), { id: brief.id, file });
+  const existing = getJob(brief.id);
+  if (!existing || opts.openScriptGate) {
+    upsertJob({
+      id: brief.id,
+      briefId: brief.id,
+      eventKey: brief.eventKey,
+      template: brief.template,
+      status: "awaiting_script",
+      qaIssues: [],
+      platforms: existing?.platforms ?? ["instagram", "tiktok", "youtube"],
+      editCount: existing?.editCount ?? 0,
+      createdAt: existing?.createdAt ?? brief.createdAt,
+      updatedAt: new Date().toISOString(),
+    });
+  }
   return file;
 }
 

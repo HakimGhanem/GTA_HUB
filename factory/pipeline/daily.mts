@@ -1,9 +1,7 @@
 #!/usr/bin/env npx tsx
 /**
- * One factory cycle: brief → render → QA → queue (no send unless --publish).
- *
- *   npm run factory:daily
- *   npm run factory:daily -- --template deal --publish --via ayrshare
+ * Default: brief only, then human gates.
+ * --skip-review : old auto path (render + QA + queue). Never sends unless --publish.
  */
 import { spawnSync } from "child_process";
 import path from "path";
@@ -33,9 +31,18 @@ function main() {
 
   run("brief.mts", briefArgs);
   const id = loadLatestBriefId();
+
+  if (!hasFlag("--skip-review")) {
+    console.log(`Stopped at script gate: ${id}`);
+    console.log("  npm run factory:review");
+    console.log("  npm run factory:desk");
+    return;
+  }
+
+  run("review.mts", ["--approve-script", id, "--notes", "skip-review"]);
   run("render.mts", ["--brief", id]);
   run("qa.mts", ["--brief", id]);
-
+  run("review.mts", ["--approve-render", id, "--notes", "skip-review"]);
   const publishArgs = ["--brief", id, "--via", via];
   if (!hasFlag("--publish")) publishArgs.push("--dry-run");
   run("publish.mts", publishArgs);

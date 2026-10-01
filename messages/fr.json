@@ -6,18 +6,19 @@
     "guides": "Guides",
     "openMap": "Ouvrir la carte",
     "news": "Actus",
+    "live": "Live",
     "database": "Base",
     "creators": "Créateurs",
     "pro": "Pro",
     "gta5": "Carte GTA 5"
   },
   "home": {
-    "title": "Carte interactive GTA 6 gratuite",
-    "heroLine": "Pins confirmés vs communauté. Timestamps sur images officielles. Pas de carte leak.",
+    "title": "Carte interactive GTA 6",
+    "heroLine": "Parcourez Leonida — 1 500+ pins, filtre official-only, timestamps trailers. Pas de carte leak.",
     "trustPoi": "1 500+ POI",
     "trustOfficial": "Filtre official-only",
     "trustNoLeak": "Pas de leak map",
-    "subtitle": "1400+ POIs à travers Vice City et Leonida — filtrez les collectibles, partagez des pins, suivez les coords. Carte GTA 6 gratuite pour le lancement, avec guides qui séparent géographie confirmée et rumeurs.",
+    "subtitle": "La carte interactive GTA 6 pour Vice City et Leonida : filtrez les collectibles, copiez les coordonnées, mesurez, partagez un deep link. La géographie trailer est étiquetée ; les pins communauté restent optionnels. Pour le lancement du 19 nov. 2026.",
     "ctaMap": "Ouvrir la carte interactive",
     "ctaSetup": "Guide setup lancement",
     "ctaMapGuide": "Guide carte GTA 6",
@@ -36,8 +37,8 @@
     "gta5CardTitle": "Carte interactive GTA 5",
     "gta5CardDesc": "Collectibles Los Santos et tracker local illimité en attendant Leonida.",
     "faq": {
-      "q1": "Qu'est-ce que Map-6 ?",
-      "a1": "Map-6 est une carte interactive gratuite pour GTA 6, incluant Vice City et ses environs, avec POI, collectibles, coordonnées et recherche.",
+      "q1": "Qu’est-ce que la carte interactive GTA 6 Map-6 ?",
+      "a1": "Map-6 est une carte interactive GTA 6 gratuite et un site éditorial pour Leonida / Vice City. Outils MapLibre — filtres, coordonnées, mesure, liens partageables — plus guides de lieux, collectibles et actus sourcées. Projet fan, sans lien avec Rockstar ou Take-Two.",
       "q2": "Comment trouver les collectibles sur la carte GTA 6 ?",
       "a2": "Ouvrez la carte interactive, filtrez par catégorie Collectibles, ou parcourez /collectibles pour les pages par catégorie avec liens vers la carte.",
       "q3": "Les tuiles cartographiques sont-elles officielles ?",
@@ -49,8 +50,8 @@
     },
     "newsTitle": "Dernières actus",
     "newsAll": "Toutes les actus →",
-    "introTitle": "Pourquoi Map-6 existe",
-    "introBody": "Map-6 est une carte interactive GTA 6 gratuite et un hub de guides pour Leonida : Vice City, Ocean Drive, Grassrivers, Port Gellhorn, les Keys, et plus. Filtrez landmarks et collectibles, copiez les coordonnées, mesurez, partagez des liens. Les guides et actus donnent du contexte — nous étiquetons la spéculation et n'inventons pas de fuites. Tuiles communautaires GTADB (CC BY 4.0) le cas échéant.",
+    "introTitle": "Une vraie carte interactive, pas une affiche à six régions",
+    "introBody": "La plupart des pages « carte GTA 6 » citent Vice City, les Keys, Grassrivers, Port Gellhorn, Ambrosia et Mount Kalaga — puis s’arrêtent. Map-6 est une carte interactive GTA 6 à parcourir et filtrer : 1 500+ points sur ces hubs, Ocean Drive et les routes entre eux. Passez en official-only pour cacher les paris communauté. Copiez les coordonnées, mesurez, partagez la vue exacte. Guides régionaux et actus sourcées à côté des pins. Pas de cartes leak. Tuiles GTADB en CC BY 4.0 le cas échéant.",
     "hub": {
       "navLabel": "Hub GTA 6",
       "preorder": "Précommande",
@@ -152,12 +153,14 @@
   },
   "meta": {
     "siteName": "Map-6",
-    "homeTitle": "Carte GTA 6 gratuite — Interactive | Map-6",
-    "homeDesc": "Carte GTA 6 gratuite avec 1400+ POI — Vice City, collectibles, monuments et secrets. Filtrez, mesurez, partagez. MAJ pour le lancement nov. 2026.",
+    "homeTitle": "Carte interactive GTA 6 — Vice City & Leonida | Map-6",
+    "homeDesc": "Carte interactive GTA 6 de Leonida : 1 500+ POI, filtre official-only, coordonnées, mesure, pins partageables. Vice City à Mount Kalaga — pas de leak. MAJ 19 nov. 2026.",
     "locationsTitle": "Lieux GTA 6 — Vice City & Floride | Map-6",
     "locationsDesc": "Répertoire complet des lieux de GTA 6 : monuments, collectibles, boutiques, missions et secrets.",
-    "mapTitle": "Carte GTA 6 gratuite — Interactive Vice City | Map-6",
-    "mapDesc": "Carte GTA 6 interactive gratuite : 1400+ POI, filtres, coordonnées et mesure pour Vice City. Liens partageables — MAJ lancement.",
+    "mapTitle": "Carte interactive GTA 6 — Leonida plein écran | Map-6",
+    "mapDesc": "Ouvrez la carte interactive GTA 6 en plein écran : 1 500+ pins officiels et communauté, filtres, coordonnées et mesure pour Vice City et Leonida. Partagez la vue exacte.",
+    "mapH1": "Carte interactive GTA 6",
+    "mapLead": "1 500+ pins · filtre official-only · coordonnées · pas de leak",
     "collectiblesTitle": "Collectibles GTA 6 — Paquets cachés, sauts acrobatiques & plus | Map-6",
     "collectiblesDesc": "Suivez chaque collectible GTA 6 sur la carte interactive : paquets cachés, sauts acrobatiques, street art et spots photo faune.",
     "guidesTitle": "Guides GTA 6 — Carte, personnages, précommande | Map-6",
@@ -176,6 +179,7 @@
     "trailerAnalysis": "Analyse des trailers",
     "about": "À propos",
     "press": "Presse",
+    "contact": "Contact",
     "sources": "Toutes les sources"
   },
   "header": {
@@ -363,6 +367,20 @@
       "retro_gta": "GTA classiques",
       "wallet_topup": "Cartes store & Shark"
     }
+  },
+  "hubBanner": {
+    "eyebrow": "Précommande",
+    "title": "Précommandez GTA 6 — Vice City vous attend",
+    "sub": "19 novembre 2026 sur PS5 et Xbox Series X|S. Prix US : Standard 79,99 $, Ultimate 99,99 $. Verrouillez une fiche magasin, puis ouvrez la carte interactive GTA 6 pour que la semaine de lancement soit de la navigation — pas un atlas vide.",
+    "cta": "Précommander GTA 6",
+    "ctaMap": "Ouvrir la carte interactive",
+    "navLabel": "Hub GTA 6",
+    "navPreorder": "Précommander",
+    "navMap": "Histoire & carte",
+    "navHistory": "Histoire de GTA",
+    "navOnline": "GTA Online",
+    "navCards": "Shark Cards",
+    "offersTitle": "Acheter — éditions, portefeuilles, matériel"
   },
   "cookieConsent": {
     "title": "Cookies et publicités",

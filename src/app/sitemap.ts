@@ -83,6 +83,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/news",
     "/about",
     "/press",
+    "/contact",
     "/privacy",
   ];
 
@@ -92,7 +93,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    * sitemap and canonicalise to `/en` until the copy is translated.
    * /database stays noindex (thin). /pro is English-only checkout copy.
    */
-  const englishOnlyPaths = ["/maps/gta5", "/creators", "/pro"];
+  const englishOnlyPaths = ["/maps/gta5", "/creators", "/pro", "/live"];
 
   const staticPages = staticPaths.flatMap((path) =>
     localizedEntries(path, {
@@ -100,7 +101,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency:
         path === "" || path === "/map" || path === "/news"
           ? "daily"
-          : path === "/privacy" || path === "/about" || path === "/press"
+          : path === "/privacy" ||
+              path === "/about" ||
+              path === "/press" ||
+              path === "/contact"
             ? "monthly"
             : path === "/collectibles" || path === "/guides"
               ? "weekly"
@@ -110,7 +114,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           ? 1
           : path === "/map"
             ? 0.95
-            : path === "/privacy" || path === "/about"
+            : path === "/privacy" || path === "/about" || path === "/contact"
               ? 0.35
               : path === "/press"
                 ? 0.55

@@ -5,7 +5,9 @@ out/publish-queue/
 data/briefs/*.json
 !data/briefs/.gitkeep
 data/registry/*.json
+data/registry/*.jsonl
 !data/registry/.gitkeep
+data/assets/manifest.json
 data/ugc/*
 !data/ugc/.gitkeep
 data/assets/clips/*

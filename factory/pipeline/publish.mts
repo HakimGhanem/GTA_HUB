@@ -1,13 +1,19 @@
 #!/usr/bin/env npx tsx
 /**
- * Queue or send a QA-passed render. Official APIs only (Ayrshare / Postiz / BrightBean).
- * Local files are queued unless FACTORY_PUBLIC_MEDIA_BASE is set.
+ * Queue or send a QA-passed render. Official APIs only (Post for Me / Ayrshare /
+ * Postiz / BrightBean). Local files are queued unless FACTORY_PUBLIC_MEDIA_BASE is set.
  *
  *   npm run factory:publish -- --brief <id> --dry-run
- *   npm run factory:publish -- --brief <id> --via ayrshare
+ *   npm run factory:publish -- --brief <id> --via postforme
+ *   npm run factory:publish -- --list-accounts
  */
 import path from "path";
-import { PLATFORM_DAILY_CAPS, type PublishPlatform } from "../src/schema/job.ts";
+import type { VideoBrief } from "../src/schema/brief.ts";
+import {
+  PLATFORM_DAILY_CAPS,
+  canPublish,
+  type PublishPlatform,
+} from "../src/schema/job.ts";
 import {
   argValue,
   bumpQuota,
@@ -21,7 +27,14 @@ import {
   writeJson,
 } from "./_shared.mts";
 
-type Via = "ayrshare" | "postiz" | "brightbean" | "queue";
+type Via = "postforme" | "ayrshare" | "postiz" | "brightbean" | "queue";
+
+/** One connected account per platform, from GET /v1/social-accounts. */
+const POSTFORME_ACCOUNT_ENV: Record<PublishPlatform, string> = {
+  instagram: "POSTFORME_ACCOUNT_INSTAGRAM",
+  tiktok: "POSTFORME_ACCOUNT_TIKTOK",
+  youtube: "POSTFORME_ACCOUNT_YOUTUBE",
+};
 
 function platforms(): PublishPlatform[] {
   const raw = argValue("--platforms");
@@ -33,6 +46,76 @@ function publicMediaUrl(filename: string): string | undefined {
   const base = process.env.FACTORY_PUBLIC_MEDIA_BASE?.replace(/\/$/, "");
   if (!base) return undefined;
   return `${base}/${filename}`;
+}
+
+function postformeBase(): string {
+  return (process.env.POSTFORME_URL ?? "https://api.postforme.dev/v1").replace(
+    /\/$/,
+    "",
+  );
+}
+
+function postformeKey(): string {
+  const key = process.env.POSTFORME_API_KEY;
+  if (!key) throw new Error("POSTFORME_API_KEY missing");
+  return key;
+}
+
+async function listPostformeAccounts() {
+  const res = await fetch(`${postformeBase()}/social-accounts`, {
+    headers: { Authorization: `Bearer ${postformeKey()}` },
+  });
+  const body = await res.text();
+  if (!res.ok) throw new Error(`Post for Me ${res.status}: ${body}`);
+  console.log(body);
+  console.log(
+    `\nPut each id in .env.local as ${Object.values(POSTFORME_ACCOUNT_ENV).join(" / ")}`,
+  );
+}
+
+async function publishPostforme(
+  brief: VideoBrief,
+  mediaUrl: string,
+  plats: PublishPlatform[],
+) {
+  const accounts = plats.map((p) => {
+    const env = POSTFORME_ACCOUNT_ENV[p];
+    const id = process.env[env];
+    if (!id) throw new Error(`${env} missing — run factory:publish -- --list-accounts`);
+    return id;
+  });
+
+  // TikTok drafts land in the app inbox and need a manual publish.
+  const tiktokDraft = hasFlag("--tiktok-draft");
+  const configs: Record<string, unknown> = {};
+  if (plats.includes("instagram")) configs.instagram = { placement: "reels" };
+  if (plats.includes("tiktok")) {
+    configs.tiktok = {
+      privacy_status: tiktokDraft ? "private" : "public",
+      is_draft: tiktokDraft,
+    };
+  }
+  if (plats.includes("youtube")) {
+    configs.youtube = { title: brief.hook, privacy_status: "public" };
+  }
+
+  const res = await fetch(`${postformeBase()}/social-posts`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${postformeKey()}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      caption: brief.caption,
+      external_id: brief.id,
+      media: [{ url: mediaUrl }],
+      social_accounts: accounts,
+      platform_configurations: configs,
+    }),
+  });
+  const body = await res.text();
+  if (!res.ok) throw new Error(`Post for Me ${res.status}: ${body}`);
+  return body;
 }
 
 async function publishAyrshare(caption: string, mediaUrl: string, plats: string[]) {
@@ -110,13 +193,19 @@ async function publishBrightbean(caption: string, mediaUrl: string) {
 }
 
 async function main() {
+  if (hasFlag("--list-accounts")) {
+    await listPostformeAccounts();
+    return;
+  }
   const id = argValue("--brief");
   if (!id) throw new Error("Usage: factory:publish -- --brief <id>");
   ensureDirs();
   const brief = loadBrief(id);
   const job = loadJobs().find((j) => j.id === brief.id);
-  if (!job || job.status !== "qa_passed") {
-    throw new Error("QA must pass before publish. Run factory:qa.");
+  if (!job || (!canPublish(job.status) && !hasFlag("--force"))) {
+    throw new Error(
+      "Render gate: approve first (factory:review --approve-render) or pass --force",
+    );
   }
   if (!job.outputPath) throw new Error("Job has no outputPath");
 
@@ -150,7 +239,7 @@ async function main() {
     console.log(`Queued ${queueFile}`);
     if (!mediaUrl) {
       console.log(
-        "No FACTORY_PUBLIC_MEDIA_BASE — upload the mp4, then rerun with --via ayrshare|postiz|brightbean",
+        "No FACTORY_PUBLIC_MEDIA_BASE — upload the mp4, then rerun with --via postforme|ayrshare|postiz|brightbean",
       );
     }
     upsertJob({
@@ -165,7 +254,9 @@ async function main() {
   if (!mediaUrl) throw new Error("FACTORY_PUBLIC_MEDIA_BASE required to send");
 
   let receipt = "";
-  if (via === "ayrshare") {
+  if (via === "postforme") {
+    receipt = await publishPostforme(brief, mediaUrl, plats);
+  } else if (via === "ayrshare") {
     receipt = await publishAyrshare(brief.caption, mediaUrl, plats);
   } else if (via === "postiz") {
     receipt = await publishPostiz(brief.caption, mediaUrl);

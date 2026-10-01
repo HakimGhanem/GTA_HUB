@@ -165,7 +165,7 @@ export const GUIDES: Guide[] = [
     slug: "gta-6-map-guide",
     title: "GTA 6 Interactive Map — Complete Beginner's Guide",
     description:
-      "Learn how to use the Map-6 interactive map to explore Vice City, track coordinates, and find every collectible.",
+      "How to use the GTA 6 interactive map on Map-6: filters, coordinates, collectibles, and shareable views across Vice City and Leonida.",
     answer:
       "Open the Map-6 interactive map, filter by category, click a pin to read its summary and copy the in-game coordinates, then use Share to send that exact view to someone else. It is free and needs no account.",
     category: "beginner",

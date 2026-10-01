@@ -7,6 +7,7 @@ import { ArticleHero } from "@/components/news/ArticleHero";
 import { AuthorBlock } from "@/components/news/AuthorBlock";
 import { ThinContentWarning } from "@/components/news/ThinContentWarning";
 import { AffiliateProductGrid } from "@/components/affiliate/AffiliateProductGrid";
+import { HubConversionBanner } from "@/components/home/HubConversionBanner";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
@@ -164,8 +165,11 @@ export default async function NewsArticlePage({ params }: Props) {
         <ArticleHero title={article.title} src={heroSrc} />
 
         <ConversionStrip variant="page" />
+        <div className="mt-6">
+          <HubConversionBanner compact />
+        </div>
         {showAffiliate ? (
-          <div className="mt-2">
+          <div id="cards" className="mt-2">
             <AffiliateProductGrid
               intents={affiliateIntents.slice(0, 4)}
               liveOnly
