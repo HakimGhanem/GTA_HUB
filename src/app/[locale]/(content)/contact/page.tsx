@@ -147,7 +147,7 @@ export default async function ContactPage({ params }: Props) {
       <p className="mb-2 text-sm font-medium uppercase tracking-widest text-cyan-300">
         {copy.kicker}
       </p>
-      <h1 className="mb-4 text-3xl font-bold">{copy.title}</h1>
+      <h1 className="mb-4 text-3xl font-bold">{copy.heading}</h1>
       <p className="text-foreground/70">{copy.lead}</p>
 
       <section className="mt-10">

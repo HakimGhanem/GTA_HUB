@@ -4,6 +4,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { Link } from "@/i18n/navigation";
 import { SITE } from "@/lib/constants";
 import { buildMetadata, jsonLdFAQ } from "@/lib/seo";
+import { isTwitchConfigured } from "@/lib/twitch/client";
 import {
   getLiveDirectorySafe,
   LIVE_CATEGORIES,
@@ -11,9 +12,6 @@ import {
 import { TWITCH_PRECONNECT } from "@/lib/twitch/embed";
 
 type Props = { params: Promise<{ locale: string }> };
-
-/** Prerendered and refreshed every minute, so the HTML stays edge-cacheable. */
-export const revalidate = 60;
 
 const FAQ = [
   {
@@ -53,6 +51,11 @@ export async function generateMetadata({ params }: Props) {
     // English copy only — the other locales would be duplicates of /en.
     canonicalLocale: "en",
     hreflangLocales: ["en"],
+    // The page is in the sitemap, so without Twitch credentials Google would
+    // crawl a directory with nothing in it.
+    robots: isTwitchConfigured()
+      ? { index: true, follow: true }
+      : { index: false, follow: true },
   });
 }
 

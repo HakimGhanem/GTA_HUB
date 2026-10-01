@@ -38,7 +38,12 @@ export function LiveCard({ stream, bust, active, deepLink, onSelect }: Props) {
         <span className="absolute left-2 top-2 flex items-center gap-1 rounded-full bg-red-600 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-white">
           Live
         </span>
-        <span className="absolute right-2 top-2 rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-semibold text-white">
+        {/* Uptime is derived from the clock, so server and client can land a
+            minute apart on the same payload. */}
+        <span
+          suppressHydrationWarning
+          className="absolute right-2 top-2 rounded-full bg-black/70 px-2 py-0.5 text-[10px] font-semibold text-white"
+        >
           {formatNumber(stream.viewers)} · {uptime(stream.startedAt)}
         </span>
       </span>
