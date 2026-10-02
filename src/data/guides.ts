@@ -26,7 +26,7 @@ export type Guide = {
   comparison?: GuideComparison;
 };
 
-export const GUIDES: Guide[] = [
+const ALL_GUIDES: Guide[] = [
   {
     slug: "gta-6-preorder-guide",
     title: "GTA 6 Pre-Order Guide — PS5, Xbox, Standard & Ultimate",
@@ -529,6 +529,15 @@ export const GUIDES: Guide[] = [
   },
   ...COMPETITIVE_GUIDES,
 ];
+
+/**
+ * `gta-6-ps5-vs-xbox` is defined in both lists. `getGuideBySlug` already resolves
+ * to the first one, so dedupe at the source — otherwise the sitemap, llms.txt and
+ * the guide index each list the slug twice.
+ */
+export const GUIDES: Guide[] = ALL_GUIDES.filter(
+  (guide, index) => ALL_GUIDES.findIndex((g) => g.slug === guide.slug) === index,
+);
 
 export function getGuideBySlug(slug: string) {
   return GUIDES.find((g) => g.slug === slug);
