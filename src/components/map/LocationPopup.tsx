@@ -101,6 +101,26 @@ export function LocationPopup({
           y: location.y,
         })}
       </p>
+      {location.realWorld && (
+        <div className="mt-2 rounded border border-gray-200 bg-gray-50 px-2 py-1.5">
+          <span className="text-[10px] font-medium uppercase tracking-wide text-gray-500">
+            {t("map.popup.realWorldLabel")}
+          </span>
+          <p className="mt-0.5 text-[11px] leading-snug text-gray-700">
+            {location.realWorld.address}
+          </p>
+          {location.realWorld.lat != null && location.realWorld.lng != null && (
+            <a
+              href={`https://www.openstreetmap.org/?mlat=${location.realWorld.lat}&mlon=${location.realWorld.lng}#map=18/${location.realWorld.lat}/${location.realWorld.lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-1 inline-block text-[11px] font-medium text-pink-600 hover:text-pink-500"
+            >
+              {t("map.popup.realWorldView")}
+            </a>
+          )}
+        </div>
+      )}
       {(trailerHits.length > 0 || location.sourceUrl) && (
         <ul className="mt-2 space-y-1">
           {trailerHits.map((hit) => (

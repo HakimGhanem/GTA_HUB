@@ -13,6 +13,7 @@ export async function Footer() {
     { href: "/guides/gta-6-collectibles-map", label: t("collectiblesMap") },
     { href: "/maps/gta5", label: nav("gta5") },
     { href: "/locations", label: nav("locations") },
+    { href: "/gta-6-real-life-locations", label: t("realLifeLocations") },
     { href: "/collectibles", label: nav("collectibles") },
     { href: "/database", label: nav("database") },
     { href: "/guides", label: nav("guides") },

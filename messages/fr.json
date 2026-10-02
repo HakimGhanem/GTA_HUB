@@ -14,8 +14,8 @@
   },
   "home": {
     "title": "Carte interactive GTA 6",
-    "heroLine": "Parcourez Leonida — 1 500+ pins, filtre official-only, timestamps trailers. Pas de carte leak.",
-    "trustPoi": "1 500+ POI",
+    "heroLine": "Parcourez Leonida — 1 000+ bâtiments rapprochés de l’adresse réelle de Floride du Sud dont ils s’inspirent, timestamps trailers, un niveau de confiance sur chaque pin. Pas de carte leak.",
+    "trustPoi": "1 000+ correspondances réelles",
     "trustOfficial": "Filtre official-only",
     "trustNoLeak": "Pas de leak map",
     "subtitle": "La carte interactive GTA 6 pour Vice City et Leonida : filtrez les collectibles, copiez les coordonnées, mesurez, partagez un deep link. La géographie trailer est étiquetée ; les pins communauté restent optionnels. Pour le lancement du 19 nov. 2026.",
@@ -51,7 +51,7 @@
     "newsTitle": "Dernières actus",
     "newsAll": "Toutes les actus →",
     "introTitle": "Une vraie carte interactive, pas une affiche à six régions",
-    "introBody": "La plupart des pages « carte GTA 6 » citent Vice City, les Keys, Grassrivers, Port Gellhorn, Ambrosia et Mount Kalaga — puis s’arrêtent. Map-6 est une carte interactive GTA 6 à parcourir et filtrer : 1 500+ points sur ces hubs, Ocean Drive et les routes entre eux. Passez en official-only pour cacher les paris communauté. Copiez les coordonnées, mesurez, partagez la vue exacte. Guides régionaux et actus sourcées à côté des pins. Pas de cartes leak. Tuiles GTADB en CC BY 4.0 le cas échéant.",
+    "introBody": "La plupart des pages « carte GTA 6 » citent Vice City, les Keys, Grassrivers, Port Gellhorn, Ambrosia et Mount Kalaga — puis s’arrêtent. Map-6 est une carte interactive GTA 6 à parcourir et filtrer, et elle répond à une question que ces pages ignorent : quel bâtiment réel est-ce ? Plus de 1 000 emplacements de Leonida sont rapprochés de l’adresse de Floride du Sud qui a servi de modèle, chacun avec le niveau de confiance établi par la communauté. Passez en official-only pour ne garder que ce que Rockstar a montré. Copiez les coordonnées, mesurez, partagez la vue exacte. Pas de cartes leak. Tuiles et relevés communautaires GTADB crédités CC BY 4.0.",
     "hub": {
       "navLabel": "Hub GTA 6",
       "preorder": "Précommande",
@@ -154,13 +154,13 @@
   "meta": {
     "siteName": "Map-6",
     "homeTitle": "Carte interactive GTA 6 — Vice City & Leonida | Map-6",
-    "homeDesc": "Carte interactive GTA 6 de Leonida : 1 500+ POI, filtre official-only, coordonnées, mesure, pins partageables. Vice City à Mount Kalaga — pas de leak. MAJ 19 nov. 2026.",
+    "homeDesc": "Carte interactive GTA 6 de Leonida : 1 000+ bâtiments rapprochés de leur adresse réelle près de Miami, niveau de confiance sur chaque pin, coordonnées, mesure, liens partageables. Pas de leak. MAJ 19 nov. 2026.",
     "locationsTitle": "Lieux GTA 6 — Vice City & Floride | Map-6",
     "locationsDesc": "Répertoire complet des lieux de GTA 6 : monuments, collectibles, boutiques, missions et secrets.",
     "mapTitle": "Carte interactive GTA 6 — Leonida plein écran | Map-6",
-    "mapDesc": "Ouvrez la carte interactive GTA 6 en plein écran : 1 500+ pins officiels et communauté, filtres, coordonnées et mesure pour Vice City et Leonida. Partagez la vue exacte.",
+    "mapDesc": "Ouvrez la carte interactive GTA 6 en plein écran : 1 000+ correspondances avec des adresses réelles, niveaux de confiance, filtres, coordonnées et mesure pour Vice City et Leonida. Partagez la vue exacte.",
     "mapH1": "Carte interactive GTA 6",
-    "mapLead": "1 500+ pins · filtre official-only · coordonnées · pas de leak",
+    "mapLead": "1 000+ correspondances réelles · niveaux de confiance · coordonnées · pas de leak",
     "collectiblesTitle": "Collectibles GTA 6 — Paquets cachés, sauts acrobatiques & plus | Map-6",
     "collectiblesDesc": "Suivez chaque collectible GTA 6 sur la carte interactive : paquets cachés, sauts acrobatiques, street art et spots photo faune.",
     "guidesTitle": "Guides GTA 6 — Carte, personnages, précommande | Map-6",
@@ -180,7 +180,8 @@
     "about": "À propos",
     "press": "Presse",
     "contact": "Contact",
-    "sources": "Toutes les sources"
+    "sources": "Toutes les sources",
+    "realLifeLocations": "Lieux réels"
   },
   "header": {
     "tagline": "GTA HUB · carte, guides, shop",
@@ -248,7 +249,25 @@
       "mod-shop": "Atelier",
       "salon": "Salon",
       "clothing": "Prêt-à-porter",
-      "tattoo": "Tatouage"
+      "tattoo": "Tatouage",
+      "hotel": "Hôtel",
+      "residential": "Résidentiel",
+      "transport": "Transport",
+      "retail": "Commerce",
+      "restaurant": "Restaurant",
+      "office": "Bureaux",
+      "industrial": "Industriel",
+      "infrastructure": "Infrastructure",
+      "government": "Administration",
+      "public": "Bâtiment public",
+      "leisure": "Loisirs",
+      "venue": "Salle de spectacle",
+      "natural": "Élément naturel",
+      "agriculture": "Agriculture",
+      "construction": "Chantier",
+      "safehouse": "Résidence",
+      "monument": "Monument",
+      "survey-point": "Point relevé"
     },
     "confidence": {
       "confirmed": "Confirmé",
@@ -302,7 +321,8 @@
       "bench": "Banc dans {region}.",
       "parking-meter": "Parcmètre dans {region}.",
       "letter-scrap": "Morceau de lettre dans {region}. Les 50 débloquent une mission secondaire.",
-      "spaceship-part": "Pièce de vaisseau dans {region}. Les 50 mènent à l'easter egg alien."
+      "spaceship-part": "Pièce de vaisseau dans {region}. Les 50 mènent à l'easter egg alien.",
+      "survey-point": "Position relevée par la communauté GTADB dans {region} — le bâtiment n’a pas été identifié."
     },
     "regions": {
       "unknown": "Zone inconnue"
@@ -319,7 +339,9 @@
       "regionalPin": "Pin régional — Rockstar n’a pas publié d’adresse.",
       "noteLabel": "Votre note",
       "notePlaceholder": "Local seulement — jamais envoyé",
-      "report": "Signaler"
+      "report": "Signaler",
+      "realWorldLabel": "Modèle réel",
+      "realWorldView": "Voir le lieu réel"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

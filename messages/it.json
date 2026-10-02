@@ -180,7 +180,8 @@
     "about": "Chi siamo",
     "press": "Stampa",
     "contact": "Contatti",
-    "sources": "Tutte le fonti"
+    "sources": "Tutte le fonti",
+    "realLifeLocations": "Luoghi reali"
   },
   "header": {
     "tagline": "GTA HUB · mappa, guide, shop",
@@ -248,7 +249,25 @@
       "mod-shop": "Officina",
       "salon": "Salone",
       "clothing": "Abbigliamento",
-      "tattoo": "Tatuaggio"
+      "tattoo": "Tatuaggio",
+      "hotel": "Hotel",
+      "residential": "Residenziale",
+      "transport": "Trasporti",
+      "retail": "Commercio",
+      "restaurant": "Ristorante",
+      "office": "Uffici",
+      "industrial": "Industriale",
+      "infrastructure": "Infrastruttura",
+      "government": "Amministrazione",
+      "public": "Edificio pubblico",
+      "leisure": "Tempo libero",
+      "venue": "Sede eventi",
+      "natural": "Elemento naturale",
+      "agriculture": "Agricoltura",
+      "construction": "Cantiere",
+      "safehouse": "Residenza",
+      "monument": "Monumento",
+      "survey-point": "Punto rilevato"
     },
     "confidence": {
       "confirmed": "Confirmed",
@@ -302,7 +321,8 @@
       "bench": "Bench in {region}.",
       "parking-meter": "Parking meter in {region}.",
       "letter-scrap": "Letter scrap in {region}. Collect all 50 to unlock a side mission.",
-      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg."
+      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg.",
+      "survey-point": "Posizione rilevata dalla comunità GTADB in {region} — l’edificio non è stato identificato."
     },
     "regions": {
       "unknown": "Unknown area"
@@ -319,7 +339,9 @@
       "regionalPin": "Pin regionale — Rockstar non ha pubblicato un indirizzo.",
       "noteLabel": "La tua nota",
       "notePlaceholder": "Solo locale — mai caricata",
-      "report": "Segnala pin"
+      "report": "Segnala pin",
+      "realWorldLabel": "Riferimento reale",
+      "realWorldView": "Vedi il luogo reale"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

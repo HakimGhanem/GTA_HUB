@@ -180,7 +180,8 @@
     "about": "Sobre",
     "press": "Imprensa",
     "contact": "Contacto",
-    "sources": "Todas as fontes"
+    "sources": "Todas as fontes",
+    "realLifeLocations": "Locais reais"
   },
   "header": {
     "tagline": "GTA HUB · mapa, guias, loja",
@@ -248,7 +249,25 @@
       "mod-shop": "Oficina",
       "salon": "Salão",
       "clothing": "Roupa",
-      "tattoo": "Tatuagem"
+      "tattoo": "Tatuagem",
+      "hotel": "Hotel",
+      "residential": "Residencial",
+      "transport": "Transporte",
+      "retail": "Comércio",
+      "restaurant": "Restaurante",
+      "office": "Escritórios",
+      "industrial": "Industrial",
+      "infrastructure": "Infraestrutura",
+      "government": "Administração",
+      "public": "Edifício público",
+      "leisure": "Lazer",
+      "venue": "Casa de espetáculos",
+      "natural": "Elemento natural",
+      "agriculture": "Agricultura",
+      "construction": "Obra",
+      "safehouse": "Residência",
+      "monument": "Monumento",
+      "survey-point": "Ponto levantado"
     },
     "confidence": {
       "confirmed": "Confirmed",
@@ -302,7 +321,8 @@
       "bench": "Bench in {region}.",
       "parking-meter": "Parking meter in {region}.",
       "letter-scrap": "Letter scrap in {region}. Collect all 50 to unlock a side mission.",
-      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg."
+      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg.",
+      "survey-point": "Posição levantada pela comunidade GTADB em {region} — o edifício não foi identificado."
     },
     "regions": {
       "unknown": "Unknown area"
@@ -319,7 +339,9 @@
       "regionalPin": "Pin regional — a Rockstar não publicou um endereço.",
       "noteLabel": "A tua nota",
       "notePlaceholder": "Só local — nunca enviado",
-      "report": "Reportar pin"
+      "report": "Reportar pin",
+      "realWorldLabel": "Referência real",
+      "realWorldView": "Ver o local real"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

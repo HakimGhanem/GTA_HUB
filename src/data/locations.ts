@@ -29,6 +29,17 @@ export type Location = {
   confidence?: LocationConfidence;
   /** Fine-grained type — e.g. atm, letter-scrap, stunt-jump */
   subtype?: string;
+  /**
+   * South Florida building this spot was modelled on, per GTADB community
+   * mapping. A counterpart, never the in-game name — Rockstar has named none
+   * of these.
+   */
+  realWorld?: {
+    name: string;
+    address: string;
+    lat?: number;
+    lng?: number;
+  };
   /** Premium-edition destination named by Rockstar */
   edition?: LocationEdition;
 };

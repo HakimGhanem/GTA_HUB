@@ -14,13 +14,13 @@
   },
   "home": {
     "title": "GTA 6 Interactive Map",
-    "heroLine": "Pan and zoom Leonida — 1,500+ pins, official-only filter, trailer timestamps. No leaked development maps.",
-    "trustPoi": "1,500+ POIs",
+    "heroLine": "Pan and zoom Leonida — 1,000+ buildings matched to the real South Florida address they were modelled on, trailer timestamps, and a confidence label on every pin. No leaked development maps.",
+    "trustPoi": "1,000+ real-world matches",
     "trustOfficial": "Official-only filter",
     "trustNoLeak": "No leak maps",
     "subtitle": "The GTA 6 interactive map for Vice City and Leonida: filter collectibles, copy coordinates, measure, and share deep links. Confirmed trailer geography is labeled; community pins stay optional. Built for trailer scrubbing and 19 Nov 2026 launch day.",
     "introTitle": "A full interactive map, not a six-region poster",
-    "introBody": "Most “GTA 6 map” pages name Vice City, the Keys, Grassrivers, Port Gellhorn, Ambrosia, and Mount Kalaga — then stop. Map-6 is a free GTA 6 interactive map you pan, zoom, and filter: 1,500+ points across those hubs plus Ocean Drive and the roads between them. Switch official-only to hide community guesses. Copy in-map coordinates, measure distance, and share a deep link to the exact view. Regional guides and sourced news sit next to the pins. We do not host leaked development maps. GTADB community tiles are credited CC BY 4.0 where used.",
+    "introBody": "Most “GTA 6 map” pages name Vice City, the Keys, Grassrivers, Port Gellhorn, Ambrosia, and Mount Kalaga — then stop. Map-6 is a free GTA 6 interactive map you pan, zoom, and filter, and it answers a question those pages do not: which real building is this? Over 1,000 spots across Leonida are matched to the South Florida address they were modelled on, each carrying the community’s own confidence label. Switch official-only to keep just what Rockstar has shown. Copy in-map coordinates, measure distance, and share a deep link to the exact view. We do not host leaked development maps. GTADB community tiles and survey data are credited CC BY 4.0.",
     "ctaMap": "Open Interactive Map",
     "ctaSetup": "Launch setup guide",
     "ctaMapGuide": "GTA 6 map guide",
@@ -154,13 +154,13 @@
   "meta": {
     "siteName": "Map-6",
     "homeTitle": "GTA 6 Interactive Map — Vice City & Leonida | Map-6",
-    "homeDesc": "Free GTA 6 interactive map of Leonida: 1,500+ POIs, official-only filter, coordinates, measure, shareable pins. Vice City to Mount Kalaga — no leak maps. Updated for 19 Nov 2026.",
+    "homeDesc": "Free GTA 6 interactive map of Leonida: 1,000+ buildings matched to their real Miami-area address, confidence labels on every pin, coordinates, measure, shareable links. No leak maps. Updated for 19 Nov 2026.",
     "locationsTitle": "GTA 6 Locations — Vice City & Florida | Map-6",
     "locationsDesc": "Complete directory of GTA 6 map locations: landmarks, collectibles, shops, missions, and secrets across the open world.",
     "mapTitle": "GTA 6 Interactive Map — Fullscreen Leonida | Map-6",
-    "mapDesc": "Open the GTA 6 interactive map fullscreen: 1,500+ official and community pins, filters, coordinates, and measure tools for Vice City and Leonida. Share the exact view.",
+    "mapDesc": "Open the GTA 6 interactive map fullscreen: 1,000+ real-world address matches, confidence labels, filters, coordinates, and measure tools for Vice City and Leonida. Share the exact view.",
     "mapH1": "GTA 6 Interactive Map",
-    "mapLead": "1,500+ pins · official-only filter · coordinates · no leak maps",
+    "mapLead": "1,000+ real-world matches · confidence labels · coordinates · no leak maps",
     "collectiblesTitle": "GTA 6 Collectibles — Hidden Packages, Stunt Jumps & More | Map-6",
     "collectiblesDesc": "Track every GTA 6 collectible on the interactive map: hidden packages, stunt jumps, street art, and wildlife photography spots.",
     "guidesTitle": "GTA 6 Guides — Map, Characters, Pre-Order | Map-6",
@@ -180,7 +180,8 @@
     "about": "About",
     "press": "Press",
     "contact": "Contact",
-    "sources": "All data sources"
+    "sources": "All data sources",
+    "realLifeLocations": "Real-life locations"
   },
   "header": {
     "tagline": "GTA HUB · map, guides, shop",
@@ -248,7 +249,25 @@
       "mod-shop": "Mod shop",
       "salon": "Salon",
       "clothing": "Clothing",
-      "tattoo": "Tattoo"
+      "tattoo": "Tattoo",
+      "hotel": "Hotel",
+      "residential": "Residential",
+      "transport": "Transport",
+      "retail": "Retail",
+      "restaurant": "Restaurant",
+      "office": "Office",
+      "industrial": "Industrial",
+      "infrastructure": "Infrastructure",
+      "government": "Government",
+      "public": "Public building",
+      "leisure": "Leisure",
+      "venue": "Event venue",
+      "natural": "Natural feature",
+      "agriculture": "Agriculture",
+      "construction": "Construction",
+      "safehouse": "Residence",
+      "monument": "Landmark",
+      "survey-point": "Survey point"
     },
     "confidence": {
       "confirmed": "Confirmed",
@@ -302,7 +321,8 @@
       "bench": "Bench in {region}.",
       "parking-meter": "Parking meter in {region}.",
       "letter-scrap": "Letter scrap in {region}. Collect all 50 to unlock a side mission.",
-      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg."
+      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg.",
+      "survey-point": "Position surveyed by the GTADB community in {region} — the building has not been identified."
     },
     "regions": {
       "unknown": "Unknown area"
@@ -319,7 +339,9 @@
       "regionalPin": "Regional pin — Rockstar has not published a street address.",
       "noteLabel": "Your note",
       "notePlaceholder": "Local only — never uploaded",
-      "report": "Report pin"
+      "report": "Report pin",
+      "realWorldLabel": "Real-world counterpart",
+      "realWorldView": "See the real location"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

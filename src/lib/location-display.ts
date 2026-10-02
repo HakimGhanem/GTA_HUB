@@ -32,6 +32,9 @@ const NUMBERED_NAMES: Array<{ re: RegExp; key: string }> = [
 ];
 
 export function usesFriendlyCopy(loc: Location): boolean {
+  // An identified real-world counterpart means the description carries facts
+  // specific to this spot, so it is worth showing rather than a generic hint.
+  if (loc.realWorld) return false;
   if (loc.subtype) return true;
   const src = (loc.source ?? "").toLowerCase();
   if (["gtadb", "durtyfree", "kong78", "gtamods-main.scm"].includes(src)) return true;

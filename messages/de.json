@@ -180,7 +180,8 @@
     "about": "Über uns",
     "press": "Presse",
     "contact": "Kontakt",
-    "sources": "Alle Datenquellen"
+    "sources": "Alle Datenquellen",
+    "realLifeLocations": "Reale Orte"
   },
   "header": {
     "tagline": "GTA HUB · Karte, Guides, Shop",
@@ -248,7 +249,25 @@
       "mod-shop": "Mod shop",
       "salon": "Salon",
       "clothing": "Clothing",
-      "tattoo": "Tattoo"
+      "tattoo": "Tattoo",
+      "hotel": "Hotel",
+      "residential": "Wohngebäude",
+      "transport": "Verkehr",
+      "retail": "Handel",
+      "restaurant": "Restaurant",
+      "office": "Büro",
+      "industrial": "Industrie",
+      "infrastructure": "Infrastruktur",
+      "government": "Behörde",
+      "public": "Öffentliches Gebäude",
+      "leisure": "Freizeit",
+      "venue": "Veranstaltungsort",
+      "natural": "Naturmerkmal",
+      "agriculture": "Landwirtschaft",
+      "construction": "Baustelle",
+      "safehouse": "Wohnhaus",
+      "monument": "Wahrzeichen",
+      "survey-point": "Messpunkt"
     },
     "confidence": {
       "confirmed": "Confirmed",
@@ -302,7 +321,8 @@
       "bench": "Bench in {region}.",
       "parking-meter": "Parking meter in {region}.",
       "letter-scrap": "Letter scrap in {region}. Collect all 50 to unlock a side mission.",
-      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg."
+      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg.",
+      "survey-point": "Von der GTADB-Community erfasste Position in {region} — das Gebäude ist nicht identifiziert."
     },
     "regions": {
       "unknown": "Unknown area"
@@ -319,7 +339,9 @@
       "regionalPin": "Regional pin — Rockstar has not published a street address.",
       "noteLabel": "Deine Notiz",
       "notePlaceholder": "Nur lokal — nie hochgeladen",
-      "report": "Pin melden"
+      "report": "Pin melden",
+      "realWorldLabel": "Reales Vorbild",
+      "realWorldView": "Echten Ort ansehen"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

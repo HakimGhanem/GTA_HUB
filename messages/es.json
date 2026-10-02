@@ -180,7 +180,8 @@
     "about": "Acerca de",
     "press": "Prensa",
     "contact": "Contacto",
-    "sources": "Todas las fuentes"
+    "sources": "Todas las fuentes",
+    "realLifeLocations": "Lugares reales"
   },
   "header": {
     "tagline": "GTA HUB · mapa, guías, tienda",
@@ -248,7 +249,25 @@
       "mod-shop": "Taller",
       "salon": "Salón",
       "clothing": "Ropa",
-      "tattoo": "Tatuaje"
+      "tattoo": "Tatuaje",
+      "hotel": "Hotel",
+      "residential": "Residencial",
+      "transport": "Transporte",
+      "retail": "Comercio",
+      "restaurant": "Restaurante",
+      "office": "Oficinas",
+      "industrial": "Industrial",
+      "infrastructure": "Infraestructura",
+      "government": "Administración",
+      "public": "Edificio público",
+      "leisure": "Ocio",
+      "venue": "Sala de eventos",
+      "natural": "Elemento natural",
+      "agriculture": "Agricultura",
+      "construction": "Obra",
+      "safehouse": "Residencia",
+      "monument": "Monumento",
+      "survey-point": "Punto registrado"
     },
     "confidence": {
       "confirmed": "Confirmed",
@@ -302,7 +321,8 @@
       "bench": "Bench in {region}.",
       "parking-meter": "Parking meter in {region}.",
       "letter-scrap": "Letter scrap in {region}. Collect all 50 to unlock a side mission.",
-      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg."
+      "spaceship-part": "Spaceship part in {region}. Collect all 50 for the alien Easter egg.",
+      "survey-point": "Posición registrada por la comunidad GTADB en {region} — el edificio no ha sido identificado."
     },
     "regions": {
       "unknown": "Unknown area"
@@ -319,7 +339,9 @@
       "regionalPin": "Pin regional — Rockstar no ha publicado una dirección.",
       "noteLabel": "Tu nota",
       "notePlaceholder": "Solo local — nunca se sube",
-      "report": "Reportar pin"
+      "report": "Reportar pin",
+      "realWorldLabel": "Referente real",
+      "realWorldView": "Ver el lugar real"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

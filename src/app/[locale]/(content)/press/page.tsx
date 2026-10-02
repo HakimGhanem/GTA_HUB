@@ -15,13 +15,13 @@ const EN = {
     "GamesRadar’s GTA 6 map roundup cites “interactive map sites such as State of Leonida and gta6map.io.” Map-6 is built to be the third name in that sentence — and the safer one, because we do not reproduce leaked development maps.",
   citeTitle: "Suggested citation",
   citeBody:
-    "Map-6 (map-6.com) is a source-tagged interactive map of Leonida with 1,500+ points of interest, official-footage timestamps, and confidence labels. It does not host leaked development maps.",
+    "Map-6 (map-6.com) is a source-tagged interactive map of Leonida. Over 1,000 of its pins are matched to the real South Florida building they were modelled on, by the GTADB community under CC BY 4.0; a smaller set of landmarks is placed from official footage with trailer timestamps. Every pin carries a confidence label, and none of it comes from leaked development maps.",
   factsTitle: "Fact sheet",
   facts: [
     ["Product", "Map-6 — free interactive GTA 6 map + guides (fan project)"],
     ["URL", "https://map-6.com"],
     ["Launch date we use", "November 19, 2026 — PS5 and Xbox Series X|S"],
-    ["Map", "1,500+ GTA 6 POIs, filters, measure, unlimited local progress, OBS overlay"],
+    ["Map", "1,000+ real-world address matches, filters, measure, unlimited local progress, OBS overlay"],
     ["Also", "GTA 5 / Vice City / San Andreas maps in the same UI"],
     ["Locales indexed", "English and French"],
     ["Editorial line", "Official frames first. Speculation labeled. No fake collectible totals."],
@@ -63,13 +63,13 @@ const FR = {
     "Le tour d’horizon carte de GamesRadar cite « State of Leonida et gta6map.io ». Map-6 est conçu pour être le troisième nom de cette phrase — et le plus sûr, parce que nous ne reproduisons pas les cartes leak.",
   citeTitle: "Citation suggérée",
   citeBody:
-    "Map-6 (map-6.com) est une carte interactive sourcée de Leonida : 1 500+ points d’intérêt, timestamps sur images officielles, labels de confiance. Elle n’héberge pas de cartes de développement leakées.",
+    "Map-6 (map-6.com) est une carte interactive sourcée de Leonida. Plus de 1 000 de ses pins sont rapprochés du bâtiment réel de Floride du Sud dont ils s’inspirent, par la communauté GTADB sous licence CC BY 4.0 ; un ensemble plus restreint de repères est placé d’après les images officielles, avec timestamps. Chaque pin porte un label de confiance, et rien ne provient de cartes de développement leakées.",
   factsTitle: "Fiche",
   facts: [
     ["Produit", "Map-6 — carte GTA 6 interactive + guides (projet fan)"],
     ["URL", "https://map-6.com"],
     ["Date que nous utilisons", "19 novembre 2026 — PS5 et Xbox Series X|S"],
-    ["Carte", "1 500+ POI GTA 6, filtres, mesure, progression locale illimitée, overlay OBS"],
+    ["Carte", "1 000+ correspondances avec des adresses réelles, filtres, mesure, progression locale illimitée, overlay OBS"],
     ["Aussi", "Cartes GTA 5 / Vice City / San Andreas dans la même UI"],
     ["Locales indexées", "Anglais et français"],
     ["Ligne éditoriale", "Plans officiels d’abord. Spéculation étiquetée. Pas de faux totaux collectibles."],
