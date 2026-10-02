@@ -228,23 +228,52 @@ const FR: Record<string, LocalizedGuide> = {
     ],
   },
   "gta-6-ps5-vs-xbox": {
-    title: "GTA 6 PS5 ou Xbox — guide du lock-in plateforme",
+    title: "GTA 6 PS5 ou Xbox — quelle console acheter ?",
     description:
-      "GTA 6 sort le même jour sur PS5 et Xbox Series. Les cross-saves ne sont pas annoncés. Game Pass, PS Plus, manettes, et comment choisir un écosystème.",
-    readTime: 12,
+      "Comparatif console GTA 6 orienté achat : même date de sortie, SKU séparés, aucun cross-save annoncé, DualSense vs pad Xbox, Game Pass vs PS Plus — sans faux graphiques FPS.",
+    answer:
+      "PS5 et Xbox Series X|S reçoivent toutes les deux GTA 6 le 19 novembre 2026, et Rockstar n’a annoncé ni cross-save ni cross-progression entre les deux. Achetez sur la plateforme où vivent déjà vos amis et votre bibliothèque.",
+    readTime: 9,
+    comparison: {
+      caption: "Ce qui est réellement comparable aujourd’hui",
+      headers: ["Sujet", "PlayStation 5", "Xbox Series X|S"],
+      rows: [
+        ["Date de sortie", "19 novembre 2026", "19 novembre 2026"],
+        ["SKU", "Édition PS5 séparée", "Édition Xbox séparée"],
+        ["Cross-saves", "Non annoncés", "Non annoncés"],
+        [
+          "Physique",
+          "Standard en code dans la boîte (pas de disque) selon le support Rockstar",
+          "Même politique physique annoncée",
+        ],
+        ["Manette", "DualSense : haptique et gâchettes adaptatives", "Manette sans fil Xbox"],
+        [
+          "Écosystème",
+          "PS Plus, amis, outils de capture déjà en place",
+          "Habitudes Game Pass, amis, outils de capture",
+        ],
+      ],
+    },
+    faq: [
+      {
+        question: "GTA 6 est-il meilleur sur PS5 ou sur Xbox ?",
+        answer:
+          "Rockstar n’a publié aucun vainqueur en performance. Achetez l’écosystème où vivent déjà vos amis et vos abonnements. Les cross-saves ne sont pas annoncés : une seconde console est un second achat.",
+      },
+      {
+        question: "L’édition Ultimate change-t-elle le choix de la console ?",
+        answer:
+          "Non. Ultimate est un palier de contenu (99,99 $ US contre 79,99 $ US pour le Standard selon Take-Two), pas une plateforme. L’Ultimate physique n’est pas listé ; les propriétaires du Standard pourront acheter l’upgrade plus tard sur le PlayStation Store ou le Microsoft Store après avoir utilisé le code de base.",
+      },
+    ],
     content: [
-      "GTA 6 est prévu le 19 novembre 2026 sur PS5 et Xbox Series X|S. Rockstar n’a pas publié de tableau « mieux sur PlayStation ». Historiquement le studio vise la parité. Votre décision n’est presque jamais un trophée 4K secret — c’est le lock-in : amis, abonnements, pads déjà achetés.",
-      "PS5 et Xbox sont des produits séparés. Un disque ou une licence d’une famille ne devient pas l’autre. Si votre coop, captures et party chat vivent déjà sur un réseau, VI est une mauvaise raison de scinder le foyer. « J’achète les deux » vaut pour deux salons — pas comme plan valeur.",
-      "Les cross-saves ne sont pas annoncés. Relisez avant de mettre une Series X au salon et une PS5 en chambre « pour partager une save ». Map-6 mettra à jour si Rockstar confirme un transfert. D’ici là, supposez que l’histoire (et plus tard l’Online) reste dans un écosystème.",
-      "La perf doit rester humble. Les paires console Rockstar ont souvent offert des modes fidélité / perf après patch — c’est un pattern, pas une fiche VI. Nous n’inventons pas 4K/30 vs 1440p/60. Series X est la conversation Xbox la plus sûre à cette échelle ; Series S est une autre classe GPU. Attendez les notes officielles avant de supposer la parité visuelle.",
-      "Les manettes, vous les sentirez tous les jours. DualSense d’un côté ; Xbox Wireless de l’autre. Ni l’une ni l’autre n’agrandit la carte. Deux pads qui marchent déjà sur une plateforme battent une miniature de gâchette. Voir /guides/best-setup-gta-6-ps5-xbox.",
-      "Game Pass : Microsoft n’a pas annoncé VI en day one. Les sorties Take-Two premium se vendent historiquement comme SKU payants. « Ce sera sur le Pass en novembre » est un espoir. Budgetez un achat séparé sauf inclusion officielle.",
-      "PS Plus : Sony n’a pas annoncé VI en jeu du mois ni en Extra/Premium au lancement. Plus sert au multi de beaucoup de titres PS5 ; ce n’est pas un substitut à un nouveau solo Rockstar. N’annulez pas une précommande pour une rumeur « Plus day one ».",
-      "Physique vs digital est indépendant du logo. Le Standard digital ne « se vend pas » comme une pile de disques. Vérifiez le pays du storefront. Amazon et d’autres revendeurs EU laissent souvent annuler jusqu’à l’expédition. Les contenus Collector sont non publiés.",
-      "Choisir PS5 : exclus Sony, amis PSN, DualSense, TV déjà branchée sur une PS5 saine. Choisir Series X : bibliothèque et habitude Game Pass, amis Xbox, stack capture déjà là. Ne choisissez pas sur « VI sera 10 fps plus vite » — ce chiffre n’est pas public.",
-      "L’argent qui n’est pas la console : machine saine + SSD + casque + pad de rechange bat un second logo. Comparez avec /guides/gta-6-price-france pour TTC et canaux FR — ça ne change pas le lock-in.",
-      "La carte interactive se moque de la boîte. /map, filtres, Share, overlay et /locations sont les mêmes. Cartographie GTADB créditée CC BY 4.0 là où Map-6 s’en sert. Apprenez Vice City contre les Keys, pas « qui a gagné le leak Digital Foundry ».",
-      "Modèle : (1) réseau des amis, (2) abo déjà payé, (3) pads/casques déjà là, (4) Series S attend les notes officielles, (5) Game Pass et Plus ne sont pas des vecteurs confirmés, (6) pas de cross-saves, (7) un seul SKU via /guides/gta-6-preorder-guide.",
+      "« GTA 6 PS5 ou Xbox » est une question d’achat, pas une guerre de graphismes. PlayStation 5 et Xbox Series X|S sont toutes deux des plateformes de lancement confirmées pour le 19 novembre 2026. Rockstar n’a publié aucun comparatif officiel de FPS, de résolution ou de temps de chargement. Tout site qui affiche un « vainqueur » avant ces notes l’invente. Map-6 compare le lock-in, les SKU et la réalité du salon.",
+      "Les SKU ne se croisent pas. Un achat PS5 n’est pas une licence Xbox. Les cross-saves ne sont pas annoncés. Si votre liste d’amis, votre party chat et votre vie Game Pass ou PS Plus sont déjà d’un côté, ce côté gagne — l’haptique DualSense contre le toucher du pad Xbox est une préférence, pas une note de test. Acheter une seconde console « juste pour GTA 6 » n’a de sens que si vous alliez déjà upgrader.",
+      "Les éditions posent la même décision sur les deux plateformes : Standard à 79,99 $ US ou Ultimate à 99,99 $ US (Take-Two). Les achats et précommandes avant le 20 novembre 2026 incluent le Vintage Vice City Pack. Les copies numériques éligibles incluent un mois de GTA+. Le Standard physique est un code de téléchargement dans la boîte, pas un disque, disponible dès le 12 novembre pour permettre le préchargement. Voir /guides/gta-6-ultimate-edition-vs-standard et /guides/gta-6-preorder-guide — et /guides/gta-6-price-france pour le TTC et les canaux français.",
+      "Ce qui diffère vraiment selon l’écosystème : DualSense de rechange contre pad Xbox, casques sans fil officiels, et stockage (NVMe PS5 contre carte d’extension Xbox). Le guide best-setup est la checklist. La compatibilité HDMI 2.1 / 120 Hz se joue côté TV, pas côté console. Les cartes affiliées Map-6 renvoient vers les fiches qui existent — elles ne désignent pas de vainqueur.",
+      "Series S contre Series X est une question interne à Xbox que Rockstar n’a pas spécifiée dans les documents officiels que nous citons. Si vous n’avez qu’une Series S, ne supposez pas les slides marketing de la Series X. Attendez les notes officielles de plateforme. Le PC est un SKU séparé non annoncé — voir /guides/gta-6-pc-requirements et /guides/gta-6-platforms-ps5-xbox.",
+      "Map-6 ne change pas selon la console. Filtres, coordonnées, overlay et hubs /locations fonctionnent pareil. Utilisez la semaine de lancement pour apprendre Leonida, pas pour rafraîchir de faux leaks de benchmarks. À lire aussi : /guides/gta-6-preorder-ps5-guide si vous êtes déjà verrouillé chez Sony.",
+      "Modèle de décision : (1) amis et abonnements, (2) le pad que vous aimez, (3) la marge de stockage, (4) Standard contre Ultimate une fois les extras officiels connus, (5) mettez /map en favori. Ça bat n’importe quelle miniature titrée « LA PS5 DÉTRUIT LA XBOX ».",
     ],
   },
   "gta-6-price-france": {

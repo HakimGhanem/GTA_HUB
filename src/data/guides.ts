@@ -436,29 +436,6 @@ const ALL_GUIDES: Guide[] = [
     ],
   },
   {
-    slug: "gta-6-ps5-vs-xbox",
-    title: "GTA 6 PS5 vs Xbox — Platform Lock-In Guide",
-    description:
-      "GTA 6 launches the same day on PS5 and Xbox Series. Cross-saves are not announced. Game Pass and PS Plus honesty, controllers, and how to pick an ecosystem.",
-    category: "beginner",
-    readTime: 12,
-    publishedAt: "2026-08-24",
-    content: [
-      "Grand Theft Auto VI is scheduled for 19 November 2026 on PlayStation 5 and Xbox Series X|S. Rockstar has not published a “better on PlayStation” or “better on Xbox” performance table. Historically the studio aims at feature parity across the two living-room SKUs. Your decision is almost never a secret 4K trophy — it is lock-in: friends, subscriptions, controllers you already own, and the fact that buying the wrong box is expensive to undo.",
-      "Platform lock-in is the paragraph most comparison articles bury. PS5 and Xbox editions are separate products. A disc or license on one family does not become a license on the other. If your co-op life, capture library, and party chat already live on one network, GTA 6 is a weak reason to split the household. “I’ll just buy both” is a sentence for people who were upgrading two rooms anyway — not a value play.",
-      "Cross-saves are not announced for GTA 6. Read that again before you put a Series X in the living room and a PS5 in the bedroom “so we can share a save.” Map-6 will update this sentence if Rockstar or the platform holders confirm transfer. Until then, assume story progress, Online characters (when that mode’s rules appear), and trophies/achievements stay inside one ecosystem. Planning a second console as a backup save is planning to pay twice.",
-      "Performance talk should stay humble. Past Rockstar console pairs offered fidelity-style and performance-style modes after launch patches; that is a pattern, not a GTA 6 spec sheet. We will not invent 4K/30 versus 1440p/60 as confirmed presets. Series X is the safer Xbox hardware conversation for a title of this scale; Series S is a different GPU and resolution class — Rockstar has not published how modes will land there. If your only Xbox is a Series S, wait for official platform notes before you assume visual parity with a PS5 or Series X.",
-      "Controllers are the daily difference you will actually feel. DualSense haptics and adaptive triggers are Sony’s pitch; a spare DualSense is insurance when sticks drift mid-chase. Xbox Wireless is the familiar layout a lot of PC and last-gen hands already trust. Neither pad makes the map bigger. If you already have two working controllers on one platform, that is a stronger argument than a trailer thumbnail of a trigger effect. See /guides/best-setup-gta-6-ps5-xbox for spare-pad, headset, and storage thinking — this page will not pretend a statue is a control scheme.",
-      "Game Pass honesty: Microsoft has not announced Grand Theft Auto VI as a day-one Game Pass title. Take-Two premium releases are historically sold as paid SKUs, not as catalog day-one extras. “It will be on Game Pass in November” is a hope, not a plan. If Game Pass is why you own Xbox, keep the subscription for the rest of your library — and budget a separate GTA 6 purchase unless an official inclusion is posted. Map-6 will not print a fake “confirmed Game Pass” badge.",
-      "PS Plus honesty: Sony has not announced GTA 6 as a monthly free game or as an Extra/Premium catalog drop at launch. Plus is useful for Online multiplayer access on many PS5 titles and for extra catalog games you already play; it is not a substitute for buying a new Rockstar single-player. Extra/Premium rotations change. Do not cancel a pre-order because a rumor account promised “PS Plus Day One.” If Sony later includes the title, this page will say so with a source — not with a vibe.",
-      "Physical versus digital is independent of the logo on the chassis. Digital Standard does not sell out; physical stock can. Region-locked discs and account-locked downloads are different failure modes — check the storefront country before checkout. Amazon and other EU retailers typically allow pre-order cancellation until ship; console stores have their own refund windows. Details and edition discipline live in /guides/gta-6-preorder-guide. Collector contents are unpublished; do not pick a platform because a leak list promised a different statue.",
-      "Who should pick PS5: you already buy Sony exclusives, your friends are on PSN, you care about DualSense, or the living-room TV is already wired to a healthy PS5. Who should pick Xbox Series X: your library and Game Pass habit are Xbox-native, your friends are on Xbox, you want the Series X storage/expansion story, or you already capture on that stack. Who should not pick based on “GTA 6 will be 10 fps faster”: nobody — that number is not public.",
-      "Money that is not the console: a working machine plus SSD headroom plus headset plus a spare controller beats a second logo. If you are still on last-gen, the upgrade ticket is real — and it is still one ecosystem, not two. Pair this comparison with /guides/best-setup-gta-6-ps5-xbox so the cart is pads and storage, not a panic second SKU. EUR pricing and French retailers are a separate question — see /guides/gta-6-price-france — and they do not change lock-in.",
-      "The interactive map does not care which box you bought. /map, Landmarks and Collectibles filters, Share deep links, overlay URLs, and /locations hubs are the same on PS5 night and Xbox night. GTADB community cartography is credited under CC BY 4.0 where Map-6 uses those tiles. Use launch week to learn Vice City against the Keys, Port Gellhorn against Ambrosia, Grassrivers as the wet middle, Mount Kalaga as the north — not to refresh “which console won the Digital Foundry leak.”",
-      "Decision template: (1) which network do your friends already use, (2) which subscription do you already pay, (3) which pads and headsets do you already own, (4) Series S owners wait for official mode notes, (5) Game Pass and PS Plus are not confirmed GTA 6 delivery methods, (6) cross-saves are not announced, (7) then pre-order one SKU via /guides/gta-6-preorder-guide. Related reading: /guides/gta-6-pc-release-date if you hoped PC would dodge the choice, /guides/gta-6-faq for short answers, /guides/gta-6-release-date for the shared 19 November 2026 date. Map-6 is fan-made, not Rockstar; affiliate grids may show console and controller picks — see the disclosure.",
-    ],
-  },
-  {
     slug: "gta-6-price-france",
     title: "GTA 6 Price in France — EUR, VAT & Where to Buy",
     description:
@@ -531,9 +508,9 @@ const ALL_GUIDES: Guide[] = [
 ];
 
 /**
- * `gta-6-ps5-vs-xbox` is defined in both lists. `getGuideBySlug` already resolves
- * to the first one, so dedupe at the source — otherwise the sitemap, llms.txt and
- * the guide index each list the slug twice.
+ * A slug defined in both lists would otherwise surface twice in the sitemap,
+ * llms.txt and the guide index, while `getGuideBySlug` only ever renders the
+ * first one. Collapse here so there is a single source of truth per URL.
  */
 export const GUIDES: Guide[] = ALL_GUIDES.filter(
   (guide, index) => ALL_GUIDES.findIndex((g) => g.slug === guide.slug) === index,
