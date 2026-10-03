@@ -5,9 +5,11 @@ import { HubConversionBanner } from "@/components/home/HubConversionBanner";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { AnswerBox } from "@/components/seo/AnswerBox";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getGuideBySlug } from "@/data/guides";
 import {
+  getLocalizedGuide,
   guideHreflangLocales,
   hasGuideTranslation,
 } from "@/data/guides-i18n";
@@ -49,13 +51,16 @@ export default async function PreorderGuidePage({ params }: Props) {
   if (!guide) return null;
 
   const tNav = await getTranslations("nav");
+  const tGuides = await getTranslations("guides");
   const releaseDate = GTA6_RELEASE.toLocaleDateString(
     locale === "fr" ? "fr-FR" : locale === "es" ? "es-ES" : "en-US",
     { year: "numeric", month: "long", day: "numeric" },
   );
 
+  const answer = getLocalizedGuide(SLUG, locale)?.answer;
+
   const structuredData = jsonLdGuidePage(
-    { ...guide, title: copy.title, description: copy.description },
+    { ...guide, title: copy.title, description: copy.description, answer },
     {
       locale,
       breadcrumb: [
@@ -94,6 +99,8 @@ export default async function PreorderGuidePage({ params }: Props) {
         <div className="mt-6">
           <HubConversionBanner compact />
         </div>
+
+        {answer ? <AnswerBox label={tGuides("shortAnswer")}>{answer}</AnswerBox> : null}
         <PreorderGuideContent locale={locale} />
 
         <div className="mt-10 rounded-xl border border-pink-400/30 bg-pink-500/10 p-6">

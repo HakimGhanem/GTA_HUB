@@ -10,6 +10,7 @@ import {
   PRICE_CURRENCY,
   RETAILER_OFFERS,
 } from "@/data/gta6-retailers";
+import { AnswerBox } from "@/components/seo/AnswerBox";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getGuideBySlug } from "@/data/guides";
 import {
@@ -107,9 +108,12 @@ export default async function BestPriceGuidePage({ params }: Props) {
   if (!guide) return null;
 
   const tNav = await getTranslations("nav");
+  const tGuides = await getTranslations("guides");
+
+  const answer = getLocalizedGuide(SLUG, locale)?.answer;
 
   const structuredData = jsonLdGuidePage(
-    { ...guide, title: copy.title, description: copy.description },
+    { ...guide, title: copy.title, description: copy.description, answer },
     {
       locale,
       breadcrumb: [
@@ -146,6 +150,8 @@ export default async function BestPriceGuidePage({ params }: Props) {
         <p className="mt-2 text-xs text-foreground/40">
           {guide.readTime} min · {guide.publishedAt}
         </p>
+
+        {answer ? <AnswerBox label={tGuides("shortAnswer")}>{answer}</AnswerBox> : null}
 
         <article className="prose prose-invert mt-8 max-w-none">
           <p className="text-lg leading-relaxed text-foreground/80">

@@ -4,10 +4,12 @@ import { Cs2GuideContent } from "@/components/guides/Cs2GuideContent";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { AnswerBox } from "@/components/seo/AnswerBox";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getCs2GuideCopy } from "@/data/cs2-guide-i18n";
 import { getGuideBySlug } from "@/data/guides";
 import {
+  getLocalizedGuide,
   guideHreflangLocales,
   hasGuideTranslation,
 } from "@/data/guides-i18n";
@@ -47,9 +49,12 @@ export default async function Cs2GuidePage({ params }: Props) {
   if (!guide) return null;
 
   const tNav = await getTranslations("nav");
+  const tGuides = await getTranslations("guides");
+
+  const answer = getLocalizedGuide(SLUG, locale)?.answer;
 
   const structuredData = jsonLdGuidePage(
-    { ...guide, title: copy.title, description: copy.description },
+    { ...guide, title: copy.title, description: copy.description, answer },
     {
       locale,
       breadcrumb: [
@@ -82,6 +87,8 @@ export default async function Cs2GuidePage({ params }: Props) {
         </p>
 
         <ConversionStrip variant="page" />
+
+        {answer ? <AnswerBox label={tGuides("shortAnswer")}>{answer}</AnswerBox> : null}
 
         <Cs2GuideContent locale={locale} />
 
