@@ -57,7 +57,33 @@ async function loadAllArticlesMerged(): Promise<Article[]> {
   }
 
   applyEditorialOverrides(byId);
-  return [...byId.values()];
+  return dedupeByUrl([...byId.values()]);
+}
+
+/**
+ * `byId` cannot catch an article baked into the image and re-created in
+ * Firestore under a fresh id: same slug, same locale, two records, and one URL
+ * listed twice in the sitemap. Collapse on what actually identifies a page.
+ */
+function dedupeByUrl(articles: Article[]): Article[] {
+  const byUrl = new Map<string, Article>();
+  for (const article of articles) {
+    const key = `${article.locale}:${article.slug}`;
+    const existing = byUrl.get(key);
+    if (!existing || supersedes(article, existing)) byUrl.set(key, article);
+  }
+  return [...byUrl.values()];
+}
+
+function supersedes(candidate: Article, current: Article): boolean {
+  const candidatePublished = candidate.status === "published";
+  const currentPublished = current.status === "published";
+  if (candidatePublished !== currentPublished) return candidatePublished;
+
+  const stamp = (a: Article) => a.updatedAt || a.publishedAt || a.createdAt || "";
+  const diff = stamp(candidate).localeCompare(stamp(current));
+  // Same timestamp: order by id so the winner does not change between builds.
+  return diff !== 0 ? diff > 0 : candidate.id.localeCompare(current.id) > 0;
 }
 
 export async function listArticles(opts?: {
