@@ -75,7 +75,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       "gta6map.io shipped a clean timestamp list. Map-6’s job is the list plus geography. An Extended Look is the longest official in-game package Rockstar has posted — Netflix first on 27 August 2026, then the Rockstar YouTube upload (video tJbzMqJGH4k, 26:49). This page is the systems recap. The clickable scrub, with Map-6 hub links, lives on /trailer. We still will not invent shop names, collectible totals, or a PC date.",
       "Timestamped beats we index (approximate until frame-verified — /trailer prefixes them with ~): Slim Jim lock-pick ~6:07; pause-map building volumes ~8:00; one-handed shotgun ~9:21; binoculars ~10:48; rooftop dialogue in Vice City ~10:50; six-star meter ~15:21; masks ~17:50; auto-holster in a store ~17:57; Lifeinvader on R3 ~18:04; instant gun swap ~18:31; Jason/Lucia switch mid-chase ~18:41; faster weapon pickups ~25:00; fishing ~25:52. Each row opens YouTube at that second and, when the shoreline or skyline is readable, a regional hub.",
       "Wanted is the citation-grade system. Six slots return after GTA 5’s five. Hollow stars mean a crime was reported without a description. Solid means pursuit. A colour shift (white to red in the Look, after dialogue that they lost the vehicle) reads as wanted-but-not-eyed. Under the stars: pair, clothes, face, vehicle — four icons on screen. CCTV is preview language, not a fifth guaranteed glyph in that chase. Interactive HUD: /guides/gta-6-wanted-system.",
-      "Combat and robberies are trade-offs, not stat sheets. Previews describe lethal vs joint markers, one-handed guns, and an instant two-weapon swap without the wheel. Robberies: masks from the item wheel, weapons holster as you enter a store, and a speed-versus-value safe choice in press writeups. Map-6 will not publish damage numbers or mission titles from a compressed frame.",
+      "Combat and robberies are trade-offs, not stat sheets. Previews describe lethal vs joint markers, one-handed guns, and an instant two-weapon swap without the wheel. Robberies: masks from the item wheel, weapons holster as you enter a store, and a speed-versus-value safe choice in press writeups. Damage numbers and mission titles are not legible in a compressed trailer frame, so none appear here.",
       "Cars are no longer free. Older vehicles take a Slim Jim timing minigame. Higher-end security and a scan-before-you-steal app appear in preview coverage (WAINK / key cloner). The Look itself shows the vehicle intel icon dropping when Jason and Lucia change cars. That is enough to write a systems sentence. It is not enough to invent a lock-tier table.",
       "Scale stays labeled. Rockstar has not printed km². Preview language repeated by GamesRadar and creators (TGG) puts Leonida around twice GTA 5 and three times Red Dead Redemption 2, with Vice City itself about twice Los Santos. Community reconstructions still wander between ~83 km² (older leak-image math) and ~125 km² (later mapping). We print those as estimates on /guides/gta-6-map-size — not as a Rockstar spec. The Look’s job for a map site is more time in the seven hubs: Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers, Ambrosia, Mount Kalaga.",
       "What the Look did not do: publish collectible totals, a PC window, cross-saves, or official district borders. Reported-but-not-official numbers we refuse to promote as facts include a console 30 FPS claim from a hands-off session and an 80-hour campaign length from one designer’s playthrough. Those belong in a caveat paragraph, not a headline.",
@@ -108,7 +108,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       {
         question: "Does GTA 6 have six wanted stars?",
         answer:
-          "Yes. The Extended Look HUD shows six slots. GTA 5 capped at five; six was the series default from GTA 3 through Chinatown Wars. Map-6 will not invent what a sixth star deploys beyond NOOSE-scale response language in recaps.",
+          "Yes. The Extended Look HUD shows six slots. GTA 5 capped at five; six was the series default from GTA 3 through Chinatown Wars. What a sixth star actually deploys has not been shown; previews only describe NOOSE-scale response.",
       },
       {
         question: "What do the icons under the GTA 6 wanted stars mean?",
@@ -118,7 +118,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       {
         question: "Can you lose a wanted level by changing clothes in GTA 6?",
         answer:
-          "You can drop the clothing and face intel, which is how hollow stars stay hollow. That is not the same as a guaranteed star wipe. Map-6 will not publish a hide-in-alley timer until Rockstar prints one.",
+          "You can drop the clothing and face intel, which is how hollow stars stay hollow. That is not the same as a guaranteed star wipe, and no hide-and-wait timer has been published for GTA 6.",
       },
     ],
     content: [
@@ -160,7 +160,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       {
         question: "Can you switch between Lucia and Jason?",
         answer:
-          "Yes in open-world play, according to official previews. Rockstar North has said some story missions lock you to one perspective or auto-swap, similar to GTA 5’s directed sections. Map-6 will not invent a full switch-rules table.",
+          "Yes in open-world play, according to official previews. Rockstar North has said some story missions lock you to one perspective or auto-swap, similar to GTA 5’s directed sections. Which missions, and under what rules, has not been detailed.",
       },
       {
         question: "Where do Lucia and Jason operate on the map?",
@@ -175,7 +175,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       "Geography is how we beat wiki clones. Lucia and Jason’s trailer grammar is Leonida itself: Ocean Drive neon, Keys causeways, Grassrivers humidity, Port Gellhorn steel, Ambrosia exclusivity, Mount Kalaga quiet. Open /map with Landmarks on, pause a trailer on a hotel or airboat channel, and Share a deep link into your notes. Character literacy without spatial literacy is just celebrity gossip.",
       "Related Map-6 reading: gta-6-story for premise without spoilers, leonida-lore-overview for biomes, vice-city-locations and ocean-drive-gta-6 for district matching, gta-6-vehicles for trailer cars and the Vintage Vice City Pack Stanier, and gta-6-map-guide for filters and HUD coordinates. Editions (Standard $79.99 vs Ultimate $99.99 US) do not change who you play — see the Ultimate comparison.",
       "What we will not publish: leak dossiers of unused character models, fake Criminal Profile unlock tables, or “confirmed” third protagonists. AdSense and search quality both punish invented cast lists. When Rockstar names a new supporting player on Newswire, we add a short sourced blurb and a map CTA — we do not retrofit a wiki overnight.",
-      "Creator angle: Streamer theme on Map-6 plus a Lucia/Jason caption that names the district (“Keys causeway, not generic Florida”) outperforms “new character leak” thumbnails. Overlay at /overlay keeps chrome off camera. Credit GTADB CC BY 4.0 where basemap lineage applies. See the clip-kit guide.",
+      "Creator angle: Streamer theme on Map-6 plus a Lucia/Jason caption that names the district (“Keys causeway, not generic Florida”) outperforms “new character leak” thumbnails. Overlay at /overlay keeps chrome off camera; the clip-kit guide has the Share URLs and ref tags.",
       "Next step: read the story page for the official premise, then spend ten minutes on /map panning Vice City → Keys → Port Gellhorn → Grassrivers → Mount Kalaga. You now know the couple and the state. That is the whole characters brief until Rockstar shows more faces.",
     ],
   },
@@ -205,10 +205,10 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       "Searchers typing “gta 6 story” usually want two things: the official premise, and a warning about fake ending leaks. Map-6 gives both. Rockstar’s public pitch: Lucia and Jason believe life stacked the deck against them; a supposedly easy score goes wrong; they are pulled into a conspiracy that stretches across Leonida. That is the entire sourced logline. Everything after it — heist order, twist names, final mission titles — is rumor until you play it or Rockstar publishes it.",
       "The story is geography-shaped. Vice City sells satire and nightlife; the Keys sell commitment and crossings; Port Gellhorn sells work and logistics; Grassrivers sells humidity and escape; Ambrosia sells gated money; Mount Kalaga sells the quiet north. Our lore overview and regional /locations hubs are the spatial companion to this page. You cannot understand the couple without the state.",
       "Switching is a story tool, not just a mechanic. Rockstar has said some missions lock a perspective so you experience a beat as Lucia or as Jason. Do not assume free swap during every cutscene. Open-world free roam is the place to explore both; directed story is the place Rockstar keeps authorship. Details: gta-6-characters-lucia-jason.",
-      "Leonida is Florida-shaped fiction, not a documentary. Treat real-city name-drops as inspiration, not GPS. Map-6 pins community cartography (GTADB CC BY 4.0 where noted) with confidence labels — confirmed trailer frames versus rumor. Story pages that paste leak scripts fail AdSense and readers.",
+      "Leonida is Florida-shaped fiction, not a documentary. Treat real-city name-drops as inspiration, not GPS: Leonida borrows South Florida’s shape and some of its building stock, but the street grid is invented.",
       "Launch calendar context, not plot: November 19, 2026 on PS5 and Xbox Series X|S; preload from November 12 for eligible digital (and physical code-in-box) copies per Rockstar Support. Story DLC and Online seasons are unannounced here. See gta-6-release-date and gta-6-platforms-ps5-xbox.",
       "How to use Map-6 while avoiding spoilers after launch: filter Landmarks, Share a pin, and stay off mission-title forums if you want a clean first run. Pre-launch, match trailer stills only — no “mission 14 starts here” claims. Creators: label speculation on stream; link this page when chat asks for plot.",
-      "Related reading: characters hub, leonida-lore-overview, vice-city-locations, gta-6-map-size, gta-6-trailer-3-what-we-know. We revise this page when Newswire adds premise — we do not chase ending thumbnails.",
+      "This page gets revised when the Rockstar Newswire adds premise, which so far it has done three times in two years. The characters hub covers Jason and Lucia specifically, and the Leonida lore overview covers the state they move through.",
     ],
   },
   {
@@ -247,11 +247,11 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       },
     ],
     content: [
-      "“GTA 6 map size” is one of the highest-volume queries in this niche — and most ranking pages mash official slogans with Discord math. Map-6 splits them. Official: Rockstar and Take-Two call Grand Theft Auto VI the biggest, most immersive evolution of the series, set in the state of Leonida. Preview language, from creators in a Rockstar session (TGG) and repeated by GamesRadar: about twice GTA 5, about three times Red Dead Redemption 2, Vice City itself about twice Los Santos. Unofficial reconstructions still wander between ~83 km² (older leak-image math) and ~125 km² (later mapping). Those are not interchangeable facts. Map-6 will not reproduce a leaked development map — GamesRadar’s own map roundup skipped leak stills for the same DMCA reason.",
+      "“GTA 6 map size” is one of the highest-volume queries in this niche — and most ranking pages mash official slogans with Discord math. Map-6 splits them. Official: Rockstar and Take-Two call Grand Theft Auto VI the biggest, most immersive evolution of the series, set in the state of Leonida. Preview language, from creators in a Rockstar session (TGG) and repeated by GamesRadar: about twice GTA 5, about three times Red Dead Redemption 2, Vice City itself about twice Los Santos. Unofficial reconstructions still wander between ~83 km² (older leak-image math) and ~125 km² (later mapping). Those are not interchangeable facts. None of the reconstructions on this page come from the leaked development map, which GamesRadar also declined to reproduce in its own map roundup.",
       "Named destinations you can actually use: Vice City, the Leonida Keys, Port Gellhorn, Ambrosia, Grassrivers, and Mount Kalaga National Park. Those six groups are the skeleton of Map-6’s regional hubs and filters. Additional neighborhoods will appear in-game; we will not invent a 40-district roster to pad word count.",
       "Density matters more than raw area. Previews talk about crowded streets, interiors, and activities filling the icon layer. Some outlets repeat “700+ interiors”; treat that as press language until Rockstar publishes a number. Map-6’s job pre-launch is relative position: neon coast versus keys versus port versus wetlands versus gated island versus northern wilderness — not a fake area calculator.",
       "How to feel scale on Map-6: open /map, zoom out until Vice City and the Keys chain share the screen, pan to Port Gellhorn versus Ambrosia, then north toward Mount Kalaga with Grassrivers as the wet middle. Switch ?game=gta5 to compare Los Santos muscle memory. Measure tool and HUD X/Y exist so you can log trailer travel time guesses without pretending they are official km.",
-      "Competitors (MapGenie historically owns post-launch collectible maps; Leonida Intel and stateofleonida.net own pre-launch reconstruction). Map-6 beats them on: free filters without a found-cap, multilingual hubs, overlay/clip URLs, and editorial pages that refuse to present estimates as Rockstar specs. Attribution: GTADB community tiles CC BY 4.0 where used.",
+      "Competitors (MapGenie historically owns post-launch collectible maps; Leonida Intel and stateofleonida.net own pre-launch reconstruction). Map-6 beats them on: free filters without a found-cap, multilingual hubs, overlay/clip URLs, and editorial pages that refuse to present estimates as Rockstar specs.",
       "Related: gta-6-map-guide, leonida-lore-overview, vice-city-locations, ocean-drive-gta-6, gta-6-map-cities-skylines-2 (Steam 153426 3D companion), classic GTA 5/VC/SA maps. When Rockstar drops an official scale graphic, this page gets a dated update — we will not “correct” fan math into fake precision before that.",
       "Trailer-3 and Newswire workflow: new footage changes confidence, not km². Match skylines on Landmarks, note biome edges, Share deep links. Size arguments in comments are entertainment; your notes should be shapes and crossings.",
     ],
@@ -297,7 +297,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       "Hardware that actually differs by ecosystem: spare DualSense versus Xbox pad, official wireless headset stacks, and storage (PS5 NVMe vs Xbox expansion). The best-setup guide is the checklist. HDMI 2.1 / 120Hz readiness is TV-side, not a console war. Map-6 affiliate cards link the listings that exist — they do not pick a winner for you.",
       "Series S versus Series X is an Xbox-internal question Rockstar has not specced in public materials we cite. If you only own a Series S, do not assume Series X marketing slides. Wait for official platform notes. PC is a separate unannounced SKU — gta-6-pc-requirements and gta-6-platforms-ps5-xbox.",
       "Map-6 does not change by console. Filters, coordinates, overlay, and /locations hubs work the same. Use launch week for Leonida literacy, not for refreshing fake benchmark leaks. Related: gta-6-preorder-ps5-guide if you are already locked to Sony.",
-      "Decision template: (1) friends + subscriptions, (2) pad you like, (3) storage headroom, (4) Standard vs Ultimate after official extras, (5) bookmark /map. That beats any thumbnail titled “PS5 DESTROYS Xbox.”",
+      "In practice the tiebreakers, in order: where your friends already play, which subscription you are mid-way through, which pad your hands prefer, and how much storage headroom you have for a 150 GB install plus launch patches. None of those are settled by a thumbnail titled “PS5 DESTROYS Xbox.”",
     ],
   },
   {
@@ -336,7 +336,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
     content: [
       "Platform confusion is how scams and wasted pre-orders happen. The official launch set is simple: Grand Theft Auto VI on PlayStation 5 and Xbox Series X|S on November 19, 2026. That sentence is the whole confirmed board. Everything else — PC day-one, Switch 2 rumors, Android APKs, last-gen ports — stays in the unannounced column until Rockstar or Take-Two move it.",
       "Preload starts November 12, 2026 at local midnight for eligible digital editions; physical Standard (code in box, no disc) is slated to be available from that date so you can redeem and preload. Preload is not early access. Details: Rockstar Support “Platforms, Editions, and Versions” and gta-6-release-date.",
-      "PC players: gta-6-pc-requirements explains why Map-6 will not publish a fake minimum spec table as fact. Console buyers: gta-6-ps5-vs-xbox for ecosystem lock-in. Edition buyers: Standard vs Ultimate. Safety: gta-6-scam-watch if a stranger offers a “PC build” or beta key.",
+      "PC players: gta-6-pc-requirements walks through what can and cannot be inferred about specs from an unannounced port. Console buyers: gta-6-ps5-vs-xbox for ecosystem lock-in. If a stranger offers you a “PC build” or a beta key, gta-6-scam-watch covers how that scam runs.",
       "Store listings can mention PS5 Pro Enhanced or similar marketing. That is not a separate game and not a reason to panic-buy a Pro if your current PS5 is healthy. Cross-generation play and cross-saves are not announced.",
       "Map-6 remains the same interactive Leonida layer on every confirmed SKU. Open /map, filter Landmarks, read /locations hubs. Geography does not care which store icon you tap.",
       "We revise this status board when official channels add a platform. Until then, “GTA 6 platforms” should resolve to two consoles and a clearly labeled TBD — not a hopeful PC countdown.",
@@ -368,7 +368,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       "Primary keyword: gta 6 trailer 3. Secondary: trailer date, trailer leak. The honest answer is shorter than the rumor industry wants: there is no Map-6-invented drop day. Until Rockstar, Take-Two, or the official YouTube/Newswire channel names a date and time, every “next Friday” screenshot is unverified. We will not fabricate a calendar to rank.",
       "Why Trailer 3 matters for a map site: Trailers 1 and 2 already sold Vice City energy, the couple, and Leonida’s Florida-shaped contrast. A third cinematic (if and when it arrives) is usually new districts, weather, interiors, and chase grammar — the exact frames Map-6 is built to pin. Extended Look / Netflix gameplay drops are not the same as a numbered trailer; we label them separately in /news.",
       "Workflow the night it drops: (1) open /map Landmarks only, (2) pause neon hotels and wetland transitions, (3) match silhouettes not color grading, (4) Share deep links with theme=streamer if you clip, (5) write timestamp + X/Y + confidence. That loop beats twenty Discord servers pasting the same still with worse metadata. Details: gta-6-map-guide and gta-6-map-clip-kit.",
-      "Leak hygiene: “gta vi trailer leak” queries attract malware and fake 4K rips. Do not download “Trailer 3 early” EXEs or Telegram packs. Official video lives on Rockstar channels. See gta-6-scam-watch. Map-6 will not embed or reconstruct leaked assets.",
+      "Leak hygiene: “gta vi trailer leak” queries attract malware and fake 4K rips. Do not download “Trailer 3 early” EXEs or Telegram packs. Official video lives on Rockstar channels only; gta-6-scam-watch covers the rest.",
       "Geography checklist for any new official footage: Ocean Drive strip, Keys causeways, Port Gellhorn cranes, Grassrivers channels, Ambrosia gates, Mount Kalaga tree line. Regional pages under /locations hold longer prose. CS2 map 153426 is a 3D vibe check, not canon.",
       "Related: gta-6-characters-lucia-jason, gta-6-story, gta-6-map-size, gta-6-release-date (November 19, 2026). When a real date lands, this H1 stays; the first paragraph gets a dated line and a link to the official video.",
     ],
@@ -413,8 +413,17 @@ export const COMPETITIVE_GUIDES: Guide[] = [
     answer:
       "There are no official GTA 6 PC system requirements, because Rockstar has not announced a PC version or a PC release date. Every minimum/recommended spec table circulating today is fan speculation.",
     category: "beginner",
-    readTime: 8,
+    readTime: 9,
     publishedAt: "2026-09-05",
+    comparison: {
+      caption: "How long the last two Rockstar PC ports took",
+      headers: ["Game", "Console launch", "PC launch", "Gap"],
+      rows: [
+        ["Grand Theft Auto V", "17 September 2013", "14 April 2015", "about 19 months"],
+        ["Red Dead Redemption 2", "26 October 2018", "5 November 2019", "about 12 months"],
+        ["Grand Theft Auto VI", "19 November 2026", "Not announced", "—"],
+      ],
+    },
     faq: [
       {
         question: "What are the GTA 6 system requirements?",
@@ -428,19 +437,21 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       },
     ],
     content: [
-      "Leonida Intel and similar sites run “PC Lab” forecast tools. That is a legitimate content gap — and also a place where fake spec tables spread. Map-6’s PC page is stricter: Grand Theft Auto VI’s confirmed launch is November 19, 2026 on PlayStation 5 and Xbox Series X|S. PC timing and system requirements are unannounced. This page exists so “gta 6 system requirements” and “gta 6 pc release date” resolve to that fact, plus a planning checklist that does not impersonate a Rockstar PDF.",
-      "What you can buy now without a spec sheet: a console you already planned to own (gta-6-ps5-vs-xbox), storage headroom, a headset, and a 120Hz HDMI 2.1 display if your TV is the bottleneck. Those purchases help console launch week even if PC arrives years later. They are not “GTA 6 recommended GPU” claims.",
-      "Forecast humility: GTA 5 and RDR2 PC ports landed after consoles with their own spec dances. Using those as a vibe check is fine; copying a blogger’s invented RTX tier as fact is not. When Rockstar publishes official PC requirements, we will quote them, date the update, and link the source — we will not leave a fan table unlabeled.",
-      "Scams cluster on this keyword. There is no official pre-release PC installer, Android build, or public beta that Map-6 can point to. Discount keys, cloned Rockstar logins, and “verification” downloads are unsafe. Read gta-6-scam-watch before you click anything that is not rockstargames.com, PlayStation, Xbox, or a retailer you already trust.",
-      "If you are waiting for PC on purpose: bookmark this page and gta-6-platforms-ps5-xbox. Do not assume Ultimate Edition digital extras transfer across an unannounced SKU. Map-6’s interactive map works in the browser today — you do not need a gaming PC to learn Leonida.",
-      "Related: best-setup-gta-6-ps5-xbox for living-room hardware, gta-6-release-date for the console calendar, gta-6-preorder-guide for editions. We would rather rank with an honest “TBD” than a fake 16 GB / RTX 4070 chart.",
+      "Grand Theft Auto VI launches on 19 November 2026 on PlayStation 5 and Xbox Series X|S. There is no PC version in that announcement: no date, no storefront page, and no system requirements. Everything below is about planning around that gap, because the honest answer to “what GPU do I need” is that nobody outside Rockstar knows yet.",
+      "The table above is the only forecasting tool worth using. Grand Theft Auto V reached PC about nineteen months after its console launch; Red Dead Redemption 2 took about twelve. That is a band, not a schedule — Rockstar has never committed publicly to a port window in advance, and the two gaps differ by more than half a year. Treating the midpoint as a release date is how people end up buying hardware a year early.",
+      "What the band is good for is budgeting. If you want to play in 2026 you are buying a console, and the PC question becomes a 2027-or-later line in your budget rather than a purchase this autumn. Pick a ceiling you can afford later, not a parts list derived from a spec table that does not exist.",
+      "What you can buy now without a spec sheet: the console you already planned to own, storage headroom, a headset, and a 120 Hz HDMI 2.1 display if your TV is the bottleneck. All four pay off during console launch week even if the PC port is years away, and none of them require guessing a VRAM floor.",
+      "What not to buy: a graphics card chosen against an unofficial minimum, an “anticipated requirements” list from a forum, or a pre-order for a PC SKU that is not on sale anywhere. Community spreadsheets and leaked benchmark tables are not certification. If a number cannot be traced to Rockstar or Take-Two, it is someone’s guess with a confident font.",
+      "This keyword attracts scams for exactly that reason. There is no pre-release PC installer, no Android build, and no public beta. Discounted keys, cloned Rockstar logins and “verification” downloads are how accounts get taken — read the scam watch before clicking anything that is not rockstargames.com, PlayStation, Xbox, or a retailer you already use.",
+      "If you are deliberately waiting for PC, you can still do the useful part now. The interactive map runs in any browser, so learning where Port Gellhorn sits relative to Ambrosia costs nothing. Creators streaming a console feed while they wait will find capture and overlay notes in the clip kit. Do not promise a chat audience a Steam build.",
+      "When Rockstar publishes PC requirements, this page becomes a quotation of that table with a date and a source link. Until then it stays a “not announced”, which is the only version of this page that will still be true next month.",
     ],
   },
   {
     slug: "gta-6-vehicles",
     title: "GTA 6 Vehicles — Trailer Cars & Vintage Vice City Pack",
     description:
-      "What official media shows about GTA 6 vehicles: cars, boats, aircraft, the ’55 Vapid Stanier pre-order pack, and why Map-6 will not publish a fake complete garage.",
+      "What official media actually shows about GTA 6 vehicles: cars, boats, aircraft, the ’55 Vapid Stanier pre-order pack, and how much of the garage is still unknown.",
     answer:
       "Rockstar has not published a GTA 6 vehicle list. What is actually confirmed comes from official trailer footage plus the vintage vehicles bundled in the Vintage Vice City Pack pre-order bonus.",
     category: "exploration",
@@ -455,7 +466,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       {
         question: "Does Ultimate Edition add exclusive vehicles?",
         answer:
-          "Take-Two describes Ultimate as premium vehicles, weapons, apparel, and story-threaded extras. Exact garage SKUs are on official store pages — Map-6 will not invent a spoiler list. Standard owners can buy an Ultimate Upgrade later.",
+          "Take-Two describes Ultimate as premium vehicles, weapons, apparel, and story-threaded extras. The exact vehicle list lives on the official store pages and has not been itemised elsewhere. Standard owners can buy an Ultimate Upgrade later.",
       },
     ],
     content: [
@@ -502,6 +513,10 @@ export const COMPETITIVE_GUIDES: Guide[] = [
     slug: "gta-6-best-price",
     title: BEST_PRICE_TITLE_EN,
     description: BEST_PRICE_DESCRIPTION_EN,
+    answer: fillPrices(
+      "GTA 6 Standard is €{high} on the PlayStation and Microsoft stores, which never discount, and has sat around €{low} at Amazon.fr, Fnac, Cdiscount and Carrefour — about €{save} less for the same game on the same platform. Retailer boxes hold a download code rather than a disc, carry the same Vintage Vice City Pack, and can be cancelled until dispatch; they also sell out in waves. Ultimate has no physical SKU, so €99.99 on the console stores is its only price.",
+      "en",
+    ),
     category: "beginner",
     readTime: 9,
     publishedAt: "2026-09-09",

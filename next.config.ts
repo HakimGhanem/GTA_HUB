@@ -18,6 +18,19 @@ const nextConfig: NextConfig = {
   transpilePackages: ["maplibre-gl", "react-map-gl"],
   serverExternalPackages: ["firebase-admin"],
   poweredByHeader: false,
+  async redirects() {
+    // Two PC guides said the same thing as gta-6-pc-requirements, which also
+    // covers the release date. Merged there; keep the old URLs reachable.
+    const retiredGuides: Record<string, string> = {
+      "gta-6-pc-release-date": "gta-6-pc-requirements",
+      "gta-6-pc-recommended-specs": "gta-6-pc-requirements",
+    };
+    return Object.entries(retiredGuides).map(([from, to]) => ({
+      source: `/:locale/guides/${from}`,
+      destination: `/:locale/guides/${to}`,
+      permanent: true,
+    }));
+  },
   async headers() {
     return [
       {

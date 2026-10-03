@@ -189,42 +189,43 @@ const FR: Record<string, LocalizedGuide> = {
       "Boucle rétention : clip → lien Map-6 → viewer filtre → nouveau Share → commentaire. Chaque étape doit être honnête sur ce qui est confirmé. Map-6 fournit les outils ; vous fournissez le jugement éditorial. Ouvrez /fr/map ce soir et shippez le premier short.",
     ],
   },
-  "gta-6-pc-release-date": {
-    title: "GTA 6 PC — pas de day one (estimation 12–18 mois)",
+  "gta-6-pc-requirements": {
+    title: "Configuration PC et date PC de GTA 6 — non annoncées",
     description:
-      "GTA 6 n’est pas un lancement PC day one. Consoles le 19 novembre 2026 ; Rockstar n’a pas publié de date PC. Estimation 12–18 mois, et quoi faire en attendant.",
-    readTime: 12,
-    content: [
-      "Grand Theft Auto VI sort le 19 novembre 2026 sur PlayStation 5 et Xbox Series X|S. Ce calendrier console est public. Un SKU Windows, Steam, Epic ou Rockstar Launcher le même jour n’en fait pas partie. Si une miniature promet le 19 novembre sur trois plateformes, fermez l’onglet — Map-6 n’inventera pas un jour PC officiel pour le clic.",
-      "Ce que Rockstar et Take-Two ont confirmé dans les matériaux publics que Map-6 cite : les consoles et la fenêtre novembre 2026. Ce qu’ils n’ont pas confirmé : une date PC, une liste de boutiques, ni que les précommandes console se convertissent. Jusqu’à un Newswire ou un earnings call, les compilations « insider day-and-date » sont du divertissement.",
-      "Un écart de 12–18 mois après les consoles est une bande d’estimation, pas une date Rockstar. GTA V : consoles septembre 2013, PC avril 2015 (~19 mois). Red Dead 2 : consoles octobre 2018, PC novembre 2019 (~12 mois). D’où les discussions calmes « fin 2027–2028 ». C’est encore une hypothèse. Ce n’est pas une fiche précommandable.",
-      "Traitez la bande comme un budget, pas comme une invitation calendrier. Si Rockstar sort plus vite ou plus lentement, cette page bougera. Ne reconstruisez pas un PC autour d’un faux trimestre. La phrase honnête en août 2026 : pas de date officielle, historiquement pas day one, estimation 12–18 mois après le 19 novembre 2026.",
-      "Les storefronts PC ne sont pas annoncés. GTA V a fini sur plusieurs boutiques ; ça ne verrouille ni Steam, ni Epic, ni le launcher Rockstar pour VI. N’achetez pas une carte cadeau « pour la précommande PC » qui n’existe pas. Une licence console ne migre pas. Quand une fiche PC apparaîtra, ce sera un nouveau SKU.",
-      "Le vrai choix : jouer en 2026 ou attendre le PC. Vice City le 19 novembre exige une PS5 ou une Xbox Series — /guides/gta-6-preorder-guide et /guides/best-setup-gta-6-ps5-xbox. Si vous sautez l’année console, gardez l’argent PC liquide et ignorez la panique GPU qui cite des specs non publiées.",
-      "Les précommandes console ne deviennent pas des clés Steam. Amazon, Fnac, PlayStation Store et Microsoft Store vendent des SKU console. L’annulation jusqu’à l’expédition n’est pas un pont vers Windows. Map-6 n’affichera jamais une DualSense comme un dépôt Steam.",
-      "Le second piège : le FOMO hardware PC. Pas de specs officielles — voir le guide des fourchettes non officielles. Acheter une carte parce qu’un YouTubeur a inventé « RTX obligatoire pour la pluie à Leonida » est ainsi qu’on possède du RGB sans jouer en novembre. Si vous prenez une console pour le lancement, dépensez d’abord SSD, manette de rechange, casque, HDMI 2.1.",
-      "Pendant que la date PC est vide, la géographie ne l’est pas. Ouvrez /fr/map, filtrez Landmarks, copiez les X/Y du HUD, lisez les hubs /locations. La lignée carto inclut GTADB en CC BY 4.0 là où c’est noté. Attendre Steam est un plan ; rafraîchir des pages produit PC vides n’en est pas un.",
-      "Hygiène news : préférez Newswire et les remarques Take-Two aux captures « port already gold ». Map-6 citera les canaux officiels quand la phrase PC arrivera. Pas de fausses dates preload, pas de faux SteamDB. Si une page vous donne jour, boutique et prix PC aujourd’hui, elle devine.",
-      "Lectures : /guides/gta-6-release-date, /guides/gta-6-pc-recommended-specs, /guides/gta-6-ps5-vs-xbox, /guides/gta-6-price-france, /guides/gta-6-faq. Promesse : nous n’imprimerons pas une date PC que Rockstar n’a pas imprimée. Décidez si novembre 2026 vaut un SKU console, puis gardez /map ouvert.",
+      "GTA 6 n’a ni date de sortie PC ni configuration requise officielles. Comment prévoir son matériel sans faux tableaux de specs minimales, et ce que Map-6 publiera quand Rockstar parlera.",
+    answer:
+      "Il n’existe aucune configuration requise officielle pour GTA 6 sur PC, parce que Rockstar n’a annoncé ni version PC ni date de sortie PC. Tous les tableaux de specs minimales et recommandées qui circulent aujourd’hui sont des spéculations de fans.",
+    readTime: 9,
+    comparison: {
+      caption: "Le délai des deux derniers portages PC de Rockstar",
+      headers: ["Jeu", "Sortie console", "Sortie PC", "Écart"],
+      rows: [
+        ["Grand Theft Auto V", "17 septembre 2013", "14 avril 2015", "environ 19 mois"],
+        ["Red Dead Redemption 2", "26 octobre 2018", "5 novembre 2019", "environ 12 mois"],
+        ["Grand Theft Auto VI", "19 novembre 2026", "Non annoncée", "—"],
+      ],
+    },
+    faq: [
+      {
+        question: "Quelle est la configuration requise pour GTA 6 ?",
+        answer:
+          "Rockstar n’a publié aucune configuration minimale ni recommandée. Tout site affichant un tableau de GPU complet comme officiel devine. Map-6 n’ajoutera un bloc de specs daté que d’après Rockstar ou Take-Two.",
+      },
+      {
+        question: "Quand GTA 6 sort-il sur PC ?",
+        answer:
+          "Aucune date PC n’a été annoncée avec le lancement console du 19 novembre 2026. Les précommandes console ne se transfèrent pas. Ignorez les installeurs EXE, APK et les « fuites Steam » — voir la veille arnaques.",
+      },
     ],
-  },
-  "gta-6-pc-recommended-specs": {
-    title: "Config PC GTA 6 — fourchettes non officielles seulement",
-    description:
-      "Rockstar n’a pas publié les specs PC de GTA 6. Fourchettes anticipées, SSD et écran, et pourquoi casque/stockage console comptent encore si vous jouez en 2026.",
-    readTime: 11,
     content: [
-      "Il n’existe pas de tableau officiel min / reco / 4K pour GTA 6 PC. Toute page qui présente un GPU comme « la carte recommandée Rockstar » éditorialise — ou invente. Map-6 donne des fourchettes pour parler budget. Chaque chiffre ci-dessous est non officiel. Quand Rockstar publiera, on remplace.",
-      "Pourquoi des fourchettes : les builds PC actuels de GTA V demandent déjà un gros SSD et un GPU mid-range moderne pour du 1080p élevé ; les AAA open-world récents poussent 16 Go de RAM comme plancher prudent et 32 Go comme plafond confort. C’est du contexte, pas le renderer inédit de VI.",
-      "Amorces de conversation — pas des minimums Rockstar. 1080p / 60 fps en 2026 : GPU mid 12 Go (classe RTX 3060 12 Go / 6700 XT), CPU 6 cœurs moderne, 16 Go RAM, NVMe avec de la place. 1440p élevé : GPU mid-haut actuel (4070 / 7800 XT), CPU 8 cœurs, 32 Go. Le 4K est du silicium haut de gamme et non publié. En dessous de la bande 1080p, baissez les options ou attendez.",
-      "Le stockage, vous pouvez l’agir sans date PC. VI console vivra sur SSD interne rapide ; installer le même monde sur un disque SATA mourant sera un mauvais pari. Rockstar n’a pas publié le poids PC. Prévoyez un gros NVMe et de la marge patches / captures. Si vous jouez console en 2026, même leçon : /guides/best-setup-gta-6-ps5-xbox.",
-      "Écran et audio sont des décisions salon. Un panneau 120 Hz HDMI 2.1 aide les modes perf console s’ils arrivent le 19 novembre ; ce sera encore un bon moniteur à l’arrivée PC. Pas besoin d’OLED. Un casque qui marche sur la console que vous possédez compte plus qu’un SKU « 7.1 Lucia » fantôme.",
-      "Cette page ne recommandera pas une PS5 comme pièce PC, n’inventera pas de planchers VRAM officiels, ni de bundles collector GPU. Le ticket « PS5 ou Series X pour 2026 » est /guides/gta-6-ps5-vs-xbox — pas un pitch console caché dans une fiche specs.",
-      "Ne traitez pas les tableurs communautaires comme une certification. Datamines et « mon cousin chez Rockstar » sont ainsi qu’on retourne des 4090 en janvier. Map-6 n’hébergera pas de PDF leak. Quand les specs officielles arriveront, elles pourront être plus hautes, plus basses, ou façonnées par des upscalers encore invisibles.",
-      "Le chemin 2026 reste console. Day-one Leonida : SKU PS5 ou Xbox via /guides/gta-6-preorder-guide, puis SSD, pad, casque, 120 Hz. Si vous refusez les consoles, votre job est la patience plus un PC sain — pas un refresh scalper à minuit. Les deux chemins peuvent ouvrir /map cette semaine.",
-      "La littératie carte n’a pas besoin d’un preset 4K. Filtrez Landmarks, matchez néons et causeways, copiez les coords. Un laptop mid-range fait tourner Map-6. Gardez le budget silicium pour une page PC officielle — ou pour la console que vous allumerez en novembre.",
-      "Créateurs : capture, overlay et Share sont dans le clip kit. Streamer une console en 2026 en attendant le port est normal. Ne promettez pas un build Steam au chat. Créditez Map-6 fan-made et GTADB CC BY 4.0.",
-      "Lectures : /guides/gta-6-pc-release-date, date console, best-setup, précommande, FAQ. Promesse : fourchettes non officielles seulement, pas de SKU PC inventé.",
+      "Grand Theft Auto VI sort le 19 novembre 2026 sur PlayStation 5 et Xbox Series X|S. Aucune version PC ne figure dans cette annonce : pas de date, pas de fiche boutique, pas de configuration requise. Tout ce qui suit sert à s’organiser autour de ce vide, parce que la réponse honnête à « quel GPU me faut-il » est que personne hors de Rockstar ne le sait encore.",
+      "Le tableau ci-dessus est le seul outil de prévision qui vaille. Grand Theft Auto V est arrivé sur PC environ dix-neuf mois après sa sortie console ; Red Dead Redemption 2 a mis environ douze mois. C’est une fourchette, pas un calendrier : Rockstar ne s’est jamais engagé publiquement à l’avance sur une fenêtre de portage, et les deux écarts diffèrent de plus de six mois. Prendre le milieu pour une date de sortie, c’est acheter son matériel un an trop tôt.",
+      "Cette fourchette sert surtout à budgéter. Si vous voulez jouer en 2026, vous achetez une console, et la question PC devient une ligne de budget pour 2027 ou plus tard plutôt qu’un achat cet automne. Fixez-vous un plafond que vous pourrez assumer le moment venu, pas une liste de composants déduite d’un tableau de specs qui n’existe pas.",
+      "Ce que vous pouvez acheter maintenant sans fiche technique : la console que vous comptiez déjà prendre, de la marge de stockage, un casque, et un écran 120 Hz HDMI 2.1 si votre téléviseur est le goulot d’étranglement. Les quatre servent dès la semaine de lancement console même si le portage PC arrive des années plus tard, et aucun n’exige de deviner un plancher de VRAM.",
+      "Ce qu’il ne faut pas acheter : une carte graphique choisie face à une configuration minimale non officielle, une liste de « specs anticipées » trouvée sur un forum, ou une précommande pour un SKU PC qui n’est en vente nulle part. Les tableurs communautaires et les benchmarks fuités ne valent pas certification. Si un chiffre ne remonte pas à Rockstar ou Take-Two, c’est la supposition de quelqu’un dans une police assurée.",
+      "Ce mot-clé attire les arnaques pour cette raison précise. Il n’existe ni installeur PC pré-sortie, ni build Android, ni bêta publique. Les clés bradées, les fausses pages de connexion Rockstar et les téléchargements « de vérification » sont la façon dont les comptes se font voler — lisez la veille arnaques avant de cliquer sur autre chose que rockstargames.com, PlayStation, Xbox ou un revendeur que vous utilisez déjà.",
+      "Si vous attendez le PC volontairement, vous pouvez déjà faire la partie utile. La carte interactive tourne dans n’importe quel navigateur : apprendre où se situe Port Gellhorn par rapport à Ambrosia ne coûte rien. Les créateurs qui streament une console en attendant trouveront les notes de capture et d’overlay dans le clip kit. Ne promettez pas un build Steam à votre chat.",
+      "Quand Rockstar publiera la configuration PC, cette page deviendra une citation de ce tableau, datée et sourcée. D’ici là elle reste un « non annoncé », seule version de cette page qui sera encore vraie le mois prochain. À lire aussi : le calendrier console pour la date de novembre, le tableau de statut des plateformes, et le guide de précommande pour les éditions.",
     ],
   },
   "gta-6-ps5-vs-xbox": {
@@ -291,7 +292,7 @@ const FR: Record<string, LocalizedGuide> = {
       "Physique vs digital est un choix prix/risque, pas un choix lore. Si la boîte dit code de téléchargement, croyez la boîte. Collector : contenus non publiés, primes FR non publiées. N’achetez pas un « Collector » grey-market qui invente la hauteur de statue.",
       "Pièges transfrontaliers : Amazon.de / .es en euros peut rester une offre juridique différente (livraison, langue, PEGI). Payez en EUR sur une page FR ou clairement UE. Les cartes cadeau dans le mauvais wallet font « économiser » 10 € et en perdre 40.",
       "Quand on vous débitera : beaucoup de précommandes revendeur autorisent ou débitent près de l’expédition. D’où l’intérêt d’annuler si Rockstar clarifie les éditions. Ce n’est pas une raison d’empiler trois précommandes. Une plateforme, une édition, un moyen de paiement qui marchera encore en novembre.",
-      "Le prix ne change pas Leonida. Amazon, Fnac ou store console, /map est le même. Les joueurs PC : il n’y a pas de prix de précommande PC FR honnête aujourd’hui — /guides/gta-6-pc-release-date.",
+      "Le prix ne change pas Leonida. Amazon, Fnac ou store console, /map est le même. Les joueurs PC : il n’y a pas de prix de précommande PC FR honnête aujourd’hui — /guides/gta-6-pc-requirements.",
       "Lectures : précommande, Standard vs premium, PS5 vs Xbox, best-setup si le reste du budget vaut mieux un SSD qu’un Ultimate rumeur, FAQ. Promesse : pas de faux MSRP officiel, TVA parlée en TTC. Quand un prix euro stable sera sur une vraie fiche, nous le citerons comme listing — et vous dirons encore de lire la ligne de checkout.",
     ],
   },
@@ -303,7 +304,7 @@ const FR: Record<string, LocalizedGuide> = {
     content: [
       "Cette FAQ est une couche de réponses courtes sourcées. Ce n’est pas une encyclopédie leak. S’il faut un Newswire, une remarque Take-Two ou une fiche boutique, nous disons si la source existe. Pas de listes collectibles « complètes », pas de date PC officielle inventée, pas de MSRP déguisé en fait. Extended Look officiel ce soir (27 août, 21h CEST Netflix / 3h CEST YouTube) : /guides/gta-6-extended-look-how-to-watch.",
       "Quand sort GTA 6 ? Le 19 novembre 2026 sur PS5 et Xbox Series X|S — /guides/gta-6-release-date. Si la date bouge, elle bougera d’abord sur les canaux officiels. Les « insider delay 2027 » restent non vérifiés. Les preloads, s’il y en a, s’annoncent près du lancement ; laissez de la place SSD.",
-      "PC day one ? Non. Rockstar n’a pas publié de date PC. 12–18 mois après les consoles est une maths historique (/guides/gta-6-pc-release-date), pas une street date. Les précommandes console ne deviennent pas des clés Steam. Les fourchettes PC sont étiquetées non officielles.",
+      "PC day one ? Non. Rockstar n’a pas publié de date PC. 12–18 mois après les consoles est une maths historique (/guides/gta-6-pc-requirements), pas une street date. Les précommandes console ne deviennent pas des clés Steam. Les fourchettes PC sont étiquetées non officielles.",
       "Prix France ? Pas de faux MSRP Map-6 ici. Les fiches FR afficheront des euros TTC. Comparez Amazon.fr, Fnac et les stores console — /guides/gta-6-price-france. Le Standard est le jeu complet ; le Collector n’est pas listé. Un visuel forum 69,99 € n’est pas un tarif Take-Two tant qu’une fiche ne le matche pas.",
       "PS5 ou Xbox — et la save traverse ? Même jour de lancement. Les SKU ne se convertissent pas. Cross-saves non annoncés. Game Pass day one non annoncé ; PS Plus non annoncé comme vecteur gratuit au lancement. Choisissez l’écosystème que vous utilisez déjà. Long : /guides/gta-6-ps5-vs-xbox.",
       "Où ça se passe ? Leonida, État façon Floride, Vice City comme raccourci métro, plus Keys, zones humides, port, île de richesse, wilderness nord. Hubs /locations. Nous n’inventons pas de numéros de pontons. Lore : /guides/leonida-lore-overview.",
@@ -576,6 +577,10 @@ const DEDICATED_ANSWERS: Record<string, Record<string, string>> = {
       "Précommandez GTA 6 uniquement via les canaux officiels : PlayStation Store, Microsoft Store ou un revendeur établi comme Amazon. La Standard est à 79,99 $ et l'Ultimate à 99,99 $ US ; les précommandes éligibles avant le 20 novembre 2026 incluent le pack Vintage Vice City, et le préchargement démarre le 12 novembre.",
     "gta-6-map-cities-skylines-2":
       "Un fan a reconstruit Vice City, les Keys et Port Gellhorn en carte Cities: Skylines II (ID 153426), ce qui permet de parcourir la géographie en 3D. C'est une interprétation fan des images des trailers, pas des données Rockstar.",
+    "gta-6-best-price": fillPrices(
+      "La Standard de GTA 6 est à {high} € sur le PlayStation Store et le Microsoft Store, qui ne soldent jamais, et tourne autour de {low} € chez Amazon.fr, Fnac, Cdiscount et Carrefour — soit environ {save} € de moins pour le même jeu sur la même plateforme. Les boîtes revendeur contiennent un code de téléchargement, pas un disque, donnent droit au même pack Vintage Vice City et restent annulables jusqu'à l'expédition ; en revanche elles partent en rupture par vagues. L'Ultimate n'existe pas en physique : 99,99 € sur les stores console est son seul prix.",
+      "fr",
+    ),
   },
 };
 
