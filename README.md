@@ -41,11 +41,15 @@ npm run tiles:raster -- path/to/leonida-map.png
 
 Copy `.env.example` → `.env.local` and set tile URLs.
 
-## Deploy (Vercel)
+## Deploy (Cloud Run)
 
 ```bash
-npx vercel
+export GCP_PROJECT=your-project-id
+./scripts/deploy-cloudrun.sh
 ```
+
+The script submits the **working directory** to Cloud Build, so commit and pull
+before deploying — git is not the source of truth for what ships.
 
 1. Set `NEXT_PUBLIC_SITE_URL` to your production domain
 2. Set `NEXT_PUBLIC_GSC_VERIFICATION` from [Google Search Console](https://search.google.com/search-console)

@@ -2,8 +2,8 @@ import { SITE } from "@/lib/constants";
 
 /**
  * Twitch refuses to render the iframe unless every ancestor host is listed in
- * `parent`. The site host plus localhost covers prod and dev; Vercel preview
- * domains have to be added through NEXT_PUBLIC_TWITCH_PARENTS.
+ * `parent`. The site host plus localhost covers prod and dev; the per-revision
+ * *.run.app hosts need NEXT_PUBLIC_TWITCH_PARENTS to be embeddable.
  */
 function siteHost(): string {
   try {

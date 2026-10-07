@@ -57,9 +57,6 @@ data/gtadb-gta5/
 scripts/content/_*
 !scripts/content/_shared.mts
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
 next-env.d.ts

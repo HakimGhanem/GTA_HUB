@@ -7,8 +7,7 @@ Flask impliquerait une réécriture complète sans gain SEO.
 
 | Option | Verdict |
 |--------|---------|
-| **Next.js → Cloud Run** | Recommandé si vous voulez tout sur GCP |
-| **Next.js → Vercel** | Plus simple pour le frontend (déjà configuré) |
+| **Next.js → Cloud Run** | Retenu — tout reste sur GCP |
 | Flask seul | Non adapté à cette stack |
 
 Cloud Run héberge le conteneur Next.js standalone (`output: "standalone"`).
@@ -91,7 +90,6 @@ gcloud run services update-traffic map6 --region=europe-west1 --to-latest
 Options :
 - **Cloud Storage** + CDN (recommandé prod)
 - **Build step** : `npm run tiles:fetch-gtadb` dans CI avant `docker build`
-- **Vercel** pour l'app + GCS pour `/tiles/*` en proxy
 
 Health check : `GET /api/health` → `{"status":"ok"}`
 
@@ -240,20 +238,7 @@ Mesure : dans GA4, créer une exploration sur l'événement `ai_referral`
 
 ---
 
-## 7. Alternative Vercel (plus rapide)
-
-Si Cloud Run est bloquant pour les tuiles lourdes :
-
-```bash
-npx vercel --prod
-```
-
-Vercel → Settings → Domains : ajouter `map6.live`, `map-6.com`
-DNS Squarespace : CNAME `@` et `www` vers `cname.vercel-dns.com`
-
----
-
-## 8. Content engine (news loop)
+## 7. Content engine (news loop)
 
 Pipeline: **detect → draft → human review → publish → analyze → improve**.
 
@@ -326,7 +311,7 @@ IndexNow runs when the daily API publishes. CLI `content:daily` remains for loca
 
 ---
 
-## 9. Checklist go-live
+## 8. Checklist go-live
 
 - [ ] `NEXT_PUBLIC_SITE_URL=https://map-6.com`
 - [ ] DNS map-6.com / map6.live actifs + HTTPS

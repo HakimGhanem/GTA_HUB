@@ -51,7 +51,6 @@ function skipIntl(pathname: string): boolean {
   if (pathname.startsWith("/api")) return true;
   if (pathname.startsWith("/md")) return true;
   if (pathname.startsWith("/_next")) return true;
-  if (pathname.startsWith("/_vercel")) return true;
   return pathname.includes(".");
 }
 
@@ -120,5 +119,5 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   // Include sitemap.xml / robots.txt / ads.txt — aliases must 301 too.
-  matcher: ["/((?!_next/static|_next/image|_vercel).*)"],
+  matcher: ["/((?!_next/static|_next/image).*)"],
 };
