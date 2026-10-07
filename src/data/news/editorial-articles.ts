@@ -1,5 +1,7 @@
 import type { Article } from "@/lib/content/schema";
 import { locationFigure } from "@/lib/content/key-news";
+import { DESK_2026_10_ARTICLES } from "./editorial-desk-2026-10";
+import { DESK_2026_10_FR_ARTICLES } from "./editorial-desk-2026-10-fr";
 import { HUB_ARTICLES } from "./editorial-hub-articles";
 import { KEY_FR_ARTICLES } from "./editorial-key-fr";
 
@@ -637,4 +639,6 @@ Le lancement console reste le **19 novembre 2026** sur PlayStation 5 et Xbox Ser
   },
   ...HUB_ARTICLES,
   ...KEY_FR_ARTICLES,
+  ...DESK_2026_10_ARTICLES,
+  ...DESK_2026_10_FR_ARTICLES,
 ];

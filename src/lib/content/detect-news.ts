@@ -8,16 +8,15 @@ import type { ContentCluster, Topic } from "./schema";
 import { fetchYoutubeVeille } from "./youtube-veille";
 
 const FEEDS = [
-  // Purchase / setup intent first — higher EPC near launch (Amazon)
   "https://news.google.com/rss/search?q=GTA+6+preorder+OR+pre-order&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=GTA+6+preorder+price+OR+%22how+much%22+OR+Ultimate+edition&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=GTA+6+collector%27s+edition+OR+%22Ultimate+Edition%22&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=GTA+6+PS5+OR+%22Xbox+Series%22+console+setup&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=Take-Two+OR+Zelnick+GTA+6+OR+TTWO&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+PC+OR+%22GTA+VI%22+Steam&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+DualSense+OR+controller&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+collector%27s+edition+OR+%22Vice+City+Collection%22&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=GTA+6+best+setup+OR+headset+OR+SSD&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=GTA+6+OR+%22GTA+VI%22+pr%C3%A9commande&hl=fr&gl=FR&ceid=FR:fr",
-  // Trailer / general news — still detected, scored lower for daily picks
-  "https://news.google.com/rss/search?q=GTA+6+trailer&hl=en-US&gl=US&ceid=US:en",
-  "https://news.google.com/rss/search?q=GTA+VI+OR+%22Grand+Theft+Auto+VI%22&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+trailer+OR+%22Extended+Look%22&hl=en-US&gl=US&ceid=US:en",
+  "https://news.google.com/rss/search?q=GTA+6+leak+OR+teapotuber&hl=en-US&gl=US&ceid=US:en",
   "https://news.google.com/rss/search?q=Rockstar+Games+GTA+6&hl=en-US&gl=US&ceid=US:en",
 ];
 
@@ -100,7 +99,7 @@ function cleanHeadline(title: string): string {
 }
 
 function isJunkHeadline(title: string): boolean {
-  return /fans (think|say|react)|allegedly|according to leaks|everything we know|what we (already )?know|weekly recap|round-?up/i.test(
+  return /fans (think|say|react)|allegedly|according to leaks|everything we know|what we (already )?know|weekly recap|round-?up|51 million|260 million|sensor tower/i.test(
     title,
   );
 }

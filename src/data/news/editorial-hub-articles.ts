@@ -34,9 +34,9 @@ export const HUB_ARTICLES: Article[] = [
     title: "GTA 6 Release Date, Price & Official Facts — Leonida, Lucia & Jason",
     description:
       "GTA 6 release date: November 19, 2026 on PS5 and Xbox. Official prices, editions, named Leonida hubs, Lucia and Jason, Extended Look systems. Rumors stay labeled.",
-    bodyMarkdown: `Rockstar’s public page for *Grand Theft Auto VI* is still the only document that should decide a pre-order, a console upgrade, or a map pin. This briefing is a **facts desk**, not a rumor dump. If a claim is not on [rockstargames.com/VI](https://www.rockstargames.com/VI), a Newswire post, or a Take-Two earnings remark, Map-6 labels it **unconfirmed**.
+    bodyMarkdown: `*Grand Theft Auto VI* launches **November 19, 2026** on **PlayStation 5** and **Xbox Series X|S**. That is the whole official launch sentence: two consoles, one Wednesday, no PC in the same breath.
 
-The game launches **November 19, 2026** on **PlayStation 5** and **Xbox Series X|S**. That date replaced earlier windows after Rockstar asked for more polish time. PC is **not** in the same sentence. Treat “day-one Steam” posts as noise until a separate Rockstar calendar exists. Editions and US list prices live in the [pre-order guide](/en/guides/gta-6-preorder-guide): Standard **$79.99**, Ultimate **$99.99**, with Ultimate as a **digital extras tier**, not a statue box.
+If a claim is not on [rockstargames.com/VI](https://www.rockstargames.com/VI), a Newswire post, or a Take-Two filing, Map-6 labels it **unconfirmed**. Editions and US list prices live in the [pre-order guide](/en/guides/gta-6-preorder-guide): Standard **$79.99**, Ultimate **$99.99** — a digital extras tier, not a statue box. Treat “day-one Steam” posts as noise until Rockstar prints a separate calendar.
 ${VC("Vice City hub on the Map-6 GTA 6 map", "Vice City is the marketed metro — neon, water, freeway seams — not the entire state of Leonida.")}
 
 ## Named geography, not a finished atlas
@@ -533,9 +533,9 @@ Play first; pay for cash only if the grind is the part you hate. The [GTA 5 map]
     title: "Date de sortie GTA 6, prix et faits officiels — Leonida, Lucia & Jason",
     description:
       "Date de sortie GTA 6 : 19 novembre 2026 sur PS5 et Xbox. Prix, éditions, hubs Leonida nommés, duo Lucia et Jason, systèmes de l’Extended Look. Les rumeurs restent étiquetées.",
-    bodyMarkdown: `La page publique de *Grand Theft Auto VI* reste le seul document qui devrait décider d’une précommande, d’une console ou d’un pin. Ce briefing est un **bureau des faits**, pas un dump de rumeurs. Si une affirmation n’est pas sur [rockstargames.com/VI](https://www.rockstargames.com/VI), un Newswire ou une remarque Take-Two, Map-6 la labelle **non confirmée**.
+    bodyMarkdown: `*Grand Theft Auto VI* sort le **19 novembre 2026** sur **PlayStation 5** et **Xbox Series X|S**. Toute la phrase officielle tient là : deux consoles, un mercredi, pas de PC dans le même souffle.
 
-Le jeu sort le **19 novembre 2026** sur **PlayStation 5** et **Xbox Series X|S**. Cette date a remplacé des fenêtres plus tôt après un appel à plus de finition. Le PC n’est **pas** dans la même phrase. Traitez les posts « Steam day-one » comme du bruit. Éditions et prix : [guide précommande](/fr/guides/gta-6-preorder-guide) — Standard **79,99 $** US, Ultimate **99,99 $**, l’Ultimate étant un **palier d’extras digitaux**, pas un coffret statue.
+Si une affirmation n’est pas sur [rockstargames.com/VI](https://www.rockstargames.com/VI), un Newswire ou un dépôt Take-Two, Map-6 la labelle **non confirmée**. Éditions et prix US : [guide précommande](/fr/guides/gta-6-preorder-guide) — Standard **79,99 $**, Ultimate **99,99 $**, un palier d’extras digitaux, pas un coffret statue. Les posts « Steam day-one » restent du bruit jusqu’à un calendrier séparé.
 ${VC("Hub Vice City sur la carte GTA 6 Map-6", "Vice City est le métro vendu — néon, eau, coutures d’autoroute — pas tout l’État de Leonida.")}
 
 ## Géographie nommée, pas un atlas fini

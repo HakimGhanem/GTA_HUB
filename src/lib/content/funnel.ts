@@ -3,6 +3,7 @@ import {
   scoreAffiliateIntent,
   type AffiliateIntent,
 } from "@/lib/affiliate/intents";
+import { storyFamily } from "./ids";
 import type { ContentCluster, FunnelKind, Topic } from "./schema";
 
 const PURCHASE_CLUSTERS: ContentCluster[] = ["preorder", "setup", "release"];
@@ -215,10 +216,19 @@ export function enrichTopicFunnel(topic: Topic): Topic {
  * When funnelScores are within DAILY_SCORE_TIE_BAND, revenue funnels win
  * over generic trailer/clip topics.
  */
-export function rankTopicsForDaily(topics: Topic[], limit: number): Topic[] {
+export function rankTopicsForDaily(
+  topics: Topic[],
+  limit: number,
+  occupiedFamilies: Iterable<string> = [],
+): Topic[] {
+  const blocked = new Set(occupiedFamilies);
   const enriched = [...topics]
     .map(enrichTopicFunnel)
     .filter((t) => t.status === "new" || t.status === "scored")
+    .filter((t) => {
+      const family = storyFamily(`${t.headline} ${t.summary}`);
+      return family === "other" || !blocked.has(family);
+    })
     .sort((a, b) => {
       const ka = dailyRankKey(a);
       const kb = dailyRankKey(b);

@@ -164,6 +164,9 @@ export default async function NewsArticlePage({ params }: Props) {
         <ThinContentWarning wordCount={wordCount} />
         <ArticleHero title={article.title} src={heroSrc} />
 
+        <ArticleBody markdown={article.bodyMarkdown} />
+        <ArticleFaq faqs={article.faqs ?? []} />
+
         <ConversionStrip variant="page" />
         <div className="mt-6">
           <HubConversionBanner compact />
@@ -193,9 +196,6 @@ export default async function NewsArticlePage({ params }: Props) {
             </p>
           </div>
         ) : null}
-
-        <ArticleBody markdown={article.bodyMarkdown} />
-        <ArticleFaq faqs={article.faqs ?? []} />
 
         {article.sources.length > 0 ? (
           <section className="mt-10 border-t border-foreground/10 pt-6">

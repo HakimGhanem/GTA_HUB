@@ -1,7 +1,25 @@
 import { GUIDES } from "@/data/guides";
+import { KEY_NEWS_SLUGS } from "@/lib/content/key-news";
 import { REGIONAL_LOCATION_SLUGS } from "@/data/location-seo-types";
 import { isIndexableLocale } from "@/i18n/routing";
+import { storyFamily, type StoryFamily } from "@/lib/content/ids";
 import { countMarkdownWords, MIN_ARTICLE_WORDS } from "@/lib/content/word-count";
+
+/**
+ * Factory RSS used to republish these stories daily. Only the desk slug stays
+ * indexable; the rest stay in Firestore as history but drop out of Discover.
+ */
+export const CANONICAL_STORY_SLUG: Partial<Record<StoryFamily, string>> = {
+  "vice-city-collection": "gta-6-vice-city-collection-399-no-game",
+  "ttwo-preorder-mix": "ttwo-q1-fy27-gta-6-preorders-zelnick",
+  "ultimate-mix": "gta-6-ultimate-edition-preorder-leads",
+  "dualsense-gta6": "gta-6-dualsense-limited-edition-where-to-buy",
+  "gta6-pc": "gta-6-pc-still-unannounced-october-2026",
+  "preload-physical": "gta-6-preload-november-12-code-in-box",
+  "vintage-pack": "gta-6-vintage-vice-city-pack-gta-plus",
+  "launch-calendar": "gta-6-six-weeks-out-launch-calendar",
+  "preorder-generic": "gta-6-preorder-ps5-details",
+};
 
 /** News slugs that duplicate an evergreen guide/location — noindex news, keep follow. */
 export const NEWS_EVERGREEN_PATH: Record<string, string> = {
@@ -127,6 +145,7 @@ export function collidingEvergreenPath(
 /** Same bar as sitemap / article robots — listing must not surface thin or duplicate news. */
 export function isIndexableNewsArticle(article: {
   slug: string;
+  title?: string;
   locale: string;
   bodyMarkdown: string;
   status?: string;
@@ -134,5 +153,13 @@ export function isIndexableNewsArticle(article: {
   if (article.status && article.status !== "published") return false;
   if (!isIndexableLocale(article.locale)) return false;
   if (siteEvergreenPathForNews(article.slug)) return false;
-  return countMarkdownWords(article.bodyMarkdown) >= MIN_ARTICLE_WORDS;
+  if (countMarkdownWords(article.bodyMarkdown) < MIN_ARTICLE_WORDS) return false;
+
+  const keyNews = (KEY_NEWS_SLUGS as readonly string[]).includes(article.slug);
+  if (keyNews) return true;
+
+  const family = storyFamily(`${article.slug} ${article.title ?? ""}`);
+  const canonical = CANONICAL_STORY_SLUG[family];
+  if (canonical && article.slug !== canonical) return false;
+  return true;
 }

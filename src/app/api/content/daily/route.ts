@@ -8,7 +8,11 @@ import {
   generateDraftFromTopic,
   isGoodDailyTopic,
 } from "@/lib/content/generate-draft";
-import { siteEvergreenPathForNews } from "@/lib/content/news-canonical";
+import { storyFamily } from "@/lib/content/ids";
+import {
+  CANONICAL_STORY_SLUG,
+  siteEvergreenPathForNews,
+} from "@/lib/content/news-canonical";
 import { publishArticleLocal } from "@/lib/content/publish";
 import {
   bulkUpsertTopics,
@@ -37,8 +41,10 @@ import { revalidatePath, revalidateTag } from "next/cache";
  * Production cron (map6-content-daily):
  *   {"limit":1,"detect":true,"draft":true,"publish":true}
  *
- * Guardrails: CONTENT_API_SECRET required; Firestore required when
- * FIRESTORE_ENABLED=true; never invent ASINs/dates; skip draft if no good topic.
+ * Quality: skip a story family that already has a canonical desk URL;
+ * auto-publish needs ≥900 words, SEO ≥80, grounded LLM, ≥2 non-VI sources.
+ * Guardrails: CONTENT_API_SECRET; Firestore when FIRESTORE_ENABLED=true;
+ * never invent ASINs/dates.
  */
 export async function POST(request: Request) {
   const denied = assertContentSecret(request);
@@ -87,7 +93,13 @@ export async function POST(request: Request) {
   }
 
   const topics = await listTopics();
-  const ranked = rankTopicsForDaily(topics, limit);
+  const liveEn = await listArticles({ status: "published", locale: "en" });
+  const occupiedFamilies = new Set(
+    liveEn
+      .map((a) => storyFamily(`${a.slug} ${a.title}`))
+      .filter((family) => family !== "other" && CANONICAL_STORY_SLUG[family]),
+  );
+  const ranked = rankTopicsForDaily(topics, limit, occupiedFamilies);
   const picks = ranked.filter(isGoodDailyTopic);
 
   // Only the topics this run acts on get their funnel fields persisted.

@@ -3,3 +3,5 @@
 
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
+
+News desk (EN+FR `/news`, 17:00 cron drafts): read `skills/map6-news-desk/SKILL.md` and `references/facts.md` before writing or publishing an article. Parked locales stay unpublished.

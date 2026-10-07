@@ -5,19 +5,22 @@ import {
   enrichTopicFunnel,
   suggestMapCta,
 } from "./funnel";
-import { slugify } from "./ids";
+import { slugify, storyFamily } from "./ids";
+import { CANONICAL_STORY_SLUG } from "./news-canonical";
 import { scoreArticleSeo } from "./seo-score";
-import { upsertArticle, upsertTopic } from "./repository";
+import { listArticles, upsertArticle, upsertTopic } from "./repository";
 import type { Article, Topic } from "./schema";
-import { countMarkdownWords, MIN_ARTICLE_WORDS } from "./word-count";
+import { countMarkdownWords } from "./word-count";
 
 /** Skip weak / rumor-only topics — no draft if nothing worth publishing. */
-export const MIN_DAILY_FUNNEL_SCORE = 62;
+export const MIN_DAILY_FUNNEL_SCORE = 68;
 /** Auto-publish floor — thin SEO-passing shells stay drafted. */
-export const MIN_DAILY_PUBLISH_SEO = 75;
+export const MIN_DAILY_PUBLISH_SEO = 80;
+/** Cron must not ship a 600-word shell. Desk pieces run longer. */
+export const MIN_DAILY_PUBLISH_WORDS = 900;
 
 const REJECT_TOPIC =
-  /fans (think|say|react)|allegedly|according to leaks|unconfirmed leak|everything we know|what we (already )?know|weekly recap|round-?up|google news/i;
+  /fans (think|say|react)|allegedly|according to leaks|unconfirmed leak|everything we know|what we (already )?know|weekly recap|round-?up|google news|51 million|260 million|sensor tower|newzoo estimates/i;
 
 export function isGoodDailyTopic(topic: Topic): boolean {
   const enriched = enrichTopicFunnel(topic);
@@ -41,8 +44,8 @@ export function autoPublishBlockReason(
   seoScore: number,
 ): string | null {
   const words = countMarkdownWords(article.bodyMarkdown);
-  if (words < MIN_ARTICLE_WORDS) {
-    return `word count ${words} < ${MIN_ARTICLE_WORDS}`;
+  if (words < MIN_DAILY_PUBLISH_WORDS) {
+    return `word count ${words} < ${MIN_DAILY_PUBLISH_WORDS}`;
   }
   if (seoScore < MIN_DAILY_PUBLISH_SEO) {
     return `seoScore ${seoScore} < ${MIN_DAILY_PUBLISH_SEO}`;
@@ -210,15 +213,16 @@ See the sources list below for outbound citations used in this draft.
   };
 }
 
-const DRAFT_RULES = `You are the Map-6 desk editor. Write a commuter brief (phone, 3–6 minutes) that a reader can finish on the metro.
-Open with a two-sentence lede: what happened, why it matters today. Then original analysis — do not rewrite the source article.
-Add only what Map-6 uniquely has: official vs rumor, which pins or guides change, what a player should do before launch. No invented trailer dates or product ASINs.
+const DRAFT_RULES = `You are the Map-6 news desk, writing to beat GamesRadar on usefulness and Startselect on honesty — never by pasting them.
+Voice: a reporter who has a map. First two sentences are the story (what happened, why a player cares today). Then original analysis. No "briefing", "facts desk", "we will not invent", or "AdSense" throat-clearing in the lede.
+Label every number: Rockstar / Take-Two filing / CNBC quote / press inference. Zelnick said pre-orders "skew" to Ultimate — he did not say 89% or 90%. Never invent trailer dates, PC dates, ASINs, km², or mission lists.
+If the topic is a leak, say what official frames already show and what Map-6 will not pin. Do not reconstruct stolen builds.
 Do not use stock headings like "What's new", "Verified facts vs rumors", "Clip kit", or "What to do next".
-No TikTok/Kick clip-kit as the spine — one short optional paragraph max if the story is footage.
-Write at least 700 words of original prose (no keyword stuffing, no "AdSense depth" padding, no "Primary keyword:" lines).
-Include ≥3 markdown internal links with descriptive anchors: [interactive map](/en/map), [locations](/en/locations), [pre-order guide](/en/guides/gta-6-preorder-guide), [map guide](/en/guides/gta-6-map-guide). Use only these paths.
+No TikTok/Kick clip-kit as the spine.
+Write at least 900 words of original prose. One comparison table when SKUs, dates, or editions differ. Three FAQ pairs at the end as a markdown list is fine if they earn the click.
+Include ≥3 markdown internal links with descriptive anchors among: [interactive map](/en/map), [locations](/en/locations), [pre-order guide](/en/guides/gta-6-preorder-guide), [map guide](/en/guides/gta-6-map-guide), [Ultimate vs Standard](/en/guides/gta-6-ultimate-edition-vs-standard), [release date guide](/en/guides/gta-6-release-date).
 Embed exactly two in-body figures using this markdown only: ![Vice City on Map-6](/api/og/location/vice-city "Vice City hub") and ![Ocean Drive on Map-6](/api/og/location/ocean-drive "Ocean Drive hub") — never hotlink Rockstar screenshots.
-Title 30-60 chars; meta description 120-160 chars. Both must end on a complete word.`;
+Title 30-60 chars; meta description 120-160 chars. Both must end on a complete word. No cut-off titles ("What", "Now").`;
 
 const DRAFT_SCHEMA = {
   type: "object",
@@ -351,7 +355,7 @@ async function groqDraft(
         {
           role: "system",
           content:
-            "You are a games news researcher for a map-first GTA 6 desk. Search the web, open the pages, and report only facts you verified, each with its source. Prefer Rockstar, Take-Two, IGN, Bloomberg, GameSpot over aggregators. Never invent trailer dates or product ASINs. Mark anything unconfirmed as a rumor. Note what a commuter should take away in one line.",
+            "You are a games news researcher for a map-first GTA 6 desk. Search the web, open the pages, and report only facts you verified, each with its source. Prefer Rockstar, Take-Two IR, PlayStation Blog, IGN, Bloomberg, GameSpot over aggregators and Sensor Tower/Newzoo guesses. Never invent trailer dates, PC dates, or product ASINs. Zelnick 'skew' is not an 89% figure. Mark anything unconfirmed as a rumor. Note what a player should do before November 19, 2026 in one line.",
         },
         {
           role: "user",
@@ -521,6 +525,15 @@ export type GenerateDraftResult = {
 export async function generateDraftFromTopic(
   topic: Topic,
 ): Promise<GenerateDraftResult> {
+  const family = storyFamily(`${topic.headline} ${topic.summary}`);
+  const canonical = CANONICAL_STORY_SLUG[family];
+  if (canonical) {
+    const published = await listArticles({ status: "published", locale: "en" });
+    if (published.some((a) => a.slug === canonical)) {
+      throw new Error(`story family ${family} already has ${canonical}`);
+    }
+  }
+
   const draft = (await groqDraft(topic)) || (await llmDraft(topic));
   if (!draft) {
     throw new Error("no grounded draft (template fallback disabled)");

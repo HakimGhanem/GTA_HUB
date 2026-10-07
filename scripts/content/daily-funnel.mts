@@ -15,6 +15,8 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { detectNewsTopics } from "../../src/lib/content/detect-news.ts";
 import { rankTopicsForDaily } from "../../src/lib/content/funnel.ts";
+import { storyFamily } from "../../src/lib/content/ids.ts";
+import { CANONICAL_STORY_SLUG } from "../../src/lib/content/news-canonical.ts";
 import {
   autoPublishBlockReason,
   generateDraftFromTopic,
@@ -103,7 +105,13 @@ async function main() {
   }
 
   const topics = await listTopics();
-  const ranked = rankTopicsForDaily(topics, limit);
+  const liveEn = await listArticles({ status: "published", locale: "en" });
+  const occupiedFamilies = new Set(
+    liveEn
+      .map((a) => storyFamily(`${a.slug} ${a.title}`))
+      .filter((family) => family !== "other" && CANONICAL_STORY_SLUG[family]),
+  );
+  const ranked = rankTopicsForDaily(topics, limit, occupiedFamilies);
   const picks = ranked.filter(isGoodDailyTopic);
   if (!picks.length) {
     console.log(
