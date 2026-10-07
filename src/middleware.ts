@@ -22,8 +22,9 @@ function requestHost(request: NextRequest): string {
 }
 
 /**
- * ES/PT/DE/IT: news is gone (410). Everything else 302s to the EN path so
- * AdSense reviewers cannot click into thin translated shells.
+ * ES/PT/DE/IT: news is gone (410). Everything else 308s to the EN path so
+ * AdSense reviewers cannot click into thin translated shells, and Google
+ * consolidates the parked URLs onto `/en` instead of keeping both.
  */
 function parkedLocaleRedirect(request: NextRequest): NextResponse | null {
   const { pathname, search } = request.nextUrl;
@@ -41,7 +42,7 @@ function parkedLocaleRedirect(request: NextRequest): NextResponse | null {
   const target = request.nextUrl.clone();
   target.pathname = `/en${rest === "/" ? "" : rest}`;
   target.search = search;
-  const response = NextResponse.redirect(target, 302);
+  const response = NextResponse.redirect(target, 308);
   response.cookies.set("NEXT_LOCALE", "en");
   return response;
 }
