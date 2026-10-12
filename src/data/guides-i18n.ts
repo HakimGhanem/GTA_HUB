@@ -1,5 +1,6 @@
 import { fillPrices, getBestPriceCopy } from "./best-price-i18n";
 import { getCs2GuideCopy } from "./cs2-guide-i18n";
+import { LAUNCH_GUIDES_FR } from "./guides-launch-fr";
 import { getPreorderGuideCopy } from "./preorder-guide-i18n";
 import { locales } from "@/i18n/routing";
 import { getGuideBySlug, type Guide } from "./guides";
@@ -11,6 +12,7 @@ export type LocalizedGuide = Pick<
   Partial<Pick<Guide, "comparison" | "faq" | "answer">>;
 
 const FR: Record<string, LocalizedGuide> = {
+  ...LAUNCH_GUIDES_FR,
   "gta-6-map-guide": {
     title: "Carte interactive GTA 6 — Guide débutant complet",
     description:

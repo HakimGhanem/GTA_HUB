@@ -16,7 +16,12 @@ import { SITE } from "@/lib/constants";
 import { isIndexableNewsArticle } from "@/lib/content/news-canonical";
 import { listArticles } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
-import { getLocalityPages, localitySlug } from "@/lib/real-world-matches";
+import {
+  getLocalityPages,
+  getSubtypePages,
+  localitySlug,
+  subtypeSlug,
+} from "@/lib/real-world-matches";
 
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
 
@@ -162,6 +167,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     }),
   );
 
+  const realWorldSubtypePages = getSubtypePages().flatMap((group) =>
+    localizedEntries(
+      `/gta-6-real-life-locations/type/${subtypeSlug(group.subtype)}`,
+      { lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+    ),
+  );
+
   const collectiblePages = COLLECTIBLE_TYPES.flatMap((t) =>
     localizedEntries(`/collectibles/${t.slug}`, {
       lastModified: now,
@@ -199,6 +211,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...attributionPages,
     ...locationPages,
     ...realWorldLocalityPages,
+    ...realWorldSubtypePages,
     ...collectiblePages,
     ...guidePages,
     ...newsPages,

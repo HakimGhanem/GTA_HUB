@@ -33,6 +33,7 @@
 .env.local
 .env*.local
 .env
+.secrets/
 config/google_search_console_credentials.json
 
 # debug

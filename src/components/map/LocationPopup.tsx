@@ -13,6 +13,7 @@ import {
   formatTrailerEvidenceLine,
   getLocationTrailerEvidence,
 } from "@/lib/location-evidence";
+import { locationRedirectTarget } from "@/lib/location-indexing";
 import {
   getCategoryLabel,
   getConfidenceLabel,
@@ -184,7 +185,7 @@ export function LocationPopup({
           </button>
         )}
         <Link
-          href={`/locations/${location.slug}`}
+          href={locationRedirectTarget(location) ?? `/locations/${location.slug}`}
           className="rounded-full bg-pink-500 px-3 py-1 text-xs font-semibold text-accent-foreground hover:bg-pink-400"
           onClick={onClose}
         >

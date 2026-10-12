@@ -9,7 +9,9 @@ import {
   countUnconfirmedMatches,
   getLocalityBySlug,
   getLocalityPages,
+  getSubtypePages,
   localitySlug,
+  subtypeSlug,
 } from "@/lib/real-world-matches";
 
 type Props = { params: Promise<{ locale: string; locality: string }> };
@@ -94,6 +96,7 @@ export default async function LocalityPage({ params }: Props) {
   const t = await getTranslations("map.subtypes");
   const copy = locale === "fr" ? FR : EN;
   const natures = countMatchesBySubtype(group.matches);
+  const pagedSubtypes = new Set(getSubtypePages().map((g) => g.subtype));
   const unsettled = countUnconfirmedMatches(group.matches);
   const others = getLocalityPages().filter(
     (other) => other.region !== group.region,
@@ -123,7 +126,17 @@ export default async function LocalityPage({ params }: Props) {
           <ul className="flex flex-wrap gap-2 text-sm [&>li]:rounded-full [&>li]:border [&>li]:border-foreground/10 [&>li]:bg-foreground/5 [&>li]:px-3 [&>li]:py-1">
             {natures.map(({ subtype, count }) => (
               <li key={subtype}>
-                {t(subtype)} · {count}
+                {pagedSubtypes.has(subtype) ? (
+                  <Link
+                    href={`/gta-6-real-life-locations/type/${subtypeSlug(subtype)}`}
+                    className="text-accent"
+                  >
+                    {t(subtype)}
+                  </Link>
+                ) : (
+                  t(subtype)
+                )}{" "}
+                · {count}
               </li>
             ))}
           </ul>

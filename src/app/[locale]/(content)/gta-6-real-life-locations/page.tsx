@@ -9,8 +9,10 @@ import {
   getLocalitiesOnIndex,
   getLocalityPages,
   getRealWorldMatches,
+  getSubtypePages,
   groupMatchesByLocality,
   localitySlug,
+  subtypeSlug,
 } from "@/lib/real-world-matches";
 
 type Props = { params: Promise<{ locale: string }> };
@@ -31,7 +33,7 @@ const EN = {
   },
   natureTitle: "What kind of places they are",
   natureLead:
-    "The nature of each building comes from the community survey, not from us. It is the quickest way to read the city: Vice Beach is condos and hotels, Port Gellhorn is industry and freight.",
+    "The nature of each building comes from the community survey, not from us. It is the quickest way to read the city: Vice Beach is condos and hotels, Port Gellhorn is industry and freight. The categories with enough identified buildings open onto their own page.",
   methodTitle: "How to read this, and what it is not",
   method: [
     "A match is a resemblance argued from footage, not a fact published by Rockstar. The in-game building has no official name, no official address, and may be a composite of several real ones.",
@@ -71,7 +73,7 @@ const FR = {
   },
   natureTitle: "De quels lieux il s’agit",
   natureLead:
-    "La nature de chaque bâtiment vient du relevé communautaire, pas de nous. C’est la façon la plus rapide de lire la ville : Vice Beach, ce sont des immeubles et des hôtels ; Port Gellhorn, de l’industrie et du fret.",
+    "La nature de chaque bâtiment vient du relevé communautaire, pas de nous. C’est la façon la plus rapide de lire la ville : Vice Beach, ce sont des immeubles et des hôtels ; Port Gellhorn, de l’industrie et du fret. Les catégories assez documentées ouvrent sur leur propre page.",
   methodTitle: "Comment lire ceci, et ce que ce n’est pas",
   method: [
     "Un rapprochement est une ressemblance argumentée à partir d’images, pas un fait publié par Rockstar. Le bâtiment du jeu n’a ni nom ni adresse officiels, et peut être la synthèse de plusieurs bâtiments réels.",
@@ -123,6 +125,7 @@ export default async function RealLifeLocationsPage({ params }: Props) {
   const localityPages = getLocalityPages();
   const remainder = getLocalitiesOnIndex();
   const natures = countMatchesBySubtype(matches);
+  const pagedSubtypes = new Set(getSubtypePages().map((g) => g.subtype));
   const unconfirmed = countUnconfirmedMatches(matches);
   const numberFormat = new Intl.NumberFormat(locale === "fr" ? "fr-FR" : "en-US");
 
@@ -166,14 +169,25 @@ export default async function RealLifeLocationsPage({ params }: Props) {
         <h2 className="mb-3 text-xl font-semibold">{copy.natureTitle}</h2>
         <p className="mb-4 text-foreground/70">{copy.natureLead}</p>
         <ul className="flex flex-wrap gap-2">
-          {natures.map(({ subtype, count }) => (
-            <li
-              key={subtype}
-              className="rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-sm text-foreground/70"
-            >
-              {t(subtype)} · {numberFormat.format(count)}
-            </li>
-          ))}
+          {natures.map(({ subtype, count }) => {
+            const chip = `${t(subtype)} · ${numberFormat.format(count)}`;
+            return (
+              <li key={subtype}>
+                {pagedSubtypes.has(subtype) ? (
+                  <Link
+                    href={`/gta-6-real-life-locations/type/${subtypeSlug(subtype)}`}
+                    className="inline-block rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-sm text-accent hover:border-accent"
+                  >
+                    {chip}
+                  </Link>
+                ) : (
+                  <span className="inline-block rounded-full border border-foreground/10 bg-foreground/5 px-3 py-1 text-sm text-foreground/70">
+                    {chip}
+                  </span>
+                )}
+              </li>
+            );
+          })}
         </ul>
       </section>
 

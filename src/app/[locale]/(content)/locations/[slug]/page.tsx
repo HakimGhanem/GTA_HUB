@@ -1,6 +1,6 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
-import { Link } from "@/i18n/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
+import { getPathname, Link } from "@/i18n/navigation";
 import { LocationRichContent } from "@/components/locations/LocationRichContent";
 import { LocationMap } from "@/components/map/LocationMap";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
@@ -8,7 +8,11 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllLocations, getLocationBySlug } from "@/data/all-locations";
 import { getLocationDescription } from "@/data/locations-i18n";
 import { getRegionalLocationSeo } from "@/data/location-seo-content";
-import { shouldNoindexLocation } from "@/lib/location-indexing";
+import {
+  getBrowsableLocations,
+  locationRedirectTarget,
+  shouldNoindexLocation,
+} from "@/lib/location-indexing";
 import {
   getConfidenceBadgeStyle,
   resolveConfidence,
@@ -30,13 +34,18 @@ type Props = {
 };
 
 export function generateStaticParams() {
-  return getAllLocations().map((loc) => ({ slug: loc.slug }));
+  return getBrowsableLocations(getAllLocations()).map((loc) => ({
+    slug: loc.slug,
+  }));
 }
 
 export async function generateMetadata({ params }: Props) {
   const { locale, slug } = await params;
   const location = getLocationBySlug(slug);
   if (!location) return {};
+  if (locationRedirectTarget(location)) {
+    return { robots: { index: false, follow: false } };
+  }
 
   const robots = shouldNoindexLocation(location)
     ? { index: false, follow: false }
@@ -83,6 +92,12 @@ export default async function LocationPage({ params }: Props) {
   const tCategory = await getTranslations("map.categories");
   const location = getLocationBySlug(slug);
   if (!location) notFound();
+
+  const redirectTarget = locationRedirectTarget(location);
+  if (redirectTarget) {
+    permanentRedirect(getPathname({ href: redirectTarget, locale }));
+  }
+
   const confidence = resolveConfidence(location);
   const trailerHits = getLocationTrailerEvidence(location.slug, locale);
 

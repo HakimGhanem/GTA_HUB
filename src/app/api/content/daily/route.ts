@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { assertContentSecret } from "@/lib/content/auth";
 import { detectNewsTopics } from "@/lib/content/detect-news";
 import { getFirestore } from "@/lib/content/firestore";
+import { draftFrenchEdition } from "@/lib/content/french-edition";
 import { enrichTopicFunnel, rankTopicsForDaily } from "@/lib/content/funnel";
 import {
   autoPublishBlockReason,
@@ -43,6 +44,8 @@ import { revalidatePath, revalidateTag } from "next/cache";
  *
  * Quality: skip a story family that already has a canonical desk URL;
  * auto-publish needs ≥900 words, SEO ≥80, grounded LLM, ≥2 non-VI sources.
+ * Every English article published here gets its French edition drafted and
+ * published on the same slug; if that fails the English one still stands.
  * Guardrails: CONTENT_API_SECRET; Firestore when FIRESTORE_ENABLED=true;
  * never invent ASINs/dates.
  */
@@ -151,6 +154,7 @@ export async function POST(request: Request) {
 
   const published: string[] = [];
   const publishSkipped: string[] = [];
+  const frenchSkipped: string[] = [];
 
   if (wantPublish && !enrichOnly) {
     const articles = await listArticles();
@@ -187,6 +191,27 @@ export async function POST(request: Request) {
         revalidatePath(`/${updated.locale}/news`);
         revalidatePath("/sitemap.xml");
         revalidateTag("news", "max");
+
+        // The French edition rides on the English one: same verified facts,
+        // and a failure here must never unpublish what already shipped.
+        if (updated.locale === "en") {
+          try {
+            const fr = await draftFrenchEdition(updated);
+            if (!fr) {
+              frenchSkipped.push(`${updated.slug}: draft too thin or no model`);
+            } else {
+              const live = await publishArticleLocal(fr.id, "scheduler-daily");
+              const frPath = articlePath(live);
+              published.push(frPath);
+              revalidatePath(frPath);
+              revalidatePath("/fr/news");
+            }
+          } catch (err) {
+            frenchSkipped.push(
+              `${updated.slug}: ${err instanceof Error ? err.message : String(err)}`,
+            );
+          }
+        }
       } catch (err) {
         publishSkipped.push(
           `${article.slug}: ${err instanceof Error ? err.message : String(err)}`,
@@ -253,6 +278,7 @@ export async function POST(request: Request) {
     skippedDraft,
     published,
     publishSkipped: publishSkipped.slice(0, 10),
+    frenchSkipped,
     indexNow,
   });
 }

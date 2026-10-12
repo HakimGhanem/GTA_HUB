@@ -157,16 +157,21 @@
     "homeDesc": "Carte interactive GTA 6 de Leonida : 1 000+ bâtiments rapprochés de leur adresse réelle près de Miami, niveau de confiance sur chaque pin, coordonnées, mesure, liens partageables. Pas de leak. MAJ 19 nov. 2026.",
     "locationsTitle": "Lieux GTA 6 — Vice City & Floride | Map-6",
     "locationsDesc": "Répertoire complet des lieux de GTA 6 : monuments, collectibles, boutiques, missions et secrets.",
-    "mapTitle": "Carte interactive GTA 6 — Leonida plein écran | Map-6",
-    "mapDesc": "Ouvrez la carte interactive GTA 6 en plein écran : 1 000+ correspondances avec des adresses réelles, niveaux de confiance, filtres, coordonnées et mesure pour Vice City et Leonida. Partagez la vue exacte.",
-    "mapH1": "Carte interactive GTA 6",
+    "mapTitle": "Carte GTA 6 en plein écran — Leonida & Vice City | Map-6",
+    "mapDesc": "Visionneuse plein écran de la carte GTA 6 : parcourez Leonida et Vice City, filtrez 1 000+ correspondances avec des adresses réelles, lisez les niveaux de confiance, copiez les coordonnées, mesurez et partagez la vue exacte.",
+    "mapH1": "Carte plein écran — Leonida & Vice City",
     "mapLead": "1 000+ correspondances réelles · niveaux de confiance · coordonnées · pas de leak",
     "collectiblesTitle": "Collectibles GTA 6 — Paquets cachés, sauts acrobatiques & plus | Map-6",
     "collectiblesDesc": "Suivez chaque collectible GTA 6 sur la carte interactive : paquets cachés, sauts acrobatiques, street art et spots photo faune.",
     "guidesTitle": "Guides GTA 6 — Carte, personnages, précommande | Map-6",
     "guidesDesc": "Guides GTA 6 : carte interactive, taille vs GTA 5, Lucia & Jason, Standard vs Ultimate, Ocean Drive, plateformes et collectibles.",
     "newsTitle": "Actus GTA 6 & Trailers | Map-6",
-    "newsDesc": "Dernières actus trailers GTA 6, carte interactive et guides précommande."
+    "newsDesc": "Dernières actus trailers GTA 6, carte interactive et guides précommande.",
+    "mapNavTitle": "Explorer Leonida",
+    "mapNavGuides": "Guides",
+    "mapNavCollectibles": "Collectibles",
+    "mapNavRealLife": "Lieux réels",
+    "mapNavNews": "Actualité"
   },
   "footer": {
     "copyright": "© {year} Map-6 — GTA HUB. Cartes et guides GTA.",
@@ -359,6 +364,24 @@
       "inView": "À l'écran · ",
       "panHint": "Déplacez ou zoomez la carte, ou lancez une recherche.",
       "searchHint": "Recherchez pour parcourir les {count} lieux."
+    },
+    "subtypePlural": {
+      "hotel": "Hôtels",
+      "residential": "Immeubles résidentiels",
+      "transport": "Pôles de transport",
+      "retail": "Commerces",
+      "leisure": "Lieux de loisirs",
+      "industrial": "Sites industriels",
+      "infrastructure": "Infrastructures",
+      "public": "Bâtiments publics",
+      "government": "Bâtiments administratifs",
+      "natural": "Éléments naturels",
+      "restaurant": "Restaurants",
+      "monument": "Monuments",
+      "venue": "Salles de spectacle",
+      "office": "Bureaux",
+      "construction": "Chantiers",
+      "agriculture": "Sites agricoles"
     }
   },
   "affiliate": {

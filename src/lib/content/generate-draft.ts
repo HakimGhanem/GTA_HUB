@@ -259,7 +259,7 @@ type GroqMessage = {
  * second. Waiting out the window the API asks for is cheaper than losing the
  * article to the template fallback.
  */
-async function groqCall(key: string, body: unknown): Promise<GroqMessage> {
+export async function groqCall(key: string, body: unknown): Promise<GroqMessage> {
   for (let attempt = 0; ; attempt++) {
     const res = await fetch(GROQ_ENDPOINT, {
       method: "POST",
@@ -291,7 +291,7 @@ async function groqCall(key: string, body: unknown): Promise<GroqMessage> {
  * gpt-oss emits browser citations as `【4†title†domain】` and likes typographic
  * hyphens, which break keyword matching against our ASCII keyword table.
  */
-function cleanModelText(text: string): string {
+export function cleanModelText(text: string): string {
   return text
     .replace(/【[^】]*】/g, "")
     .replace(/[\u2010\u2011]/g, "-")
@@ -315,13 +315,13 @@ function truncateAt(text: string, max: number): string {
   return cut.trim();
 }
 
-function clampTitle(title: string, fallback: string): string {
+export function clampTitle(title: string, fallback: string): string {
   const clean = cleanModelText(title);
   if (clean.length < 30) return fallback;
   return truncateAt(clean, 60);
 }
 
-function clampDescription(description: string, fallback: string): string {
+export function clampDescription(description: string, fallback: string): string {
   const clean = cleanModelText(description);
   if (clean.length < 120) return fallback;
   if (clean.length <= 160) return clean;

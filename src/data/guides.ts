@@ -1,4 +1,5 @@
 import { COMPETITIVE_GUIDES } from "./guides-competitive";
+import { LAUNCH_GUIDES } from "./guides-launch";
 
 export type GuideFaq = { question: string; answer: string };
 
@@ -465,6 +466,7 @@ const ALL_GUIDES: Guide[] = [
       "The date on this page comes from rockstargames.com/VI and Netflix Tudum; the six-hour YouTube delay comes from Rockstar’s own published schedule. The runtime has never been announced, so no figure is quoted here. Once the upload is public, the notes on this page describe what is on screen.",
     ],
   },
+  ...LAUNCH_GUIDES,
   ...COMPETITIVE_GUIDES,
 ];
 
