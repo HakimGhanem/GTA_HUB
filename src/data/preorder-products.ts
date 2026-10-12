@@ -197,6 +197,28 @@ export function displayProductPrice(
   return null;
 }
 
+/**
+ * Numeric counterpart of `displayProductPrice`, for analytics `value`.
+ * Mirrors its currency choice so a tracked click and the rendered price can
+ * never disagree.
+ */
+export function productTrackingValue(
+  product: PreorderProduct,
+  locale: string,
+): { value?: number; currency?: string } {
+  const c = product.commerce;
+  if (!c) return {};
+  if (locale === "fr" && c.streetEur != null) {
+    return { value: c.streetEur, currency: "EUR" };
+  }
+  if (locale === "en" && c.streetGbp != null) {
+    return { value: c.streetGbp, currency: "GBP" };
+  }
+  if (c.msrpUsd != null) return { value: c.msrpUsd, currency: "USD" };
+  if (c.msrpEur != null) return { value: c.msrpEur, currency: "EUR" };
+  return {};
+}
+
 export function getConfiguredProducts() {
   return PREORDER_PRODUCTS.filter((p) => p.asin.length > 0);
 }

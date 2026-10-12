@@ -1,17 +1,20 @@
+import { OutboundLink } from "@/components/affiliate/OutboundLink";
 import type { BestPriceCopy } from "@/data/best-price-i18n";
 import {
   formatEur,
+  isPriceSurveyStale,
   lowestPriceEur,
   offerHref,
   offerKey,
-  offerLabel,
   offersForPlatform,
+  PRICE_CURRENCY,
   PRICE_SURVEY_DATE,
+  priceSurveyAgeDays,
   savingsVsMsrp,
   type OfferPlatform,
   type RetailerOffer,
 } from "@/data/gta6-retailers";
-import { RETAILERS, relForRetailer } from "@/lib/affiliate/retailers";
+import { isTrackedRetailer, RETAILERS } from "@/lib/affiliate/retailers";
 
 type Props = {
   locale: string;
@@ -26,11 +29,13 @@ function OfferCard({
   copy,
   locale,
   isBestPrice,
+  position,
 }: {
   offer: RetailerOffer;
   copy: BestPriceCopy;
   locale: string;
   isBestPrice: boolean;
+  position: number;
 }) {
   const retailer = RETAILERS[offer.retailer];
   const isOfficial = retailer.kind === "official";
@@ -99,18 +104,29 @@ function OfferCard({
         </div>
       </dl>
 
-      <a
+      <OutboundLink
         href={offerHref(offer)}
-        target="_blank"
-        rel={relForRetailer(offer.retailer)}
+        monetised={isTrackedRetailer(offer.retailer)}
         className={
           isBestPrice
             ? "mt-4 rounded-lg bg-accent px-4 py-2 text-center text-sm font-semibold text-accent-foreground hover:bg-accent/85"
             : "mt-4 rounded-lg border border-foreground/15 px-4 py-2 text-center text-sm font-semibold text-foreground/85 hover:border-foreground/30 hover:text-foreground"
         }
+        click={{
+          placement: "best_price_comparator",
+          merchant: offer.retailer,
+          item: offerKey(offer),
+          edition: offer.edition,
+          platform: offer.platform,
+          locale,
+          target: "search",
+          position,
+          value: offer.priceEur ?? undefined,
+          currency: PRICE_CURRENCY,
+        }}
       >
         {copy.ctaLabel} — {retailer.label}
-      </a>
+      </OutboundLink>
     </li>
   );
 }
@@ -129,6 +145,10 @@ export function RetailerPriceComparator({
     locale === "fr" ? "fr-FR" : locale === "es" ? "es-ES" : "en-GB",
     { year: "numeric", month: "long", day: "numeric" },
   );
+  const stale = isPriceSurveyStale();
+  const surveyLine = (stale ? copy.surveyStaleNote : copy.surveyNote)
+    .replace("{date}", surveyDate)
+    .replace("{days}", String(priceSurveyAgeDays()));
 
   return (
     <section className="not-prose my-8">
@@ -163,6 +183,7 @@ export function RetailerPriceComparator({
                   copy={copy}
                   locale={locale}
                   isBestPrice={best !== null && index === badgedIndex}
+                  position={index}
                 />
               ))}
             </ul>
@@ -170,8 +191,14 @@ export function RetailerPriceComparator({
         );
       })}
 
-      <p className="mt-4 text-xs leading-relaxed text-foreground/45">
-        {copy.surveyNote.replace("{date}", surveyDate)}
+      <p
+        className={
+          stale
+            ? "mt-4 rounded-lg border border-amber-400/30 bg-amber-500/[0.07] p-3 text-xs leading-relaxed text-amber-200/90"
+            : "mt-4 text-xs leading-relaxed text-foreground/45"
+        }
+      >
+        {surveyLine}
       </p>
       <p className="mt-2 text-xs leading-relaxed text-foreground/35">
         {copy.disclosure}

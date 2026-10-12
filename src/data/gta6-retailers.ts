@@ -41,6 +41,26 @@ export const PRICE_CURRENCY = "EUR";
  */
 export const PRICE_SURVEY_DATE = "2026-09-09";
 
+/**
+ * Past this age the survey stops being presented as current: the comparator
+ * swaps its footnote for a caveat and the page drops prices from its
+ * structured data. Retailer prices move weekly in a pre-order window, and a
+ * stale `AggregateOffer` is a rich-result mismatch, not just bad copy.
+ */
+export const PRICE_SURVEY_MAX_AGE_DAYS = 21;
+
+const DAY_MS = 86_400_000;
+
+export function priceSurveyAgeDays(now = new Date()): number {
+  const surveyed = Date.parse(`${PRICE_SURVEY_DATE}T00:00:00Z`);
+  if (Number.isNaN(surveyed)) return Number.POSITIVE_INFINITY;
+  return Math.max(0, Math.floor((now.getTime() - surveyed) / DAY_MS));
+}
+
+export function isPriceSurveyStale(now = new Date()): boolean {
+  return priceSurveyAgeDays(now) > PRICE_SURVEY_MAX_AGE_DAYS;
+}
+
 const CHECKED = PRICE_SURVEY_DATE;
 
 export const RETAILER_OFFERS: RetailerOffer[] = [

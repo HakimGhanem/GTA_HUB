@@ -127,6 +127,7 @@ export function PreorderGuideContent({ locale }: Props) {
                 liveOnly
                 title={copy.setupUpgradesTitle}
                 locale={locale}
+                placement="preorder_guide"
               />
             </div>
           </section>

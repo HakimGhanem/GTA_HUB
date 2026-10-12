@@ -3,6 +3,7 @@ import { AmazonProductCard } from "@/components/affiliate/AmazonProductCard";
 import { productsForIntents } from "@/lib/affiliate/catalog";
 import type { AffiliateIntent } from "@/lib/affiliate/intents";
 import { INTENT_META } from "@/lib/affiliate/intents";
+import type { AffiliatePlacement } from "@/lib/analytics/affiliate";
 import { productHasOffers } from "@/lib/affiliate/store-links";
 
 type AffiliateProductGridProps = {
@@ -22,6 +23,8 @@ type AffiliateProductGridProps = {
   title?: string | null;
   /** next-intl locale. When omitted, read from the request. */
   locale?: string;
+  /** Surface this grid renders on — the GA4 dimension for CTA performance. */
+  placement?: AffiliatePlacement;
 };
 
 /**
@@ -35,6 +38,7 @@ export async function AffiliateProductGrid({
   className,
   title,
   locale: localeProp,
+  placement = "guide_grid",
 }: AffiliateProductGridProps) {
   const locale = localeProp ?? (await getLocale().catch(() => "fr"));
   const allowPlaceholders =
@@ -76,6 +80,7 @@ export async function AffiliateProductGrid({
             product={product}
             showPlaceholders={allowPlaceholders}
             locale={locale}
+            placement={placement}
           />
         ))}
       </div>

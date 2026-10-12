@@ -7,6 +7,7 @@ import {
   isAmazonStoreId,
   type AmazonStoreId,
 } from "@/lib/affiliate/amazon-markets";
+import { partnerBase } from "@/lib/affiliate/partner-bases";
 
 /**
  * Multi-storefront IDs. A store is enabled only when its env tag/base is set,
@@ -47,10 +48,6 @@ export type AffiliateStore = {
 
 const ALL_LOCALES = ["en", "fr", "es", "pt", "de", "it"];
 
-function envTrim(key: string): string {
-  return process.env[key]?.trim() ?? "";
-}
-
 /**
  * Next only inlines NEXT_PUBLIC_* when the key is a string literal.
  * `process.env[amazonTagEnvVar(id)]` stays empty in the Cloud Run bundle.
@@ -88,13 +85,11 @@ function amazonStore(
   };
 }
 
-const FNAC_AFFILIATE_BASE = envTrim("NEXT_PUBLIC_FNAC_AFFILIATE_BASE");
-const BESTBUY_AFFILIATE_BASE = envTrim("NEXT_PUBLIC_BESTBUY_AFFILIATE_BASE");
-const INSTANT_GAMING_AFFILIATE_BASE = envTrim(
-  "NEXT_PUBLIC_INSTANT_GAMING_AFFILIATE_BASE",
-);
-const ENEBA_AFFILIATE_BASE = envTrim("NEXT_PUBLIC_ENEBA_AFFILIATE_BASE");
-const CDKEYS_AFFILIATE_BASE = envTrim("NEXT_PUBLIC_CDKEYS_AFFILIATE_BASE");
+const FNAC_AFFILIATE_BASE = partnerBase("fnac");
+const BESTBUY_AFFILIATE_BASE = partnerBase("bestbuy");
+const INSTANT_GAMING_AFFILIATE_BASE = partnerBase("instant_gaming");
+const ENEBA_AFFILIATE_BASE = partnerBase("eneba");
+const CDKEYS_AFFILIATE_BASE = partnerBase("cdkeys");
 
 /**
  * Key resellers list digital codes only: no console, no controller, and no

@@ -1,4 +1,9 @@
-import { buildAmazonAffiliateUrl } from "@/lib/amazon-affiliate";
+import { AMAZON_ENABLED, buildAmazonAffiliateUrl } from "@/lib/amazon-affiliate";
+import {
+  isPartnerTracked,
+  wrapWithPartnerBase,
+  type PartnerId,
+} from "@/lib/affiliate/partner-bases";
 
 /**
  * Storefronts used by the GTA 6 price comparator. Amazon goes through
@@ -36,40 +41,28 @@ export const RETAILERS: Record<RetailerId, Retailer> = {
 };
 
 /**
- * Affiliate deep-link templates. Each must contain `{url}`, which is replaced
- * by the URL-encoded destination — the shape every FR network uses:
- * `https://track.effiliation.com/servlet/effi.redir?id_compteur=XXX&url={url}`
- * Next.js inlines `NEXT_PUBLIC_*` at build time, so read them statically.
+ * Comparator retailers that route through a partner network. Bases live in
+ * `partner-bases.ts` so the same env var monetises this table and the
+ * multi-locale offer buttons — the two used to read different names, which
+ * left the comparator donating every Fnac click.
  */
-const DEEPLINK_TEMPLATES: Partial<Record<RetailerId, string | undefined>> = {
-  fnac: process.env.NEXT_PUBLIC_FNAC_DEEPLINK,
-  cdiscount: process.env.NEXT_PUBLIC_CDISCOUNT_DEEPLINK,
-  carrefour: process.env.NEXT_PUBLIC_CARREFOUR_DEEPLINK,
+const PARTNER_BY_RETAILER: Partial<Record<RetailerId, PartnerId>> = {
+  fnac: "fnac",
+  cdiscount: "cdiscount",
+  carrefour: "carrefour",
 };
-
-function deeplinkTemplate(id: RetailerId) {
-  const template = DEEPLINK_TEMPLATES[id]?.trim();
-  return template?.includes("{url}") ? template : undefined;
-}
 
 /** True when the outbound click earns a commission — drives `rel="sponsored"` */
 export function isTrackedRetailer(id: RetailerId): boolean {
-  if (id === "amazon_fr") return Boolean(process.env.NEXT_PUBLIC_AMAZON_AFFILIATE_TAG);
-  return Boolean(deeplinkTemplate(id));
+  if (id === "amazon_fr") return AMAZON_ENABLED;
+  const partner = PARTNER_BY_RETAILER[id];
+  return partner ? isPartnerTracked(partner) : false;
 }
 
 /** Wrap a destination URL with the retailer's tracking when it is configured */
 export function buildRetailerUrl(id: RetailerId, destination: string): string {
   if (id === "amazon_fr") return buildAmazonAffiliateUrl(destination);
 
-  const template = deeplinkTemplate(id);
-  return template
-    ? template.replace("{url}", encodeURIComponent(destination))
-    : destination;
-}
-
-export function relForRetailer(id: RetailerId): string {
-  return isTrackedRetailer(id)
-    ? "nofollow sponsored noopener noreferrer"
-    : "nofollow noopener noreferrer";
+  const partner = PARTNER_BY_RETAILER[id];
+  return partner ? wrapWithPartnerBase(partner, destination) : destination;
 }

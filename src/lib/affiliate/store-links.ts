@@ -2,6 +2,7 @@ import { buildAmazonAffiliateUrl } from "@/lib/amazon-affiliate";
 import type { PreorderProduct } from "@/data/preorder-products";
 import { searchQueryForProduct } from "@/lib/affiliate/catalog";
 import { isAmazonStoreId } from "@/lib/affiliate/amazon-markets";
+import { wrapWithPartnerBase } from "@/lib/affiliate/partner-bases";
 import {
   STORES,
   amazonStoreForLocale,
@@ -84,33 +85,6 @@ const ENEBA_LOCALE_PREFIX: Record<string, string> = {
   pt: "/pt",
 };
 
-function envTrim(key: string): string {
-  return process.env[key]?.trim() ?? "";
-}
-
-/**
- * Apply a partner base to an official destination.
- * Supports `{url}` / `{q}` placeholders or a tracking URL that already ends with `=`.
- * Never invents partner IDs.
- */
-export function applyAffiliateBase(
-  base: string,
-  destination: string,
-  query: string,
-): string {
-  if (base.includes("{url}")) {
-    return base.replaceAll("{url}", encodeURIComponent(destination));
-  }
-  if (base.includes("{q}")) {
-    return base.replaceAll("{q}", encodeURIComponent(query));
-  }
-  const trimmed = base.trim();
-  if (trimmed.endsWith("=")) {
-    return `${trimmed}${encodeURIComponent(destination)}`;
-  }
-  return trimmed;
-}
-
 /** Official / locale-aware PlayStation Store search. */
 export function buildPlaystationSearchUrl(
   query: string,
@@ -126,55 +100,39 @@ export function buildXboxSearchUrl(query: string, locale = "en"): string {
   return `https://www.xbox.com/${path}/games/search?q=${encodeURIComponent(query)}`;
 }
 
-/**
- * Fnac: affiliate wrap when NEXT_PUBLIC_FNAC_AFFILIATE_BASE is set,
- * else official search (enabled for fr).
- */
+/** Fnac: tracking wrap when configured, else official search (enabled on fr). */
 export function buildFnacSearchUrl(query: string): string {
   const official = `https://www.fnac.com/SearchResult/ResultList.aspx?Search=${encodeURIComponent(query)}`;
-  const base = envTrim("NEXT_PUBLIC_FNAC_AFFILIATE_BASE");
-  if (!base) return official;
-  return applyAffiliateBase(base, official, query);
+  return wrapWithPartnerBase("fnac", official, query);
 }
 
-/** Best Buy: only used when NEXT_PUBLIC_BESTBUY_AFFILIATE_BASE is set. */
+/** Best Buy: only offered when its tracking base is configured. */
 export function buildBestBuySearchUrl(query: string): string {
   const official = `https://www.bestbuy.com/site/searchpage.jsp?st=${encodeURIComponent(query)}`;
-  const base = envTrim("NEXT_PUBLIC_BESTBUY_AFFILIATE_BASE");
-  if (!base) return official;
-  return applyAffiliateBase(base, official, query);
+  return wrapWithPartnerBase("bestbuy", official, query);
 }
 
-/**
- * Instant Gaming: affiliate wrap when NEXT_PUBLIC_INSTANT_GAMING_AFFILIATE_BASE
- * is set, else official localised search.
- */
+/** Instant Gaming: localised official search, tracking wrap when configured. */
 export function buildInstantGamingSearchUrl(
   query: string,
   locale = "en",
 ): string {
   const path = INSTANT_GAMING_SEARCH_PATH[locale] ?? INSTANT_GAMING_SEARCH_PATH.en;
   const official = `https://www.instant-gaming.com/${path}/?q=${encodeURIComponent(query)}`;
-  const base = envTrim("NEXT_PUBLIC_INSTANT_GAMING_AFFILIATE_BASE");
-  if (!base) return official;
-  return applyAffiliateBase(base, official, query);
+  return wrapWithPartnerBase("instant_gaming", official, query);
 }
 
-/** Eneba: affiliate wrap when NEXT_PUBLIC_ENEBA_AFFILIATE_BASE is set. */
+/** Eneba: localised official search, tracking wrap when configured. */
 export function buildEnebaSearchUrl(query: string, locale = "en"): string {
   const prefix = ENEBA_LOCALE_PREFIX[locale] ?? "";
   const official = `https://www.eneba.com${prefix}/store/all?text=${encodeURIComponent(query)}`;
-  const base = envTrim("NEXT_PUBLIC_ENEBA_AFFILIATE_BASE");
-  if (!base) return official;
-  return applyAffiliateBase(base, official, query);
+  return wrapWithPartnerBase("eneba", official, query);
 }
 
-/** CDKeys: affiliate wrap when NEXT_PUBLIC_CDKEYS_AFFILIATE_BASE is set. */
+/** CDKeys: single English storefront, tracking wrap when configured. */
 export function buildCdkeysSearchUrl(query: string): string {
   const official = `https://www.cdkeys.com/catalogsearch/result/?q=${encodeURIComponent(query)}`;
-  const base = envTrim("NEXT_PUBLIC_CDKEYS_AFFILIATE_BASE");
-  if (!base) return official;
-  return applyAffiliateBase(base, official, query);
+  return wrapWithPartnerBase("cdkeys", official, query);
 }
 
 /** Amazon link for a product on the locale's marketplace, ASIN or search. */

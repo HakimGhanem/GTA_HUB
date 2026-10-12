@@ -21,6 +21,11 @@ export type BestPriceCopy = {
   comparatorBody: string;
   /** `{date}` placeholder */
   surveyNote: string;
+  /**
+   * Replaces `surveyNote` once the survey passes
+   * `PRICE_SURVEY_MAX_AGE_DAYS`. `{date}` and `{days}` are replaced.
+   */
+  surveyStaleNote: string;
   disclosure: string;
   bestPriceBadge: string;
   officialBadge: string;
@@ -64,6 +69,8 @@ const EN: BestPriceCopy = {
     "Same game, same bonus, six storefronts. Cards are sorted cheapest first within each platform; official stores are flagged because they set the reference price rather than compete on it.",
   surveyNote:
     "Prices surveyed on {date} for the French market, VAT included. Retailer stock and pricing change without notice — confirm on the merchant page before paying.",
+  surveyStaleNote:
+    "These prices were surveyed on {date}, {days} days ago, and have not been re-checked since. Treat them as an indication of the gap between retailers and the official stores, not as today's price: open the merchant page for the current figure.",
   disclosure:
     "Some outbound links may earn Map-6 a commission. That never changes the ranking: cards are ordered by price, and official stores are included even though they pay nothing.",
   bestPriceBadge: "Best price",
@@ -152,6 +159,8 @@ const FR: BestPriceCopy = {
     "Même jeu, même bonus, six enseignes. Les cartes sont triées du moins cher au plus cher pour chaque plateforme ; les stores officiels sont signalés car ils fixent le prix de référence au lieu de le concurrencer.",
   surveyNote:
     "Prix relevés le {date} sur le marché français, TTC. Le stock et les tarifs des revendeurs changent sans préavis — vérifiez sur la fiche marchande avant de payer.",
+  surveyStaleNote:
+    "Ces prix ont été relevés le {date}, il y a {days} jours, et n'ont pas été revérifiés depuis. Prenez-les comme un ordre de grandeur de l'écart entre revendeurs et stores officiels, pas comme le prix du jour : ouvrez la fiche marchande pour le tarif actuel.",
   disclosure:
     "Certains liens sortants peuvent rapporter une commission à Map-6. Cela ne change jamais le classement : les cartes sont triées par prix, et les stores officiels figurent dans le comparatif alors qu'ils ne rapportent rien.",
   bestPriceBadge: "Meilleur prix",
@@ -238,6 +247,8 @@ const ES: BestPriceCopy = {
     "Mismo juego, mismo bono, seis tiendas. Las tarjetas se ordenan de más barata a más cara por plataforma; las tiendas oficiales aparecen marcadas porque fijan el precio de referencia.",
   surveyNote:
     "Precios revisados el {date} en el mercado francés, IVA incluido. El stock y las tarifas cambian sin aviso: comprueba la ficha del vendedor antes de pagar.",
+  surveyStaleNote:
+    "Estos precios se revisaron el {date}, hace {days} días, y no se han vuelto a comprobar. Tómalos como una indicación de la diferencia entre tiendas, no como el precio de hoy: abre la ficha del vendedor para ver la tarifa actual.",
   disclosure:
     "Algunos enlaces salientes pueden generar una comisión para Map-6. Eso no altera el orden: las tarjetas se ordenan por precio y las tiendas oficiales se incluyen aunque no paguen nada.",
   bestPriceBadge: "Mejor precio",

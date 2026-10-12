@@ -1,3 +1,5 @@
+import { OutboundLink } from "@/components/affiliate/OutboundLink";
+import type { AffiliatePlacement } from "@/lib/analytics/affiliate";
 import type { StoreOffer } from "@/lib/affiliate/store-links";
 
 const AMAZON_CLASS =
@@ -12,6 +14,17 @@ const PLAYSTATION_CLASS =
 const XBOX_CLASS =
   "inline-flex w-full items-center justify-center rounded-full border border-green-400/40 bg-green-500/10 px-5 py-3 text-sm font-semibold text-green-100 transition-colors hover:bg-green-500/20";
 
+/** Context needed to attribute a click to a product and a surface. */
+export type OfferTrackingContext = {
+  placement: AffiliatePlacement;
+  item: string;
+  locale: string;
+  edition?: string;
+  platform?: string;
+  value?: number;
+  currency?: string;
+};
+
 function classForOffer(offer: StoreOffer, primary: boolean): string {
   if (offer.variant === "amazon") {
     return primary
@@ -23,37 +36,48 @@ function classForOffer(offer: StoreOffer, primary: boolean): string {
   return SECONDARY_CLASS;
 }
 
-function relForOffer(offer: StoreOffer): string {
-  return offer.kind === "affiliate"
-    ? "nofollow sponsored noopener noreferrer"
-    : "noopener noreferrer";
-}
-
 function OfferLink({
   offer,
   primary,
+  position,
+  tracking,
 }: {
   offer: StoreOffer;
   primary: boolean;
+  position: number;
+  tracking: OfferTrackingContext;
 }) {
   return (
-    <a
+    <OutboundLink
       href={offer.href}
-      target="_blank"
-      rel={relForOffer(offer)}
+      monetised={offer.kind === "affiliate"}
       className={classForOffer(offer, primary)}
+      click={{
+        placement: tracking.placement,
+        merchant: offer.id,
+        item: tracking.item,
+        edition: tracking.edition,
+        platform: tracking.platform,
+        locale: tracking.locale,
+        target: offer.target,
+        position,
+        value: tracking.value,
+        currency: tracking.currency,
+      }}
     >
       {offer.cta}
-    </a>
+    </OutboundLink>
   );
 }
 
 export function StoreOfferButtons({
   offers,
   otherStoresLabel,
+  tracking,
 }: {
   offers: StoreOffer[];
   otherStoresLabel: string;
+  tracking: OfferTrackingContext;
 }) {
   if (offers.length === 0) return null;
 
@@ -61,15 +85,21 @@ export function StoreOfferButtons({
 
   return (
     <div className="mt-4 flex flex-col gap-2">
-      <OfferLink offer={primary} primary />
+      <OfferLink offer={primary} primary position={0} tracking={tracking} />
       {rest.length > 0 ? (
         <details className="group">
           <summary className="cursor-pointer list-none text-center text-xs font-medium text-foreground/45 underline-offset-2 hover:text-foreground/70 hover:underline [&::-webkit-details-marker]:hidden">
             {otherStoresLabel}
           </summary>
           <div className="mt-2 flex flex-col gap-2">
-            {rest.map((offer) => (
-              <OfferLink key={offer.id} offer={offer} primary={false} />
+            {rest.map((offer, index) => (
+              <OfferLink
+                key={offer.id}
+                offer={offer}
+                primary={false}
+                position={index + 1}
+                tracking={tracking}
+              />
             ))}
           </div>
         </details>

@@ -60,6 +60,17 @@ substitutions:
   _AMAZON_ASIN_SSD_1TB: "B0B7CKZGN6"
   _AMAZON_ASIN_CAPTURE_CARD: "B09V1KJ3J4"
   _AMAZON_ASIN_CHARGE_DOCK: "B08S3FMVV7"
+  # Partner networks, non-Amazon. One name per merchant, shared by the offer
+  # buttons and the FR price comparator. Empty means the outbound link still
+  # works but earns nothing — `npm run affiliate:check` lists the gaps.
+  _FNAC_AFFILIATE_BASE: ""
+  _CDISCOUNT_AFFILIATE_BASE: ""
+  _CARREFOUR_AFFILIATE_BASE: ""
+  _BESTBUY_AFFILIATE_BASE: ""
+  # The only route that monetises Ultimate — it has no Amazon ASIN anywhere.
+  _INSTANT_GAMING_AFFILIATE_BASE: ""
+  _ENEBA_AFFILIATE_BASE: ""
+  _CDKEYS_AFFILIATE_BASE: ""
 
 steps:
   - name: gcr.io/cloud-builders/docker
@@ -117,6 +128,13 @@ steps:
       - --build-arg=NEXT_PUBLIC_AMAZON_ASIN_SSD_1TB=${_AMAZON_ASIN_SSD_1TB}
       - --build-arg=NEXT_PUBLIC_AMAZON_ASIN_CAPTURE_CARD=${_AMAZON_ASIN_CAPTURE_CARD}
       - --build-arg=NEXT_PUBLIC_AMAZON_ASIN_CHARGE_DOCK=${_AMAZON_ASIN_CHARGE_DOCK}
+      - --build-arg=NEXT_PUBLIC_FNAC_AFFILIATE_BASE=${_FNAC_AFFILIATE_BASE}
+      - --build-arg=NEXT_PUBLIC_CDISCOUNT_AFFILIATE_BASE=${_CDISCOUNT_AFFILIATE_BASE}
+      - --build-arg=NEXT_PUBLIC_CARREFOUR_AFFILIATE_BASE=${_CARREFOUR_AFFILIATE_BASE}
+      - --build-arg=NEXT_PUBLIC_BESTBUY_AFFILIATE_BASE=${_BESTBUY_AFFILIATE_BASE}
+      - --build-arg=NEXT_PUBLIC_INSTANT_GAMING_AFFILIATE_BASE=${_INSTANT_GAMING_AFFILIATE_BASE}
+      - --build-arg=NEXT_PUBLIC_ENEBA_AFFILIATE_BASE=${_ENEBA_AFFILIATE_BASE}
+      - --build-arg=NEXT_PUBLIC_CDKEYS_AFFILIATE_BASE=${_CDKEYS_AFFILIATE_BASE}
       - -t
       - ${_REGION}-docker.pkg.dev/$PROJECT_ID/cloud-run-source-deploy/${_SERVICE}:$BUILD_ID
       - -t

@@ -31,6 +31,7 @@
     "content:daily": "tsx scripts/content/daily-funnel.mts",
     "content:localize": "tsx scripts/content/localize-articles.mts",
     "affiliate:audit": "tsx scripts/affiliate-audit.mts",
+    "affiliate:check": "tsx scripts/affiliate-check.mts",
     "factory:studio": "npm run studio --prefix factory",
     "factory:brief": "tsx factory/pipeline/brief.mts",
     "factory:render": "tsx factory/pipeline/render.mts",

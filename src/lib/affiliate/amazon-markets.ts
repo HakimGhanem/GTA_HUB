@@ -63,6 +63,50 @@ export type AmazonAsinSource = {
 };
 
 /**
+ * Env overrides for the non-FR marketplaces, limited to the EN funnel SKUs.
+ *
+ * Literal `process.env.NEXT_PUBLIC_*` access is mandatory here: Next only
+ * inlines literals at build time and the Cloud Run runner stage carries no
+ * NEXT_PUBLIC_* vars, so the computed `process.env[amazonAsinEnvVar(...)]`
+ * lookup this replaced was always empty in production — the UK links only
+ * ever worked because `asinByStore` hardcodes them.
+ *
+ * Slots missing from this map resolve through `asinByStore` in the product
+ * data. Add a line here (and an ARG/ENV pair in the Dockerfile) when a slot
+ * needs to be fixable without a code change.
+ */
+const ASIN_ENV_OVERRIDES: Partial<
+  Record<AmazonStoreId, Record<string, string | undefined>>
+> = {
+  amazon_co_uk: {
+    GTA6_PS5: process.env.NEXT_PUBLIC_AMAZON_UK_ASIN_GTA6_PS5,
+    GTA6_XBOX: process.env.NEXT_PUBLIC_AMAZON_UK_ASIN_GTA6_XBOX,
+    GTA6_ULTIMATE_PS5: process.env.NEXT_PUBLIC_AMAZON_UK_ASIN_GTA6_ULTIMATE_PS5,
+    GTA6_ULTIMATE_XBOX: process.env.NEXT_PUBLIC_AMAZON_UK_ASIN_GTA6_ULTIMATE_XBOX,
+    PS5: process.env.NEXT_PUBLIC_AMAZON_UK_ASIN_PS5,
+    XBOX_SERIES_X: process.env.NEXT_PUBLIC_AMAZON_UK_ASIN_XBOX_SERIES_X,
+    DUALSENSE: process.env.NEXT_PUBLIC_AMAZON_UK_ASIN_DUALSENSE,
+  },
+  amazon_com: {
+    GTA6_PS5: process.env.NEXT_PUBLIC_AMAZON_US_ASIN_GTA6_PS5,
+    GTA6_XBOX: process.env.NEXT_PUBLIC_AMAZON_US_ASIN_GTA6_XBOX,
+    GTA6_ULTIMATE_PS5: process.env.NEXT_PUBLIC_AMAZON_US_ASIN_GTA6_ULTIMATE_PS5,
+    GTA6_ULTIMATE_XBOX: process.env.NEXT_PUBLIC_AMAZON_US_ASIN_GTA6_ULTIMATE_XBOX,
+    PS5: process.env.NEXT_PUBLIC_AMAZON_US_ASIN_PS5,
+    XBOX_SERIES_X: process.env.NEXT_PUBLIC_AMAZON_US_ASIN_XBOX_SERIES_X,
+    DUALSENSE: process.env.NEXT_PUBLIC_AMAZON_US_ASIN_DUALSENSE,
+  },
+};
+
+/** Whether this slot can be fixed from the deploy config rather than code. */
+export function hasAsinEnvOverride(
+  storeId: AmazonStoreId,
+  envKey: string,
+): boolean {
+  return storeId === "amazon_fr" || envKey in (ASIN_ENV_OVERRIDES[storeId] ?? {});
+}
+
+/**
  * ASIN for one marketplace, or "" when we have none. Env wins over the
  * hardcoded default so ops can fix a link without a code change.
  */
@@ -71,7 +115,7 @@ export function asinForAmazonStore(
   storeId: AmazonStoreId,
 ): string {
   if (storeId === "amazon_fr") return product.asin.trim();
-  const fromEnv = process.env[amazonAsinEnvVar(storeId, product.envKey)]?.trim();
+  const fromEnv = ASIN_ENV_OVERRIDES[storeId]?.[product.envKey]?.trim();
   if (fromEnv) return fromEnv;
   return product.asinByStore?.[storeId]?.trim() ?? "";
 }

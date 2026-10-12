@@ -1,8 +1,13 @@
 import { getLocale, getTranslations } from "next-intl/server";
 import { StoreOfferButtons } from "@/components/affiliate/StoreOfferButtons";
 import type { PreorderProduct } from "@/data/preorder-products";
-import { displayProductPrice, productEnvVar } from "@/data/preorder-products";
+import {
+  displayProductPrice,
+  productEnvVar,
+  productTrackingValue,
+} from "@/data/preorder-products";
 import { getProductCopy } from "@/data/product-copy-i18n";
+import type { AffiliatePlacement } from "@/lib/analytics/affiliate";
 import { localizeOffers, offersForProduct } from "@/lib/affiliate/store-links";
 
 const PLATFORM_COLORS: Record<PreorderProduct["platform"], string> = {
@@ -21,12 +26,15 @@ type AmazonProductCardProps = {
   showPlaceholders?: boolean;
   /** next-intl locale. When omitted, read from the request (fallback "fr"). */
   locale?: string;
+  /** Surface this card renders on — the GA4 dimension for CTA performance. */
+  placement?: AffiliatePlacement;
 };
 
 export async function AmazonProductCard({
   product,
   showPlaceholders = false,
   locale: localeProp,
+  placement = "preorder_guide",
 }: AmazonProductCardProps) {
   const locale = localeProp ?? (await getLocale().catch(() => "fr"));
   const t = await getTranslations({ locale, namespace: "affiliate" });
@@ -104,6 +112,14 @@ export async function AmazonProductCard({
       <StoreOfferButtons
         offers={offers}
         otherStoresLabel={t("otherStores")}
+        tracking={{
+          placement,
+          item: product.envKey,
+          edition: product.edition,
+          platform: product.platform,
+          locale,
+          ...productTrackingValue(product, locale),
+        }}
       />
     </div>
   );

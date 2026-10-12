@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { fillPrices, getBestPriceCopy } from "@/data/best-price-i18n";
 import {
   highestPriceEur,
+  isPriceSurveyStale,
   lowestPriceEur,
   PRICE_CURRENCY,
   RETAILER_OFFERS,
@@ -43,19 +44,29 @@ const AVAILABILITY_SCHEMA = {
 /**
  * Product + AggregateOffer for the comparison itself. Prices come from the
  * manual survey in `gta6-retailers.ts` — re-check them when you bump the date.
+ *
+ * Once the survey goes stale the offers are dropped rather than published:
+ * a price in structured data that no longer matches the merchant page is a
+ * rich-result mismatch, so no markup beats outdated markup.
  */
 function jsonLdPriceComparison(locale: string, copy: { title: string }) {
   const url = `${SITE.url}/${locale}/guides/${SLUG}`;
   const priced = RETAILER_OFFERS.filter((o) => o.priceEur !== null);
   const priceValidUntil = GTA6_RELEASE.toISOString().slice(0, 10);
 
-  return {
+  const product = {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": `${url}#product`,
     name: "Grand Theft Auto VI",
     description: copy.title,
     brand: { "@type": "Brand", name: "Rockstar Games" },
+  };
+
+  if (isPriceSurveyStale()) return product;
+
+  return {
+    ...product,
     offers: {
       "@type": "AggregateOffer",
       priceCurrency: PRICE_CURRENCY,
