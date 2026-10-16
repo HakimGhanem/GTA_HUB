@@ -7,6 +7,16 @@ import { buildMetadata } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
 
+const COMPARISON: [string, string, string][] = [
+  ["Interactive map", "✓", "✓"],
+  ["All guides & news", "✓", "✓"],
+  ["Ads on content pages", "Shown", "None"],
+  ["Collectible tracker", "Local", "Cloud sync"],
+  ["JSON progress backup", "✓", "✓"],
+  ["CSV pin export", "✗", "✓"],
+  ["Streamer overlay kit", "Basic", "Full"],
+];
+
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
   return buildMetadata({
@@ -61,6 +71,30 @@ export default async function ProPage({ params }: Props) {
           .
         </li>
       </ul>
+
+      <table className="mt-10 w-full text-left text-sm">
+        <thead>
+          <tr className="border-b border-foreground/10 text-foreground/50">
+            <th className="py-2 font-medium">Feature</th>
+            <th className="py-2 font-medium">Free</th>
+            <th className="py-2 font-medium">Pro</th>
+          </tr>
+        </thead>
+        <tbody className="text-foreground/70">
+          {COMPARISON.map(([feature, free, pro]) => (
+            <tr key={feature} className="border-b border-foreground/5">
+              <td className="py-2 text-foreground">{feature}</td>
+              <td className="py-2">{free}</td>
+              <td className="py-2">{pro}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+
+      <p className="mt-10">
+        <span className="text-4xl font-bold">€3.99</span>
+        <span className="text-sm text-foreground/50"> once · lifetime access</span>
+      </p>
 
       <BuyProButton />
 

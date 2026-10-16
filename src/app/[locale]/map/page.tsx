@@ -4,7 +4,9 @@ import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { MapPageClient } from "./MapPageClient";
 import { Link } from "@/i18n/navigation";
 import { getLocalityPages, localitySlug } from "@/lib/real-world-matches";
-import { buildMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { getMapFaq } from "@/data/map-faq";
+import { buildMetadata, jsonLdFAQ } from "@/lib/seo";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -71,6 +73,28 @@ function MapExploreNav({
   );
 }
 
+function MapAbout({ locale }: { locale: string }) {
+  const { summary, intro, faq } = getMapFaq(locale);
+
+  return (
+    <details className="mt-1 text-[11px] text-foreground/60">
+      <JsonLd data={jsonLdFAQ(faq)} />
+      <summary className="cursor-pointer text-foreground/50 hover:text-accent">
+        {summary}
+      </summary>
+      <div className="max-h-[40dvh] max-w-3xl space-y-2 overflow-y-auto py-2 text-xs leading-relaxed">
+        <p>{intro}</p>
+        {faq.map(({ question, answer }) => (
+          <div key={question}>
+            <h2 className="font-semibold text-foreground/80">{question}</h2>
+            <p>{answer}</p>
+          </div>
+        ))}
+      </div>
+    </details>
+  );
+}
+
 export default async function MapPage({ params }: Props) {
   const { locale } = await params;
   setRequestLocale(locale);
@@ -95,6 +119,7 @@ export default async function MapPage({ params }: Props) {
             { href: "/news", label: t("mapNavNews") },
           ]}
         />
+        <MapAbout locale={locale} />
       </div>
       <ConversionStrip variant="map" />
       <div className="min-h-0 flex-1">
