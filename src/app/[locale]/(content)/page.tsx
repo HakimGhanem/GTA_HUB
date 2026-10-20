@@ -119,9 +119,9 @@ export default async function HomePage({ params }: Props) {
           <div className="grid gap-3 sm:grid-cols-2">
             {(
               [
-                "gta-6-extended-look-breakdown",
-                "gta-6-wanted-system",
-                "gta-6-map-size",
+                "gta-6-release-time",
+                "gta-6-preload",
+                "gta-6-file-size",
                 "gta-6-map-guide",
               ] as const
             ).map((slug) => {

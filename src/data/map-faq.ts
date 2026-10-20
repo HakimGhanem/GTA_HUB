@@ -1,3 +1,6 @@
+/** Bump when map FAQ, nav, or pin copy changes — drives sitemap lastmod. */
+export const MAP_CONTENT_UPDATED_AT = "2026-10-19T12:00:00.000Z";
+
 type MapFaqCopy = {
   summary: string;
   intro: string;
@@ -28,6 +31,11 @@ const EN: MapFaqCopy = {
       question: "Is the map free?",
       answer:
         "Yes, the map, guides and local progress tracking are free. Map-6 Pro (€3.99 once) removes ads and adds cloud sync and CSV export.",
+    },
+    {
+      question: "When does GTA 6 unlock, and when can I preload?",
+      answer:
+        "GTA 6 launches 19 November 2026 on PlayStation 5 and Xbox Series X|S. Digital preload starts 12 November at local midnight. Rockstar has not published an unlock hour. Map-6 has the release-time, preload and storage guides.",
     },
     {
       question: "Is GTA 6 on PC?",
@@ -61,6 +69,11 @@ const FR: MapFaqCopy = {
       question: "La carte est-elle gratuite ?",
       answer:
         "Oui, la carte, les guides et le suivi local de progression sont gratuits. Map-6 Pro (3,99 € une fois) retire les pubs et ajoute la synchronisation cloud et l'export CSV.",
+    },
+    {
+      question: "À quelle heure GTA 6 se débloque-t-il, et quand précharger ?",
+      answer:
+        "GTA 6 sort le 19 novembre 2026 sur PlayStation 5 et Xbox Series X|S. Le préchargement numérique ouvre le 12 novembre à minuit local. Rockstar n'a pas publié d'heure de déblocage. Les guides Map-6 couvrent l'heure de sortie, le préchargement et l'espace disque.",
     },
     {
       question: "GTA 6 sort-il sur PC ?",

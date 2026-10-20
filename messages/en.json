@@ -133,7 +133,7 @@
       "map": "Map & locations",
       "buy": "Pre-order & editions",
       "world": "Characters & story",
-      "prep": "Setup & safety"
+      "prep": "Launch prep"
     },
     "backToAll": "← All guides",
     "ctaTitle": "Ready to explore?",
@@ -171,6 +171,9 @@
     "mapNavGuides": "Guides",
     "mapNavCollectibles": "Collectibles",
     "mapNavRealLife": "Real-life locations",
+    "mapNavRelease": "Unlock time",
+    "mapNavPreload": "Preload",
+    "mapNavStorage": "File size",
     "mapNavNews": "News"
   },
   "footer": {

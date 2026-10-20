@@ -2,10 +2,29 @@ import { setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { ProgressBackup } from "@/components/map/ProgressBackup";
 import { BuyProButton } from "@/components/pro/BuyProButton";
+import { JsonLd } from "@/components/seo/JsonLd";
 import { SITE } from "@/lib/constants";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, jsonLdFAQ } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string }> };
+
+const PRO_FAQ = [
+  {
+    question: "What is Map-6 Pro?",
+    answer:
+      "Map-6 Pro is a one-time €3.99 unlock for the GTA 6 interactive map: no ads on content pages, collectible tracker with cloud sync, CSV pin export, and the full streamer overlay kit. There is no subscription.",
+  },
+  {
+    question: "Do I need Pro to use the GTA 6 map?",
+    answer:
+      "No. The fullscreen map, guides, news and local collectible tracking stay free. Pro removes ads and adds cloud sync plus CSV export.",
+  },
+  {
+    question: "Is Map-6 Pro a subscription?",
+    answer:
+      "No. €3.99 is charged once. Stripe stores the email used at checkout so you can restore Pro on another device.",
+  },
+];
 
 const COMPARISON: [string, string, string][] = [
   ["Interactive map", "✓", "✓"],
@@ -36,6 +55,7 @@ export default async function ProPage({ params }: Props) {
 
   return (
     <main className="mx-auto max-w-3xl flex-1 px-4 py-10">
+      <JsonLd data={jsonLdFAQ(PRO_FAQ)} />
       <p className="text-xs uppercase tracking-wider text-pink-400/80">Pro</p>
       <h1 className="mt-2 text-3xl font-bold">
         Map-6 Pro — GTA 6 Launch Edition
@@ -108,8 +128,30 @@ export default async function ProPage({ params }: Props) {
 
       <ProgressBackup className="mt-8 rounded-xl border border-foreground/10 bg-foreground/5 p-5 text-sm text-foreground/70" />
 
+      <section className="mt-12 space-y-4">
+        <h2 className="text-lg font-semibold">Questions</h2>
+        {PRO_FAQ.map((item) => (
+          <div key={item.question}>
+            <h3 className="font-medium text-foreground">{item.question}</h3>
+            <p className="mt-1 text-sm text-foreground/60">{item.answer}</p>
+          </div>
+        ))}
+      </section>
+
       <p className="mt-10 text-sm text-foreground/50">
-        GTA 5 practice:{" "}
+        Launch week:{" "}
+        <Link href="/guides/gta-6-release-time" className="text-accent underline">
+          unlock time
+        </Link>
+        ,{" "}
+        <Link href="/guides/gta-6-preload" className="text-accent underline">
+          preload
+        </Link>
+        ,{" "}
+        <Link href="/guides/gta-6-file-size" className="text-accent underline">
+          storage
+        </Link>
+        . GTA 5 practice:{" "}
         <Link href="/maps/gta5" className="text-accent underline">
           GTA 5 map landing
         </Link>

@@ -133,7 +133,7 @@
       "map": "Carte & lieux",
       "buy": "Précommande & éditions",
       "world": "Personnages & histoire",
-      "prep": "Setup & sécurité"
+      "prep": "Préparation lancement"
     },
     "backToAll": "← Tous les guides",
     "ctaTitle": "Prêt à explorer ?",
@@ -171,6 +171,9 @@
     "mapNavGuides": "Guides",
     "mapNavCollectibles": "Collectibles",
     "mapNavRealLife": "Lieux réels",
+    "mapNavRelease": "Heure de sortie",
+    "mapNavPreload": "Préchargement",
+    "mapNavStorage": "Taille",
     "mapNavNews": "Actualité"
   },
   "footer": {

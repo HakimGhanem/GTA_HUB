@@ -115,6 +115,9 @@ export default async function MapPage({ params }: Props) {
           sections={[
             { href: "/gta-6-real-life-locations", label: t("mapNavRealLife") },
             { href: "/collectibles", label: t("mapNavCollectibles") },
+            { href: "/guides/gta-6-release-time", label: t("mapNavRelease") },
+            { href: "/guides/gta-6-preload", label: t("mapNavPreload") },
+            { href: "/guides/gta-6-file-size", label: t("mapNavStorage") },
             { href: "/guides", label: t("mapNavGuides") },
             { href: "/news", label: t("mapNavNews") },
           ]}

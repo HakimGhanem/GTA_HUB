@@ -30,7 +30,7 @@ substitutions:
   _ADSENSE_SLOT_BANNER: "9174557090"
   _ADSENSE_SLOT_IN_ARTICLE: "2336997643"
   _ADSENSE_UNITS: "true"
-  _GA_MEASUREMENT_ID: "G-014MS4346K"
+  _GA_MEASUREMENT_ID: "G-RLY941TZ4X"
   # Fill via --substitutions when SiteStripe ASINs ready (tag e.g. map6-21)
   _AMAZON_AFFILIATE_TAG: "map6-21"
   _AMAZON_STORE: "https://www.amazon.fr"

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { COLLECTIBLE_TYPES } from "@/data/collectibles";
 import { GUIDES } from "@/data/guides";
+import { MAP_CONTENT_UPDATED_AT } from "@/data/map-faq";
 import { getAllLocations } from "@/data/all-locations";
 import {
   guideHreflangLocales,
@@ -23,7 +24,26 @@ import {
   subtypeSlug,
 } from "@/lib/real-world-matches";
 
+/**
+ * Cloud Run has no shared ISR cache. A static sitemap is baked into the
+ * image at build, so cron-published news never appears until the next
+ * deploy. Render on each request and read Firestore.
+ */
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
+
+/** Last real content change for pages that are not news/guides. */
+const SITE_UPDATED = new Date("2026-10-16T14:19:11.000Z");
+const MAP_UPDATED = new Date(MAP_CONTENT_UPDATED_AT);
+const PRO_UPDATED = new Date("2026-10-19T12:00:00.000Z");
+const LAUNCH_GUIDE_SLUGS = new Set([
+  "gta-6-release-time",
+  "gta-6-preload",
+  "gta-6-file-size",
+]);
+const LAUNCH_GUIDE_UPDATED = new Date("2026-10-19T12:00:00.000Z");
 
 function hreflangAlternates(
   path: string,
@@ -104,7 +124,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const staticPages = staticPaths.flatMap((path) =>
     localizedEntries(path, {
-      lastModified: now,
+      lastModified:
+        path === "/map"
+          ? MAP_UPDATED
+          : path === "/guides"
+            ? LAUNCH_GUIDE_UPDATED
+            : SITE_UPDATED,
       changeFrequency:
         path === "" || path === "/map" || path === "/news"
           ? "daily"
@@ -132,7 +157,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const englishOnlyPages = englishOnlyPaths.flatMap((path) =>
     localizedEntries(
       path,
-      { lastModified: now, changeFrequency: "daily", priority: 0.85 },
+      {
+        lastModified: path === "/pro" ? PRO_UPDATED : SITE_UPDATED,
+        changeFrequency: "daily",
+        priority: path === "/pro" ? 0.8 : 0.85,
+      },
       ["en"],
     ),
   );
@@ -141,19 +170,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // noindex fallbacks to EN.
   const trailerPages = localizedEntries(
     "/trailer",
-    { lastModified: now, changeFrequency: "weekly", priority: 0.8 },
+    { lastModified: SITE_UPDATED, changeFrequency: "weekly", priority: 0.8 },
     filterIndexableLocales(trailerHreflangLocales()),
   );
 
   const attributionPages = localizedEntries(
     "/attributions",
-    { lastModified: now, changeFrequency: "monthly", priority: 0.4 },
+    { lastModified: SITE_UPDATED, changeFrequency: "monthly", priority: 0.4 },
     ATTRIBUTIONS_LOCALES,
   );
 
   const locationPages = getIndexableLocations(getAllLocations()).flatMap((loc) =>
     localizedEntries(`/locations/${loc.slug}`, {
-      lastModified: now,
+      lastModified: SITE_UPDATED,
       changeFrequency: "weekly",
       priority: 0.7,
     }),
@@ -161,7 +190,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const realWorldLocalityPages = getLocalityPages().flatMap((group) =>
     localizedEntries(`/gta-6-real-life-locations/${localitySlug(group.region)}`, {
-      lastModified: now,
+      lastModified: SITE_UPDATED,
       changeFrequency: "monthly",
       priority: 0.7,
     }),
@@ -170,13 +199,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const realWorldSubtypePages = getSubtypePages().flatMap((group) =>
     localizedEntries(
       `/gta-6-real-life-locations/type/${subtypeSlug(group.subtype)}`,
-      { lastModified: now, changeFrequency: "monthly", priority: 0.7 },
+      { lastModified: SITE_UPDATED, changeFrequency: "monthly", priority: 0.7 },
     ),
   );
 
   const collectiblePages = COLLECTIBLE_TYPES.flatMap((t) =>
     localizedEntries(`/collectibles/${t.slug}`, {
-      lastModified: now,
+      lastModified: SITE_UPDATED,
       changeFrequency: "weekly",
       priority: 0.75,
     }),
@@ -184,13 +213,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const guidePages = GUIDES.flatMap((g) => {
     const localeList = filterIndexableLocales(guideHreflangLocales(g.slug));
+    const lastModified = LAUNCH_GUIDE_SLUGS.has(g.slug)
+      ? LAUNCH_GUIDE_UPDATED
+      : new Date(`${g.publishedAt}T00:00:00.000Z`);
     return localeList
       .filter((locale) => hasGuideTranslation(g.slug, locale))
       .map((locale) => ({
         url: `${SITE.url}/${locale}/guides/${g.slug}`,
-        lastModified: now,
-        changeFrequency: "monthly" as const,
-        priority: 0.8,
+        lastModified,
+        changeFrequency: LAUNCH_GUIDE_SLUGS.has(g.slug)
+          ? ("weekly" as const)
+          : ("monthly" as const),
+        priority: LAUNCH_GUIDE_SLUGS.has(g.slug) ? 0.9 : 0.8,
         alternates: hreflangAlternates(`/guides/${g.slug}`, localeList),
       }));
   });

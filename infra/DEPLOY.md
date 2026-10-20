@@ -138,22 +138,31 @@ curl -I https://map6.live/api/health
 
 ## 3. Google Analytics 4 (acquisition)
 
-1. [analytics.google.com](https://analytics.google.com) → créer propriété **Map-6**
-2. Flux Web → URL `https://map6.live`
-3. Copier **Measurement ID** (`G-XXXXXXXX`) → `NEXT_PUBLIC_GA_MEASUREMENT_ID`
-4. Redéployer
+Le tag client prod est `G-RLY941TZ4X` (`NEXT_PUBLIC_GA_MEASUREMENT_ID`,
+substitution Cloud Build `_GA_MEASUREMENT_ID`). Sans l’ID **numérique** de
+propriété, `npm run content:report` ne voit pas les sessions. Le Measurement ID
+`G-…` ne suffit pas ; l’ID de flux non plus.
 
-Déjà intégré via `@next/third-parties/google` (production uniquement).
+### Relier le rapport (5 min)
 
-### Rapports utiles dès J1
+1. [analytics.google.com](https://analytics.google.com) → propriété **Map-6**
+2. **Admin** (roue) → **Paramètres de la propriété** → copier **ID de propriété**
+   (chiffres seuls, ex. `123456789` — ce n’est pas `G-014MS4346K`)
+3. Coller dans `.env.local` :
+   ```
+   GA4_PROPERTY_ID=123456789
+   ```
+4. **Admin** → **Gestion des accès à la propriété** → ajouter
+   `map6-reporting@gtahub-503009.iam.gserviceaccount.com` en **Lecteur**
+5. `npm run content:report` doit alors afficher sessions / utilisateurs / pages
 
-- **Acquisition** → Trafic → Source/support
-- **Engagement** → Pages : `/map`, `/locations/*`
-- **Événements** : activer Enhanced measurement (scroll, outbound clicks)
+### Conversions à marquer (Admin → Événements)
+
+Cocher comme événements clés : `purchase`, `begin_checkout`, `affiliate_click`.
 
 ### Lier GA4 ↔ Search Console
 
-GA4 Admin → Associations → Search Console → lier la propriété GSC.
+Admin → Associations → Search Console → propriété domaine `map-6.com`.
 
 ---
 
