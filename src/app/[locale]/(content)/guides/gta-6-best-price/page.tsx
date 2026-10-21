@@ -3,6 +3,7 @@ import { getTranslations } from "next-intl/server";
 import { AdUnit } from "@/components/ads/AdUnit";
 import { RetailerPriceComparator } from "@/components/guides/RetailerPriceComparator";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { LastVerified } from "@/components/seo/LastVerified";
 import { fillPrices, getBestPriceCopy } from "@/data/best-price-i18n";
 import {
   highestPriceEur,
@@ -124,7 +125,13 @@ export default async function BestPriceGuidePage({ params }: Props) {
   const answer = getLocalizedGuide(SLUG, locale)?.answer;
 
   const structuredData = jsonLdGuidePage(
-    { ...guide, title: copy.title, description: copy.description, answer },
+    {
+      ...guide,
+      title: copy.title,
+      description: copy.description,
+      answer,
+      updatedAt: guide.updatedAt ?? guide.publishedAt,
+    },
     {
       locale,
       breadcrumb: [
@@ -161,6 +168,10 @@ export default async function BestPriceGuidePage({ params }: Props) {
         <p className="mt-2 text-xs text-foreground/40">
           {guide.readTime} min · {guide.publishedAt}
         </p>
+        <LastVerified
+          date={guide.updatedAt ?? guide.publishedAt}
+          locale={locale}
+        />
 
         {answer ? <AnswerBox label={tGuides("shortAnswer")}>{answer}</AnswerBox> : null}
 

@@ -4,6 +4,7 @@ import { Cs2GuideContent } from "@/components/guides/Cs2GuideContent";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { LastVerified } from "@/components/seo/LastVerified";
 import { AnswerBox } from "@/components/seo/AnswerBox";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getCs2GuideCopy } from "@/data/cs2-guide-i18n";
@@ -54,7 +55,13 @@ export default async function Cs2GuidePage({ params }: Props) {
   const answer = getLocalizedGuide(SLUG, locale)?.answer;
 
   const structuredData = jsonLdGuidePage(
-    { ...guide, title: copy.title, description: copy.description, answer },
+    {
+      ...guide,
+      title: copy.title,
+      description: copy.description,
+      answer,
+      updatedAt: guide.updatedAt ?? guide.publishedAt,
+    },
     {
       locale,
       breadcrumb: [
@@ -85,6 +92,10 @@ export default async function Cs2GuidePage({ params }: Props) {
         <p className="mt-2 text-xs text-foreground/40">
           {guide.readTime} min · {guide.publishedAt}
         </p>
+        <LastVerified
+          date={guide.updatedAt ?? guide.publishedAt}
+          locale={locale}
+        />
 
         <ConversionStrip variant="page" />
 

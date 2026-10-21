@@ -5,6 +5,7 @@ import { HubConversionBanner } from "@/components/home/HubConversionBanner";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { LastVerified } from "@/components/seo/LastVerified";
 import { AnswerBox } from "@/components/seo/AnswerBox";
 import { RelatedMapLinks } from "@/components/seo/RelatedMapLinks";
 import { getGuideBySlug } from "@/data/guides";
@@ -60,7 +61,13 @@ export default async function PreorderGuidePage({ params }: Props) {
   const answer = getLocalizedGuide(SLUG, locale)?.answer;
 
   const structuredData = jsonLdGuidePage(
-    { ...guide, title: copy.title, description: copy.description, answer },
+    {
+      ...guide,
+      title: copy.title,
+      description: copy.description,
+      answer,
+      updatedAt: guide.updatedAt ?? guide.publishedAt,
+    },
     {
       locale,
       breadcrumb: [
@@ -94,6 +101,10 @@ export default async function PreorderGuidePage({ params }: Props) {
         <p className="mt-2 text-xs text-foreground/40">
           {guide.readTime} min · {guide.publishedAt}
         </p>
+        <LastVerified
+          date={guide.updatedAt ?? guide.publishedAt}
+          locale={locale}
+        />
 
         <ConversionStrip variant="page" />
         <div className="mt-6">

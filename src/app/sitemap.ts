@@ -53,7 +53,10 @@ function hreflangAlternates(
   const languages = Object.fromEntries(
     localeList.map((locale) => [locale, `${SITE.url}/${locale}${suffix}`]),
   ) as Record<string, string>;
-  languages["x-default"] = `${SITE.url}/en${suffix}`;
+  const defaultLocale = localeList.includes("en") ? "en" : localeList[0];
+  if (defaultLocale) {
+    languages["x-default"] = `${SITE.url}/${defaultLocale}${suffix}`;
+  }
   return { languages };
 }
 
@@ -84,7 +87,9 @@ async function newsSitemapEntries(
   }
 
   return indexable.map((article) => {
-    const localeList = localesBySlug.get(article.slug) ?? [article.locale];
+    const localeList = filterIndexableLocales(
+      localesBySlug.get(article.slug) ?? [article.locale],
+    );
     return {
       url: `${SITE.url}/${article.locale}/news/${article.slug}`,
       lastModified: new Date(
@@ -120,7 +125,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
    * sitemap and canonicalise to `/en` until the copy is translated.
    * /database stays noindex (thin). /pro is English-only checkout copy.
    */
-  const englishOnlyPaths = ["/maps/gta5", "/creators", "/pro", "/live"];
+  const englishOnlyPaths = ["/maps/gta5", "/creators", "/pro"];
 
   const staticPages = staticPaths.flatMap((path) =>
     localizedEntries(path, {

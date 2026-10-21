@@ -94,7 +94,10 @@ function hreflangAlternates(
   const languages = Object.fromEntries(
     localeList.map((loc) => [loc, `${SITE.url}/${loc}${suffix}`]),
   ) as Record<string, string>;
-  languages["x-default"] = `${SITE.url}/en${suffix}`;
+  const defaultLocale = localeList.includes("en") ? "en" : localeList[0];
+  if (defaultLocale) {
+    languages["x-default"] = `${SITE.url}/${defaultLocale}${suffix}`;
+  }
   return languages;
 }
 

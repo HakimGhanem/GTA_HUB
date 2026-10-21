@@ -136,6 +136,7 @@
       "prep": "Préparation lancement"
     },
     "backToAll": "← Tous les guides",
+    "lastVerified": "Dernière vérification : {date}",
     "ctaTitle": "Prêt à explorer ?",
     "ctaBody": "Ouvrez la carte interactive et suivez les lieux.",
     "ctaButton": "Ouvrir la carte interactive",

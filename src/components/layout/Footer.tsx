@@ -19,7 +19,6 @@ export async function Footer() {
     { href: "/guides", label: nav("guides") },
     { href: "/news", label: nav("news") },
     { href: "/trailer", label: t("trailerAnalysis") },
-    { href: "/live", label: nav("live") },
     { href: "/creators", label: nav("creators") },
     { href: "/pro", label: nav("pro") },
     { href: "/about", label: t("about") },

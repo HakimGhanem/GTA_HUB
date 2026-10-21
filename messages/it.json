@@ -142,6 +142,7 @@
       "lore": "Lore"
     },
     "backToAll": "← All guides",
+    "lastVerified": "Ultimo controllo: {date}",
     "ctaTitle": "Ready to explore?",
     "ctaBody": "Open the interactive map and start tracking locations.",
     "ctaButton": "Open Interactive Map",

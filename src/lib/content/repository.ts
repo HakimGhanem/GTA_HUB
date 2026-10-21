@@ -108,23 +108,7 @@ export async function listArticles(opts?: {
 }
 
 export async function listPublishedArticles(locale = "en"): Promise<Article[]> {
-  const local = await listArticles({ status: "published", locale });
-  if (locale === "en") return local;
-  // FR may reuse an EN slug that has no FR editorial yet. Parked locales
-  // (ES/PT/DE/IT) must never list English — AdSense saw that as thin clones.
-  if (locale !== "fr") return local;
-
-  const en = await listArticles({ status: "published", locale: "en" });
-  if (local.length === 0) return en;
-
-  const bySlug = new Map<string, Article>();
-  for (const a of en) bySlug.set(a.slug, a);
-  for (const a of local) bySlug.set(a.slug, a); // locale wins
-  return [...bySlug.values()].sort((a, b) => {
-    const da = a.publishedAt || a.updatedAt;
-    const db_ = b.publishedAt || b.updatedAt;
-    return db_.localeCompare(da);
-  });
+  return listArticles({ status: "published", locale });
 }
 
 export async function listLocalesForNewsSlug(slug: string): Promise<string[]> {
@@ -141,11 +125,7 @@ export async function getArticleBySlug(
   locale = "en",
 ): Promise<Article | null> {
   const all = await listArticles({ locale });
-  const hit = all.find((a) => a.slug === slug);
-  if (hit) return hit;
-  if (locale !== "fr") return null;
-  const en = await listArticles({ locale: "en" });
-  return en.find((a) => a.slug === slug) ?? null;
+  return all.find((a) => a.slug === slug) ?? null;
 }
 
 export async function getArticleById(id: string): Promise<Article | null> {

@@ -136,6 +136,7 @@
       "prep": "Launch prep"
     },
     "backToAll": "← All guides",
+    "lastVerified": "Last verified: {date}",
     "ctaTitle": "Ready to explore?",
     "ctaBody": "Open the interactive map and start tracking locations.",
     "ctaButton": "Open Interactive Map",

@@ -9,11 +9,25 @@ export type ProductCommerce = {
   msrpUsd?: number;
   /** Publisher EUR RRP (FR/EU) */
   msrpEur?: number;
+  /** ISO date the official MSRP was last confirmed */
+  msrpVerifiedAt?: string;
   /** Last checked Amazon.fr street price */
   streetEur?: number;
   /** Last checked Amazon.co.uk street price */
   streetGbp?: number;
+  /** ISO date the street prices were last checked on the merchant page */
+  streetVerifiedAt?: string;
 };
+
+const STREET_PRICE_MAX_AGE_DAYS = 21;
+const DAY_MS = 86_400_000;
+
+function isFresh(iso?: string, maxAgeDays = STREET_PRICE_MAX_AGE_DAYS): boolean {
+  if (!iso) return false;
+  const t = Date.parse(`${iso}T00:00:00Z`);
+  if (Number.isNaN(t)) return false;
+  return Date.now() - t <= maxAgeDays * DAY_MS;
+}
 
 export type PreorderProduct = {
   /** Env key suffix — e.g. GTA6_PS5 → NEXT_PUBLIC_AMAZON_ASIN_GTA6_PS5 */
@@ -44,13 +58,17 @@ const STANDARD_COMMERCE: ProductCommerce = {
   format: "code_in_box",
   msrpUsd: 79.99,
   msrpEur: 79.99,
+  msrpVerifiedAt: "2026-06-25",
   streetEur: 60,
   streetGbp: 69.99,
+  streetVerifiedAt: "2026-09-09",
 };
 
 const ULTIMATE_COMMERCE: ProductCommerce = {
   format: "digital",
   msrpUsd: 99.99,
+  msrpEur: 99.99,
+  msrpVerifiedAt: "2026-06-25",
 };
 
 /**
@@ -169,29 +187,41 @@ function money(amount: number, currency: "USD" | "EUR" | "GBP", locale: string) 
   }).format(amount);
 }
 
-/** Street price first, official RRP as compare-at. Null when we have no figure. */
+/** Street price first when the survey is dated and fresh; else dated MSRP. */
 export function displayProductPrice(
   product: PreorderProduct,
   locale: string,
 ): { primary: string; compare?: string } | null {
   const c = product.commerce;
   if (!c) return null;
-  if (locale === "fr" && c.streetEur != null) {
-    return {
-      primary: money(c.streetEur, "EUR", locale),
-      compare: c.msrpEur != null ? money(c.msrpEur, "EUR", locale) : undefined,
-    };
+  const streetFresh = isFresh(c.streetVerifiedAt);
+  const msrpOk = Boolean(c.msrpVerifiedAt);
+
+  if (locale === "fr") {
+    if (streetFresh && c.streetEur != null) {
+      return {
+        primary: money(c.streetEur, "EUR", locale),
+        compare:
+          msrpOk && c.msrpEur != null ? money(c.msrpEur, "EUR", locale) : undefined,
+      };
+    }
+    if (msrpOk && c.msrpEur != null) {
+      return { primary: money(c.msrpEur, "EUR", locale) };
+    }
+    return null;
   }
-  if (locale === "en" && c.streetGbp != null) {
+
+  if (streetFresh && locale === "en" && c.streetGbp != null) {
     return {
       primary: money(c.streetGbp, "GBP", locale),
-      compare: c.msrpUsd != null ? money(c.msrpUsd, "USD", "en") : undefined,
+      compare:
+        msrpOk && c.msrpUsd != null ? money(c.msrpUsd, "USD", "en") : undefined,
     };
   }
-  if (c.msrpUsd != null) {
+  if (msrpOk && c.msrpUsd != null) {
     return { primary: money(c.msrpUsd, "USD", locale) };
   }
-  if (c.msrpEur != null) {
+  if (msrpOk && c.msrpEur != null) {
     return { primary: money(c.msrpEur, "EUR", locale) };
   }
   return null;
@@ -208,14 +238,20 @@ export function productTrackingValue(
 ): { value?: number; currency?: string } {
   const c = product.commerce;
   if (!c) return {};
-  if (locale === "fr" && c.streetEur != null) {
-    return { value: c.streetEur, currency: "EUR" };
+  if (locale === "fr") {
+    if (isFresh(c.streetVerifiedAt) && c.streetEur != null) {
+      return { value: c.streetEur, currency: "EUR" };
+    }
+    if (c.msrpVerifiedAt && c.msrpEur != null) {
+      return { value: c.msrpEur, currency: "EUR" };
+    }
+    return {};
   }
-  if (locale === "en" && c.streetGbp != null) {
+  if (isFresh(c.streetVerifiedAt) && locale === "en" && c.streetGbp != null) {
     return { value: c.streetGbp, currency: "GBP" };
   }
-  if (c.msrpUsd != null) return { value: c.msrpUsd, currency: "USD" };
-  if (c.msrpEur != null) return { value: c.msrpEur, currency: "EUR" };
+  if (c.msrpVerifiedAt && c.msrpUsd != null) return { value: c.msrpUsd, currency: "USD" };
+  if (c.msrpVerifiedAt && c.msrpEur != null) return { value: c.msrpEur, currency: "EUR" };
   return {};
 }
 

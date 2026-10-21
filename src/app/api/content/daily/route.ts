@@ -21,7 +21,7 @@ import {
   listTopics,
 } from "@/lib/content/repository";
 import { articlePath } from "@/lib/content/schema";
-import { SITE } from "@/lib/constants";
+import { submitIndexNow } from "@/lib/seo/indexnow";
 import { revalidatePath, revalidateTag } from "next/cache";
 
 /**
@@ -233,29 +233,8 @@ export async function POST(request: Request) {
   }
 
   let indexNow: unknown = null;
-  if (published.length && process.env.INDEXNOW_KEY) {
-    const urlList = published.map((p) => `${SITE.url}${p}`);
-    const payload = {
-      host: new URL(SITE.url).host,
-      key: process.env.INDEXNOW_KEY,
-      keyLocation: `${SITE.url}/${process.env.INDEXNOW_KEY}.txt`,
-      urlList,
-    };
-    const results = await Promise.allSettled(
-      [
-        "https://api.indexnow.org/indexnow",
-        "https://www.bing.com/indexnow",
-      ].map((endpoint) =>
-        fetch(endpoint, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }),
-      ),
-    );
-    indexNow = results.map((r) =>
-      r.status === "fulfilled" ? r.value.status : "error",
-    );
+  if (published.length) {
+    indexNow = await submitIndexNow(published);
   }
 
   return NextResponse.json({

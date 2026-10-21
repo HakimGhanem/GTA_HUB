@@ -11,6 +11,7 @@ import { HubConversionBanner } from "@/components/home/HubConversionBanner";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 import { LaunchAlertInline } from "@/components/newsletter/LaunchAlertInline";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { LastVerified } from "@/components/seo/LastVerified";
 import {
   getArticleBySlug,
   listLocalesForNewsSlug,
@@ -63,7 +64,7 @@ export async function generateMetadata({ params }: Props) {
     image: articleHeroSrc(article),
     openGraphType: "article",
     canonicalLocale: article.locale,
-    hreflangLocales: articleLocales.length ? articleLocales : ["en"],
+    hreflangLocales: articleLocales,
     markdownAlternate: true,
     robots:
       !translated || !isIndexableNewsArticle(article)
@@ -159,6 +160,10 @@ export default async function NewsArticlePage({ params }: Props) {
         <p className="mt-2 text-xs text-foreground/40">
           {article.publishedAt?.slice(0, 10)}
         </p>
+        <LastVerified
+          date={article.updatedAt || article.publishedAt}
+          locale={locale}
+        />
 
         <AuthorBlock name={article.author || "Map-6 Editorial"} />
         <ThinContentWarning wordCount={wordCount} />

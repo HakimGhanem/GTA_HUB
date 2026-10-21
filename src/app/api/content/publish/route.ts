@@ -4,7 +4,7 @@ import { assertContentSecret } from "@/lib/content/auth";
 import { articlePath } from "@/lib/content/schema";
 import { getArticleById } from "@/lib/content/repository";
 import { publishArticleLocal } from "@/lib/content/publish";
-import { SITE } from "@/lib/constants";
+import { submitIndexNow } from "@/lib/seo/indexnow";
 
 /**
  * POST { articleId, reviewer }
@@ -51,23 +51,10 @@ export async function POST(request: Request) {
   }
 
   let indexNow: unknown = null;
-  const secret = process.env.CONTENT_API_SECRET;
-  if (process.env.INDEXNOW_KEY && secret) {
-    try {
-      const res = await fetch(`${SITE.url}/api/indexnow`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${secret}`,
-        },
-        body: JSON.stringify({
-          urls: [path, `/${article.locale}/news`],
-        }),
-      });
-      indexNow = await res.json();
-    } catch (err) {
-      indexNow = { error: String(err) };
-    }
+  try {
+    indexNow = await submitIndexNow([path, `/${article.locale}/news`]);
+  } catch (err) {
+    indexNow = { error: String(err) };
   }
 
   return NextResponse.json({

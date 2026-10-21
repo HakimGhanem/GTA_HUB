@@ -23,6 +23,7 @@ import {
 } from "@/components/guides/WantedMeter";
 import { AnswerBox } from "@/components/seo/AnswerBox";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { LastVerified } from "@/components/seo/LastVerified";
 import { buildMetadata, jsonLdGuidePage } from "@/lib/seo";
 
 type Props = { params: Promise<{ locale: string; slug: string }> };
@@ -80,6 +81,7 @@ export default async function GuidePage({ params }: Props) {
       content: localized.content,
       readTime: localized.readTime,
       answer: localized.answer,
+      updatedAt: guide.updatedAt ?? guide.publishedAt,
     },
     {
       locale,
@@ -108,6 +110,10 @@ export default async function GuidePage({ params }: Props) {
         <p className="mt-2 text-xs text-foreground/40">
           {localized.readTime} min · {guide.publishedAt}
         </p>
+        <LastVerified
+          date={guide.updatedAt ?? guide.publishedAt}
+          locale={locale}
+        />
 
         <ConversionStrip variant="page" />
 

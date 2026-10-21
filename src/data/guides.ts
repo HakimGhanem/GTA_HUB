@@ -22,6 +22,8 @@ export type Guide = {
   category: "beginner" | "exploration" | "collectibles" | "lore";
   readTime: number;
   publishedAt: string;
+  /** Last editorial check. Defaults to publishedAt in JSON-LD and the byline. */
+  updatedAt?: string;
   content: string[];
   faq?: GuideFaq[];
   comparison?: GuideComparison;
