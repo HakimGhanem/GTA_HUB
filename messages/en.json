@@ -10,17 +10,18 @@
     "database": "Database",
     "creators": "Creators",
     "pro": "Pro",
-    "gta5": "GTA 5 map"
+    "gta5": "GTA 5 map",
+    "realLifeMatches": "Which real building is it? 1,000+ real-life matches"
   },
   "home": {
-    "title": "GTA 6 Interactive Map",
+    "title": "GTA 6 Map",
     "heroLine": "Pan and zoom Leonida — 1,000+ buildings matched to the real South Florida address they were modelled on, trailer timestamps, and a confidence label on every pin. No leaked development maps.",
     "trustPoi": "1,000+ real-world matches",
     "trustOfficial": "Official-only filter",
     "trustNoLeak": "No leak maps",
-    "subtitle": "The GTA 6 interactive map for Vice City and Leonida: filter collectibles, copy coordinates, measure, and share deep links. Confirmed trailer geography is labeled; community pins stay optional. Built for trailer scrubbing and 19 Nov 2026 launch day.",
-    "introTitle": "A full interactive map, not a six-region poster",
-    "introBody": "Most “GTA 6 map” pages name Vice City, the Keys, Grassrivers, Port Gellhorn, Ambrosia, and Mount Kalaga — then stop. Map-6 is a free GTA 6 interactive map you pan, zoom, and filter, and it answers a question those pages do not: which real building is this? Over 1,000 spots across Leonida are matched to the South Florida address they were modelled on, each carrying the community’s own confidence label. Switch official-only to keep just what Rockstar has shown. Copy in-map coordinates, measure distance, and share a deep link to the exact view. We do not host leaked development maps. GTADB community tiles and survey data are credited CC BY 4.0.",
+    "subtitle": "The GTA 6 map for Vice City and Leonida: filter collectibles, copy coordinates, measure, and share deep links. Confirmed trailer geography is labeled; community pins stay optional. Built for trailer scrubbing and 19 Nov 2026 launch day.",
+    "introTitle": "A full GTA 6 map, not a six-region poster",
+    "introBody": "Most “GTA 6 map” pages name Vice City, the Keys, Grassrivers, Port Gellhorn, Ambrosia, and Mount Kalaga — then stop. Map-6 is a free GTA 6 map you pan, zoom, and filter, and it answers a question those pages do not: which real building is this? Over 1,000 spots across Leonida are matched to the South Florida address they were modelled on, each carrying the community’s own confidence label. Switch official-only to keep just what Rockstar has shown. Copy in-map coordinates, measure distance, and share a deep link to the exact view. We do not host leaked development maps. GTADB community tiles and survey data are credited CC BY 4.0.",
     "ctaMap": "Open Interactive Map",
     "ctaSetup": "Launch setup guide",
     "ctaMapGuide": "GTA 6 map guide",
@@ -39,8 +40,8 @@
     "gta5CardTitle": "GTA 5 interactive map",
     "gta5CardDesc": "Los Santos collectibles and an unlimited local tracker while you wait for Leonida.",
     "faq": {
-      "q1": "What is the Map-6 GTA 6 interactive map?",
-      "a1": "Map-6 is a free GTA 6 interactive map and editorial site for Leonida / Vice City. It combines MapLibre tools — filters, coordinates, measure, shareable links — with location guides, collectible category pages, and news that cites official sources when stating facts. It is a fan project, not affiliated with Rockstar Games or Take-Two.",
+      "q1": "Where is the GTA 6 map?",
+      "a1": "Here. Map-6 is a free GTA 6 map of Leonida and Vice City, plus guides that cite official sources. Pan, filter, copy coordinates, measure, and share a deep link. Fan project, not affiliated with Rockstar or Take-Two.",
       "q2": "How do I find collectibles on the GTA 6 map?",
       "a2": "Open the interactive map and filter by Collectibles, or start from /collectibles for category explainers (hidden packages, stunt jumps, street art, wildlife). Pre-launch totals are placeholders — Rockstar has not published final counts. Use Share to copy a pin deep link for friends.",
       "q3": "Are the map tiles official?",
@@ -116,7 +117,8 @@
     "classicVc": "Vice City (classic)",
     "classicVcDesc": "Hidden packages and unique jumps on the 2002 map.",
     "classicSa": "San Andreas",
-    "classicSaDesc": "Horseshoes, oysters, and snapshots across San Andreas."
+    "classicSaDesc": "Horseshoes, oysters, and snapshots across San Andreas.",
+    "realLifeMatch": "Which real building is it? See the real-life matches"
   },
   "collectibles": {
     "title": "GTA 6 Collectibles",
@@ -154,13 +156,13 @@
   },
   "meta": {
     "siteName": "Map-6",
-    "homeTitle": "GTA 6 Interactive Map — Vice City & Leonida | Map-6",
-    "homeDesc": "Free GTA 6 interactive map of Leonida: 1,000+ buildings matched to their real Miami-area address, confidence labels on every pin, coordinates, measure, shareable links. No leak maps. Updated for 19 Nov 2026.",
+    "homeTitle": "GTA 6 Map — Interactive Leonida & Vice City | Map-6",
+    "homeDesc": "Free GTA 6 map of Leonida and Vice City: 1,000+ buildings matched to real South Florida addresses, confidence labels, coordinates, measure, shareable links. No leak maps. Updated for 19 Nov 2026.",
     "locationsTitle": "GTA 6 Locations — Vice City & Florida | Map-6",
     "locationsDesc": "Complete directory of GTA 6 map locations: landmarks, collectibles, shops, missions, and secrets across the open world.",
-    "mapTitle": "GTA 6 Interactive Map — Leonida & Vice City | Map-6",
-    "mapDesc": "Fullscreen GTA 6 map viewer: pan Leonida and Vice City, filter 1,000+ real-world address matches, read confidence labels, copy coordinates, measure distances and share the exact view.",
-    "mapH1": "Fullscreen map viewer — Leonida & Vice City",
+    "mapTitle": "GTA 6 Map — Fullscreen Interactive Viewer | Map-6",
+    "mapDesc": "Fullscreen GTA 6 map of Leonida and Vice City. Filter 1,000+ real-world matches, copy coordinates, measure distances, share the exact view. Free, no leak maps.",
+    "mapH1": "GTA 6 map — fullscreen Leonida & Vice City",
     "mapLead": "1,000+ real-world matches · confidence labels · coordinates · no leak maps",
     "collectiblesTitle": "GTA 6 Collectibles — Hidden Packages, Stunt Jumps & More | Map-6",
     "collectiblesDesc": "Track every GTA 6 collectible on the interactive map: hidden packages, stunt jumps, street art, and wildlife photography spots.",
@@ -429,7 +431,7 @@
     "navHistory": "GTA history",
     "navOnline": "GTA Online",
     "navCards": "Shark Cards",
-    "offersTitle": "Buy now — editions, wallets, hardware"
+    "offersTitle": "Buy now — GTA 6 editions"
   },
   "cookieConsent": {
     "title": "Cookies & ads",

@@ -7,7 +7,7 @@ description: Write, refresh, or cron-draft Map-6 GTA 6 news (EN+FR). Use wheneve
 
 A reader should finish the piece knowing **what changed, what is still blank, and what to open on the map**. GamesRadar wins on speed and a clean lede. Startselect wraps a recap around gift cards. We beat both by being the map desk that does not invent.
 
-Read `references/facts.md` before stating a date, price, edition, or percentage.
+Read `references/facts.md` (human brief) and `content/facts.json` (machine SSoT) before stating a date, price, edition, or percentage. Never auto-edit facts.json.
 
 ## When this fires
 

@@ -27,6 +27,7 @@ import {
   listTopics,
   upsertTopic,
 } from "../../src/lib/content/repository.ts";
+import { runDeskPass } from "../../src/lib/content/desk-cron.ts";
 import { publishArticleRemote } from "../../src/lib/content/publish.ts";
 import { articlePath } from "../../src/lib/content/schema.ts";
 import { SITE } from "../../src/lib/constants.ts";
@@ -102,6 +103,21 @@ async function main() {
     if (detected.feedErrors.length) {
       console.warn("Feed errors:", detected.feedErrors);
     }
+  }
+
+  console.log("\n— gated desk —");
+  try {
+    const desk = await runDeskPass();
+    console.log(
+      `watchers=${desk.watchers.filter((w) => w.changed).length} drafted=${desk.drafted.length} published=${desk.published.length} refreshed=${desk.refreshed.length}`,
+    );
+    for (const d of desk.drafted) {
+      console.log(`  draft ${d.locale}/${d.slug} pass=${d.pass}`);
+    }
+    for (const p of desk.published) console.log(`  published ${p}`);
+    for (const s of desk.skipped) console.log(`  skip ${s}`);
+  } catch (err) {
+    console.warn("desk pass failed:", err);
   }
 
   const topics = await listTopics();

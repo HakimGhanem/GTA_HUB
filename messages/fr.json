@@ -10,15 +10,16 @@
     "database": "Base",
     "creators": "Créateurs",
     "pro": "Pro",
-    "gta5": "Carte GTA 5"
+    "gta5": "Carte GTA 5",
+    "realLifeMatches": "Quel bâtiment réel est-ce ? 1 000+ rapprochements"
   },
   "home": {
-    "title": "Carte interactive GTA 6",
+    "title": "Carte GTA 6",
     "heroLine": "Parcourez Leonida — 1 000+ bâtiments rapprochés de l’adresse réelle de Floride du Sud dont ils s’inspirent, timestamps trailers, un niveau de confiance sur chaque pin. Pas de carte leak.",
     "trustPoi": "1 000+ correspondances réelles",
     "trustOfficial": "Filtre official-only",
     "trustNoLeak": "Pas de leak map",
-    "subtitle": "La carte interactive GTA 6 pour Vice City et Leonida : filtrez les collectibles, copiez les coordonnées, mesurez, partagez un deep link. La géographie trailer est étiquetée ; les pins communauté restent optionnels. Pour le lancement du 19 nov. 2026.",
+    "subtitle": "La carte GTA 6 pour Vice City et Leonida : filtrez les collectibles, copiez les coordonnées, mesurez, partagez un deep link. La géographie trailer est étiquetée ; les pins communauté restent optionnels. Pour le lancement du 19 nov. 2026.",
     "ctaMap": "Ouvrir la carte interactive",
     "ctaSetup": "Guide setup lancement",
     "ctaMapGuide": "Guide carte GTA 6",
@@ -37,8 +38,8 @@
     "gta5CardTitle": "Carte interactive GTA 5",
     "gta5CardDesc": "Collectibles Los Santos et tracker local illimité en attendant Leonida.",
     "faq": {
-      "q1": "Qu’est-ce que la carte interactive GTA 6 Map-6 ?",
-      "a1": "Map-6 est une carte interactive GTA 6 gratuite et un site éditorial pour Leonida / Vice City. Outils MapLibre — filtres, coordonnées, mesure, liens partageables — plus guides de lieux, collectibles et actus sourcées. Projet fan, sans lien avec Rockstar ou Take-Two.",
+      "q1": "Où trouver la carte GTA 6 ?",
+      "a1": "Ici. Map-6 est une carte GTA 6 gratuite de Leonida et Vice City, plus des guides sourcés. Parcourez, filtrez, copiez les coordonnées, mesurez, partagez un lien. Projet fan, sans lien avec Rockstar ou Take-Two.",
       "q2": "Comment trouver les collectibles sur la carte GTA 6 ?",
       "a2": "Ouvrez la carte interactive, filtrez par catégorie Collectibles, ou parcourez /collectibles pour les pages par catégorie avec liens vers la carte.",
       "q3": "Les tuiles cartographiques sont-elles officielles ?",
@@ -50,7 +51,7 @@
     },
     "newsTitle": "Dernières actus",
     "newsAll": "Toutes les actus →",
-    "introTitle": "Une vraie carte interactive, pas une affiche à six régions",
+    "introTitle": "Une vraie carte GTA 6, pas une affiche à six régions",
     "introBody": "La plupart des pages « carte GTA 6 » citent Vice City, les Keys, Grassrivers, Port Gellhorn, Ambrosia et Mount Kalaga — puis s’arrêtent. Map-6 est une carte interactive GTA 6 à parcourir et filtrer, et elle répond à une question que ces pages ignorent : quel bâtiment réel est-ce ? Plus de 1 000 emplacements de Leonida sont rapprochés de l’adresse de Floride du Sud qui a servi de modèle, chacun avec le niveau de confiance établi par la communauté. Passez en official-only pour ne garder que ce que Rockstar a montré. Copiez les coordonnées, mesurez, partagez la vue exacte. Pas de cartes leak. Tuiles et relevés communautaires GTADB crédités CC BY 4.0.",
     "hub": {
       "navLabel": "Hub GTA 6",
@@ -116,7 +117,8 @@
     "classicVc": "Vice City (classique)",
     "classicVcDesc": "Paquets cachés et sauts uniques sur la carte 2002.",
     "classicSa": "San Andreas",
-    "classicSaDesc": "Fers à cheval, huîtres et snapshots."
+    "classicSaDesc": "Fers à cheval, huîtres et snapshots.",
+    "realLifeMatch": "Quel bâtiment réel est-ce ? Voir les rapprochements"
   },
   "collectibles": {
     "title": "Collectibles GTA 6",
@@ -154,13 +156,13 @@
   },
   "meta": {
     "siteName": "Map-6",
-    "homeTitle": "Carte interactive GTA 6 — Vice City & Leonida | Map-6",
-    "homeDesc": "Carte interactive GTA 6 de Leonida : 1 000+ bâtiments rapprochés de leur adresse réelle près de Miami, niveau de confiance sur chaque pin, coordonnées, mesure, liens partageables. Pas de leak. MAJ 19 nov. 2026.",
+    "homeTitle": "Carte GTA 6 — Leonida & Vice City interactive | Map-6",
+    "homeDesc": "Carte GTA 6 gratuite de Leonida et Vice City : 1 000+ bâtiments rapprochés d’adresses réelles en Floride, niveau de confiance, coordonnées, mesure, liens partageables. Pas de leak. MAJ 19 nov. 2026.",
     "locationsTitle": "Lieux GTA 6 — Vice City & Floride | Map-6",
     "locationsDesc": "Répertoire complet des lieux de GTA 6 : monuments, collectibles, boutiques, missions et secrets.",
-    "mapTitle": "Carte interactive GTA 6 — Leonida & Vice City | Map-6",
-    "mapDesc": "Visionneuse plein écran de la carte GTA 6 : parcourez Leonida et Vice City, filtrez 1 000+ correspondances avec des adresses réelles, lisez les niveaux de confiance, copiez les coordonnées, mesurez et partagez la vue exacte.",
-    "mapH1": "Carte plein écran — Leonida & Vice City",
+    "mapTitle": "Carte GTA 6 — Plein écran Leonida & Vice City | Map-6",
+    "mapDesc": "Carte GTA 6 plein écran de Leonida et Vice City. Filtrez 1 000+ correspondances réelles, copiez les coordonnées, mesurez, partagez la vue exacte. Gratuit, pas de leak.",
+    "mapH1": "Carte GTA 6 — plein écran Leonida & Vice City",
     "mapLead": "1 000+ correspondances réelles · niveaux de confiance · coordonnées · pas de leak",
     "collectiblesTitle": "Collectibles GTA 6 — Paquets cachés, sauts acrobatiques & plus | Map-6",
     "collectiblesDesc": "Suivez chaque collectible GTA 6 sur la carte interactive : paquets cachés, sauts acrobatiques, street art et spots photo faune.",
@@ -429,7 +431,7 @@
     "navHistory": "Histoire de GTA",
     "navOnline": "GTA Online",
     "navCards": "Shark Cards",
-    "offersTitle": "Acheter — éditions, portefeuilles, matériel"
+    "offersTitle": "Acheter — éditions GTA 6"
   },
   "cookieConsent": {
     "title": "Cookies et publicités",

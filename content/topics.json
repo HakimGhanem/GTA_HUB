@@ -1,0 +1,388 @@
+[
+  {
+    "slug": "take-two-resultats-9-novembre-gta-6",
+    "locale": "fr",
+    "pageType": "news",
+    "primaryKeyword": "take two resultats 9 novembre gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-11-02",
+    "windowEnd": "2026-11-12",
+    "factIds": ["ttwo_q2_fy27", "release_date", "platforms", "pc"],
+    "sources": [
+      { "url": "https://www.take2games.com/ir", "title": "Take-Two Investor Relations" },
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "release"
+  },
+  {
+    "slug": "take-two-q2-fy27-november-9-gta-6",
+    "locale": "en",
+    "pageType": "news",
+    "primaryKeyword": "take-two q2 fy27 november 9 gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-11-02",
+    "windowEnd": "2026-11-12",
+    "factIds": ["ttwo_q2_fy27", "release_date", "platforms", "pc"],
+    "sources": [
+      { "url": "https://www.take2games.com/ir", "title": "Take-Two Investor Relations" },
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "release"
+  },
+  {
+    "slug": "gta-6-test-note-metacritic-embargo",
+    "locale": "fr",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 test note metacritic embargo",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-11-10",
+    "windowEnd": "2026-11-26",
+    "factIds": ["metacritic", "review_embargo", "review_embargo_window", "release_date"],
+    "sources": [
+      { "url": "https://www.metacritic.com/game/grand-theft-auto-vi/", "title": "Metacritic — Grand Theft Auto VI" },
+      { "url": "https://www.rockstargames.com/newswire", "title": "Rockstar Newswire" }
+    ],
+    "cluster": "release"
+  },
+  {
+    "slug": "gta-6-metacritic-score-review-embargo",
+    "locale": "en",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 metacritic score review embargo",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-11-10",
+    "windowEnd": "2026-11-26",
+    "factIds": ["metacritic", "review_embargo", "review_embargo_window", "release_date"],
+    "sources": [
+      { "url": "https://www.metacritic.com/game/grand-theft-auto-vi/", "title": "Metacritic — Grand Theft Auto VI" },
+      { "url": "https://www.rockstargames.com/newswire", "title": "Rockstar Newswire" }
+    ],
+    "cluster": "release"
+  },
+  {
+    "slug": "gta-6-personnages-confirmes",
+    "locale": "fr",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 personnages confirmes",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast", "release_date"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" },
+      { "url": "https://www.rockstargames.com/VI/cal", "title": "Cal Hampton — Rockstar" },
+      { "url": "https://www.rockstargames.com/VI/dimez", "title": "Real Dimez — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-confirmed-characters",
+    "locale": "en",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 confirmed characters",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast", "release_date"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" },
+      { "url": "https://www.rockstargames.com/VI/cal", "title": "Cal Hampton — Rockstar" },
+      { "url": "https://www.rockstargames.com/VI/dimez", "title": "Real Dimez — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-personnage-cal-hampton",
+    "locale": "fr",
+    "pageType": "entity",
+    "primaryKeyword": "cal hampton gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI/cal", "title": "Cal Hampton — Rockstar" },
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-character-cal-hampton",
+    "locale": "en",
+    "pageType": "entity",
+    "primaryKeyword": "cal hampton gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI/cal", "title": "Cal Hampton — Rockstar" },
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-personnage-boobie-ike",
+    "locale": "fr",
+    "pageType": "entity",
+    "primaryKeyword": "boobie ike gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-character-boobie-ike",
+    "locale": "en",
+    "pageType": "entity",
+    "primaryKeyword": "boobie ike gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-personnage-drequan-priest",
+    "locale": "fr",
+    "pageType": "entity",
+    "primaryKeyword": "dre quan priest gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-character-drequan-priest",
+    "locale": "en",
+    "pageType": "entity",
+    "primaryKeyword": "dre quan priest gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-personnage-real-dimez",
+    "locale": "fr",
+    "pageType": "entity",
+    "primaryKeyword": "real dimez gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI/dimez", "title": "Real Dimez — Rockstar" },
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-character-real-dimez",
+    "locale": "en",
+    "pageType": "entity",
+    "primaryKeyword": "real dimez gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI/dimez", "title": "Real Dimez — Rockstar" },
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-personnage-raul-bautista",
+    "locale": "fr",
+    "pageType": "entity",
+    "primaryKeyword": "raul bautista gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-character-raul-bautista",
+    "locale": "en",
+    "pageType": "entity",
+    "primaryKeyword": "raul bautista gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-personnage-brian-heder",
+    "locale": "fr",
+    "pageType": "entity",
+    "primaryKeyword": "brian heder gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-character-brian-heder",
+    "locale": "en",
+    "pageType": "entity",
+    "primaryKeyword": "brian heder gta 6",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["characters_official", "voice_cast"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-doubleurs-acteurs-voix",
+    "locale": "fr",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 doubleurs acteurs voix",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["voice_cast", "characters_official"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" },
+      { "url": "https://www.rockstargames.com/newswire", "title": "Rockstar Newswire" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-voice-actors-cast",
+    "locale": "en",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 voice actors cast",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["voice_cast", "characters_official"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" },
+      { "url": "https://www.rockstargames.com/newswire", "title": "Rockstar Newswire" }
+    ],
+    "cluster": "characters"
+  },
+  {
+    "slug": "gta-6-pc-date-rumeurs",
+    "locale": "fr",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 pc date rumeurs",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["pc", "pc_q1_2027_report", "platforms", "release_date"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" },
+      { "url": "https://gamesbeat.com/grand-theft-auto-vis-pc-release-is-slated-for-q1-2027/", "title": "GamesBeat Q1 2027 report" }
+    ],
+    "refreshOf": "gta-6-pc-still-unannounced-october-2026",
+    "cluster": "release"
+  },
+  {
+    "slug": "gta-6-pc-date-rumors",
+    "locale": "en",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 pc date rumors",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["pc", "pc_q1_2027_report", "platforms", "release_date"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" },
+      { "url": "https://gamesbeat.com/grand-theft-auto-vis-pc-release-is-slated-for-q1-2027/", "title": "GamesBeat Q1 2027 report" }
+    ],
+    "refreshOf": "gta-6-pc-still-unannounced-october-2026",
+    "cluster": "release"
+  },
+  {
+    "slug": "gta-6-serveurs-statut-erreurs",
+    "locale": "fr",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 serveurs statut erreurs",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-11-19",
+    "windowEnd": "2027-03-31",
+    "factIds": ["release_date", "platforms", "pc"],
+    "sources": [
+      { "url": "https://support.rockstargames.com", "title": "Rockstar Support" },
+      { "url": "https://www.rockstargames.com/newswire", "title": "Rockstar Newswire" }
+    ],
+    "cluster": "setup"
+  },
+  {
+    "slug": "gta-6-server-status-errors",
+    "locale": "en",
+    "pageType": "status",
+    "primaryKeyword": "gta 6 server status errors",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-11-19",
+    "windowEnd": "2027-03-31",
+    "factIds": ["release_date", "platforms", "pc"],
+    "sources": [
+      { "url": "https://support.rockstargames.com", "title": "Rockstar Support" },
+      { "url": "https://www.rockstargames.com/newswire", "title": "Rockstar Newswire" }
+    ],
+    "cluster": "setup"
+  },
+  {
+    "slug": "gta-6-temps-telechargement",
+    "locale": "fr",
+    "pageType": "tool",
+    "primaryKeyword": "gta 6 temps telechargement",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["file_size", "preload_digital", "unlock_time", "release_date", "platforms"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" },
+      { "url": "https://www.playstation.com/en-us/games/grand-theft-auto-vi/", "title": "PlayStation store listing" }
+    ],
+    "cluster": "setup"
+  },
+  {
+    "slug": "gta-6-download-time",
+    "locale": "en",
+    "pageType": "tool",
+    "primaryKeyword": "gta 6 download time",
+    "variants": ["Grand Theft Auto VI", "GTA VI", "GTA 6", "GTA6", "Grand Theft Auto 6"],
+    "windowStart": "2026-10-21",
+    "windowEnd": "2026-12-31",
+    "factIds": ["file_size", "preload_digital", "unlock_time", "release_date", "platforms"],
+    "sources": [
+      { "url": "https://www.rockstargames.com/VI", "title": "Grand Theft Auto VI — Rockstar" },
+      { "url": "https://www.playstation.com/en-us/games/grand-theft-auto-vi/", "title": "PlayStation store listing" }
+    ],
+    "cluster": "setup"
+  }
+]

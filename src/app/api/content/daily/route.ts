@@ -14,6 +14,7 @@ import {
   CANONICAL_STORY_SLUG,
   siteEvergreenPathForNews,
 } from "@/lib/content/news-canonical";
+import { runDeskPass } from "@/lib/content/desk-cron";
 import { publishArticleLocal } from "@/lib/content/publish";
 import {
   bulkUpsertTopics,
@@ -41,6 +42,9 @@ import { revalidatePath, revalidateTag } from "next/cache";
  *
  * Production cron (map6-content-daily):
  *   {"limit":1,"detect":true,"draft":true,"publish":true}
+ *
+ * After detect, the same job runs the gated desk pass (watchers, windowed
+ * topics, weekly caps). AUTO_PUBLISH defaults false for that stream only.
  *
  * Quality: skip a story family that already has a canonical desk URL;
  * auto-publish needs ≥900 words, SEO ≥80, grounded LLM, ≥2 non-VI sources.
@@ -93,6 +97,18 @@ export async function POST(request: Request) {
   let detectResult: Awaited<ReturnType<typeof detectNewsTopics>> | null = null;
   if (wantDetect && !enrichOnly) {
     detectResult = await detectNewsTopics();
+  }
+
+  let desk: Awaited<ReturnType<typeof runDeskPass>> | null = null;
+  if (!enrichOnly) {
+    try {
+      desk = await runDeskPass();
+    } catch (err) {
+      console.warn(
+        "[daily] desk pass failed:",
+        err instanceof Error ? err.message : err,
+      );
+    }
   }
 
   const topics = await listTopics();
@@ -232,6 +248,15 @@ export async function POST(request: Request) {
     }
   }
 
+  if (desk?.published.length) {
+    for (const path of desk.published) {
+      published.push(path);
+      revalidatePath(path);
+    }
+    revalidatePath("/sitemap.xml");
+    revalidateTag("news", "max");
+  }
+
   let indexNow: unknown = null;
   if (published.length) {
     indexNow = await submitIndexNow(published);
@@ -245,6 +270,7 @@ export async function POST(request: Request) {
     publish: wantPublish && !enrichOnly,
     enrichedCount,
     detectResult,
+    desk,
     picks: picks.map((t) => ({
       id: t.id,
       headline: t.headline,

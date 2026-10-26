@@ -164,6 +164,7 @@ export function jsonLdWebSite(locale = "en") {
     "@type": "WebSite",
     "@id": `${SITE.url}/#website`,
     name: SITE.name,
+    alternateName: ["GTA 6 map", "GTA 6 interactive map", "carte GTA 6"],
     url: `${SITE.url}/${locale}`,
     description: SITE.description,
     inLanguage: inLanguage(locale),
@@ -184,6 +185,7 @@ const KNOWS_ABOUT = [
   "Grand Theft Auto VI",
   "Vice City",
   "State of Leonida",
+  "GTA 6 map",
   "GTA 6 interactive map",
   "GTA 6 collectibles",
   "GTA 6 release date",
@@ -215,13 +217,14 @@ export function jsonLdWebApplication(locale = "en") {
   return {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    name: "GTA 6 Interactive Map",
+    name: "GTA 6 Map",
+    alternateName: "GTA 6 interactive map",
     url: `${SITE.url}/${locale}/map`,
     applicationCategory: "GameApplication",
     operatingSystem: "Web",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     description:
-      "Interactive GTA 6 map with POIs, collectibles, coordinates, and distance tools.",
+      "Free GTA 6 map of Leonida and Vice City with POIs, collectibles, coordinates, and distance tools.",
   };
 }
 

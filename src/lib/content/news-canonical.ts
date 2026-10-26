@@ -1,3 +1,5 @@
+import { readFileSync } from "fs";
+import path from "path";
 import { GUIDES } from "@/data/guides";
 import { KEY_NEWS_SLUGS } from "@/lib/content/key-news";
 import { REGIONAL_LOCATION_SLUGS } from "@/data/location-seo-types";
@@ -35,6 +37,20 @@ export const NEWS_EVERGREEN_PATH: Record<string, string> = {
   "gta-6-extended-look-map-watch-for": "/guides/gta-6-extended-look-how-to-watch",
   "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel":
     "/guides/gta-6-ultimate-edition-vs-standard",
+  "i-ve-tested-gaming-gear-for-nearly-a-decade-and-these-are-the-areas-of-my-ps5-or":
+    "/guides/best-setup-gta-6-ps5-xbox",
+  "gta-6-an-extended-look-on-netflix-confirms-new-trailer-how-to-watch-for-free-and":
+    "/guides/gta-6-extended-look-how-to-watch",
+  "netflix-bags-an-exclusive-gta-vi-trailer-for-all-of-six":
+    "/guides/gta-6-extended-look-how-to-watch",
+  "gta-6-extended-look-trailer-coming-august-27-on-netflix":
+    "/guides/gta-6-extended-look-how-to-watch",
+  "netflix-s-gta-6-trailer-trashed-as-next-level-greed-by-fans-polygon-com":
+    "/guides/gta-6-extended-look-how-to-watch",
+  "gta-6-trailer-3-expected-to-arrive-within-two-weeks-according-to-insider-tweakto":
+    "/guides/gta-6-trailer-3-what-we-know",
+  "new-gta-6-artwork-released-ahead-of-trailer-3-rockstarintel":
+    "/guides/gta-6-trailer-3-what-we-know",
 };
 
 export function evergreenPathForNews(slug: string): string | undefined {
@@ -142,6 +158,26 @@ export function collidingEvergreenPath(
   return location ? `/locations/${location}` : undefined;
 }
 
+let noindexCache: string[] | null = null;
+let noindexCachedAt = 0;
+
+function noindexSlugs(): Set<string> {
+  if (noindexCache && Date.now() - noindexCachedAt < 30_000) {
+    return new Set(noindexCache);
+  }
+  try {
+    const raw = readFileSync(
+      path.join(process.cwd(), "content", "noindex-slugs.json"),
+      "utf8",
+    );
+    noindexCache = JSON.parse(raw) as string[];
+  } catch {
+    noindexCache = [];
+  }
+  noindexCachedAt = Date.now();
+  return new Set(noindexCache);
+}
+
 /** Same bar as sitemap / article robots — listing must not surface thin or duplicate news. */
 export function isIndexableNewsArticle(article: {
   slug: string;
@@ -151,6 +187,7 @@ export function isIndexableNewsArticle(article: {
   status?: string;
 }): boolean {
   if (article.status && article.status !== "published") return false;
+  if (noindexSlugs().has(article.slug)) return false;
   if (!isIndexableLocale(article.locale)) return false;
   if (siteEvergreenPathForNews(article.slug)) return false;
   if (countMarkdownWords(article.bodyMarkdown) < MIN_ARTICLE_WORDS) return false;

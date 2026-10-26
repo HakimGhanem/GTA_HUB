@@ -1,0 +1,141 @@
+[
+  {
+    "id": "release_date",
+    "value": "2026-11-19",
+    "status": "confirmed",
+    "source_url": "https://www.rockstargames.com/VI",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "platforms",
+    "value": "PlayStation 5, Xbox Series X|S",
+    "status": "confirmed",
+    "source_url": "https://www.rockstargames.com/VI",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "preload_digital",
+    "value": "2026-11-12",
+    "status": "confirmed",
+    "source_url": "https://www.rockstargames.com/newswire",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "price_usd_standard",
+    "value": 79.99,
+    "status": "confirmed",
+    "source_url": "https://www.rockstargames.com/VI",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "price_usd_ultimate",
+    "value": 99.99,
+    "status": "confirmed",
+    "source_url": "https://www.rockstargames.com/VI",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "preorder_bonus",
+    "value": "Vintage Vice City Pack, purchases before 2026-11-20",
+    "status": "confirmed",
+    "source_url": "https://support.rockstargames.com",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "pc",
+    "value": null,
+    "status": "not_announced",
+    "source_url": "https://www.rockstargames.com/VI",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "pc_q1_2027_report",
+    "value": "Q1 2027, GamesBeat 2026-10-13",
+    "status": "reported",
+    "source_url": "https://gamesbeat.com/grand-theft-auto-vis-pc-release-is-slated-for-q1-2027/",
+    "source_type": "secondary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "file_size",
+    "value": null,
+    "status": "not_announced",
+    "source_url": "https://www.playstation.com/en-us/games/grand-theft-auto-vi/",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "unlock_time",
+    "value": null,
+    "status": "not_announced",
+    "source_url": "https://www.rockstargames.com/newswire",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "review_embargo",
+    "value": null,
+    "status": "not_announced",
+    "source_url": "https://www.rockstargames.com/newswire",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "review_embargo_window",
+    "value": "before 2026-11-19",
+    "status": "reported",
+    "source_url": "https://www.rockstargames.com/newswire",
+    "source_type": "secondary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "metacritic",
+    "value": null,
+    "status": "not_announced",
+    "source_url": "https://www.metacritic.com/game/grand-theft-auto-vi/",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "ttwo_q2_fy27",
+    "value": "2026-11-09 after market close; call 16:30 ET = 22:30 Paris",
+    "status": "confirmed",
+    "source_url": "https://www.take2games.com/ir",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "characters_official",
+    "value": [
+      "Jason Duval",
+      "Lucia Caminos",
+      "Cal Hampton",
+      "Boobie Ike",
+      "Dre'Quan Priest",
+      "Real Dimez",
+      "Bae-Luxe",
+      "Roxy",
+      "Raul Bautista",
+      "Brian Heder"
+    ],
+    "status": "confirmed",
+    "source_url": "https://www.rockstargames.com/VI",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  },
+  {
+    "id": "voice_cast",
+    "value": null,
+    "status": "not_announced",
+    "source_url": "https://www.rockstargames.com/VI",
+    "source_type": "primary",
+    "checkedAt": "2026-10-21"
+  }
+]

@@ -209,6 +209,7 @@ async function ga4(sa: ServiceAccount) {
       dateRanges: [{ startDate, endDate }],
       dimensions: [{ name: "sessionDefaultChannelGroup" }],
       metrics: [{ name: "sessions" }, { name: "totalUsers" }, { name: "screenPageViews" }],
+      metricAggregations: ["TOTAL"],
       orderBys: [{ metric: { metricName: "sessions" }, desc: true }],
       limit: 10,
     }),
@@ -225,11 +226,21 @@ async function ga4(sa: ServiceAccount) {
     }),
   });
 
+  const channelTotals = byChannel.totals?.[0]?.metricValues;
+  const summed = (byChannel.rows ?? []).reduce(
+    (acc, r) => ({
+      sessions: acc.sessions + Number(r.metricValues[0]?.value ?? 0),
+      users: acc.users + Number(r.metricValues[1]?.value ?? 0),
+      pageViews: acc.pageViews + Number(r.metricValues[2]?.value ?? 0),
+    }),
+    { sessions: 0, users: 0, pageViews: 0 },
+  );
+
   return {
     totals: {
-      sessions: Number(byChannel.totals?.[0]?.metricValues?.[0]?.value ?? 0),
-      users: Number(byChannel.totals?.[0]?.metricValues?.[1]?.value ?? 0),
-      pageViews: Number(byChannel.totals?.[0]?.metricValues?.[2]?.value ?? 0),
+      sessions: Number(channelTotals?.[0]?.value ?? summed.sessions),
+      users: Number(channelTotals?.[1]?.value ?? summed.users),
+      pageViews: Number(channelTotals?.[2]?.value ?? summed.pageViews),
     },
     channels: (byChannel.rows ?? []).map((r) => ({
       key: r.dimensionValues[0]?.value ?? "",

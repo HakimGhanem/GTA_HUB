@@ -1,5 +1,5 @@
 /** Bump when map FAQ, nav, or pin copy changes — drives sitemap lastmod. */
-export const MAP_CONTENT_UPDATED_AT = "2026-10-19T12:00:00.000Z";
+export const MAP_CONTENT_UPDATED_AT = "2026-10-26T14:00:00.000Z";
 
 type MapFaqCopy = {
   summary: string;
@@ -12,6 +12,11 @@ const EN: MapFaqCopy = {
   intro:
     "Map-6 is a free interactive GTA 6 map of Leonida and Vice City built from official trailers, screenshots and the Extended Look. Every pin carries a confidence label and, where we found one, the real-world address in Florida it is based on. Leak maps are never used.",
   faq: [
+    {
+      question: "Where is the GTA 6 map?",
+      answer:
+        "This page is a free GTA 6 map of Leonida and Vice City. Rockstar has not published an official in-game atlas yet. Map-6 places what official trailers and the Extended Look show, with a confidence label on every pin.",
+    },
     {
       question: "Is there an official GTA 6 map?",
       answer:
@@ -50,6 +55,11 @@ const FR: MapFaqCopy = {
   intro:
     "Map-6 est une carte interactive gratuite de GTA 6 (Leonida et Vice City), construite à partir des trailers officiels, des captures et de l'Extended Look. Chaque repère a un niveau de confiance et, quand nous l'avons trouvée, l'adresse réelle en Floride dont il s'inspire. Aucune carte issue de fuites n'est utilisée.",
   faq: [
+    {
+      question: "Où trouver la carte GTA 6 ?",
+      answer:
+        "Cette page est une carte GTA 6 gratuite de Leonida et Vice City. Rockstar n'a pas encore publié d'atlas officiel. Map-6 place ce que montrent les trailers et l'Extended Look, avec un niveau de confiance sur chaque pin.",
+    },
     {
       question: "Existe-t-il une carte officielle de GTA 6 ?",
       answer:

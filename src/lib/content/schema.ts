@@ -51,6 +51,22 @@ export type ArticleSource = {
   publishedAt?: string;
 };
 
+export const PAGE_TYPES = [
+  "status",
+  "entity",
+  "howto",
+  "news",
+  "tool",
+] as const;
+
+export type PageType = (typeof PAGE_TYPES)[number];
+
+export type ArticleClaim = {
+  text: string;
+  factId?: string;
+  sourceUrl?: string;
+};
+
 export type Article = {
   id: string;
   slug: string;
@@ -85,6 +101,14 @@ export type Article = {
   mapCtaPath?: string;
   /** Optional FAQ block — rendered on-page and as FAQPage JSON-LD */
   faqs?: { question: string; answer: string }[];
+  /** Gated desk page kind — absent on legacy RSS drafts */
+  pageType?: PageType;
+  /** Traceable claims from the gated generator */
+  claims?: ArticleClaim[];
+  factIds?: string[];
+  refreshOf?: string;
+  failCount?: number;
+  lastVerifiedAt?: string;
 };
 
 export type Topic = {
