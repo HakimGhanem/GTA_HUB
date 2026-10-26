@@ -48,6 +48,14 @@
     "checkedAt": "2026-10-21"
   },
   {
+    "id": "extended_look_date",
+    "value": "2026-08-27",
+    "status": "confirmed",
+    "source_url": "https://www.netflix.com/tudum/articles/grand-theft-auto-6-extended-first-look",
+    "source_type": "primary",
+    "checkedAt": "2026-10-26"
+  },
+  {
     "id": "launch_trailer_date",
     "value": "2026-10-15",
     "status": "confirmed",

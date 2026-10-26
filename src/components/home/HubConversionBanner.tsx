@@ -74,7 +74,7 @@ export async function HubConversionBanner({
       {compact ? null : (
         <div className="border-t border-foreground/10 px-5 py-5 sm:px-8">
           <AffiliateProductGrid
-            intents={["preorder_standard", "preorder_collectors", "wallet_topup"]}
+            intents={["preorder_standard", "preorder_collectors"]}
             liveOnly
             title={t("offersTitle")}
           />

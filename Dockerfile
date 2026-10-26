@@ -180,6 +180,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 # Baked editorial content (file-store bootstrap when Firestore empty)
 COPY --from=builder --chown=nextjs:nodejs /app/data ./data
+# Desk SSoT: facts.json gates every cron publish; noindex/watch state lives beside it
+COPY --from=builder --chown=nextjs:nodejs /app/content ./content
 
 USER nextjs
 EXPOSE 8080

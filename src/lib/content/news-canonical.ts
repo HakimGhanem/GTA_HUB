@@ -53,6 +53,18 @@ export const NEWS_EVERGREEN_PATH: Record<string, string> = {
     "/guides/gta-6-trailer-3-what-we-know",
 };
 
+/**
+ * Cron pieces that shipped invented or perishable facts (250 GB install,
+ * $69.99/$119.99 editions, a 1 September Extended Look, Woot/Prime Day
+ * discounts). They 404 rather than linger as noindex pages.
+ */
+export const RETIRED_NEWS_SLUGS: ReadonlySet<string> = new Set([
+  "gta-6-storage-prep",
+  "wd-black-ssd-gta6-ps5-prep",
+  "gta-6-preorder-ps5-extended-look-impact",
+  "best-setup-gta-6-prime-day-deals",
+]);
+
 export function evergreenPathForNews(slug: string): string | undefined {
   return NEWS_EVERGREEN_PATH[slug];
 }
@@ -187,6 +199,7 @@ export function isIndexableNewsArticle(article: {
   status?: string;
 }): boolean {
   if (article.status && article.status !== "published") return false;
+  if (RETIRED_NEWS_SLUGS.has(article.slug)) return false;
   if (noindexSlugs().has(article.slug)) return false;
   if (!isIndexableLocale(article.locale)) return false;
   if (siteEvergreenPathForNews(article.slug)) return false;

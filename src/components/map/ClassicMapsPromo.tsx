@@ -20,7 +20,9 @@ export function ClassicMapsPromo({ title, hint, maps }: Props) {
     <section className="rounded-xl border border-foreground/10 bg-foreground/[0.03] p-6">
       <h2 className="text-lg font-semibold text-foreground">{title}</h2>
       <p className="mt-1 text-sm text-foreground/55">{hint}</p>
-      <div className="mt-4 grid gap-3 sm:grid-cols-3">
+      <div
+        className={`mt-4 grid gap-3 ${maps.length === 2 ? "sm:grid-cols-2" : "sm:grid-cols-3"}`}
+      >
         {maps.map((m) => (
           <Link
             key={m.game}

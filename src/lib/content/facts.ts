@@ -41,7 +41,7 @@ export function factValueText(fact: Fact): string {
   return String(fact.value);
 }
 
-const MONTHS_EN = [
+export const MONTHS_EN = [
   "january",
   "february",
   "march",
@@ -55,7 +55,7 @@ const MONTHS_EN = [
   "november",
   "december",
 ];
-const MONTHS_FR = [
+export const MONTHS_FR = [
   "janvier",
   "février",
   "mars",

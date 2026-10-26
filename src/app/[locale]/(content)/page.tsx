@@ -73,7 +73,16 @@ export default async function HomePage({ params }: Props) {
         <div className="mb-10 rounded-xl border border-foreground/10 bg-foreground/[0.03] p-6 sm:p-8">
           <h2 className="mb-3 text-xl font-bold text-foreground">{t("introTitle")}</h2>
           <p className="text-sm leading-relaxed text-foreground/65 sm:text-base">
-            {t("introBody")}
+            {t.rich("introBody", {
+              realLife: (chunks) => (
+                <Link
+                  href="/gta-6-real-life-locations"
+                  className="font-medium text-accent underline decoration-accent/50 underline-offset-2 hover:decoration-accent"
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
           </p>
         </div>
 
@@ -153,12 +162,6 @@ export default async function HomePage({ params }: Props) {
             title={tLoc("classicMapsTitle")}
             hint={tLoc("classicMapsHint")}
             maps={[
-              {
-                game: "gta5",
-                href: "/map?game=gta5",
-                label: tLoc("classicGta5"),
-                desc: tLoc("classicGta5Desc"),
-              },
               {
                 game: "vc",
                 href: "/map?game=vc",

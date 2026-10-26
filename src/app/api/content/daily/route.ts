@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { assertContentSecret } from "@/lib/content/auth";
 import { detectNewsTopics } from "@/lib/content/detect-news";
+import { loadFacts } from "@/lib/content/facts";
 import { getFirestore } from "@/lib/content/firestore";
 import { draftFrenchEdition } from "@/lib/content/french-edition";
 import { enrichTopicFunnel, rankTopicsForDaily } from "@/lib/content/funnel";
@@ -21,7 +22,8 @@ import {
   listArticles,
   listTopics,
 } from "@/lib/content/repository";
-import { articlePath } from "@/lib/content/schema";
+import { articlePath, type Article } from "@/lib/content/schema";
+import { validateArticle } from "@/lib/content/validate-article";
 import { submitIndexNow } from "@/lib/seo/indexnow";
 import { revalidatePath, revalidateTag } from "next/cache";
 
@@ -179,8 +181,21 @@ export async function POST(request: Request) {
 
     const cannibalises = (slug: string) => siteEvergreenPathForNews(slug);
 
+    // Fail closed: without facts.json nothing can be fact-checked, so nothing ships.
+    const facts = await loadFacts().catch(() => null);
+    const liveArticles = articles.filter((a) => a.status === "published");
+    const factCheckFailure = async (a: Article): Promise<string | null> => {
+      if (!facts) return "facts.json unavailable";
+      const { pass, reasons } = await validateArticle({
+        article: a,
+        facts,
+        existing: liveArticles,
+      });
+      return pass ? null : reasons.slice(0, 4).join("; ");
+    };
+
     // Prefer articles just drafted this run, then rest of drafted queue
-    const queue = articles
+    const candidates = articles
       .filter(
         (a) =>
           a.status === "drafted" &&
@@ -192,10 +207,22 @@ export async function POST(request: Request) {
         const bPri = draftedIds.has(b.id) || pickKeys.has(b.eventKey) ? 1 : 0;
         if (bPri !== aPri) return bPri - aPri;
         return b.updatedAt.localeCompare(a.updatedAt);
-      })
-      .slice(0, limit);
+      });
 
-    for (const article of queue) {
+    // A draft that fails the fact check gives its slot to the next candidate.
+    const checked = new Set<string>();
+    let attempts = 0;
+    for (const article of candidates) {
+      if (attempts >= limit) break;
+      checked.add(article.id);
+
+      const failure = await factCheckFailure(article);
+      if (failure) {
+        publishSkipped.push(`${article.slug}: fact check — ${failure}`);
+        continue;
+      }
+      attempts++;
+
       try {
         const updated = await publishArticleLocal(
           article.id,
@@ -213,8 +240,11 @@ export async function POST(request: Request) {
         if (updated.locale === "en") {
           try {
             const fr = await draftFrenchEdition(updated);
+            const frFailure = fr ? await factCheckFailure(fr) : null;
             if (!fr) {
               frenchSkipped.push(`${updated.slug}: draft too thin or no model`);
+            } else if (frFailure) {
+              frenchSkipped.push(`${updated.slug}: fact check — ${frFailure}`);
             } else {
               const live = await publishArticleLocal(fr.id, "scheduler-daily");
               const frPath = articlePath(live);
@@ -236,7 +266,7 @@ export async function POST(request: Request) {
     }
 
     for (const a of articles.filter((x) => x.status === "drafted")) {
-      if (queue.some((q) => q.id === a.id)) continue;
+      if (checked.has(a.id)) continue;
 
       const collision = cannibalises(a.slug);
       if (collision) {

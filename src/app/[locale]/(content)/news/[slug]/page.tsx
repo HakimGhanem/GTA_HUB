@@ -21,6 +21,7 @@ import type { AffiliateIntent } from "@/lib/affiliate/intents";
 import { filterIndexableLocales, isIndexableLocale } from "@/i18n/routing";
 import {
   isIndexableNewsArticle,
+  RETIRED_NEWS_SLUGS,
   siteEvergreenPathForNews,
 } from "@/lib/content/news-canonical";
 import { countMarkdownWords } from "@/lib/content/word-count";
@@ -47,7 +48,11 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props) {
   const { locale, slug } = await params;
   const article = await getArticleBySlug(slug, locale);
-  if (!article || article.status !== "published") {
+  if (
+    !article ||
+    article.status !== "published" ||
+    RETIRED_NEWS_SLUGS.has(slug)
+  ) {
     return { robots: { index: false, follow: false } };
   }
 
@@ -78,7 +83,12 @@ export default async function NewsArticlePage({ params }: Props) {
   setRequestLocale(locale);
 
   const article = await getArticleBySlug(slug, locale);
-  if (!isIndexableLocale(locale) || !article || article.status !== "published") {
+  if (
+    !isIndexableLocale(locale) ||
+    !article ||
+    article.status !== "published" ||
+    RETIRED_NEWS_SLUGS.has(slug)
+  ) {
     notFound();
   }
 

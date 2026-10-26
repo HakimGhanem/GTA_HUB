@@ -1,6 +1,6 @@
 import { franc } from "franc-min";
 import { verifiedTrailerTimecodes } from "../../data/launch-trailer-shots";
-import { factValueText, type Fact } from "./facts";
+import { factValueText, MONTHS_EN, MONTHS_FR, type Fact } from "./facts";
 import { extractMarkdownImages } from "./markdown";
 import { isIndexableNewsArticle } from "./news-canonical";
 import type { Article, ArticleClaim, PageType } from "./schema";
@@ -49,6 +49,126 @@ const VOICE_NAME =
 
 const FILE_SIZE_CLAIM =
   /\b(?:gta\s*6|gta\s*vi|grand theft auto(?:\s*vi|\s*6)?)\b.{0,40}\b(\d{2,4})\s*go\b|\b(\d{2,4})\s*(?:gb|go)\b.{0,40}\b(?:gta\s*6|install|télécharg)/i;
+
+/** Dated events whose day must match facts.json wherever the article names them. */
+const EVENT_FACTS = [
+  { factId: "extended_look_date", label: "Extended Look", name: /extended look/i },
+  {
+    factId: "launch_trailer_date",
+    label: "Launch trailer",
+    name: /launch trailer|bande-annonce de lancement|trailer de lancement/i,
+  },
+] as const;
+
+/** Third-party hardware: a launch date for it needs its own sourced claim. */
+const HARDWARE =
+  /\b(pulse|dualsense|headset|casque|ssd|wd_?black|controller|manette)\b/i;
+const LAUNCH_VERB =
+  /\b(arriv\w*|lands?|launch\w*|releas\w*|ships?|drops?|sort\w*|disponible)\b/i;
+
+/** Store discounts expire within days; an evergreen-indexed page cannot carry them. */
+const PERISHABLE_DEAL =
+  /\b\d{1,2}\s?%\s?(?:off|de r[ée]duction|de remise)\b|(?<!\d)-\d{1,2}\s?%|\bwoot\b/i;
+
+const MONTH_PATTERN =
+  "(january|february|march|april|may|june|july|august|september|october|november|december|janvier|février|fevrier|mars|avril|mai|juin|juillet|août|aout|septembre|octobre|novembre|décembre|decembre|jan|feb|mar|apr|jun|jul|aug|sept|sep|oct|nov|dec)\\.?";
+const MONTH_FIRST = new RegExp(
+  `\\b${MONTH_PATTERN}[ \\t\\u00a0]+(\\d{1,2})(?:st|nd|rd|th)?\\b`,
+  "gi",
+);
+const DAY_FIRST = new RegExp(
+  `\\b(\\d{1,2})(?:er|st|nd|rd|th)?[ \\t\\u00a0]+${MONTH_PATTERN}(?![\\p{L}])`,
+  "giu",
+);
+const ISO_DATE = /\b20\d{2}-(\d{2})-(\d{2})\b/g;
+
+function stripAccents(word: string): string {
+  return word.normalize("NFD").replace(/\p{M}/gu, "");
+}
+
+function monthNumber(word: string): number | null {
+  const w = stripAccents(word.toLowerCase().replace(".", ""));
+  for (let i = 0; i < 12; i++) {
+    if (MONTHS_EN[i] === w || stripAccents(MONTHS_FR[i]) === w) return i + 1;
+    if (w.length >= 3 && MONTHS_EN[i].startsWith(w)) return i + 1;
+  }
+  return null;
+}
+
+function monthDay(month: number | null, day: number): string | null {
+  if (!month || day < 1 || day > 31) return null;
+  return `${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+/** Calendar days written in EN/FR prose or ISO, keyed `MM-DD` (year is often omitted). */
+function findDates(text: string): { raw: string; md: string }[] {
+  const found: { raw: string; md: string }[] = [];
+  for (const m of text.matchAll(MONTH_FIRST)) {
+    const md = monthDay(monthNumber(m[1]), Number(m[2]));
+    if (md) found.push({ raw: m[0], md });
+  }
+  for (const m of text.matchAll(DAY_FIRST)) {
+    const md = monthDay(monthNumber(m[2]), Number(m[1]));
+    if (md) found.push({ raw: m[0], md });
+  }
+  for (const m of text.matchAll(ISO_DATE)) {
+    found.push({ raw: m[0], md: `${m[1]}-${m[2]}` });
+  }
+  return found;
+}
+
+function sentences(text: string): string[] {
+  return text.split(/(?<=[.!?])\s+|\n+/).filter(Boolean);
+}
+
+function dateReasons(
+  body: string,
+  article: ValidateInput["article"],
+  facts: Fact[],
+  pool: string,
+): string[] {
+  const reasons = new Set<string>();
+  const traced = new Set(findDates(pool).map((d) => d.md));
+  const confirmed = new Set(
+    facts
+      .filter((f) => f.status === "confirmed")
+      .flatMap((f) => findDates(factValueText(f)).map((d) => d.md)),
+  );
+  const byId = new Map(facts.map((f) => [f.id, f]));
+
+  for (const date of findDates(body)) {
+    if (!traced.has(date.md)) reasons.add(`untraced date: ${date.raw}`);
+  }
+
+  for (const sentence of sentences(body)) {
+    const dates = findDates(sentence);
+    if (!dates.length) continue;
+
+    for (const event of EVENT_FACTS) {
+      const fact = byId.get(event.factId);
+      if (fact?.status !== "confirmed" || !event.name.test(sentence)) continue;
+      for (const date of dates) {
+        if (!confirmed.has(date.md)) {
+          reasons.add(
+            `${event.label} dated "${date.raw}", facts.json says ${factValueText(fact)}`,
+          );
+        }
+      }
+    }
+
+    const product = sentence.match(HARDWARE)?.[0].toLowerCase();
+    if (product && LAUNCH_VERB.test(sentence)) {
+      const sourced = (article.claims ?? []).some(
+        (c) => c.sourceUrl && c.text.toLowerCase().includes(product),
+      );
+      if (!sourced) {
+        reasons.add(`hardware launch date without a sourced claim: ${product}`);
+      }
+    }
+  }
+
+  return [...reasons];
+}
 
 const MIN_WORDS: Record<PageType, number> = {
   news: 600,
@@ -186,7 +306,7 @@ const TIMECODE_IN_TEXT = /(?<![\d:])(\d):([0-5]\d)(?![\d:])(?!\s*(?:am|pm|a\.m|p
 function trailerTimecodeReasons(body: string): string[] {
   const verified = verifiedTrailerTimecodes();
   const reasons = new Set<string>();
-  for (const sentence of body.split(/(?<=[.!?])\s+|\n+/)) {
+  for (const sentence of sentences(body)) {
     if (!TRAILER_CONTEXT.test(sentence)) continue;
     for (const m of sentence.matchAll(TIMECODE_IN_TEXT)) {
       const t = `${m[1]}:${m[2]}`;
@@ -227,7 +347,12 @@ export async function validateArticle(
     }
   }
 
+  reasons.push(...dateReasons(body, article, facts, pool));
   reasons.push(...contradictsFacts(body, facts));
+
+  if (PERISHABLE_DEAL.test(body)) {
+    reasons.push("perishable retail discount (% off / Woot)");
+  }
 
   for (const re of BANNED) {
     if (re.test(body)) reasons.push(`banned phrase: ${re.source}`);
