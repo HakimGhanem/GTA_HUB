@@ -203,13 +203,13 @@ const ES: Record<string, ProductCopyOverride> = {
   PS_STORE_20: {
     label: "PlayStation Store — tarjeta 20 €",
     description:
-      "Código PSN Francia por email. Canjéalo en la consola y compra Shark Cards oficiales. No es un SKU de GTA 6.",
+      "Código PSN por email, bloqueado por región: elige el país de tu cuenta PSN. Canjéalo en la consola y compra Shark Cards oficiales. No es un SKU de GTA 6.",
     badge: "Monedero",
   },
   PS_STORE_50: {
     label: "PlayStation Store — tarjeta 50 €",
     description:
-      "Recarga PSN Francia más grande para PS Plus, Shark Cards o una futura compra digital de GTA 6 en esa cuenta.",
+      "Recarga PSN más grande para PS Plus, Shark Cards o una futura compra digital de GTA 6. El país de la tarjeta debe coincidir con el de tu cuenta.",
     badge: "Monedero",
   },
   XBOX_GIFT_20: {
@@ -226,7 +226,43 @@ const ES: Record<string, ProductCopyOverride> = {
   },
 };
 
+/**
+ * English cards link to Amazon.co.uk (£) then Amazon.com ($). The base copy
+ * describes the amazon.fr euro codes, which do not redeem on UK/US accounts.
+ */
+const EN: Record<string, ProductCopyOverride> = {
+  GTA6_PS5: {
+    description:
+      "Standard edition for PlayStation 5, code-in-box (no disc). Stock comes and goes because Rockstar allots key quotas per retailer — check the live price on the listing.",
+  },
+  GTA6_XBOX: {
+    description:
+      "Standard edition for Xbox Series X and Series S, code-in-box (no disc). Same quota-driven stock swings as the PS5 box.",
+  },
+  PS_STORE_20: {
+    label: "PlayStation Store gift card — £20 / $20",
+    description:
+      "PSN codes are region-locked: buy the UK (£) card for a UK account, the US ($) card for a US account. Redeem on the console, then buy official GTA Online Shark Cards. Not a GTA 6 SKU.",
+  },
+  PS_STORE_50: {
+    label: "PlayStation Store gift card — £50 / $50",
+    description:
+      "Larger PSN top-up for PS Plus, Shark Cards, or a future GTA 6 digital checkout. Match the card's country to your PSN account region.",
+  },
+  XBOX_GIFT_20: {
+    label: "Xbox gift card — UK / US",
+    description:
+      "Official Xbox digital credit — Game Pass, GTA Online Shark Cards on Xbox, or store games. Redeems only on an account from the card's country.",
+  },
+  STEAM_WALLET_20: {
+    label: "Steam gift card — £20 / $20",
+    description:
+      "Steam wallet credit in your account's currency. Funds GTA V / Online on PC, not a GTA 6 pre-order.",
+  },
+};
+
 const BY_LOCALE: Record<string, Record<string, ProductCopyOverride>> = {
+  en: EN,
   fr: FR,
   es: ES,
 };

@@ -1,4 +1,5 @@
 import { franc } from "franc-min";
+import { verifiedTrailerTimecodes } from "../../data/launch-trailer-shots";
 import { factValueText, type Fact } from "./facts";
 import { extractMarkdownImages } from "./markdown";
 import { isIndexableNewsArticle } from "./news-canonical";
@@ -170,7 +171,29 @@ function contradictsFacts(body: string, facts: Fact[]): string[] {
     reasons.push("contains 'leak confirmed'");
   }
 
+  reasons.push(...trailerTimecodeReasons(body));
+
   return reasons;
+}
+
+const TRAILER_CONTEXT = /trailer|bande-annonce|timecode|timestamp|horodat/i;
+const TIMECODE_IN_TEXT = /(?<![\d:])(\d):([0-5]\d)(?![\d:])(?!\s*(?:am|pm|a\.m|p\.m)\b)/gi;
+
+/**
+ * Nobody watches the video for the loop, so a trailer timecode is only
+ * publishable once a human has logged it in `LAUNCH_TRAILER_SHOTS`.
+ */
+function trailerTimecodeReasons(body: string): string[] {
+  const verified = verifiedTrailerTimecodes();
+  const reasons = new Set<string>();
+  for (const sentence of body.split(/(?<=[.!?])\s+|\n+/)) {
+    if (!TRAILER_CONTEXT.test(sentence)) continue;
+    for (const m of sentence.matchAll(TIMECODE_IN_TEXT)) {
+      const t = `${m[1]}:${m[2]}`;
+      if (!verified.has(t)) reasons.add(`unverified trailer timecode: ${t}`);
+    }
+  }
+  return [...reasons];
 }
 
 export function minWordsFor(pageType?: PageType): number {

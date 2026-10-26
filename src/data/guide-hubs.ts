@@ -45,6 +45,7 @@ export const GUIDE_HUBS: { id: GuideHubId; slugs: string[] }[] = [
       "gta-6-release-time",
       "gta-6-preload",
       "gta-6-file-size",
+      "gta-6-reviews",
       "best-setup-gta-6-ps5-xbox",
       "gta-6-release-date",
       "gta-6-pc-requirements",

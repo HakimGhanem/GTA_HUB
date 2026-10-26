@@ -5,6 +5,10 @@ import {
   fillPrices,
 } from "./best-price-i18n";
 import type { Guide } from "./guides";
+import {
+  LAUNCH_TRAILER_SHOTS,
+  launchTrailerShotRows,
+} from "./launch-trailer-shots";
 
 /** Competitor-gap guides: characters, map size, editions facts, PC, safety. */
 export const COMPETITIVE_GUIDES: Guide[] = [
@@ -344,33 +348,60 @@ export const COMPETITIVE_GUIDES: Guide[] = [
   },
   {
     slug: "gta-6-trailer-3-what-we-know",
-    title: "GTA 6 Trailer 3 — Date Rumors & Map Clues",
+    title: "GTA 6 Launch Trailer (Trailer 3) — Facts & Map Frames",
     description:
-      "No official GTA 6 Trailer 3 date until Rockstar posts one. How to treat rumors, and how to match new footage on the Map-6 interactive map.",
+      "Rockstar posted the GTA 6 launch trailer on 15 October 2026 without warning: 90 seconds, captured on PS5, a new Justice track. What it confirms and which frames Map-6 has matched.",
     answer:
-      "There is no announced date for GTA 6 Trailer 3. Rockstar posts trailers on its own Newswire and social channels without advance notice, so any specific date being shared is a rumour.",
+      "Rockstar released the GTA 6 launch trailer — effectively Trailer 3 — on 15 October 2026 with no advance announcement. It runs about 90 seconds, was captured in-game on PlayStation 5, and debuts “Flower in a Hurricane” by Justice. Launch remains 19 November 2026.",
     category: "exploration",
     readTime: 8,
     publishedAt: "2026-09-05",
+    updatedAt: "2026-10-26",
+    comparison: LAUNCH_TRAILER_SHOTS.length
+      ? {
+          caption:
+            "Launch trailer shots matched on Map-6. Timecodes checked by hand against the official upload; encodes can shift by a second.",
+          headers: ["Timecode", "Shot", "Map-6 page"],
+          rows: launchTrailerShotRows("en"),
+        }
+      : {
+          caption: "GTA 6 launch trailer — what Rockstar has actually published",
+          headers: ["Item", "Status"],
+          rows: [
+            ["Release", "15 October 2026, no teaser beforehand"],
+            ["Length", "About 90 seconds"],
+            ["Capture", "In-game, PlayStation 5 (Rockstar)"],
+            ["Music", "“Flower in a Hurricane” — Justice feat. Tame Impala, SZA, King Gizzard & The Lizard Wizard"],
+            ["Launch date", "19 November 2026, unchanged"],
+            ["Shot-by-shot map matches", "In progress — published only once each frame is checked"],
+          ],
+        },
     faq: [
       {
-        question: "When does GTA 6 Trailer 3 come out?",
+        question: "Is the GTA 6 launch trailer Trailer 3?",
         answer:
-          "Rockstar has not published an official Trailer 3 date. Treat calendars on social media as unverified. Map-6 updates this page when Newswire or the official YouTube channel names a day.",
+          "Rockstar calls it the Launch Trailer rather than Trailer 3, but it is the third cinematic trailer after December 2023 and May 2025. An Extended Look (27 August 2026) was gameplay footage, not a numbered trailer.",
       },
       {
-        question: "How do I use a new trailer with Map-6?",
+        question: "When did the GTA 6 launch trailer come out?",
         answer:
-          "Pause on neon strips, causeways, skyline curves, and biome edges. Filter Landmarks, match the shape, copy HUD X/Y, and Share a deep link. Do not invent interior tours from a two-second cut.",
+          "On 15 October 2026, posted on Rockstar's channels and rockstargames.com/VI without a prior announcement.",
+      },
+      {
+        question: "What song is in the GTA 6 launch trailer?",
+        answer:
+          "“Flower in a Hurricane” by Justice, featuring Tame Impala, SZA and King Gizzard & The Lizard Wizard. Rockstar says it is on Grand Theft Auto VI: The Album.",
       },
     ],
     content: [
-      "Primary keyword: gta 6 trailer 3. Secondary: trailer date, trailer leak. The honest answer is shorter than the rumor industry wants: there is no Map-6-invented drop day. Until Rockstar, Take-Two, or the official YouTube/Newswire channel names a date and time, every “next Friday” screenshot is unverified. We will not fabricate a calendar to rank.",
-      "Why Trailer 3 matters for a map site: Trailers 1 and 2 already sold Vice City energy, the couple, and Leonida’s Florida-shaped contrast. A third cinematic (if and when it arrives) is usually new districts, weather, interiors, and chase grammar — the exact frames Map-6 is built to pin. Extended Look / Netflix gameplay drops are not the same as a numbered trailer; we label them separately in /news.",
-      "Workflow the night it drops: (1) open /map Landmarks only, (2) pause neon hotels and wetland transitions, (3) match silhouettes not color grading, (4) Share deep links with theme=streamer if you clip, (5) write timestamp + X/Y + confidence. That loop beats twenty Discord servers pasting the same still with worse metadata. Details: gta-6-map-guide and gta-6-map-clip-kit.",
-      "Leak hygiene: “gta vi trailer leak” queries attract malware and fake 4K rips. Do not download “Trailer 3 early” EXEs or Telegram packs. Official video lives on Rockstar channels only; gta-6-scam-watch covers the rest.",
-      "Geography checklist for any new official footage: Ocean Drive strip, Keys causeways, Port Gellhorn cranes, Grassrivers channels, Ambrosia gates, Mount Kalaga tree line. Regional pages under /locations hold longer prose. CS2 map 153426 is a 3D vibe check, not canon.",
-      "Related: gta-6-characters-lucia-jason, gta-6-story, gta-6-map-size, gta-6-release-date (November 19, 2026). When a real date lands, this H1 stays; the first paragraph gets a dated line and a link to the official video.",
+      "Rockstar posted the Grand Theft Auto VI launch trailer on 15 October 2026 with no countdown and no teaser, the same way it dropped Trailer 2. It runs about a minute and a half, Rockstar says it was captured entirely in-game on a PlayStation 5, and it changes nothing on the calendar: launch is still 19 November 2026 on PS5 and Xbox Series X|S, with preload from 12 November.",
+      "Searchers still type “GTA 6 Trailer 3”. Rockstar's own label is Launch Trailer, but in practice it is the third cinematic after December 2023 and May 2025. An Extended Look in August was a gameplay showcase, which is why Map-6 files it separately.",
+      "What the trailer adds is mostly story framing. Jason's voiceover gives him a military past he did not leave on good terms, and Rockstar's description recasts the plot as an easy score gone wrong that drags the pair into a conspiracy across Leonida. Lucia calls him early on; the rest is action cut to music. It is a trailer meant to sell the premise to people who have not followed three years of footage, not a systems reveal.",
+      "The music is the other headline. “Flower in a Hurricane” is a new Justice single featuring Tame Impala, SZA and King Gizzard & The Lizard Wizard. Rockstar confirmed Justice composed the original score and that the track is part of Grand Theft Auto VI: The Album.",
+      "Some fans called the footage blurry compared with Trailer 1. The softness reads as a deliberate lens and grading treatment rather than a resolution drop, and it matters for one practical reason here: when you match a frame to the map, use rooflines, road curves and shorelines, never sharpness or colour.",
+      "On Map-6, this page carries the frames we have matched. Each timecode is scrubbed by hand against the official upload and linked to the location page it belongs to; until a frame is checked, it is not listed. We do not publish shot lists copied from social media or generated from descriptions, because a wrong timecode sends readers to the wrong place.",
+      "To do the same yourself: open /map with Landmarks only, pause on skylines, causeways and beachfront strips, match the silhouette, then Share the deep link. The regional pages under /locations — Vice City, Ocean Drive, the Leonida Keys, Port Gellhorn, Grassrivers, Ambrosia and Mount Kalaga — hold the longer write-ups.",
+      "Watch only on Rockstar's channels. “4K early” or “uncut” trailer packs on Telegram are a common malware wrapper; gta-6-scam-watch covers the rest. Related: gta-6-release-date, gta-6-characters-lucia-jason, gta-6-map-guide.",
     ],
   },
   {
@@ -415,6 +446,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
     category: "beginner",
     readTime: 9,
     publishedAt: "2026-09-05",
+    updatedAt: "2026-10-26",
     comparison: {
       caption: "How long the last two Rockstar PC ports took",
       headers: ["Game", "Console launch", "PC launch", "Gap"],
@@ -438,6 +470,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
     ],
     content: [
       "Grand Theft Auto VI launches on 19 November 2026 on PlayStation 5 and Xbox Series X|S. There is no PC version in that announcement: no date, no storefront page, and no system requirements. Everything below is about planning around that gap, because the honest answer to “what GPU do I need” is that nobody outside Rockstar knows yet.",
+      "Status checked 26 October 2026: Rockstar's platform list is unchanged. GamesBeat reported on 13 October that a PC version is slated for the first quarter of 2027; Rockstar and Take-Two have not confirmed it, so this page treats it as a report, not a date. If Rockstar's next Thursday post on 29 October — predicted from its weekly rhythm, not announced — mentions PC, this page will quote it.",
       "The table above is the only forecasting tool worth using. Grand Theft Auto V reached PC about nineteen months after its console launch; Red Dead Redemption 2 took about twelve. That is a band, not a schedule — Rockstar has never committed publicly to a port window in advance, and the two gaps differ by more than half a year. Treating the midpoint as a release date is how people end up buying hardware a year early.",
       "What the band is good for is budgeting. If you want to play in 2026 you are buying a console, and the PC question becomes a 2027-or-later line in your budget rather than a purchase this autumn. Pick a ceiling you can afford later, not a parts list derived from a spec table that does not exist.",
       "What you can buy now without a spec sheet: the console you already planned to own, storage headroom, a headset, and a 120 Hz HDMI 2.1 display if your TV is the bottleneck. All four pay off during console launch week even if the PC port is years away, and none of them require guessing a VRAM floor.",
@@ -504,7 +537,7 @@ export const COMPETITIVE_GUIDES: Guide[] = [
       "Live pre-orders attract industrial-grade scams. Leonida Intel already runs a scam-watch page — Map-6 needs the same trust layer so “gta 6 fake download” and leak-curious traffic do not bounce to malware. Hard rules: Rockstar has not announced a public GTA VI beta, PC release date, Android version, or pre-release installer. Beta keys, APKs, EXE clients, cloned login pages, and “too cheap” keys are unsafe unless Rockstar announces them on official channels.",
       "Official facts you can use to reality-check a pitch: November 19, 2026 console launch; preload November 12; Standard $79.99 US / Ultimate $99.99 US; Vintage Vice City Pack before November 20; physical box is a download code, not a disc. Anyone offering day-one PC, a cracked build, or “insider map files” for money is not a source. Map-6 does not host leaked builds.",
       "Trailer 3 and gameplay rips: wait for Rockstar YouTube. “4K leak” Telegram packs are a common malware wrapper. Use Map-6 to match official frames — not to decode stolen assets.",
-      "Checkout hygiene: confirm the store URL, platform SKU, and edition name (Standard vs Ultimate — there is no official Collector SKU in the Take-Two launch pair). Amazon cancel-until-ship norms still beat a Discord middleman. Affiliate cards on Map-6 go to the real Amazon.fr Standard listings; we are not Rockstar.",
+      "Checkout hygiene: confirm the store URL, platform SKU, and edition name (Standard vs Ultimate — there is no official Collector SKU in the Take-Two launch pair). Amazon cancel-until-ship norms still beat a Discord middleman. Affiliate cards on Map-6 go to the real Amazon.co.uk Standard listings; we are not Rockstar.",
       "If you already clicked a fake page: change Rockstar / PSN / Xbox / Amazon passwords from a clean device, revoke sessions, and do not enter codes from the scam site. This is not a full incident-response guide — it is a stop sign.",
       "Related: gta-6-pc-requirements, gta-6-platforms-ps5-xbox, gta-6-preorder-guide, gta-6-trailer-3-what-we-know. Bookmark /map for geography; bookmark this page before you google “gta 6 download free.”",
     ],

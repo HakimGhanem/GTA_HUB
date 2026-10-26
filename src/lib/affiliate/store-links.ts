@@ -145,7 +145,7 @@ export function buildAmazonProductUrlForLocale(
   const asin = asinForStore(store, product);
   return asin
     ? buildStoreProductUrl(store, asin)
-    : buildStoreSearchUrl(store, searchQueryForProduct(product));
+    : buildStoreSearchUrl(store, searchQueryForProduct(product, store.id));
 }
 
 export function buildOfferUrl(
@@ -153,7 +153,7 @@ export function buildOfferUrl(
   product: PreorderProduct,
   locale: string,
 ): string {
-  const query = searchQueryForProduct(product);
+  const query = searchQueryForProduct(product, store.id);
   if (isAmazonStoreId(store.id)) {
     const asin = asinForStore(store, product);
     return asin

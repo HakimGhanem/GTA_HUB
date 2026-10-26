@@ -116,6 +116,7 @@ export const LAUNCH_GUIDES: Guide[] = [
     category: "beginner",
     readTime: 9,
     publishedAt: "2026-10-12",
+    updatedAt: "2026-10-26",
     comparison: {
       caption:
         "Published install sizes for comparable open-world titles, as context only. None of these is a prediction for GTA 6, and Rockstar has not announced a figure for it.",
@@ -129,6 +130,7 @@ export const LAUNCH_GUIDES: Guide[] = [
     },
     content: [
       "The honest answer first: Rockstar has not published how big Grand Theft Auto VI is. No Newswire post, no store listing, no Take-Two slide has given an install size. Every specific number circulating right now — and there are several, quoted with great confidence — is somebody's guess dressed up as a leak. Map-6 does not publish those, which is why this page tells you how to plan instead of what the number is.",
+      "Status checked 26 October 2026: still no official size. Some fans expect Rockstar to publish one on Thursday 29 October, because the studio has posted GTA 6 news every Thursday since August. Rockstar has not said what, if anything, it will announce that day, and the size prediction is fan speculation. If an official figure appears, it goes at the top of this page with its source.",
       "What you actually need is not the exact size, it is enough headroom that you never have to think about it. The deadline is 12 November 2026, when preload opens, not 19 November when the game unlocks. A console that runs out of room halfway through a preload turns a comfortable seven-day window into a launch-night scramble.",
       "The table above is context, not prediction. Red Dead Redemption 2 shipped at roughly 150 GB, the enhanced edition of GTA V sits near 86 GB on current consoles, and large shooters routinely cross 150 GB. GTA 6 is a bigger and much later game than any of them, which tells you the direction but not the figure. Clearing around 150 GB is a reasonable target: generous enough that a larger-than-expected install still fits, modest enough that you do not have to wipe your library.",
       "Do not plan to the gigabyte. An install is only the first claim on your drive. The day-one patch needs somewhere to unpack, and console patching frequently requires temporary space on top of the final size. Video captures and screenshots eat the rest, and GTA is the kind of game people record. A drive that is 99 percent full is a drive that fails an update at the worst moment.",
@@ -154,6 +156,53 @@ export const LAUNCH_GUIDES: Guide[] = [
         question: "Does the physical edition need less storage?",
         answer:
           "No. The boxed Standard edition of GTA 6 contains a download code rather than a disc, so the full game installs to your drive exactly as it does for a digital purchase.",
+      },
+    ],
+  },
+  {
+    slug: "gta-6-reviews",
+    title: "GTA 6 Reviews — Embargo Date & Review Scores Status",
+    description:
+      "No GTA 6 review embargo or review-code date has been announced, and no critic score exists yet. What is confirmed, what Rockstar did for GTA V and RDR2, and when this page updates.",
+    answer:
+      "There are no GTA 6 reviews yet. Rockstar has not announced a review embargo date or confirmed when critics receive codes, so no Metacritic or OpenCritic score exists. For GTA V and Red Dead Redemption 2, reviews went live the day before launch.",
+    category: "beginner",
+    readTime: 6,
+    publishedAt: "2026-10-26",
+    comparison: {
+      caption:
+        "When reviews of Rockstar's last two releases went live. Precedent only — Rockstar has announced nothing for GTA 6.",
+      headers: ["Game", "Reviews published", "Launch", "Metacritic"],
+      rows: [
+        ["Grand Theft Auto V", "16 September 2013", "17 September 2013", "97 (PS3)"],
+        ["Red Dead Redemption 2", "25 October 2018", "26 October 2018", "97 (PS4)"],
+        ["Grand Theft Auto VI", "Not announced", "19 November 2026", "No score yet"],
+      ],
+    },
+    content: [
+      "Status on 26 October 2026: no outlet has published a review of Grand Theft Auto VI, because nobody outside Rockstar is allowed to. Rockstar has not announced a review embargo, has not said when critics receive codes, and the Metacritic and OpenCritic pages carry no score. Anything presented as an early verdict is a guess or a fake.",
+      "What is confirmed sits around the review window rather than inside it. The game launches on 19 November 2026 on PlayStation 5 and Xbox Series X|S, and digital preload opens on 12 November. Reviews of a game this size almost always land before launch, which leaves a window of about three weeks from today.",
+      "Rockstar's own history is the only useful guide. Reviews of Grand Theft Auto V appeared on 16 September 2013, one day before release. Red Dead Redemption 2 followed the same pattern in 2018, with reviews on 25 October for a 26 October launch. Both scored 97 on Metacritic. That is precedent, not a promise: a bigger game and a preload a week before launch could move the window either way.",
+      "The rumours you will see this week fall into two groups. Insider posts claim review codes will go out soon, and some fans expect Rockstar to talk about it on Thursday 29 October, because the studio has posted something about GTA 6 every Thursday since the Extended Look in August. Rockstar has not announced anything for that date. Treat both as unconfirmed until Newswire or a reviewing outlet says so.",
+      "Fake scores spread fastest in the days before an embargo. A screenshot of a Metacritic page with a number on it, a “leaked review” on a forum or a score attributed to a magazine that has not published is not a review. The real thing appears on the outlet's own site, under a named writer, at the same moment as dozens of others.",
+      "What reviews will and will not settle: they will tell you how the story, the switching between Lucia and Jason, and the open world hold up. They will not change the price, the editions or the platforms, and they arrive too late to affect the Vintage Vice City Pack, which only requires buying before 20 November. If you are waiting for scores before pre-ordering, you lose nothing by waiting.",
+      "When the embargo date is announced, this page gets it at the top with the source. When reviews go live, it gets the aggregate scores and links to the main outlets. Until then, the release-date guide covers the calendar and the file-size guide covers what to prepare on your console.",
+    ],
+    faq: [
+      {
+        question: "When do GTA 6 reviews come out?",
+        answer:
+          "Rockstar has not announced a review embargo date. For GTA V and Red Dead Redemption 2, reviews went live the day before launch; GTA 6 launches on 19 November 2026.",
+      },
+      {
+        question: "Have critics received GTA 6 review codes?",
+        answer:
+          "Not according to anything Rockstar or a reviewing outlet has published. Claims that codes are about to go out come from insider posts and are unconfirmed.",
+      },
+      {
+        question: "What is GTA 6's Metacritic score?",
+        answer:
+          "It has none yet. A score only appears once the review embargo lifts and outlets publish; any number shared before that is fake.",
       },
     ],
   },

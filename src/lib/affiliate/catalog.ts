@@ -1,5 +1,7 @@
 import { PREORDER_PRODUCTS, type PreorderProduct } from "@/data/preorder-products";
 import type { AffiliateIntent } from "./intents";
+import { isAmazonStoreId, type AmazonStoreId } from "./amazon-markets";
+import type { AffiliateStoreId } from "./stores";
 
 /** Map product slots → funnel intents (what page / article should surface). */
 const PRODUCT_INTENTS: Record<string, AffiliateIntent[]> = {
@@ -192,9 +194,58 @@ export function liveProductsForIntent(intent: AffiliateIntent): PreorderProduct[
 }
 
 /**
- * Honest retailer search query — product label / edition, never a fake SKU.
+ * Wallet codes only redeem on an account from the card's country, so each
+ * marketplace searches for its own currency — never the amazon.fr wording.
  */
-export function searchQueryForProduct(product: PreorderProduct): string {
+const GIFT_CARD_QUERIES: Record<string, Partial<Record<AmazonStoreId, string>>> = {
+  PS_STORE_20: {
+    amazon_fr: "Carte PlayStation Store 20 euros",
+    amazon_co_uk: "PlayStation Store gift card £20 UK",
+    amazon_com: "PlayStation Store gift card $20",
+    amazon_de: "PlayStation Store Guthaben 20 Euro",
+    amazon_es: "Tarjeta PlayStation Store 20 euros",
+    amazon_it: "Carta PlayStation Store 20 euro",
+  },
+  PS_STORE_50: {
+    amazon_fr: "Carte PlayStation Store 50 euros",
+    amazon_co_uk: "PlayStation Store gift card £50 UK",
+    amazon_com: "PlayStation Store gift card $50",
+    amazon_de: "PlayStation Store Guthaben 50 Euro",
+    amazon_es: "Tarjeta PlayStation Store 50 euros",
+    amazon_it: "Carta PlayStation Store 50 euro",
+  },
+  XBOX_GIFT_20: {
+    amazon_fr: "Carte cadeau Xbox 20 euros",
+    amazon_co_uk: "Xbox gift card UK digital code",
+    amazon_com: "Xbox gift card $20",
+    amazon_de: "Xbox Guthaben 20 Euro",
+    amazon_es: "Tarjeta regalo Xbox 20 euros",
+    amazon_it: "Carta regalo Xbox 20 euro",
+  },
+  STEAM_WALLET_20: {
+    amazon_fr: "Carte Steam 20 euros",
+    amazon_co_uk: "Steam gift card £20",
+    amazon_com: "Steam gift card $20",
+    amazon_de: "Steam Guthaben 20 Euro",
+    amazon_es: "Tarjeta Steam 20 euros",
+    amazon_it: "Carta Steam 20 euro",
+  },
+};
+
+/**
+ * Honest retailer search query — product label / edition, never a fake SKU.
+ * Pass the storefront so region-locked gift cards search the right currency.
+ */
+export function searchQueryForProduct(
+  product: PreorderProduct,
+  storeId?: AffiliateStoreId,
+): string {
+  const giftCard = GIFT_CARD_QUERIES[product.envKey];
+  if (giftCard) {
+    const market: AmazonStoreId =
+      storeId && isAmazonStoreId(storeId) ? storeId : "amazon_fr";
+    return giftCard[market] ?? giftCard.amazon_fr ?? product.label;
+  }
   switch (product.envKey) {
     case "GTA6_PS5":
       return "GTA 6 PS5";
@@ -206,14 +257,6 @@ export function searchQueryForProduct(product: PreorderProduct): string {
       return "GTA 6 Ultimate Xbox";
     case "GTA5_PS5":
       return "GTA 5 PS5";
-    case "PS_STORE_20":
-      return "Carte PlayStation Store 20 euros";
-    case "PS_STORE_50":
-      return "Carte PlayStation Store 50 euros";
-    case "XBOX_GIFT_20":
-      return "Carte cadeau Xbox 20 euros";
-    case "STEAM_WALLET_20":
-      return "Carte Steam 20 euros";
     default:
       return product.label.replace(/\s+/g, " ").trim();
   }

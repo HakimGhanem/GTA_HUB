@@ -112,6 +112,7 @@ export const LAUNCH_GUIDES_FR: Record<string, LocalizedGuide> = {
     },
     content: [
       "La réponse honnête d'abord : Rockstar n'a pas publié la taille de Grand Theft Auto VI. Aucun billet Newswire, aucune fiche de store, aucune diapositive de Take-Two n'a donné de taille d'installation. Tous les chiffres précis qui circulent en ce moment — et il y en a plusieurs, assénés avec beaucoup d'aplomb — sont des suppositions déguisées en fuites. Map-6 ne les publie pas, et c'est pourquoi cette page vous explique comment vous organiser plutôt que de vous donner un nombre inventé.",
+      "Point au 26 octobre 2026 : toujours aucune taille officielle. Une partie des fans attend un chiffre le jeudi 29 octobre, parce que Rockstar publie une actualité GTA 6 chaque jeudi depuis août. Le studio n'a pas dit ce qu'il annoncerait ce jour-là, ni même s'il annoncerait quelque chose, et la piste de la taille relève de la spéculation. Si un chiffre officiel tombe, il s'affichera en tête de cette page avec sa source.",
       "Ce dont vous avez besoin, ce n'est de toute façon pas la taille exacte : c'est assez de marge pour ne plus jamais y penser. L'échéance est le 12 novembre 2026, date d'ouverture du préchargement, et non le 19 novembre. Une console qui tombe à court d'espace au milieu d'un préchargement transforme une fenêtre confortable de sept jours en course contre la montre le soir du lancement.",
       "Le tableau ci-dessus est un repère, pas une prédiction. Red Dead Redemption 2 pesait environ 150 Go, l'édition enrichie de GTA V tourne autour de 86 Go sur les consoles actuelles, et les gros jeux de tir dépassent régulièrement les 150 Go. GTA 6 est un jeu plus vaste et bien plus récent que tous ceux-là, ce qui donne la direction mais pas le chiffre. Viser 150 Go libres est raisonnable : assez généreux pour absorber une installation plus lourde que prévu, assez modeste pour ne pas vider votre bibliothèque.",
       "Ne calculez pas au gigaoctet près. L'installation n'est que la première ponction sur votre disque. Le correctif du premier jour doit se décompresser quelque part, et les mises à jour console réclament souvent de l'espace temporaire en plus de la taille finale. Les captures vidéo et les captures d'écran mangent le reste, et GTA est typiquement le jeu que les gens enregistrent. Un disque rempli à 99 % est un disque qui fait échouer une mise à jour au pire moment.",
@@ -137,6 +138,50 @@ export const LAUNCH_GUIDES_FR: Record<string, LocalizedGuide> = {
         question: "La version physique prend-elle moins de place ?",
         answer:
           "Non. L'édition Standard en boîte de GTA 6 contient un code de téléchargement et non un disque : le jeu s'installe intégralement sur votre disque, exactement comme pour un achat numérique.",
+      },
+    ],
+  },
+  "gta-6-reviews": {
+    title: "Tests de GTA 6 — date d'embargo et notes de la presse",
+    description:
+      "Aucune date d'embargo ni d'envoi des codes presse n'est annoncée pour GTA 6, et aucune note n'existe encore. Ce qui est confirmé, ce qu'a fait Rockstar pour GTA V et RDR2, et quand cette page bouge.",
+    readTime: 6,
+    answer:
+      "Il n'existe encore aucun test de GTA 6. Rockstar n'a annoncé ni date d'embargo ni envoi des codes à la presse : aucune note Metacritic ou OpenCritic n'existe. Pour GTA V et Red Dead Redemption 2, les tests étaient tombés la veille de la sortie.",
+    comparison: {
+      caption:
+        "Date de publication des tests pour les deux derniers jeux Rockstar. Simple précédent : Rockstar n'a rien annoncé pour GTA 6.",
+      headers: ["Jeu", "Tests publiés", "Sortie", "Metacritic"],
+      rows: [
+        ["Grand Theft Auto V", "16 septembre 2013", "17 septembre 2013", "97 (PS3)"],
+        ["Red Dead Redemption 2", "25 octobre 2018", "26 octobre 2018", "97 (PS4)"],
+        ["Grand Theft Auto VI", "Non annoncée", "19 novembre 2026", "Pas encore de note"],
+      ],
+    },
+    content: [
+      "Point au 26 octobre 2026 : aucun média n'a publié de test de Grand Theft Auto VI, tout simplement parce que personne hors de Rockstar n'en a le droit. Le studio n'a annoncé aucun embargo, n'a pas dit quand la presse recevra ses codes, et les pages Metacritic et OpenCritic n'affichent aucune note. Tout « premier verdict » qui circule est une supposition ou un faux.",
+      "Ce qui est confirmé entoure la fenêtre des tests sans la fixer. Le jeu sort le 19 novembre 2026 sur PlayStation 5 et Xbox Series X|S, et le préchargement numérique ouvre le 12 novembre. Pour un jeu de cette taille, les tests tombent presque toujours avant la sortie : il reste donc environ trois semaines.",
+      "Le seul repère utile, c'est l'historique de Rockstar. Les tests de Grand Theft Auto V sont parus le 16 septembre 2013, la veille de la sortie. Red Dead Redemption 2 a suivi le même schéma en 2018 : tests le 25 octobre, sortie le 26. Les deux ont obtenu 97 sur Metacritic. C'est un précédent, pas un engagement : un jeu plus gros et un préchargement une semaine avant peuvent décaler la fenêtre dans un sens comme dans l'autre.",
+      "Les rumeurs de la semaine se rangent en deux familles. Des comptes d'initiés affirment que les codes presse partiront bientôt, et une partie des fans attend une annonce le jeudi 29 octobre, parce que Rockstar publie quelque chose sur GTA 6 chaque jeudi depuis l'Extended Look d'août. Rockstar n'a rien annoncé pour cette date. Considérez les deux comme non confirmées tant que le Newswire ou un média testeur ne l'écrit pas.",
+      "Les fausses notes circulent surtout dans les jours qui précèdent un embargo. Une capture de page Metacritic avec un chiffre, un « test qui a fuité » sur un forum ou une note attribuée à un magazine qui n'a rien publié ne sont pas des tests. Un vrai test paraît sur le site du média, signé, au même moment que des dizaines d'autres.",
+      "Ce que les tests trancheront, et ce qu'ils ne changeront pas : ils diront si l'histoire, l'alternance entre Lucia et Jason et le monde ouvert tiennent leurs promesses. Ils ne changeront ni le prix, ni les éditions, ni les plateformes, et ils arriveront trop tard pour peser sur le pack Vintage Vice City, qui demande seulement d'acheter avant le 20 novembre. Attendre les notes avant de précommander ne vous fait rien perdre.",
+      "Dès qu'une date d'embargo sera annoncée, elle s'affichera en tête de cette page avec sa source. Quand les tests tomberont, la page donnera les moyennes et les liens vers les principaux médias. D'ici là, le guide de la date de sortie couvre le calendrier et celui sur la taille du jeu explique quoi préparer sur votre console.",
+    ],
+    faq: [
+      {
+        question: "Quand sortent les tests de GTA 6 ?",
+        answer:
+          "Rockstar n'a annoncé aucune date d'embargo. Pour GTA V et Red Dead Redemption 2, les tests étaient parus la veille de la sortie ; GTA 6 sort le 19 novembre 2026.",
+      },
+      {
+        question: "La presse a-t-elle reçu ses codes de GTA 6 ?",
+        answer:
+          "Rien de ce qu'ont publié Rockstar ou les médias testeurs ne l'indique. Les annonces d'un envoi imminent viennent de comptes d'initiés et ne sont pas confirmées.",
+      },
+      {
+        question: "Quelle est la note Metacritic de GTA 6 ?",
+        answer:
+          "Il n'y en a pas encore. Une note n'apparaît qu'à la levée de l'embargo, quand les médias publient ; tout chiffre partagé avant est faux.",
       },
     ],
   },

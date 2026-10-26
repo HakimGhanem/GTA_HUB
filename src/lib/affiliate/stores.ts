@@ -256,6 +256,13 @@ export function storeAppliesToProduct(
   if (store.editions && !store.editions.includes(product.edition)) return false;
   // No Collector's SKU exists — official-store search would look like a listing.
   if (product.edition === "collectors") return false;
+  // The console stores do not sell their own gift cards; a search there is empty.
+  if (
+    product.edition === "gift_card" &&
+    (store.id === "playstation" || store.id === "xbox")
+  ) {
+    return false;
+  }
   // An Amazon storefront needs either its own ASIN or a sibling market's, which
   // proves the product is listed and makes a tagged search link worthwhile.
   if (isAmazonStoreId(store.id) && !existsOnAmazon(product)) return false;

@@ -76,7 +76,7 @@ We will not publish a fake shop directory, a leaked mission flowchart, or a PC d
 
 ## Prices, editions, and what is still blank
 
-US list prices from Take-Two: Standard **$79.99**, Ultimate **$99.99**. France and UK street prices move; the [pre-order guide](/en/guides/gta-6-preorder-guide) tracks the Amazon.fr code-in-box listings when they are in stock. Ultimate extras are vehicles, weapons, apparel, and story-threaded content — not a larger Leonida. Standard owners can buy an upgrade later on PlayStation or Microsoft stores.
+US list prices from Take-Two: Standard **$79.99**, Ultimate **$99.99**. France and UK street prices move; the [pre-order guide](/en/guides/gta-6-preorder-guide) tracks the Amazon.co.uk code-in-box listings when they are in stock. Ultimate extras are vehicles, weapons, apparel, and story-threaded content — not a larger Leonida. Standard owners can buy an upgrade later on PlayStation or Microsoft stores.
 
 Still blank on purpose: PC date, cross-saves, collectible totals, a Collector statue SKU, and any “89 percent Ultimate” figure that is not in a Take-Two filing. If a retailer page contradicts Rockstar, Rockstar wins. If a TikTok contradicts the VI page, the VI page wins.
 
@@ -438,7 +438,7 @@ When Rockstar names a new district after launch, we add a hub. We do not retrofi
       "Los Santos is still live until November 19. How official Shark Cards work, why Map-6 points at PlayStation, Xbox and Steam gift cards on Amazon, and what does not transfer to Leonida.",
     bodyMarkdown: `*Grand Theft Auto VI* is a console date: **November 19, 2026**. *GTA Online* is a city that already exists. If you still have businesses, a nightclub, or a friend who only plays on weekends, the honest product between now and Leonida is **Los Santos** — plus, if you choose, official **Shark Card** cash.
 
-Map-6 is not a key shop. We do not email codes. We do list **Amazon gift-card ASINs** we have checked (PlayStation Store France, Xbox credit, Steam wallet) so you can top up the same wallets you already use, then buy Shark Cards **inside** Rockstar’s storefronts. Affiliate links are disclosed. They do not change the face value of a card.
+Map-6 is not a key shop. We do not email codes. We do link **Amazon gift-card searches** for your region (PlayStation Store, Xbox credit, Steam wallet on Amazon.co.uk and Amazon.com) so you can top up the same wallets you already use, then buy Shark Cards **inside** Rockstar’s storefronts. Affiliate links are disclosed. They do not change the face value of a card.
 ${locationFigure("vice-city", "Leonida waits; Los Santos is playable now", "Wallet credit buys GTA Online cash today. It does not pre-purchase Leonida property.")}
 
 ## What a Shark Card actually is
@@ -451,7 +451,7 @@ If a thumbnail says “GTA 6 Shark Cards,” close it. VI has not shipped an off
 
 PlayStation, Xbox, and Steam each have a wallet. Shark Cards on those platforms charge that wallet (or the card on file). Buying a **region-correct** PSN, Xbox, or Steam gift card is the boring, reversible path:
 
-1. Buy the card on Amazon (France codes for a France PSN account — the listings say so).
+1. Buy the card for your account's country on Amazon (a £ card for a UK PSN account, a $ card for a US one — codes do not cross regions).
 2. Redeem the code on the console or in the Steam client.
 3. Open *GTA V* / *GTA Online* and purchase the official Shark Card from Rockstar’s store tile.
 
@@ -459,7 +459,7 @@ That is the same loop gift-card retailers describe. We are not inventing a fourt
 
 ## What we list and what we will not invent
 
-Live Amazon.fr ASINs on this site include PlayStation Store **€20** and **€50** email codes, an Xbox **€20** digital card, and a Steam **€20** wallet listing (stock swings — if Amazon shows unavailable, use the tagged search, do not buy a screenshot). *GTA V* on PS5 is a separate card for people who do not own the game yet.
+The cards on this page search Amazon.co.uk for **£** codes and Amazon.com for **$** codes: PlayStation Store **20** and **50**, Xbox credit, and a Steam **20** wallet card. Check the listing names the same country as your account before you pay — a euro or dollar code will not redeem on a UK account, and the reverse. *GTA V* on PS5 is a separate card for people who do not own the game yet.
 
 We will not invent a Megalodon PS5 ASIN that is only on the PlayStation Store. We will not tell you a Steam card “pre-orders GTA 6 PC.” PC timing is **unconfirmed**. A wallet is for games that exist.
 

@@ -48,6 +48,30 @@
     "checkedAt": "2026-10-21"
   },
   {
+    "id": "launch_trailer_date",
+    "value": "2026-10-15",
+    "status": "confirmed",
+    "source_url": "https://www.rockstargames.com/VI/launch-trailer",
+    "source_type": "primary",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "id": "next_official_update",
+    "value": null,
+    "status": "not_announced",
+    "source_url": "https://www.rockstargames.com/newswire",
+    "source_type": "primary",
+    "checkedAt": "2026-10-26"
+  },
+  {
+    "id": "next_update_oct29_report",
+    "value": "Thursday 2026-10-29 predicted from Rockstar's weekly cadence, GameRant 2026-10-26; content unknown",
+    "status": "reported",
+    "source_url": "https://gamerant.com/grand-theft-auto-6-gta6-news-october-29-2026/",
+    "source_type": "secondary",
+    "checkedAt": "2026-10-26"
+  },
+  {
     "id": "pc",
     "value": null,
     "status": "not_announced",

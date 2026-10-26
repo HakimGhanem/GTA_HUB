@@ -1,4 +1,8 @@
 import type { LocalizedGuide } from "./guides-i18n";
+import {
+  LAUNCH_TRAILER_SHOTS,
+  launchTrailerShotRows,
+} from "./launch-trailer-shots";
 
 /** Version française des huit guides écrits contre les wikis et agrégateurs. */
 export const COMPETITIVE_GUIDES_FR: Record<string, LocalizedGuide> = {
@@ -214,31 +218,57 @@ export const COMPETITIVE_GUIDES_FR: Record<string, LocalizedGuide> = {
     ],
   },
   "gta-6-trailer-3-what-we-know": {
-    title: "Trailer 3 de GTA 6 — rumeurs de date et indices de carte",
+    title: "Trailer de lancement de GTA 6 (Trailer 3) — faits et carte",
     description:
-      "Aucune date officielle pour le Trailer 3 de GTA 6 tant que Rockstar n’en publie pas. Comment traiter les rumeurs et recaler les nouvelles images sur la carte interactive Map-6.",
+      "Rockstar a mis en ligne le trailer de lancement de GTA 6 le 15 octobre 2026, sans prévenir : 90 secondes, capturées sur PS5, un inédit de Justice. Ce qu’il confirme et les plans recalés sur Map-6.",
     readTime: 8,
     answer:
-      "Aucune date n’est annoncée pour le Trailer 3 de GTA 6. Rockstar publie ses trailers sur son Newswire et ses réseaux sans prévenir : toute date précise qui circule est une rumeur.",
+      "Le trailer de lancement de GTA 6 — de fait le Trailer 3 — est sorti le 15 octobre 2026, sans annonce préalable. Il dure environ 90 secondes, a été capturé en jeu sur PlayStation 5 et dévoile « Flower in a Hurricane » de Justice. La sortie reste fixée au 19 novembre 2026.",
+    comparison: LAUNCH_TRAILER_SHOTS.length
+      ? {
+          caption:
+            "Plans du trailer de lancement recalés sur Map-6. Timecodes vérifiés à la main sur la vidéo officielle ; selon l’encodage, une seconde d’écart est possible.",
+          headers: ["Timecode", "Plan", "Page Map-6"],
+          rows: launchTrailerShotRows("fr"),
+        }
+      : {
+          caption: "Trailer de lancement de GTA 6 — ce que Rockstar a réellement publié",
+          headers: ["Élément", "Statut"],
+          rows: [
+            ["Mise en ligne", "15 octobre 2026, sans teaser"],
+            ["Durée", "Environ 90 secondes"],
+            ["Capture", "En jeu, sur PlayStation 5 (Rockstar)"],
+            ["Musique", "« Flower in a Hurricane » — Justice feat. Tame Impala, SZA, King Gizzard & The Lizard Wizard"],
+            ["Date de sortie", "19 novembre 2026, inchangée"],
+            ["Plans recalés sur la carte", "En cours — publiés seulement une fois chaque image vérifiée"],
+          ],
+        },
     faq: [
       {
-        question: "Quand sort le Trailer 3 de GTA 6 ?",
+        question: "Le trailer de lancement de GTA 6, c’est le Trailer 3 ?",
         answer:
-          "Rockstar n’a publié aucune date officielle pour le Trailer 3. Traitez les calendriers des réseaux sociaux comme non vérifiés. Map-6 met cette page à jour quand le Newswire ou la chaîne YouTube officielle annonce un jour.",
+          "Rockstar l’appelle Launch Trailer et non Trailer 3, mais c’est bien la troisième bande-annonce cinématique après décembre 2023 et mai 2025. L’Extended Look du 27 août 2026 était du gameplay, pas un trailer numéroté.",
       },
       {
-        question: "Comment utiliser un nouveau trailer avec Map-6 ?",
+        question: "Quand est sorti le trailer de lancement de GTA 6 ?",
         answer:
-          "Mettez en pause sur les bandes de néon, les digues, les courbes de skyline et les limites de biomes. Filtrez Landmarks, recalez la forme, copiez les X/Y du HUD et partagez un lien profond. N’inventez pas une visite d’intérieur à partir d’un plan de deux secondes.",
+          "Le 15 octobre 2026, sur les chaînes de Rockstar et sur rockstargames.com/VI, sans annonce la veille.",
+      },
+      {
+        question: "Quelle est la musique du trailer de lancement ?",
+        answer:
+          "« Flower in a Hurricane » de Justice, avec Tame Impala, SZA et King Gizzard & The Lizard Wizard. Rockstar indique que le titre figure sur Grand Theft Auto VI: The Album.",
       },
     ],
     content: [
-      "Mot-clé principal : trailer 3 gta 6. Secondaires : date du trailer, leak du trailer. La réponse honnête est plus courte que ne le voudrait l’industrie de la rumeur : il n’y a pas de date inventée par Map-6. Tant que Rockstar, Take-Two ou la chaîne YouTube/Newswire officielle n’annoncent pas un jour et une heure, chaque capture « vendredi prochain » est non vérifiée. Nous ne fabriquerons pas un calendrier pour nous positionner.",
-      "Pourquoi le Trailer 3 compte pour un site de cartes : les trailers 1 et 2 ont déjà vendu l’énergie de Vice City, le couple et le contraste floridien de Leonida. Une troisième cinématique, si elle arrive, montre en général de nouveaux districts, de la météo, des intérieurs et une grammaire de poursuite — exactement les images que Map-6 est fait pour épingler. Un Extended Look ou une diffusion de gameplay Netflix n’est pas un trailer numéroté ; nous les étiquetons séparément dans /news.",
-      "Méthode le soir de la diffusion : (1) ouvrez /map avec Landmarks seul, (2) mettez en pause sur les hôtels néon et les transitions humides, (3) recalez les silhouettes plutôt que l’étalonnage, (4) partagez des liens profonds avec theme=streamer si vous clippez, (5) notez timestamp + X/Y + niveau de confiance. Cette boucle bat vingt serveurs Discord qui collent la même image avec de pires métadonnées. Détails : gta-6-map-guide et gta-6-map-clip-kit.",
-      "Hygiène face aux leaks : les requêtes « leak trailer gta vi » attirent les malwares et les faux rips 4K. Ne téléchargez pas d’EXE « Trailer 3 en avance » ni de packs Telegram. La vidéo officielle n’existe que sur les canaux Rockstar ; gta-6-scam-watch couvre le reste.",
-      "Checklist géographique pour toute nouvelle image officielle : la bande d’Ocean Drive, les digues des Keys, les grues de Port Gellhorn, les chenaux des Grassrivers, les grilles d’Ambrosia, la limite forestière de Mount Kalaga. Les pages régionales sous /locations contiennent les textes longs. La carte CS2 153426 est un repère d’ambiance en 3D, pas du canon.",
-      "À lire aussi : gta-6-characters-lucia-jason, gta-6-story, gta-6-map-size, gta-6-release-date (19 novembre 2026). Quand une vraie date tombera, ce titre restera ; le premier paragraphe recevra une ligne datée et un lien vers la vidéo officielle.",
+      "Pas de compte à rebours, pas de teaser : Rockstar a publié le trailer de lancement de Grand Theft Auto VI le 15 octobre 2026, comme il l’avait fait pour le Trailer 2. Une minute trente environ, capturée intégralement en jeu sur PlayStation 5 selon le studio. Le calendrier ne bouge pas : sortie le 19 novembre 2026 sur PS5 et Xbox Series X|S, préchargement dès le 12 novembre.",
+      "Beaucoup cherchent encore « Trailer 3 GTA 6 ». Rockstar parle de Launch Trailer, mais c’est dans les faits la troisième cinématique, après celles de décembre 2023 et de mai 2025. L’Extended Look d’août montrait du gameplay ; Map-6 le range à part.",
+      "Le trailer pose surtout le récit. En voix off, Jason évoque un passé militaire qui s’est mal terminé ; la description officielle résume l’intrigue en un coup facile qui tourne mal et entraîne le couple dans une conspiration à l’échelle de Leonida. Lucia l’appelle dès les premières secondes, puis tout s’enchaîne en musique. C’est un film d’accroche pour ceux qui n’ont pas suivi trois ans d’images, pas une présentation des systèmes de jeu.",
+      "L’autre nouvelle, c’est la musique. « Flower in a Hurricane » est un inédit de Justice avec Tame Impala, SZA et King Gizzard & The Lizard Wizard. Rockstar confirme que le duo français signe la bande originale et que le morceau figure sur Grand Theft Auto VI: The Album.",
+      "Une partie des joueurs a trouvé l’image floue comparée au Trailer 1. Ce flou ressemble à un choix d’objectif et d’étalonnage plutôt qu’à une baisse de résolution. Conséquence pratique pour recaler une image sur la carte : fiez-vous aux toits, aux courbes de route et aux côtes, jamais à la netteté ni aux couleurs.",
+      "Cette page liste les plans que Map-6 a recalés. Chaque timecode est vérifié à la main sur la vidéo officielle et renvoie vers la page du lieu ; tant qu’un plan n’est pas vérifié, il n’apparaît pas. Pas de liste de plans reprise des réseaux sociaux ni générée à partir de descriptions : un timecode faux envoie le lecteur au mauvais endroit.",
+      "Pour le faire vous-même : ouvrez /map avec Landmarks seul, mettez en pause sur les skylines, les digues et les fronts de mer, comparez les silhouettes, puis partagez le lien profond. Les pages régionales sous /locations — Vice City, Ocean Drive, Leonida Keys, Port Gellhorn, Grassrivers, Ambrosia et Mount Kalaga — détaillent chaque zone.",
+      "Regardez uniquement sur les canaux de Rockstar. Les packs « 4K en avance » ou « version longue » sur Telegram servent souvent à diffuser des malwares ; gta-6-scam-watch détaille le reste. À lire aussi : gta-6-release-date, gta-6-characters-lucia-jason, gta-6-map-guide.",
     ],
   },
   "ocean-drive-gta-6": {

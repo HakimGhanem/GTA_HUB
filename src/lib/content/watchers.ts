@@ -33,6 +33,12 @@ const WATCH_URLS = [
     refreshOf: "gta-6-download-time",
     locale: "en" as const,
   },
+  {
+    url: "https://www.metacritic.com/game/grand-theft-auto-vi/",
+    label: "Metacritic",
+    refreshOf: "gta-6-reviews",
+    locale: "en" as const,
+  },
 ];
 
 export type WatcherHit = {
