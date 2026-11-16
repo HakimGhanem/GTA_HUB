@@ -14,6 +14,7 @@
     "tiles:fetch-classic": "bash scripts/fetch-classic-maps.sh",
     "tiles:fetch-all": "bash scripts/fetch-all-maps.sh",
     "tiles:stitch-gtadb": "bash scripts/stitch-gtadb-local.sh",
+    "pois:sync-gtadb": "node scripts/sync-gtadb-landmarks.mjs",
     "pois:import-gta5-world": "node scripts/import-gta5-world-pois.mjs",
     "pois:import-vc": "node scripts/import-vc-collectibles.mjs",
     "pois:import-classic": "node scripts/import-classic-collectibles.mjs",

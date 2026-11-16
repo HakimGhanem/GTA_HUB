@@ -14,6 +14,7 @@ export async function Footer() {
     { href: "/maps/gta5", label: nav("gta5") },
     { href: "/locations", label: nav("locations") },
     { href: "/gta-6-real-life-locations", label: t("realLifeLocations") },
+    { href: "/updates", label: t("updates") },
     { href: "/collectibles", label: nav("collectibles") },
     { href: "/database", label: nav("database") },
     { href: "/guides", label: nav("guides") },

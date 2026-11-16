@@ -10,12 +10,13 @@
     "database": "Datenbank",
     "creators": "Creator",
     "pro": "Pro",
-    "gta5": "GTA-5-Karte"
+    "gta5": "GTA-5-Karte",
+    "realLifeMatches": "Welches echte Gebäude ist das? 1.900+ Treffer"
   },
   "home": {
     "title": "Kostenlose interaktive GTA-6-Karte",
-    "heroLine": "Bestätigt vs Community-Pins. Offizielle Footage-Timestamps. Keine Leak-Karten.",
-    "trustPoi": "1.500+ POIs",
+    "heroLine": "Bestätigt vs Community-Pins. <realLife>Welches echte Gebäude ist das? 1.900+ Treffer</realLife>. Offizielle Footage-Timestamps. Keine Leak-Karten.",
+    "trustPoi": "3.400+ POIs",
     "trustOfficial": "Nur offiziell",
     "trustNoLeak": "Keine Leak-Maps",
     "subtitle": "1400+ POIs in Vice City & Leonida — Sammelobjekte filtern, Pins teilen, Koordinaten tracken. Kostenlose interaktive GTA-6-Karte für Trailer-Scrubbing und Launch-Tag, mit Guides die bestätigte Trailer-Geografie von Gerüchten trennen.",
@@ -116,7 +117,8 @@
     "classicVc": "Vice City (classic)",
     "classicVcDesc": "Hidden packages and unique jumps on the 2002 map.",
     "classicSa": "San Andreas",
-    "classicSaDesc": "Horseshoes, oysters, and snapshots across San Andreas."
+    "classicSaDesc": "Horseshoes, oysters, and snapshots across San Andreas.",
+    "realLifeMatch": "Which real building is it? See the real-life matches"
   },
   "collectibles": {
     "title": "GTA-6-Sammelobjekte",
@@ -161,7 +163,7 @@
     "mapTitle": "GTA-6-Karte kostenlos — Interaktiv Vice City | Map-6",
     "mapDesc": "Kostenlose interaktive GTA-6-Karte: 1400+ POIs, Filter, Koordinaten & Messwerkzeuge für Vice City. Deep Links teilen — launchbereit.",
     "mapH1": "GTA-6-Interaktivkarte",
-    "mapLead": "1.500+ Pins · Nur-offiziell · Koordinaten · keine Leaks",
+    "mapLead": "3.400+ Pins · Nur-offiziell · Koordinaten · keine Leaks",
     "collectiblesTitle": "GTA-6-Sammelobjekte — Versteckte Pakete, Stunt-Sprünge & mehr | Map-6",
     "collectiblesDesc": "Verfolge jedes GTA-6-Sammelobjekt auf der interaktiven Karte: versteckte Pakete, Stunt-Sprünge, Street Art und Wildlife-Fotospots.",
     "guidesTitle": "GTA-6-Guides — Karte, Charaktere, Vorbestellung | Map-6",
@@ -182,7 +184,8 @@
     "press": "Presse",
     "contact": "Kontakt",
     "sources": "Alle Datenquellen",
-    "realLifeLocations": "Reale Orte"
+    "realLifeLocations": "Reale Orte",
+    "updates": "Karten-Updates"
   },
   "header": {
     "tagline": "GTA HUB · Karte, Guides, Shop",
@@ -342,7 +345,10 @@
       "notePlaceholder": "Nur lokal — nie hochgeladen",
       "report": "Pin melden",
       "realWorldLabel": "Reales Vorbild",
-      "realWorldView": "Echten Ort ansehen"
+      "realWorldView": "Echten Ort ansehen",
+      "photoInGame": "Im Spiel",
+      "photoReal": "In echt",
+      "photoCredit": "Fotos: GTADB, CC BY 4.0"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

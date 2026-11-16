@@ -2,7 +2,9 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { RegionHubs } from "@/components/locations/RegionHubs";
 import { LocationsList } from "@/components/locations/LocationsList";
 import { ClassicMapsPromo } from "@/components/map/ClassicMapsPromo";
+import { LastVerified } from "@/components/seo/LastVerified";
 import { getAllLocations } from "@/data/all-locations";
+import { GTADB_SYNCED_AT } from "@/lib/location-freshness";
 import { buildMetadata } from "@/lib/seo";
 
 type Props = {
@@ -31,9 +33,12 @@ export default async function LocationsPage({ params }: Props) {
   return (
     <main className="mx-auto max-w-5xl flex-1 px-4 py-10">
       <h1 className="mb-2 text-3xl font-bold">{t("title")}</h1>
-      <p className="mb-8 text-foreground/60">
+      <p className="text-foreground/60">
         {t("count", { count: total.toLocaleString(locale) })} — {t("countHint")}
       </p>
+      <div className="mb-8">
+        <LastVerified date={GTADB_SYNCED_AT} locale={locale} />
+      </div>
 
       <RegionHubs title={t("regionHubsTitle")} hint={t("regionHubsHint")} />
 

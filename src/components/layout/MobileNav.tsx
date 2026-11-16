@@ -12,6 +12,7 @@ export function MobileNav() {
 
   const links = [
     { href: "/map", label: nav("map") },
+    { href: "/gta-6-real-life-locations", label: nav("realLifeMatches") },
     { href: "/locations", label: nav("locations") },
     { href: "/collectibles", label: nav("collectibles") },
     { href: "/database", label: nav("database") },

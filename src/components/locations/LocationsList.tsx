@@ -14,7 +14,10 @@ export function LocationsList() {
   const t = useTranslations("locations");
   const locale = useLocale();
   const all = useMemo(
-    () => getBrowsableLocations(getAllLocations()),
+    () =>
+      getBrowsableLocations(getAllLocations()).filter(
+        (loc) => !loc.slug.startsWith("gtadb-"),
+      ),
     [],
   );
   const [query, setQuery] = useState("");

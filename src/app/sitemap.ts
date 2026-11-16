@@ -18,6 +18,7 @@ import { isIndexableNewsArticle } from "@/lib/content/news-canonical";
 import { listArticles } from "@/lib/content/repository";
 import { getIndexableLocations } from "@/lib/location-indexing";
 import {
+  REAL_LIFE_UPDATED_AT,
   getLocalityPages,
   getSubtypePages,
   localitySlug,
@@ -35,15 +36,45 @@ export const revalidate = 0;
 type SitemapOptions = Omit<MetadataRoute.Sitemap[number], "url" | "alternates">;
 
 /** Last real content change for pages that are not news/guides. */
-const SITE_UPDATED = new Date("2026-10-16T14:19:11.000Z");
+const SITE_UPDATED = new Date("2026-10-26T14:00:00.000Z");
 const MAP_UPDATED = new Date(MAP_CONTENT_UPDATED_AT);
 const PRO_UPDATED = new Date("2026-10-19T12:00:00.000Z");
+const PRIVACY_UPDATED = new Date("2026-08-02T00:00:00.000Z");
+const REAL_LIFE_UPDATED = new Date(REAL_LIFE_UPDATED_AT);
 const LAUNCH_GUIDE_SLUGS = new Set([
   "gta-6-release-time",
   "gta-6-preload",
   "gta-6-file-size",
 ]);
 const LAUNCH_GUIDE_UPDATED = new Date("2026-10-19T12:00:00.000Z");
+
+const NOINDEX_PATH = [
+  /\/database(?:\/|$)/,
+  /\/overlay(?:\/|$)/,
+  /\/live(?:\/|$)/,
+  /\/pro\/(?:success|restore)/,
+  /\/locations\/gtadb-/,
+];
+
+function stamp(value: string): Date {
+  return new Date(value.includes("T") ? value : `${value}T00:00:00.000Z`);
+}
+
+function isSitemapUrl(url: string): boolean {
+  let parsed: URL;
+  try {
+    parsed = new URL(url);
+  } catch {
+    return false;
+  }
+  const locale = parsed.pathname.split("/")[1] ?? "";
+  if (!(INDEXABLE_LOCALES as readonly string[]).includes(locale)) return false;
+  if (NOINDEX_PATH.some((re) => re.test(parsed.pathname))) return false;
+  if (parsed.pathname.split("/").some((part) => part.startsWith("gtadb-"))) {
+    return false;
+  }
+  return true;
+}
 
 function hreflangAlternates(
   path: string,
@@ -115,6 +146,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/news",
     "/about",
     "/press",
+    "/updates",
     "/contact",
     "/privacy",
   ];
@@ -134,7 +166,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
           ? MAP_UPDATED
           : path === "/guides"
             ? LAUNCH_GUIDE_UPDATED
-            : SITE_UPDATED,
+            : path === "/gta-6-real-life-locations" || path === "/updates"
+              ? REAL_LIFE_UPDATED
+              : path === "/privacy"
+                ? PRIVACY_UPDATED
+                : SITE_UPDATED,
       changeFrequency:
         path === "" || path === "/map" || path === "/news"
           ? "daily"
@@ -185,17 +221,19 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ATTRIBUTIONS_LOCALES,
   );
 
-  const locationPages = getIndexableLocations(getAllLocations()).flatMap((loc) =>
-    localizedEntries(`/locations/${loc.slug}`, {
-      lastModified: SITE_UPDATED,
-      changeFrequency: "weekly",
-      priority: 0.7,
-    }),
-  );
+  const locationPages = getIndexableLocations(getAllLocations())
+    .filter((loc) => !loc.slug.startsWith("gtadb-"))
+    .flatMap((loc) =>
+      localizedEntries(`/locations/${loc.slug}`, {
+        lastModified: SITE_UPDATED,
+        changeFrequency: "weekly",
+        priority: 0.7,
+      }),
+    );
 
   const realWorldLocalityPages = getLocalityPages().flatMap((group) =>
     localizedEntries(`/gta-6-real-life-locations/${localitySlug(group.region)}`, {
-      lastModified: SITE_UPDATED,
+      lastModified: REAL_LIFE_UPDATED,
       changeFrequency: "monthly",
       priority: 0.7,
     }),
@@ -204,7 +242,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const realWorldSubtypePages = getSubtypePages().flatMap((group) =>
     localizedEntries(
       `/gta-6-real-life-locations/type/${subtypeSlug(group.subtype)}`,
-      { lastModified: SITE_UPDATED, changeFrequency: "monthly", priority: 0.7 },
+      {
+        lastModified: REAL_LIFE_UPDATED,
+        changeFrequency: "monthly",
+        priority: 0.7,
+      },
     ),
   );
 
@@ -218,9 +260,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const guidePages = GUIDES.flatMap((g) => {
     const localeList = filterIndexableLocales(guideHreflangLocales(g.slug));
-    const lastModified = LAUNCH_GUIDE_SLUGS.has(g.slug)
-      ? LAUNCH_GUIDE_UPDATED
-      : new Date(`${g.publishedAt}T00:00:00.000Z`);
+    const lastModified = g.updatedAt
+      ? stamp(g.updatedAt)
+      : LAUNCH_GUIDE_SLUGS.has(g.slug)
+        ? LAUNCH_GUIDE_UPDATED
+        : stamp(g.publishedAt);
     return localeList
       .filter((locale) => hasGuideTranslation(g.slug, locale))
       .map((locale) => ({
@@ -254,5 +298,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...collectiblePages,
     ...guidePages,
     ...newsPages,
-  ];
+  ].filter((entry) => isSitemapUrl(entry.url));
 }

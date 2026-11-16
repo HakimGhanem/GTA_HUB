@@ -37,7 +37,7 @@ const FACTS: [string, string][] = [
   ["URL", "https://map-6.com/en/creators"],
   ["Audience", "Players and streamers researching Leonida before 19 Nov 2026"],
   ["Creator tools", "Chrome-free overlay, streamer / neon themes, ref= tags, no login"],
-  ["Map", "1,500+ POIs, filters, measure, unlimited local progress"],
+  ["Map", "3,400+ POIs, filters, measure, unlimited local progress"],
   ["Editorial", "Official frames first. Speculation labeled. No leaked development maps."],
   ["Brand safety", "No fake collectible totals, no invented PC date, no unofficial currency sellers"],
   ["Basemap", "GTADB / GTA VI Mapping Community, CC BY 4.0"],
@@ -154,7 +154,7 @@ export default async function CreatorsPage({ params }: Props) {
         <h2 className="text-xl font-semibold text-foreground">Partner brief</h2>
         <blockquote className="mt-3 rounded-xl border border-foreground/10 bg-foreground/5 px-5 py-4 text-foreground/80">
           Map-6 (map-6.com) is a source-tagged interactive map of Leonida with
-          1,500+ points of interest, a chrome-free OBS overlay, and shareable
+          3,400+ points of interest, a chrome-free OBS overlay, and shareable
           pin URLs used by streamers on Kick, TikTok, and Twitch. It does not
           host leaked development maps, unofficial currency sellers, or a fake
           partner badge. Editorial rule: official frames first; speculation

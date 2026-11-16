@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { getTranslations, setRequestLocale } from "next-intl/server";
+import { LastVerified } from "@/components/seo/LastVerified";
 import { Link } from "@/i18n/navigation";
 import { isIndexableLocale } from "@/i18n/routing";
 import { isIndexableNewsArticle } from "@/lib/content/news-canonical";
@@ -31,6 +32,13 @@ export default async function NewsIndexPage({ params }: Props) {
     <main className="mx-auto max-w-5xl flex-1 px-4 py-10">
       <h1 className="mb-2 text-3xl font-bold">{t("title")}</h1>
       <p className="mb-2 max-w-2xl text-foreground/60">{t("subtitle")}</p>
+      <LastVerified
+        date={articles.reduce<string | undefined>((latest, a) => {
+          const at = a.updatedAt || a.publishedAt;
+          return at && (!latest || at > latest) ? at : latest;
+        }, undefined)}
+        locale={locale}
+      />
       <p className="mb-8 max-w-2xl text-xs text-foreground/40">
         Verified sources only — no fake leaks or invented trailer calendars.{" "}
         <Link href="/about" className="text-accent/80 underline hover:text-accent/80">
