@@ -117,7 +117,7 @@ export default async function LivePage({ params }: Props) {
             <Link href="/overlay?theme=streamer" className="text-accent underline">
               chrome-free overlay
             </Link>{" "}
-            is a 1920×1080 OBS browser source with 1,500+ Leonida pins. No
+            is a 1920×1080 OBS browser source with 3,400+ Leonida pins. No
             login, no watermark on your scene.
           </p>
         </div>

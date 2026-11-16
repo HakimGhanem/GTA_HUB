@@ -42,6 +42,10 @@ export type Location = {
   };
   /** Premium-edition destination named by Rockstar */
   edition?: LocationEdition;
+  /** Last upstream edit (YYYY-MM-DD), for pins imported from GTADB */
+  updatedAt?: string;
+  /** GTADB photo versions: in-game screenshot and real-life counterpart */
+  photos?: { ig?: number; rl?: number };
 };
 
 const ROCKSTAR_VI = "https://www.rockstargames.com/VI";

@@ -15,6 +15,9 @@ type MapToolbarProps = {
   shareHint?: string;
   onToggleSidebar: () => void;
   onToggleMeasure: () => void;
+  tilted?: boolean;
+  /** Omitted when the basemap cannot follow a tilted camera */
+  onToggleTilt?: () => void;
   onFitBounds: () => void;
   onShare: () => void;
   onCopyOverlay: () => void;
@@ -38,6 +41,8 @@ export function MapToolbar({
   shareHint,
   onToggleSidebar,
   onToggleMeasure,
+  tilted = false,
+  onToggleTilt,
   onFitBounds,
   onShare,
   onCopyOverlay,
@@ -157,6 +162,23 @@ export function MapToolbar({
         >
           {measureActive ? "Measuring…" : "Measure"}
         </button>
+        {onToggleTilt && (
+          <button
+            type="button"
+            onClick={onToggleTilt}
+            className={clsx(
+              "rounded-lg border px-3 py-1.5 text-xs font-medium backdrop-blur-md transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400/60",
+              tilted
+                ? "border-pink-400/40 bg-pink-500/20 text-pink-200"
+                : "border-foreground/15 bg-black/70 text-foreground/90 hover:bg-black/85",
+            )}
+            aria-pressed={tilted}
+            aria-label={tilted ? "Back to top-down view" : "Tilt the map in 3D"}
+            title={tilted ? "Top-down view" : "3D view — right-drag or two fingers to rotate"}
+          >
+            3D
+          </button>
+        )}
         <button
           type="button"
           onClick={onFitBounds}

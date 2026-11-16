@@ -1,8 +1,12 @@
 import { getAllLocations, type Location } from "@/data/all-locations";
+import { GTADB_SYNCED_AT } from "@/lib/location-freshness";
 
 export type RealWorldMatch = Location & {
   realWorld: NonNullable<Location["realWorld"]>;
 };
+
+/** Follows the last GTADB sync, which is what changes these pages. */
+export const REAL_LIFE_UPDATED_AT = `${GTADB_SYNCED_AT}T00:00:00.000Z`;
 
 export type RealWorldLocalityGroup = {
   region: string;

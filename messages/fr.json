@@ -11,12 +11,12 @@
     "creators": "Créateurs",
     "pro": "Pro",
     "gta5": "Carte GTA 5",
-    "realLifeMatches": "Quel bâtiment réel est-ce ? 1 000+ rapprochements"
+    "realLifeMatches": "Quel bâtiment réel est-ce ? 1 900+ rapprochements"
   },
   "home": {
     "title": "Carte GTA 6",
-    "heroLine": "Parcourez Leonida — 1 000+ bâtiments rapprochés de l’adresse réelle de Floride du Sud dont ils s’inspirent, timestamps trailers, un niveau de confiance sur chaque pin. Pas de carte leak.",
-    "trustPoi": "1 000+ correspondances réelles",
+    "heroLine": "Parcourez Leonida — <realLife>Quel bâtiment réel est-ce ? 1 900+ rapprochements</realLife>, timestamps trailers, un niveau de confiance sur chaque pin. Pas de carte leak.",
+    "trustPoi": "1 900+ correspondances réelles",
     "trustOfficial": "Filtre official-only",
     "trustNoLeak": "Pas de leak map",
     "subtitle": "La carte GTA 6 pour Vice City et Leonida : filtrez les collectibles, copiez les coordonnées, mesurez, partagez un deep link. La géographie trailer est étiquetée ; les pins communauté restent optionnels. Pour le lancement du 19 nov. 2026.",
@@ -52,7 +52,7 @@
     "newsTitle": "Dernières actus",
     "newsAll": "Toutes les actus →",
     "introTitle": "Une vraie carte GTA 6, pas une affiche à six régions",
-    "introBody": "La plupart des pages « carte GTA 6 » citent Vice City, les Keys, Grassrivers, Port Gellhorn, Ambrosia et Mount Kalaga — puis s’arrêtent. Map-6 est une carte interactive GTA 6 à parcourir et filtrer, et elle répond à une question que ces pages ignorent : quel bâtiment réel est-ce ? Plus de 1 000 emplacements de Leonida sont <realLife>rapprochés de l’adresse de Floride du Sud qui a servi de modèle</realLife>, chacun avec le niveau de confiance établi par la communauté. Passez en official-only pour ne garder que ce que Rockstar a montré. Copiez les coordonnées, mesurez, partagez la vue exacte. Pas de cartes leak. Tuiles et relevés communautaires GTADB crédités CC BY 4.0.",
+    "introBody": "La plupart des pages « carte GTA 6 » citent Vice City, les Keys, Grassrivers, Port Gellhorn, Ambrosia et Mount Kalaga — puis s’arrêtent. Map-6 est une carte interactive GTA 6 à parcourir et filtrer, et elle répond à une question que ces pages ignorent : quel bâtiment réel est-ce ? Plus de 1 900 emplacements de Leonida sont <realLife>rapprochés de l’adresse de Floride du Sud qui a servi de modèle</realLife>, chacun avec le niveau de confiance établi par la communauté. Passez en official-only pour ne garder que ce que Rockstar a montré. Copiez les coordonnées, mesurez, partagez la vue exacte. Pas de cartes leak. Tuiles et relevés communautaires GTADB crédités CC BY 4.0.",
     "hub": {
       "navLabel": "Hub GTA 6",
       "preorder": "Précommande",
@@ -157,13 +157,13 @@
   "meta": {
     "siteName": "Map-6",
     "homeTitle": "Carte GTA 6 — Leonida & Vice City interactive | Map-6",
-    "homeDesc": "Carte GTA 6 gratuite de Leonida et Vice City : 1 000+ bâtiments rapprochés d’adresses réelles en Floride, niveau de confiance, coordonnées, mesure, liens partageables. Pas de leak. MAJ 19 nov. 2026.",
+    "homeDesc": "Carte GTA 6 gratuite de Leonida et Vice City : 1 900+ bâtiments rapprochés d’adresses réelles en Floride, niveau de confiance, coordonnées, mesure, liens partageables. Pas de leak. MAJ 19 nov. 2026.",
     "locationsTitle": "Lieux GTA 6 — Vice City & Floride | Map-6",
     "locationsDesc": "Répertoire complet des lieux de GTA 6 : monuments, collectibles, boutiques, missions et secrets.",
     "mapTitle": "Carte GTA 6 — Plein écran Leonida & Vice City | Map-6",
-    "mapDesc": "Carte GTA 6 plein écran de Leonida et Vice City. Filtrez 1 000+ correspondances réelles, copiez les coordonnées, mesurez, partagez la vue exacte. Gratuit, pas de leak.",
+    "mapDesc": "Carte GTA 6 plein écran de Leonida et Vice City. Filtrez 1 900+ correspondances réelles, copiez les coordonnées, mesurez, partagez la vue exacte. Gratuit, pas de leak.",
     "mapH1": "Carte GTA 6 — plein écran Leonida & Vice City",
-    "mapLead": "1 000+ correspondances réelles · niveaux de confiance · coordonnées · pas de leak",
+    "mapLead": "1 900+ correspondances réelles · niveaux de confiance · coordonnées · pas de leak",
     "collectiblesTitle": "Collectibles GTA 6 — Paquets cachés, sauts acrobatiques & plus | Map-6",
     "collectiblesDesc": "Suivez chaque collectible GTA 6 sur la carte interactive : paquets cachés, sauts acrobatiques, street art et spots photo faune.",
     "guidesTitle": "Guides GTA 6 — Carte, personnages, précommande | Map-6",
@@ -192,7 +192,8 @@
     "press": "Presse",
     "contact": "Contact",
     "sources": "Toutes les sources",
-    "realLifeLocations": "Lieux réels"
+    "realLifeLocations": "Lieux réels",
+    "updates": "Mises à jour de la carte"
   },
   "header": {
     "tagline": "GTA HUB · carte, guides, shop",
@@ -352,7 +353,10 @@
       "notePlaceholder": "Local seulement — jamais envoyé",
       "report": "Signaler",
       "realWorldLabel": "Modèle réel",
-      "realWorldView": "Voir le lieu réel"
+      "realWorldView": "Voir le lieu réel",
+      "photoInGame": "Dans le jeu",
+      "photoReal": "En vrai",
+      "photoCredit": "Photos : GTADB, CC BY 4.0"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

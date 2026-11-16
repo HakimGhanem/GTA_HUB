@@ -1,8 +1,13 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { getPathname, Link } from "@/i18n/navigation";
+import { RealWorldComparisons } from "@/components/locations/RealWorldComparisons";
 import { RealWorldMatchList } from "@/components/locations/RealWorldMatchList";
+import { LastVerified } from "@/components/seo/LastVerified";
+import { GTADB_SYNCED_AT } from "@/lib/location-freshness";
+import { getLocationBySlug } from "@/data/all-locations";
 import { SITE } from "@/lib/constants";
+import { locationPathForRealLifeRegion } from "@/lib/location-indexing";
 import { buildMetadata } from "@/lib/seo";
 import {
   countMatchesBySubtype,
@@ -32,10 +37,18 @@ const EN = {
       : `${count} of these matches are flagged as unsettled by the community, and are marked as such below.`,
   directoryTitle: "Every match",
   directoryLead: "Alphabetical. Each name opens the pin on the interactive map.",
+  inGame: "in-game page",
   unsettled: "unsettled",
   othersTitle: "Other localities",
+  locationBack: (name: string) => `← ${name} on the GTA 6 map`,
   credit:
     "Identifications by the GTADB mapping community, reused under CC BY 4.0. Map-6 reformats and labels them.",
+  compareTitle: (region: string) => `${region}: game vs reality`,
+  compareLead:
+    "The community's own screenshot from the trailers next to a photo of the real building. Judge the resemblance yourself.",
+  compareInGame: "In-game",
+  compareReal: "Real life",
+  compareCredit: "Photos: GTADB mapping community, CC BY 4.0.",
 } as const;
 
 const FR = {
@@ -55,11 +68,29 @@ const FR = {
   directoryTitle: "Tous les rapprochements",
   directoryLead:
     "Par ordre alphabétique. Chaque nom ouvre le pin sur la carte interactive.",
+  inGame: "fiche in-game",
   unsettled: "incertain",
   othersTitle: "Autres localités",
+  locationBack: (name: string) => `← ${name} sur la carte GTA 6`,
   credit:
     "Identifications par la communauté cartographique GTADB, réutilisées sous licence CC BY 4.0. Map-6 les remet en forme et les étiquette.",
+  compareTitle: (region: string) => `${region} : le jeu face au réel`,
+  compareLead:
+    "La capture des trailers relevée par la communauté, à côté d’une photo du bâtiment réel. À vous de juger la ressemblance.",
+  compareInGame: "Dans le jeu",
+  compareReal: "En vrai",
+  compareCredit: "Photos : communauté cartographique GTADB, CC BY 4.0.",
 } as const;
+
+/**
+ * Indexed locality pages that a GTADB re-survey split or shrank below the page
+ * threshold. Empty string sends them to the index, where thin localities live.
+ */
+const RETIRED_LOCALITIES: Record<string, string> = {
+  "shore-dr-vice-beach": "shore-dr-ocean-beach-vice-beach",
+  "leonida-keys": "",
+  ambrosia: "",
+};
 
 export function generateStaticParams() {
   return getLocalityPages().map((group) => ({
@@ -91,7 +122,18 @@ export default async function LocalityPage({ params }: Props) {
   const { locale, locality } = await params;
   setRequestLocale(locale);
   const group = getLocalityBySlug(locality);
-  if (!group) notFound();
+  if (!group) {
+    const retiredTo = RETIRED_LOCALITIES[locality];
+    if (retiredTo !== undefined) {
+      permanentRedirect(
+        getPathname({
+          href: `/gta-6-real-life-locations${retiredTo ? `/${retiredTo}` : ""}`,
+          locale,
+        }),
+      );
+    }
+    notFound();
+  }
 
   const t = await getTranslations("map.subtypes");
   const copy = locale === "fr" ? FR : EN;
@@ -101,15 +143,26 @@ export default async function LocalityPage({ params }: Props) {
   const others = getLocalityPages().filter(
     (other) => other.region !== group.region,
   );
+  const locationHref = locationPathForRealLifeRegion(group.region);
+  const locationHub = locationHref
+    ? getLocationBySlug(locationHref.replace("/locations/", ""))
+    : undefined;
 
   return (
     <main className="mx-auto max-w-4xl flex-1 px-4 py-10">
-      <Link
-        href="/gta-6-real-life-locations"
-        className="mb-6 inline-block text-sm text-foreground/50 hover:text-foreground"
-      >
-        {copy.back}
-      </Link>
+      <div className="mb-6 flex flex-wrap gap-x-4 gap-y-1 text-sm text-foreground/50">
+        <Link
+          href="/gta-6-real-life-locations"
+          className="hover:text-foreground"
+        >
+          {copy.back}
+        </Link>
+        {locationHref && locationHub ? (
+          <Link href={locationHref} className="hover:text-foreground">
+            {copy.locationBack(locationHub.name)}
+          </Link>
+        ) : null}
+      </div>
 
       <p className="mb-2 text-sm font-medium uppercase tracking-widest text-cyan-300">
         {copy.kicker}
@@ -119,6 +172,17 @@ export default async function LocalityPage({ params }: Props) {
         {copy.lead(group.region, group.matches.length)}
       </p>
       <p className="mt-3 text-foreground/70">{copy.unsettledNote(unsettled)}</p>
+      <LastVerified date={GTADB_SYNCED_AT} locale={locale} />
+
+      <RealWorldComparisons
+        matches={group.matches}
+        locale={locale}
+        title={copy.compareTitle(group.region)}
+        lead={copy.compareLead}
+        inGameLabel={copy.compareInGame}
+        realLabel={copy.compareReal}
+        credit={copy.compareCredit}
+      />
 
       {natures.length > 0 && (
         <section className="mt-10">
@@ -151,6 +215,7 @@ export default async function LocalityPage({ params }: Props) {
           locale={locale}
           subtypeLabel={(subtype) => t(subtype)}
           unsettledLabel={copy.unsettled}
+          inGameLabel={copy.inGame}
         />
       </section>
 

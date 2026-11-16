@@ -50,6 +50,15 @@ import { MapStatusBar } from "./MapStatusBar";
 import { MapToolbar } from "./MapToolbar";
 import { useTranslations } from "next-intl";
 
+/**
+ * The basemap is a flat raster with no elevation data, so "3D" is a tilted
+ * camera. The native GTADB overlay draws onto an axis-aligned 2D canvas and
+ * cannot follow pitch or bearing — the toggle is hidden in that mode.
+ */
+const TILT_PITCH = 55;
+const TILT_BEARING = -17;
+const MAX_TILT_PITCH = 65;
+
 type GameMapProps = {
   gameId?: GameId;
   focus?: { x: number; y: number };
@@ -106,6 +115,7 @@ export function GameMap({
   const [measurePoints, setMeasurePoints] = useState<GameCoords[]>([]);
   const [shareHint, setShareHint] = useState<string | undefined>();
   const [mapTheme, setMapTheme] = useState<MapTheme>(theme);
+  const [tilted, setTilted] = useState(false);
   const defaultCoords = focus ?? { x: game.center[0], y: game.center[1] };
   const [coords, setCoords] = useState<GameCoords>(defaultCoords);
 
@@ -235,6 +245,22 @@ export function GameMap({
       }
       if (active) setMeasurePoints([]);
       return next;
+    });
+  }, [gameId]);
+
+  useEffect(() => {
+    if (!mapLoaded) return;
+    mapRef.current?.easeTo({
+      pitch: tilted ? TILT_PITCH : 0,
+      bearing: tilted ? TILT_BEARING : 0,
+      duration: 700,
+    });
+  }, [tilted, mapLoaded]);
+
+  const toggleTilt = useCallback(() => {
+    setTilted((on) => {
+      if (!on) trackEvent("map_tilt_on", { game_id: gameId });
+      return !on;
     });
   }, [gameId]);
 
@@ -369,11 +395,13 @@ export function GameMap({
           background: overlayMode ? "transparent" : undefined,
         }}
         attributionControl={false}
-        dragRotate={false}
-        pitchWithRotate={false}
+        dragRotate={tilted}
+        pitchWithRotate={tilted}
+        touchPitch={tilted}
+        maxPitch={MAX_TILT_PITCH}
       >
         {!overlayMode && (
-          <NavigationControl position="bottom-right" showCompass={false} />
+          <NavigationControl position="bottom-right" showCompass={tilted} visualizePitch />
         )}
 
         {mapLoaded && measureActive && !overlayMode && (
@@ -462,6 +490,8 @@ export function GameMap({
             setSidebarOverride(!(sidebarOverride ?? isDesktop))
           }
           onToggleMeasure={toggleMeasure}
+          tilted={tilted}
+          onToggleTilt={gtadbNative ? undefined : toggleTilt}
           onFitBounds={fitMapBounds}
           onShare={onShare}
           onCopyOverlay={onCopyOverlay}

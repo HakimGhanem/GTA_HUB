@@ -1,0 +1,147 @@
+{
+  "entries": [
+    {
+      "date": "2026-11-16",
+      "source": "gtadb",
+      "total": 3334,
+      "identified": 1924,
+      "survey": 1410,
+      "added": 1926,
+      "updated": 1300,
+      "removed": 7,
+      "samples": {
+        "added": [
+          {
+            "slug": "gtadb-l1821-egmont-key",
+            "name": "Egmont Key",
+            "region": "Zephyr Islands, Lummox County"
+          },
+          {
+            "slug": "gtadb-l1822-passage-key",
+            "name": "Passage Key",
+            "region": "Zephyr Islands, Lummox County"
+          },
+          {
+            "slug": "gtadb-l1855-mgv3-324-yulee",
+            "name": "MGV3+324 Yulee",
+            "region": "Frampton Islands"
+          },
+          {
+            "slug": "gtadb-l2940-jekyll-island",
+            "name": "Jekyll Island",
+            "region": "Frampton Islands"
+          },
+          {
+            "slug": "gtadb-l3422-cape-canaveral-lighthouse",
+            "name": "Cape Canaveral Lighthouse",
+            "region": "Little Hardin Island"
+          },
+          {
+            "slug": "gtadb-l2125-4422-fisher-island-dr",
+            "name": "4422 Fisher Island Dr",
+            "region": "Dalton Island"
+          },
+          {
+            "slug": "gtadb-l2140-prww-8p2-miami",
+            "name": "PRWW+8P2 Miami",
+            "region": "Gloriana Key"
+          },
+          {
+            "slug": "gtadb-l2223-qv45-ch5-miami",
+            "name": "QV45+CH5 Miami",
+            "region": "Dalton Island"
+          },
+          {
+            "slug": "gtadb-l3420-42109-fisher-island-dr",
+            "name": "42109 Fisher Island Dr",
+            "region": "Dalton Island"
+          },
+          {
+            "slug": "gtadb-l3421-40120-fisher-island-dr",
+            "name": "40120 Fisher Island Dr",
+            "region": "Dalton Island"
+          },
+          {
+            "slug": "gtadb-l835-the-fish-house",
+            "name": "The Fish House",
+            "region": "Leonida"
+          },
+          {
+            "slug": "gtadb-l2885-6801-shrimp-rd",
+            "name": "6801 Shrimp Rd",
+            "region": "Southwind"
+          }
+        ],
+        "updated": [
+          {
+            "slug": "gtadb-l273-pf2v-2rw-cudjoe-key",
+            "name": "PF2V+2RW Cudjoe Key",
+            "region": "Maroon Key"
+          },
+          {
+            "slug": "gtadb-l274-fat-albert-blimp",
+            "name": "Fat Albert Blimp",
+            "region": "Maroon Key"
+          },
+          {
+            "slug": "gtadb-l645-bahia-honda-state-park",
+            "name": "Bahia Honda State Park",
+            "region": "Abismo Key"
+          },
+          {
+            "slug": "gtadb-l846-mfxv-vwr-cudjoe-key",
+            "name": "MFXV+VWR Cudjoe Key",
+            "region": "Maroon Key"
+          },
+          {
+            "slug": "gtadb-l847-pf2v-6x6-cudjoe-key",
+            "name": "PF2V+6X6 Cudjoe Key",
+            "region": "Maroon Key"
+          },
+          {
+            "slug": "gtadb-l1299-mp4c-5g7-big-pine-key",
+            "name": "MP4C+5G7 Big Pine Key",
+            "region": "Abismo Key"
+          },
+          {
+            "slug": "gtadb-l1300-mp4c-52j-big-pine-key",
+            "name": "MP4C+52J Big Pine Key",
+            "region": "Abismo Key"
+          },
+          {
+            "slug": "gtadb-l1301-mp5g-w64-big-pine-key",
+            "name": "MP5G+W64 Big Pine Key",
+            "region": "Abismo Key"
+          },
+          {
+            "slug": "gtadb-l1302-calusa-beach-loggerhead-beach",
+            "name": "Calusa Beach & Loggerhead Beach",
+            "region": "Abismo Key"
+          },
+          {
+            "slug": "gtadb-l1427-33767-jimmy-buffett-mem-hwy",
+            "name": "33767 Jimmy Buffett Mem Hwy",
+            "region": "Abismo Key"
+          },
+          {
+            "slug": "gtadb-l1250-4622-fisher-island-dr",
+            "name": "4622 Fisher Island Dr",
+            "region": "Dalton Island"
+          },
+          {
+            "slug": "gtadb-l1255-fisher-island-market",
+            "name": "Fisher Island Market",
+            "region": "Dalton Island"
+          }
+        ]
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "source": "gtadb",
+      "total": 1415,
+      "identified": 1033,
+      "survey": 382
+    }
+  ]
+}

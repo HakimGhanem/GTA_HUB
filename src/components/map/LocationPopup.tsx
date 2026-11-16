@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import type { Location } from "@/data/all-locations";
 import { PIN_NOTE_MAX, usePinNote } from "@/hooks/usePinNotes";
 import { DEFAULT_GAME_ID, type GameId } from "@/lib/games";
+import { gtadbPhotoUrl, hasPhotoPair } from "@/lib/gtadb-photos";
 import { CATEGORY_COLORS } from "@/lib/map-filters";
 import {
   CONFIDENCE_COLORS,
@@ -110,6 +111,41 @@ export function LocationPopup({
           <p className="mt-0.5 text-[11px] leading-snug text-gray-700">
             {location.realWorld.address}
           </p>
+          {hasPhotoPair(location) && (
+            <figure className="mt-1.5">
+              <div className="grid grid-cols-2 gap-1">
+                {(
+                  [
+                    ["ig", t("map.popup.photoInGame")],
+                    ["rl", t("map.popup.photoReal")],
+                  ] as const
+                ).map(([kind, label]) => (
+                  <a
+                    key={kind}
+                    href={gtadbPhotoUrl(location, kind)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative block aspect-[4/3] overflow-hidden rounded bg-gray-200"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element -- CC BY photos on jsDelivr's CDN; the optimizer would add a hop per popup for no gain */}
+                    <img
+                      src={gtadbPhotoUrl(location, kind)}
+                      alt={`${location.realWorld?.name} — ${label}`}
+                      loading="lazy"
+                      decoding="async"
+                      className="h-full w-full object-cover"
+                    />
+                    <span className="absolute left-0.5 top-0.5 rounded bg-black/60 px-1 text-[9px] font-semibold text-white">
+                      {label}
+                    </span>
+                  </a>
+                ))}
+              </div>
+              <figcaption className="mt-0.5 text-[9px] text-gray-400">
+                {t("map.popup.photoCredit")}
+              </figcaption>
+            </figure>
+          )}
           {location.realWorld.lat != null && location.realWorld.lng != null && (
             <a
               href={`https://www.openstreetmap.org/?mlat=${location.realWorld.lat}&mlon=${location.realWorld.lng}#map=18/${location.realWorld.lat}/${location.realWorld.lng}`}

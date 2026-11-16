@@ -1,8 +1,11 @@
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { Link } from "@/i18n/navigation";
+import { getPathname, Link } from "@/i18n/navigation";
+import { RealWorldComparisons } from "@/components/locations/RealWorldComparisons";
 import { RealWorldMatchList } from "@/components/locations/RealWorldMatchList";
+import { LastVerified } from "@/components/seo/LastVerified";
 import { SITE } from "@/lib/constants";
+import { GTADB_SYNCED_AT } from "@/lib/location-freshness";
 import { buildMetadata } from "@/lib/seo";
 import {
   countMatchesByLocality,
@@ -33,11 +36,18 @@ const EN = {
       : `${count} of these are flagged as unsettled by the community, and are marked as such in the list.`,
   directoryTitle: "Every match",
   directoryLead: "Alphabetical. Each name opens the pin on the interactive map.",
+  inGame: "in-game page",
   unsettled: "unsettled",
   othersTitle: "Other categories",
   mapLink: "Open the interactive map",
   credit:
     "Identifications by the GTADB mapping community, reused under CC BY 4.0. Map-6 reformats and labels them.",
+  compareTitle: (label: string) => `${label}: game vs reality`,
+  compareLead:
+    "The community's screenshot of the in-game building next to a photo of the original.",
+  compareInGame: "In-game",
+  compareReal: "Real life",
+  compareCredit: "Photos: GTADB mapping community, CC BY 4.0.",
 } as const;
 
 const FR = {
@@ -59,12 +69,22 @@ const FR = {
   directoryTitle: "Tous les rapprochements",
   directoryLead:
     "Par ordre alphabétique. Chaque nom ouvre le pin sur la carte interactive.",
+  inGame: "fiche in-game",
   unsettled: "incertain",
   othersTitle: "Autres catégories",
   mapLink: "Ouvrir la carte interactive",
   credit:
     "Identifications par la communauté cartographique GTADB, réutilisées sous licence CC BY 4.0. Map-6 les remet en forme et les étiquette.",
+  compareTitle: (label: string) => `${label} : le jeu face au réel`,
+  compareLead:
+    "La capture du bâtiment dans le jeu relevée par la communauté, à côté d’une photo de l’original.",
+  compareInGame: "Dans le jeu",
+  compareReal: "En vrai",
+  compareCredit: "Photos : communauté cartographique GTADB, CC BY 4.0.",
 } as const;
+
+/** Indexed facets that a GTADB re-tagging pushed below the page threshold. */
+const RETIRED_SUBTYPES = new Set(["infrastructure"]);
 
 export function generateStaticParams() {
   return getSubtypePages().map((group) => ({
@@ -99,7 +119,12 @@ export default async function SubtypePage({ params }: Props) {
   const { locale, subtype } = await params;
   setRequestLocale(locale);
   const group = getSubtypeBySlug(subtype);
-  if (!group) notFound();
+  if (!group) {
+    if (RETIRED_SUBTYPES.has(subtype)) {
+      permanentRedirect(getPathname({ href: "/gta-6-real-life-locations", locale }));
+    }
+    notFound();
+  }
 
   const t = await getTranslations("map.subtypes");
   const plural = await getTranslations("map.subtypePlural");
@@ -129,6 +154,17 @@ export default async function SubtypePage({ params }: Props) {
         {copy.lead(label, group.matches.length, spread.length)}
       </p>
       <p className="mt-3 text-foreground/70">{copy.unsettledNote(unsettled)}</p>
+      <LastVerified date={GTADB_SYNCED_AT} locale={locale} />
+
+      <RealWorldComparisons
+        matches={group.matches}
+        locale={locale}
+        title={copy.compareTitle(label)}
+        lead={copy.compareLead}
+        inGameLabel={copy.compareInGame}
+        realLabel={copy.compareReal}
+        credit={copy.compareCredit}
+      />
 
       <section className="mt-10">
         <h2 className="mb-2 text-xl font-semibold">{copy.spreadTitle}</h2>
@@ -160,6 +196,7 @@ export default async function SubtypePage({ params }: Props) {
           locale={locale}
           subtypeLabel={(value) => t(value)}
           unsettledLabel={copy.unsettled}
+          inGameLabel={copy.inGame}
         />
       </section>
 
@@ -188,6 +225,10 @@ export default async function SubtypePage({ params }: Props) {
         ·{" "}
         <Link href="/map" className="underline">
           {copy.mapLink}
+        </Link>{" "}
+        ·{" "}
+        <Link href="/locations" className="underline">
+          /locations
         </Link>
       </p>
     </main>
