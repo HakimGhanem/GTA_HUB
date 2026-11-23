@@ -20,8 +20,10 @@ export async function GET(_request: Request, { params }: Context) {
     mapPanelOgCard({
       kicker: "Collectibles",
       title: collectibleType.name,
-      statValue: items.length,
-      statLabel: `pins mapped of ${collectibleType.total}`,
+      statValue: collectibleType.total ?? collectibleType.required ?? 0,
+      statLabel: collectibleType.total
+        ? `in game · ${collectibleType.required} for 100%`
+        : "scans for 100%",
       pins: items.map(({ x, y }) => ({ x, y })),
       basemap,
     }),

@@ -146,7 +146,7 @@ export const PREORDER_PRODUCTS: PreorderProduct[] = [
     envKey: "PS5",
     asin: process.env.NEXT_PUBLIC_AMAZON_ASIN_PS5 ?? "B0FX2VBNMF",
     label: "PlayStation 5 Console",
-    description: "Need a console for launch day? Bundle a PS5 with your GTA 6 preorder.",
+    description: "No console yet? A PS5 bundle is the quickest way into GTA 6.",
     platform: "PS5",
     edition: "hardware",
     commerce: { format: "hardware" },

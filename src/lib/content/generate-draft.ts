@@ -143,7 +143,7 @@ function templateDraft(topic: Topic): Omit<
 
 ${intentLines || "- Compare editions and launch hardware before stocks move."}
 
-- Full picks: [GTA 6 pre-order guide](/en/guides/gta-6-preorder-guide)
+- Full picks: [GTA 6 pre-order guide](/en/guides/gta-6-best-price)
 - Affiliate product slots fill as official ASINs go live — we never invent ASINs or trailer dates.
 `
       : "";
@@ -180,7 +180,7 @@ ${clipBlock}
 ## What to do next
 
 1. Open the [Map-6 interactive map](/en/map) and Share the pin.
-2. If you're buying hardware or editions, use the [pre-order guide](/en/guides/gta-6-preorder-guide).
+2. If you're buying hardware or editions, use the [pre-order guide](/en/guides/gta-6-best-price).
 3. Classics: try [GTA 5 map](/en/map?game=gta5) or [San Andreas](/en/map?game=sa) while waiting for VI.
 
 ## Sources
@@ -202,7 +202,7 @@ See the sources list below for outbound citations used in this draft.
     status: "drafted",
     author: "Map-6 Editorial",
     relatedLocationSlugs: ["vice-city"],
-    relatedGuideSlugs: ["gta-6-map-guide", "gta-6-preorder-guide"],
+    relatedGuideSlugs: ["gta-6-map-guide", "gta-6-best-price"],
     notes: `Auto-draft from topic ${topic.id}. Human review required before publish.`,
     eventKey: topic.eventKey,
     heroImage: "/og-default.png",
@@ -220,7 +220,7 @@ If the topic is a leak, say what official frames already show and what Map-6 wil
 Do not use stock headings like "What's new", "Verified facts vs rumors", "Clip kit", or "What to do next".
 No TikTok/Kick clip-kit as the spine.
 Write at least 900 words of original prose. One comparison table when SKUs, dates, or editions differ. Three FAQ pairs at the end as a markdown list is fine if they earn the click.
-Include ≥3 markdown internal links with descriptive anchors among: [interactive map](/en/map), [locations](/en/locations), [pre-order guide](/en/guides/gta-6-preorder-guide), [map guide](/en/guides/gta-6-map-guide), [Ultimate vs Standard](/en/guides/gta-6-ultimate-edition-vs-standard), [release date guide](/en/guides/gta-6-release-date).
+Include ≥3 markdown internal links with descriptive anchors among: [interactive map](/en/map), [locations](/en/locations), [pre-order guide](/en/guides/gta-6-best-price), [map guide](/en/guides/gta-6-map-guide), [Ultimate vs Standard](/en/guides/gta-6-ultimate-edition-vs-standard), [release date guide](/en/guides/gta-6-release-date).
 Embed exactly two in-body figures using this markdown only: ![Vice City on Map-6](/api/og/location/vice-city "Vice City hub") and ![Ocean Drive on Map-6](/api/og/location/ocean-drive "Ocean Drive hub") — never hotlink Rockstar screenshots.
 Title 30-60 chars; meta description 120-160 chars. Both must end on a complete word. No cut-off titles ("What", "Now").`;
 
@@ -397,7 +397,7 @@ async function groqDraft(
           content: `${DRAFT_RULES}
 Use only facts present in the research notes. Write flowing prose paragraphs, not a bullet list of facts.
 Never include citation markers, a trailing keyword list, or any "Keywords:" line — the source list is rendered separately.
-Link with descriptive anchor text, never the raw path: [interactive map](/en/map), [locations](/en/locations), [pre-order guide](/en/guides/gta-6-preorder-guide), [map guide](/en/guides/gta-6-map-guide). Use only these four paths.
+Link with descriptive anchor text, never the raw path: [interactive map](/en/map), [locations](/en/locations), [pre-order guide](/en/guides/gta-6-best-price), [map guide](/en/guides/gta-6-map-guide). Use only these four paths.
 Count characters: title 30-60, description 120-160. Both must end on a complete word.
 Weave in the primary keyword "${primary?.phrase ?? topic.primaryKeywordHint}" naturally; secondary keywords if they fit: ${secondary.join(", ")}.`,
         },

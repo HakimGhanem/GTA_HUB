@@ -79,16 +79,6 @@ export const LOCATIONS: Location[] = [
     confidence: "confirmed",
   },
   {
-    slug: "hidden-package-01",
-    name: "Hidden Package #1",
-    description:
-      "Classic GTA collectible hidden near the docks. Hidden packages are expected to return in GTA 6 — mark this spot on your map.",
-    category: "collectible",
-    x: -890,
-    y: -340,
-    region: "Port Gellhorn",
-  },
-  {
     slug: "grassrivers",
     name: "Grassrivers",
     description:

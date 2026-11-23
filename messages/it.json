@@ -121,10 +121,24 @@
     "realLifeMatch": "Which real building is it? See the real-life matches"
   },
   "collectibles": {
-    "title": "Collezionabili di GTA 6",
-    "subtitle": "Tipi di collezionabili GTA 6 — pin di esempio mappati. Totali ufficiali in attesa di Rockstar.",
+    "title": "GTA 6 100% Checklist & Collectibles",
+    "subtitle": "Every requirement on the in-game 100% Completion checklist, with collectible totals. Tick rows as you play — saved in your browser.",
     "mapped": "{current} / {total} mappati",
-    "samples": "{current} pin di esempio · totali non confermati finché Rockstar non li pubblica"
+    "samples": "{current} pin di esempio · totali non confermati finché Rockstar non li pubblica",
+    "checklistTitle": "Interactive 100% checklist",
+    "checklistProgress": "{done} of {total} requirements done",
+    "requiredOf": "{required} of {total}",
+    "requiredOnly": "{required} needed",
+    "guideLink": "Guide",
+    "typesTitle": "Collectibles by type",
+    "howToTrack": "How to track",
+    "openMap": "Open the interactive map",
+    "sources": "Sources:",
+    "total": "Total in game",
+    "totalUnpublished": "Not published",
+    "forHundred": "Needed for 100%",
+    "inGameMenu": "In-game counter",
+    "onTheMap": "On the map"
   },
   "guides": {
     "title": "Guide alla mappa di GTA 6",
@@ -201,11 +215,7 @@
     "themeSystem": "Sistema"
   },
   "countdown": {
-    "label": "GTA 6 esce tra",
-    "days": "giorni",
-    "hours": "ore",
-    "minutes": "minuti",
-    "seconds": "secondi"
+    "outNow": "Disponibile"
   },
   "news": {
     "title": "News GTA 6 e trailer",

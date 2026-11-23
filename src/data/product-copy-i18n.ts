@@ -34,7 +34,7 @@ const FR: Record<string, ProductCopyOverride> = {
   PS5: {
     label: "Console PlayStation 5",
     description:
-      "Besoin d'une console pour le jour J ? Associez une PS5 à votre précommande GTA 6.",
+      "Pas encore de console ? Un pack PS5 est le moyen le plus rapide de jouer à GTA 6.",
   },
   XBOX_SERIES_X: {
     description: "La console la plus puissante de Microsoft — Vice City en 4K.",
@@ -89,7 +89,7 @@ const FR: Record<string, ProductCopyOverride> = {
   },
   GTA5_PS5: {
     description:
-      "Rejouez Los Santos sur la carte classique en attendant GTA 6.",
+      "Rejouez Los Santos sur la carte classique.",
   },
   PS_STORE_20: {
     label: "PlayStation Store — carte 20 €",
@@ -112,7 +112,7 @@ const FR: Record<string, ProductCopyOverride> = {
   STEAM_WALLET_20: {
     label: "Porte-monnaie Steam — 20 €",
     description:
-      "Fiche Steam euro. Le stock bouge — si Amazon est vide, passez par la recherche taguée. Sert à GTA V / Online PC, pas à une précommande GTA 6.",
+      "Fiche Steam euro. Le stock bouge — si Amazon est vide, passez par la recherche taguée. Sert à GTA V / Online PC, pas à acheter GTA 6.",
     badge: "Steam",
   },
 };
@@ -257,7 +257,7 @@ const EN: Record<string, ProductCopyOverride> = {
   STEAM_WALLET_20: {
     label: "Steam gift card — £20 / $20",
     description:
-      "Steam wallet credit in your account's currency. Funds GTA V / Online on PC, not a GTA 6 pre-order.",
+      "Steam wallet credit in your account's currency. Funds GTA V / Online on PC, not a copy of GTA 6.",
   },
 };
 

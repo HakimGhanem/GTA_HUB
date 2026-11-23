@@ -65,13 +65,13 @@ function buildUserPayload(
               "/fr/map",
               "/fr/locations",
               "/fr/guides/gta-6-map-guide",
-              "/fr/guides/gta-6-preorder-guide",
+              "/fr/guides/gta-6-best-price",
             ]
           : [
               "/en/map",
               "/en/locations",
               "/en/guides/gta-6-map-guide",
-              "/en/guides/gta-6-preorder-guide",
+              "/en/guides/gta-6-best-price",
             ],
     },
     null,

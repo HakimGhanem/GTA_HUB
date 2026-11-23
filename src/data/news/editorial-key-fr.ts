@@ -17,7 +17,7 @@ export const KEY_FR_ARTICLES: Article[] = [
       "Take-Two dit que l’Ultimate à 99,99 $ précède la Standard à 79,99 $. Ce que Zelnick a dit, ce que vaut le 89 %, et comment choisir.",
     bodyMarkdown: `Take-Two, par la voix de Strauss Zelnick, a indiqué que le palier premium de Grand Theft Auto VI — l’**édition Ultimate à 99,99 $** — précède la **Standard à 79,99 $** dans le mix de précommandes. Le jeu reste calé au **19 novembre 2026** sur PlayStation 5 et Xbox Series X|S. L’histoire, c’est ce **supplément de 20 $ qui mène quand même le panier**. Ce n’est pas une nouvelle date, pas un PC confirmé, pas une raison de traiter chaque capture « 89 % » comme une stat Newswire.
 
-Ce briefing sépare **ce qu’un dirigeant a dit**, **ce que la presse a inféré**, et **ce que vous devez vraiment acheter**. Pour le checkout SKU par SKU : [guide précommande](/fr/guides/gta-6-preorder-guide) et [Ultimate vs Standard](/fr/guides/gta-6-ultimate-edition-vs-standard). La géographie ne change pas avec l’édition — la [carte interactive](/fr/map) est la même.
+Ce briefing sépare **ce qu’un dirigeant a dit**, **ce que la presse a inféré**, et **ce que vous devez vraiment acheter**. Pour le checkout SKU par SKU : [guide précommande](/fr/guides/gta-6-best-price) et [Ultimate vs Standard](/fr/guides/gta-6-ultimate-edition-vs-standard). La géographie ne change pas avec l’édition — la [carte interactive](/fr/map) est la même.
 ${VC( "Hub Vice City sur Map-6", "Mêmes pins Vice City en Standard et en Ultimate — l’édition n’agrandit pas Leonida.")}
 
 ## Ce que Zelnick a réellement dit
@@ -122,7 +122,7 @@ En attendant le 19 novembre, la géographie est gratuite : [Vice City](/fr/locat
       "Options PS5 pour GTA 6 en 2026 : Standard 79,99 $ vs Ultimate 99,99 $, physique boîte-code vs digital, checklist avant de payer.",
     bodyMarkdown: `Si vous vivez déjà sur PlayStation, le **SKU PS5 est le panier honnête** pour Grand Theft Auto VI. Rockstar a confirmé le **19 novembre 2026** sur PS5 et Xbox Series X|S. Cette page est le briefing précommande PlayStation : éditions, l’écart de 20 $, physique vs digital, et une checklist qui n’invente pas d’horloge de rupture.
 
-Les acheteurs Xbox doivent passer par le [guide précommande complet](/fr/guides/gta-6-preorder-guide). Le lock plateforme est la première décision ; l’édition est la deuxième.
+Les acheteurs Xbox doivent passer par le [guide précommande complet](/fr/guides/gta-6-best-price). Le lock plateforme est la première décision ; l’édition est la deuxième.
 ${VC( "Vice City sur Map-6 — même carte pour chaque édition PS5", "Le SKU PS5 n’ouvre pas un plus grand Leonida. C’est la même carte que sur Xbox.")}
 
 ## Les options PS5 en 2026
@@ -179,7 +179,7 @@ Les cartes affiliées Map-6 sont labellisées et ne changent pas le prix. Les AS
         title: "Rockstar Games — Grand Theft Auto VI",
       },
       {
-        url: "https://map-6.com/fr/guides/gta-6-preorder-guide",
+        url: "https://map-6.com/fr/guides/gta-6-best-price",
         title: "Map-6 — Guide précommande GTA 6",
       },
     ],
@@ -254,7 +254,7 @@ PC : **non annoncé** pour le 19 novembre 2026. Totaux de collectibles : **non p
 
 Ce que le Look n’a **pas** fait : publier un shapefile, un total de Hidden Packages, ou une liste d’armes. Si votre timeline a déjà un « 100 % map leak from Extended Look », c’est de la compilation fan. Map-6 ne la recopie pas. Les pins GTADB restent des hypothèses CC BY 4.0, à côté des hubs — pas à la place. Un recap honnête dit aussi ce qui était déjà dans les Trailers 1 et 2 : Vice City, Ocean Drive, Keys, Port Gellhorn, Grassrivers. Le Look a surtout donné plus de temps in-game dans ces biomes, assez pour un deuxième scrub, pas assez pour inventer des rues. C’est pour ça que cette page reste un recap daté, pas un guide 100 %.
 
-Pour une deuxième passe : ouvrez le [lecteur](/fr/trailer), filtrez Landmarks, et croisez la [table des frames](/fr/news/gta-6-trailer-frames-leonida-hubs). Une ligne par plan : timecode, hub, confiance. Si le chat crie un nom de rue, attendez une enseigne lisible. Le lancement console reste le **19 novembre 2026** sur PS5 et Xbox. Revérifiez [rockstargames.com/VI](https://www.rockstargames.com/VI) avant de dépenser. Les éditions n’ajoutent aucun pin — [guide précommande](/fr/guides/gta-6-preorder-guide) si vous êtes venu pour ça.
+Pour une deuxième passe : ouvrez le [lecteur](/fr/trailer), filtrez Landmarks, et croisez la [table des frames](/fr/news/gta-6-trailer-frames-leonida-hubs). Une ligne par plan : timecode, hub, confiance. Si le chat crie un nom de rue, attendez une enseigne lisible. Le lancement console reste le **19 novembre 2026** sur PS5 et Xbox. Revérifiez [rockstargames.com/VI](https://www.rockstargames.com/VI) avant de dépenser. Les éditions n’ajoutent aucun pin — [guide précommande](/fr/guides/gta-6-best-price) si vous êtes venu pour ça.
 `,
     cluster: "trailer",
     primaryKeyword: "gta 6 extended look",
@@ -354,13 +354,13 @@ ${OD("Ocean Drive ready as a second tab", "Ocean Drive is the postcard strip. If
 | Store or mission names not on screen | Speculation |
 | PC launch tied to the trailer | Separate topic — [release briefing](/en/news/gta-6-release-date-platforms) |
 
-After the credits: publish notes with X/Y and links, wait for a sourced Map-6 [news](/en/news) update, prefer Newswire over anonymous calendars. If the hype wants you to buy a key, stop and open the [pre-order guide](/en/guides/gta-6-preorder-guide) instead.
+After the credits: publish notes with X/Y and links, wait for a sourced Map-6 [news](/en/news) update, prefer Newswire over anonymous calendars. If the hype wants you to buy a key, stop and open the [pre-order guide](/en/guides/gta-6-best-price) instead.
 
 Reuse the checklist on a quiet night, not only on drop night. Play Trailer 2 from the [official player](/en/trailer), walk the seven rows, and see which hubs you still confuse. Most people mix Keys and Grassrivers, or Ocean Drive and downtown Vice City. That is the whole point of a written list: you notice the mix-up **before** November, when a wrong pin wastes a co-op evening. Write the mix-up down. “I keep filing mangroves as Keys” is a better note than another cropped still. The next official upload will go faster if that sentence is already in your doc. Do not add an eighth hub because a YouTube title promised one. Seven is the atlas Rockstar has shown. Extra names wait for extra frames.
 
 If you stream the scrub, say the confidence out loud. “Trailer-visible Vice City skyline” is a useful line. “Here’s the secret gun store” is not. The [clip kit](/en/guides/gta-6-map-clip-kit) is for overlays and Share links, not for inventing POIs on camera.
 
-Hardware FOMO during a trailer is a different job. Close the key-reseller tab. Open the [pre-order guide](/en/guides/gta-6-preorder-guide) and the [best-setup guide](/en/guides/best-setup-gta-6-ps5-xbox) after the credits, not during them. A console you already own beats a midnight scalper listing you will cancel.
+Hardware FOMO during a trailer is a different job. Close the key-reseller tab. Open the [pre-order guide](/en/guides/gta-6-best-price) and the [best-setup guide](/en/guides/best-setup-gta-6-ps5-xbox) after the credits, not during them. A console you already own beats a midnight scalper listing you will cancel.
 
 Console launch remains **19 November 2026** on PS5 and Xbox Series X|S. PC for that window stays unconfirmed. Editions do not add checklist rows. The atlas Rockstar has actually shown is still seven hubs. That is enough work until the next official upload.
 `,
@@ -453,13 +453,13 @@ ${OD("Ocean Drive en second onglet", "Ocean Drive est la carte postale. Tours pl
 | Noms de boutique / mission hors écran | Spéculation |
 | PC collé au trailer | Sujet à part — [briefing sortie](/fr/news/gta-6-release-date-platforms) |
 
-Après le générique : publiez notes avec X/Y, attendez une news Map-6 sourcée, préférez Newswire aux calendriers anonymes. Si le hype pousse une key shop, stoppez et ouvrez le [guide précommande](/fr/guides/gta-6-preorder-guide).
+Après le générique : publiez notes avec X/Y, attendez une news Map-6 sourcée, préférez Newswire aux calendriers anonymes. Si le hype pousse une key shop, stoppez et ouvrez le [guide précommande](/fr/guides/gta-6-best-price).
 
 Réutilisez la checklist un soir calme, pas seulement le soir d’un drop. Lancez le Trailer 2 depuis le [lecteur officiel](/fr/trailer), descendez les sept lignes, et voyez quels hubs vous mélangez encore. La plupart des gens confondent Keys et Grassrivers, ou Ocean Drive et le centre de Vice City. C’est tout l’intérêt d’une liste écrite : voir la confusion **avant** novembre, quand un mauvais pin gâche une soirée co-op. Écrivez la confusion. « Je classe encore les mangroves en Keys » est une meilleure note qu’un énième recadrage. Le prochain upload officiel ira plus vite si cette phrase est déjà dans le doc. N’ajoutez pas un huitième hub parce qu’un titre YouTube l’a promis. Sept, c’est l’atlas montré. Les noms en plus attendent des plans en plus.
 
 Si vous streamez le scrub, dites la confiance à voix haute. « Skyline Vice City visible au trailer » est une phrase utile. « Voici la gun store secrète » n’en est pas une. Le [clip kit](/fr/guides/gta-6-map-clip-kit) sert aux overlays et aux liens Share, pas à inventer des POI à l’antenne.
 
-Le FOMO hardware pendant un trailer est un autre métier. Fermez l’onglet key shop. Ouvrez le [guide précommande](/fr/guides/gta-6-preorder-guide) et le [guide setup](/fr/guides/best-setup-gta-6-ps5-xbox) après le générique, pas pendant. Une console déjà à vous bat une fiche scalper de minuit que vous annulerez. La checklist ne change pas si vous achetez Standard ou Ultimate : sept hubs, pas plus, jusqu’au prochain upload Rockstar. Même le pack Vintage Vice City n’ajoute aucune ligne géographique. Si vous n’avez qu’un soir, faites Trailer 2 et les sept checks — c’est déjà plus utile qu’un thread leak.
+Le FOMO hardware pendant un trailer est un autre métier. Fermez l’onglet key shop. Ouvrez le [guide précommande](/fr/guides/gta-6-best-price) et le [guide setup](/fr/guides/best-setup-gta-6-ps5-xbox) après le générique, pas pendant. Une console déjà à vous bat une fiche scalper de minuit que vous annulerez. La checklist ne change pas si vous achetez Standard ou Ultimate : sept hubs, pas plus, jusqu’au prochain upload Rockstar. Même le pack Vintage Vice City n’ajoute aucune ligne géographique. Si vous n’avez qu’un soir, faites Trailer 2 et les sept checks — c’est déjà plus utile qu’un thread leak.
 
 Lancement console : **19 novembre 2026** PS5 et Xbox. PC non confirmé pour cette fenêtre. Les éditions n’ajoutent aucune ligne. L’atlas que Rockstar a réellement montré, ce sont encore sept hubs. Ça suffit jusqu’au prochain upload officiel.
 `,

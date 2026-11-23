@@ -90,7 +90,7 @@ export default async function DatabaseHubPage({ params }: Props) {
           interactive map
         </Link>
         . Shopping lives in{" "}
-        <Link href="/guides/gta-6-preorder-guide" className="text-accent underline">
+        <Link href="/guides/gta-6-best-price" className="text-accent underline">
           pre-order guides
         </Link>
         . This hub does not invent leak casts, weapon stats, or collectible

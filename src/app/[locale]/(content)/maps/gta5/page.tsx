@@ -118,9 +118,8 @@ export default async function Gta5MapLandingPage({ params }: Props) {
           </p>
           <p>
             GTA 6 is the primary product. Pins on Leonida mix editorial hubs
-            with community GTADB landmarks. Collectible category totals for VI
-            are not official — we show sample pins only. If you landed here
-            for “all GTA 6 hidden packages,” that list does not exist yet.
+            with community GTADB landmarks. GTA 6 has no hidden packages — its
+            100% checklist counts Cocaine Flamingos, cards, stunts and more.
             Use <Link href="/collectibles" className="text-accent underline">/collectibles</Link>{" "}
             for honest category pages and{" "}
             <Link href="/map" className="text-accent underline">/map</Link> for

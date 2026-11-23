@@ -73,7 +73,7 @@ La version physique est un **code dans une boîte**. Rockstar l’a écrit. Si u
 
 ## À quoi servent six semaines
 
-1. **Verrouiller une plateforme.** Les sauvegardes croisées ne sont pas annoncées. Un panier PS5 ne devient pas une install Xbox. Le [guide précommande](/fr/guides/gta-6-preorder-guide) est la liste de caisse ; cette page est l’horloge.
+1. **Verrouiller une plateforme.** Les sauvegardes croisées ne sont pas annoncées. Un panier PS5 ne devient pas une install Xbox. Le [guide précommande](/fr/guides/gta-6-best-price) est la liste de caisse ; cette page est l’horloge.
 2. **Choisir Standard ou Ultimate maintenant.** Les 20 $ d’écart sont des extras, pas un État plus grand. La [carte interactive](/fr/map) ne change pas de SKU.
 3. **Préparer le stockage et l’écran** si la machine actuelle est juste. Le [guide setup](/fr/guides/best-setup-gta-6-ps5-xbox) est la page matériel.
 4. **Ignorer une date de troisième trailer** tant que le Newswire n’en poste pas. L’Extended Look a déjà eu lieu le 27 août.
@@ -152,7 +152,7 @@ Si une carte sociale invente une citation — « prenez Ultimate ce soir ou perd
 
 Le test personnel ne change pas : voulez-vous les extras le jour J ? Ultimate évite un second passage en caisse. Vous n’en avez rien à faire ? Le Standard est le jeu entier et la même [carte](/fr/map). La fenêtre du Pack Vintage (achats éligibles avant le **20 novembre 2026**) vaut pour les deux paliers. Vous êtes en physique ? Vous êtes en Standard / boîte-code. Il n’y a pas d’Ultimate physique sur la liste publique.
 
-Le [guide Ultimate vs Standard](/fr/guides/gta-6-ultimate-edition-vs-standard) est le tableau SKU. Le [guide précommande](/fr/guides/gta-6-preorder-guide) bougera quand les pages magasin bougent. Cet article bougera quand Take-Two imprimera un chiffre.
+Le [guide Ultimate vs Standard](/fr/guides/gta-6-ultimate-edition-vs-standard) est le tableau SKU. Le [guide précommande](/fr/guides/gta-6-best-price) bougera quand les pages magasin bougent. Cet article bougera quand Take-Two imprimera un chiffre.
 ${OD("Ocean Drive sur la carte GTA 6 Map-6", "La géographie trailer est gratuite. Les extras Ultimate ne sont pas un plus grand atlas.")}
 `,
     cluster: "preorder",
@@ -217,7 +217,7 @@ Ce poster est la seule raison d’être de cette URL sur un site de carte. C’e
 
 Le Newswire a joué la rareté : **while supplies last**. La FAQ parlait de quantités limitées et d’une wishlist. Des couvertures UK ont dit rupture en deux jours. Traitez ça comme un **état de store**, pas un compteur d’unités.
 
-Si vous n’avez pas le jeu, **400 $ ne vous font pas entrer dans Vice City**. Prenez d’abord un [SKU Standard ou Ultimate](/fr/guides/gta-6-preorder-guide). Le coffret n’inclut pas de code. Il n’inclut pas les extras Ultimate. Il ne déplace pas un pin.
+Si vous n’avez pas le jeu, **400 $ ne vous font pas entrer dans Vice City**. Prenez d’abord un [SKU Standard ou Ultimate](/fr/guides/gta-6-best-price). Le coffret n’inclut pas de code. Il n’inclut pas les extras Ultimate. Il ne déplace pas un pin.
 
 Un par personne, compte Rockstar, adultes seulement. Si un revendeur promet une « Collector avec le jeu dedans », l’annonce est mal titrée.
 ${KEYS("Leonida Keys sur la carte GTA 6 Map-6", "Le sac est estampillé Keys. Les ponts restent une lecture trailer.")}
@@ -354,7 +354,7 @@ ${VC("Vice City sur la carte GTA 6 Map-6", "Le préchargement remplit un disque.
 
 Le stockage est le risque ennuyeux. Rockstar n’a pas publié de taille finale dans les documents que nous suivons. Laissez un **gros** morceau libre sur la console que vous lancerez — pas sur le vieux carton du placard. Le [guide setup](/fr/guides/best-setup-gta-6-ps5-xbox) se lit avant le 12, pas dessus.
 
-Le minuit est local. Un code acheté à Paris ne suit pas New York. Le [guide précommande](/fr/guides/gta-6-preorder-guide) est la page magasin par magasin ; cet article est la séquence de la semaine.
+Le minuit est local. Un code acheté à Paris ne suit pas New York. Le [guide précommande](/fr/guides/gta-6-best-price) est la page magasin par magasin ; cet article est la séquence de la semaine.
 
 Ce n’est pas un déblocage anticipé, pas une bêta, pas une raison de camper le 11 sauf si vous aimez les files. L’exécutable devient un jeu le **19 novembre**. Tout ce que vous tirez le 12 sert à ce que mercredi soit un patch, pas un fetch complet.
 
@@ -421,7 +421,7 @@ PlayStation Direct promettait la **livraison gratuite le jour J** sur les préco
 | Prix | 84,99 € | 84,99 € |
 | Jeu inclus | Non | Non |
 
-Les listings scalpers de l’après-midi étaient la taxe prévisible. Une manette qui n’inclut pas la [précommande](/fr/guides/gta-6-preorder-guide) est un mauvais achat de panique à deux fois le prix.
+Les listings scalpers de l’après-midi étaient la taxe prévisible. Une manette qui n’inclut pas la [précommande](/fr/guides/gta-6-best-price) est un mauvais achat de panique à deux fois le prix.
 
 Côté Xbox : le PlayStation Blog ne promet pas de pad Series, parce que c’est un PlayStation Blog. Si Microsoft annonce un pad VI, ce sera un post Microsoft.
 

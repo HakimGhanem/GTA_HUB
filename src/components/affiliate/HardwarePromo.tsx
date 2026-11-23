@@ -24,7 +24,7 @@ export function HardwarePromo({
           <p className="mt-1 text-sm text-foreground/55">{t("hardwareSubtitle")}</p>
         </div>
         <Link
-          href="/guides/gta-6-preorder-guide"
+          href="/guides/gta-6-best-price"
           className="text-sm text-accent hover:text-accent/80"
         >
           {t("hardwareGuideLink")}

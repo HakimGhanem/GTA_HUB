@@ -56,13 +56,13 @@ const EN: BestPriceCopy = {
   description:
     "Where GTA 6 is cheapest in France: retailer code-in-box boxes around €60 against €79.99 on the PlayStation and Microsoft stores, with bonuses, stock and cancellation rules compared.",
   body: [
-    "Grand Theft Auto VI has one official price and several real ones. Take-Two set Standard at €{high} and Ultimate at €99.99 on the PlayStation Store and the Microsoft Store, and those pages never discount. French retailers price the same Standard SKU as a physical product, so Amazon.fr, Fnac, Cdiscount and Carrefour have all sat around €{low} — roughly €{save} off the same game, on the same platform, with the same pre-order bonus.",
-    "The catch is what you actually receive. Retailer boxes for GTA 6 contain a download code, not a disc: Rockstar is shipping code-in-box from November 12, 2026 so buyers can preload before the November 19 launch. You still redeem on PlayStation Network or Xbox, you still download the full game, and the licence behaves exactly like a digital purchase. What changes is the checkout: a physical order can be cancelled, refunded and price-protected in ways a store wallet purchase cannot.",
-    "Bonuses do not differentiate the merchants, and that is the single most useful thing to know before you shop. The Vintage Vice City Pack applies to eligible purchases made before November 20, 2026 wherever you buy; the free month of GTA+ is tied to eligible digital copies rather than to a particular shop. No French retailer has announced a store-exclusive vehicle, weapon or skin. Any listing promising one is inventing it — treat it the way you would treat a leaked Collector's Edition contents list.",
+    "Grand Theft Auto VI has one official price and several real ones. Take-Two set Standard at €{high} and Ultimate at €99.99 on the PlayStation Store and the Microsoft Store, and those pages never discount. French retailers price the same Standard SKU as a physical product, so Amazon.fr, Fnac, Cdiscount and Carrefour have all sat around €{low} — roughly €{save} off the same game, on the same platform.",
+    "What you actually receive matters. Retailer boxes for GTA 6 contain a download code, not a disc. You redeem it on PlayStation Network or Xbox, download the full game (up to 212 GB on PS5) and the licence behaves exactly like a digital purchase. What changes is the checkout: a physical order can be returned or price-protected in ways a store-wallet purchase cannot.",
+    "Bonuses no longer differentiate anyone. The Vintage Vice City Pack only applied to eligible purchases made before November 20, 2026, so a copy bought today comes without it wherever you shop; the free month of GTA+ was tied to eligible digital copies rather than to a particular shop. No French retailer has offered a store-exclusive vehicle, weapon or skin. Any listing promising one is inventing it.",
     "Stock is the real constraint. Rockstar allocates code quotas per retailer, so the €{low} listings sell through in waves and come back: Amazon.fr went out of stock within 48 hours of pre-orders opening, then alternated between in stock and unavailable for weeks. The official stores never sell out. That is the trade: €{save} saved against the possibility of waiting for a restock, or of a marketplace seller trying to resell the same code at a markup.",
-    "Cancellation policy is the second axis nobody prints on a price tag. Retailers charge on dispatch, which means a pre-order placed today costs nothing until November, and you can cancel until it ships if you switch platform or change your mind about Ultimate. A digital purchase on the PlayStation or Microsoft store is refundable before release under each store's pre-order rules, but effectively final once the game unlocks and you start playing.",
+    "Returns are the second axis nobody prints on a price tag. A sealed retailer box with an unused code can usually go back under the merchant’s return policy; once the code is redeemed, it is yours for good. A digital purchase on the PlayStation or Microsoft store is effectively final once you have downloaded and started the game, so check the store’s refund rules before you buy the wrong platform.",
     "Ultimate Edition breaks the comparison on purpose: there is no physical Ultimate SKU, so the €99.99 store price is the only price. If the extras matter to you, the cheapest honest route is retailer Standard at €{low} plus the Ultimate Upgrade bought later on your console store once you have redeemed the base code — check the upgrade price before assuming it beats buying Ultimate outright.",
-    "Prices below are a manual survey of the French market, VAT included, checked on the date shown next to the table. They move. Before you pay, open the merchant page and confirm the current price, the platform and the edition — a comparator is a shortlist, not a receipt. Then come back to the interactive map and spend the waiting weeks learning Leonida instead of refreshing product pages.",
+    "Prices below are a manual survey of the French market, VAT included, checked on the date shown next to the table. They move, and post-launch discounts tend to appear first at retailers. Before you pay, open the merchant page and confirm the current price, the platform and the edition — a comparator is a shortlist, not a receipt. Then keep the interactive map open on a second screen while you play.",
   ],
   comparatorTitle: "GTA 6 price comparison by platform",
   comparatorBody:
@@ -88,9 +88,9 @@ const EN: BestPriceCopy = {
     unlisted: "Not listed",
   },
   bonusLabels: {
-    vintage_pack: "Vintage Vice City Pack (before Nov 20)",
-    vintage_pack_gta_plus: "Vintage Vice City Pack + 1 month of GTA+",
-    none: "No pre-order bonus",
+    vintage_pack: "Vintage Vice City Pack (ended Nov 20)",
+    vintage_pack_gta_plus: "1 month of GTA+ (digital)",
+    none: "No bonus",
   },
   policyLabels: {
     charge_on_ship: "Charged on dispatch, cancel until then",
@@ -109,22 +109,22 @@ const EN: BestPriceCopy = {
     {
       question: "Is the €60 version the full game?",
       answer:
-        "Yes. It is the same Standard edition, redeemed with a download code shipped in the box from November 12, 2026. There is no disc, no region trick and no cut content — only the checkout differs from a store purchase.",
+        "Yes. It is the same Standard edition, redeemed with a download code in the box. There is no disc, no region trick and no cut content — only the checkout differs from a store purchase.",
     },
     {
       question: "Does Fnac, Cdiscount or Carrefour give an exclusive bonus?",
       answer:
-        "No. No French retailer has announced a store-exclusive GTA 6 bonus. The Vintage Vice City Pack applies to eligible purchases before November 20, 2026 regardless of where you buy, and the GTA+ month is tied to eligible digital copies.",
+        "No. No French retailer has offered a store-exclusive GTA 6 bonus. The Vintage Vice City Pack only applied to purchases before November 20, 2026, wherever they were made.",
     },
     {
       question: "Should I buy from a retailer or the official store?",
       answer:
-        "Buy from a retailer if you want the lower price and the ability to cancel until dispatch, and can tolerate waiting for a restock. Buy from the PlayStation or Microsoft store if you want a guaranteed copy, instant preload eligibility, or the Ultimate edition, which has no physical version.",
+        "Buy from a retailer if you want the lower price and a return window on a sealed box, and can tolerate a restock wait. Buy from the PlayStation or Microsoft store if you want to start downloading right now, or want the Ultimate edition, which has no physical version.",
     },
     {
-      question: "Can I cancel a GTA 6 pre-order?",
+      question: "Can I return or refund GTA 6?",
       answer:
-        "At retailers, yes — orders are charged on dispatch and can be cancelled until they ship. On the console stores, pre-orders can be refunded before release under each store's policy, but not after the game unlocks and you have played it.",
+        "A sealed retailer box with an unused code can usually be returned under the merchant’s policy. A redeemed code, or a digital copy you have downloaded and played, is generally final — check each store’s refund rules before you buy.",
     },
     {
       question: "Why is the retailer price lower than Rockstar's?",
@@ -133,9 +133,9 @@ const EN: BestPriceCopy = {
     },
   ],
   relatedTitle: "Keep reading before you pay",
-  ctaTitle: "Explore Vice City while you wait",
+  ctaTitle: "Play with the map on a second screen",
   ctaBody:
-    "Pre-order settled? Open the interactive map and put the waiting weeks to use — landmark filters, collectible routes and shareable deep links for launch week.",
+    "Got your copy? Keep the interactive map open on a phone or second screen — 3,400+ locations, the real buildings behind Vice City and an interactive 100% checklist.",
   ctaButton: "Open Interactive Map",
   backToGuides: "← All guides",
 };
@@ -146,13 +146,13 @@ const FR: BestPriceCopy = {
   description:
     "Où GTA 6 est le moins cher : les boîtes code des revendeurs autour de 60 € face aux 79,99 € du PlayStation Store et du Microsoft Store, bonus, stock et annulation comparés.",
   body: [
-    "Grand Theft Auto VI a un prix officiel et plusieurs prix réels. Take-Two a fixé la Standard à {high} € et l'Ultimate à 99,99 € sur le PlayStation Store et le Microsoft Store, et ces fiches ne soldent jamais. Les revendeurs français, eux, vendent la même Standard comme un produit physique : Amazon.fr, Fnac, Cdiscount et Carrefour se sont tous alignés autour de {low} €, soit environ {save} € d'économie sur le même jeu, la même plateforme et le même bonus de précommande.",
-    "Ce que vous recevez mérite une précision. Les boîtes GTA 6 vendues en magasin contiennent un code de téléchargement, pas un disque : Rockstar expédie du code-in-box à partir du 12 novembre 2026 pour permettre le préchargement avant la sortie du 19 novembre. Vous activez sur le PlayStation Network ou sur Xbox, vous téléchargez le jeu complet, et la licence se comporte exactement comme un achat dématérialisé. Ce qui change, c'est le passage en caisse : une commande physique s'annule, se rembourse et bénéficie de garanties de prix qu'un achat sur le store console n'offre pas.",
-    "Les bonus ne départagent pas les marchands, et c'est l'information la plus utile avant d'acheter. Le pack Vintage Vice City s'applique aux achats éligibles effectués avant le 20 novembre 2026, quel que soit le vendeur ; le mois de GTA+ offert est lié aux copies dématérialisées éligibles, pas à une enseigne. Aucun revendeur français n'a annoncé de véhicule, d'arme ou de tenue exclusive. Une fiche qui en promet un l'invente — traitez-la comme une fausse liste de contenus Collector.",
+    "Grand Theft Auto VI a un prix officiel et plusieurs prix réels. Take-Two a fixé la Standard à {high} € et l'Ultimate à 99,99 € sur le PlayStation Store et le Microsoft Store, et ces fiches ne soldent jamais. Les revendeurs français, eux, vendent la même Standard comme un produit physique : Amazon.fr, Fnac, Cdiscount et Carrefour se sont tous alignés autour de {low} €, soit environ {save} € d'économie sur le même jeu, et la même plateforme.",
+    "Ce que vous recevez mérite une précision. Les boîtes GTA 6 vendues en magasin contiennent un code de téléchargement, pas un disque. Vous l'activez sur le PlayStation Network ou sur Xbox, vous téléchargez le jeu complet (jusqu'à 212 Go sur PS5), et la licence se comporte exactement comme un achat dématérialisé. Ce qui change, c'est l'achat : une commande physique peut être retournée ou bénéficier d'une baisse de prix, ce qu'un achat sur store ne permet pas.",
+    "Les bonus ne départagent plus personne. Le pack Vintage Vice City ne concernait que les achats éligibles effectués avant le 20 novembre 2026 : une copie achetée aujourd'hui ne l'inclut plus, quel que soit le vendeur ; le mois de GTA+ offert était lié aux copies dématérialisées éligibles. Aucun revendeur français n'a proposé de véhicule, d'arme ou de tenue exclusive. Une fiche qui en promet une l'invente.",
     "La vraie contrainte, c'est le stock. Rockstar alloue des quotas de clés par revendeur : les offres à {low} € partent par vagues puis reviennent. Amazon.fr est passé en rupture 48 h après l'ouverture des précommandes, puis a alterné entre « en stock » et « indisponible » pendant des semaines. Les stores officiels, eux, ne sont jamais en rupture. Voilà l'arbitrage : {save} € économisés contre le risque d'attendre un réassort — ou de croiser un vendeur marketplace qui revend le même code avec une marge.",
-    "La politique d'annulation est le second critère que personne n'imprime sur une étiquette. Les revendeurs ne débitent qu'à l'expédition : une précommande passée aujourd'hui ne coûte rien avant novembre, et reste annulable jusqu'à l'envoi si vous changez de plateforme ou renoncez à l'Ultimate. Un achat sur le PlayStation Store ou le Microsoft Store est remboursable avant la sortie selon les règles de chaque store, mais devient définitif une fois le jeu débloqué et lancé.",
+    "Le retour est le second critère que personne n'imprime sur une étiquette. Une boîte revendeur scellée, code non utilisé, peut généralement être retournée selon la politique du marchand ; une fois le code activé, il est à vous définitivement. Un achat sur le PlayStation Store ou le Microsoft Store est en pratique définitif une fois le jeu téléchargé et lancé : vérifiez les règles de remboursement avant de vous tromper de plateforme.",
     "L'édition Ultimate casse volontairement la comparaison : il n'existe aucune version physique, donc 99,99 € est le seul prix possible. Si les extras vous intéressent, la route honnête la moins chère reste la Standard revendeur à {low} € puis l'upgrade Ultimate acheté plus tard sur le store de votre console, une fois le code de base activé — vérifiez le prix de cet upgrade avant de supposer qu'il bat l'achat direct.",
-    "Les prix ci-dessous sont un relevé manuel du marché français, TTC, effectué à la date affichée à côté du tableau. Ils bougent. Avant de payer, ouvrez la fiche marchande et confirmez le prix, la plateforme et l'édition : un comparateur est une présélection, pas un ticket de caisse. Ensuite, revenez sur la carte interactive et utilisez les semaines d'attente pour apprendre Leonida plutôt que pour rafraîchir des fiches produit.",
+    "Les prix ci-dessous sont un relevé manuel du marché français, TTC, effectué à la date affichée à côté du tableau. Ils bougent, et les baisses post-lancement apparaissent d'abord chez les revendeurs. Avant de payer, ouvrez la fiche marchande et confirmez le prix, la plateforme et l'édition : un comparateur est une présélection, pas un ticket de caisse. Ensuite, gardez la carte interactive ouverte sur un second écran pendant que vous jouez.",
   ],
   comparatorTitle: "Comparatif des prix GTA 6 par plateforme",
   comparatorBody:
@@ -178,9 +178,9 @@ const FR: BestPriceCopy = {
     unlisted: "Non référencé",
   },
   bonusLabels: {
-    vintage_pack: "Pack Vintage Vice City (avant le 20 nov.)",
-    vintage_pack_gta_plus: "Pack Vintage Vice City + 1 mois de GTA+",
-    none: "Aucun bonus de précommande",
+    vintage_pack: "Pack Vintage Vice City (terminé le 20 nov.)",
+    vintage_pack_gta_plus: "1 mois de GTA+ (dématérialisé)",
+    none: "Aucun bonus",
   },
   policyLabels: {
     charge_on_ship: "Débit à l'expédition, annulable avant",
@@ -199,22 +199,22 @@ const FR: BestPriceCopy = {
     {
       question: "La version à 60 € est-elle le jeu complet ?",
       answer:
-        "Oui. C'est la même édition Standard, activée avec un code de téléchargement expédié dans la boîte à partir du 12 novembre 2026. Pas de disque, pas d'astuce de région, aucun contenu retiré — seul le mode d'achat diffère.",
+        "Oui. C'est la même édition Standard, activée avec un code de téléchargement dans la boîte. Pas de disque, pas d'astuce de région, aucun contenu retiré — seul le mode d'achat diffère.",
     },
     {
       question: "Fnac, Cdiscount ou Carrefour offrent-ils un bonus exclusif ?",
       answer:
-        "Non. Aucun revendeur français n'a annoncé de bonus GTA 6 exclusif. Le pack Vintage Vice City s'applique aux achats éligibles avant le 20 novembre 2026 quel que soit le vendeur, et le mois de GTA+ dépend des copies dématérialisées éligibles.",
+        "Non. Aucun revendeur français n'a proposé de bonus GTA 6 exclusif. Le pack Vintage Vice City ne concernait que les achats effectués avant le 20 novembre 2026, quel que soit le vendeur.",
     },
     {
       question: "Revendeur ou store officiel ?",
       answer:
-        "Revendeur si vous voulez le prix bas et l'annulation jusqu'à l'expédition, et que vous acceptez d'attendre un réassort. Store officiel si vous voulez une copie garantie, le préchargement sans dépendre d'un envoi, ou l'édition Ultimate qui n'existe pas en physique.",
+        "Revendeur si vous voulez le prix bas et un délai de retour sur une boîte scellée, et que vous acceptez d'attendre un réassort. Store officiel si vous voulez lancer le téléchargement tout de suite, ou l'édition Ultimate qui n'existe pas en physique.",
     },
     {
-      question: "Puis-je annuler une précommande GTA 6 ?",
+      question: "Puis-je retourner ou me faire rembourser GTA 6 ?",
       answer:
-        "Chez les revendeurs, oui : le débit intervient à l'expédition et la commande s'annule jusque-là. Sur les stores console, une précommande est remboursable avant la sortie selon la politique de chaque store, mais plus une fois le jeu débloqué et lancé.",
+        "Une boîte revendeur scellée, code non utilisé, peut généralement être retournée selon la politique du marchand. Un code activé, ou une copie dématérialisée téléchargée et lancée, est en général définitif — vérifiez les règles de chaque store avant d'acheter.",
     },
     {
       question: "Pourquoi le prix revendeur est-il inférieur à celui de Rockstar ?",
@@ -223,9 +223,9 @@ const FR: BestPriceCopy = {
     },
   ],
   relatedTitle: "À lire avant de payer",
-  ctaTitle: "Explorez Vice City en attendant",
+  ctaTitle: "Jouez avec la carte sur un second écran",
   ctaBody:
-    "Précommande réglée ? Ouvrez la carte interactive et rentabilisez l'attente : filtres landmarks, routes de collectibles et deep links partageables pour la semaine de lancement.",
+    "Vous avez votre copie ? Gardez la carte interactive ouverte sur téléphone ou second écran — plus de 3 400 lieux, les vrais bâtiments derrière Vice City et une checklist 100 % interactive.",
   ctaButton: "Ouvrir la carte interactive",
   backToGuides: "← Tous les guides",
 };

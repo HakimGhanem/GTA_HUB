@@ -29,7 +29,6 @@ import { buildMetadata, jsonLdGuidePage } from "@/lib/seo";
 type Props = { params: Promise<{ locale: string; slug: string }> };
 
 const DEDICATED_GUIDE_SLUGS = new Set([
-  "gta-6-preorder-guide",
   "gta-6-map-cities-skylines-2",
   "gta-6-best-price",
 ]);

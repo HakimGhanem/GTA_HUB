@@ -219,7 +219,7 @@ function guidesIndexMarkdown(locale: string): string {
     frontMatter({
       title: "GTA 6 guides — Map-6",
       description:
-        "Every Map-6 guide: interactive map usage, pre-orders and editions, world and story, setup and release prep.",
+        "Every Map-6 guide: interactive map usage, buying and editions, world and story, setup, file size and the 100% checklist.",
       canonical: aiPageUrl(locale, "/guides"),
     }) + body.join("\n")
   );

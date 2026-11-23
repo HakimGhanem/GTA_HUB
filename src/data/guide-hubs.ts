@@ -8,8 +8,6 @@ export const GUIDE_HUBS: { id: GuideHubId; slugs: string[] }[] = [
       "gta-6-map-size",
       "vice-city-locations",
       "ocean-drive-gta-6",
-      "gta-6-collectibles-map",
-      "hidden-packages-gta-6",
       "gta-6-map-cities-skylines-2",
       "gta-6-map-clip-kit",
     ],
@@ -17,11 +15,8 @@ export const GUIDE_HUBS: { id: GuideHubId; slugs: string[] }[] = [
   {
     id: "buy",
     slugs: [
-      "gta-6-preorder-guide",
       "gta-6-best-price",
       "gta-6-ultimate-edition-vs-standard",
-      "gta-6-preorder-price-editions",
-      "gta-6-preorder-ps5-guide",
       "gta-6-ps5-vs-xbox",
       "gta-6-platforms-ps5-xbox",
       "gta-6-collectors-edition",
@@ -42,8 +37,6 @@ export const GUIDE_HUBS: { id: GuideHubId; slugs: string[] }[] = [
   {
     id: "prep",
     slugs: [
-      "gta-6-release-time",
-      "gta-6-preload",
       "gta-6-file-size",
       "gta-6-reviews",
       "best-setup-gta-6-ps5-xbox",

@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { NavLink } from "./NavLink";
-import { CountdownTimer } from "@/components/map/CountdownTimer";
+import { ReleaseBadge } from "@/components/layout/ReleaseBadge";
 
 export function MobileNav() {
   const t = useTranslations("header");
@@ -92,7 +92,7 @@ export function MobileNav() {
               <p className="mb-2 text-xs uppercase tracking-wider text-foreground/40">
                 {t("launchLabel")}
               </p>
-              <CountdownTimer />
+              <ReleaseBadge />
             </div>
           </nav>
         </div>

@@ -12,7 +12,7 @@ type Props = {
 const DEFAULTS = {
   name: "Map-6 Editorial",
   role: "GTA 6 Coverage",
-  bio: "Fan-run coverage of GTA 6 geography, preorders, and launch prep. Not affiliated with Rockstar Games or Take-Two.",
+  bio: "Fan-run coverage of GTA 6 geography, collectibles, patches and the 100% checklist. Not affiliated with Rockstar Games or Take-Two.",
   avatarUrl: "/images/map6-editorial-avatar.png",
   profileUrl: "/about",
 } as const;

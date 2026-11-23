@@ -3,7 +3,6 @@
 import { Suspense, useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { CountdownTimer } from "@/components/map/CountdownTimer";
 import { GameMap } from "@/components/map/GameMap";
 import { ConversionStrip } from "@/components/newsletter/ConversionStrip";
 
@@ -87,7 +86,6 @@ function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroPr
               {t("trustNoLeak")}
             </li>
           </ul>
-          <CountdownTimer variant="hero" />
           <div className="pointer-events-auto flex flex-wrap gap-3 pt-1">
             <Link
               href="/map"

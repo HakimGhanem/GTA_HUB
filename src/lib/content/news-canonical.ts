@@ -32,7 +32,7 @@ export const NEWS_EVERGREEN_PATH: Record<string, string> = {
   "gta-6-map-cities-skylines-2-news": "/guides/gta-6-map-cities-skylines-2",
   "leonida-regions-explained-gta-6": "/guides/leonida-lore-overview",
   "mount-kalaga-gta-6-region": "/locations/mount-kalaga",
-  "gta-6-preorder-checklist-ps5-xbox": "/guides/gta-6-preorder-guide",
+  "gta-6-preorder-checklist-ps5-xbox": "/guides/gta-6-best-price",
   "gta-6-extended-look-watch-times": "/guides/gta-6-extended-look-how-to-watch",
   "gta-6-extended-look-map-watch-for": "/guides/gta-6-extended-look-how-to-watch",
   "89-of-gta-6-pre-orders-are-for-the-ultimate-edition-rockstarintel":

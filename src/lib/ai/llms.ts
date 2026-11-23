@@ -47,9 +47,9 @@ function keyFacts(): string[] {
     "- What it is: a free, fan-made interactive map and reference for Grand Theft Auto VI. Not affiliated with, endorsed by, or operated by Rockstar Games or Take-Two Interactive.",
     `- GTA 6 release date used across the site: ${isoDay(GTA6_RELEASE)} on PlayStation 5 and Xbox Series X|S. No PC date has been announced by Rockstar.`,
     "- Official US pricing referenced: Standard Edition $79.99, Ultimate Edition $99.99 (Take-Two).",
-    "- Map coverage: 1400+ points of interest across Vice City, Ocean Drive, Leonida Keys, Port Gellhorn, Grassrivers, Ambrosia Island and Mount Kalaga.",
+    "- Map coverage: 3,400+ points of interest across Vice City, Ocean Drive, Leonida Keys, Port Gellhorn, Grassrivers, Ambrosia Island and Mount Kalaga.",
     `- Indexed languages: ${INDEXABLE_LOCALES.join(", ")}. UI also exists in ${locales.filter((l) => !(INDEXABLE_LOCALES as readonly string[]).includes(l)).join(", ")} (noindex until copy is unique). URLs are always locale-prefixed, e.g. ${SITE.url}/en/map.`,
-    "- Editorial stance: speculation is labelled as such; collectible totals are pre-launch expectations, not confirmed Rockstar figures.",
+    "- Editorial stance: speculation is labelled as such; GTA 6 released 19 Nov 2026 on PS5 and Xbox Series X|S; collectible totals come from the in-game Progress menu as reported by PowerPyx and GTABase, with sources cited on each page.",
   ];
 }
 
