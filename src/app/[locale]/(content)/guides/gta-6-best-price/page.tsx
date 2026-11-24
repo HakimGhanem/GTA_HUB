@@ -31,7 +31,7 @@ type Props = { params: Promise<{ locale: string }> };
 const SLUG = "gta-6-best-price";
 
 const RELATED_SLUGS = [
-  "gta-6-preorder-guide",
+  "gta-6-file-size",
   "gta-6-ultimate-edition-vs-standard",
   "gta-6-ps5-vs-xbox",
 ];

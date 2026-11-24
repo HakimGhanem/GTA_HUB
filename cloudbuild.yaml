@@ -166,8 +166,11 @@ steps:
       - 1Gi
       - --cpu
       - "1"
+      # A cold start costs Googlebot 3–5 s per request and has surfaced as 5xx
+      # in Search Console; one warm instance is cheaper than lost indexing.
       - --min-instances
-      - "0"
+      - "1"
+      - --cpu-boost
       - --max-instances
       - "10"
       - --update-env-vars

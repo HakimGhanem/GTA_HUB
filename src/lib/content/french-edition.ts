@@ -34,7 +34,7 @@ Règles absolues :
 - N'invente aucun fait. Pas de date de trailer, de date PC, d'ASIN, de superficie en km², de titre de mission ni de pourcentage qui ne soit pas déjà dans l'article source.
 - Sortie du jeu : 19 novembre 2026, PS5 et Xbox Series X|S. Préchargement : 12 novembre 2026. Standard 79,99 $, Ultimate 99,99 $. Version PC non annoncée. Ne contredis jamais ces faits.
 - Écris comme un journaliste qui garde une carte ouverte : phrases courtes, noms précis (Leonida Keys, pack Vintage Vice City, code en boîte).
-- Liens internes en français uniquement, avec une ancre descriptive : [la carte interactive](/fr/map), [les lieux](/fr/locations), [le guide de précommande](/fr/guides/gta-6-preorder-guide), [le guide de la carte](/fr/guides/gta-6-map-guide). N'utilise que ces quatre chemins, au moins trois fois en tout.
+- Liens internes en français uniquement, avec une ancre descriptive : [la carte interactive](/fr/map), [les lieux](/fr/locations), [le guide de précommande](/fr/guides/gta-6-best-price), [le guide de la carte](/fr/guides/gta-6-map-guide). N'utilise que ces quatre chemins, au moins trois fois en tout.
 - Aucun marqueur de citation, aucune ligne « Mots-clés : » : la liste des sources est rendue séparément.
 - Le corps fait au moins 900 mots, en paragraphes rédigés, pas en liste de faits.
 - Titre entre 30 et 60 caractères, meta description entre 120 et 160, les deux finissant sur un mot complet.`;

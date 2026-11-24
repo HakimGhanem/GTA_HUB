@@ -22,7 +22,7 @@ export const EDITORIAL_ARTICLES: Article[] = [
       "Take-Two says the $99.99 Ultimate Edition is outpacing Standard in GTA 6 pre-orders. What Zelnick signaled, what 89% reports mean, and how to choose.",
     bodyMarkdown: `Take-Two’s Strauss Zelnick told the market that Grand Theft Auto VI’s premium tier — the **$99.99 Ultimate Edition** — is outpacing the **$79.99 Standard Edition** in pre-orders. The game is still locked to **November 19, 2026** on PlayStation 5 and Xbox Series X|S. That combination (a $20 premium *and* a lead in the cart) is the story. It is not a new launch date, a PC confirmation, or a reason to treat every “89%” screenshot as a Newswire stat.
 
-This briefing separates **what an executive said**, **what outlets inferred**, and **what you should actually buy**. For SKU-by-SKU checkout, use the [pre-order guide](/en/guides/gta-6-preorder-guide) and the [Ultimate vs Standard comparison](/en/guides/gta-6-ultimate-edition-vs-standard). Geography does not change by edition — the [interactive map](/en/map) is the same for every SKU.
+This briefing separates **what an executive said**, **what outlets inferred**, and **what you should actually buy**. For SKU-by-SKU checkout, use the [pre-order guide](/en/guides/gta-6-best-price) and the [Ultimate vs Standard comparison](/en/guides/gta-6-ultimate-edition-vs-standard). Geography does not change by edition — the [interactive map](/en/map) is the same for every SKU.
 ${locationFigure("vice-city", "Vice City hub on the Map-6 GTA 6 map", "Same Vice City pins for Standard and Ultimate — editions do not change the atlas.")}
 
 ## What Zelnick Actually Said
@@ -275,7 +275,7 @@ If another official look drops, we update this slug again from frames — we do 
       "PS5 pre-order options for GTA 6 in 2026: $79.99 Standard vs $99.99 Ultimate, physical code-in-box vs digital, and a checklist before you pay.",
     bodyMarkdown: `If you already live on PlayStation, the **PS5 SKU is the honest cart** for Grand Theft Auto VI. Rockstar has confirmed **November 19, 2026** on PS5 and Xbox Series X|S. This page is the PlayStation pre-order briefing: editions, the $20 gap, physical vs digital, and a checklist that does not invent a sell-out clock.
 
-Xbox shoppers should use the [full pre-order guide](/en/guides/gta-6-preorder-guide) instead of forcing a PS5 article to do both jobs. Platform lock-in is the first decision; edition is the second.
+Xbox shoppers should use the [full pre-order guide](/en/guides/gta-6-best-price) instead of forcing a PS5 article to do both jobs. Platform lock-in is the first decision; edition is the second.
 ${locationFigure("vice-city", "Vice City on Map-6 — same map for every PS5 edition", "The PS5 SKU does not unlock a larger Leonida. It unlocks the same map as Xbox.")}
 
 ## PS5 Pre-Order Options in 2026
@@ -360,7 +360,7 @@ Next reads: [pre-order price & editions](/en/guides/gta-6-preorder-price-edition
         title: "Rockstar Games — Grand Theft Auto VI",
       },
       {
-        url: "https://map-6.com/en/guides/gta-6-preorder-guide",
+        url: "https://map-6.com/en/guides/gta-6-best-price",
         title: "Map-6 — GTA 6 pre-order guide",
       },
     ],
@@ -448,7 +448,7 @@ Play the official uploads from the [timestamped player](/en/trailer), keep **Lan
 
 A useful second pass is slower than the first. Pause two seconds early, look at the **horizon** before the subject, and only then decide Keys vs Grassrivers. Water alone is not a region. If chat is already naming a shop, ignore the name until a readable sign is on screen. Map-6 would rather be a day late than publish a fake street.
 
-The [beginner map guide](/en/guides/gta-6-map-guide) is the HUD lesson. This article is only the **index of official seconds**. Use both. Editions and pre-order SKUs do not add pins — see the [pre-order guide](/en/guides/gta-6-preorder-guide) if you came here from a shopping tab.
+The [beginner map guide](/en/guides/gta-6-map-guide) is the HUD lesson. This article is only the **index of official seconds**. Use both. Editions and pre-order SKUs do not add pins — see the [pre-order guide](/en/guides/gta-6-best-price) if you came here from a shopping tab.
 
 ## What this is not
 
@@ -569,7 +569,7 @@ Lancez les uploads officiels depuis le [lecteur horodaté](/fr/trailer), filtrez
 
 La deuxième passe est plus lente. Pausez deux secondes trop tôt, regardez **l’horizon** avant le sujet, puis tranchez Keys vs Grassrivers. L’eau seule n’est pas une région. Si le chat nomme déjà une boutique, ignorez le nom tant qu’une enseigne n’est pas lisible. Map-6 préfère un jour de retard à une fausse rue.
 
-Le [guide carte](/fr/guides/gta-6-map-guide) est la leçon HUD. Cet article n’est que **l’index des secondes officielles**. Les éditions n’ajoutent aucun pin — voir le [guide précommande](/fr/guides/gta-6-preorder-guide) si vous venez d’un onglet shopping.
+Le [guide carte](/fr/guides/gta-6-map-guide) est la leçon HUD. Cet article n’est que **l’index des secondes officielles**. Les éditions n’ajoutent aucun pin — voir le [guide précommande](/fr/guides/gta-6-best-price) si vous venez d’un onglet shopping.
 
 ## Ce que ce n’est pas
 

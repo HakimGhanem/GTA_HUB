@@ -10,12 +10,13 @@
     "database": "Base",
     "creators": "Criadores",
     "pro": "Pro",
-    "gta5": "Mapa GTA 5"
+    "gta5": "Mapa GTA 5",
+    "realLifeMatches": "Qual prédio real é este? 1.900+ correspondências"
   },
   "home": {
     "title": "Mapa interativo grátis do GTA 6",
-    "heroLine": "Pins confirmados vs comunidade. Timestamps em footage oficial. Sem mapas leak.",
-    "trustPoi": "1.500+ POIs",
+    "heroLine": "Pins confirmados vs comunidade. <realLife>Qual prédio real é este? 1.900+ correspondências</realLife>. Timestamps em footage oficial. Sem mapas leak.",
+    "trustPoi": "3.400+ POIs",
     "trustOfficial": "Filtro só oficial",
     "trustNoLeak": "Sem leak maps",
     "subtitle": "1400+ POIs em Vice City e Leonida — filtre colecionáveis, compartilhe pins, acompanhe coords. Mapa interativo grátis do GTA 6 para scrubbing de trailers e o dia do lançamento, com guias que separam geografia confirmada de rumores.",
@@ -116,13 +117,28 @@
     "classicVc": "Vice City (classic)",
     "classicVcDesc": "Hidden packages and unique jumps on the 2002 map.",
     "classicSa": "San Andreas",
-    "classicSaDesc": "Horseshoes, oysters, and snapshots across San Andreas."
+    "classicSaDesc": "Horseshoes, oysters, and snapshots across San Andreas.",
+    "realLifeMatch": "Which real building is it? See the real-life matches"
   },
   "collectibles": {
-    "title": "Colecionáveis do GTA 6",
-    "subtitle": "Tipos de colecionáveis do GTA 6 — pins de exemplo mapeados. Totais oficiais pendentes da Rockstar.",
+    "title": "GTA 6 100% Checklist & Collectibles",
+    "subtitle": "Every requirement on the in-game 100% Completion checklist, with collectible totals. Tick rows as you play — saved in your browser.",
     "mapped": "{current} / {total} mapeados",
-    "samples": "{current} pins de exemplo · totais por confirmar até a Rockstar publicar"
+    "samples": "{current} pins de exemplo · totais por confirmar até a Rockstar publicar",
+    "checklistTitle": "Interactive 100% checklist",
+    "checklistProgress": "{done} of {total} requirements done",
+    "requiredOf": "{required} of {total}",
+    "requiredOnly": "{required} needed",
+    "guideLink": "Guide",
+    "typesTitle": "Collectibles by type",
+    "howToTrack": "How to track",
+    "openMap": "Open the interactive map",
+    "sources": "Sources:",
+    "total": "Total in game",
+    "totalUnpublished": "Not published",
+    "forHundred": "Needed for 100%",
+    "inGameMenu": "In-game counter",
+    "onTheMap": "On the map"
   },
   "guides": {
     "title": "Guias do mapa GTA 6",
@@ -161,7 +177,7 @@
     "mapTitle": "Mapa GTA 6 grátis — Interativo Vice City | Map-6",
     "mapDesc": "Mapa interativo grátis do GTA 6: 1400+ POIs, filtros, coordenadas e medição em Vice City. Links para compartilhar — pronto para o lançamento.",
     "mapH1": "Mapa interativo de GTA 6",
-    "mapLead": "1.500+ pins · filtro oficial · coordenadas · sem leaks",
+    "mapLead": "3.400+ pins · filtro oficial · coordenadas · sem leaks",
     "collectiblesTitle": "Colecionáveis GTA 6 — Pacotes escondidos, saltos acrobáticos e mais | Map-6",
     "collectiblesDesc": "Rastreie cada colecionável do GTA 6 no mapa interativo: pacotes escondidos, saltos acrobáticos, arte de rua e spots de fotografia de fauna.",
     "guidesTitle": "Guias GTA 6 — Mapa, personagens, pré-venda | Map-6",
@@ -182,7 +198,8 @@
     "press": "Imprensa",
     "contact": "Contacto",
     "sources": "Todas as fontes",
-    "realLifeLocations": "Locais reais"
+    "realLifeLocations": "Locais reais",
+    "updates": "Atualizações do mapa"
   },
   "header": {
     "tagline": "GTA HUB · mapa, guias, loja",
@@ -198,11 +215,7 @@
     "themeSystem": "Sistema"
   },
   "countdown": {
-    "label": "GTA 6 lança em",
-    "days": "dias",
-    "hours": "horas",
-    "minutes": "minutos",
-    "seconds": "segundos"
+    "outNow": "Já disponível"
   },
   "news": {
     "title": "Notícias GTA 6 e trailers",
@@ -342,7 +355,10 @@
       "notePlaceholder": "Só local — nunca enviado",
       "report": "Reportar pin",
       "realWorldLabel": "Referência real",
-      "realWorldView": "Ver o local real"
+      "realWorldView": "Ver o local real",
+      "photoInGame": "No jogo",
+      "photoReal": "Na vida real",
+      "photoCredit": "Fotos: GTADB, CC BY 4.0"
     },
     "sidebar": {
       "progress": "{found} / {total} · {pct}%",

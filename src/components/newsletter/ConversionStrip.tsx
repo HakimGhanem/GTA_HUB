@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
-import { CountdownTimer } from "@/components/map/CountdownTimer";
+import { ReleaseBadge } from "@/components/layout/ReleaseBadge";
 import { readLaunchAlertState } from "@/lib/waitlist/local";
 import { LaunchAlertForm } from "./LaunchAlertForm";
 
@@ -29,7 +29,7 @@ export function ConversionStrip({ variant }: { variant: Variant }) {
   const links = (
     <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm">
       <Link
-        href="/guides/gta-6-preorder-guide"
+        href="/guides/gta-6-best-price"
         className="font-semibold text-accent underline-offset-2 hover:text-accent/80 hover:underline"
       >
         {t("preorderCta")}
@@ -48,7 +48,7 @@ export function ConversionStrip({ variant }: { variant: Variant }) {
       <div className="shrink-0 border-b border-pink-400/20 bg-surface/95 px-3 py-2">
         <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex min-w-0 items-center gap-3">
-            <CountdownTimer />
+            <ReleaseBadge />
             <p className="truncate text-xs text-foreground/60 sm:text-sm">
               {t("bannerDesc")}
             </p>
@@ -88,7 +88,7 @@ export function ConversionStrip({ variant }: { variant: Variant }) {
         >
           {t("bannerTitle")}
         </p>
-        <CountdownTimer />
+        <ReleaseBadge />
       </div>
       <p className="mt-1 text-sm text-foreground/60">{t("bannerDesc")}</p>
       <div className="mt-4 max-w-xl">

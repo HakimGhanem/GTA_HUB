@@ -42,6 +42,10 @@ export type Location = {
   };
   /** Premium-edition destination named by Rockstar */
   edition?: LocationEdition;
+  /** Last upstream edit (YYYY-MM-DD), for pins imported from GTADB */
+  updatedAt?: string;
+  /** GTADB photo versions: in-game screenshot and real-life counterpart */
+  photos?: { ig?: number; rl?: number };
 };
 
 const ROCKSTAR_VI = "https://www.rockstargames.com/VI";
@@ -73,16 +77,6 @@ export const LOCATIONS: Location[] = [
     source: "official",
     sourceUrl: ROCKSTAR_VI,
     confidence: "confirmed",
-  },
-  {
-    slug: "hidden-package-01",
-    name: "Hidden Package #1",
-    description:
-      "Classic GTA collectible hidden near the docks. Hidden packages are expected to return in GTA 6 — mark this spot on your map.",
-    category: "collectible",
-    x: -890,
-    y: -340,
-    region: "Port Gellhorn",
   },
   {
     slug: "grassrivers",

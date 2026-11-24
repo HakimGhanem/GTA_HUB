@@ -1,7 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { LocaleSwitcher } from "@/components/layout/LocaleSwitcher";
-import { CountdownTimer } from "@/components/map/CountdownTimer";
+import { ReleaseBadge } from "@/components/layout/ReleaseBadge";
 import { ThemeSwitch } from "@/components/theme/ThemeSwitch";
 import { MobileNav } from "./MobileNav";
 import { NavLinks } from "./NavLinks";
@@ -39,7 +39,7 @@ export async function Header() {
         <LocaleSwitcher />
 
         <div className="hidden lg:block">
-          <CountdownTimer />
+          <ReleaseBadge />
         </div>
 
         <Link

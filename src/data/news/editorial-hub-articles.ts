@@ -36,7 +36,7 @@ export const HUB_ARTICLES: Article[] = [
       "GTA 6 release date: November 19, 2026 on PS5 and Xbox. Official prices, editions, named Leonida hubs, Lucia and Jason, Extended Look systems. Rumors stay labeled.",
     bodyMarkdown: `*Grand Theft Auto VI* launches **November 19, 2026** on **PlayStation 5** and **Xbox Series X|S**. That is the whole official launch sentence: two consoles, one Wednesday, no PC in the same breath.
 
-If a claim is not on [rockstargames.com/VI](https://www.rockstargames.com/VI), a Newswire post, or a Take-Two filing, Map-6 labels it **unconfirmed**. Editions and US list prices live in the [pre-order guide](/en/guides/gta-6-preorder-guide): Standard **$79.99**, Ultimate **$99.99** — a digital extras tier, not a statue box. Treat “day-one Steam” posts as noise until Rockstar prints a separate calendar.
+If a claim is not on [rockstargames.com/VI](https://www.rockstargames.com/VI), a Newswire post, or a Take-Two filing, Map-6 labels it **unconfirmed**. Editions and US list prices live in the [pre-order guide](/en/guides/gta-6-best-price): Standard **$79.99**, Ultimate **$99.99** — a digital extras tier, not a statue box. Treat “day-one Steam” posts as noise until Rockstar prints a separate calendar.
 ${VC("Vice City hub on the Map-6 GTA 6 map", "Vice City is the marketed metro — neon, water, freeway seams — not the entire state of Leonida.")}
 
 ## Named geography, not a finished atlas
@@ -76,7 +76,7 @@ We will not publish a fake shop directory, a leaked mission flowchart, or a PC d
 
 ## Prices, editions, and what is still blank
 
-US list prices from Take-Two: Standard **$79.99**, Ultimate **$99.99**. France and UK street prices move; the [pre-order guide](/en/guides/gta-6-preorder-guide) tracks the Amazon.co.uk code-in-box listings when they are in stock. Ultimate extras are vehicles, weapons, apparel, and story-threaded content — not a larger Leonida. Standard owners can buy an upgrade later on PlayStation or Microsoft stores.
+US list prices from Take-Two: Standard **$79.99**, Ultimate **$99.99**. France and UK street prices move; the [pre-order guide](/en/guides/gta-6-best-price) tracks the Amazon.co.uk code-in-box listings when they are in stock. Ultimate extras are vehicles, weapons, apparel, and story-threaded content — not a larger Leonida. Standard owners can buy an upgrade later on PlayStation or Microsoft stores.
 
 Still blank on purpose: PC date, cross-saves, collectible totals, a Collector statue SKU, and any “89 percent Ultimate” figure that is not in a Take-Two filing. If a retailer page contradicts Rockstar, Rockstar wins. If a TikTok contradicts the VI page, the VI page wins.
 
@@ -349,7 +349,7 @@ Portable side stories (*Advance*, *Liberty City Stories*, *Vice City Stories*) t
 
 That Online decade is why a gift-card shop can honestly say “you can still cause chaos in Los Santos.” It is also why Map-6 keeps a [GTA 5 map](/en/map?game=gta5) next to Leonida. The wait for November 19, 2026 is not an empty calendar if you still have Blaine County collectibles to finish. Wallet credit for Shark Cards is a disclosed Amazon path — not a Map-6 key shop. See the [GTA Online wallet briefing](/en/news/gta-online-wallet-cards-before-vi).
 
-Ready to lock a console SKU? Use the [GTA 6 pre-order guide](/en/guides/gta-6-preorder-guide) (Standard and Ultimate listings, not a fake countdown).
+Ready to lock a console SKU? Use the [GTA 6 pre-order guide](/en/guides/gta-6-best-price) (Standard and Ultimate listings, not a fake countdown).
 
 ## 2023–2026 — the Leonida bet
 
@@ -535,7 +535,7 @@ Play first; pay for cash only if the grind is the part you hate. The [GTA 5 map]
       "Date de sortie GTA 6 : 19 novembre 2026 sur PS5 et Xbox. Prix, éditions, hubs Leonida nommés, duo Lucia et Jason, systèmes de l’Extended Look. Les rumeurs restent étiquetées.",
     bodyMarkdown: `*Grand Theft Auto VI* sort le **19 novembre 2026** sur **PlayStation 5** et **Xbox Series X|S**. Toute la phrase officielle tient là : deux consoles, un mercredi, pas de PC dans le même souffle.
 
-Si une affirmation n’est pas sur [rockstargames.com/VI](https://www.rockstargames.com/VI), un Newswire ou un dépôt Take-Two, Map-6 la labelle **non confirmée**. Éditions et prix US : [guide précommande](/fr/guides/gta-6-preorder-guide) — Standard **79,99 $**, Ultimate **99,99 $**, un palier d’extras digitaux, pas un coffret statue. Les posts « Steam day-one » restent du bruit jusqu’à un calendrier séparé.
+Si une affirmation n’est pas sur [rockstargames.com/VI](https://www.rockstargames.com/VI), un Newswire ou un dépôt Take-Two, Map-6 la labelle **non confirmée**. Éditions et prix US : [guide précommande](/fr/guides/gta-6-best-price) — Standard **79,99 $**, Ultimate **99,99 $**, un palier d’extras digitaux, pas un coffret statue. Les posts « Steam day-one » restent du bruit jusqu’à un calendrier séparé.
 ${VC("Hub Vice City sur la carte GTA 6 Map-6", "Vice City est le métro vendu — néon, eau, coutures d’autoroute — pas tout l’État de Leonida.")}
 
 ## Géographie nommée, pas un atlas fini
@@ -575,7 +575,7 @@ Pas d’annuaire de boutiques inventé, pas de flowchart de missions leak, pas d
 
 ## Prix, éditions, et ce qui reste vide
 
-Prix US Take-Two : Standard **79,99 $**, Ultimate **99,99 $**. Les prix rue FR/UK bougent ; le [guide précommande](/fr/guides/gta-6-preorder-guide) suit les fiches Amazon.fr code-in-box quand elles sont en stock. Les extras Ultimate sont véhicules, armes, tenues et contenu lié à l’histoire — pas un Leonida plus grand. Les possesseurs Standard peuvent acheter un upgrade plus tard sur les stores PlayStation ou Microsoft.
+Prix US Take-Two : Standard **79,99 $**, Ultimate **99,99 $**. Les prix rue FR/UK bougent ; le [guide précommande](/fr/guides/gta-6-best-price) suit les fiches Amazon.fr code-in-box quand elles sont en stock. Les extras Ultimate sont véhicules, armes, tenues et contenu lié à l’histoire — pas un Leonida plus grand. Les possesseurs Standard peuvent acheter un upgrade plus tard sur les stores PlayStation ou Microsoft.
 
 Reste vide exprès : date PC, cross-saves, totaux de collectibles, SKU statue Collector, et tout « 89 % Ultimate » absent d’un filing Take-Two. Si une page revendeur contredit Rockstar, Rockstar gagne. Si un TikTok contredit la page VI, la page VI gagne.
 
@@ -848,7 +848,7 @@ Les histoires portables (*Advance*, *Liberty City Stories*, *Vice City Stories*)
 
 C’est pour ça qu’une boutique de cartes peut dire honnêtement « vous pouvez encore semer le chaos à Los Santos ». C’est aussi pour ça que Map-6 garde une [carte GTA 5](/fr/map?game=gta5) à côté de Leonida. L’attente du 19 novembre 2026 n’est pas un calendrier vide s’il vous reste des collectibles Blaine County. Le crédit portefeuille Shark Cards est un chemin Amazon déclaré — pas une boutique de clés Map-6. Voir le [briefing wallets GTA Online](/fr/news/gta-online-wallet-cards-before-vi).
 
-Prêt à verrouiller un SKU console ? [Guide précommande GTA 6](/fr/guides/gta-6-preorder-guide) (fiches Standard et Ultimate, pas un faux compte à rebours).
+Prêt à verrouiller un SKU console ? [Guide précommande GTA 6](/fr/guides/gta-6-best-price) (fiches Standard et Ultimate, pas un faux compte à rebours).
 
 ## 2023–2026 — le pari Leonida
 

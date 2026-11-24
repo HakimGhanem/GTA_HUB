@@ -22,6 +22,16 @@ import { fileURLToPath } from "url";
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const input = join(root, "data/gtadb/landmarks.json");
 const output = join(root, "src/data/gtadb-locations.json");
+const changelogPath = join(root, "src/data/location-changelog.json");
+
+/** Rows of each kind quoted in a changelog entry; the counts carry the rest. */
+const CHANGELOG_SAMPLE = 12;
+
+/** Upstream spelling slips that would otherwise split a locality in two. */
+const REGION_TYPOS = {
+  "Vice CIty": "Vice City",
+  "Stafish Island": "Starfish Island",
+};
 
 if (!existsSync(input)) {
   console.log("   No landmarks.json found — skipping POI import");
@@ -100,13 +110,39 @@ function slugify(value) {
 function parseRegion(igAddress) {
   if (typeof igAddress !== "string" || !igAddress.trim()) return "Leonida";
   const parts = igAddress.split(", ");
-  return parts.length > 1 ? parts.slice(1).join(", ") : igAddress.replace(/^\?,?\s*/, "");
+  const region =
+    parts.length > 1 ? parts.slice(1).join(", ") : igAddress.replace(/^\?,?\s*/, "");
+  return region
+    .split(", ")
+    .map((part) => REGION_TYPOS[part] ?? part)
+    .join(", ");
+}
+
+/** Upstream `edited` holds unix seconds for [data, in-game photo, real-life photo]. */
+function editedDate(edited) {
+  const stamps = Array.isArray(edited) ? edited.filter((n) => typeof n === "number") : [];
+  if (stamps.length === 0) return undefined;
+  return new Date(Math.max(...stamps) * 1000).toISOString().slice(0, 10);
+}
+
+function pickPhotos(item) {
+  const edited = Array.isArray(item[8]) ? item[8] : [];
+  const photos = {};
+  if (Array.isArray(item[2]) && item[2].length) photos.ig = edited[1] ?? 0;
+  if (Array.isArray(item[5]) && item[5].length) photos.rl = edited[2] ?? 0;
+  return Object.keys(photos).length ? photos : undefined;
 }
 
 /** "Name, 123 Foo Ave, Miami, FL 33137, USA" → name + display address. */
 function parseRealWorld(rlAddress) {
-  if (typeof rlAddress !== "string" || !rlAddress.trim()) return null;
-  const address = rlAddress.replace(/,\s*USA\s*$/i, "").trim();
+  if (typeof rlAddress !== "string") return null;
+  // A lone "?" is upstream for "unknown"; a trailing one marks a guess, which
+  // the unconfirmed tag already carries.
+  const address = rlAddress
+    .replace(/(?<=.)\?$/, "")
+    .replace(/,\s*USA\s*$/i, "")
+    .trim();
+  if (!address || address === "?") return null;
   const name = address.split(",")[0].trim();
   if (!name) return null;
   return { name, address };
@@ -165,6 +201,12 @@ for (const [groupId, item] of Object.entries(raw)) {
   );
 
   const round = (n) => Math.round(n * 1000) / 1000;
+  const updatedAt = editedDate(item[8]);
+  const photos = pickPhotos(item);
+  const freshness = {
+    ...(updatedAt ? { updatedAt } : {}),
+    ...(photos ? { photos } : {}),
+  };
 
   if (!realWorld) {
     // No identified counterpart: a surveyed position, nothing more. Named so it
@@ -181,6 +223,7 @@ for (const [groupId, item] of Object.entries(raw)) {
       region,
       source: "gtadb",
       confidence: "seed",
+      ...freshness,
     });
     continue;
   }
@@ -205,6 +248,7 @@ for (const [groupId, item] of Object.entries(raw)) {
         ? { lat: rlCoordinates[0], lng: rlCoordinates[1] }
         : {}),
     },
+    ...freshness,
   });
 }
 
@@ -214,7 +258,71 @@ for (const location of locations) {
   slugs.add(location.slug);
 }
 
+/** Upstream id ("L12") — stable across renames, unlike the slug. */
+function upstreamId(slug) {
+  return /^gtadb-(l\d+)-/.exec(slug)?.[1];
+}
+
+function sample(location) {
+  return { slug: location.slug, name: location.name, region: location.region };
+}
+
+/** What a reader would notice: a new name, a moved pin, a re-identified building. */
+function materiallyChanged(before, after) {
+  return (
+    before.name !== after.name ||
+    before.region !== after.region ||
+    before.realWorld?.address !== after.realWorld?.address ||
+    before.confidence !== after.confidence ||
+    Math.hypot(before.x - after.x, before.y - after.y) > 5
+  );
+}
+
+const previous = existsSync(output) ? JSON.parse(readFileSync(output, "utf8")) : [];
+const previousById = new Map(previous.map((loc) => [upstreamId(loc.slug), loc]));
+const currentIds = new Set(locations.map((loc) => upstreamId(loc.slug)));
+const added = [];
+const updated = [];
+for (const location of locations) {
+  const before = previousById.get(upstreamId(location.slug));
+  if (!before) added.push(location);
+  else if (materiallyChanged(before, location)) updated.push(location);
+}
+const removed = previous.filter((loc) => !currentIds.has(upstreamId(loc.slug)));
+
+// Identified buildings first: a new survey point is the least interesting news.
+const byInterest = (a, b) =>
+  Number(Boolean(b.realWorld)) - Number(Boolean(a.realWorld)) ||
+  (b.updatedAt ?? "").localeCompare(a.updatedAt ?? "");
+
 writeFileSync(output, JSON.stringify(locations, null, 2) + "\n");
+
+if (added.length || updated.length || removed.length) {
+  const changelog = existsSync(changelogPath)
+    ? JSON.parse(readFileSync(changelogPath, "utf8"))
+    : { entries: [] };
+  changelog.entries.unshift({
+    date: new Date().toISOString().slice(0, 10),
+    source: "gtadb",
+    total: locations.length,
+    identified: stats.identified,
+    survey: stats.survey,
+    added: added.length,
+    updated: updated.length,
+    removed: removed.length,
+    samples: {
+      added: added.sort(byInterest).slice(0, CHANGELOG_SAMPLE).map(sample),
+      updated: updated.sort(byInterest).slice(0, CHANGELOG_SAMPLE).map(sample),
+    },
+  });
+  writeFileSync(changelogPath, JSON.stringify(changelog, null, 2) + "\n");
+  console.log(
+    `   Changelog: +${added.length} added, ${updated.length} updated, -${removed.length} removed`,
+  );
+} else {
+  console.log("   No change against the previous import — changelog untouched");
+}
+
 console.log(
   `   Imported ${locations.length} GTADB POIs → src/data/gtadb-locations.json\n` +
     `     ${stats.identified} with a real-world counterpart, ${stats.survey} unidentified survey points, ${stats.skipped} skipped`,

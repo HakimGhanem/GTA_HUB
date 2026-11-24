@@ -15,7 +15,7 @@ export async function HubConversionBanner({
   const t = await getTranslations("hubBanner");
 
   const pills = [
-    { href: "/guides/gta-6-preorder-guide", label: t("navPreorder") },
+    { href: "/guides/gta-6-best-price", label: t("navPreorder") },
     { href: "/map", label: t("navMap") },
     { href: "/news/gta-series-history-to-leonida", label: t("navHistory") },
     { href: "/news/gta-online-wallet-cards-before-vi", label: t("navOnline") },
@@ -42,7 +42,7 @@ export async function HubConversionBanner({
         </p>
         <div className="mt-5 flex flex-wrap gap-3">
           <Link
-            href="/guides/gta-6-preorder-guide"
+            href="/guides/gta-6-best-price"
             className="rounded-lg bg-accent px-5 py-2.5 text-sm font-semibold text-accent-foreground hover:opacity-90"
           >
             {t("cta")}

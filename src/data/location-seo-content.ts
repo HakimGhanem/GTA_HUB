@@ -39,7 +39,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       "Downtown high-rises and financial district towers",
       "Nightclubs, strip clubs, and nightlife venues",
       "Shops, weapon stores, and clothing retailers",
-      "Hidden packages and stunt jump locations",
+      "Stunt jumps, Cocaine Flamingos and WAiNK scan spots",
       "Mission and story trigger points",
       "Vice City International Airport",
       "Causeway bridges and waterfront piers",
@@ -63,7 +63,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       {
         question: "Can I find collectibles in Vice City on Map-6?",
         answer:
-          "Yes. Filter Map-6 by Collectibles or open Vice City POI pages for hidden packages, stunt jumps, street art, and wildlife photography candidates. Pre-launch pins reflect community research from trailers and stills, not a Rockstar checklist. Copy coordinates to share routes, then revisit filters as new official footage clarifies what is decorative versus interactive.",
+          "Yes. GTA 6 has no hidden packages, but Vice City is dense with stunts, WAiNK scan spots and Cocaine Flamingos (one published spot is in La Perle). The /collectibles checklist lists every total and what 100% needs; the map shows the buildings to plan a route around.",
       },
       {
         question: "How does Vice City connect to the rest of Leonida?",
@@ -101,7 +101,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       "Beach access points and pier structures",
       "Nightclubs and rooftop bars",
       "High-end shops and boutiques",
-      "Hidden packages along the shoreline",
+      "Collectible hunting along the shoreline",
       "Stunt jumps off pier ramps and parking garages",
       "Street art and graffiti photography spots",
       "Pedestrian promenade and sidewalk cafés",
@@ -120,7 +120,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       {
         question: "Are there collectibles on Ocean Drive?",
         answer:
-          "Collectible placements are expected along beachfronts, piers, and hotel rooftops by GTA tradition, but Rockstar has not released an official collectible map. Map-6 tracks community-mapped candidates in the Vice City beachfront zone — filter Collectibles to review packages, stunt jumps, and photo spots, then update your list as new trailer frames appear.",
+          "GTA 6 has no hidden packages. The beachfront matters for WAiNK scans (landmarks, sculptures and curiosities you scan on foot), stunts and Cocaine Flamingos. Every collectible total and what 100% needs is on /collectibles; the real-life pages show which Ocean Drive hotels the game recreated.",
       },
       {
         question: "How do I navigate to Ocean Drive on the Map-6 map?",
@@ -160,10 +160,10 @@ export const REGIONAL_LOCATION_SEO: Record<
     ],
     poiTypes: [
       "Airboat launch points and wetland channels",
-      "Wildlife photography and alligator habitats",
+      "Animals to study and alligator habitats",
       "Remote shack settlements and camp sites",
       "Off-road trails and mud track routes",
-      "Hidden packages in swamp alcoves",
+      "Collectible hunting in swamp alcoves",
       "Fishing and outdoor activity locations",
       "Lookout points over the marshland",
       "Secret areas accessible only by airboat",
@@ -182,7 +182,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       {
         question: "Is there wildlife in the Grassrivers?",
         answer:
-          "Trailers confirm alligators and swamp wildlife in this biome. A wildlife photography collectible category is widely expected from franchise tradition and outdoor trailer tone, but it is not a fully confirmed Rockstar checklist. Map-6 tracks wildlife-related community POIs so you can revisit them when official systems are documented.",
+          "Yes. Alligators and swamp wildlife live here, and PowerPyx notes that most wild animals sit in the swamps and the northern countryside. Studying any 100 of the game’s 255 animals through binoculars counts for 100% — no hunting needed. See /collectibles/wildlife.",
       },
       {
         question: "How large is the Grassrivers area on the map?",
@@ -225,7 +225,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       "Causeway bridges connecting to Vice City",
       "Beachside motels and coastal towns",
       "Marinas, docks, and yacht moorings",
-      "Hidden packages on remote islands",
+      "Collectible hunting on remote islands",
       "Stunt jumps off bridge ramps",
       "Underwater exploration points",
       "Boat spawn and watercraft locations",
@@ -260,7 +260,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       {
         question: "Will there be underwater content in the Keys?",
         answer:
-          "Trailers emphasize tropical water and coastal access, and underwater activities are a reasonable franchise expectation — but Rockstar has not confirmed a diving collectible list for the Keys. Treat wreck or treasure rumors as speculation. Map-6 may host community underwater candidates; verify them against official systems after launch.",
+          "Yes. Kenton’s treasure-diving questline sends you to seven shipwreck sets marked with purple chests, and all 33 underwater discoveries are required for 100%. See /collectibles/underwater-discoveries.",
       },
     ],
   },
@@ -288,7 +288,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       "Shipping container yards and freight docks",
       "Warehouse districts and industrial buildings",
       "Military-adjacent installations and fences",
-      "Hidden packages among dockside crates",
+      "Collectible hunting among dockside crates",
       "Highway on-ramps and smuggling routes",
       "Vehicle spawn points near port entrances",
       "Mission locations in industrial zones",
@@ -313,7 +313,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       {
         question: "What collectibles are near Port Gellhorn?",
         answer:
-          "Community mappers have tagged hidden-package candidates and landmarks across dockside and warehouse zones on Map-6. There is no official Rockstar collectible list yet. Filter Collectibles, pan to the industrial coast, and refresh as new trailer stills clarify which structures are more than set dressing.",
+          "GTA 6 has no hidden packages. Stunts and Cocaine Flamingos are the collectibles to chase here; the full 100% list with totals is on /collectibles. Filter the interactive map to see the buildings community mappers have identified in this industrial district.",
       },
       {
         question: "How is Port Gellhorn different from Vice City’s port?",
@@ -352,7 +352,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       "Private yacht docks and marina berths",
       "Security gates and island entrance checkpoints",
       "Infinity pools and rooftop terrace areas",
-      "Hidden packages along the island coastline",
+      "Collectible hunting along the island coastline",
       "Boat and watercraft access points",
       "High-society mission trigger locations",
       "Aerial stunt jump approach routes",
@@ -416,7 +416,7 @@ export const REGIONAL_LOCATION_SEO: Record<
       "River crossings and trailheads",
       "Wildlife and hunting-country vistas",
       "Remote cabins and off-grid structures",
-      "Hidden packages in elevated or riverside spots",
+      "Collectible hunting in elevated or riverside spots",
       "Off-road and dirt-path approach routes",
       "Story or stranger-mission wilderness triggers",
       "Scenic photo / social-clip vantage points",

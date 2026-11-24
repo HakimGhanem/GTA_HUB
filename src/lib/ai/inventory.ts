@@ -127,7 +127,7 @@ export function corePageEntries(locale: string): AiEntry[] {
       title: "Collectibles index",
       url: aiPageUrl(locale, "/collectibles"),
       summary:
-        "Hidden packages, stunt jumps, street art and wildlife photography — expected loops and tracking method, counts unconfirmed until launch.",
+        "Interactive GTA 6 100% checklist with every collectible total (125 Cocaine Flamingos, 480 cards, 397 stunts, 255 animals) and the in-game menu that tracks each.",
     },
     {
       title: "Guides index",

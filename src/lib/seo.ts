@@ -189,7 +189,7 @@ const KNOWS_ABOUT = [
   "GTA 6 interactive map",
   "GTA 6 collectibles",
   "GTA 6 release date",
-  "GTA 6 pre-orders and editions",
+  "GTA 6 100% checklist",
   "Video game cartography",
 ];
 
@@ -213,6 +213,17 @@ export function jsonLdOrganization() {
   };
 }
 
+export const GTA6_VIDEO_GAME = {
+  "@type": "VideoGame",
+  name: "Grand Theft Auto VI",
+  alternateName: "GTA 6",
+  datePublished: "2026-11-19",
+  gamePlatform: ["PlayStation 5", "Xbox Series X|S"],
+  genre: ["Action-adventure", "Open world"],
+  publisher: { "@type": "Organization", name: "Rockstar Games" },
+  url: "https://www.rockstargames.com/VI",
+} as const;
+
 export function jsonLdWebApplication(locale = "en") {
   return {
     "@context": "https://schema.org",
@@ -224,9 +235,11 @@ export function jsonLdWebApplication(locale = "en") {
     operatingSystem: "Web",
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
     description:
-      "Free GTA 6 map of Leonida and Vice City with POIs, collectibles, coordinates, and distance tools.",
+      "Free GTA 6 map of Leonida and Vice City with 3,400+ locations, real-world building matches, a 100% checklist, coordinates, and distance tools.",
+    about: GTA6_VIDEO_GAME,
   };
 }
+
 
 export function jsonLdFAQ(items: { question: string; answer: string }[]) {
   return {
@@ -418,6 +431,7 @@ export function jsonLdGuidePage(
       datePublished: guide.publishedAt,
       dateModified: guide.updatedAt ?? guide.publishedAt,
       image: { "@type": "ImageObject", url: image, width: 1200, height: 630 },
+      about: GTA6_VIDEO_GAME,
       ...(guide.category ? { articleSection: guide.category } : {}),
       ...(guide.readTime ? { timeRequired: `PT${guide.readTime}M` } : {}),
       ...(wordCount ? { wordCount } : {}),

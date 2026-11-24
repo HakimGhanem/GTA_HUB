@@ -1,7 +1,10 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
+import { RealWorldComparisons } from "@/components/locations/RealWorldComparisons";
 import { RealWorldMatchList } from "@/components/locations/RealWorldMatchList";
+import { LastVerified } from "@/components/seo/LastVerified";
 import { SITE } from "@/lib/constants";
+import { GTADB_SYNCED_AT } from "@/lib/location-freshness";
 import { buildMetadata } from "@/lib/seo";
 import {
   countMatchesBySubtype,
@@ -48,6 +51,8 @@ const EN = {
   remainderLead:
     "Too few matches so far to deserve a page of their own, so they are listed here in full.",
   openOnMap: "Open on the map",
+  locationsLink: "Browse in-game locations",
+  inGame: "in-game page",
   unsettled: "unsettled",
   entryCount: (n: number) => `${n} ${n === 1 ? "building" : "buildings"}`,
   creditTitle: "Credit",
@@ -55,6 +60,13 @@ const EN = {
     "The correspondence survey is the work of the GTADB mapping community, reused here under CC BY 4.0. Map-6 reformats and labels it; the identifications are theirs.",
   creditLink: "Sources and attributions",
   mapLink: "Open the interactive map",
+  updatesLink: "What changed, and when",
+  compareTitle: "Game vs reality, side by side",
+  compareLead:
+    "The community's screenshot of the in-game building next to a photo of the original. Every locality page has its own set.",
+  compareInGame: "In-game",
+  compareReal: "Real life",
+  compareCredit: "Photos: GTADB mapping community, CC BY 4.0.",
 } as const;
 
 const FR = {
@@ -88,6 +100,8 @@ const FR = {
   remainderLead:
     "Trop peu de rapprochements pour mériter leur propre page : elles sont listées ici en entier.",
   openOnMap: "Ouvrir sur la carte",
+  locationsLink: "Parcourir les lieux in-game",
+  inGame: "fiche in-game",
   unsettled: "incertain",
   entryCount: (n: number) => `${n} ${n === 1 ? "bâtiment" : "bâtiments"}`,
   creditTitle: "Crédit",
@@ -95,6 +109,13 @@ const FR = {
     "Le relevé des correspondances est l’œuvre de la communauté cartographique GTADB, réutilisé ici sous licence CC BY 4.0. Map-6 le remet en forme et l’étiquette ; les identifications sont les leurs.",
   creditLink: "Sources et attributions",
   mapLink: "Ouvrir la carte interactive",
+  updatesLink: "Ce qui a changé, et quand",
+  compareTitle: "Le jeu face au réel, côte à côte",
+  compareLead:
+    "La capture du bâtiment dans le jeu relevée par la communauté, à côté d’une photo de l’original. Chaque page de localité a sa propre sélection.",
+  compareInGame: "Dans le jeu",
+  compareReal: "En vrai",
+  compareCredit: "Photos : communauté cartographique GTADB, CC BY 4.0.",
 } as const;
 
 export async function generateMetadata({ params }: Props) {
@@ -143,6 +164,12 @@ export default async function RealLifeLocationsPage({ params }: Props) {
       </p>
       <h1 className="mb-4 text-3xl font-bold">{copy.heading}</h1>
       <p className="text-foreground/70">{copy.lead}</p>
+      <div className="flex flex-wrap items-baseline gap-x-3">
+        <LastVerified date={GTADB_SYNCED_AT} locale={locale} />
+        <Link href="/updates" className="text-xs text-accent underline">
+          {copy.updatesLink}
+        </Link>
+      </div>
 
       <section className="mt-10">
         <h2 className="mb-4 text-xl font-semibold">{copy.statsTitle}</h2>
@@ -164,6 +191,17 @@ export default async function RealLifeLocationsPage({ params }: Props) {
           ))}
         </dl>
       </section>
+
+      <RealWorldComparisons
+        matches={matches}
+        locale={locale}
+        title={copy.compareTitle}
+        lead={copy.compareLead}
+        inGameLabel={copy.compareInGame}
+        realLabel={copy.compareReal}
+        credit={copy.compareCredit}
+        limit={6}
+      />
 
       <section className="mt-12">
         <h2 className="mb-3 text-xl font-semibold">{copy.natureTitle}</h2>
@@ -237,6 +275,7 @@ export default async function RealLifeLocationsPage({ params }: Props) {
                 locale={locale}
                 subtypeLabel={(subtype) => t(subtype)}
                 unsettledLabel={copy.unsettled}
+                inGameLabel={copy.inGame}
               />
             </section>
           ))}
@@ -252,6 +291,9 @@ export default async function RealLifeLocationsPage({ params }: Props) {
           </Link>
           <Link href="/map" className="text-accent underline">
             {copy.mapLink}
+          </Link>
+          <Link href="/locations" className="text-accent underline">
+            {copy.locationsLink}
           </Link>
         </p>
       </section>

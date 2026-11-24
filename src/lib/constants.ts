@@ -3,7 +3,7 @@ export const SITE = {
   hubName: "GTA HUB",
   title: "GTA 6 Map | Map-6",
   description:
-    "Free GTA 6 map of Leonida and Vice City: 1,000+ buildings matched to their real South Florida address, confidence labels, official-only filter, coordinates, measure, and shareable deep links. No leaked development maps. Updated for 19 Nov 2026.",
+    "Free GTA 6 map of Leonida and Vice City: 1,900+ buildings matched to their real South Florida address, confidence labels, official-only filter, coordinates, measure, and shareable deep links. Interactive 100% checklist with every collectible total. No leaked development maps.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://map-6.com",
   locale: "en_US",
 } as const;

@@ -93,51 +93,53 @@ export const LAUNCH_GUIDES_FR: Record<string, LocalizedGuide> = {
     ],
   },
   "gta-6-file-size": {
-    title: "Taille de GTA 6 — combien d'espace libérer avant la sortie",
+    title: "Taille de GTA 6 — 212 Go sur PS5, et chaque patch depuis la sortie",
     description:
-      "Rockstar n'a pas publié la taille d'installation de GTA 6. Ce que ça implique, combien de place prévoir sur PS5 et Xbox Series X|S, et comment la libérer sans perdre ses sauvegardes.",
-    readTime: 9,
+      "GTA 6 demande jusqu'à 212 Go sur PS5 et environ 212 Go sur Xbox Series X|S. Chaque mise à jour depuis la sortie avec sa taille, la mise à jour système PS5 obligatoire, et la place à garder libre.",
+    readTime: 6,
     answer:
-      "Rockstar n'a pas publié la taille d'installation de GTA 6 : aucun chiffre officiel n'existe. Le préchargement ouvre le 12 novembre 2026, c'est donc la date limite pour avoir la place prête. Libérer environ 150 Go sur PlayStation 5 ou Xbox Series X|S laisse de quoi accueillir l'installation, le correctif du premier jour et les captures sans rien supprimer à minuit.",
+      "GTA 6 occupe jusqu'à 212 Go sur PlayStation 5, selon la note de stockage de Rockstar, et environ 211,9 Go sur Xbox Series X|S une fois les mises à jour de lancement installées. Trois mises à jour sont sorties (1.002.000, 1.002.001 et 1.002.002), pour environ 2,3 Go sur PS5 et 5,4 Go sur Xbox. Sur PS5, le logiciel système 26.07-14.23.00 (environ 1,27 Go) est aussi obligatoire. Gardez environ 240 Go libres pour que le prochain patch puisse s'installer.",
     comparison: {
       caption:
-        "Tailles d'installation publiées pour des jeux en monde ouvert comparables, à titre de repère uniquement. Aucune n'est une prévision pour GTA 6, dont Rockstar n'a annoncé aucun chiffre.",
-      headers: ["Jeu", "Plateforme", "Installation approximative"],
+        "Mises à jour de GTA 6 selon PlayStation Game Size, KeenGamer, Forbes, Pure Xbox et Tbreak. Rockstar n'a publié aucune note de patch. Tailles approximatives, variables selon la région.",
+      headers: ["Mise à jour", "Sortie", "PS5", "Xbox Series X|S"],
       rows: [
-        ["Red Dead Redemption 2", "PS4 / Xbox One", "~150 Go"],
-        ["Grand Theft Auto V (Expanded & Enhanced)", "PS5 / Xbox Series X|S", "~86 Go"],
-        ["Call of Duty: Modern Warfare III", "PS5 / Xbox Series X|S", "~150 Go"],
-        ["Grand Theft Auto VI", "PS5 / Xbox Series X|S", "Non annoncée"],
+        ["1.002.000", "13 nov. 2026", "~1,07 Go", "~2,18 Go"],
+        ["1.002.001", "16 nov. 2026", "~602,5 Mo", "~1,59 Go"],
+        ["1.002.002", "23 nov. 2026", "~603 Mo", "~1,6 Go"],
+        ["Installation", "19 nov. 2026", "jusqu'à 212 Go", "~211,9 Go"],
       ],
     },
     content: [
-      "La réponse honnête d'abord : Rockstar n'a pas publié la taille de Grand Theft Auto VI. Aucun billet Newswire, aucune fiche de store, aucune diapositive de Take-Two n'a donné de taille d'installation. Tous les chiffres précis qui circulent en ce moment — et il y en a plusieurs, assénés avec beaucoup d'aplomb — sont des suppositions déguisées en fuites. Map-6 ne les publie pas, et c'est pourquoi cette page vous explique comment vous organiser plutôt que de vous donner un nombre inventé.",
-      "Point au 26 octobre 2026 : toujours aucune taille officielle. Une partie des fans attend un chiffre le jeudi 29 octobre, parce que Rockstar publie une actualité GTA 6 chaque jeudi depuis août. Le studio n'a pas dit ce qu'il annoncerait ce jour-là, ni même s'il annoncerait quelque chose, et la piste de la taille relève de la spéculation. Si un chiffre officiel tombe, il s'affichera en tête de cette page avec sa source.",
-      "Ce dont vous avez besoin, ce n'est de toute façon pas la taille exacte : c'est assez de marge pour ne plus jamais y penser. L'échéance est le 12 novembre 2026, date d'ouverture du préchargement, et non le 19 novembre. Une console qui tombe à court d'espace au milieu d'un préchargement transforme une fenêtre confortable de sept jours en course contre la montre le soir du lancement.",
-      "Le tableau ci-dessus est un repère, pas une prédiction. Red Dead Redemption 2 pesait environ 150 Go, l'édition enrichie de GTA V tourne autour de 86 Go sur les consoles actuelles, et les gros jeux de tir dépassent régulièrement les 150 Go. GTA 6 est un jeu plus vaste et bien plus récent que tous ceux-là, ce qui donne la direction mais pas le chiffre. Viser 150 Go libres est raisonnable : assez généreux pour absorber une installation plus lourde que prévu, assez modeste pour ne pas vider votre bibliothèque.",
-      "Ne calculez pas au gigaoctet près. L'installation n'est que la première ponction sur votre disque. Le correctif du premier jour doit se décompresser quelque part, et les mises à jour console réclament souvent de l'espace temporaire en plus de la taille finale. Les captures vidéo et les captures d'écran mangent le reste, et GTA est typiquement le jeu que les gens enregistrent. Un disque rempli à 99 % est un disque qui fait échouer une mise à jour au pire moment.",
-      "Sur PlayStation 5, commencez par Paramètres, puis Stockage. La console affiche ce qui est installé et ce que chaque jeu vous coûte, et permet de supprimer des jeux sans toucher aux sauvegardes, qui vivent à part et se synchronisent dans le cloud avec un abonnement PlayStation Plus. Les jeux terminés peuvent aussi être déplacés sur un disque USB de stockage étendu plutôt que supprimés : un jeu PS5 rangé là doit être ramené sur le SSD pour se lancer, mais c'est plus rapide que de retélécharger cent gigaoctets.",
-      "Sur Xbox Series X|S, l'équivalent se trouve dans Paramètres, puis Système, puis Périphériques de stockage. Le même découpage s'applique : les sauvegardes sont liées à votre compte et au cloud, pas à la console. Xbox est plus souple sur les disques externes, un disque USB pouvant conserver indéfiniment des jeux Series X|S même s'ils doivent être recopiés sur le SSD interne pour tourner. Dans les deux cas, faites ces déplacements maintenant et non pendant le préchargement.",
-      "Si vous envisagez une extension plutôt qu'un grand ménage, les deux consoles le permettent. La PlayStation 5 accepte un SSD NVMe interne répondant aux exigences de débit de Sony, et la Xbox Series X|S utilise une carte d'extension officielle qui se comporte exactement comme le stockage interne. Rien de tout cela n'est indispensable pour un seul jeu, mais si votre disque est saturé depuis un an, c'est le moment évident. Notre guide de configuration détaille les options qui valent leur prix.",
-      "Les acheteurs en boîte n'échappent à rien de tout ça. L'édition Standard physique de GTA 6 est un code de téléchargement et non un disque : l'installation complète atterrit sur votre disque exactement comme pour une copie numérique. Dans cette sortie, aucune version ne vous économise de la place.",
-      "Un mot sur les chiffres que vous allez voir passer ce mois-ci. Les tailles d'installation apparaissent bien sur les fiches de store peu avant la sortie, souvent quelques jours à l'avance, et elles changent parfois entre le préchargement et le lancement. Quand une taille s'affichera sur le PlayStation Store ou le Microsoft Store, ce sera un vrai chiffre et cette page le reprendra en citant sa source. D'ici là, tout ce qui est précis relève de la spéculation, y compris les nombres repris par des sites qui devraient le savoir.",
-      "Pendant que le disque se vide, la carte, elle, ne prend aucune place. Map-6 tourne dans un navigateur : la visionneuse plein écran couvre Leonida de bout en bout, avec plus d'un millier de bâtiments rapprochés des adresses réelles de Floride du Sud dont ils s'inspirent, et le guide du préchargement détaille les étapes du 12 novembre.",
+      "GTA 6 est sorti : cette page n'a plus besoin de deviner. La note de stockage de Rockstar, citée par VICE le soir du lancement, indique que la version PlayStation 5 peut demander jusqu'à 212 Go selon la console. Sur Xbox Series X|S, l'installation pèse environ 211,9 Go après la deuxième mise à jour de lancement. Chaque chiffre de cette page cite sa source ; Map-6 n'a pas mesuré d'installation lui-même.",
+      "Le jeu est sorti en version 1.002.001. Deux mises à jour obligatoires sont arrivées avant le lancement : 1.002.000 le 13 novembre (environ 1,07 Go sur PS5, 2,18 Go sur Xbox) et 1.002.001 le 16 novembre (environ 602,5 Mo sur PS5, 1,59 Go sur Xbox, où elle s'affiche 1.0.2.1). Si vous avez préchargé avec les mises à jour automatiques, vous avez déjà les deux. VICE parle de « patch day one » ; Rockstar n'a jamais employé ce terme.",
+      "La première mise à jour après la sortie, 1.002.002, est déployée depuis le 23 novembre : environ 603 Mo sur PS5 et 1,6 Go sur Xbox, selon PlayStation Game Size relayé par Tbreak. Sur PS5, elle arrive par vagues sur plusieurs heures : ne pas la voir tout de suite est normal. Rockstar n'a publié aucune note de patch, ni pour celle-ci ni pour les deux précédentes ; toute liste de correctifs lue ailleurs est rapportée, pas officielle.",
+      "Sur PS5, un téléchargement de plus est nécessaire avant de lancer le jeu : le logiciel système 26.07-14.23.00, environ 1,27 Go, sorti le 17 novembre. PlayStation Support a indiqué que GTA 6 l'exige, et Rockstar a relayé l'avertissement. Si le jeu refuse de démarrer sur PS5, mettez d'abord la console à jour.",
+      "Combien garder de libre : installation et mises à jour font environ 214 Go sur PS5 et 217 Go sur Xbox. Une console applique un patch en écrivant les nouveaux fichiers à côté des anciens ; il lui faut donc une marge au-delà de la taille du patch. Garder environ 240 Go libres couvre la prochaine mise à jour sans erreur de stockage en plein téléchargement.",
+      "Libérer de la place sans perdre ses sauvegardes. Sur PlayStation 5, allez dans Paramètres, puis Stockage : supprimer un jeu ne supprime jamais sa sauvegarde, et PlayStation Plus la synchronise dans le cloud. Les jeux PS5 terminés peuvent aller sur un disque USB de stockage étendu au lieu d'être supprimés. Sur Xbox Series X|S, allez dans Paramètres, Système, Périphériques de stockage ; les sauvegardes suivent votre compte. Un disque USB peut stocker des jeux Series X|S, mais il faut les recopier sur le SSD interne ou une carte d'extension pour y jouer.",
+      "L'édition physique contient un code de téléchargement, pas un disque : elle demande exactement la même place que la version numérique. Si votre disque est toujours plein, un SSD NVMe pour PS5 ou une carte d'extension officielle pour Xbox Series X|S est la solution durable ; notre guide de configuration détaille les modèles qui valent leur prix.",
+      "Le temps de téléchargement dépend de votre connexion, pas de la console. À 100 Mb/s, 212 Go prennent environ quatre heures et demie ; les mises à jour ajoutent quelques minutes. Pendant l'installation, la carte ne prend aucune place : Map-6 tourne dans un navigateur, sur téléphone ou second écran, avec plus de 1 900 bâtiments de Leonida rapprochés des adresses réelles de Floride du Sud dont ils s'inspirent.",
     ],
     faq: [
       {
         question: "Combien de Go fait GTA 6 ?",
         answer:
-          "Rockstar n'a annoncé aucune taille d'installation et aucun chiffre officiel n'existe. Les fiches de store publient normalement une taille peu avant la sortie. En attendant, libérer environ 150 Go sur PlayStation 5 ou Xbox Series X|S est une marge raisonnable qui couvre l'installation, le correctif du premier jour et les captures.",
+          "Jusqu'à 212 Go sur PlayStation 5, selon la note de stockage de Rockstar, et environ 211,9 Go sur Xbox Series X|S après les mises à jour de lancement. Les trois mises à jour sorties ajoutent environ 2,3 Go sur PS5 et 5,4 Go sur Xbox.",
       },
       {
-        question: "Pour quand faut-il avoir libéré la place ?",
+        question: "Quelle est la dernière mise à jour de GTA 6 ?",
         answer:
-          "Pour le 12 novembre 2026, date d'ouverture du préchargement, et non pour le 19 novembre. Manquer d'espace en plein préchargement gâche les sept jours de marge que Rockstar a laissés entre les deux dates.",
+          "La version 1.002.002, déployée depuis le 23 novembre 2026 : environ 603 Mo sur PS5 et 1,6 Go sur Xbox Series X|S. Rockstar n'a pas publié de note de patch.",
       },
       {
-        question: "La version physique prend-elle moins de place ?",
+        question: "Pourquoi GTA 6 ne se lance pas sur ma PS5 ?",
         answer:
-          "Non. L'édition Standard en boîte de GTA 6 contient un code de téléchargement et non un disque : le jeu s'installe intégralement sur votre disque, exactement comme pour un achat numérique.",
+          "Vérifiez d'abord le logiciel système. PlayStation Support indique que GTA 6 exige la version 26.07-14.23.00 (environ 1,27 Go, sortie le 17 novembre 2026). Cherchez ensuite une mise à jour du jeu via le bouton Options sur la tuile GTA 6.",
+      },
+      {
+        question: "L'édition physique prend-elle moins de place ?",
+        answer:
+          "Non. La boîte contient un code de téléchargement, pas un disque : les 212 Go s'installent sur votre console exactement comme pour une copie numérique.",
       },
     ],
   },

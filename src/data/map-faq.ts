@@ -1,5 +1,5 @@
 /** Bump when map FAQ, nav, or pin copy changes — drives sitemap lastmod. */
-export const MAP_CONTENT_UPDATED_AT = "2026-10-26T14:00:00.000Z";
+export const MAP_CONTENT_UPDATED_AT = "2026-11-16T10:00:00.000Z";
 
 type MapFaqCopy = {
   summary: string;
@@ -25,7 +25,7 @@ const EN: MapFaqCopy = {
     {
       question: "What does the Map-6 GTA 6 map show?",
       answer:
-        "Over 1,000 real-world matches between trailer shots and Florida locations, each with a confidence label, plus coordinates, a distance tool and shareable links to the exact view.",
+        "Over 1,900 real-world matches between trailer shots and Florida locations, each with a confidence label, plus coordinates, a distance tool and shareable links to the exact view.",
     },
     {
       question: "Will the map be updated when GTA 6 releases?",
@@ -68,7 +68,7 @@ const FR: MapFaqCopy = {
     {
       question: "Que montre la carte GTA 6 de Map-6 ?",
       answer:
-        "Plus de 1 000 correspondances entre les plans des trailers et des lieux réels de Floride, chacune avec un niveau de confiance, ainsi que les coordonnées, un outil de mesure de distance et des liens partageables vers la vue exacte.",
+        "Plus de 1 900 correspondances entre les plans des trailers et des lieux réels de Floride, chacune avec un niveau de confiance, ainsi que les coordonnées, un outil de mesure de distance et des liens partageables vers la vue exacte.",
     },
     {
       question: "La carte sera-t-elle mise à jour à la sortie de GTA 6 ?",

@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { NavLink } from "./NavLink";
-import { CountdownTimer } from "@/components/map/CountdownTimer";
+import { ReleaseBadge } from "@/components/layout/ReleaseBadge";
 
 export function MobileNav() {
   const t = useTranslations("header");
@@ -12,6 +12,7 @@ export function MobileNav() {
 
   const links = [
     { href: "/map", label: nav("map") },
+    { href: "/gta-6-real-life-locations", label: nav("realLifeMatches") },
     { href: "/locations", label: nav("locations") },
     { href: "/collectibles", label: nav("collectibles") },
     { href: "/database", label: nav("database") },
@@ -91,7 +92,7 @@ export function MobileNav() {
               <p className="mb-2 text-xs uppercase tracking-wider text-foreground/40">
                 {t("launchLabel")}
               </p>
-              <CountdownTimer />
+              <ReleaseBadge />
             </div>
           </nav>
         </div>

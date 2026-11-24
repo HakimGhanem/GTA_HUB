@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
+import {
+  RETIRED_COLLECTIBLE_TYPES,
+  RETIRED_GUIDES,
+  RETIRED_SAMPLE_PIN_PREFIXES,
+} from "./src/data/retired-guides";
 
 const withNextIntl = createNextIntlPlugin("./src/i18n/request.ts");
 
@@ -19,17 +24,23 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["firebase-admin"],
   poweredByHeader: false,
   async redirects() {
-    // Two PC guides said the same thing as gta-6-pc-requirements, which also
-    // covers the release date. Merged there; keep the old URLs reachable.
-    const retiredGuides: Record<string, string> = {
-      "gta-6-pc-release-date": "gta-6-pc-requirements",
-      "gta-6-pc-recommended-specs": "gta-6-pc-requirements",
-    };
-    return Object.entries(retiredGuides).map(([from, to]) => ({
-      source: `/:locale/guides/${from}`,
-      destination: `/:locale/guides/${to}`,
-      permanent: true,
-    }));
+    return [
+      ...Object.entries(RETIRED_GUIDES).map(([from, to]) => ({
+        source: `/:locale/guides/${from}`,
+        destination: `/:locale${to}`,
+        permanent: true,
+      })),
+      ...Object.entries(RETIRED_COLLECTIBLE_TYPES).map(([from, to]) => ({
+        source: `/:locale/collectibles/${from}`,
+        destination: `/:locale/collectibles/${to}`,
+        permanent: true,
+      })),
+      ...Object.entries(RETIRED_SAMPLE_PIN_PREFIXES).map(([prefix, to]) => ({
+        source: `/:locale/locations/${prefix}-:n(\\d+)`,
+        destination: `/:locale/collectibles/${to}`,
+        permanent: true,
+      })),
+    ];
   },
   async headers() {
     return [

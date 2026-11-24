@@ -28,7 +28,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       "Gratte-ciel du centre-ville et tours du quartier financier",
       "Boîtes de nuit, clubs et lieux de vie nocturne",
       "Boutiques, armureries et magasins de vêtements",
-      "Paquets cachés et emplacements de stunt jumps",
+      "Cascades, flamants roses à cocaïne et lieux WAiNK",
       "Points de déclenchement de missions et d’histoire",
       "Vice City International Airport",
       "Ponts-chaussées et jetées en front de mer",
@@ -52,7 +52,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       {
         question: "Puis-je trouver des collectibles à Vice City sur Map-6 ?",
         answer:
-          "Oui. Filtrez la carte interactive Map-6 par la catégorie Collectibles ou parcourez les pages POI de Vice City pour localiser paquets cachés, stunt jumps, street art et spots de photo animalière. Les coordonnées se copient directement pour les partager ou les croiser avec des guides communautaires.",
+          "Oui. GTA 6 n’a pas de paquets cachés, mais Vice City regorge de cascades, de lieux WAiNK et de flamants roses à cocaïne (un emplacement publié se trouve à La Perle). La checklist /collectibles donne chaque total et ce que demande le 100 % ; la carte montre les bâtiments pour préparer un itinéraire.",
       },
       {
         question: "Comment Vice City se relie-t-elle au reste de Leonida ?",
@@ -88,7 +88,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       "Accès plage et structures de jetée",
       "Boîtes de nuit et bars sur le toit",
       "Boutiques et magasins haut de gamme",
-      "Paquets cachés le long du rivage",
+      "Chasse aux collectibles le long du rivage",
       "Stunt jumps depuis jetées et parkings",
       "Street art et spots de photo graffiti",
       "Promenade piétonne et cafés de trottoir",
@@ -107,7 +107,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       {
         question: "Y a-t-il des collectibles sur Ocean Drive ?",
         answer:
-          "Des emplacements de collectibles sont attendus le long du front de mer et sur les toits d’hôtels d’Ocean Drive, dans la tradition GTA. Map-6 suit les POI collectibles cartographiés par la communauté dans la zone plage de Vice City — filtrez par Collectibles sur la carte interactive pour voir paquets cachés, stunt jumps et spots photo.",
+          "GTA 6 n’a pas de paquets cachés. Le front de mer compte pour les scans WAiNK (monuments, sculptures et curiosités à scanner à pied), les cascades et les flamants roses à cocaïne. Chaque total et ce que demande le 100 % sont sur /collectibles ; les pages lieux réels montrent quels hôtels d’Ocean Drive le jeu a recréés.",
       },
       {
         question: "Comment rejoindre Ocean Drive sur la carte Map-6 ?",
@@ -139,7 +139,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       "Photo animalière et habitats d’alligators",
       "Cabanes isolées et camps éloignés",
       "Pistes hors route et parcours boueux",
-      "Paquets cachés dans les alcôves de marais",
+      "Chasse aux collectibles dans les alcôves de marais",
       "Lieux de pêche et d’activités outdoor",
       "Points de vue sur les marécages",
       "Zones secrètes accessibles uniquement en hydroglisseur",
@@ -158,7 +158,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       {
         question: "Y a-t-il de la faune dans les Grassrivers ?",
         answer:
-          "Les trailers confirment alligators et une faune diversifiée de marais dans la région Grassrivers. Une catégorie de collectibles photo animalière est attendue, d’après la tradition GTA et les images d’activités outdoor. Map-6 suit les POI liés à la faune cartographiés par la communauté GTADB.",
+          "Oui. Alligators et faune des marais vivent ici, et selon PowerPyx la plupart des animaux sauvages se trouvent dans les marais et la campagne du nord. Étudier 100 des 255 animaux du jeu aux jumelles compte pour le 100 % — sans chasser. Voir /collectibles/wildlife.",
       },
       {
         question: "Quelle est la taille de la zone Grassrivers sur la carte ?",
@@ -188,7 +188,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       "Ponts-chaussées reliant Vice City",
       "Motels en bord de plage et villes côtières",
       "Marinas, docks et amarres de yachts",
-      "Paquets cachés sur des îles isolées",
+      "Chasse aux collectibles sur des îles isolées",
       "Stunt jumps depuis les rampes de ponts",
       "Points d’exploration sous-marine",
       "Spawns de bateaux et d’embarcations",
@@ -238,7 +238,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       "Parcs à conteneurs et docks de fret",
       "Quartiers d’entrepôts et bâtiments industriels",
       "Installations à proximité militaire et clôtures",
-      "Paquets cachés parmi les caisses quai",
+      "Chasse aux collectibles parmi les caisses quai",
       "Bretelles d’autoroute et routes de contrebande",
       "Points de spawn de véhicules près des entrées du port",
       "Lieux de mission dans les zones industrielles",
@@ -263,7 +263,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       {
         question: "Quels collectibles se trouvent près de Port Gellhorn ?",
         answer:
-          "Les cartographes communautaires ont tagué paquets cachés et landmarks dans les zones quai et entrepôts de Port Gellhorn sur Map-6. Filtrez la carte interactive par Collectibles et pannez vers la côte nord pour voir tous les lieux actuellement cartographiés dans cette région industrielle.",
+          "GTA 6 n’a pas de paquets cachés. Cascades et flamants roses à cocaïne sont les collectibles à chercher ; la liste 100 % complète avec les totaux est sur /collectibles. Filtrez la carte interactive pour voir les bâtiments identifiés par la communauté dans ce quartier industriel.",
       },
     ],
   },
@@ -289,7 +289,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       "Docks privés de yachts et postes de marina",
       "Portails de sécurité et checkpoints d’entrée de l’île",
       "Piscines à débordement et terrasses sur le toit",
-      "Paquets cachés le long du littoral de l’île",
+      "Chasse aux collectibles le long du littoral de l’île",
       "Points d’accès bateaux et embarcations",
       "Points de déclenchement de missions high-society",
       "Approches de stunt jumps aériens",
@@ -340,7 +340,7 @@ export const REGIONAL_LOCATION_SEO_FR: Record<
       "Traversées de rivière et départs de sentiers",
       "Vues wildlife / paysages de chasse",
       "Cabanes isolées et structures hors réseau",
-      "Paquets cachés en hauteur ou en berge",
+      "Chasse aux collectibles en hauteur ou en berge",
       "Approches hors-route et chemins de terre",
       "Déclencheurs de missions wilderness",
       "Points de vue pour photos / clips sociaux",

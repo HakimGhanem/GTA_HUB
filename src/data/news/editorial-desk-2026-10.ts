@@ -73,7 +73,7 @@ The physical SKU is a download code in a box. Rockstar said so in that same rele
 
 This is not a content drought. It is a decision window.
 
-1. **Lock a platform.** Cross-saves are not announced. A PS5 cart does not become an Xbox install. The [pre-order guide](/en/guides/gta-6-preorder-guide) is the checkout list; this page is the clock.
+1. **Lock a platform.** Cross-saves are not announced. A PS5 cart does not become an Xbox install. The [pre-order guide](/en/guides/gta-6-best-price) is the checkout list; this page is the clock.
 2. **Decide Standard vs Ultimate now, not in the queue.** The $20 gap is extras, not a bigger state. Geography on the [interactive map](/en/map) does not change with the SKU.
 3. **Plan storage and a display** if your current box is tight. The [setup guide](/en/guides/best-setup-gta-6-ps5-xbox) is the hardware page; do not wait for a fake “120 Hz confirmed” leak.
 4. **Ignore a third trailer date** until Newswire posts one. Extended Look already ran on 27 August. A community calendar is not a Rockstar calendar.
@@ -165,7 +165,7 @@ Take-Two’s own pricing defence on the call was value language: $80 as a “phe
 
 ## Why Map-6 will not recycle the 89% headline
 
-We already published a September desk piece when the “89%” figure started circulating through RockstarINTEL-style aggregators. It remains **reported, not filed**. Repeating it as if Zelnick said it on CNBC is how a map site becomes another Google News clone. The [pre-order guide](/en/guides/gta-6-preorder-guide) will change when store pages change. This article changes when Take-Two prints a number. Until then the earnings story is: guidance held, pre-orders are loud, Ultimate is popular **among the people already in the cart**, and November will look different because casual money has not arrived yet.
+We already published a September desk piece when the “89%” figure started circulating through RockstarINTEL-style aggregators. It remains **reported, not filed**. Repeating it as if Zelnick said it on CNBC is how a map site becomes another Google News clone. The [pre-order guide](/en/guides/gta-6-best-price) will change when store pages change. This article changes when Take-Two prints a number. Until then the earnings story is: guidance held, pre-orders are loud, Ultimate is popular **among the people already in the cart**, and November will look different because casual money has not arrived yet.
 ${OD("Ocean Drive on the Map-6 GTA 6 map", "Trailer geography is free. The Ultimate extras are not a bigger atlas.")}
 
 Read the PDF yourself. It is shorter than the recaps.
@@ -249,7 +249,7 @@ The Newswire headline was the supply scare: **while supplies last**. The store F
 
 If you already have a platform locked and you want physical junk from Leonida, this is the official crate. Shipping is extra; several write-ups noted it is not eligible for free shipping. Asia, Latin America, and Australia were “stay tuned” on early listings — confirm the country list on the store before you build a story around a grey-import.
 
-If you do **not** own the game, **$400 does not get you into Vice City**. Buy the [Standard or Ultimate SKU](/en/guides/gta-6-preorder-guide) first. The collection does not include a download code. It does not include Ultimate extras. It does not move a pin.
+If you do **not** own the game, **$400 does not get you into Vice City**. Buy the [Standard or Ultimate SKU](/en/guides/gta-6-best-price) first. The collection does not include a download code. It does not include Ultimate extras. It does not move a pin.
 
 Rockstar has done expensive boxes before (GTA V, Red Dead 2). Those usually argued they were editions **of the game**. This one argues it is a TV-show gift shop. That is a taste question, not a map question. The razor-blade keychain will get screenshots. The playable state will not care.
 ${KEYS("Leonida Keys on the Map-6 GTA 6 map", "The crossbody bag is branded Keys. The causeways are still a trailer read.")}
@@ -399,7 +399,7 @@ ${VC("Vice City on the Map-6 GTA 6 map", "Preload fills a drive. It does not unl
 
 Storage is the boring risk. Rockstar has not posted a final install size in the materials we trust. Leave a **large** chunk of free space on the console you will actually play on — not the old box in a cupboard. If you are still on a 550 GB drive with two other day-one games, read the [setup guide](/en/guides/best-setup-gta-6-ps5-xbox) before 12 November, not on it.
 
-Retail midnight is local. A code bought in Paris does not follow New York. The [pre-order guide](/en/guides/gta-6-preorder-guide) is the store-by-store page; this article is the week-of sequence.
+Retail midnight is local. A code bought in Paris does not follow New York. The [pre-order guide](/en/guides/gta-6-best-price) is the store-by-store page; this article is the week-of sequence.
 
 ## What preload is not
 
@@ -472,7 +472,7 @@ PlayStation Direct offered **free launch-day delivery** on eligible pre-orders. 
 | Price | $84.99 / €84.99 / £74.99 | Same |
 | Game included | No | No |
 
-Scalper listings the same afternoon were the predictable tax. A pad that does not include the [pre-order](/en/guides/gta-6-preorder-guide) is a bad panic buy at twice MSRP.
+Scalper listings the same afternoon were the predictable tax. A pad that does not include the [pre-order](/en/guides/gta-6-best-price) is a bad panic buy at twice MSRP.
 
 ## Xbox players
 

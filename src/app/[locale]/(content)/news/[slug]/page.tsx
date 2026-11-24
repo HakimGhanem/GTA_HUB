@@ -196,7 +196,7 @@ export default async function NewsArticlePage({ params }: Props) {
             <p className="mt-3 text-xs text-foreground/40">
               Game edition cards appear when official Amazon ASINs go live.{" "}
               <Link
-                href="/guides/gta-6-preorder-guide"
+                href="/guides/gta-6-best-price"
                 className="text-accent/80 underline hover:text-accent/80"
               >
                 Pre-order guide

@@ -63,8 +63,17 @@ function HomeMapInner({ locale, brand, ctaFullscreen, ctaGuides }: HomeMapHeroPr
           <h1 className="max-w-xl text-3xl font-bold tracking-tight text-foreground drop-shadow sm:text-4xl">
             {brand}
           </h1>
-          <p className="max-w-lg text-sm leading-relaxed text-foreground/80 sm:text-base">
-            {t("heroLine")}
+          <p className="pointer-events-auto max-w-lg text-sm leading-relaxed text-foreground/80 sm:text-base">
+            {t.rich("heroLine", {
+              realLife: (chunks) => (
+                <Link
+                  href="/gta-6-real-life-locations"
+                  className="font-semibold text-accent underline decoration-accent/50 underline-offset-2 hover:decoration-accent"
+                >
+                  {chunks}
+                </Link>
+              ),
+            })}
           </p>
           <ul className="flex flex-wrap gap-1.5 text-[11px] font-medium text-foreground/70">
             <li className="rounded-full border border-foreground/20 bg-black/40 px-2.5 py-0.5">

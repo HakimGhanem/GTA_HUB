@@ -122,7 +122,7 @@ export const INTENT_META: Record<AffiliateIntent, IntentMeta> = {
     label: "Store & Shark cards",
     jobToBeDone: "Top up PSN / Xbox / Steam, then buy official GTA Online cash",
     payoutTier: "medium",
-    clipAngle: "PS / Steam / Xbox cards for Shark Cards while you wait",
+    clipAngle: "PS / Steam / Xbox cards for GTA Online Shark Cards",
     signals: [
       "shark card",
       "shark cards",

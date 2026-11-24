@@ -32,7 +32,7 @@ export const KEYWORDS: KeywordRecord[] = [
     relatedInternalPaths: [
       "/guides/gta-6-trailer-3-what-we-know",
       "/map",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
     ],
     status: "published",
     monetization: "adsense",
@@ -166,7 +166,7 @@ export const KEYWORDS: KeywordRecord[] = [
     priority: "P0",
     locale: "en",
     targetSlugHint: "gta-6-preorder-ps5-guide",
-    relatedInternalPaths: ["/guides/gta-6-preorder-guide"],
+    relatedInternalPaths: ["/guides/gta-6-best-price"],
     status: "published",
     monetization: "affiliate",
   },
@@ -179,7 +179,7 @@ export const KEYWORDS: KeywordRecord[] = [
     targetSlugHint: "gta-6-collectors-edition",
     relatedInternalPaths: [
       "/guides/gta-6-collectors-edition",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
     ],
     status: "published",
     monetization: "affiliate",
@@ -192,7 +192,7 @@ export const KEYWORDS: KeywordRecord[] = [
     locale: "en",
     targetSlugHint: "gta-6-ultimate-edition-vs-standard",
     relatedInternalPaths: [
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
       "/guides/gta-6-collectors-edition",
     ],
     competitorNotes: "Compare Ultimate vs Standard/Collector once Rockstar lists editions — no fake ASINs",
@@ -207,7 +207,7 @@ export const KEYWORDS: KeywordRecord[] = [
     locale: "en",
     targetSlugHint: "gta-6-preorder-price-editions",
     relatedInternalPaths: [
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
       "/guides/gta-6-collectors-edition",
     ],
     competitorNotes: "Price ranges only from official/store listings — never invent MSRP",
@@ -223,7 +223,7 @@ export const KEYWORDS: KeywordRecord[] = [
     targetSlugHint: "gta-6-best-price",
     relatedInternalPaths: [
       "/guides/gta-6-best-price",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
       "/guides/gta-6-ultimate-edition-vs-standard",
     ],
     competitorNotes:
@@ -240,7 +240,7 @@ export const KEYWORDS: KeywordRecord[] = [
     targetSlugHint: "gta-6-best-price",
     relatedInternalPaths: [
       "/guides/gta-6-best-price",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
     ],
     competitorNotes: "Same comparator page — EN fallback copy, FR-market prices",
     status: "published",
@@ -308,7 +308,7 @@ export const KEYWORDS: KeywordRecord[] = [
     priority: "P0",
     locale: "en",
     targetSlugHint: "gta-6-release-date",
-    relatedInternalPaths: ["/guides/gta-6-preorder-guide", "/map"],
+    relatedInternalPaths: ["/guides/gta-6-best-price", "/map"],
     status: "published",
     monetization: "mixed",
   },
@@ -322,7 +322,7 @@ export const KEYWORDS: KeywordRecord[] = [
     relatedInternalPaths: [
       "/guides/gta-6-platforms-ps5-xbox",
       "/guides/gta-6-ps5-vs-xbox",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
     ],
     status: "published",
     monetization: "affiliate",
@@ -437,7 +437,7 @@ export const KEYWORDS: KeywordRecord[] = [
     targetSlugHint: "gta-6-vehicles",
     relatedInternalPaths: [
       "/guides/gta-6-vehicles",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
       "/guides/gta-6-ultimate-edition-vs-standard",
     ],
     status: "published",
@@ -500,7 +500,7 @@ export const KEYWORDS: KeywordRecord[] = [
     targetSlugHint: "gta-6-release-date",
     relatedInternalPaths: [
       "/guides/gta-6-release-date",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
     ],
     status: "published",
     monetization: "mixed",
@@ -514,7 +514,7 @@ export const KEYWORDS: KeywordRecord[] = [
     targetSlugHint: "gta-6-scam-watch",
     relatedInternalPaths: [
       "/guides/gta-6-scam-watch",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
       "/guides/gta-6-pc-requirements",
     ],
     competitorNotes: "Trust page — APK/beta/key scams around live preorders",
@@ -531,7 +531,7 @@ export const KEYWORDS: KeywordRecord[] = [
     targetSlugHint: "best-setup-gta-6-ps5-xbox",
     relatedInternalPaths: [
       "/guides/best-setup-gta-6-ps5-xbox",
-      "/guides/gta-6-preorder-guide",
+      "/guides/gta-6-best-price",
       "/map",
     ],
     competitorNotes: "High EPC: console + headset + SSD bundle intent",
